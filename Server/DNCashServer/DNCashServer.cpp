@@ -168,7 +168,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 
 		g_Log.Log(LogType::_FILELOG, L"LogInfo (Ip:%S, Port:%d) Success\r\n", g_Config.LogInfo.szIP, g_Config.LogInfo.nPort);
 
-		// ResourcePath 殿废秦霖促.
+		// ResourcePath 등록해준다.
 		WCHAR wszPath[_MAX_PATH] = { 0, };
 		char szPath[_MAX_PATH] = { 0, };
 		g_IniFile.GetValue( L"Resource", L"Path", wszPath );
@@ -219,7 +219,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 	g_Log.Log(LogType::_FILELOG, L"CashInfo (Ip:%S, Port:%d, SN:%d)\r\n", g_Config.CashInfo.szIP, g_Config.CashInfo.nPort, g_Config.nServerNo);
 	
 #elif defined(_KRAZ)
-	// 胶抛捞隆锭巩俊 test牢瘤父 眉农窍妨绊 ini 佬澜. 促弗扒 鞘夸绝澜
+	// 스테이징때문에 test인지만 체크하려고 ini 읽음. 다른건 필요없음
 	if (g_IniFile.Open(L"./Config/ActozCommonDB.ini")){
 		memset(&wszBuf, 0, sizeof(wszBuf));
 
@@ -427,12 +427,16 @@ bool InitApp(int argc, TCHAR * argv[])
 	}
 	g_Log.SetServerID(g_Config.nManagedID);
 
-	// ResourceMng 积己
+	// ResourceMng 생성
 	CEtResourceMng::CreateInstance();
 
-	// Path 汲沥
+    // TODO(Cussrro): 固定资源路径
+    std::string path = ".\\GameRes";
+    g_Config.szResourcePath = path;
+
+	// Path 설정
 	std::string szResource = g_Config.szResourcePath + "\\Resource";
-	// 惫啊喊 悸泼
+	// 국가별 셋팅
 	std::string szNationStr;
 	if( szNationStr.empty() && !g_Config.szResourceNation.empty() ) szNationStr = g_Config.szResourceNation;
 	if( !szNationStr.empty() ) 
@@ -461,7 +465,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		strNationFileName.clear();
 
 		strNationFileName = "uistring";
-		if (i != 0)		//0锅篮 叼弃飘
+		if (i != 0)		//0번은 디폴트
 			strNationFileName.append(MultiLanguage::NationString[i]);
 		strNationFileName.append(".xml");	
 
@@ -482,7 +486,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		strNationItemFileName.clear();
 
 		strNationItemFileName = "uistring_item";
-		if (i != 0)		//0锅篮 叼弃飘
+		if (i != 0)		//0번은 디폴트
 			strNationItemFileName.append(MultiLanguage::NationString[i]);
 		strNationItemFileName.append(".xml");	
 
@@ -770,8 +774,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	setlocale(LC_ALL, "Korean");
 #endif
 
-	// 抗寇 贸府磊 霖厚
-	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release 葛靛 哪颇老 矫 C4744 版绊啊 惯积窍咯 Singleton 备泅 函版, CExceptionReport::GetInstancePtr() 阑 inline 拳 窍瘤 臼澜 (曼绊 : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
+	// 예외 처리자 준비
+	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release 모드 컴파일 시 C4744 경고가 발생하여 Singleton 구현 변경, CExceptionReport::GetInstancePtr() 을 inline 화 하지 않음 (참고 : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
 	if (NOERROR != dwRetVal) {
 		DWORD dwErrNo = ::GetLastError();
 		DN_RETURN(dwErrNo);
@@ -783,7 +787,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 0;
 	}
 
-	wprintf(L"exit 疙飞阑 摹搁 辆丰\r\n");
+	wprintf(L"exit 명령을 치면 종료\r\n");
 
 	char szCmd[256] = {0};	
 	while (1)

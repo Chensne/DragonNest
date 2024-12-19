@@ -21,7 +21,7 @@ struct TWorldInfo
 {
 	int nWorldSetID;
 	WCHAR wszWorldName[WORLDNAMELENMAX];
-	TConnectionInfo VillageInfos[VILLAGECOUNTMAX];	// ºô¸®Áö ´ë¼ö
+	TConnectionInfo VillageInfos[VILLAGECOUNTMAX];	// ë¹Œë¦¬ì§€ ëŒ€ìˆ˜
 };
 
 struct TServiceManagerConfig
@@ -64,18 +64,18 @@ const BYTE DBNAMELENMAX = 30;
 struct TDBName: TConnectionInfo
 {
 	int nWorldSetID;
-	WCHAR wszDBName[DBNAMELENMAX];	// µğºñ Å×ÀÌºí ÀÌ¸§
-	WCHAR wszDBID[IDLENMAX];		// µğºñ ·Î±×ÀÎ°èÁ¤
+	WCHAR wszDBName[DBNAMELENMAX];	// ë””ë¹„ í…Œì´ë¸” ì´ë¦„
+	WCHAR wszDBID[IDLENMAX];		// ë””ë¹„ ë¡œê·¸ì¸ê³„ì •
 };
 
 struct TLoginConfig
 {
-	bool bUseCmd;								//·±Ã³¸¦ ÅëÇØ¼­ »ı¼ºµÇ¾ú´ÂÁö
+	bool bUseCmd;								//ëŸ°ì²˜ë¥¼ í†µí•´ì„œ ìƒì„±ë˜ì—ˆëŠ”ì§€
 	int nManagedID;								//Launcher ManagedID
 	TConnectionInfo ServiceInfo;				//ServiceManagerInfo
 
-	int nVersion;								// ¹öÁ¯
-	int nNation;								// ±¹°¡Á¤º¸ (eNationÂüÁ¶)
+	int nVersion;								// ë²„ì ¼
+	int nNation;								// êµ­ê°€ì •ë³´ (eNationì°¸ì¡°)
 	char szVersion[SERVERVERSIONMAX];
 	char szResVersion[SERVERVERSIONMAX];
 	USHORT nMajorVersion;
@@ -93,8 +93,8 @@ struct TLoginConfig
 	TDBName WorldDB[WORLDCOUNTMAX];
 	int nWorldDBCount;
 
-	int nMasterAcceptPort;						// ¸¶½ºÅÍ tcp Æ÷Æ®
-	int nClientAcceptPort;						// Å¬¶ó tcp Æ÷Æ®
+	int nMasterAcceptPort;						// ë§ˆìŠ¤í„° tcp í¬íŠ¸
+	int nClientAcceptPort;						// í´ë¼ tcp í¬íŠ¸
 
 	TConnectionInfo LogInfo;
 
@@ -108,13 +108,13 @@ struct TLoginConfig
 #endif	// _GPK
 
 #if defined(_HSHIELD)
-	AHNHS_SERVER_HANDLE	hHSServer;				// [È®Àå ¼­¹ö¿¬µ¿] ¼­¹ö ÇÚµé °³Ã¼
+	AHNHS_SERVER_HANDLE	hHSServer;				// [í™•ì¥ ì„œë²„ì—°ë™] ì„œë²„ í•¸ë“¤ ê°œì²´
 #endif	// _HSHIELD
 
 #if defined(_TW)
-	TConnectionInfo AuthInfoTW1;				// ÀÎÁõ¼· (°¨¸¶´Ï¾Æ 1 - Authorization : »ç¿ëÀÚ °èÁ¤ ÀÎÁõ Ã³¸®, »óÅÂ (ºí·Ï ¿©ºÎ, Ä³½¬ ÀÜ¿© Æ÷ÀÎÆ® ?) Ã¼Å©)
-	TConnectionInfo AuthInfoTW2;				// ÀÎÁõ¼· (°¨¸¶´Ï¾Æ 2 - Logout : »ç¿ëÀÚ ·Î±×¾Æ¿ô Ã³¸®)
-	int nDenyWorld;								// Á¦¿ÜÇÒ ¿ùµå
+	TConnectionInfo AuthInfoTW1;				// ì¸ì¦ì„­ (ê°ë§ˆë‹ˆì•„ 1 - Authorization : ì‚¬ìš©ì ê³„ì • ì¸ì¦ ì²˜ë¦¬, ìƒíƒœ (ë¸”ë¡ ì—¬ë¶€, ìºì‰¬ ì”ì—¬ í¬ì¸íŠ¸ ?) ì²´í¬)
+	TConnectionInfo AuthInfoTW2;				// ì¸ì¦ì„­ (ê°ë§ˆë‹ˆì•„ 2 - Logout : ì‚¬ìš©ì ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬)
+	int nDenyWorld;								// ì œì™¸í•  ì›”ë“œ
 #endif	// _TW
 #if defined(_TH)
 	TConnectionInfo AuthInfoTH;
@@ -134,13 +134,13 @@ struct TLoginConfig
 	char szCherryAuthAddr[64];
 #endif		//#ifdef _SG
 #if defined(PRE_IDN_PVP)
-	int nPvPWorldID;	// ´ëÈ¸¿ë WorldID
+	int nPvPWorldID;	// ëŒ€íšŒìš© WorldID
 #endif
 };
 
 struct TVillageConfig
 {
-	bool bUseCmd;		//·±Ã³¸¦ ÅëÇØ¼­ »ı¼ºµÇ¾ú´ÂÁö
+	bool bUseCmd;		//ëŸ°ì²˜ë¥¼ í†µí•´ì„œ ìƒì„±ë˜ì—ˆëŠ”ì§€
 	char szVersion[SERVERVERSIONMAX];
 	char szResVersion[SERVERVERSIONMAX];
 	int nCreateCount;
@@ -148,28 +148,28 @@ struct TVillageConfig
 	int nManagedID;
 	TConnectionInfo ServiceInfo;
 
-	int nWorldSetID;								// ¿ùµå ¾ÆÀÌµğ
-	int nVillageID;								// ºô¸®Áö¼· ±¸ºĞ ¾ÆÀÌµğ (¿©·¯´ë ¶ç¿üÀ»¶§ ±¸º°ÇÏ±âÀ§ÇÑ ¾ÆÀÌµğ)
+	int nWorldSetID;								// ì›”ë“œ ì•„ì´ë””
+	int nVillageID;								// ë¹Œë¦¬ì§€ì„­ êµ¬ë¶„ ì•„ì´ë”” (ì—¬ëŸ¬ëŒ€ ë„ì› ì„ë•Œ êµ¬ë³„í•˜ê¸°ìœ„í•œ ì•„ì´ë””)
 
 	int nIocpMax;								// iocp init max
 
-	int nClientAcceptPort;						// Å¬¶ó tcp Æ÷Æ®
+	int nClientAcceptPort;						// í´ë¼ tcp í¬íŠ¸
 
 	TConnectionInfo CashInfo;
-	TConnectionInfo MasterInfo;					// ¸¶½ºÅÍ Á¤º¸
+	TConnectionInfo MasterInfo;					// ë§ˆìŠ¤í„° ì •ë³´
 
-	int nDBCount;								// ÃÑ µğºñ °³¼ö
-	TConnectionInfo DBInfos[DBSERVERMAX];		// µğºñ Á¤º¸
+	int nDBCount;								// ì´ ë””ë¹„ ê°œìˆ˜
+	TConnectionInfo DBInfos[DBSERVERMAX];		// ë””ë¹„ ì •ë³´
 
 	TConnectionInfo	LogInfo;
 
-	// ItemSerial ¾ò¾î¿À´Âµ¥ ¾²ÀÌ´Â SQL (´Ù¸¥°Ç Àı´ë »ç¿ëÇØ¼± ¾ÈµÈ´Ù)
+	// ItemSerial ì–»ì–´ì˜¤ëŠ”ë° ì“°ì´ëŠ” SQL (ë‹¤ë¥¸ê±´ ì ˆëŒ€ ì‚¬ìš©í•´ì„  ì•ˆëœë‹¤)
 	TDBName MembershipDB;
 
-	char szPrivateDolbyIp[IPLENMAX];					// µ¹ºñ¼· ¾ÆÀÌÇÇ
-	char szPublicDolbyIp[IPLENMAX];					// µ¹ºñ¼· ¾ÆÀÌÇÇ
-	int nControlPort;							// µ¹ºñ¼· Æ÷Æ®(ÄÃÆ®·Ñ)
-	int nAudioPort;								// µ¹ºñ¼· Æ÷Æ®(¿Àµğ¿À)
+	char szPrivateDolbyIp[IPLENMAX];					// ëŒë¹„ì„­ ì•„ì´í”¼
+	char szPublicDolbyIp[IPLENMAX];					// ëŒë¹„ì„­ ì•„ì´í”¼
+	int nControlPort;							// ëŒë¹„ì„­ í¬íŠ¸(ì»¬íŠ¸ë¡¤)
+	int nAudioPort;								// ëŒë¹„ì„­ í¬íŠ¸(ì˜¤ë””ì˜¤)
 
 	std::string szResourcePath;					// resource path
 	std::string szResourceNation;
@@ -181,7 +181,7 @@ struct TVillageConfig
 #endif	// _GPK
 
 #if defined(_HSHIELD)
-	AHNHS_SERVER_HANDLE	hHSServer;				// [È®Àå ¼­¹ö¿¬µ¿] ¼­¹ö ÇÚµé °³Ã¼
+	AHNHS_SERVER_HANDLE	hHSServer;				// [í™•ì¥ ì„œë²„ì—°ë™] ì„œë²„ í•¸ë“¤ ê°œì²´
 #endif	// _HSHIELD
 
 #if defined( PRE_WORLDCOMBINE_PARTY )
@@ -194,40 +194,40 @@ struct TGameConfig
 	bool bUseCmd;
 	char szVersion[SERVERVERSIONMAX];	//exe version
 	char szResVersion[SERVERVERSIONMAX];	//ResVersion
-	BYTE cAffinityType;							// ¼­¹ö´ëÀÀÅ¸ÀÔ(ÀÏ¹İ:0, PvP+ÀÏ¹İ:1, PvP:2)	
+	BYTE cAffinityType;							// ì„œë²„ëŒ€ì‘íƒ€ì…(ì¼ë°˜:0, PvP+ì¼ë°˜:1, PvP:2)	
 	int nCreateCount;
 	int nCreateIndex;
 	int nManagedID;
 	TConnectionInfo ServiceInfo;
 
-	bool bPreLoad;								// ¹Ì¸®·Îµå~~
-	bool bAllLoaded;							// ÃÊ±â·Îµå½ÃÁ¡ ÆÇ´ÜÀ» À§ÇØ¼­
-	//int nGameID;								// °ÔÀÓ¼· ¾ÆÀÌµğ
+	bool bPreLoad;								// ë¯¸ë¦¬ë¡œë“œ~~
+	bool bAllLoaded;							// ì´ˆê¸°ë¡œë“œì‹œì  íŒë‹¨ì„ ìœ„í•´ì„œ
+	//int nGameID;								// ê²Œì„ì„­ ì•„ì´ë””
 
-	int nGameServerOpenCount;					//°ÔÀÓ¼­¹ö ¼­¹ö¿ÀÇÂ °¹¼ö
-	int nGameAcceptPortBegin;					//°ÔÀÓ¼· udp ¾ï¼ÁÆ÷Æ®
-	int nClientAcceptPort;						// Å¬¶ó tcp Æ÷Æ®
+	int nGameServerOpenCount;					//ê²Œì„ì„œë²„ ì„œë²„ì˜¤í”ˆ ê°¯ìˆ˜
+	int nGameAcceptPortBegin;					//ê²Œì„ì„­ udp ì–µì…‰í¬íŠ¸
+	int nClientAcceptPort;						// í´ë¼ tcp í¬íŠ¸
 
 	int nIocpMax;								// MaxSocket
 
 	TConnectionInfo CashInfo;
-	int nMasterCount;							// ÃÑ ¸¶½ºÅÍ °³¼ö
-	TConnectionInfo MasterInfo[WORLDCOUNTMAX];	// ¸¶½ºÅÍ Á¤º¸
+	int nMasterCount;							// ì´ ë§ˆìŠ¤í„° ê°œìˆ˜
+	TConnectionInfo MasterInfo[WORLDCOUNTMAX];	// ë§ˆìŠ¤í„° ì •ë³´
 
-	int nDBCount;								// ÃÑ µğºñ °³¼ö
-	TConnectionInfo DBInfos[DBSERVERMAX];		// µğºñ Á¤º¸
+	int nDBCount;								// ì´ ë””ë¹„ ê°œìˆ˜
+	TConnectionInfo DBInfos[DBSERVERMAX];		// ë””ë¹„ ì •ë³´
 
 	TConnectionInfo	LogInfo;
 
-	// ItemSerial ¾ò¾î¿À´Âµ¥ ¾²ÀÌ´Â SQL (´Ù¸¥°Ç Àı´ë »ç¿ëÇØ¼± ¾ÈµÈ´Ù)
+	// ItemSerial ì–»ì–´ì˜¤ëŠ”ë° ì“°ì´ëŠ” SQL (ë‹¤ë¥¸ê±´ ì ˆëŒ€ ì‚¬ìš©í•´ì„  ì•ˆëœë‹¤)
 	TDBName MembershipDB;
 
-	char szPrivateDolbyIp[IPLENMAX];					// µ¹ºñ¼· ¾ÆÀÌÇÇ
-	char szPublicDolbyIp[IPLENMAX];					// µ¹ºñ¼· ¾ÆÀÌÇÇ
-	int nControlPort;							// µ¹ºñ¼· Æ÷Æ®(ÄÃÆ®·Ñ)
-	int nAudioPort;								// µ¹ºñ¼· Æ÷Æ®(¿Àµğ¿À)
+	char szPrivateDolbyIp[IPLENMAX];					// ëŒë¹„ì„­ ì•„ì´í”¼
+	char szPublicDolbyIp[IPLENMAX];					// ëŒë¹„ì„­ ì•„ì´í”¼
+	int nControlPort;							// ëŒë¹„ì„­ í¬íŠ¸(ì»¬íŠ¸ë¡¤)
+	int nAudioPort;								// ëŒë¹„ì„­ í¬íŠ¸(ì˜¤ë””ì˜¤)
 
-	int nProbePort;								//UDPÁÖ¼Ò¸¦ Á¦´ë·Î ¾ò¾î¿À±â À§ÇÑ ÇÁ·Îºê Á¤º¸
+	int nProbePort;								//UDPì£¼ì†Œë¥¼ ì œëŒ€ë¡œ ì–»ì–´ì˜¤ê¸° ìœ„í•œ í”„ë¡œë¸Œ ì •ë³´
 	char szProbeIP[16];
 
 	std::string szResourcePath;					// resource path
@@ -240,7 +240,7 @@ struct TGameConfig
 #endif	// _GPK
 
 #if defined(_HSHIELD)
-	AHNHS_SERVER_HANDLE	hHSServer;				// [È®Àå ¼­¹ö¿¬µ¿] ¼­¹ö ÇÚµé °³Ã¼
+	AHNHS_SERVER_HANDLE	hHSServer;				// [í™•ì¥ ì„œë²„ì—°ë™] ì„œë²„ í•¸ë“¤ ê°œì²´
 #endif	// _HSHIELD
 #if defined( _WORK )
 	bool bDisableFarm;
@@ -252,13 +252,13 @@ struct TGameConfig
 
 struct TMasterConfig
 {
-	bool bUseCmd;								//·±Ã³¸¦ ÅëÇØ¼­ »ı¼ºµÇ¾ú´ÂÁö
+	bool bUseCmd;								//ëŸ°ì²˜ë¥¼ í†µí•´ì„œ ìƒì„±ë˜ì—ˆëŠ”ì§€
 	char szVersion[SERVERVERSIONMAX];
 	char szResVersion[SERVERVERSIONMAX];
 	int nManagedID;
 	TConnectionInfo ServiceInfo;
 
-	int nWorldSetID;								// ¿ùµå ¾ÆÀÌµğ (¸¶½ºÅÍ ¼·Àº ¿ùµå¿¡ ÇÑ´ë¸¸ Á¸Àç)
+	int nWorldSetID;								// ì›”ë“œ ì•„ì´ë”” (ë§ˆìŠ¤í„° ì„­ì€ ì›”ë“œì— í•œëŒ€ë§Œ ì¡´ì¬)
 
 	int nVillageAcceptPort;
 	int nGameAcceptPort;
@@ -269,12 +269,12 @@ struct TMasterConfig
 	std::string szResourceNation;
 
 #if defined(_KR)
-	TConnectionInfo AuthInfo;					// ÀÎÁõ¼·
-	int nAuthDomainSN;							// ÀÎÁõ µµ¸ŞÀÎ SN
+	TConnectionInfo AuthInfo;					// ì¸ì¦ì„­
+	int nAuthDomainSN;							// ì¸ì¦ ë„ë©”ì¸ SN
 #endif	// _KR
 
 #if defined(_CH)
-	bool bFCM;									// ÇÇ·Îµµ À¯¹«
+	bool bFCM;									// í”¼ë¡œë„ ìœ ë¬´
 #endif	// _CH
 
 	TConnectionInfo	LogInfo;
@@ -284,7 +284,7 @@ struct TMasterConfig
 #endif		//#ifdef PRE_ADD_DOORS
 
 #if defined(_TW)
-	TConnectionInfo AuthInfoTW;					// ÀÎÁõ¼· (°¨¸¶´Ï¾Æ - Logout : »ç¿ëÀÚ ·Î±×¾Æ¿ô Ã³¸®)
+	TConnectionInfo AuthInfoTW;					// ì¸ì¦ì„­ (ê°ë§ˆë‹ˆì•„ - Logout : ì‚¬ìš©ì ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬)
 #endif	// _TW
 
 #if defined(_US)
@@ -294,7 +294,7 @@ struct TMasterConfig
 	char szServiceCode[50];
 #endif	// #if defined(_US)
 #if defined(_TH)
-	TConnectionInfo AsiaSoftPCCafe;				// ¾Æ½Ã¾Æ ¼ÒÇÁÆ® PC¹æ
+	TConnectionInfo AsiaSoftPCCafe;				// ì•„ì‹œì•„ ì†Œí”„íŠ¸ PCë°©
 #endif
 #if defined( PRE_WORLDCOMBINE_PARTY )
 	int nCombinePartyWorld;
@@ -306,7 +306,7 @@ struct TMasterConfig
 
 struct TDBConfig
 {
-	bool bUseCmd;					// ·±Ã³¸¦ ÅëÇØ¼­ »ı¼ºµÇ¾ú´ÂÁö
+	bool bUseCmd;					// ëŸ°ì²˜ë¥¼ í†µí•´ì„œ ìƒì„±ë˜ì—ˆëŠ”ì§€
 	char szVersion[SERVERVERSIONMAX];
 	char szResVersion[SERVERVERSIONMAX];
 	int nManagedID;
@@ -333,7 +333,7 @@ struct TDBConfig
 
 struct TLogConfig
 {
-	bool bUseCmd;					// ·±Ã³¸¦ ÅëÇØ¼­ »ı¼ºµÇ¾ú´ÂÁö
+	bool bUseCmd;					// ëŸ°ì²˜ë¥¼ í†µí•´ì„œ ìƒì„±ë˜ì—ˆëŠ”ì§€
 	char szVersion[SERVERVERSIONMAX];
 	char szResVersion[SERVERVERSIONMAX];
 	int nManagedID;
@@ -342,7 +342,7 @@ struct TLogConfig
 	int	nAcceptPort;
 	int nThreadMax;
 
-	TDBName MasterLogDB;			// MasterLogDB (³Ø½¼ web¼­ºñ½º¿¡ ÇÊ¿äÇÑ µğºñ)
+	TDBName MasterLogDB;			// MasterLogDB (ë„¥ìŠ¨ webì„œë¹„ìŠ¤ì— í•„ìš”í•œ ë””ë¹„)
 	TDBName ServerLogDB;
 	TDBName LogDB[WORLDCOUNTMAX];	// LogDB
 	int	nLogDBCount;
@@ -351,18 +351,18 @@ struct TLogConfig
 
 struct TCashConfig
 {
-	bool bUseCmd;								//·±Ã³¸¦ ÅëÇØ¼­ »ı¼ºµÇ¾ú´ÂÁö
+	bool bUseCmd;								//ëŸ°ì²˜ë¥¼ í†µí•´ì„œ ìƒì„±ë˜ì—ˆëŠ”ì§€
 	int nManagedID;								//Launcher ManagedID
 	TConnectionInfo ServiceInfo;				//ServiceManagerInfo
 
-	int nVersion;								// ¹öÁ¯
-	int nNation;								// ±¹°¡Á¤º¸ (eNationÂüÁ¶)
+	int nVersion;								// ë²„ì ¼
+	int nNation;								// êµ­ê°€ì •ë³´ (eNationì°¸ì¡°)
 	char szVersion[SERVERVERSIONMAX];
 	char szResVersion[SERVERVERSIONMAX];
 	USHORT nMajorVersion;
 	USHORT nMinorVersion;
 
-	int nWorldSetID;								// ¿ùµå ¾ÆÀÌµğ
+	int nWorldSetID;								// ì›”ë“œ ì•„ì´ë””
 	int nThreadMax;
 
 	TDBName MembershipDB;
@@ -377,25 +377,25 @@ struct TCashConfig
 	std::string szResourceNation;
 
 #if defined(_KR) || defined(_US)
-	TConnectionInfo CashInfo;		// Ä³½¬ ¼­¹ö Á¤º¸
-	int nServerNo;					// ¼­¹ö ¹øÈ£
+	TConnectionInfo CashInfo;		// ìºì‰¬ ì„œë²„ ì •ë³´
+	int nServerNo;					// ì„œë²„ ë²ˆí˜¸
 #elif defined(_KRAZ)
 	bool bTestServer;
 #elif defined(_JP)
 	WCHAR wszServiceType[10];			// alpha, real 
 #elif defined(_TW) || defined(_TH)
-	TConnectionInfo QueryPointInfo;	 // Æ÷ÀÎÆ® Á¶È¸ ¼­¹ö Á¤º¸
-	TConnectionInfo ShopItemInfo;	 // ¾ÆÀÌÅÛ ±¸¸Å ¼­¹ö Á¤º¸
+	TConnectionInfo QueryPointInfo;	 // í¬ì¸íŠ¸ ì¡°íšŒ ì„œë²„ ì •ë³´
+	TConnectionInfo ShopItemInfo;	 // ì•„ì´í…œ êµ¬ë§¤ ì„œë²„ ì •ë³´
 #if defined(_TW)
-	TConnectionInfo CouponInfo;		 // ÄíÆù ¼­¹ö Á¤º¸
-	TConnectionInfo CouponRollBackInfo;		 // ÄíÆù ·Ñ¹é ¼­¹ö Á¤º¸
-	int				nProtocolType;	 // ÇÁ·ÎÅäÄİ Å¸ÀÔ 1:old, 2:new
+	TConnectionInfo CouponInfo;		 // ì¿ í° ì„œë²„ ì •ë³´
+	TConnectionInfo CouponRollBackInfo;		 // ì¿ í° ë¡¤ë°± ì„œë²„ ì •ë³´
+	int				nProtocolType;	 // í”„ë¡œí† ì½œ íƒ€ì… 1:old, 2:new
 #endif //#if defined(_TW)
 #elif defined(_SG)
 	std::string CouponServerInfo;
 	std::string AuthToken;
 #elif defined(_ID)
-	std::string QueryPointURL;		// G-Cash ÀÜ¾× Á¶È¸
-	std::string ItemShopURL;			// ¾ÆÀÌÅÛ ±¸¸Å URL
+	std::string QueryPointURL;		// G-Cash ì”ì•¡ ì¡°íšŒ
+	std::string ItemShopURL;			// ì•„ì´í…œ êµ¬ë§¤ URL
 #endif	// _KR
 };
