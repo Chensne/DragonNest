@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.main.icon" script="../a.jsp" mouse-trigger="enter,leave,hover,click" window-trigger="create,destory,show,hide,drag">
+        <windowframe id="frame.icon" rect="0,0,73,64"  visible="true" image-id="img/uimain/gplus2" drag="true">
+        </windowframe>
+        <windowframe id="frame.bar"   rect="73,0,389,61"  visible="true" image-id="img/uimain/gplus_bar" drag="true">
+            <button id="bar.recharge" rect="3,0,44,61" text-tips="充值" image-id="img/uimain/gplust1,img/uimain/gplust1hove,img/uimain/gplust1click,0"  enable-skin="false"/>
+            <button id="bar.rainbow"  rect="44,0,44,61" text-tips="彩虹帮助" image-id="img/uimain/gplust2,img/uimain/gplust2hove,img/uimain/gplust2click,0"  enable-skin="false"/>
+            <button id="bar.store"    rect="0,0,0,61"  text-tips="团购" image-id="img/uimain/gplust3,img/uimain/gplust3hove,img/uimain/gplust3click,0" enable-skin="false"/>
+            <button id="bar.btn4"     rect="88,0,44,61" image-id="img/uimain/gplust4,img/uimain/gplust4hove,img/uimain/gplust4click,0" enable-skin="false"/>
+            <button id="bar.close"     rect="363,5,22,24" text-tips="关闭" image-id="img/uimain/gplus_close,img/uimain/gplus_close1,img/uimain/gplus_close2" enable-skin="false"/>
+            <button id="bar.help"     rect="363,28,22,24" text-tips="帮助" image-id="img/uimain/gplus_help,img/uimain/gplus_help1,img/uimain/gplus_help2" enable-skin="false"/>
+        </windowframe>
+        <windowframe id="frame.cbar"   rect="0,64,462,33"  visible="true" image-id="img/uimain/gplus_barbg">
+            <button id="cbar.regname"  rect="0,0,0,33" text-tips="虚名"  text-height="12" text-color="#ff525a3f" text-postion="40,11" text="请注册虚名" image-id="img/uimain/info1,img/uimain/info1,img/uimain/info1,0"  enable-skin="false"/>
+            <button id="cbar.msg"      rect="-1,0,66,33" text-tips="消息"   text-height="12" text-postion="43,11" text="" image-id="img/uimain/info2,img/uimain/info2,img/uimain/info2,0"  enable-skin="false"/>
+            <button id="cbar.vip"      rect="0,0,0,33" text-tips="等级"    text-height="12" text-postion="40,11" text="VIP3" image-id="img/uimain/info3,img/uimain/info3,img/uimain/info3,0"  enable-skin="false"/>
+            <button id="cbar.set"      rect="381,0,38,33" text-tips="设置"   text-height="12" image-id="img/uimain/info4,/img/uimain/info4,img/uimain/info4,0"  enable-skin="false"/>
+            <button id="cbar.feedback" rect="419,0,43,33" text-tips="反馈"  text-height="12" image-id="img/uimain/info5,/img/uimain/info5,img/uimain/info5,0"  enable-skin="false"/>
+        </windowframe>
+        <windowframe id="frame.popup" rect="0,97,462,429"  visible="false" image-id="">
+            <ie id="popup.ie"  rect="0,0,462,429" image-id="" enable-skin="false"/>
+        </windowframe>
+    </window>
+
+</ui>

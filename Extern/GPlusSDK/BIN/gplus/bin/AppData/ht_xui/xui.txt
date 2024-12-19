@@ -1,0 +1,24 @@
+"id"                 //窗口id     id="id"
+"rect"               //矩形区域   rect="10,10,20,20" //坐标x,坐标y,宽w,高h
+"visible"            //可见       visible="true","false"
+"enable-skin"        //开启皮肤   enable-skin="true","false" 
+"image-id"           //图片id     image-id="q,e,s,a" //普通状态,鼠标滑过,鼠标点击,禁用
+"align"              //对齐方式   align="left","center","right","top","bottom"
+"enable"             //启用/禁用  enable="true","false" 
+"drag"               //拖拽       drag="true","false" 
+
+"text"               //文本       text="文本"
+text-font="宋体"     //字体
+text-height="9"      //字体大小
+"text-color"         //文本颜色   text-color="#00ffff00"
+"text-postion"       //文本位置   text-postion="20,20" //坐标x,坐标y 
+
+
+窗口类型
+windowframe        窗口框架(一个window可以有多个windowframe,windowframe里可以嵌套任何支持的窗口类型)
+button             
+   
+checkbox
+static
+ie
+edit

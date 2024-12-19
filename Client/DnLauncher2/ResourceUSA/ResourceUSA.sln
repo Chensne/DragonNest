@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceUSA", "ResourceUSA.vcproj", "{ACF7920E-E7E6-42E6-A174-1F740CA4C022}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_USA|Win32 = Debug_USA|Win32
+		Debug|Win32 = Debug|Win32
+		Release_USA|Win32 = Release_USA|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Debug_USA|Win32.ActiveCfg = Debug_USA|Win32
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Debug_USA|Win32.Build.0 = Debug_USA|Win32
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Debug|Win32.Build.0 = Debug|Win32
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Release_USA|Win32.ActiveCfg = Release_USA|Win32
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Release_USA|Win32.Build.0 = Release_USA|Win32
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Release|Win32.ActiveCfg = Release|Win32
+		{ACF7920E-E7E6-42E6-A174-1F740CA4C022}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

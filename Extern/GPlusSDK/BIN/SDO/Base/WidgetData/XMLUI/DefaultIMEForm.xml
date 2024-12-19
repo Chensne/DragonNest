@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="IMEWidgetDialog" type="TWidgetIMEForm" caption="" left="270" top="80" width="320" height="85"  
+		skin="bg_igwIMEForm" allowResize="0" candock="false"  backgroundskinname="bg_igwiePopupBackBround147x131" 
+		margin="(4, 4, 4, 4)" floatbuttonstatus="0" hittestinarea="true" canactivate="false" visible="false" 
+		Enable="false" onimestrchanged="OnIMEWGDialogImestrchanged(Self);">
+		<button type="" left="296" top="6" width="16" height="16" skin="btn_close_17x17" name="btnFormClose" onclick="btnFormCloseOnClick(Self);" showhint="true" hint="关闭"  canactivate="false"/>
+		<imelabelcompstr type="" left="5" top="5" width="250" height="20" skin="" name="LblCompStr" caption="" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000" cannotifydrag="true" ellipsisposition="epNone" fontname="CaptionFont" bordercolora="$FFFF0000" autosize="true"/>
+		<label type="" left="5" top="30" width="298" height="20" skin="" name="LblCandList" caption="" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000" ellipsisposition="epNone" wordwrap="false" cannotifydrag="true" bordercolora="$FFFF0000" autosize="true"/>
+		<label type="" left="5" top="58" width="298" height="20" skin="" name="LblIMEName" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000" ellipsisposition="epNone" wordwrap="false" cannotifydrag="true" bordercolora="$FFFF0000" autosize="true"/>
+	</view>
+	<script src="DefaultIMEForm.js"/>
+</xul>

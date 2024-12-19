@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>圈圈小助手</title>
+<link href="common/style_igw.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" type="text/javascript" src="common/common.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+function checkRadio()
+{
+  disReason.style.visibility = "hidden";
+}
+
+function goNext()
+{
+  var canNext = radio[0].checked || radio[1].checked || radio[2].checked;
+  
+  if (!canNext)
+  {
+    disReason.innerText = "* 请选择关闭圈圈的原因";
+    disReason.style.visibility = "visible";
+  }
+  else if (radio[2].checked)
+  {
+    canNext = txtReason.value != "";
+	
+	if (!canNext)
+	{
+	  disReason.innerText = "* 请输入关闭圈圈的原因";
+      disReason.style.visibility = "visible";
+	}
+  }
+  
+  if (canNext)
+  {
+  	var curSelCloseReason = "";
+  	if (radio[0].checked) 
+  	{
+  		curSelCloseReason = radio[0].value;
+  	}
+  	if (radio[1].checked) 
+  	{
+  		curSelCloseReason = radio[1].value;
+  	}
+  	if (radio[2].checked) 
+  	{
+  		curSelCloseReason = radio[2].value + ": " + txtReason.value;
+  	}
+  	//alert(curSelCloseReason);
+  	// 将原因提示，关闭时使用最后一次提交的原因
+  	PostCloseIGWReason(curSelCloseReason);
+    window.location.href = "p4.html";
+    // 提交并记录关闭原因
+    
+   }
+}
+-->
+</script>
+</head>
+<body>
+  <div class="content">
+    <ul class="topnav">
+      <li class="next"><span><a href="StartPage.html">圈圈帮助</a></span></li>
+      <li class="now"><span><a href="#">圈圈设置</a></span></li>
+    </ul>
+    <div class="main_content">
+		<h1>进入游戏后,是否开启圈圈</h1>
+      <p class="p_select1"><input name="" type="radio" onclick="window.location.href='p2.html';" value="" />
+      开启圈圈&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" checked="checked" />
+      关闭圈圈</p>
+	  <h1>您关闭圈圈的原因是?</h1>
+      <p class="p_select2">
+<input name="radio" type="radio" value="使用圈圈后游戏花屏 黑屏" onclick="javascript:checkRadio();" />&nbsp;1.	使用圈圈后游戏花屏 黑屏<br />
+<input name="radio" type="radio" value="使用圈圈后无法启动游戏" onclick="javascript:checkRadio();" />&nbsp;2.	使用圈圈后无法启动游戏<br />
+<input name="radio" type="radio" value="其他原因" onclick="javascript:checkRadio();" />&nbsp;3.  其他原因&nbsp;<input name="txtReason" type="text" class="input1" maxlength="200" />
+      </p>
+      <p name="disReason" id="disReason" class="p_reason">* 请选择关闭圈圈的原因</p>
+    </div>
+	<div class="btn"><input type="button" value="下一步" class="btn_1" onclick="javascript:goNext();" />
+	&nbsp;&nbsp;<input type="button" value="返 回" class="btn_1" onclick="javascript:history.back(-1);" />
+	</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget>
+	<!-- widgetskinsresource是定义Skin用到的资源包括图片，字体，颜色等，解析时被优先于widgetskins处理 -->
+	<widgetskinsresource>
+		<images>
+			<image name="IGW_lZG" src="..\Images\lZG.png" skincolor="true"/>
+                        <image name="IGW_lZG_kb" src="..\Images\lZG_kb.png" skincolor="true"/>
+                        <image name="IGW_lZG_A8" src="..\Images\lZG_A8.png" skincolor="true"/>
+                        <image name="IGW_lZG_bm_login" src="..\Images\LZG_mb_login.png" skincolor="true"/>
+                        <image name="IGW_QuanFuTongControls_NoHLS" src="..\Images\IGW_QuanFuTongSkinNoHLS.png"/>
+                        <image name="IGW_Ecard" src="..\Images\ekcard.png" system="False"/>
+                        <image name="IGW_dnNormalFormtest" src="..\Images\dnNormalForm.png" system="False"/>
+
+		</images>
+		<fonts>		
+                        <font name="labNormal" family="宋体" size="16" bold="False"  italic="False" underLine="False" />	
+			<font name="Normal" family="宋体" size="10" bold="False" italic="False" underLine="False" system="false"/>
+                        <font name="Normal_Frm_kbd" family="宋体" size="12" bold="true" italic="False" underLine="False" />
+                        <font name="Normal_chek" family="宋体" size="11" bold="true" italic="False" underLine="False" />
+			<font name="NormalBlack" family="宋体" size="10" bold="False" italic="False" underLine="True" />
+			<font name="NormalBig" family="宋体" size="10" bold="False" italic="False" underLine="False" />
+			<font name="CaptionFont" family="宋体" size="10" bold="False" italic="False" underLine="False" />
+                        <font name="Normal_btn_kbd" family="宋体" size="10" bold="true" italic="False" underLine="False" />
+                        <font name="Normal_lbl_text" family="宋体" size="9" bold="False" italic="False" underLine="False" />
+                        <font name="Normal_lbl_btn" family="宋体" size="9" bold="true" italic="False" underLine="False" />
+												<font name="CaptionFontYH_qfq" family="微软雅黑" size="12" bold="True" italic="False" underLine="False" system="false" quality="wgfqNormal"/>
+		
+               </fonts>
+	</widgetskinsresource>
+	<widgetskins>
+		
+               	<skin name="bg_Frm"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="6" top="10" right="409" bottom="218" />
+		</skin>
+
+             	<skin name="btn_Close"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="460" top="244" right="480" bottom="263" />
+			<hover imagename="IGW_lZG" left="490" top="244" right="510" bottom="263"/>
+		</skin>
+
+      	        <skin name="btn_Fgt"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="4" top="472" right="83" bottom="500" />
+			<hover imagename="IGW_lZG" left="4" top="512" right="83" bottom="540" />
+			<disabled imagename="IGW_lZG" left="4" top="551" right="83" bottom="579"/>
+		</skin>
+
+                <skin name="btn_ChangeID"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="502" top="13" right="579" bottom="39" />
+			<hover imagename="IGW_lZG" left="502" top="51" right="579" bottom="79" />
+			<disabled imagename="IGW_lZG" left="502" top="89" right="579" bottom="116"/>
+		</skin>
+
+                <skin name="btn_RgID"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="416" top="122" right="497" bottom="150" />
+			<hover imagename="IGW_lZG" left="416" top="160" right="497" bottom="189" />
+			<disabled imagename="IGW_lZG" left="416" top="198" right="497" bottom="226"/>
+		</skin>
+ 
+   	      
+		<skin name="checkbox_unchecked_13x13"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="310" top="240" right="334" bottom="266" fontname="Normal_chek" color="#FF99CCFF" />
+			<hover imagename="IGW_lZG" left="347" top="240" right="372" bottom="266" fontname="Normal_chek" color="#FF99CCFF" />
+		</skin>
+		<skin name="checkbox_checked_13x13"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="382" top="240" right="407" bottom="266" fontname="Normal_chek" color="#FF99CCFF" />
+			<hover imagename="IGW_lZG" left="417" top="240" right="442" bottom="266" fontname="Normal_chek" color="#FF99CCFF" />
+		</skin>
+		
+		<skin name="btn_normal_63x20"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="6" top="286" right="260" bottom="330"  fontname="NormalBig" color="#FF99CCFF" />
+                        <hover imagename="IGW_lZG" left="5" top="351" right="259" bottom="395" fontname="NormalBig" color="#FF99CCFF" />
+			<disabled imagename="IGW_lZG" left="6" top="417" right="258" bottom="462" fontname="NormalBig" color="#FF7EA800" />
+		</skin>
+
+			
+		<skin name="bg_whiteedit"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="10" top="228" right="185" bottom="255"/>
+
+		</skin>
+
+		
+		<skin name="btn_KeyboardBtn59x19"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG" left="194" top="230" right="219" bottom="254" />
+			<hover imagename="IGW_lZG" left="232" top="230" right="257" bottom="254" />
+			<press imagename="IGW_lZG" left="274" top="231" right="298" bottom="255"/>
+		</skin>
+
+  	        <skin name="frm_kbd"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_kb" left="3" top="2" right="492" bottom="210"  fontname="NormalBig" color="#FF99CCFF" />
+		</skin>
+
+  	        <skin name="btn__kbd"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_kb" left="6" top="217" right="37" bottom="247" fontname="Normal_btn_kbd" color="#FFE5E5C0"/>
+			<hover imagename="IGW_lZG_kb" left="62" top="217" right="93" bottom="247" fontname="Normal_btn_kbd" color="#FFE5E5C0"/>
+		</skin>
+ 
+                <skin name="btn__kbd_Enter"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_kb" left="113" top="217" right="173" bottom="247" fontname="Normal_btn_kbd" color="#FFE5E5C0"/>
+			<hover imagename="IGW_lZG_kb" left="190" top="217" right="250" bottom="247" fontname="Normal_btn_kbd" color="#FFE5E5C0" />
+		</skin>
+
+               <skin name="frm_A8"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_A8" left="12" top="6" right="505" bottom="352"  fontname="NormalBig" color="#FF99CCFF" />
+	       </skin>
+
+               <skin name="btn__A8_bk"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_A8" left="112" top="408" right="212" bottom="442" />
+			<hover imagename="IGW_lZG_A8" left="238" top="408" right="338" bottom="442" />
+	       </skin>
+
+               <skin name="ico__A8_Enter"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_A8" left="26" top="371" right="64" bottom="388" />
+	       </skin>
+
+               <skin name="ico__A8_ESC"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_A8" left="26" top="394" right="64" bottom="410" />
+	       </skin>
+               <skin name="frm_bm_login"  imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_lZG_bm_login" left="5" top="7" right="498" bottom="352"  fontname="NormalBig" color="#FF99CCFF" />
+	       </skin>
+	       <skin name="btn_Enter19x19" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_QuanFuTongControls_NoHLS" left="0" top="334" right="19" bottom="353"/>
+			<hover imagename="IGW_QuanFuTongControls_NoHLS" left="19" top="334" right="38" bottom="353"/>
+			<press imagename="IGW_QuanFuTongControls_NoHLS" left="38" top="334" right="57" bottom="353"/>
+		</skin>
+		<skin name="bg_igwMibo001_208x305" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_QuanFuTongControls_NoHLS" left="0" top="0" right="208" bottom="305"/>
+		</skin>
+		<skin name="bg_igwMibo002_208x305" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_QuanFuTongControls_NoHLS" left="208" top="0" right="416" bottom="305"/>
+		</skin>
+		<skin name="bg_TriangleBlack_4x7" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_QuanFuTongControls_NoHLS" left="114" top="336" right="118" bottom="343"/>
+		</skin>
+		<skin name="bg_SkGridHorizontal_185x20" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_QuanFuTongControls_NoHLS" left="231" top="305" right="416" bottom="325"/>
+		</skin>
+		<skin name="bg_SkGridVertical_24x286" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_QuanFuTongControls_NoHLS" left="416" top="19" right="440" bottom="305"/>
+		</skin>
+
+                <skin name="lbl_text" system="False" imagecenterdraw="false" imagestretchdraw="false">
+			<normal   fontname="Normal_lbl_text" color="#FFE5E5C0"/>
+		</skin>
+
+                <skin name="lbl_btn" system="False" imagecenterdraw="false" imagestretchdraw="false">
+			<normal   fontname="Normal_lbl_btn" color="#FFE5E5C0"/>
+		</skin>
+		<skin name="lbl_normalurl" system="False" imagecenterdraw="false" imagestretchdraw="false">
+			<normal   fontname="NormalBlack" color="#FFFFFFFF"/>
+			<press    fontname="NormalBlack" color="#FFE8EBCD"/>
+			<focused  fontname="NormalBlack" color="#FFFFFFFF"/>
+			<hover    fontname="NormalBlack" color="#FFFFFFFF"/>
+			<disabled fontname="NormalBlack" color="#FF4D4D4D"/>	
+		</skin>
+	        <skin name="Edit_Echard" system="False" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_Ecard" left="0" top="0" right="55" bottom="31"/>
+		</skin>
+                <!-- 以下是dnNormalForm.png相关的资源 -->
+		<skin name="bg_igwNormaldialog" system="false" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnNormalFormtest" left="0" top="0" right="253" bottom="156" imagewell="(124, 89, 123, 58)"/>
+		</skin>
+
+          
+	</widgetskins>
+</widget>

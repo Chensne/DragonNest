@@ -1,0 +1,55 @@
+<head>
+
+    <script src="scripts/jquery-1.4.2.min.js" type="text/javascript" language="javascript"></script>
+
+    <script src="scripts/jquery.md5.js" type="text/javascript" language="javascript"></script>
+
+    <script language="javascript" type="text/javascript" src="scripts/core.js"></script>
+
+</head>
+<body>
+
+    <script type="text/javascript"> 
+	
+	 function Button9_onclick()
+	{
+var appno = "sandbox";
+var secretKey = "123456";
+var authser = "http://auth.esb.newkoo.com/Services/ApplicationAuthenticationService/Authenticate";
+		alert(window.external.System.Usage());
+		
+
+        var timestamp = currenttime();
+
+        var signedString = $.md5("appNo=" + appno + "&timestamp=" + timestamp + "&secretKey=" + secretKey + "");
+
+        var data = "{ appNo: \"" + appno + "\", timestamp: \"" + timestamp + "\", signedString: \"" + signedString + "\" }";
+
+	    var http = window.external.System.IO.Http;
+	    var taskid = http.NewTask();
+	    http.SetSid(taskid, "mysid");
+	    http.SetURL(taskid, encodeURI(authser));
+	    http.SetMethod(taskid, "GET");
+	    http.SetTimeout(taskid, 10);
+	    http.SetResponseCallcack(taskid, "cb");
+	    http.AppendStringPostData(taskid, data);
+	    http.AppendHeader(taskid, "Content-Type:application/json\r\n");
+	    http.AppendHeader(taskid, "Accept-Encoding: gzip\r\n");
+	    http.SendRequest(taskid);
+	};
+	function cb(taskid, sid, lasterror, statecode, response)
+	{
+	  var http = window.external.System.IO.Http;
+	  var existtask = http.FindTask(taskid);
+ 
+	  //alert(existtask);
+	  //alert(taskid);
+	  //alert(sid);
+	  //alert(lasterror);
+	  alert(statecode);
+	  alert(response);
+	}
+    </script>
+
+    <input id="Button9" onclick="Button9_onclick()" type="button">
+</body>

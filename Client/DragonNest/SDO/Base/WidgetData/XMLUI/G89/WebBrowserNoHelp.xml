@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src=".\Skins\IGW.DefaultSkin.xml"/>
+	<view name="WebBrowser" type="AdcolumnWebBrowser" caption="" left="270" top="80" width="266" height="315" skin="bg_igwNormaldialog" allowResize="0" candock="false" miniheight="315" miniwidth="266"  contentcandrag="false" floatbuttonstatus="0" margin="(33, 40, 33, 13)"  contentcolor="#FFFFFFFF" contenttransparent="false" onsetfocus="OnWebBrowserSetFocus(Self);" fixbarpos="(0, 38, 0, 20)">
+		<label left="15" top="10" width="82" height="24" name="formLogo" skin="bg_igwSndaOnlineLogo_82x24" canactivate="false" cannotifydrag="true"/>
+		<label left="94" top="8" width="150" height="25" name="formCaption" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" ellipsisposition="epWordEllipsis" textcolor="$FFE8EBCB" fontname="CaptionFontYH" shadowenabled="true" shadowoffsetx="1" shadowoffsety="1" shadowtextcolor="$FF000000" shadowblur="50" shadowreplay="0" shadowoutline="false" fontmargin="3" bordercolora="$FFFF0000"/>
+		<label left="10" top="8" width="24" height="24" name="btnClose" skin="btn_close_24x24" onclick="OnFormBtnClose(Self)" canactivate="false"/>
+	</view>
+	<script src="WebBrowserNoHelp.js"/>
+</xul>

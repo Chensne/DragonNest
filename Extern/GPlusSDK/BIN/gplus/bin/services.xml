@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <service name="Authenticate" value="http://auth.esb.newkoo.com/Services/ApplicationAuthenticationService/Authenticate"/>
+    <service name="Login" value="http://passport.esb.newkoo.com/Services/PassportService/Login"/>
+    <service name="Logout" value="http://passport.esb.newkoo.com/Services/PassportService/Logout"/>
+    <service name="GetMessageCount" value="http://messages.esb.newkoo.com/Services/MessageService/GetMessageCount"/>
+    <service name="GetUserSettings" value="http://settings.esb.newkoo.com/Services/SettingsService/GetUserSettings"/>
+    <service name="GetGameSettings" value="http://settings.esb.newkoo.com/Services/SettingsService/GetGameSettings"/>
+    <service name="GetCurrentUser" value="http://users.esb.newkoo.com/Services/UserService/GetCurrentUser"/>
+
+    <service name="QueryGameApp" value="http://app.esb.newkoo.com/Services/AppStoreService/QueryGameApp"/>
+    <service name="AddUseLog" value="http://app.esb.newkoo.com/Services/AppStoreService/AddUseLog"/>
+    <service name="AddLikeLog" value="http://app.esb.newkoo.com/Services/AppStoreService/AddLikeLog"/>
+    <service name="AddWeiboAttention" value="http://app.esb.newkoo.com/Services/AppStoreService/AddWeiboAttention"/>
+    <service name="AddUserApp" value="http://app.esb.newkoo.com/Services/AppStoreService/AddUserApp"/>
+    <service name="DeleteUserApp" value="http://app.esb.newkoo.com/Services/AppStoreService/DeleteUserApp"/>
+    <service name="ReorderUserApp" value="http://app.esb.newkoo.com/Services/AppStoreService/ReorderUserApp"/>
+    <service name="QueryUserApps" value="http://app.esb.newkoo.com/Services/AppStoreService/QueryUserApps"/>
+    <service name="InitUserApp" value="http://app.esb.newkoo.com/Services/AppStoreService/InitUserApp"/>
+</root>

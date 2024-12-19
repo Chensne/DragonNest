@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "liblz4", "liblz4.vcproj", "{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		MinSizeRel|Win32 = MinSizeRel|Win32
+		Release|Win32 = Release|Win32
+		RelWithDebInfo|Win32 = RelWithDebInfo|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.Debug|Win32.Build.0 = Debug|Win32
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.MinSizeRel|Win32.ActiveCfg = MinSizeRel|Win32
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.MinSizeRel|Win32.Build.0 = MinSizeRel|Win32
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.Release|Win32.ActiveCfg = Release|Win32
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.Release|Win32.Build.0 = Release|Win32
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
+		{3A4640FD-FB36-3D3F-A93C-CB7CD9A79851}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

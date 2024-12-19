@@ -1,0 +1,29 @@
+[screen]
+;屏幕状态: 1 = 正常显示(igwScreenNormal); 2 = 最小化状态(igwScreenMini)
+;status=
+;不可移动的窗口列表，以下窗口名称分别为登录框、密宝验证框、安全卡验证框、默认工具栏
+;nomovewindow=igwUserLoginDialog;igwUserLoginEKeyDialog;igwUserLoginECardDialog;taskbarsvertical
+nomovewindow=igwUserLoginDialog
+
+;默认工具栏
+[toolbar1]
+;工具栏名称(请勿修改)
+;注：此窗口名称可用来使用GetWinProperty/SetWinProperty获取、修改窗口状态、位置
+name=UserMainBar
+;界面描述文件所在位置(请勿修改)
+xul=XMLUI\DefaultTaskBarAutoV.xml
+;宽度
+;width=
+;高度
+;height=
+;左对齐位置
+;left=
+;上对齐位置
+top=100
+;右对齐位置
+right=60
+;下对齐位置
+;bottom=
+;工具栏是否可见：1 = 正常可见状态; 0 = 登录前不可见
+;注：登录前不可见状态下，登录成功后可调用SetScreenStatus恢复为可见状态，如果未及时调用，内部在一定时间后将自动恢复可见
+show=0

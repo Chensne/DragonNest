@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="XMLParser">
+      <UniqueIdentifier>{1f0ec860-d2a6-43c3-b782-eda6ec5110c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyXML">
+      <UniqueIdentifier>{96626a4d-5871-4277-b47d-2eb93c959aeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyXML\Source Files">
+      <UniqueIdentifier>{ba572764-d395-483b-bfe3-623671af98bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyXML\Header Files">
+      <UniqueIdentifier>{3095caac-96f5-4958-a063-6387ca003ed8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="XMLParser.cpp">
+      <Filter>XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="tinystr.cpp">
+      <Filter>tinyXML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml.cpp">
+      <Filter>tinyXML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlerror.cpp">
+      <Filter>tinyXML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlparser.cpp">
+      <Filter>tinyXML\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XMLParser.h">
+      <Filter>XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="tinystr.h">
+      <Filter>tinyXML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml.h">
+      <Filter>tinyXML\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="changes.txt" />
+    <None Include="readme.txt" />
+  </ItemGroup>
+</Project>

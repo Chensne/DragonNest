@@ -1,0 +1,234 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PANEL DIALOGEX 0, 0, 108, 143
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Save Mesh",IDC_SAVEMESH,15,32,81,14
+    CTEXT           "Version 0.11 \n 2007  Eyedentity Games",IDC_STATIC,7,7,
+                    96,19
+    PUSHBUTTON      "Save Animation",IDC_SAVEANI,15,50,81,14
+    PUSHBUTTON      "Save Navigation",IDC_SAVE_NAVIGATION,15,86,81,14
+    EDITTEXT        IDC_EDIT_ANI_NAME,15,116,81,13,ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | NOT WS_VISIBLE
+    LTEXT           "Animation Name",IDC_STATIC,19,103,74,9
+    PUSHBUTTON      "Save Camera",IDC_SAVECAMERA,15,68,81,14
+END
+
+IDD_OPTION DIALOGEX 0, 0, 108, 118
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Export Selected",IDC_EXPORT_SELECTED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,13,72,10
+    CONTROL         "Use Strip",IDC_USE_STRIP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,9,29,72,10
+    CONTROL         "Generate LOD",IDC_GENERATE_LOD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,9,45,72,10
+    CONTROL         "Generate UV Animation",IDC_GENERATE_UV_ANI,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,61,92,10
+    CONTROL         "Export VertexColor",IDC_EXPORT_VERTEXCOLOR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,76,72,10
+    CONTROL         "Export Target Camera",IDC_EXPORT_TARGET_CAMERA,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,93,72,10
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 186, 121
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About ActorEt"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,59,87,59,12
+    CTEXT           "Eternity Engine Actor Exporter\n\n Version: 0.11 \n\n Eyedentity Games.\n\n All Rights Reserved.",
+                    IDC_STATIC,26,15,126,61
+END
+
+IDD_SCENE_INFO DIALOGEX 0, 0, 243, 244
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Scene Info"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,171,214,59,12
+    LTEXT           "Number of physique meshes:",IDC_STATIC,31,26,107,8
+    LTEXT           "Total geometric objects:",IDC_STATIC,50,36,89,8
+    LTEXT           "Bones in main skeleton:",IDC_STATIC,50,47,89,8
+    GROUPBOX        "Stats",IDC_STATIC,17,15,211,47
+    GROUPBOX        "Skin",IDC_STATIC,17,63,211,59
+    GROUPBOX        "Skeleton",IDC_STATIC,17,127,211,38
+    GROUPBOX        "Animation",IDC_STATIC,17,167,211,44
+    LTEXT           "000",IDC_PHYMESHES,141,26,35,8
+    LTEXT           "000",IDC_MESHES,141,36,35,8
+    LTEXT           "000",IDC_BONESCURRENT,141,47,35,8
+    LTEXT           "Total elements",IDC_STATIC,29,140,55,8
+    LTEXT           "000",IDC_TOTALBONES,87,140,20,8
+    LTEXT           "Geom/Biped bones",IDC_BIPEDBONES,113,140,73,8
+    LTEXT           "000",IDC_BIPBONES,196,140,26,8
+    LTEXT           "Dummies",IDC_STATIC,113,151,35,8
+    LTEXT           "000",IDC_DUMMIES,196,151,26,8
+    LTEXT           "MAX bones",IDC_TRIANGLES3,29,151,45,8
+    LTEXT           "000",IDC_MAXBONES,87,151,21,8
+    LTEXT           "Faces",IDC_STATIC,41,74,23,8
+    LTEXT           "000",IDC_FACES,97,74,47,8
+    LTEXT           "Vertices",IDC_TRIANGLES4,40,83,31,8
+    LTEXT           "000",IDC_VERTS,97,83,47,8
+    LTEXT           "Frames (+0th)",IDC_STATIC,71,178,51,8
+    LTEXT           "Ticks per frame",IDC_STATIC,64,188,59,8
+    LTEXT           "Total time",IDC_STATIC,85,198,37,8
+    LTEXT           "000",IDC_FRAMES,137,178,64,8
+    LTEXT           "000",IDC_TICKSFRAME,137,188,64,8
+    LTEXT           "000",IDC_TOTALTIME,137,198,64,8
+    LTEXT           "Skeletal elements linked to skin:",IDC_STATIC,29,95,120,
+                    8
+    LTEXT           "Total # of links to skin:",IDC_STATIC,62,108,87,8
+    LTEXT           "000",IDC_LINKEDBONES,160,95,41,8
+    LTEXT           "000",IDC_TOTALLINKS,160,108,41,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PANEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_OPTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_SCENE_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 237
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_LIBDESCRIPTION      "ActorEt Exporter"
+    IDS_CATEGORY            "Eyedentity"
+    IDS_CLASS_NAME          "ActorEt"
+    IDS_PARAMS              "Parameters"
+    IDS_SPIN                "Spin"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

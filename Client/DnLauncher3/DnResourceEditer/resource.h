@@ -1,0 +1,126 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by DnResourceEditer.rc
+//
+#define IDM_ABOUTBOX                    0x0010
+#define IDD_ABOUTBOX                    100
+#define IDS_ABOUTBOX                    101
+#define IDD_DNRESOURCEEDITER_DIALOG     102
+#define IDD_DNEDITLAUNCHERDLG           103
+#define IDR_MAINFRAME                   128
+#define IDR_MENU_MODIFY                 129
+#define IDD_DIALOG_TEXTMODIFY           130
+#define IDR_MENU_MAIN                   131
+#define IDD_DIALOG_SCALE                132
+#define IDD_DIALOG_CREATECTRL           133
+#define IDD_DIALOG_DYNAMIC_CREATE       134
+#define IDD_DIALOG_HOWTO                135
+#define IDR_ACCELERATOR1                139
+#define IDD_DIALOG_SETRECT              140
+#define IDC_BTN_NEWFILE                 1000
+#define IDC_BTN_LOADFILE                1001
+#define IDC_TREE_CONTROL                1005
+#define IDC_BUTTON_GAMESTART            1013
+#define IDC_BUTTON_QUIT                 1014
+#define IDC_CHECK1                      1015
+#define IDC_CHECK_DIRECTSTART           1015
+#define IDC_PROGRESS1                   1016
+#define IDC_PROGRESS_DOWNLOAD           1016
+#define IDC_STATIC_VER                  1017
+#define IDC_STATIC_LAUNCHER_VER         1017
+#define IDC_STATIC_PIC                  1018
+#define IDC_STATIC_WEBPAGE              1018
+#define IDC_BUTTON1                     1019
+#define IDC_AAA                         1019
+#define IDC_BUTTON_OPTION               1019
+#define IDC_PROGRESS_FILECOUNT          1020
+#define IDC_BUTTON_WINCLOSE             1021
+#define IDC_BUTTON_WINMINIMUM           1022
+#define IDC_BUTTON_SELECT_PARTITION     1023
+#define IDC_BUTTON_START_PATCH          1024
+#define IDC_STATIC_FILECOUNT            1025
+#define IDC_STATIC_FILENAME             1026
+#define IDC_STATIC_TIMELEFT             1027
+#define IDC_STATIC_FILESIZE             1028
+#define IDC_STATIC_DOWNLOAD_PER         1029
+#define IDC_STATIC_DOWNLOAD_STATE       1030
+#define IDC_STATIC_DIRECTSTART_TEXT     1031
+#define IDC_STATIC_SELECT_PARTITION     1032
+#define IDC_STATIC_DIRECTSTART_TEXT4    1034
+#define IDC_STATIC_SELECT_PARTITION_NAME 1034
+#define IDC_STATIC_SELECT_PARTITION_GUIDE 1035
+#define IDC_EDIT_TEXT                   1038
+#define IDC_BUTTON_WEBPAGE              1039
+#define IDC_BUTTON_PROGRESS_DOWNLOAD    1040
+#define IDC_BUTTON_PROGRESS_COUNT       1041
+#define IDC_SLIDER_WIDTH                1042
+#define IDC_SLIDER_HEIGHT               1043
+#define IDC_EDIT_SCALEX                 1044
+#define IDC_EDIT_SCALEY                 1045
+#define IDC_EDIT_RESOURCE_ID            1046
+#define IDC_EDIT_ENUM                   1046
+#define IDC_EDIT_RESOURCE_IMG_NORMAL    1047
+#define IDC_EDIT_ENUM_VALUE             1047
+#define IDC_EDIT_RESOURCE_IMG_CLICK     1048
+#define IDC_EDIT_CTRL_NAME              1048
+#define IDC_EDIT_RESOURCE_IMG_ON        1049
+#define IDC_EDIT_SETRECT_1              1049
+#define IDC_EDIT_RESOURCE_ID5           1050
+#define IDC_EDIT_RESOURCE_TEXTID        1050
+#define IDC_EDIT_SETRECT_2              1050
+#define IDC_EDIT_RESOURCE_NAME          1051
+#define IDC_EDIT_SETRECT_3              1051
+#define IDC_EDIT_SETRECT_4              1052
+#define ID_32771                        32771
+#define ID_MENU_CLICK                   32772
+#define ID_32773                        32773
+#define ID_MENU_MOVE                    32774
+#define ID_32775                        32775
+#define ID_LOAD_IMAGE                   32776
+#define ID_32777                        32777
+#define ID_MENU_TEXTMODIFY              32778
+#define ID_FILE_32779                   32779
+#define ID_FILE_32780                   32780
+#define ID_FILE_32781                   32781
+#define ID_FILE_MAIN_SAVE               32782
+#define ID_FILE_MAIN_LOAD               32783
+#define ID_FILE_MAIN_QUIT               32784
+#define ID_32785                        32785
+#define ID_ABOUT                        32786
+#define ID_32787                        32787
+#define ID_MENU_POS_DEFAULT             32788
+#define ID_32789                        32789
+#define ID_MENU_SCALE                   32790
+#define ID_32791                        32791
+#define ID_MENU_RESOURCE_RESET          32792
+#define ID_32793                        32793
+#define ID_CREATE_BTN                   32794
+#define ID_32795                        32795
+#define ID_32796                        32796
+#define ID_CREATE_STATICTEXT            32797
+#define ID_CREATE_PROGRESS              32798
+#define ID_32799                        32799
+#define ID_CREATE_CHECKBOX              32800
+#define ID_32801                        32801
+#define ID_MENU_CTRLMODIFY              32802
+#define ID_FILE_32803                   32803
+#define ID_FILE_NEWFILE                 32804
+#define ID_32805                        32805
+#define ID_MENU_DELETE                  32806
+#define ID_32812                        32812
+#define ID_MENU_SETRECT                 32813
+#define ID_32814                        32814
+#define ID_CONTROL_LOCK                 32815
+#define ID_32816                        32816
+#define ID_CONTROL_UNLOCK               32817
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        141
+#define _APS_NEXT_COMMAND_VALUE         32818
+#define _APS_NEXT_CONTROL_VALUE         1050
+#define _APS_NEXT_SYMED_VALUE           104
+#endif
+#endif

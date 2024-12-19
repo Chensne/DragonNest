@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Public Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Private Header Files">
+      <UniqueIdentifier>{d26f1626-2694-4ce5-83a5-5b6cf84cbf5f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\gmock-cardinalities.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gmock-internal-utils.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gmock-matchers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gmock-printers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gmock-spec-builders.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gmock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(GTestDir)\src\gtest-all.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\gmock\gmock-actions.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-cardinalities.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-generated-actions.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-generated-function-mockers.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-generated-matchers.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-generated-nice-strict.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-matchers.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-printers.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock-spec-builders.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\gmock.h">
+      <Filter>Public Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\internal\gmock-generated-internal-utils.h">
+      <Filter>Private Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\internal\gmock-internal-utils.h">
+      <Filter>Private Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\gmock\internal\gmock-port.h">
+      <Filter>Private Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

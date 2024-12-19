@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>彩虹帮助</name>
+	<shortname>帮助</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.1.0</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2008</copyright>
+	<description>您问，我答</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>		
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://chhelp.sdrs.sdo.com:8080/sdchweb/default.asp?co=1&amp;tp=3&amp;ut=1&amp;id=&amp;gd=&amp;gm=$gid$&amp;ar=$gaid$&amp;sv=$gsid$&amp;rl=$gnick$&amp;ck=$srcparam$" loginMode="SDO" width="448" height="475" clientwidth="455" clientheight="455" xul="WebBrowser.xml" />
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<guid>{9C170E6E-8D62-4FC7-B785-251ACA2BCD90}</guid>
+</gadget>

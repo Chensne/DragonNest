@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="PopupWidgetMessageDialog" type="TWidgetPopupMsgManager" caption="" left="270" top="80" clientwidth="250" clientheight="160" 
+		 skin="bg_igwNormaldialog" allowResize="0" candock="false" visible="false" backgroundskinnamea="bg_widgetformbg" 
+		 margin="(33, 40, 33, 13)" floatbuttonstatus="0" candrag="false" contenttransparent="false">
+		<button left="290" top="8" width="24" height="24" skin="btn_close_24x24" name="btnFormClose" onclick="btnFormCloseOnClick(Self);" 
+			showhint="true" hint="关闭"  canactivate="false"/>
+		<label left="94" top="8" width="150" height="25" name="labelcaption" alignment="taCenter" layout="llCenter" canactivate="false" 
+			onclick="" cannotifydrag="true" ellipsisposition="epWordEllipsis" textcolor="$FFE8EBCB" fontname="CaptionFontYH" 
+			shadowenabled="true" shadowoffsetx="1" shadowoffsety="1" shadowtextcolor="$FF000000" shadowblur="50" shadowreplay="0" shadowoutline="false" 
+			fontmargin="3" bordercolora="$FFFF0000"/>
+		<label left="6" top="34" width="280" height="149" skin="" name="labelText" caption="text" alignment="taCenter" 
+			layout="llCenter" canactivate="false" onclick="" textcolor="$FFd9d9b6" ellipsisposition="epWordEllipsis" fontname="NormalFontYH" 
+			wordwrap="true"  cannotifydrag="true" shadowenabled="true" shadowoffsetx="1" shadowoffsety="1" shadowtextcolor="$FF000000" 
+			shadowblur="50" shadowreplay="0" shadowoutline="false" fontmargin="3" bordercolora="$FFFF0000"/>
+	</view>
+	<script src="DefaultPopupMsgDiagle.js"/>
+</xul>

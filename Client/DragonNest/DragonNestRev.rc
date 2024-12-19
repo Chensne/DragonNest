@@ -1,0 +1,32 @@
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION 1, 0, 0, 1150
+PRODUCTVERSION 1, 0, 0, 12
+FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+FILEFLAGS 0x1L
+#else
+FILEFLAGS 0x0L
+#endif
+FILEOS 0x4L
+FILETYPE 0x1L
+FILESUBTYPE 0x0L
+BEGIN
+BLOCK "StringFileInfo"
+BEGIN
+BLOCK "041204b0"
+BEGIN
+VALUE "CompanyName", "Eyedentity Games"
+VALUE "FileDescription", "DragonNest"
+VALUE "FileVersion", "1, 0, 0, 19"
+VALUE "InternalName", "DragonNest"
+VALUE "LegalCopyright", "Copyright (C) Eyedentity Games, Inc. 2007 - 2016. All Right Reserved"
+VALUE "OriginalFilename", "DragonNest.exe"
+VALUE "ProductName", "DragonNest"
+VALUE "ProductVersion", "1, 0, 0, 19"
+END
+END
+BLOCK "VarFileInfo"
+BEGIN
+VALUE "Translation", 0x412, 1200
+END
+END

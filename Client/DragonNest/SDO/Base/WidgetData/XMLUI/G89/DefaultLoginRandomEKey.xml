@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.LZG.xml"/>
+	<view name="igwUserLoginEKeyDialog" type="DefaultLoginRandomECardForm" caption="" left="0" top="0" width="493" height="347" skin="frm_bm_login" allowResize="0" candock="false" miniheight="215" miniwidth="266" floatbuttonstatus="0" backgroundskinname="" margin="(8,30,10,12)">
+		<label left="7" top="167" width="240" height="41" name="lblbgBlackBlock" skin="bg_igwNormalLoginBackground_black" cannotifydrag="true" canactivate="false"/>
+		<label left="12" top="8" width="150" height="20" name="lableCaption" fontname="CaptionFont" caption="" alignment="taLeftJustify" canactivate="true" onclick="" cannotifydrag="true" shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="3" layout="llCenter" shadowoutline="true" fontmargin="5"/>
+		<button type="" left="457" top="13" width="20" height="21" skin="btn_Close" name="btnigwUserLoginEKeyFormClose" onclick="btnigwUserLoginEKeyFormCloseClick(Self);" showhint="true" hint="关闭" canactivate="false"/>
+		<label left="62" top="111" width="50" height="28" skin="bg_grayedit" name="lableEKPos01" caption="第5位" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FFE17103" fontname="CaptionFont"/>
+		<label left="132" top="111" width="50" height="28" skin="bg_grayedit" name="lableEKPos02" caption="第1位" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FFE17103" fontname="CaptionFont"/>
+		<label left="204" top="111" width="50" height="28" skin="bg_grayedit" name="lableEKPos03" caption="第6位" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FFE17103" fontname="CaptionFont"/>
+		<label left="273" top="111" width="50" height="28" skin="bg_grayedit" name="lableEKPos04" caption="第4位" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FFE17103" fontname="CaptionFont"/>
+		<numberedit left="64" top="140" width="50" height="21" skin="" name="edtNum01" text="" caretcolor="$FF6C8743" textrect="(21,1,32,19)" textcolor="$FFD9D9B6" maxlength="1"/>
+		<numberedit left="134" top="140" width="50" height="21" skin="" name="edtNum02" text="" caretcolor="$FF6C8743" textrect="(21,1,32,19)" textcolor="$FFD9D9B6" maxlength="1"/>
+		<numberedit left="203" top="139" width="50" height="21" skin="" name="edtNum03" text="" caretcolor="$FF6C8743" textrect="(21,1,32,19)" textcolor="$FFD9D9B6" maxlength="1"/>
+		<numberedit left="273" top="140" width="50" height="21" skin="" name="edtNum04" text="" caretcolor="$FF6C8743" textrect="(21,1,32,19)" textcolor="$FFD9D9B6" maxlength="1"/>
+		<button type="" left="114" top="293" width="102" height="36" icon="btn__A8_bk" name="btnOK" fontname="Normal_lbl_btn"  caption="登 录" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FFB0B166" downtextoffsetx="2" downtextoffsety="2"/>
+		<button type="" left="253" top="293" width="103" height="36" icon="btn__A8_bk" name="btnCancel" fontname="Normal_lbl_btn"  caption="返 回" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FFB0B166" downtextoffsetx="2" downtextoffsety="2"/>
+		<label left="50" top="179" width="115" height="20" name="lblSafeHintText" layout="llCenter" caption="" ellipsisposition="epWordEllipsis" textcolor="$FF2765B3" bordercolora="$FFFF0000"/>
+		<label left="106" top="181" width="145" height="20" name="lblSafeHintText002" layout="llCenter" caption="" ellipsisposition="epWordEllipsis" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+	</view>
+	<script src="DefaultLoginRandomEKey.js"/>
+</xul>

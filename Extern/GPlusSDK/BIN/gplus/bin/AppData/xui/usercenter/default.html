@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+     <link href="../skin/default/css/index.css" rel="stylesheet" type="text/css" />
+     <link href="../skin/default/css/colorbox.css" media="screen" rel="stylesheet" type="text/css" />
+      <script src="../scripts/jquery-1.4.2.min.js" type="text/javascript"  language="javascript"></script>
+       <script src="../scripts/jquery.md5.js" type="text/javascript"  language="javascript"></script>
+      
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.colorbox.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/core.js"></script>
+   
+   
+    
+     
+    <script language="javascript" type="text/javascript" src="../scripts/Gplus.publicrequest.js"></script>
+     <script language="javascript" type="text/javascript" src="Gplus.api.js"></script>
+    <script language="javascript" type="text/javascript" src="Gplus.interaction.js"></script>
+      <script language="javascript" type="text/javascript" src="Gplus.usermessage.js"></script>
+      <script language="javascript" type="text/javascript" src="Gplus.mainpage.js"></script>
+      <script language="javascript" type="text/javascript" src="Gplus.oftenname.js"></script>
+      <script language="javascript" type="text/javascript" src="Gplus.uservip.js"></script>
+      <script language="javascript" type="text/javascript" src="Gplus.userset.js"></script>
+      
+      
+      
+     
+      
+    
+     <script  src="../scripts/test.js" type="text/javascript"  language="javascript"></script>
+    
+       <script type="text/javascript" language="javascript">
+           $(function() {
+           document.onselectstart = new Function("event.returnValue=false;");
+               //  ExternalIA.GoUserLogin();
+               var url = getUrlParam("url");
+
+               if (url == null || typeof (url) == "undefined") {
+
+                   var loadpage = getUrlParam("load");
+
+                   if (loadpage == null || typeof (loadpage) == "undefined" || loadpage=="") {
+
+                       ExternalIA.pageOnLoadNotify("main");
+                   }
+                   else if (loadpage == "vip") {
+                       ExternalIA.pageOnLoadNotify("vip");
+                   }
+                   else if (loadpage == "message") {
+                       ExternalIA.pageOnLoadNotify("message");
+                   }
+                   else if (loadpage == "feedback") {
+                       ExternalIA.pageOnLoadNotify("feedback");
+                   }
+                   else if (loadpage == "seting") {
+                       ExternalIA.pageOnLoadNotify("seting");
+                   } //
+                   else if (loadpage == "usercenter") {
+                       ExternalIA.pageOnLoadNotify("usercenter");
+                   }
+                   else if (loadpage == "help") {
+                   ExternalIA.pageOnLoadNotify("help");
+                   }
+                   else if (loadpage == "shop") {
+                   ExternalIA.pageOnLoadNotify("shop");
+                   }
+                   $(window).unload(function() {
+                       if (Setting.currentIsGset()) {
+                           ExternalIA.UpdateUserSettings();
+                       }
+                   });
+
+                 
+               } else {
+                   window.location = url;
+               }
+
+           });
+           $(document).keyup(function(event) {
+//               if (event.keyCode == 13) {
+//                   if (Setting.currentIsNameReg()) {
+//                       $("a[type=sure]").click();
+//                   }
+//               }
+
+           });
+          
+    </script>
+</head>
+
+
+<body scroll="no" oncontextmenu="return false" style="border:0px">
+<div id="mainpage" class="myInfo">
+<!--top-->
+<!--<div id="bannerPlaceHolder" class="top">
+ <ul>
+	 
+	   <li><a href="#" class="on" title="个人中心"><span class="l1"></span><div>请注册虚名</div></a></li><li class="line"></li><li><a href="#" title="消息"><span class="l2"></span>0</a></li><li class="line"></li><li><a href="#" title="VIP等级"><span class="l3"></span>VIP0</a></li>	   	    
+	</ul>
+    <a href="#" class="Feedback" title="设置"><span class="l4"></span></a><span class="linea"></span><a href="#" title="反馈" class="Setup"><span class="l5"></span></a><span class="linea"></span>	
+</div>-->
+<!--top结束-->
+<!--midlist-->
+ <div id="midlist" class="midlist">
+ </div> 
+ <!--midlist结束-->
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

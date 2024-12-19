@@ -1,0 +1,14 @@
+#include "StdAfx.h"
+#include "EtSkyBoxRTT.h"
+
+#ifdef _DEBUG
+#define new new(_NORMAL_BLOCK,__FILE__,__LINE__)
+#endif
+
+CEtSkyBoxRTT::CEtSkyBoxRTT(void)
+{
+}
+
+CEtSkyBoxRTT::~CEtSkyBoxRTT(void)
+{
+}

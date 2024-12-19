@@ -1,0 +1,13 @@
+1. 단일 파일의 생성
+ - MakeTorrent 어플을 이용해서 Patch0000XXXX.pak.torrent 파일을 생성 pak파일과 같은 경로에 위치한다. 
+   이 때 WebSeed 값은 http 풀 패스를 넣어준다. 예) http://dragonnest.nefficient.co.kr/Patch0000XXXX/Patch0000XXXX.pak
+
+2. 분할 파일의 생성
+ - MakeTorrent 어플을 이용해서 pak.part.torrent 파일을 생성 분할 파일과 같은 경로에 위치한다.
+   1) 분할 파일들만 Patch0000XXXX 폴더에 위치한다. (다른 파일은 잠시 옮김)
+   2) MakeTorrent 어플에서 폴더 선택으로 Patch0000XXXX 폴더를 선택
+   3) WebSeed 값은 Patch0000XXXX폴더의 Root 폴더를 가리키도록 한다. 
+      예) http://dragonnest.nefficient.co.kr/Patch0000XXXX 폴더일 경우 http://dragonnest.nefficient.co.kr
+   4) 생성된 torrent 파일의 이름을 Patch0000XXXX.pak.part.torrent 폴 변경후 분할 파일과 같은 곳에 위치한다.
+   5) 옮겨두었던 다른 파일들을 제자리로 이동
+   

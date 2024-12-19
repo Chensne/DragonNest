@@ -1,0 +1,6 @@
+#ifndef __CLIENT_H_632FA8F9_5C07_444b_B9DA_E30B3C5C10C0__
+#define __CLIENT_H_632FA8F9_5C07_444b_B9DA_E30B3C5C10C0__
+
+#include "resource.h"
+
+#endif

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.main.icon" >
+        <windowframe id="frame.tips" rect="0,00,163,27"  visible="false" image-id="">
+            <button id="tips.up" rect="40,0,0,0" visible="false" image-id="img/uimain/gplus_newmessagetipup"/>
+            <button id="tips.msg" rect="0,0,163,27" visible="true" text-postion="5,5" text-color="#ffffc000" image-id="img/uimain/gplus_newmessagetip,img/uimain/gplus_newmessagetip,img/uimain/gplus_newmessagetip,0"  enable-skin="false"/>
+            <button id="tips.down" rect="40,30,0,0" visible="false" image-id="img/uimain/gplus_newmessagetipdown"/>
+        </windowframe>
+        <windowframe id="frame.icon" rect="0,0,106,64"  visible="true" image-id="img/uimain/gplus" drag="true">
+            <button id="icon.msg" rect="65,10,25,25" visible="false" text-weight="600" text-alignh="middle" text-alignv="middle" text-postion="0,-1" text-height="12" image-id="img/uimain/gplus_message,img/uimain/gplus_message,img/uimain/gplus_message,0"  enable-skin="false"/>
+            <button id="icon.vip" rect="55,40,0,0" visible="false" text-font="宋体" text-height="9" text-postion="7,0" image-id="img/uimain/gplus_message,img/uimain/gplus_message,img/uimain/gplus_message,0"  enable-skin="false"/>
+        </windowframe>
+    </window>
+</ui>

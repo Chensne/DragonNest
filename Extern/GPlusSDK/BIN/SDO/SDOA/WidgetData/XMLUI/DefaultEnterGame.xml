@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.QuanFuTong.xml"/>	
+	<view name="igwEnterGameDialog" type="DefaultEnterGameForm" caption="" 
+              left="270" top="80" width="297" height="180" 
+              skin="bg_normalform" candock="false" 
+              miniheight="215" miniwidth="266" floatbuttonstatus="0"  backgroundskinname=""  margin="(8, 30, 10, 12)"
+              onshow="OnigwEnterGameDialogShow(Self);"  >
+
+<button type="" left="275" top="10" width="17" height="17" 
+skin="btn_bigclose_17x17" name="btnigwEnterGameDialogFormClose" onclick="btnigwEnterGameDialogFormCloseClick(Self);" 
+showhint="true" hint="关闭" canactivate="false" />
+		<label left="12" top="10" width="72" height="20" name="formLogo" fontname="CaptionFont" textcolor="$FFFFFFFF" caption="圈圈" canactivate="false" cannotifydrag="true" />
+		<label left="35" top="50" width="17" height="17" name="ico_kf" skina="bg_igwNormalLoginBackground_black" icon=".\Images\kf.png" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"  iconpressoffsetx="0" iconpressoffsety="0" visiblea="false"/>
+		<label left="95" top="50" width="17" height="17" name="ico_cz" skina="bg_igwNormalLoginBackground_black" icon=".\Images\cz.png" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"  iconpressoffsetx="0" iconpressoffsety="0" visiblea="false"/>
+		<label left="155" top="50" width="17" height="17" name="ico_jf" skina="bg_igwNormalLoginBackground_black" icon=".\Images\jf.png" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"  iconpressoffsetx="0" iconpressoffsety="0" visiblea="false"/>
+		<label left="215" top="50" width="17" height="17" name="ico_fh" skina="bg_igwNormalLoginBackground_black" icon=".\Images\fh.png" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"  iconpressoffsetx="0" iconpressoffsety="0" visiblea="false"/>		
+
+		<label left="40" top="50" width="40" height="21" name="lbl_kf" skin="lbl_normalurl" caption="客服" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="OnbtnKFClick(Self);" cannotifydrag="true" textcolor="$FFFF0000" bordercolora="$FFFF0000"/>
+		<label left="100" top="50" width="40" height="21" name="lbl_cz" skin="lbl_normalurl" caption="充值" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="OnbtnCZClick(Self);" cannotifydrag="true" textcolor="$FFFF0000" bordercolora="$FFFF0000"/>
+		<label left="160" top="50" width="40" height="21" name="lbl_jf" skin="lbl_normalurl" caption="积分" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="OnbtnJFClick(Self);" cannotifydrag="true" textcolor="$FFFF0000" bordercolora="$FFFF0000"/>
+		<label left="220" top="50" width="40" height="21" name="lbl_fh" skin="lbl_normalurl" caption="分红" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="OnbtnFHClick(Self);" cannotifydrag="true" textcolor="$FFFF0000" bordercolora="$FFFF0000"/>
+		<label left="25" top="75" width="250" height="42" name="lableDesc" wordwrap="true" caption="游戏中可能无法显示圈圈界面，可以现在通过上方入口使用圈圈提供的服务。" alignment="taLeftJustify" layout="llCenter" canactivate="false" cannotifydrag="true" textcolor="$FF000000" bordercolora="$FF000000"/>
+		<button left="180" top="132" width="70" height="20" icon="btn_normal_63x20" name="btnEntergame" caption="进入游戏" alignment="taCenter" layout="llCenter" canactivate="false" textcolor="$FF000000"  downtextoffsetx="2" downtextoffsety="2"/>
+	</view>
+	<script src="DefaultEnterGame.js"/>
+</xul>

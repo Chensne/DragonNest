@@ -1,0 +1,65 @@
+//
+// ResourceKOR.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+/////////////////////////////////////////////////////////////////////////////
+
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	STR_DRAGONNEST_LAUNCHER				"DragonNest Launcher"
+	STR_ALEADY_RUN						"The program is already running."
+	STR_LAUNCHER_INIT_FAILED			"Launcher initialization failed. (E:%d)"
+	STR_CLIENT_ALEADY_RUN				"Dragon Nest is already running."
+	STR_DX_LOW_VER						"DirectX version (%s) too low.\n\nPlease install the latest version of DirectX to run the game smoothly."
+	STR_LOAD_PATCHCONFIGLIST_FAILED		"Unable to read patch config list."
+	STR_CONFIRM_PATCH_VER				"Checking patch version."
+	STR_CONFIRM_PATCH_VER_FAILED		"Patch version check failed."
+	STR_PATCH_DATA_DOWNLOADING			"Downloading patch data."
+	STR_PATCH_DATA_DOWNLOADING_FAILED	"Patch data download failed."
+	STR_PATCH_MD5_CHECK					"Examining patch data."
+	STR_PATCH_MD5_CHECK_FAILED			"Patch data examination failed."
+	STR_PATCH_APPLY_PAK_FILE			"Installing patch data."
+	STR_PATCH_APPLY_PAK_FILE_FAILED		"Patch data installation failed."
+	STR_PATCH_NEED_FULL_VERSION			"Client data error, please reinstall the client."
+	STR_PATCH_COMPLETE					"Patch complete."
+	STR_PATCH_FAILED					"Patch failed."
+	STR_PATCH_TERMINATE					"Patch canceled."
+	STR_DELETE_FILE_FAIL				"File deletion failed. Please restart the launcher."
+	STR_FILE_COPY_FAIL					"File copy failed."
+	STR_PATCH_STATE_LIST_NOT_READ		"Unable to read patch status list."
+	STR_LAUNCHER_PATCH_FAIL				"Launcher patch failed."
+	STR_LAUNCHER_EXIT					"Do you want to close the client?"
+	STR_PATCH_CANCEL					"Do you want to cancel the patch?"
+	STR_LOW								"Low"
+	STR_MID								"Normal"
+	STR_HIGH							"High"
+	STR_HIGHST							"Highest"
+	STR_DLG_FILENAME					"File Name"
+	STR_DLG_TIME_HOUR_MIN_SEC			"Time Remaining: %d hr %d min %d sec"
+	STR_DLG_TIME_MIN_SEC				"Time Remaining: %d min %d sec"
+	STR_DLG_TIME_SEC					"Time Remaining: %d sec"
+	STR_DLG_DOWNLOAD_TIME_LEFT			"Time Remaining"
+	STR_DLG_FILE_SIZE					"File Size"
+	STR_DLG_DRAGON_NEST					"Dragon Nest"
+	STR_OPTION_WINDOWS_MODE				"Window Mode"
+	STR_OPTION_VSYNC_MODE				"V-Sync"
+	STR_OPTION_GAME_OPTION				"Game Options"
+	STR_OPTION_RESOLUTION				"Resolution"
+	STR_OPTION_APPLY					"Apply"
+	STR_OPTION_CANCEL					"Cancel"
+	STR_OPTION_GRAPHIC_QUALITY			"Graphics Quality"
+	STR_OPTION_TEXTURE_QUALITY			"Texture Quality"
+	STR_AFTER_UPDATE_ATUOSTART			"Start game after patching."
+	STR_UPDATE_REGISTRE					"Path registered in registry."
+	STR_UPDATE_CHANGE_PATH				"Path changed in registry."
+	STR_WARNNING_AVAILABLE_MEMORY		"Your PC has insufficient available memory.\nTo run Dragon Nest properly, we recommend having at least 1GB of free RAM.\nAttempting to run the game with less available memory may cause issues."
+	STR_LAUNCHER_INITIALIZE				"DragonNest Launcher Initialize"
+END

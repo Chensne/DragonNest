@@ -1,0 +1,850 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\EtUITool.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\EtUITool.ico"
+IDR_EtUIToolTYPE        ICON                    "res\\EtUIToolDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_ADOBETABITEM        BITMAP                  "res\\AdobeTab.bmp"
+IDB_LAYOUT_TREE         BITMAP                  "res\\bitmap2.bmp"
+IDB_TEMPLATE            BITMAP                  "res\\bmp00001.bmp"
+IDB_LAYER               BITMAP                  "res\\layout_t.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_UI_NEW
+    BUTTON      ID_UI_OPEN
+    BUTTON      ID_UI_SAVE
+    SEPARATOR
+    BUTTON      ID_FORMAT_SETFONT
+    BUTTON      ID_FORMAT_TABORDER
+    BUTTON      ID_FORMAT_INITSTATE
+    SEPARATOR
+    BUTTON      ID_ALLIGN_LEFT
+    BUTTON      ID_ALLIGN_CENTER
+    BUTTON      ID_ALLIGN_RIGHT
+    SEPARATOR
+    BUTTON      ID_ALLIGN_TOP
+    BUTTON      ID_ALLIGN_MIDDLE
+    BUTTON      ID_ALLIGN_BOTTOM
+    SEPARATOR
+    BUTTON      ID_ALLIGN_HORIZONTAL
+    BUTTON      ID_ALLIGN_VERTICAL
+    SEPARATOR
+    BUTTON      ID_MAKESAMESIZE_WIDTH
+    BUTTON      ID_MAKESAMESIZE_HEIGHT
+    BUTTON      ID_MAKESAMESIZE_BOTH
+    SEPARATOR
+    BUTTON      ID_FORMAT_MAKESAMEPROPERTY
+    SEPARATOR
+    BUTTON      ID_CENTERINDIALOG_VERTICAL
+    BUTTON      ID_CENTERINDIALOG_HORIZONTAL
+    SEPARATOR
+    BUTTON      ID_VIEW_TEMPLATE_ON_LAYOUTVIEW
+    BUTTON      ID_VIEW_CROSSHAIR
+    SEPARATOR
+    BUTTON      ID_DEL_NOTUSETEMPLATE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_UI_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_UI_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Save\tCtrl+S",               ID_UI_SAVE
+        MENUITEM "Save &As...",                 ID_UI_SAVE_AS
+        MENUITEM "Save As &Dialog Info",        ID_FILE_SAVE_DIALOG_INFO
+        MENUITEM "Save All &Template",          ID_FILE_SAVEALLTEMPLATE
+        MENUITEM SEPARATOR
+        MENUITEM "Save Custom UI",              ID_SAVE_CUSTOMUI
+        MENUITEM "Save All UI",                 ID_SAVE_ALLUI
+        MENUITEM SEPARATOR
+        MENUITEM "Create &INI File",            ID_FILE_CREATE_INI_FILE, CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "Reload &XML",                 ID_FILE_LOAD_XML
+        MENUITEM "Set &Property Folder...",     ID_FILE_SETPROPERTYFOLDER
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "&Delete\tDel",                ID_EDIT_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECTALL
+        MENUITEM SEPARATOR
+        MENUITEM "Delete Dialog Texture",       ID_EDIT_DELETEDIALOGTEXTURE
+        MENUITEM SEPARATOR
+        MENUITEM "Del NotUseTemplate-Controls", ID_DEL_NOTUSETEMPLATE
+    END
+    POPUP "&Format"
+    BEGIN
+        POPUP "&Allign"
+        BEGIN
+            MENUITEM "&Left",                       ID_ALLIGN_LEFT
+            MENUITEM "&Center",                     ID_ALLIGN_CENTER
+            MENUITEM "&Right",                      ID_ALLIGN_RIGHT
+            MENUITEM SEPARATOR
+            MENUITEM "&Top",                        ID_ALLIGN_TOP
+            MENUITEM "&Middle",                     ID_ALLIGN_MIDDLE
+            MENUITEM "&Bottom",                     ID_ALLIGN_BOTTOM
+            MENUITEM SEPARATOR
+            MENUITEM "&Horizontal",                 ID_ALLIGN_HORIZONTAL
+            MENUITEM "&Vertical",                   ID_ALLIGN_VERTICAL
+        END
+        POPUP "&Make Same Size"
+        BEGIN
+            MENUITEM "&Width",                      ID_MAKESAMESIZE_WIDTH
+            MENUITEM "&Height",                     ID_MAKESAMESIZE_HEIGHT
+            MENUITEM "&Both",                       ID_MAKESAMESIZE_BOTH
+        END
+        POPUP "&Center in Dialog"
+        BEGIN
+            MENUITEM "&Vertical",                   ID_CENTERINDIALOG_VERTICAL
+            MENUITEM "&Horizontal",                 ID_CENTERINDIALOG_HORIZONTAL
+        END
+        MENUITEM "Make Same Property",          ID_FORMAT_MAKESAMEPROPERTY
+        MENUITEM "&Tab Order\tCtrl+D",          ID_FORMAT_TABORDER
+        MENUITEM "InitState Mode\tCtrl+E",      ID_FORMAT_INITSTATE
+        MENUITEM SEPARATOR
+        MENUITEM "Set Font",                    ID_FORMAT_SETFONT
+        MENUITEM SEPARATOR
+        MENUITEM "Add CoinTemplates",           32857
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Template On &LayoutView",     ID_VIEW_TEMPLATE_ON_LAYOUTVIEW, CHECKED
+        MENUITEM "View Crosshair",              32859, CHECKED
+        MENUITEM "Wide Screen(1366x768)",       ID_VIEW_WIDESCREEN, CHECKED
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About EtUITool...",          ID_APP_ABOUT
+    END
+END
+
+IDR_CONTEXT_MENU MENU 
+BEGIN
+    POPUP "Template"
+    BEGIN
+        MENUITEM "Add Template",                ID_TEMPLATE_ADDTEMPLATE
+        MENUITEM "Add Templates",               ID_TEMPLATE_ADDTEMPLATES
+    END
+    POPUP "Element"
+    BEGIN
+        MENUITEM "Add Element",                 ID_ELEMENT_ADDELEMENT
+        MENUITEM "Del Element",                 ID_ELEMENT_DELELEMENT
+        MENUITEM "Copy Template",               ID_ELEMENT_COPYTEMPLATE
+        MENUITEM "Save Template Texture",       32888
+        MENUITEM "SaveUI used this Template",   ID_ELEMENT_SAVEUI_USEDTEMPLATE
+    END
+    POPUP "LayerRoot"
+    BEGIN
+        MENUITEM "Clear Layers",                ID_LAYER_CLEAR_ALL
+    END
+    POPUP "Layer"
+    BEGIN
+        MENUITEM "Clear",                       ID_LAYER_CLEAR
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "D",            ID_ALLIGN_BOTTOM,       VIRTKEY, NOINVERT
+    "W",            ID_ALLIGN_CENTER,       VIRTKEY, NOINVERT
+    "F",            ID_ALLIGN_HORIZONTAL,   VIRTKEY, NOINVERT
+    "Q",            ID_ALLIGN_LEFT,         VIRTKEY, NOINVERT
+    "S",            ID_ALLIGN_MIDDLE,       VIRTKEY, NOINVERT
+    "E",            ID_ALLIGN_RIGHT,        VIRTKEY, NOINVERT
+    "A",            ID_ALLIGN_TOP,          VIRTKEY, NOINVERT
+    "R",            ID_ALLIGN_VERTICAL,     VIRTKEY, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_DELETE,         VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "A",            ID_EDIT_SELECTALL,      VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "B",            ID_FORMAT_MAKESAMEPROPERTY, VIRTKEY, CONTROL, NOINVERT
+    "D",            ID_FORMAT_TABORDER,     VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "N",            ID_UI_NEW,              VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_UI_OPEN,             VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_UI_SAVE,             VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_VIEW_CROSSHAIR,      VIRTKEY, NOINVERT
+    "E",            ID_FORMAT_INITSTATE,    VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About EtUITool"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "EtUITool Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_DUMMYVIEW DIALOGEX 0, 0, 8, 10
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_LAYOUTVIEW DIALOGEX 0, 0, 8, 10
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_TEMPLATEVIEW DIALOGEX 0, 0, 8, 10
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_LAYOUTPANEVIEW DIALOGEX 0, 0, 84, 95
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LAYOUT_TREE,"SysTreeView32",WS_TABSTOP,7,7,66,76
+END
+
+IDD_TEMPLATEPROPERTYPANEVIEW DIALOGEX 0, 0, 72, 80
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_TEMPLATEPANEVIEW DIALOGEX 0, 0, 90, 103
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_TEMPLATE_TREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | WS_TABSTOP,7,7,75,86
+END
+
+IDD_CONTROLPROPERTYPANEVIEW DIALOGEX 0, 0, 68, 81
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+END
+
+IDD_TEMPLATE DIALOGEX 0, 0, 223, 63
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "TemplateName"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_TEMPLATE_NAME,78,13,130,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,55,36,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,111,36,50,14
+    LTEXT           "Template Name",IDC_STATIC,17,15,56,16
+END
+
+IDD_PROPERTIESDLG DIALOGEX 0, 0, 357, 201
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,32,34,267,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,31,133,267,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON1,303,35,20,12
+    PUSHBUTTON      "...",IDC_BUTTON2,303,85,20,13
+    EDITTEXT        IDC_EDIT4,32,84,267,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON3,303,134,20,13
+    DEFPUSHBUTTON   "OK",IDOK,222,166,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,282,165,50,14
+    GROUPBOX        "Shader Directory",IDC_STATIC,17,17,321,43
+    GROUPBOX        "Resource Directory",IDC_STATIC,17,67,321,43
+    GROUPBOX        "UI Template Directory",IDC_STATIC,17,116,321,43
+END
+
+IDD_SCROLLBAR_SELECT DIALOGEX 0, 0, 186, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ScrollBar Select"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,39,39,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,39,50,14
+    COMBOBOX        IDC_COMBO1,27,18,134,67,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_STRING_SELECT DIALOGEX 0, 0, 367, 246
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "String Select"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,257,225,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,310,225,50,14
+    CONTROL         "",IDC_LIST_STRING,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,353,206
+    EDITTEXT        IDC_EDIT_FIND,7,223,160,16,ES_AUTOHSCROLL
+    PUSHBUTTON      "Find",IDC_BUTTON_FIND,170,223,42,16
+END
+
+IDD_HOTKEY DIALOGEX 0, 0, 186, 65
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hotkey"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,37,44,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,44,50,14
+    COMBOBOX        IDC_HOTKEY_COMBO,40,18,103,187,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_CUSTOM_SELECT DIALOGEX 0, 0, 186, 65
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Custom Control Select"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,37,44,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,44,50,14
+    COMBOBOX        IDC_CUSTOM_COMBO,40,18,103,187,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_FONTSET_SELECT DIALOGEX 0, 0, 402, 241
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FontSet Select"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,293,214,49,20
+    PUSHBUTTON      "Cancel",IDCANCEL,346,214,49,20
+    PUSHBUTTON      "Delete",IDC_DELETE,59,7,49,20
+    PUSHBUTTON      "Add",IDC_ADD,7,7,49,20
+    CONTROL         "",IDC_FONTLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,32,367,175
+    PUSHBUTTON      "Modify",IDC_MODIFY,111,7,49,20
+    PUSHBUTTON      "Save",IDC_SAVE,59,214,49,20
+    PUSHBUTTON      "Load",IDC_LOAD,7,214,49,20
+    PUSHBUTTON      "Save As...",IDC_SAVE_AS,111,214,49,20
+    PUSHBUTTON      "Duplicated Font Name",IDC_SAME_FONTNAME,183,7,78,20
+    PUSHBUTTON      "Duplicated Font Weight",IDC_SAME_FONTWEIGHT,266,7,85,20
+END
+
+IDD_INTERVAL DIALOGEX 0, 0, 126, 52
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Align Interval?"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,51,8,61,15,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,7,29,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,68,29,50,14
+    LTEXT           "Interval?",IDC_STATIC,16,11,30,11
+END
+
+IDD_TABORDER DIALOGEX 0, 0, 186, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "탭 번호를 직접 입력하세요"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,77,7,47,16,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,33,45,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,45,50,14
+    LTEXT           "Number",IDC_STATIC,55,10,18,11
+    LTEXT           "전체 갯수보다 더 클 경우 최대치로 적용됩니다.",IDC_STATIC,7,28,172,15
+END
+
+IDD_COMPRESSCHECKDLG DIALOGEX 0, 0, 643, 19
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "Not texture compression",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,3,154,12
+END
+
+IDD_DIALOG_LIST DIALOGEX 0, 0, 452, 260
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,335,239,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,395,239,50,14
+    LISTBOX         IDC_LIST1,7,27,438,202,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "List dialog box to convert. When you click OK to start conversion.",IDC_STATIC,7,10,438,10
+END
+
+IDD_LAYERVIEW DIALOGEX 0, 0, 105, 75
+STYLE DS_SETFONT | WS_CHILD
+EXSTYLE WS_EX_ACCEPTFILES
+FONT 9, "굴림", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | WS_BORDER | WS_TABSTOP,1,1,103,74
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "EtUITool.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "EtUITool.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DUMMYVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 1
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 3
+    END
+
+    IDD_LAYOUTVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 1
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 3
+    END
+
+    IDD_TEMPLATEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 1
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 3
+    END
+
+    IDD_LAYOUTPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 77
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_TEMPLATEPROPERTYPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 65
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 73
+    END
+
+    IDD_TEMPLATEPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 83
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_CONTROLPROPERTYPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 61
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_PROPERTIESDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 350
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_SCROLLBAR_SELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_STRING_SELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 360
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+
+    IDD_HOTKEY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_CUSTOM_SELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_FONTSET_SELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 395
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_INTERVAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 118
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 44
+    END
+
+    IDD_TABORDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_COMPRESSCHECKDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 388
+    END
+
+    IDD_DIALOG_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 445
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 253
+    END
+
+    IDD_LAYERVIEW, DIALOG
+    BEGIN
+        RIGHTMARGIN, 104
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "EtUITool\n\nEtUITool\n\n\nEtUITool.Document\nEtUITool.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "EtUITool"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_SAVEALLTEMPLATE "Save All Template"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_SET_BACK_DLG         "Actual dialogue and has nothing to do background layer settings"
+    ID_DEL_BACK_DLG         "Clear Background dialog"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_TEMPLATE_ADDTEMPLATES "It generates a text file template from the template name on it."
+    ID_SAVE_ALL_UI          "Failed to save even if no message box!"
+    ID_SAVE_ALLUI           "저장실패해도 메세지박스 안뜹니다! 주의하세요."
+    ID_DEL_NOTUSETEMPLATE   "사용하지않는 템플릿으로 생성된 컨트롤들을 삭제합니다."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_ELEMENT_COPYTEMPLATE "Copy the contents stored in the template file."
+END
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\EtUITool.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

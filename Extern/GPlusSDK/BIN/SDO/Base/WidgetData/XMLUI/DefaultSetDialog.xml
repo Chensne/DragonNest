@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="igwsetdlg" type="TWidgetSetDialog" left="50" top="50" width="320" height="335" skin="bg_igwNormaldialog" candock="false" docksite="false"  floatbuttonstatus="0"  cachepaintt="false">
+	  	<slider left="140" top="95" width="130" height="14" skin="" name="sliderBlendValue"  staffskinname="btn_sliderstaff_125x6" sliderskinname="btn_slider_10x14" max="100" min="5" thumblength="6" sliderlength="9"/>
+		<slider left="100" top="180" width="130" height="14" skin="" name="sliderHueValue"  staffskinname="btn_sliderstaffH_125x6" sliderskinname="btn_slider_10x14" max="100" min="5" thumblength="6" sliderlength="9"/>
+		<slider left="100" top="200" width="130" height="14" skin="" name="sliderLuminanceValue"  staffskinname="btn_sliderstaffL_125x6" sliderskinname="btn_slider_10x14" max="100" min="5" thumblength="6" sliderlength="9"/>
+	  	<slider left="100" top="220" width="130" height="14" skin="" name="sliderSaturationValue"  staffskinname="btn_sliderstaffS_125x6" sliderskinname="btn_slider_10x14" max="100" min="5" thumblength="6" sliderlength="9"/>
+	  	
+	  	<button name="btntitlelogo" left="5" top="5" width="24" height="24" skin="bg_GearLogo"  cannotifydrag="true"/>
+		<button left="296" top="8" width="17" height="17" skin="btn_close_17x17" name="btnSetFormClose" onclick="btnSetFormCloseOnClick(Self);" showhint="true" hint="关闭" canactivate="false"/>
+		<button left="60" top="308" width="70" height="22" icon="btn_normal_70x22" name="btnOK" caption="确定" alignment="taCenter" layout="llCenter" canactivate="false" onclick="btnOKOnClick(Self)"  iconpressoffsetx="1" iconpressoffsety="1" downtextoffsetx="1" downtextoffsety="1"/>
+		<button left="180" top="308" width="70" height="22" icon="btn_normal_70x22" name="btnCancel" caption="取消" alignment="taCenter" layout="llCenter" canactivate="false" onclick="btnCancelOnClick(Self)" iconpressoffsetx="1" iconpressoffsety="1" downtextoffsetx="1" downtextoffsety="1"/>
+		
+		<button left="5" top="58" width="310" height="1" skin="btn_igwTabLine" name="btnTabBottomLine" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""/>
+		<button left="20" top="39" width="60" height="20" skin="bg_igwNormalTab" name="btnTabUISkin" caption="界面设置" alignment="taCenter" layout="llCenter" canactivate="false" onclick="OnbtnTabUISkinClick(Self);" textcolor="$FF000000"/>
+		<button left="84" top="39" width="60" height="20" skin="bg_igwNormalTab" name="btnTabAudio" caption="音效管理" alignment="taCenter" layout="llCenter" canactivate="false" onclick="OnbtnTabAudioClick(Self);"  textcolor="$FF000000"/>
+		<button left="148" top="39" width="60" height="20" skin="bg_igwNormalTab" name="btnTabSystemSet" caption="系统设置" alignment="taCenter" layout="llCenter" canactivate="false" onclick="OnbtnTabSystemSetClick(Self);" textcolor="$FF000000"/>
+		<button left="212" top="39" width="60" height="20" skin="bg_igwNormalTab" name="btnTabCapScreenSet" caption="截图设置" alignment="taCenter" layout="llCenter" canactivate="false" onclick="OnbtnTabCapScreenSetClick(Self);" textcolor="$FF000000"/>
+		
+		<label left="16" top="8" width="140" height="20" skin="" name="WidgetListTitleWWW" caption="圈圈设置" fontname="CaptionFont" 
+			alignment="taLeftJustify" canactivate="false" cannotifydrag="true"  shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" 
+			shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="0" layout="llCenter" shadowoutline="true" 
+			wordwrap="false" fontmargin="5" ellipsisposition="epEndEllipsis"/>
+		<label left="26" top="95" width="80" height="16" skin="" name="blendcaption" caption="界面透明度：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" abordercolor="$ffff0000" textcolor="$ff000000"/>
+		<label left="101" top="95" width="35" height="16" skin="" name="blendvalue" caption="50%" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true"  alignment="taCenter" bordercolora="$ffff0000" textcolor="$ff000000"/>
+		<label left="26" top="95" width="260" height="100" skin="bg_WidgetTire" name="labelsoundRegion" caption="" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" canactivate="false" visible="false">
+		  <slider left="114" top="30" width="130" height="14" skin="" name="sliderSoundValue"  staffskinname="btn_sliderstaff_125x6" sliderskinname="btn_slider_10x14" max="100" min="5" thumblength="6" sliderlength="9"/>
+		  <slider left="114" top="60" width="130" height="14" skin="" name="sliderEffectValue"  staffskinname="btn_sliderstaff_125x6" sliderskinname="btn_slider_10x14" max="100" min="5" thumblength="6" sliderlength="9"/>		
+			<label left="10" top="-7" width="80" height="16" skin="bg_igwSetFormlblsoundCaption" name="labelsoundCaption" caption="游戏音量设置" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" alignment="taCenter"/>
+			<label left="15" top="30" width="43" height="16" skin="" name="SoundCaption" caption="音乐：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" abordercolor="$ffff0000" textcolor="$ff000000"/>
+			<label left="15" top="60" width="43" height="16" skin="" name="EffectCaption" caption="音效：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" abordercolor="$ffff0000" textcolor="$ff000000"/>
+			<label left="60" top="30" width="50" height="16" skin="" name="SoundValue" caption="0%" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" alignment="taCenter"/>
+			<label left="60" top="60" width="50" height="16" skin="" name="EffectValue" caption="0%" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" alignment="taCenter"/>
+		</label>
+		<label left="26" top="126" width="75" height="20" skin="" name="lblUITheme" caption="界面主题：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000"/>
+		<label left="26" top="151" width="75" height="20" skin="" name="lblUISkin" caption="配色方案：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000"/>
+		<label left="26" top="215" width="260" height="25" skin="" name="lblhintsoundvalueset" caption="提示：以上设置将在开启电台和语聊等有声应用时生效。" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" wordwrap="true" textcolor="$ff000000"/>
+		<label left="46" top="180" width="50" height="20" skin="" name="lblHue" caption="颜色：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000"/>
+		<label left="46" top="200" width="50" height="20" skin="" name="lblLuminance" caption="亮度：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000"/>
+		<label left="46" top="220" width="50" height="20" skin="" name="lblSaturation" caption="饱合度：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000"/>
+		
+		<button left="100" top="126" width="137" height="20" skin="btn_edit_60x32" name="btnThemeName" caption="自适应游戏" alignment="taLeftJustify" textindent="5" layout="llCenter" canactivate="false" onclick="btnThemeNameOnClick(Self);"/>
+		<button left="100" top="151" width="137" height="20" skin="btn_edit_60x32" name="btnSkinName" caption="默认皮肤" alignment="taLeftJustify" textindent="5" layout="llCenter" canactivate="false" onclick="btnSkinNameOnClick(Self);"/>
+		<button left="222" top="128" width="13" height="15" skin="btn_downcomboxbtn_14x16" name="btnThemeDownCombox" caption="" canactivate="false" onclick="btnThemeNameOnClick(Self);"/>
+		<button left="222" top="153" width="13" height="15" skin="btn_downcomboxbtn_14x16" name="btnSkinDownCombox" caption="" canactivate="false" onclick="btnSkinNameOnClick(Self);"/>
+		
+		<button left="100" top="240" width="21" height="21" icon="btn_HLSColorNormal" name="btnHLSColorNormal" caption="" canactivate="false" onclick="OnbtnHLSColorNormalClick(Self);" showhint="true" hint="默认配色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		<button left="122" top="240" width="21" height="21" icon="btn_HLSColor-109_10_-29" name="btnHLSColor01" caption="" canactivate="false" onclick="igwsetdlg.ProSkinColor(-109, 10, -29);" showhint="true" hint="绿色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		<button left="144" top="240" width="21" height="21" icon="btn_HLSColor106_4_-29" name="btnHLSColor02" caption="" canactivate="false" onclick="igwsetdlg.ProSkinColor(106, 4, -29);" showhint="true" hint="紫红色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		<button left="166" top="240" width="21" height="21" icon="btn_HLSColor61_4_-29" name="btnHLSColor03" caption="" canactivate="false" onclick="igwsetdlg.ProSkinColor(61, 4, -29);" showhint="true" hint="紫色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		<button left="188" top="240" width="21" height="21" icon="btn_HLSColor-10_0_27" name="btnHLSColor04" caption="" canactivate="false" onclick="igwsetdlg.ProSkinColor(-10, 0, 27);" showhint="true" hint="天蓝色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		<button left="210" top="240" width="21" height="21" icon="btn_HLSColor150_4_-6" name="btnHLSColor05" caption="" canactivate="false" onclick="igwsetdlg.ProSkinColor(150, 4, -6);" showhint="true" hint="红色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		<button left="232" top="240" width="21" height="21" icon="btn_HLSColor-159_8_-40" name="btnHLSColor06" caption="" canactivate="false" onclick="igwsetdlg.ProSkinColor(-159, 8, -40);" showhint="true" hint="褐色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		<button left="254" top="240" width="21" height="21" icon="btn_HLSColor-141_8_-36" name="btnHLSColor07" caption="" canactivate="false" onclick="igwsetdlg.ProSkinColor(-141, 8, -36);" showhint="true" hint="黄色" iconpressoffsetx="1" iconpressoffsety="1"/>
+		
+		<label left="26" top="95" width="260" height="102" skin="bg_WidgetTire" name="labelSystemSetRegion" caption="" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" canactivate="false" visible="false">
+			<label left="10" top="-7" width="80" height="16" skin="bg_igwSetFormlblsoundCaption" name="labelSystemSetCaption" caption="消息中心设置" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" alignment="taCenter"/>
+		</label>
+		<checkbox left="46" top="108" width="156" height="16" skin="" checkskinname="checkbox_checked_13x13" uncheckskinname="checkbox_unchecked_13x13" name="checkboxDisablePopupMsg" caption="圈圈隐藏状态时不弹出消息" alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick=""  showhint="false" hint="" textcolor="$FF000000"/>
+		<checkbox left="46" top="130" width="125" height="16" skin="" checkskinname="checkbox_checked_13x13" uncheckskinname="checkbox_unchecked_13x13" name="checkboxAllowPopupMsg" caption="只接收消息，不弹出" alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick=""  showhint="false" hint="" textcolor="$FF000000"/>
+		<checkbox left="46" top="152" width="175" height="16" skin="" checkskinname="checkbox_checked_13x13" uncheckskinname="checkbox_unchecked_13x13" name="checkboxAllowServerMsg" caption="仅在登录上线时接受服务提醒" alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick=""  showhint="false" hint="" textcolor="$FF000000"/>
+
+	       <checkbox left="46" top="174" width="175" height="16" skin="" checkskinname="checkbox_checked_13x13" uncheckskinname="checkbox_unchecked_13x13" name="checkboxMinTypeSet" caption="圈圈隐藏状态时显示应用" alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick=""  showhint="false" hint="" textcolor="$FF000000"/>
+		
+		<label left="26" top="95" width="260" height="188" skin="bg_WidgetTire" name="labelSystemSetScreenCap" caption="" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" canactivate="true" visible="false">
+			<label left="10" top="-7" width="60" height="16" skin="bg_igwSetFormlblsoundCaption1" name="labelSystemSetScreenCapCaption" caption="截图设置" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" alignment="taCenter"/>
+			<checkbox left="20" top="14" width="125" height="16" skin="" checkskinname="checkbox_checked_13x13" uncheckskinname="checkbox_unchecked_13x13" name="checkboxAutoHideAllWidget" caption="截图时自动隐藏应用" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick=""  showhint="false" hint="" textcolor="$FF000000"/>
+			
+			<label left="16" top="37" width="60" height="16" skin="" name="labelSystemKuaiJieJianCaption" caption="快捷键：" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" abordercolor="$ffff0000" textcolor="$ff000000" alignment="taLeftJustify" />
+			<checkbox left="30" top="60" width="150" height="16" skin="" checkskinname="Radio_checked_13x13" uncheckskinname="Radio_unchecked_13x13" name="RadioDefaultHotKey" caption="默认热键  PrintScreen" alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick=""  showhint="false" hint="" textcolor="$FF000000" />
+			<checkbox left="30" top="78" width="80" height="16" skin="" checkskinname="Radio_checked_13x13" uncheckskinname="Radio_unchecked_13x13" name="RadioDefineHotKey" caption="自定义热键" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick=""  showhint="false" hint="" textcolor="$FF000000"/>
+			<hotkeyedit left="115" top="78" width="140" height="18"  skin="btn_edit_60x32" name="editHotKey" text="无" caretcolor="$FFFF0000" margin="(2,3,2,1)" textcolor="$ff000000" fontname="Normal" canactivate="true"/>
+			<label left="16" top="97" width="220" height="16" skin="" name="labelShowHotKeyHint" caption="设置截屏热键时，请避免与游戏热键冲突" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$ff000000" alignment="taLeftJustify" />
+			<label left="16" top="118" width="120" height="16" skin="" name="labelShowCapDirCaption" caption="默认图片保存位置" layout="llCenter"  ellipsisposition="epWordEllipsis" cannotifydrag="true" abordercolor="$ffff0000" textcolor="$ff000000" alignment="taLeftJustify" />
+			<edit left="16" top="138" width="230" height="18"  skin="btn_edit_60x32" name="editCapBmpPath" text="c:\我的文档\圈圈图片" caretcolor="$FFFF0000" margin="(2,3,2,1)" textcolor="$ff000000" fontname="Normal" canactivate="true" readonly="true"/>
+			<button left="16" top="162" width="70" height="22" icon="btn_normal_70x22" name="btnChangeDirPath" caption="更改目录" alignment="taCenter" layout="llCenter" canactivate="false" onclick="OnbtnChangeDirPathClick(Self)"  iconpressoffsetx="1" iconpressoffsety="1" downtextoffsetx="1" downtextoffsety="1"/>
+		</label>
+				
+		<menu left="100" top="90" width="137" height="100" name="PopupMenuUITheme" skin="btn_downcomboxmenu" onpopupmenu="" menuitemskin="bg_igwmenuitem18x18" autoalign="true" textindent="5"  margin="(1,1,1,1)">
+		</menu>
+		<menu left="100" top="90" width="137" height="100" name="PopupMenuUISkin" skin="btn_downcomboxmenu" onpopupmenu="" menuitemskin="bg_igwmenuitem18x18" autoalign="true" textindent="5"  margin="(1,1,1,1)">
+		</menu>
+		<menu left="100" top="100" width="70" height="60" name="EditMenuChangeDir" skin="bg_igwmenu" onpopupmenu="" margin="(2,2,2,2)" autoalign="true">
+			<menuitem left="8" top="8" width="50" height="18" name="MenuItemOpenDir" skin="bg_igwmenuitem18x18" caption="打开目录" onmenuitemclick="" alignment="taCenter"/>
+			<menuitem left="8" top="28" width="50" height="18" name="MenuItemEditCopy" skin="bg_igwmenuitem18x18" caption="复制路径" onmenuitemclick="" alignment="taCenter"/>
+		</menu>
+		<menu left="100" top="100" width="120" height="60" name="MenuChangeDirList" skin="bg_igwmenu" onpopupmenu="" margin="(2,2,2,2)" autoalign="true">
+			<menuitem left="8" top="8" width="50" height="18" name="MenuItemMyDoc" skin="bg_igwmenuitem18x18" caption="我的文档\圈圈图片" onmenuitemclick="" alignment="taCenter"/>
+			<menuitem left="8" top="8" width="50" height="18" name="MenuItemMyGame" skin="bg_igwmenuitem18x18" caption="游戏目录\圈圈图片" onmenuitemclick="" alignment="taCenter"/>
+		</menu>
+	</view>
+	<script src="DefaultSetDialog.js"/>
+</xul>

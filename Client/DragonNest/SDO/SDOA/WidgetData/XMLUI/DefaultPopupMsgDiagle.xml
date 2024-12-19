@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="PopupWidgetMessageDialog" type="TWidgetPopupMsgManager" caption="" left="270" top="80" clientwidth="250" clientheight="160"  skin="bg_widgetform" allowResize="0" candock="false" visible="false" backgroundskinname="bg_widgetformbg" margin="(6, 33, 6, 6)" floatbuttonstatus="0" candrag="false" contenttransparent="false">
+		<button left="290" top="8" width="16" height="16" skin="btn_close_17x17" name="btnFormClose" onclick="btnFormCloseOnClick(Self);" showhint="true" hint="Close"  canactivate="false"/>
+		<label left="10" top="5" width="270" height="20" skin="" name="labelcaption" caption="Caption" fontname="CaptionFont" 
+			alignment="taLeftJustify" canactivate="false" cannotifydrag="true"  shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" 
+			shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="0" layout="llCenter" shadowoutline="true" 
+			wordwrap="false" fontmargin="5" ellipsisposition="epEndEllipsis"/>
+		<label left="6" top="34" width="280" height="149" skin="" name="labelText" caption="text" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000" ellipsisposition="epWordEllipsis" wordwrap="true"  cannotifydrag="true"/>
+	</view>
+	<script src="DefaultPopupMsgDiagle.js"/>
+</xul>

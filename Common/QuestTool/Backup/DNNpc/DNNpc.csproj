@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3AE0858-85A8-4AAA-A7DA-E4CD77A1EE5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DNNpc</RootNamespace>
+    <AssemblyName>DNNpc</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GvS.Controls.HtmlTextbox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GvS.Controls.HtmlTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conditions\Condition_Class.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Class.designer.cs">
+      <DependentUpon>Condition_Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Compelete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Compelete.designer.cs">
+      <DependentUpon>Condition_Compelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Custum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Custum.Designer.cs">
+      <DependentUpon>Condition_Custum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_GeneralItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_GeneralItem.designer.cs">
+      <DependentUpon>Condition_GeneralItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Inven.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Inven.designer.cs">
+      <DependentUpon>Condition_Inven.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Level.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Level.designer.cs">
+      <DependentUpon>Condition_Level.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Prob.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Prob.designer.cs">
+      <DependentUpon>Condition_Prob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Quest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Quest.designer.cs">
+      <DependentUpon>Condition_Quest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_SymbolItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_SymbolItem.designer.cs">
+      <DependentUpon>Condition_SymbolItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomAPICheck.cs" />
+    <Compile Include="DNNpc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DNNpc.Designer.cs">
+      <DependentUpon>DNNpc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_BoOkAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_BoOkAdd.Designer.cs">
+      <DependentUpon>Exe_BoOkAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Condition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Condition.designer.cs">
+      <DependentUpon>Exe_Condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Custum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Custum.designer.cs">
+      <DependentUpon>Exe_Custum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_CutsceneCompleteChangeMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_CutsceneCompleteChangeMap.Designer.cs">
+      <DependentUpon>Exe_CutsceneCompleteChangeMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Message.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Message.designer.cs">
+      <DependentUpon>Exe_Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Movie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Movie.Designer.cs">
+      <DependentUpon>Exe_Movie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_NoManStore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_NoManStore.Designer.cs">
+      <DependentUpon>Exe_NoManStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Quest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Quest.Designer.cs">
+      <DependentUpon>Exe_Quest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Script.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Script.Designer.cs">
+      <DependentUpon>Exe_Script.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_SkillStore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_SkillStore.Designer.cs">
+      <DependentUpon>Exe_SkillStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Store.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Store.Designer.cs">
+      <DependentUpon>Exe_Store.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_StringCombi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_StringCombi.Designer.cs">
+      <DependentUpon>Exe_StringCombi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Conditions\Condition_Class.resx">
+      <DependentUpon>Condition_Class.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Compelete.resx">
+      <DependentUpon>Condition_Compelete.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Custum.resx">
+      <DependentUpon>Condition_Custum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_GeneralItem.resx">
+      <DependentUpon>Condition_GeneralItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Inven.resx">
+      <DependentUpon>Condition_Inven.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Level.resx">
+      <DependentUpon>Condition_Level.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Prob.resx">
+      <DependentUpon>Condition_Prob.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Quest.resx">
+      <DependentUpon>Condition_Quest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_SymbolItem.resx">
+      <DependentUpon>Condition_SymbolItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DNNpc.resx">
+      <DependentUpon>DNNpc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_BoOkAdd.resx">
+      <DependentUpon>Exe_BoOkAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Condition.resx">
+      <DependentUpon>Exe_Condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Custum.resx">
+      <DependentUpon>Exe_Custum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_CutsceneCompleteChangeMap.resx">
+      <DependentUpon>Exe_CutsceneCompleteChangeMap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Message.resx">
+      <DependentUpon>Exe_Message.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Movie.resx">
+      <DependentUpon>Exe_Movie.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_NoManStore.resx">
+      <DependentUpon>Exe_NoManStore.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Quest.resx">
+      <DependentUpon>Exe_Quest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Script.resx">
+      <DependentUpon>Exe_Script.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_SkillStore.resx">
+      <DependentUpon>Exe_SkillStore.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Store.resx">
+      <DependentUpon>Exe_Store.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_StringCombi.resx">
+      <DependentUpon>Exe_StringCombi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_Condition.resx">
+      <DependentUpon>Quest_Condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_Link.resx">
+      <DependentUpon>Quest_Link.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_SelectControl.resx">
+      <DependentUpon>Quest_SelectControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_Step.resx">
+      <DependentUpon>Quest_Step.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Quest_Condition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_Condition.designer.cs">
+      <DependentUpon>Quest_Condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_Link.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_Link.Designer.cs">
+      <DependentUpon>Quest_Link.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_SelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_SelectControl.designer.cs">
+      <DependentUpon>Quest_SelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_Step.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_Step.designer.cs">
+      <DependentUpon>Quest_Step.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0%28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0%28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

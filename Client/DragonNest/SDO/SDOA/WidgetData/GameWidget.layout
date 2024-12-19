@@ -1,0 +1,28 @@
+[screen]
+;screen status: 1 = normal displaying(igwScreenNormal); 2 = minimizing(igwScreenMini)
+;status=
+; non-movable window list:login window,Ekey-input window,security card input window,default toolbar
+;nomovewindow=igwUserLoginDialog;igwUserLoginEKeyDialog;igwUserLoginECardDialog;taskbarsvertical
+
+;default toolbar
+[toolbar1]
+;title of toolbar(don't rewrite!)
+;this title can use GetWinProperty/SetWinProperty to get and change windw status and position
+name=UserMainBar
+;position of interface discription file(don't rewrite)
+xul=XMLUI\DefaultTaskBarAutoV.xml
+;width
+;width=
+;height
+;height=
+;left-aligned
+;left=
+;top-aligned
+top=100
+;right-aligned
+right=60
+;bottom-aligned
+;bottom=
+;toobar visible or not£º1 = visible(login); 0 = invisible(before login)
+;calling SetScreenStatus to set it as visible status after login;it will become visible automatically (without calling SetScreenStatus) in a while after login.
+;show=1

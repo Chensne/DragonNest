@@ -1,0 +1,294 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 영어(미국) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "EYEDENTITY GAMES. Inc."
+            VALUE "FileDescription", "DragonNest Launcher"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "DnLauncher.exe"
+            VALUE "LegalCopyright", "EYEDENTITY GAMES. Inc. All rights reserved."
+            VALUE "OriginalFilename", "DnLauncher.exe"
+            VALUE "ProductName", "DragonNest Launcher"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+#ifdef _THAI
+IDR_MAINFRAME           ICON                    "ResourceTHAI\\res\\DnLauncher.ico"
+#else
+IDR_MAINFRAME           ICON                    "res\\DnLauncher.ico"
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DNLAUNCHER_DIALOG DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CLIPCHILDREN
+EXSTYLE WS_EX_APPWINDOW
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDC_BTN_CANCEL,256,16,50,14
+    PUSHBUTTON      "Start",IDC_BTN_GAMESTART,256,41,50,14
+    PUSHBUTTON      "Option",IDC_BTN_OPTION,256,66,50,14
+    PUSHBUTTON      "Close",IDC_BTN_CLOSE,256,91,50,14
+    PUSHBUTTON      "Minimum",IDC_BTN_MINIMUM,256,116,50,14
+    LTEXT           "Version",IDC_LAUNCHER_VERSION,7,7,70,8,0,WS_EX_TRANSPARENT
+    LTEXT           "File Name",IDC_FILE_NAME,7,25,70,8,0,WS_EX_TRANSPARENT
+    LTEXT           "File Size",IDC_FILE_SIZE,7,43,70,8,0,WS_EX_TRANSPARENT
+    RTEXT           "Time Left",IDC_TIME_LEFT,7,61,70,8,0,WS_EX_TRANSPARENT
+    LTEXT           "File Count",IDC_FILE_COUNT,7,79,70,8,0,WS_EX_TRANSPARENT
+    LTEXT           "Download Percentage",IDC_DOWNLOAD_PERCENTAGE,7,97,70,8,0,WS_EX_TRANSPARENT
+    LTEXT           "Download State",IDC_DOWNLOAD_STATE,7,115,70,8,0,WS_EX_TRANSPARENT
+    LTEXT           "Direct Start",IDC_DIRECT_START,7,133,70,8,0,WS_EX_TRANSPARENT
+    CONTROL         "Static Progress Download",IDC_STATIC_PROGRESS_DOWNLOAD,
+                    "Static",SS_LEFTNOWORDWRAP | WS_GROUP,7,151,80,8
+    CONTROL         "Static Progress Count",IDC_STATIC_PROGRESS_COUNT,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,7,169,68,8
+    CONTROL         "Direct Game Start",IDC_CHECK_DIRECT_GAMESTART,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,234,141,72,10
+    LTEXT           "HomePage Link",IDC_HOMEPAGE_LINK,234,171,70,8,SS_NOTIFY,WS_EX_TRANSPARENT
+END
+
+IDD_OPTION_DIALOG DIALOGEX 0, 0, 184, 144
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_BORDER
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_GRAPHICQ_COMBO,83,46,83,23,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_LEFTSCROLLBAR
+    COMBOBOX        IDC_RESOLUTION_COMBO,83,28,83,16,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_LEFTSCROLLBAR
+    LTEXT           "WMode",IDC_OPTION_WINDOW_MODE,32,87,72,14,0,WS_EX_RTLREADING
+    LTEXT           "Graphic Quality",IDC_OPTION_GRAPHIC_QUALITY,16,48,64,11,0,WS_EX_RTLREADING
+    LTEXT           "Resolution",IDC_OPTION_RESOLUTION,16,30,64,9,0,WS_EX_RTLREADING
+    PUSHBUTTON      "Ok",IDC_OPTION_BUTTON_OK,35,115,56,17,BS_VCENTER | BS_FLAT
+    PUSHBUTTON      "Cancel",IDC_OPTION_BUTTON_CANCEL,98,115,54,17,BS_VCENTER | BS_FLAT
+    CONTROL         "",IDC_WINDOWED_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,84,10,13,WS_EX_RTLREADING
+    LTEXT           "Texture Quality",IDC_OPTION_TEXTURE_QUALITY,16,66,64,11,0,WS_EX_RTLREADING
+    COMBOBOX        IDC_TEXTUREQ_COMBO,83,64,83,23,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_LEFTSCROLLBAR
+    GROUPBOX        "Option",IDC_OPTION_GAME_OPTION,8,7,167,129
+    CONTROL         "",IDC_VSYNC_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,98,10,13,WS_EX_RTLREADING
+    LTEXT           "VSync",IDC_OPTION_VSYNC_MODE,32,100,72,14,0,WS_EX_RTLREADING
+END
+
+IDD_DIALOG_FIRSTPATCH DIALOGEX 0, 0, 395, 97
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION
+CAPTION "Dragon Nest Launcher"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Progress bar",IDC_STATIC_FIRSTPATCH_PROGRESS,34,57,328,16
+    CONTROL         "Dragon Nest First Patch",IDC_STATIC_FIRSTPATCH_TEXT,
+                    "Static",SS_CENTER | WS_GROUP | 0x20,80,17,214,24
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DNLAUNCHER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_OPTION_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 121
+    END
+
+	IDD_DIALOG_FIRSTPATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 388
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// JPG
+//
+#ifdef _THAI
+IDR_JPG_OPTION_ON       JPG                  "ResourceTHAI\\res\\Image\\OptionButtonOn.jpg"
+IDR_JPG_OPTION_CLICK    JPG                  "ResourceTHAI\\res\\Image\\OptionButtonClick.jpg"
+IDR_JPG_OPTION          JPG                  "ResourceTHAI\\res\\Image\\OptionButton.jpg"
+IDR_JPG_MINIMUM_ON      JPG                  "ResourceTHAI\\res\\Image\\MinimumButtonOn.jpg"
+IDR_JPG_MINIMUM_CLICK   JPG                  "ResourceTHAI\\res\\Image\\MinimumButtonClick.jpg"
+IDR_JPG_MINIMUM         JPG                  "ResourceTHAI\\res\\Image\\MinimumButton.jpg"
+IDR_JPG_GAMESTART_ON    JPG                  "ResourceTHAI\\res\\Image\\StartButtonOn.jpg"
+IDR_JPG_GAMESTART_CLICK JPG                  "ResourceTHAI\\res\\Image\\StartButtonClick.jpg"
+IDR_JPG_GAMESTART       JPG                  "ResourceTHAI\\res\\Image\\StartButton.jpg"
+IDR_JPG_CLOSE_ON        JPG                  "ResourceTHAI\\res\\Image\\CloseButtonOn.jpg"
+IDR_JPG_CLOSE_CLICK     JPG                  "ResourceTHAI\\res\\Image\\CloseButtonClick.jpg"
+IDR_JPG_CLOSE           JPG                  "ResourceTHAI\\res\\Image\\CloseButton.jpg"
+IDR_JPG_CANCEL_ON       JPG                  "ResourceTHAI\\res\\Image\\CancelButtonOn.jpg"
+IDR_JPG_CANCEL_CLICK    JPG                  "ResourceTHAI\\res\\Image\\CancelButtonClick.jpg"
+IDR_JPG_CANCEL          JPG                  "ResourceTHAI\\res\\Image\\CancelButton.jpg"
+IDR_JPG_BACK_GROUND     PNG                  "ResourceTHAI\\res\\Image\\PatchBackBase.png"
+#else //_THAI
+IDR_JPG_OPTION_ON       JPG                  "res\\Image\\OptionButtonOn.jpg"
+IDR_JPG_OPTION_CLICK    JPG                  "res\\Image\\OptionButtonClick.jpg"
+IDR_JPG_OPTION          JPG                  "res\\Image\\OptionButton.jpg"
+IDR_JPG_MINIMUM_ON      JPG                  "res\\Image\\MinimumButtonOn.jpg"
+IDR_JPG_MINIMUM_CLICK   JPG                  "res\\Image\\MinimumButtonClick.jpg"
+IDR_JPG_MINIMUM         JPG                  "res\\Image\\MinimumButton.jpg"
+IDR_JPG_GAMESTART_ON    JPG                  "res\\Image\\StartButtonOn.jpg"
+IDR_JPG_GAMESTART_CLICK JPG                  "res\\Image\\StartButtonClick.jpg"
+IDR_JPG_GAMESTART       JPG                  "res\\Image\\StartButton.jpg"
+IDR_JPG_CLOSE_ON        JPG                  "res\\Image\\CloseButtonOn.jpg"
+IDR_JPG_CLOSE_CLICK     JPG                  "res\\Image\\CloseButtonClick.jpg"
+IDR_JPG_CLOSE           JPG                  "res\\Image\\CloseButton.jpg"
+IDR_JPG_CANCEL_ON       JPG                  "res\\Image\\CancelButtonOn.jpg"
+IDR_JPG_CANCEL_CLICK    JPG                  "res\\Image\\CancelButtonClick.jpg"
+IDR_JPG_CANCEL          JPG                  "res\\Image\\CancelButton.jpg"
+IDR_JPG_BACK_GROUND     PNG                  "res\\Image\\PatchBackBase.png"
+#endif //_THAI
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+#ifdef _THAI
+IDB_BITMAP_PROGRESS_DOWNLOAD BITMAP                  "ResourceTHAI\\res\\Image\\ProgressBarDownload.bmp"
+IDB_BITMAP_PROGRESS_COUNT BITMAP                  "ResourceTHAI\\res\\Image\\ProgressBarCount.bmp"
+#else //_THAI
+IDB_BITMAP_PROGRESS_DOWNLOAD BITMAP                  "res\\Image\\ProgressBarDownload.bmp"
+IDB_BITMAP_PROGRESS_COUNT BITMAP                  "res\\Image\\ProgressBarCount.bmp"
+#endif //_THAI
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// XML
+//
+#ifdef _THAI
+IDR_XML_FIRSTPATCH_DATA XML                     "ResourceTHAI\\res\\Xml\\FirstPatchControlData.xml"
+IDR_XML_CONTROL_DATA    XML                     "ResourceTHAI\\res\\Xml\\ControlPositionList.xml"
+#else //_THAI
+IDR_XML_FIRSTPATCH_DATA XML                     "res\\Xml\\FirstPatchControlData.xml"
+IDR_XML_CONTROL_DATA    XML                     "res\\Xml\\ControlPositionList.xml"
+#endif //_THAI
+
+#endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(437)
+#include "res\ResourceTHAI.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED

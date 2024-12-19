@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <service name="Authenticate" value="http://10.240.248.103:80/Services/ApplicationAuthenticationService/Authenticate"/>
+    <service name="Login" value="http://10.240.248.103:80/Services/PassportService/Login"/>
+    <service name="Logout" value="http://10.240.248.103:80/Services/PassportService/Logout"/>
+    <service name="GetMessageCount" value="http://10.240.248.103:80/Services/MessageService/GetMessageCount"/>
+    <service name="GetUserSettings" value="http://10.240.248.103:80/Services/SettingsService/GetUserSettings"/>
+    <service name="GetGameSettings" value="http://10.240.248.103:80/Services/SettingsService/GetGameSettings"/>
+    <service name="GetCurrentUser" value="http://10.240.248.103:80/Services/UserService/GetCurrentUser"/>
+</root>

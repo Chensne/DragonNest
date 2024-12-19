@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="LiteHtml">
+      <UniqueIdentifier>{6f70d5ec-7a34-4a0e-8f2a-8cdbd5861c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MultiSync">
+      <UniqueIdentifier>{7a45e21f-4067-4aa7-b975-ce557390d346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MemPool">
+      <UniqueIdentifier>{1b23aedd-9834-4572-a039-b1b5c3c7cfd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExceptionReport">
+      <UniqueIdentifier>{d718c6d3-dee3-413e-a116-dc184770d98d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Random">
+      <UniqueIdentifier>{73e916a8-1e99-42ea-aee0-02161a9f71da}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LiteHTMLAttributes.cpp">
+      <Filter>LiteHtml</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteHTMLEntityResolver.cpp">
+      <Filter>LiteHtml</Filter>
+    </ClCompile>
+    <ClCompile Include="LiteHTMLReader.cpp">
+      <Filter>LiteHtml</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiSync.cpp">
+      <Filter>MultiSync</Filter>
+    </ClCompile>
+    <ClCompile Include="MemPool.cpp">
+      <Filter>MemPool</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptionReport.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniDumpSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="MtRandom.cpp">
+      <Filter>Random</Filter>
+    </ClCompile>
+    <ClCompile Include="PrandGen.cpp">
+      <Filter>Random</Filter>
+    </ClCompile>
+    <ClCompile Include="Access.cpp" />
+    <ClCompile Include="AssertX.cpp" />
+    <ClCompile Include="BackgroundLoader.cpp" />
+    <ClCompile Include="CSVWriter.cpp" />
+    <ClCompile Include="DebugSet.cpp" />
+    <ClCompile Include="Directory.cpp" />
+    <ClCompile Include="DNTableFile.cpp" />
+    <ClCompile Include="ExceptionDump.cpp" />
+    <ClCompile Include="FileSet.cpp" />
+    <ClCompile Include="FireWall.cpp" />
+    <ClCompile Include="HttpClient.cpp" />
+    <ClCompile Include="md5.cpp" />
+    <ClCompile Include="MemoryMap.cpp" />
+    <ClCompile Include="MultiCommon.cpp" />
+    <ClCompile Include="ObjectPool.cpp" />
+    <ClCompile Include="PerfCheck.cpp" />
+    <ClCompile Include="SHA256.cpp" />
+    <ClCompile Include="Stdafx.cpp" />
+    <ClCompile Include="Stream.cpp" />
+    <ClCompile Include="StringSet.cpp" />
+    <ClCompile Include="StringUtil.cpp" />
+    <ClCompile Include="SundriesFunc.cpp" />
+    <ClCompile Include="TimeSet.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LiteHTMLAttributes.h">
+      <Filter>LiteHtml</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteHTMLCommon.h">
+      <Filter>LiteHtml</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteHTMLEntityResolver.h">
+      <Filter>LiteHtml</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteHTMLReader.h">
+      <Filter>LiteHtml</Filter>
+    </ClInclude>
+    <ClInclude Include="LiteHTMLTag.h">
+      <Filter>LiteHtml</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiSync.h">
+      <Filter>MultiSync</Filter>
+    </ClInclude>
+    <ClInclude Include="MemPool.h">
+      <Filter>MemPool</Filter>
+    </ClInclude>
+    <ClInclude Include="ExceptionReport.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniDumpSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="MtRandom.h">
+      <Filter>Random</Filter>
+    </ClInclude>
+    <ClInclude Include="PrandGen.h">
+      <Filter>Random</Filter>
+    </ClInclude>
+    <ClInclude Include="Access.h" />
+    <ClInclude Include="AssertX.h" />
+    <ClInclude Include="BackgroundLoader.h" />
+    <ClInclude Include="BitSetEx1.hpp" />
+    <ClInclude Include="CircularQueue.h" />
+    <ClInclude Include="ConsoleOutput.h" />
+    <ClInclude Include="ContainerUtil.h" />
+    <ClInclude Include="CriticalSection.h" />
+    <ClInclude Include="CSVWriter.h" />
+    <ClInclude Include="DebugSet.h" />
+    <ClInclude Include="Directory.h" />
+    <ClInclude Include="DNTableFile.h" />
+    <ClInclude Include="ExceptionDump.h" />
+    <ClInclude Include="FileSet.h" />
+    <ClInclude Include="FireWall.h" />
+    <ClInclude Include="HttpClient.h" />
+    <ClInclude Include="icftypes.h" />
+    <ClInclude Include="IniHelper.h" />
+    <ClInclude Include="md5.h" />
+    <ClInclude Include="MemoryMap.h" />
+    <ClInclude Include="MemoryShuffleDataType.h" />
+    <ClInclude Include="MultiCommon.h" />
+    <ClInclude Include="MultiElement.h" />
+    <ClInclude Include="MultiRoom.h" />
+    <ClInclude Include="MultiSingleton.h" />
+    <ClInclude Include="MultiSmartPtr.h" />
+    <ClInclude Include="netfw.h" />
+    <ClInclude Include="ObjectPool.h" />
+    <ClInclude Include="OwnerShip.h" />
+    <ClInclude Include="PerfCheck.h" />
+    <ClInclude Include="SafeStringMacros.h" />
+    <ClInclude Include="SHA256.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SLMemPool.h" />
+    <ClInclude Include="SmartPtr.h" />
+    <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="Stream.h" />
+    <ClInclude Include="StringSet.h" />
+    <ClInclude Include="StringUtil.h" />
+    <ClInclude Include="SundriesFunc.h" />
+    <ClInclude Include="TimeSet.h" />
+    <ClInclude Include="VarArg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MemoryShuffleDataType.inl" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="MFC Base">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="MFC Base\Source">
+      <UniqueIdentifier>{74eb7260-0672-447b-a6f9-e85a0447d676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MFC Base\Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Pane">
+      <UniqueIdentifier>{a46c868f-3563-467a-868f-2f078de42d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Brush">
+      <UniqueIdentifier>{e630754a-21da-4569-8709-ec0e30188299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Layer">
+      <UniqueIdentifier>{15427854-9dc7-4554-ba12-d502d5724894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Layer\Layer">
+      <UniqueIdentifier>{8fe740f7-5afd-4f66-bcbe-676db880354e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\GridInfo">
+      <UniqueIdentifier>{75ddc611-5448-471c-9d5e-96ade66551a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Login">
+      <UniqueIdentifier>{9ce83cbf-0ec7-4bb6-9b88-1bc60882e6bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Camera">
+      <UniqueIdentifier>{5a47f547-3fec-4f80-b5c3-43223add504a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Sector Info">
+      <UniqueIdentifier>{2afff6f4-ba08-44b7-93b2-fcb9e90cc60f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\RandomDungeon_Default">
+      <UniqueIdentifier>{9857e567-5d6f-4b4d-880b-8a64fcb14c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Manager">
+      <UniqueIdentifier>{0f5b7beb-7a0b-4e74-bee6-88a09e61e14d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Manager\Tile Manager">
+      <UniqueIdentifier>{147927ad-b42c-4ded-8b91-f8c33e8e8bbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Manager\Skin Manager">
+      <UniqueIdentifier>{87e6146c-eb60-4bf8-b4bf-21b23fdf402d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Manager\Manager Explorer">
+      <UniqueIdentifier>{783aecb4-9161-4b5b-b172-c2a833d92ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Manager\Sound Manager">
+      <UniqueIdentifier>{6ad3a4a4-a200-4708-b512-01ac2a57dbe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\PropPool">
+      <UniqueIdentifier>{84186f12-8a02-4040-934a-800c01202f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\PropPool\Pool">
+      <UniqueIdentifier>{ff56bdce-815a-4459-9d95-7e7fd73b4b27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\PropPool\Properties">
+      <UniqueIdentifier>{a54af8ac-e8a0-4e02-aa03-deb5e1f5dcdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\PropProperties">
+      <UniqueIdentifier>{b87676ad-00de-42ab-9378-e87db5868bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Environment">
+      <UniqueIdentifier>{3420323f-4f2c-49b5-87bf-c4e4de7cd170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Environment\Dialog">
+      <UniqueIdentifier>{ce6bdf3c-4fdf-4c4c-a12b-00cb936bbac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Environment\Light">
+      <UniqueIdentifier>{4336e235-c26b-40cd-bea3-59a51a4e8d9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Environment\Light\Objects">
+      <UniqueIdentifier>{6e27f576-a0b4-461e-aa38-71bb5a4c1144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Environment\Base">
+      <UniqueIdentifier>{02411490-67aa-4811-91a4-62b5d9273af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\EventArea">
+      <UniqueIdentifier>{d6a0d80b-b7b8-4e12-aaad-2be7965a1e40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\EventProperties">
+      <UniqueIdentifier>{2abe0c8b-638e-4734-97c5-ce0b20ce0c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\SoundList">
+      <UniqueIdentifier>{1cf3a824-c16e-4bbf-b07f-9dde2d06f7c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\SoundProperties">
+      <UniqueIdentifier>{a6cc193f-597e-4668-9972-9dbe5e6051fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\NaviProperties">
+      <UniqueIdentifier>{ba615e84-9248-4d4b-8055-3cbff5d86979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\RenderOption">
+      <UniqueIdentifier>{2c47cb98-a036-4e34-8ab5-2ecfd90df716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\PropList">
+      <UniqueIdentifier>{68fefe90-f309-44ac-8c9f-67fe63bfffcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Trigger">
+      <UniqueIdentifier>{ea56553d-005f-472a-8416-cceefeabfbd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Trigger\Select Dialog">
+      <UniqueIdentifier>{fc37241e-3e46-4099-abef-8089605bd224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Trigger\Value Dialog">
+      <UniqueIdentifier>{5795d438-40ad-41c2-b60a-5202575aa27c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Water">
+      <UniqueIdentifier>{f604cb1e-8def-470f-b158-df061d2047e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\GridList">
+      <UniqueIdentifier>{61046d15-3c4c-4d63-bb7a-37c6a16687a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\GridDescription">
+      <UniqueIdentifier>{d59f5cae-2574-4ae7-a837-d56aef049c66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\DecalList">
+      <UniqueIdentifier>{eb9501b3-1a2a-4084-b4db-a9863cc944e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\IgnorePropFolder">
+      <UniqueIdentifier>{1889152c-df3b-401a-9470-1316da8cc463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control">
+      <UniqueIdentifier>{5a65871a-f223-418e-92df-6016335bf9c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Xtreme">
+      <UniqueIdentifier>{2e162c7d-e69e-4ca1-b9f3-cc9d400a0808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Custom">
+      <UniqueIdentifier>{0933fc51-fe2b-48ed-8391-cd1d75359d56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog">
+      <UniqueIdentifier>{9f8fa9f1-21f6-49f4-b37f-8357ff830977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Prop Parameter Create Dialog">
+      <UniqueIdentifier>{3c98d518-0509-4dff-9c7d-ed94cf72104e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Prop Parameter Create Dialog\Parameter">
+      <UniqueIdentifier>{66059ec6-718b-4e79-84f6-85b96b79fc60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Prop Parameter Create Dialog\PropType">
+      <UniqueIdentifier>{553b7c89-d37f-4bdf-84bb-d92fac0c87ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Prop Parameter Create Dialog\Manager">
+      <UniqueIdentifier>{f1115ffe-3001-4f33-b8d6-b905a070170f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Event Create Dialog">
+      <UniqueIdentifier>{0b829f69-681d-4ea1-bbf2-2481902daab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Event Create Dialog\Parameter">
+      <UniqueIdentifier>{011ad13e-2bf5-4330-93f0-7b360c60c07a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Event Create Dialog\EventArea">
+      <UniqueIdentifier>{ee67e013-be6c-42da-a8ed-fc39b5f86652}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Dialog\Event Create Dialog\Manager">
+      <UniqueIdentifier>{5690e06a-4649-42e2-8a85-065409856e31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global Value">
+      <UniqueIdentifier>{f63eec1a-4ec0-4f75-8f4b-d0c95469b2e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool">
+      <UniqueIdentifier>{54d5733a-fe3f-41a8-909d-e1f9aef1413c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\Heightmap">
+      <UniqueIdentifier>{c83a8877-c4a9-4f66-99f9-516e6c6c2dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\Heightmap\Prop">
+      <UniqueIdentifier>{cbf7cffa-50d6-4633-8f33-fcb449f8a859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\Heightmap\Sound">
+      <UniqueIdentifier>{8f019efd-f848-49be-9ca3-e483378a623a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\Heightmap\Water">
+      <UniqueIdentifier>{b4ce95ed-dbb3-4b40-9c8c-56f06b33b559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\Heightmap\Decal">
+      <UniqueIdentifier>{8be8dabb-9bc2-460f-80c7-8b1119d04f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\RandomDungeon">
+      <UniqueIdentifier>{7d2c315b-bc22-46ab-af53-eb4866f31224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\EventArea">
+      <UniqueIdentifier>{f37400ed-5b1d-4e28-9e0b-d70ecc9496bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\EventArea\CustomRender">
+      <UniqueIdentifier>{58087131-c33f-4cf9-8df2-d5c0eb3f3dee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\EventArea\CustomRender\Class">
+      <UniqueIdentifier>{42ac17cc-165a-4670-89d5-fb4944f73569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Tool\Trigger">
+      <UniqueIdentifier>{41d8226e-62ec-4d27-8571-afbd8a805ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView">
+      <UniqueIdentifier>{6b9097d3-609e-44d0-a628-66c17ce7d35d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\Grid View">
+      <UniqueIdentifier>{af7dd168-4569-4a6c-9ccd-9b43b8c0a616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\BrushView">
+      <UniqueIdentifier>{3a0472e2-5725-438d-ae4f-1de80f933691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\Random Dungeon">
+      <UniqueIdentifier>{3376fb1e-86f6-4d8c-8d65-a782d0742065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\PropView">
+      <UniqueIdentifier>{ed14f66f-158c-4116-9f0f-1fb17384ab5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\Event View">
+      <UniqueIdentifier>{6b97d105-1186-402b-af63-46a37dc7fb0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\Sound View">
+      <UniqueIdentifier>{604f0b11-c57e-4de1-b728-41d9ad64958f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\Navigation View">
+      <UniqueIdentifier>{ba4be41b-59d1-479c-86c1-6bec903f0202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\Trigger View">
+      <UniqueIdentifier>{89932092-cc38-46a2-834c-6164f2c8c0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView\Water View">
+      <UniqueIdentifier>{b9e6f702-7ff8-47fe-815f-3e585c36e9ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dummy Actor">
+      <UniqueIdentifier>{e5bfe9e4-e1b9-427f-9614-81d5116295e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Action">
+      <UniqueIdentifier>{6eadbf73-0b70-43ef-b410-d7852a40ea18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin Manager">
+      <UniqueIdentifier>{7992bd75-27f9-44a2-8a57-30bd628fa628}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Common\DNDefine.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldPainter.h">
+      <Filter>MFC Base\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldPainterDoc.h">
+      <Filter>MFC Base\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldPainterView.h">
+      <Filter>MFC Base\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>MFC Base\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>MFC Base\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>MFC Base\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="UserMessage.h">
+      <Filter>MFC Base\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PaneDefine.h">
+      <Filter>Pane</Filter>
+    </ClInclude>
+    <ClInclude Include="BrushPaneView.h">
+      <Filter>Pane\Brush</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerPaneView.h">
+      <Filter>Pane\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerDecalView.h">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerGrassView.h">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerHeightView.h">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerPrevView.h">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="GridInfoPaneView.h">
+      <Filter>Pane\GridInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginListPaneView.h">
+      <Filter>Pane\Login</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraPaneView.h">
+      <Filter>Pane\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="SectorInfoPaneView.h">
+      <Filter>Pane\Sector Info</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomDungeonDefaultPaneView.h">
+      <Filter>Pane\RandomDungeon_Default</Filter>
+    </ClInclude>
+    <ClInclude Include="TileManagerPaneView.h">
+      <Filter>Pane\Manager\Tile Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinManagerPaneView.h">
+      <Filter>Pane\Manager\Skin Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ManagerExplorerPaneView.h">
+      <Filter>Pane\Manager\Manager Explorer</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManagerPaneView.h">
+      <Filter>Pane\Manager\Sound Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PropPoolPaneView.h">
+      <Filter>Pane\PropPool</Filter>
+    </ClInclude>
+    <ClInclude Include="PropPoolControl.h">
+      <Filter>Pane\PropPool\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="PropPoolView.h">
+      <Filter>Pane\PropPool\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="PropPoolPropertiesView.h">
+      <Filter>Pane\PropPool\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="PropPropertiesPaneView.h">
+      <Filter>Pane\PropProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviPaneView.h">
+      <Filter>Pane\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateEnviDlg.h">
+      <Filter>Pane\Environment\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviLightPaneView.h">
+      <Filter>Pane\Environment\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviLightBase.h">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviLightDirection.h">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviLightPoint.h">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviLightSpot.h">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviBasePaneView.h">
+      <Filter>Pane\Environment\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EditLabelListCtrl.h">
+      <Filter>Pane\EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="EventAreaPaneView.h">
+      <Filter>Pane\EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="EventPropertiesPaneView.h">
+      <Filter>Pane\EventProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundListPaneView.h">
+      <Filter>Pane\SoundList</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundListTreeCtrl.h">
+      <Filter>Pane\SoundList</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPropertyPaneView.h">
+      <Filter>Pane\SoundProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="NaviPropertyPaneView.h">
+      <Filter>Pane\NaviProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderOptionPaneView.h">
+      <Filter>Pane\RenderOption</Filter>
+    </ClInclude>
+    <ClInclude Include="PropListPaneView.h">
+      <Filter>Pane\PropList</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptControl.h">
+      <Filter>Pane\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerAttributePaneView.h">
+      <Filter>Pane\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerPaneView.h">
+      <Filter>Pane\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerPropertiesPaneView.h">
+      <Filter>Pane\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerValueDefinePaneView.h">
+      <Filter>Pane\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="ParamInputDlg.h">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptParamStatic.h">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxColorizer.h">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerSelectDlg.h">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerOperatorDlg.h">
+      <Filter>Pane\Trigger\Value Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerValueDlg.h">
+      <Filter>Pane\Trigger\Value Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterPaneView.h">
+      <Filter>Pane\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterPropPaneView.h">
+      <Filter>Pane\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="GridListPaneView.h">
+      <Filter>Pane\GridList</Filter>
+    </ClInclude>
+    <ClInclude Include="GridDescriptionPaneView.h">
+      <Filter>Pane\GridDescription</Filter>
+    </ClInclude>
+    <ClInclude Include="DecalListPaneView.h">
+      <Filter>Pane\DecalList</Filter>
+    </ClInclude>
+    <ClInclude Include="IgnorePropFolderView.h">
+      <Filter>Pane\IgnorePropFolder</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingPaneAdobeTheme.h">
+      <Filter>Additional Window Control\Xtreme</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomControlCommon.h">
+      <Filter>Additional Window Control\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectSettingDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateGridDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateProjectDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteGridDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportPropInfoDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ImagePrevDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="MakeMinimapDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveToGridDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="NationDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="NewProfileDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PreLogoDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfileSettingDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertiesDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectConnectNationDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinPrevDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPrevDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturePrevDlg.h">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatePropPropertyDlg.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PropEdit_Finish.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PropEdit_SelectEditType.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PropEditWizardCommon.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PropEdit_CreateParameter.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="PropEdit_SelectParameter.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="PropEdit_CreateType.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\PropType</Filter>
+    </ClInclude>
+    <ClInclude Include="PropEdit_SelectType.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\PropType</Filter>
+    </ClInclude>
+    <ClInclude Include="PropSignalItem.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="PropSignalManager.h">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorListCtrl.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateEventAreaDlg.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEdit_Finish.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEdit_SelectEditType.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEditWizardCommon.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEdit_CreateParameter.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEdit_SelectParameter.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEdit_CreateControl.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEdit_SelectControl.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSignalItem.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSignalManager.h">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionCommander.h">
+      <Filter>Global Value</Filter>
+    </ClInclude>
+    <ClInclude Include="FileServer.h">
+      <Filter>Global Value</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalValue.h">
+      <Filter>Global Value</Filter>
+    </ClInclude>
+    <ClInclude Include="SundriesFuncEx.h">
+      <Filter>Global Value</Filter>
+    </ClInclude>
+    <ClInclude Include="LogWnd.h">
+      <Filter>WorldBase_Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorld.h">
+      <Filter>WorldBase_Tool\Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldGrid.h">
+      <Filter>WorldBase_Tool\Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldSector.h">
+      <Filter>WorldBase_Tool\Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="AxisRenderObject.h">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtBuffProp.h">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldActProp.h">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldLightProp.h">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldProp.h">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="AxisLockRenderObject.h">
+      <Filter>WorldBase_Tool\Heightmap\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldSound.h">
+      <Filter>WorldBase_Tool\Heightmap\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldSoundEnvi.h">
+      <Filter>WorldBase_Tool\Heightmap\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="PointAxisRenderObject.h">
+      <Filter>WorldBase_Tool\Heightmap\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldWater.h">
+      <Filter>WorldBase_Tool\Heightmap\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldWaterRiver.h">
+      <Filter>WorldBase_Tool\Heightmap\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldDecal.h">
+      <Filter>WorldBase_Tool\Heightmap\Decal</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtRandomDungeon.h">
+      <Filter>WorldBase_Tool\RandomDungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldEventArea.h">
+      <Filter>WorldBase_Tool\EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtWorldEventControl.h">
+      <Filter>WorldBase_Tool\EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="EventCustomRender.h">
+      <Filter>WorldBase_Tool\EventArea\CustomRender</Filter>
+    </ClInclude>
+    <ClInclude Include="ECRVolumeFog.h">
+      <Filter>WorldBase_Tool\EventArea\CustomRender\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtTrigger.h">
+      <Filter>WorldBase_Tool\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtTriggerElement.h">
+      <Filter>WorldBase_Tool\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="TEtTriggerObject.h">
+      <Filter>WorldBase_Tool\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyView.h">
+      <Filter>RenderView</Filter>
+    </ClInclude>
+    <ClInclude Include="EnviControl.h">
+      <Filter>RenderView</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBase.h">
+      <Filter>RenderView</Filter>
+    </ClInclude>
+    <ClInclude Include="GridRenderView.h">
+      <Filter>RenderView\Grid View</Filter>
+    </ClInclude>
+    <ClInclude Include="BrushRenderView.h">
+      <Filter>RenderView\BrushView</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomDungeonRenderView.h">
+      <Filter>RenderView\Random Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="PropRenderView.h">
+      <Filter>RenderView\PropView</Filter>
+    </ClInclude>
+    <ClInclude Include="EventRenderView.h">
+      <Filter>RenderView\Event View</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundRenderView.h">
+      <Filter>RenderView\Sound View</Filter>
+    </ClInclude>
+    <ClInclude Include="NaviRenderView.h">
+      <Filter>RenderView\Navigation View</Filter>
+    </ClInclude>
+    <ClInclude Include="TriggerRenderView.h">
+      <Filter>RenderView\Trigger View</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterRenderView.h">
+      <Filter>RenderView\Water View</Filter>
+    </ClInclude>
+    <ClInclude Include="TdDummyActor.h">
+      <Filter>Dummy Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalHeader.h">
+      <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginManager.h">
+      <Filter>Plugin Manager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtWorldPainter.cpp">
+      <Filter>MFC Base\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldPainterDoc.cpp">
+      <Filter>MFC Base\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldPainterView.cpp">
+      <Filter>MFC Base\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>MFC Base\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>MFC Base\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BrushPaneView.cpp">
+      <Filter>Pane\Brush</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerPaneView.cpp">
+      <Filter>Pane\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerDecalView.cpp">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerGrassView.cpp">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerHeightView.cpp">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerPrevView.cpp">
+      <Filter>Pane\Layer\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="GridInfoPaneView.cpp">
+      <Filter>Pane\GridInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginListPaneView.cpp">
+      <Filter>Pane\Login</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraPaneView.cpp">
+      <Filter>Pane\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="SectorInfoPaneView.cpp">
+      <Filter>Pane\Sector Info</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomDungeonDefaultPaneView.cpp">
+      <Filter>Pane\RandomDungeon_Default</Filter>
+    </ClCompile>
+    <ClCompile Include="TileManagerPaneView.cpp">
+      <Filter>Pane\Manager\Tile Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinManagerPaneView.cpp">
+      <Filter>Pane\Manager\Skin Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ManagerExplorerPaneView.cpp">
+      <Filter>Pane\Manager\Manager Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManagerPaneView.cpp">
+      <Filter>Pane\Manager\Sound Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PropPoolPaneView.cpp">
+      <Filter>Pane\PropPool</Filter>
+    </ClCompile>
+    <ClCompile Include="PropPoolControl.cpp">
+      <Filter>Pane\PropPool\Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="PropPoolView.cpp">
+      <Filter>Pane\PropPool\Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="PropPoolPropertiesView.cpp">
+      <Filter>Pane\PropPool\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="PropPropertiesPaneView.cpp">
+      <Filter>Pane\PropProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviPaneView.cpp">
+      <Filter>Pane\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateEnviDlg.cpp">
+      <Filter>Pane\Environment\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviLightPaneView.cpp">
+      <Filter>Pane\Environment\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviLightBase.cpp">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviLightDirection.cpp">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviLightPoint.cpp">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviLightSpot.cpp">
+      <Filter>Pane\Environment\Light\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviBasePaneView.cpp">
+      <Filter>Pane\Environment\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EditLabelListCtrl.cpp">
+      <Filter>Pane\EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="EventAreaPaneView.cpp">
+      <Filter>Pane\EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="EventPropertiesPaneView.cpp">
+      <Filter>Pane\EventProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundListPaneView.cpp">
+      <Filter>Pane\SoundList</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundListTreeCtrl.cpp">
+      <Filter>Pane\SoundList</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPropertyPaneView.cpp">
+      <Filter>Pane\SoundProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="NaviPropertyPaneView.cpp">
+      <Filter>Pane\NaviProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderOptionPaneView.cpp">
+      <Filter>Pane\RenderOption</Filter>
+    </ClCompile>
+    <ClCompile Include="PropListPaneView.cpp">
+      <Filter>Pane\PropList</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptControl.cpp">
+      <Filter>Pane\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerAttributePaneView.cpp">
+      <Filter>Pane\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerPaneView.cpp">
+      <Filter>Pane\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerPropertiesPaneView.cpp">
+      <Filter>Pane\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerValueDefinePaneView.cpp">
+      <Filter>Pane\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="ParamInputDlg.cpp">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptParamStatic.cpp">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxColorizer.cpp">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerSelectDlg.cpp">
+      <Filter>Pane\Trigger\Select Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerOperatorDlg.cpp">
+      <Filter>Pane\Trigger\Value Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerValueDlg.cpp">
+      <Filter>Pane\Trigger\Value Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterPaneView.cpp">
+      <Filter>Pane\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterPropPaneView.cpp">
+      <Filter>Pane\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="GridListPaneView.cpp">
+      <Filter>Pane\GridList</Filter>
+    </ClCompile>
+    <ClCompile Include="GridDescriptionPaneView.cpp">
+      <Filter>Pane\GridDescription</Filter>
+    </ClCompile>
+    <ClCompile Include="DecalListPaneView.cpp">
+      <Filter>Pane\DecalList</Filter>
+    </ClCompile>
+    <ClCompile Include="IgnorePropFolderView.cpp">
+      <Filter>Pane\IgnorePropFolder</Filter>
+    </ClCompile>
+    <ClCompile Include="DockingPaneAdobeTheme.cpp">
+      <Filter>Additional Window Control\Xtreme</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomControlCommon.cpp">
+      <Filter>Additional Window Control\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectSettingDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateGridDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProjectDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DeleteGridDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportPropInfoDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ImagePrevDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="MakeMinimapDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveToGridDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="NationDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="NewProfileDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PreLogoDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfileSettingDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertiesDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectConnectNationDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinPrevDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPrevDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturePrevDlg.cpp">
+      <Filter>Additional Window Control\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatePropPropertyDlg.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PropEdit_Finish.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PropEdit_SelectEditType.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PropEditWizardCommon.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PropEdit_CreateParameter.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="PropEdit_SelectParameter.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="PropEdit_CreateType.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\PropType</Filter>
+    </ClCompile>
+    <ClCompile Include="PropEdit_SelectType.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\PropType</Filter>
+    </ClCompile>
+    <ClCompile Include="PropSignalItem.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="PropSignalManager.cpp">
+      <Filter>Additional Window Control\Dialog\Prop Parameter Create Dialog\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorListCtrl.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateEventAreaDlg.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEdit_Finish.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEdit_SelectEditType.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEditWizardCommon.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEdit_CreateParameter.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEdit_SelectParameter.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEdit_CreateControl.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEdit_SelectControl.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSignalItem.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSignalManager.cpp">
+      <Filter>Additional Window Control\Dialog\Event Create Dialog\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionCommander.cpp">
+      <Filter>Global Value</Filter>
+    </ClCompile>
+    <ClCompile Include="FileServer.cpp">
+      <Filter>Global Value</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalValue.cpp">
+      <Filter>Global Value</Filter>
+    </ClCompile>
+    <ClCompile Include="SundriesFuncEx.cpp">
+      <Filter>Global Value</Filter>
+    </ClCompile>
+    <ClCompile Include="LogWnd.cpp">
+      <Filter>WorldBase_Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorld.cpp">
+      <Filter>WorldBase_Tool\Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldGrid.cpp">
+      <Filter>WorldBase_Tool\Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldSector.cpp">
+      <Filter>WorldBase_Tool\Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="AxisRenderObject.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtBuffProp.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldActProp.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldLightProp.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldProp.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="AxisLockRenderObject.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldSound.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldSoundEnvi.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="PointAxisRenderObject.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldWater.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldWaterRiver.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldDecal.cpp">
+      <Filter>WorldBase_Tool\Heightmap\Decal</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtRandomDungeon.cpp">
+      <Filter>WorldBase_Tool\RandomDungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldEventArea.cpp">
+      <Filter>WorldBase_Tool\EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtWorldEventControl.cpp">
+      <Filter>WorldBase_Tool\EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="EventCustomRender.cpp">
+      <Filter>WorldBase_Tool\EventArea\CustomRender</Filter>
+    </ClCompile>
+    <ClCompile Include="ECRVolumeFog.cpp">
+      <Filter>WorldBase_Tool\EventArea\CustomRender\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtTrigger.cpp">
+      <Filter>WorldBase_Tool\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtTriggerElement.cpp">
+      <Filter>WorldBase_Tool\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="TEtTriggerObject.cpp">
+      <Filter>WorldBase_Tool\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyView.cpp">
+      <Filter>RenderView</Filter>
+    </ClCompile>
+    <ClCompile Include="EnviControl.cpp">
+      <Filter>RenderView</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBase.cpp">
+      <Filter>RenderView</Filter>
+    </ClCompile>
+    <ClCompile Include="GridRenderView.cpp">
+      <Filter>RenderView\Grid View</Filter>
+    </ClCompile>
+    <ClCompile Include="BrushRenderView.cpp">
+      <Filter>RenderView\BrushView</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomDungeonRenderView.cpp">
+      <Filter>RenderView\Random Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="PropRenderView.cpp">
+      <Filter>RenderView\PropView</Filter>
+    </ClCompile>
+    <ClCompile Include="EventRenderView.cpp">
+      <Filter>RenderView\Event View</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundRenderView.cpp">
+      <Filter>RenderView\Sound View</Filter>
+    </ClCompile>
+    <ClCompile Include="NaviRenderView.cpp">
+      <Filter>RenderView\Navigation View</Filter>
+    </ClCompile>
+    <ClCompile Include="TriggerRenderView.cpp">
+      <Filter>RenderView\Trigger View</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterRenderView.cpp">
+      <Filter>RenderView\Water View</Filter>
+    </ClCompile>
+    <ClCompile Include="TdDummyActor.cpp">
+      <Filter>Dummy Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="PluginManager.cpp">
+      <Filter>Plugin Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\__Light.dds">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\__Light.msh">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\AdobeTab.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap3.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap4.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap7.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap8.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap9.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00002.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00003.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00004.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00005.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00006.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00007.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00008.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00009.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00010.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00011.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00012.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00013.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00014.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00015.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00016.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00017.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00018.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00019.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00020.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00021.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00022.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\brushdef.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DefaultLayerTexture.dds">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DummyActor.ani">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DummyActor.msh">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DummyActor.skn">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EtWorldPainter.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EtWorldPainter.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EtWorldPainterDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EventWizardImage.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\GrassTexture.dds">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Light.skn">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MapTool01.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\PropPropertyImage.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\toolbar1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Camera.msh" />
+    <None Include="res\Camera.skn" />
+    <None Include="EtWorldPainter.reg" />
+    <None Include="..\..\..\..\Documents and Settings\Administrator\My Documents\GridBack.dds" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EtWorldPainter.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

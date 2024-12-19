@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Extern">
+      <UniqueIdentifier>{1313fc4e-c3b6-484e-b8a1-8cf4ce49ee76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extern\Graphic">
+      <UniqueIdentifier>{fcbfe393-17eb-473e-8890-8120be6bac9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extern\Graphic\CxImage">
+      <UniqueIdentifier>{4a567967-6a34-421a-aed6-4cd9d14b8313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extern\MD5">
+      <UniqueIdentifier>{7c6cf99f-616d-440e-a330-7975436913ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extern\RTPatch">
+      <UniqueIdentifier>{2fe97e4c-22ad-4c91-8869-0be36790fe4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country">
+      <UniqueIdentifier>{8fa16994-c985-47fa-99f7-e467f7430e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\TEST">
+      <UniqueIdentifier>{cfe20b43-8745-4dae-854a-13f0d69e1794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\TWN">
+      <UniqueIdentifier>{c85fe90d-8f54-45d9-a421-76c0301c0775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\CHN">
+      <UniqueIdentifier>{568b049e-fc22-4155-97ed-905d57e2dbc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\JPN">
+      <UniqueIdentifier>{c20069ec-5ba4-4f01-9782-49b62a9755a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\KOR">
+      <UniqueIdentifier>{16d108f6-6ae3-4ebc-b9b2-34718e93b6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\USA">
+      <UniqueIdentifier>{11b0ad54-7e57-4c90-9f41-8ca87659dee8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\SG">
+      <UniqueIdentifier>{fc3c9688-6bb6-4a3b-bb9f-910c1f5d7e70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\THAI">
+      <UniqueIdentifier>{62950d9f-2789-4a8e-8e44-ddb84c2011c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\EU">
+      <UniqueIdentifier>{c01911af-c268-45fd-870f-bbcc0456e480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\IDN">
+      <UniqueIdentifier>{8c1af3dd-f45e-4934-9b7d-12d8c3d1544b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\RUS">
+      <UniqueIdentifier>{229f2560-6da2-4d33-b228-a3a2fa48a791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Country\KRAZ">
+      <UniqueIdentifier>{e062ea81-62f2-4960-ad72-f3858d172286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RLKT_SETTINGS">
+      <UniqueIdentifier>{24fea774-2d1d-4635-bfcb-74ec80cada6d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DnAccountManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnControlData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnExplorerDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnFIrstPatchDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnFirstPatchInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnHtmlView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnLauncher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnOptionData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnOptionDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPatchInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPatchThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DnUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\LogWnd.cpp">
+      <Filter>Extern</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\ColorStatic.cpp">
+      <Filter>Extern\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\SkinProgress.cpp">
+      <Filter>Extern\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\xSkinButton.cpp">
+      <Filter>Extern\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\MD5Checksum.cpp">
+      <Filter>Extern\MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="MD5Text.cpp">
+      <Filter>Extern\MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="DnLauncherDlg.cpp">
+      <Filter>Country</Filter>
+    </ClCompile>
+    <ClCompile Include="DnServiceModule.cpp">
+      <Filter>Country</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\TEST\DnLauncherDlgTEST.cpp">
+      <Filter>Country\TEST</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\TEST\DnServiceModuleTEST.cpp">
+      <Filter>Country\TEST</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\TWN\DnLauncherDlgTWN.cpp">
+      <Filter>Country\TWN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\TWN\DnServiceModuleTWN.cpp">
+      <Filter>Country\TWN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\CHN\DnLauncherDlgCHN.cpp">
+      <Filter>Country\CHN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\CHN\DnServiceModuleCHN.cpp">
+      <Filter>Country\CHN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\JPN\DnLauncherDlgJPN.cpp">
+      <Filter>Country\JPN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\JPN\DnNHNService.cpp">
+      <Filter>Country\JPN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\JPN\DnServiceModuleJPN.cpp">
+      <Filter>Country\JPN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\KOR\DnLauncherDlgKOR.cpp">
+      <Filter>Country\KOR</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\KOR\DnServiceModuleKOR.cpp">
+      <Filter>Country\KOR</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\USA\DnLauncherDlgUSA.cpp">
+      <Filter>Country\USA</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\USA\DnServiceModuleUSA.cpp">
+      <Filter>Country\USA</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\SG\DnLauncherDlgSG.cpp">
+      <Filter>Country\SG</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\SG\DnServiceModuleSG.cpp">
+      <Filter>Country\SG</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\THAI\DnLauncherDlgTHAI.cpp">
+      <Filter>Country\THAI</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\THAI\DnServiceModuleTHAI.cpp">
+      <Filter>Country\THAI</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\EU\DnLauncherDlgEU.cpp">
+      <Filter>Country\EU</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\EU\DnServiceModuleEU.cpp">
+      <Filter>Country\EU</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\IDN\DnLauncherDlgIDN.cpp">
+      <Filter>Country\IDN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\IDN\DnServiceModuleIDN.cpp">
+      <Filter>Country\IDN</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\RUS\DnLauncherDlgRUS.cpp">
+      <Filter>Country\RUS</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\RUS\DnServiceModuleRUS.cpp">
+      <Filter>Country\RUS</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\KRAZ\DnLauncherDlgKRAZ.cpp">
+      <Filter>Country\KRAZ</Filter>
+    </ClCompile>
+    <ClCompile Include="Country\KRAZ\DnServiceModuleKRAZ.cpp">
+      <Filter>Country\KRAZ</Filter>
+    </ClCompile>
+    <ClCompile Include="RLKTAuth.cpp">
+      <Filter>Source Files\RLKT_SETTINGS</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files\RLKT_SETTINGS</Filter>
+    </ClCompile>
+    <ClCompile Include="base64.cpp">
+      <Filter>Source Files\RLKT_SETTINGS</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnAccountManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnControlData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnDefine_Launcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnExplorerDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnFIrstPatchDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnFirstPatchInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnHtmlView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnLauncher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnOptionData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnOptionDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPatchInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPatchThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DnUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\LogWnd.h">
+      <Filter>Extern</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\SHFolderDialog.h">
+      <Filter>Extern</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\Color.h">
+      <Filter>Extern\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\ColorStatic.h">
+      <Filter>Extern\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\SkinProgress.h">
+      <Filter>Extern\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\xSkinButton.h">
+      <Filter>Extern\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\xfile.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximabmp.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximacfg.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximadef.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximage.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximagif.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaico.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaiter.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximajas.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximajbg.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximajpg.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximamng.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximapcx.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximapng.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaraw.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaska.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximatga.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximath.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximatif.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximawbmp.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximawmf.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\xiofile.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\xmemfile.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\MD5Checksum.h">
+      <Filter>Extern\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\MD5ChecksumDefines.h">
+      <Filter>Extern\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="MD5Text.h">
+      <Filter>Extern\MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\RTPatch\patchwin.h">
+      <Filter>Extern\RTPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="DnLauncherDlg.h">
+      <Filter>Country</Filter>
+    </ClInclude>
+    <ClInclude Include="DnServiceModule.h">
+      <Filter>Country</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\TEST\DnLauncherDlgTEST.h">
+      <Filter>Country\TEST</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\TEST\DnServiceModuleTEST.h">
+      <Filter>Country\TEST</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\TWN\DnLauncherDlgTWN.h">
+      <Filter>Country\TWN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\TWN\DnServiceModuleTWN.h">
+      <Filter>Country\TWN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\CHN\DnLauncherDlgCHN.h">
+      <Filter>Country\CHN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\CHN\DnServiceModuleCHN.h">
+      <Filter>Country\CHN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\JPN\DnLauncherDlgJPN.h">
+      <Filter>Country\JPN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\JPN\DnNHNService.h">
+      <Filter>Country\JPN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\JPN\DnServiceModuleJPN.h">
+      <Filter>Country\JPN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\KOR\DnLauncherDlgKOR.h">
+      <Filter>Country\KOR</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\KOR\DnServiceModuleKOR.h">
+      <Filter>Country\KOR</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\USA\DnLauncherDlgUSA.h">
+      <Filter>Country\USA</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\USA\DnServiceModuleUSA.h">
+      <Filter>Country\USA</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\SG\DnLauncherDlgSG.h">
+      <Filter>Country\SG</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\SG\DnServiceModuleSG.h">
+      <Filter>Country\SG</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\THAI\DnLauncherDlgTHAI.h">
+      <Filter>Country\THAI</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\THAI\DnServiceModuleTHAI.h">
+      <Filter>Country\THAI</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\EU\DnLauncherDlgEU.h">
+      <Filter>Country\EU</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\EU\DnServiceModuleEU.h">
+      <Filter>Country\EU</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\IDN\DnLauncherDlgIDN.h">
+      <Filter>Country\IDN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\IDN\DnServiceModuleIDN.h">
+      <Filter>Country\IDN</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\RUS\DnLauncherDlgRUS.h">
+      <Filter>Country\RUS</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\RUS\DnServiceModuleRUS.h">
+      <Filter>Country\RUS</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\KRAZ\DnLauncherDlgKRAZ.h">
+      <Filter>Country\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="Country\KRAZ\DnServiceModuleKRAZ.h">
+      <Filter>Country\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Source Files\RLKT_SETTINGS</Filter>
+    </ClInclude>
+    <ClInclude Include="RLKTAuth.h">
+      <Filter>Source Files\RLKT_SETTINGS</Filter>
+    </ClInclude>
+    <ClInclude Include="base64.h">
+      <Filter>Source Files\RLKT_SETTINGS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\DnLauncher.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\DnLauncher.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DnLauncher.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.main.icon" >
+		 <windowframe id="frame.ico" rect="30,200,27,200"  visible="true" >
+		     <windowframe id="frame.ico01" rect="0,0,27,27"  visible="true" image-id="img/uimain/icobg01" >
+			    <button id="button01"  rect="0,0,27,27" image-id="img/uimain/ico06"  enable-skin="false"/>
+			 </windowframe>
+			 <windowframe id="frame.ico02" rect="0,28,27,27"  visible="true" image-id="img/uimain/icobg01" >
+			    <button id="button02"  rect="0,0,27,27" image-id="img/uimain/ico05"  enable-skin="false"/>
+			 </windowframe>
+			 <windowframe id="frame.ico03" rect="0,56,27,27"  visible="true" image-id="img/uimain/icobg01" >
+			    <button id="button02"  rect="0,0,27,27" image-id="img/uimain/ico04"  enable-skin="false"/>
+			 </windowframe>
+			 <windowframe id="frame.ico04" rect="0,84,27,27"  visible="true" image-id="img/uimain/icobg01" >
+			    <button id="button02"  rect="0,0,27,27" image-id="img/uimain/ico03"  enable-skin="false"/>
+			 </windowframe>
+			 <windowframe id="frame.ico05" rect="0,112,27,27"  visible="true" image-id="img/uimain/icobg01" >
+			    <button id="button02"  rect="0,0,27,27" image-id="img/uimain/ico02"  enable-skin="false"/>
+			 </windowframe>
+			 <windowframe id="frame.ico06" rect="0,140,27,27"  visible="true" image-id="img/uimain/icobg01" >
+			    <button id="button02"  rect="0,0,27,27" image-id="img/uimain/ico01"  enable-skin="false"/>
+			 </windowframe>
+		</windowframe>
+     </window>  
+</ui>

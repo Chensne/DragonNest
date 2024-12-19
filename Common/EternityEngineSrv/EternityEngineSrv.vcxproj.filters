@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="EngineCore">
+      <UniqueIdentifier>{c9336ba5-8a04-4dac-a069-edf7f26f3701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{d81eada8-2817-48e5-9643-86cb8ecec6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{595da7bf-7d5f-44e1-8b12-e6a8f4b5c630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{a146a3af-79a3-4ee8-9b55-e36f0e09c253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Terrain">
+      <UniqueIdentifier>{efead12e-d9f6-4c84-bc68-cd0b0c13bc9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{dcbe497b-b4d7-42b0-a17e-c57ff2c1ccb4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtEngine.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EternityEngine.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtAniObject.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCamera.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCollisionEntity.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtObject.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtError.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="EtAni.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtAniKey.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBone.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLoader.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMesh.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSkin.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSubMesh.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTerrain.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTerrainArea.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCollisionMng.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EtEngine.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EternityEngine.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtType.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtAniObject.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCamera.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCollisionEntity.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtObject.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtError.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtAni.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtAniKey.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBone.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLoader.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMesh.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSkin.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSubMesh.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTerrain.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTerrainArea.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCollisionMng.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

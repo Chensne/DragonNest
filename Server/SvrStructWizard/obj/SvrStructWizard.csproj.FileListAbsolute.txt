@@ -1,0 +1,11 @@
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\bin\Debug\SvrStructWizard.exe
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\bin\Debug\SvrStructWizard.pdb
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\bin\Debug\SourceGrid2.dll
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\bin\Debug\SourceLibrary.dll
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\obj\Debug\ResolveAssemblyReference.cache
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\obj\Debug\SvrStructWizard.Form_SvrStructWiz.resources
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\obj\Debug\SvrStructWizard.Properties.Resources.resources
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\obj\Debug\SvrStructWizard.SelectFile.resources
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\obj\Debug\SvrStructWizard.csproj.GenerateResource.Cache
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\obj\Debug\SvrStructWizard.exe
+D:\DN源码\jjjj_src\DragonNest\Server\SvrStructWizard\obj\Debug\SvrStructWizard.pdb

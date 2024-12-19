@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PreCompileHeader">
+      <UniqueIdentifier>{7a7018f9-3a91-4472-8adf-58e2d5e874fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FontMng">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{d5e45693-683f-49db-a7b4-6dcdafdba15a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Animation">
+      <UniqueIdentifier>{2c9cef28-21bd-4c83-8fd1-acc803f031b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Button">
+      <UniqueIdentifier>{2f8cd62b-866b-482e-bcb7-df23eb2b237d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\CheckBox">
+      <UniqueIdentifier>{39304ef3-cfcc-437f-b050-cbfe24ce9789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ComboBox">
+      <UniqueIdentifier>{66d78209-926f-46d9-8585-54eec44abb63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Control">
+      <UniqueIdentifier>{7f8b852e-0659-4234-8d1b-9af92550e460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Dialog">
+      <UniqueIdentifier>{5ce5f7d3-1693-499b-a8b3-85d164a5aee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\EditBox">
+      <UniqueIdentifier>{b3c93b7b-2638-43a0-91eb-2682ce82567f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\EditBox\LineEditBox">
+      <UniqueIdentifier>{168e9cbf-db9f-4323-8889-733f618731ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ListBox">
+      <UniqueIdentifier>{2f3aab98-9b7c-4a1a-a506-f23ace1a665c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ListBox\ListBoxEx">
+      <UniqueIdentifier>{c8b0adf7-1b6a-4d07-827e-e5e73b62922d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ProgressBar">
+      <UniqueIdentifier>{901b2f60-0245-495a-acc1-e5122d284b77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Static">
+      <UniqueIdentifier>{c2dd6d6b-5a10-43d7-9735-b9aa61e52533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Slider">
+      <UniqueIdentifier>{de8e9b3c-af1e-4fc0-9460-9f5f53106505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\ScrollBar">
+      <UniqueIdentifier>{ad03108d-b6bb-4dd8-9211-42e21bd5b5ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Template">
+      <UniqueIdentifier>{c93163f3-62ba-4b67-bf31-6943948a258f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\TextBox">
+      <UniqueIdentifier>{70ac34cd-540b-40c6-b392-e26c3806f9db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Texture">
+      <UniqueIdentifier>{3c8318e8-7578-4462-b899-c3c436368926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Tree">
+      <UniqueIdentifier>{263ec948-3013-410c-91d5-c76baefe6fb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Tree\QuestTree">
+      <UniqueIdentifier>{8dfe5d15-996c-49c9-8a8b-6cae13f29fd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Movie">
+      <UniqueIdentifier>{66a51308-2d9a-4199-ba34-2ffc7a7feb09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FreeType">
+      <UniqueIdentifier>{ee1e69b9-1e53-4703-8618-52268a81041e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FreeType\Header Files">
+      <UniqueIdentifier>{1c6c0b7c-d638-4466-8b08-9fa4c94b72a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FreeType\Source Files">
+      <UniqueIdentifier>{0c82ac5c-1db6-40bb-b81b-ec972996fe4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FreeType\Source Files\FT_MODULES">
+      <UniqueIdentifier>{83211907-44b8-485d-a97c-2c2ecb316829}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PreCompileHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="EtFontMng.cpp">
+      <Filter>FontMng</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIMan.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUINameLinkInterface.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUINameLinkMgr.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUISound.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITextUtil.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIAnimation.cpp">
+      <Filter>UI\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIButton.cpp">
+      <Filter>UI\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIRadioButton.cpp">
+      <Filter>UI\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUICheckBox.cpp">
+      <Filter>UI\CheckBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIComboBox.cpp">
+      <Filter>UI\ComboBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIControl.cpp">
+      <Filter>UI\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIControlCreator.cpp">
+      <Filter>UI\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIControlProperty.cpp">
+      <Filter>UI\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIDialog.cpp">
+      <Filter>UI\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIDialogBase.cpp">
+      <Filter>UI\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIDialogGroup.cpp">
+      <Filter>UI\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIDialogInfo.cpp">
+      <Filter>UI\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITabDialog.cpp">
+      <Filter>UI\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIEditBox.cpp">
+      <Filter>UI\EditBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIIME.cpp">
+      <Filter>UI\EditBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIIMEEditBox.cpp">
+      <Filter>UI\EditBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIUniBuffer.cpp">
+      <Filter>UI\EditBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUILineEditBox.cpp">
+      <Filter>UI\EditBox\LineEditBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUILineIMEEditBox.cpp">
+      <Filter>UI\EditBox\LineEditBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIListBox.cpp">
+      <Filter>UI\ListBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIListBoxEx.cpp">
+      <Filter>UI\ListBox\ListBoxEx</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIProgressBar.cpp">
+      <Filter>UI\ProgressBar</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIStatic.cpp">
+      <Filter>UI\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUISlider.cpp">
+      <Filter>UI\Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIScrollBar.cpp">
+      <Filter>UI\ScrollBar</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITemplate.cpp">
+      <Filter>UI\Template</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIHtmlTextBox.cpp">
+      <Filter>UI\TextBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITextBox.cpp">
+      <Filter>UI\TextBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITextBoxData.cpp">
+      <Filter>UI\TextBox</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITextureControl.cpp">
+      <Filter>UI\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITreeCtl.cpp">
+      <Filter>UI\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUITreeItem.cpp">
+      <Filter>UI\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIQuestTreeCtl.cpp">
+      <Filter>UI\Tree\QuestTree</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIQuestTreeItem.cpp">
+      <Filter>UI\Tree\QuestTree</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIMovieControl.cpp">
+      <Filter>UI\Movie</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\autofit\autofit.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\bdf\bdf.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\cff\cff.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftbase.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftbitmap.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\cache\ftcache.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftdebug.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftgasp.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftglyph.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\gzip\ftgzip.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftinit.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\lzw\ftlzw.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftstroke.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftsystem.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\smooth\smooth.c">
+      <Filter>FreeType\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftbbox.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftmm.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftpfr.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftsynth.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\fttype1.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\base\ftwinfnt.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\pcf\pcf.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\pfr\pfr.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\psaux\psaux.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\pshinter\pshinter.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\psnames\psmodule.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\raster\raster.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\sfnt\sfnt.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\truetype\truetype.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\type1\type1.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\cid\type1cid.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\type42\type42.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeType\src\winfonts\winfnt.c">
+      <Filter>FreeType\Source Files\FT_MODULES</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>PreCompileHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="EtFontMng.h">
+      <Filter>FontMng</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIMan.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUINameLinkInterface.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUINameLinkMgr.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUISound.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITextUtil.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIType.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIAnimation.h">
+      <Filter>UI\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIButton.h">
+      <Filter>UI\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIRadioButton.h">
+      <Filter>UI\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUICheckBox.h">
+      <Filter>UI\CheckBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIComboBox.h">
+      <Filter>UI\ComboBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIControl.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIControlCreator.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIControlProperty.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIControlPropertyOld.h">
+      <Filter>UI\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIDialog.h">
+      <Filter>UI\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIDialogBase.h">
+      <Filter>UI\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIDialogGroup.h">
+      <Filter>UI\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIDialogInfo.h">
+      <Filter>UI\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITabDialog.h">
+      <Filter>UI\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIEditBox.h">
+      <Filter>UI\EditBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIIME.h">
+      <Filter>UI\EditBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIIMEEditBox.h">
+      <Filter>UI\EditBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIUniBuffer.h">
+      <Filter>UI\EditBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUILineEditBox.h">
+      <Filter>UI\EditBox\LineEditBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUILineIMEEditBox.h">
+      <Filter>UI\EditBox\LineEditBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIListBox.h">
+      <Filter>UI\ListBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIListBoxEx.h">
+      <Filter>UI\ListBox\ListBoxEx</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIProgressBar.h">
+      <Filter>UI\ProgressBar</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIStatic.h">
+      <Filter>UI\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUISlider.h">
+      <Filter>UI\Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIScrollBar.h">
+      <Filter>UI\ScrollBar</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITemplate.h">
+      <Filter>UI\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITemplateOld.h">
+      <Filter>UI\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIHtmlTextBox.h">
+      <Filter>UI\TextBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITextBox.h">
+      <Filter>UI\TextBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITextBoxData.h">
+      <Filter>UI\TextBox</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITextureControl.h">
+      <Filter>UI\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITreeCtl.h">
+      <Filter>UI\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUITreeItem.h">
+      <Filter>UI\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIQuestTreeCtl.h">
+      <Filter>UI\Tree\QuestTree</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIQuestTreeItem.h">
+      <Filter>UI\Tree\QuestTree</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIMovieControl.h">
+      <Filter>UI\Movie</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeType\include\ft2build.h">
+      <Filter>FreeType\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeType\include\freetype\config\ftconfig.h">
+      <Filter>FreeType\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeType\include\freetype\config\ftheader.h">
+      <Filter>FreeType\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeType\include\freetype\config\ftmodule.h">
+      <Filter>FreeType\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeType\include\freetype\config\ftoption.h">
+      <Filter>FreeType\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeType\include\freetype\config\ftstdlib.h">
+      <Filter>FreeType\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

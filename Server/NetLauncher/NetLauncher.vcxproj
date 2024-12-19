@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{86BDDB9C-8AD3-45C3-A5E6-B144FFBAB923}</ProjectGuid>
+    <RootNamespace>NetLauncher</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\server\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\release\temps\NetLauncher\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IncludePath);$(VCInstallDir)PlatformSDK\include;$(SolutionDir)..\..\Common\tinyxml;$(SolutionDir);$(SolutionDir)..\..\Third\dx9sdk\dx9sdk\dx9sdk\Include;$(SolutionDir)..\..\Third\XTToolkitPro\Source</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../Common/NetworkLib;../../Common/Protocol;../ServerCommon;../../common/zlib;../../common/utility;../../common;../../Common/Tinyxml;../NetLauncher;../../common/ZipArchive;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_LAUNCHER;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;_USE_HTTP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wsock32.lib;wininet.lib;winmm.lib;Urlmon.lib;dbghelp.lib;comsuppwd.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../Out/NetLauncherD.exe</OutputFile>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../Common/NetworkLib;../../Common/Protocol;../ServerCommon;../../common/zlib;../../common/utility;../../common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_LAUNCHER;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NON_CONFORMING_SWPRINTFS;_USE_HTTP;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wsock32.lib;wininet.lib;winmm.lib;Urlmon.lib;dbghelp.lib;libcmt.lib;libcpmt.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc.lib;libcpmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\Out\Config\DNNetLauncher.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="BatchManager.h" />
+    <ClInclude Include="LogCleaner.h" />
+    <ClInclude Include="..\ServerCommon\ProcessManager.h" />
+    <ClInclude Include="strdef.h" />
+    <ClInclude Include="MultiSync.h" />
+    <ClInclude Include="FtpUpdater.h" />
+    <ClInclude Include="Unzipper.h" />
+    <ClInclude Include="ioapi.h" />
+    <ClInclude Include="iowin32.h" />
+    <ClInclude Include="unzip.h" />
+    <ClInclude Include="zconf.h" />
+    <ClInclude Include="zip.h" />
+    <ClInclude Include="zlib.h" />
+    <ClInclude Include="..\ServerCommon\IniFile.h" />
+    <ClInclude Include="..\ServerCommon\URLUpdater.h" />
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h" />
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h" />
+    <ClInclude Include="UnZipProcess.h" />
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h" />
+    <ClInclude Include="..\ServerCommon\DNConfig.h" />
+    <ClInclude Include="..\..\Common\DNDefine.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Work.h" />
+    <ClInclude Include="..\ServerCommon\dnserverdef.h" />
+    <ClInclude Include="..\ServerCommon\DNServerPacket.h" />
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h" />
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h" />
+    <ClInclude Include="..\..\Common\Version.h" />
+    <ClInclude Include="LauncherSession.h" />
+    <ClInclude Include="..\ServerCommon\SimpleClientSession.h" />
+    <ClInclude Include="PatchStatusChecker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp" />
+    <ClCompile Include="BatchManager.cpp" />
+    <ClCompile Include="LogCleaner.cpp" />
+    <ClCompile Include="..\ServerCommon\ProcessManager.cpp" />
+    <ClCompile Include="MultiSync.cpp" />
+    <ClCompile Include="FtpUpdater.cpp" />
+    <ClCompile Include="Unzipper.cpp" />
+    <ClCompile Include="..\ServerCommon\IniFile.cpp" />
+    <ClCompile Include="..\ServerCommon\URLUpdater.cpp" />
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp" />
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp" />
+    <ClCompile Include="UnZipProcess.cpp" />
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp" />
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp" />
+    <ClCompile Include="LauncherSession.cpp" />
+    <ClCompile Include="..\ServerCommon\SimpleClientSession.cpp" />
+    <ClCompile Include="PatchStatusChecker.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NetLauncher.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="zlibstat.lib" />
+    <Library Include="ZipArchive.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Protocol\Protocol.vcxproj">
+      <Project>{43c70c7b-8781-44f4-a4c6-4255724b30d9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\tinyxml\tinyxmlSTL.vcxproj">
+      <Project>{be23cf77-921d-4747-a02a-038db1e487e2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Utility\Utility.vcxproj">
+      <Project>{89343dcf-fb2e-4a86-83bf-9ad3dca0062b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="NetLauncher.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

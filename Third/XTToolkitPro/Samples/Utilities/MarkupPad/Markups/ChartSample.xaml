@@ -1,0 +1,403 @@
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+		<Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<Border Margin = "4" TextBlock.FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Gray" BorderThickness="1">
+				<StackPanel>
+					<TextBlock FontSize="25" TextAlignment="Center">Line Chart</TextBlock>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<StackPanel>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="90"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="80"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="70"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="60"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="50"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="40"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="30"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="20"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="10"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/></Border>
+						</StackPanel>
+
+
+
+						<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="1"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="2"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="3"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="4"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="5"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="6"/></Border>
+						</StackPanel>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="-4, 13, 0, 0" >
+							<Line Canvas.Top="0" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="26" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="52" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="78" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="104" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="130" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="156" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="182" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="208" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="234" X2="340" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1">
+							<Line Y1 ="13"  Y2="252" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="56" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="112" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="168" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="224" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="280" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="336" Y2="5" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="28, 13, 0, 0">
+							<Polyline  Stroke="#4a7ebb" StrokeThickness="3">
+								<Polyline.Points>
+									0 208, 56 182, 112 104, 168 130, 224 156, 280 26
+								</Polyline.Points>
+							</Polyline>
+						</Canvas>
+
+						<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="20">
+							<Border VerticalAlignment="Center">
+								<Line Stroke="#4a7ebb" X2="28" StrokeThickness="2"/>
+							</Border>
+							<TextBlock Margin="3">Series1</TextBlock>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+			</Border>
+
+			<Border Margin = "4" Grid.Column="1" TextBlock.FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Gray" BorderThickness="1">
+				<StackPanel>
+					<TextBlock FontSize="25" TextAlignment="Center">Area Chart</TextBlock>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<StackPanel>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="90"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="80"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="70"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="60"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="50"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="40"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="30"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="20"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="10"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/></Border>
+						</StackPanel>
+
+
+
+						<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="-28, 0, 0, 0">
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="1"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="2"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="3"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="4"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="5"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="6"/></Border>
+						</StackPanel>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="-4, 13, 0, 0" >
+							<Line Canvas.Top="0" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="26" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="52" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="78" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="104" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="130" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="156" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="182" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="208" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="234" X2="344" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1">
+							<Line Y1 ="13"  Y2="252" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="56" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="112" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="168" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="224" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="280" Y2="5" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="56, 13, 0, 0">
+							<Polygon  StrokeThickness="3" Fill="#be4b48">
+								<Polygon.Points>
+									0 234 0 208, 56 182, 112 104, 168 130, 224 156, 280 26, 280 234
+								</Polygon.Points>
+							</Polygon>
+						</Canvas>
+
+						<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="20">
+							<Border VerticalAlignment="Center" >
+								<Rectangle Fill="#be4b48" Width="8" Height="8" StrokeThickness="2"/>
+							</Border>
+							<TextBlock Margin="3">Series1</TextBlock>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+			</Border>
+			
+			
+			<Border Grid.Row="1" Margin = "4" TextBlock.FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Gray" BorderThickness="1">
+				<StackPanel>
+					<TextBlock FontSize="25" TextAlignment="Center">Column Chart</TextBlock>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<StackPanel>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="90"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="80"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="70"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="60"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="50"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="40"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="30"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="20"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="10"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/></Border>
+						</StackPanel>
+
+
+
+						<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="1"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="2"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="3"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="4"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="5"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="6"/></Border>
+						</StackPanel>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="-4, 13, 0, 0" >
+							<Line Canvas.Top="0" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="26" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="52" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="78" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="104" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="130" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="156" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="182" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="208" X2="340" Stroke="Gray"></Line>
+							<Line Canvas.Top="234" X2="340" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1">
+							<Line Y1 ="13"  Y2="252" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="56" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="112" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="168" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="224" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="280" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="336" Y2="5" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="0, 13, 0, 0">
+							<Rectangle Canvas.Left="17" Canvas.Top="209" Fill="#98b954" Width="23" Height="25"/>
+							<Rectangle Canvas.Left="73" Canvas.Top="183" Fill="#98b954" Width="23" Height="51"/>
+							<Rectangle Canvas.Left="129" Canvas.Top="105" Fill="#98b954" Width="23" Height="129"/>							
+						
+							<Rectangle Canvas.Left="185" Canvas.Top="131" Fill="#98b954" Width="23" Height="103"/>							
+							<Rectangle Canvas.Left="241" Canvas.Top="157" Fill="#98b954" Width="23" Height="77"/>							
+							<Rectangle Canvas.Left="297" Canvas.Top="27" Fill="#98b954" Width="23" Height="207"/>							
+
+
+							
+						</Canvas>
+
+						<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="20">
+							<Border VerticalAlignment="Center">
+								<Line Stroke="#98b954" X2="28" StrokeThickness="2"/>
+							</Border>
+							<TextBlock Margin="3">Series1</TextBlock>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+			</Border>
+
+
+			<Border Margin = "4" Grid.Column="1" Grid.Row="1" TextBlock.FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Gray" BorderThickness="1">
+				<StackPanel>
+					<TextBlock FontSize="25" TextAlignment="Center">Scatter Chart</TextBlock>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<StackPanel>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="90"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="80"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="70"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="60"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="50"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="40"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="30"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="20"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="10"/></Border>
+							<Border Width="40" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/></Border>
+						</StackPanel>
+
+
+
+						<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="-28, 0, 0, 0">
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="0"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="1"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="2"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="3"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="4"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="5"/></Border>
+							<Border Width="56" Height="26">
+								<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="6"/></Border>
+						</StackPanel>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="-4, 13, 0, 0" >
+							<Line Canvas.Top="0" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="26" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="52" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="78" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="104" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="130" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="156" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="182" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="208" X2="344" Stroke="Gray"></Line>
+							<Line Canvas.Top="234" X2="344" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1">
+							<Line Y1 ="13"  Y2="252" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="56" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="112" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="168" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="224" Y2="5" Stroke="Gray"></Line>
+							<Line Canvas.Top="247" Canvas.Left ="280" Y2="5" Stroke="Gray"></Line>
+						</Canvas>
+
+						<Canvas Grid.Row="0" Grid.Column="1" Margin="56, 13, 0, 0">
+							<Polygon Fill="#f69240" Points="-5 208, 0 203, 5 208, 0 213"/>
+							<Polygon Fill="#f69240" Points="51 182, 56 177, 61 182, 56 187"/>
+
+							<Polygon Fill="#f69240" Points="107 104, 112 99, 117 104, 112 109"/>
+							<Polygon Fill="#f69240" Points="163 130, 168 125, 173 130, 168 135"/>
+							<Polygon Fill="#f69240" Points="219 156, 224 151, 229 156, 224 161"/>
+							<Polygon Fill="#f69240" Points="275 26, 280 21, 285 26, 280 31"/>
+						</Canvas>
+
+						<StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="20">
+							<Border VerticalAlignment="Center" >
+								<Polygon Fill="#f69240" Points="0 0, 5 5, 10 0, 5 -5"/>
+							</Border>
+							<TextBlock Margin="3">Series1</TextBlock>
+						</StackPanel>
+					</Grid>
+				</StackPanel>
+			</Border>
+
+		</Grid>
+	</ScrollViewer>
+
+</Page>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>我要投诉</name>
+	<shortname>投诉</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.0.2</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2008</copyright>
+	<description>我要投诉</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/> 
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://wyts.voc.sdo.com/submit.aspx?gameid=$gid$" width="448" height="475" clientwidth="420" clientheight="420" xul="WebBrowser.xml" />
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<invisible>15</invisible>
+	<guid>{C4124916-80AD-434B-B60F-EB8A9CD76BC8}</guid>
+</gadget>

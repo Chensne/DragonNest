@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="VoiceChatClient">
+      <UniqueIdentifier>{538c7dae-522e-4ed0-9f3a-7de05471c760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VoiceChatServer">
+      <UniqueIdentifier>{73e1033e-c8ca-4010-a98f-27f241e18de4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="VoiceChatClient.cpp">
+      <Filter>VoiceChatClient</Filter>
+    </ClCompile>
+    <ClCompile Include="VoiceChatServer.cpp">
+      <Filter>VoiceChatServer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="VoiceChatClient.h">
+      <Filter>VoiceChatClient</Filter>
+    </ClInclude>
+    <ClInclude Include="VoiceChatServer.h">
+      <Filter>VoiceChatServer</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

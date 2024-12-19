@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.logo" >
+	    
+        <button id="button.logo"  rect="0,0,71,27"   drag="true" enable-skin="false" image-id="img/uimain/newico01">
+            <button id="button.lshowmainbar"  rect="3,0,16,27"   enable-skin="false" image-id="img/uimain/dir01,img/uimain/dir02,img/uimain/dir02"/>
+            <button id="button.lhidemainbar"  rect="3,0,16,27" enable-skin="false" image-id="img/uimain/dir04"/>
+            <button id="button.rshowmainbar"  rect="49,0,16,27"  enable-skin="false" image-id="img/uimain/dir03,img/uimain/dir04,img/uimain/dir04"/>
+            <button id="button.rhidemainbar"  rect="49,0,16,27"  enable-skin="false" image-id="img/uimain/dir02"/>
+            <button id="button.message"  rect="35,1,19,15"   enable-skin="false" image-id="img/uimain/newico03"/>
+        </button>
+    </window>
+</ui>

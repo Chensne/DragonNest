@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.applistpanel" >
+        <windowframe id="frame.panel" rect="30,30,158,168"  visible="true" >
+     <!--左边-->
+	        <button id="button.left01"  rect="0,0,6,5"  enable-skin="false" image-id="img/uimain/list01"/> 
+			<!--左边中循环-->
+			<button id="button.left02"  rect="0,5,6,158"  enable-skin="false" image-id="img/uimain/list04"/>      
+            <!--左边中循环-->
+			<button id="button.left03"  rect="0,163,6,5"  enable-skin="false" image-id="img/uimain/list07"/>
+     <!--中间上循环-->
+	       <button id="button.mid01"  rect="6,0,141,5"  enable-skin="false" image-id="img/uimain/list02"/>
+	 <!--中间上循环-->
+	       <windowframe id="button.mid02"  rect="6,2,141,161"  enable-skin="false" image-id="img/uimain/list10">
+				<button id="button.frame.app11"  rect="2,10,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					 <button id="button.app11"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico01"/>
+				</button>
+				<button id="button.frame.app12"  rect="29,10,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app12"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico02"/>
+				</button>
+				<button id="button.frame.app13"  rect="56,10,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app13"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico03"/>
+				</button>
+				<button id="button.frame.app14"  rect="83,10,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app14"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico04"/>
+				</button>
+				<button id="button.frame.app15"  rect="110,10,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app15"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico05"/>
+				</button>
+				<button id="button.frame.app21"  rect="2,37,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					 <button id="button.app21"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico01"/>
+				</button>
+				<button id="button.frame.app22"  rect="29,37,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app22"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico02"/>
+				</button>
+				<button id="button.frame.app23"  rect="56,37,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app23"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico03"/>
+				</button>
+				<button id="button.frame.app24"  rect="83,37,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app24"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico04"/>
+				</button>
+				<button id="button.frame.app25"  rect="110,37,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app25"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico05"/>
+				</button>
+				<button id="button.frame.app31"  rect="2,64,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					 <button id="button.app31"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico01"/>
+				</button>
+				<button id="button.frame.app32"  rect="29,64,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app32"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico02"/>
+				</button>
+				<button id="button.frame.app33"  rect="56,64,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app33"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico03"/>
+				</button>
+				<button id="button.frame.app34"  rect="83,64,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app34"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico04"/>
+				</button>
+				<button id="button.frame.app35"  rect="110,64,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app35"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico05"/>
+				</button>
+				<button id="button.frame.app41"  rect="2,91,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					 <button id="button.app41"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico01"/>
+				</button>
+				<button id="button.frame.app42"  rect="29,91,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app42"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico02"/>
+				</button>
+				<button id="button.frame.app43"  rect="56,91,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app43"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico03"/>
+				</button>
+				<button id="button.frame.app44"  rect="83,91,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app44"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico04"/>
+				</button>
+				<button id="button.frame.app45"  rect="110,91,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app45"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico05"/>
+				</button>
+				<button id="button.frame.app51"  rect="2,118,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					 <button id="button.app51"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico01"/>
+				</button>
+				<button id="button.frame.app52"  rect="29,118,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app52"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico02"/>
+				</button>
+				<button id="button.frame.app53"  rect="56,118,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app53"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico03"/>
+				</button>
+				<button id="button.frame.app54"  rect="83,118,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app54"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico04"/>
+				</button>
+				<button id="button.frame.app55"  rect="110,118,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+					<button id="button.app55"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico05"/>
+				</button>
+             </windowframe>
+		   <button id="button.mid03"  rect="6,163,141,5"  enable-skin="false" image-id="img/uimain/list08"/>
+		   
+	  <!--右上角-->
+	       <button id="button.right01"  rect="147,0,11,21"  enable-skin="false" image-id="img/uimain/list03"/>
+		   <!--右边中循环-->
+		   <button id="button.right02"  rect="147,21,11,142"  enable-skin="false" image-id="img/uimain/list06"/>
+		   <button id="button.right03"  rect="147,163,11,5"  enable-skin="false" image-id="img/uimain/list09"/>
+		   
+            <button id="button.pre"  rect="50,142,24,24"  enable-skin="false" image-id="img/uimain/newico02,img/uimain/newico01,img/uimain/newico01"/>
+            <button id="static.currentpage"  rect="50,142,24,24"  enable-skin="false" image-id="img/uimain/newico02,img/uimain/newico01,img/uimain/newico01"/>
+            <button id="static.totalpage"  rect="80,142,24,24"  enable-skin="false" image-id="img/uimain/newico02,img/uimain/newico01,img/uimain/newico01"/>
+            <button id="button.next"  rect="80,142,24,24"  enable-skin="false" image-id="img/uimain/newico02,img/uimain/newico01,img/uimain/newico01"/>
+        </windowframe>
+    </window>
+</ui>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src=".\Skins\IGW.DefaultCapScrSkin.xml"/>
+	<view name="igwCapScreenDialog" type="PhotoForm" caption="" left="270" top="80" width="275" height="215" skin="" allowResize="0" candock="false" miniheight="200" miniwidth="200" floatbuttonstatus="0">
+		<label left="50" top="50" width="50" height="14" skin="" name="LblBtnPanel" caption="" layout="llCenter" autosize="false" textcolor="$FFFF0000" bordercolora="$FFFF0000">
+			<button left="0" top="0" width="12" height="12" skin="btn_help12x12" name="btnhelp" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="OnbtnhelpClick(Self);" showhint="true" hint="帮助"/>
+			<button left="12" top="0" width="12" height="12" skin="btn_mini12x12" name="btnSmallScreen" caption="" alignment="taCenter" layout="llCenter" canactivate="false"  showhint="true" hint="最小化" onclick="OnbtnSmallScreenClick(Self);"/>
+			<button left="24" top="0" width="12" height="12" skin="btn_max12x12" name="btnSetFullScreen" caption="" alignment="taCenter" layout="llCenter" canactivate="false" showhint="true" hint="全屏" onclick="OnbtnSetFullScreenClick(Self);" />
+			<button left="36" top="0" width="12" height="12" skin="btn_close12x12" name="btnigwCapScreenDialogFormClose" onclick="btnigwCapScreenDialogFormCloseClick(Self);" showhint="true" hint="关闭" canactivate="false"/>			
+		</label>		
+		<label left="0" top="0" width="80" height="16" skin="" name="LblScrInfo" caption="" layout="llCenter" autosize="true" textcolor="$FFFF0000"/>
+		<button left="36" top="0" width="35" height="35" skin="btn_Capture35x35" name="btnCaptureScreen" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" showhint="true" hint="拍照"/>
+	</view>
+	<script src="DefaultCapScreen.js"/>
+</xul>

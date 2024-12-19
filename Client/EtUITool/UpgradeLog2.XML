@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="EtUITool">
+</Property><Property Name="Solution File" Value="C:\RLKT\dn_src\DragonNest\Client\EtUITool\EtUITool.sln">
+</Property><Property Name="User Options File" Value="C:\RLKT\dn_src\DragonNest\Client\EtUITool\EtUITool.suo">
+</Property><Property Name="Date" Value="Friday, May 27, 2016">
+</Property><Property Name="Time" Value="13:54 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="2" Project="" Source="EtUITool.sln" Description="Error creating backup file: C:\RLKT\dn_src\DragonNest\Client\EtUITool\EtUITool.sln.old">
+</Event><Event ErrorLevel="2" Project="" Source="EtUITool.suo" Description="Error creating backup file: C:\RLKT\dn_src\DragonNest\Client\EtUITool\EtUITool.suo.old">
+</Event><Event ErrorLevel="3" Project="EtUITool" Source="EtUITool.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="BugReporter" Source="..\..\Common\BugReporter\BugReporter.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="D3DDevice9" Source="..\..\Common\EternityEngine\D3DDevice9\D3DDevice9.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="EngineUtil" Source="..\..\Common\EngineUtil\EngineUtil.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="EternityEngine" Source="..\..\Common\EternityEngine\EternityEngine.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="EtFileSystem" Source="..\..\Common\EtFileSystem\EtFileSystem.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="EtInterface" Source="..\..\Common\EtInterface\EtInterface.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="EtResManager" Source="..\..\Common\EtResManager\EtResManager.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="EtStringManager" Source="..\..\Common\EtStringManager\EtStringManager.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="FMODEngine" Source="..\..\Common\FMODEngine\FMODEngine.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="MFCUtility" Source="..\..\Common\MFCUtility\MFCUtility.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="tinyxmlSTL" Source="..\..\Common\tinyxml\tinyxmlSTL.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="Utility" Source="..\..\Common\Utility\Utility.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="zlib" Source="..\..\Common\zlib\zlib.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="nvtt" Source="..\..\Common\Nvidia Texture Tool2\project\vc8\nvtt\nvtt.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="nvcore" Source="..\..\Common\Nvidia Texture Tool2\project\vc8\nvcore\nvcore.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="nvimage" Source="..\..\Common\Nvidia Texture Tool2\project\vc8\nvimage\nvimage.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="3" Project="squish" Source="..\..\Common\Nvidia Texture Tool2\project\vc8\squish\squish.vcproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="2" Project="" Source="EtUITool.sln" Description="Solution file 'C:\RLKT\dn_src\DragonNest\Client\EtUITool\EtUITool.sln' cannot be converted because it is read-only on disk. To convert the solution, change the permissions on the solution file to allow modification and re-open it.">
+</Event><Event ErrorLevel="3" Project="" Source="EtUITool.sln" Description="Not Converted">
+</Event></UpgradeLog>

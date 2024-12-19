@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>圈圈小助手</title>
+<link href="common/style_igw.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" type="text/javascript" src="common/common.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+//  window.resizeTo(640,480);
+function OpenOOSet()
+{ // 根据当前实际状态显示
+	if (GetIGWState())
+	{	// 当前状态是开着的，则设置界面默认为关闭选中  
+	  window.location.href = "p3.html";
+	}
+	else
+	{	// 当前状态是半着的，则设置界面默认为开启选中	
+		window.location.href = "p2.html";
+	}
+}
+-->
+</script>
+</head>
+<body>
+  <div class="content">
+    <ul class="topnav">
+      <li class="now"><span><a href="#">圈圈帮助</a></span></li>
+      <li class="next"><span><a href="javascript:OpenOOSet();" >圈圈设置</a></span></li>
+    </ul>
+    <div class="main_content">
+      <p class="p1">圈圈是新一代的游戏辅助工具,您可以通过
+        圈圈轻松使用丰富的互联网服务。给您带来更为
+        自由、个性的娱乐体验。</p>
+      <p class="p1">目前圈圈已为您带来:网络电台 在线充值彩
+        虹精灵 活动日历 交流论坛等内容。 </p>
+      <p class="link1"><a href="p5.html#faq">圈圈常见问题</a>&nbsp;&nbsp;<a href="p5.html#help">解决登陆游戏花屏的问题</a></p>
+    </div>
+	<div class="btn"><input type="button" value="确 定" class="btn_1"  onclick="javascript:window.close();" />
+	&nbsp;&nbsp;<input type="button" value="关 闭" class="btn_1" onclick="javascript:window.close();" />
+	</div>
+  </div>
+</html>

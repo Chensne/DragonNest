@@ -1,0 +1,106 @@
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-05-31T04:31:12
+
+[2016-05-31T04:31:12] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-05-31T13:36:48
+
+[2016-05-31T13:36:48] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-05-31T13:39:23
+
+[2016-05-31T13:39:24] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-05-31T13:40:01
+
+[2016-05-31T13:40:02] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-05-31T13:40:51
+
+[2016-05-31T13:40:51] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-05-31T13:45:30
+
+[2016-05-31T13:45:31] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-01T20:51:08
+
+[2016-06-01T20:51:08] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-01T20:54:04
+
+[2016-06-01T20:54:04] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-01T20:58:10
+
+[2016-06-01T20:58:10] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-01T21:01:56
+
+[2016-06-01T21:01:56] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-01T21:14:31
+
+[2016-06-01T21:14:31] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-01T21:16:34
+
+[2016-06-01T21:16:34] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-01T21:21:21
+
+[2016-06-01T23:10:45] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2016-06-17T16:27:29
+
+[2016-06-17T16:27:36] Failed:CEtUIXML::LoadXML, File(uistring.xml), Category(1)
+--------------------------------------------------------------
+	Dragon Nest Log Report
+--------------------------------------------------------------
+
+Execution time : 2017-03-07T23:06:20
+
+[2017-03-07T23:07:46] CTemplatePaneView::FindTemplate, Text_Daum_13_SH not found!
+[2017-03-07T23:08:02] CTemplatePaneView::FindTemplate, Text_Daum_13_SH not found!

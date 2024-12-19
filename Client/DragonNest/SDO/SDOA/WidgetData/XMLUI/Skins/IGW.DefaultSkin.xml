@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+	<!-- namespace is a prefix for defined terms such as "name" "fontname" "imagename"etc.
+	     for instance,if igwskin is a namespace,all the difined terms are "igwskin."+term,like "igwskin.IGW_Controls".
+		 namespace can be null,but if it didn't exist,its default is the path of the file such as "c:\IGW.DefaultSkin.xml."
+	 -->
+	<namespace></namespace>
+	<!-- widgetskinsresource difined all the elements for Quanquan skin,and it is prior to widget skins. -->
+	<widgetskinsresource>
+		<images>
+			<!-- the image name is global.while system="true" and image name is not called,it should be reseverd; while system="false" in 5 minites timing out,image name should be released automatically.-->			
+			<image name="IGW_DefaultControls" src="..\Images\IGW_DefaultSkin.png" system="true" skincolor="true"/>
+			<image name="IGW_NormalWBControls" src="..\Images\HLSWGSkin.png" system="true" skincolor="true"/>
+			<image name="IGW_WebBrowserExCtrl" src="..\Images\HLS_SY_WGSkin.png" system="true" skincolor="true"/>
+			<image name="IGW_LogoControls" src="..\Images\NOHLSWGSkin.png" system="true"/>
+			<image name="IGW_WidgetStatusImg" src="..\Images\IGW_WidgetStatusSkin.png" system="true"/>
+		</images>
+		<fonts>
+			<!-- the font name is global.-->
+			<font name="normalyouyan" family="幼圆" size="16" bold="False" italic="True" underLine="False" system="False"/> 
+			<font name="Normal" family="宋体" size="9" bold="False" italic="False" underLine="False" system="true"/>
+			<font name="NormalUnderLine" family="宋体" size="9" bold="False" italic="False" underLine="True" system="true"/>
+			<font name="NormalBig" family="宋体" size="16" bold="False" italic="False" underLine="False" system="False"/>
+			<font name="NormalLabelNormal" family="宋体" size="16" bold="False" italic="False" underLine="False" system="False"/>
+			<font name="NormalLabelhover" family="宋体" size="16" bold="False" italic="False" underLine="True" system="False"/>
+			<font name="NormalLabelPress" family="宋体" size="16" bold="False" italic="True" underLine="True" system="False"/>
+			<font name="CaptionFont" family="宋体" size="9" bold="True" italic="False" underLine="False" system="true"/>
+			<font name="VerFont" family="Tahoma" size="9" bold="False" italic="False" underLine="False" system="true"/>
+		</fonts>
+		
+		<!-- skincolors is special,it is color setting -->
+		<skincolors>
+			<skincolor name="">			
+			</skincolor>
+		</skincolors>
+		<!-- cursors means cursor determines image -->
+		<cursors>
+		  <!-- please garantee that images in skinname have been defined in widgetskins.it just respond to the cursor types regardless of skin types. -->
+		  
+			<normalcursor skinname="cursor02_16x22" />
+			<dragcursor skinname="cursor_hand_drag" />
+			<editcursor skinname="" />
+		</cursors>
+	</widgetskinsresource>
+	<!-- in widgetskins,while system ="true",the skin file should be loaded once only. -->
+	<widgetskins system="true">
+		<!-- sdtHover, sdtPress, sdtFocused means front,middle,and back in formbar -->
+		<skin name="bg_igwbarsvertical" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<hover imagename="IGW_DefaultControls" left="0" top="0" right="66" bottom="24"/>
+			<press imagename="IGW_DefaultControls" left="0" top="24" right="66" bottom="28"/>
+			<focused imagename="IGW_DefaultControls" left="0" top="28" right="66" bottom="56"/>
+		</skin>
+		<skin name="bg_igwbarsvertical_mirror" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<hover imagename="IGW_DefaultControls" left="129" top="84" right="195" bottom="111"/>
+			<press imagename="IGW_DefaultControls" left="129" top="111" right="195" bottom="116"/>
+			<focused imagename="IGW_DefaultControls" left="129" top="116" right="195" bottom="140"/>
+		</skin>
+		<skin name="bg_igwStartSmallLogo" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="190" top="206" right="256" bottom="248"/>
+		</skin>
+		<skin name="btn_igwStartSmallLogo" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_DefaultControls" left="0" top="199" right="64" bottom="227"/>
+			<hover imagename="IGW_DefaultControls" left="64" top="199" right="128" bottom="227"/>
+			<press imagename="IGW_DefaultControls" left="64" top="227" right="128" bottom="255"/>
+			<disabled imagename="IGW_DefaultControls" left="0" top="227" right="64" bottom="255"/>
+		</skin>
+		<skin name="btn_igwFloatNext_18x12" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_DefaultControls" left="0" top="92" right="12" bottom="110"/>
+			<hover imagename="IGW_DefaultControls" left="12" top="92" right="24" bottom="110"/>
+			<press imagename="IGW_DefaultControls" left="24" top="92" right="36" bottom="110"/>
+			<disabled imagename="IGW_DefaultControls" left="36" top="92" right="48" bottom="110"/>
+		</skin>
+		<skin name="btn_igwFloatPrior_18x12" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_DefaultControls" left="0" top="74" right="12" bottom="92"/>
+			<hover imagename="IGW_DefaultControls" left="12" top="74" right="24" bottom="92"/>
+			<press imagename="IGW_DefaultControls" left="24" top="74" right="36" bottom="92"/>
+			<disabled imagename="IGW_DefaultControls" left="36" top="74" right="48" bottom="92"/>
+		</skin>
+		<skin name="btn_igwLogoLuster" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<hover imagename="IGW_DefaultControls" left="196" top="0" right="255" bottom="60"/>
+			<disabled imagename="IGW_DefaultControls" left="196" top="60" right="255" bottom="120"/>
+		</skin>
+		<skin name="btn_baradd_16x16" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="0" top="146" right="15" bottom="162"/>
+			<hover imagename="IGW_DefaultControls" left="15" top="146" right="30" bottom="162"/>
+			<press imagename="IGW_DefaultControls" left="30" top="146" right="45" bottom="162"/>
+			<disabled imagename="IGW_DefaultControls" left="45" top="146" right="60" bottom="162"/>
+		</skin>
+		<skin name="btn_barmsg_16x16" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="60" top="146" right="75" bottom="162"/>
+			<hover imagename="IGW_DefaultControls" left="75" top="146" right="90" bottom="162"/>
+			<press imagename="IGW_DefaultControls" left="90" top="146" right="105" bottom="162"/>
+			<disabled imagename="IGW_DefaultControls" left="105" top="146" right="120" bottom="162"/>
+		</skin>
+		<skin name="btn_barcap_16x16" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="120" top="146" right="135" bottom="162"/>
+			<hover imagename="IGW_DefaultControls" left="135" top="146" right="150" bottom="162"/>
+			<press imagename="IGW_DefaultControls" left="150" top="146" right="165" bottom="162"/>
+			<disabled imagename="IGW_DefaultControls" left="165" top="146" right="180" bottom="162"/>
+		</skin>
+		<skin name="btn_barDownMenu_15x20" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="0" top="162" right="14" bottom="181"/>
+			<hover imagename="IGW_DefaultControls" left="14" top="162" right="28" bottom="181"/>
+			<press imagename="IGW_DefaultControls" left="28" top="162" right="42" bottom="181"/>
+			<disabled imagename="IGW_DefaultControls" left="42" top="162" right="56" bottom="181"/>
+		</skin>
+		<skin name="btn_barDownMenu_mirror_15x20" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="0" top="181" right="14" bottom="200"/>
+			<hover imagename="IGW_DefaultControls" left="14" top="181" right="28" bottom="200"/>
+			<press imagename="IGW_DefaultControls" left="28" top="181" right="42" bottom="200"/>
+			<disabled imagename="IGW_DefaultControls" left="42" top="181" right="56" bottom="200"/>
+		</skin>
+		<skin name="btn_barPageDown_14x13" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="56" top="162" right="69" bottom="174"/>
+			<hover imagename="IGW_DefaultControls" left="69" top="162" right="82" bottom="174"/>
+			<press imagename="IGW_DefaultControls" left="82" top="162" right="95" bottom="174"/>
+			<disabled imagename="IGW_DefaultControls" left="95" top="162" right="108" bottom="174"/>
+		</skin>
+		<skin name="btn_barPageUp_14x13" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="195" top="120" right="208" bottom="132"/>
+			<hover imagename="IGW_DefaultControls" left="208" top="120" right="221" bottom="132"/>
+			<press imagename="IGW_DefaultControls" left="221" top="120" right="234" bottom="132"/>
+			<disabled imagename="IGW_DefaultControls" left="234" top="120" right="247" bottom="132"/>
+		</skin>
+		<skin name="btn_barvresize_60x6" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="3" top="50" right="63" bottom="56"/>
+			<hover imagename="IGW_DefaultControls" left="3" top="56" right="63" bottom="62"/>
+			<press imagename="IGW_DefaultControls" left="3" top="62" right="63" bottom="68"/>
+			<disabled imagename="IGW_DefaultControls" left="3" top="68" right="63" bottom="74"/>
+		</skin>
+		<skin name="btn_barvresize_mirror_60x6" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="132" top="84" right="192" bottom="90"/>
+			<hover imagename="IGW_DefaultControls" left="132" top="78" right="192" bottom="84"/>
+			<press imagename="IGW_DefaultControls" left="132" top="72" right="192" bottom="78"/>
+			<disabled imagename="IGW_DefaultControls" left="132" top="66" right="192" bottom="72"/>
+		</skin>
+		<skin name="bg_igwbarline" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_DefaultControls" left="2" top="0" right="60" bottom="1"/>
+		</skin>
+		<skin name="bg_igwbarlinenew" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="190" top="249" right="250" bottom="252"/>
+		</skin>
+		<skin name="bg_igwbarlinenewtop" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="190" top="253" right="250" bottom="255"/>
+		</skin>
+		<skin name="bg_igwmenu" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<!-- imagewell identifies image-zooming as IC TAC TOE -->	
+			<normal imagename="IGW_DefaultControls" left="56" top="174" right="75" bottom="192" imagewell="(2, 2, 2, 2)"/>
+		</skin>
+		<skin name="bg_igwmenuitem18x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal fontname="Normal" color="#FF000000"/>
+			<press imagename="IGW_DefaultControls" left="76" top="174" right="82" bottom="194" fontname="Normal" color="#F0FFFFFE"/>
+			<hover imagename="IGW_DefaultControls" left="76" top="174" right="82" bottom="194" fontname="Normal" color="#FFFFFFFE"/>
+			<disabled  fontname="Normal" color="#FF808080"/>
+		</skin>
+		<skin name="bg_igwBarTopItem" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal  fontname="Normal" color="#FF000000"/>
+			<hover  imagename="IGW_DefaultControls" left="129" top="185" right="189" bottom="208" fontname="Normal" color="#FF000000"/>
+			<press  imagename="IGW_DefaultControls" left="129" top="208" right="189" bottom="231" fontname="Normal" color="#F0666666"/>			
+			<disabled imagename="IGW_DefaultControls" left="129" top="231" right="189" bottom="254" fontname="Normal" color="#FF808080"/>
+		</skin>
+		<skin name="bg_igwBarTopItemNormalbk" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultControls" left="129" top="162" right="189" bottom="185" fontname="Normal" color="#FF000000"/>
+		</skin>
+		<skin name="btn_WidgetSmallStatus" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_WidgetStatusImg" left="0" top="22" right="20" bottom="31"/>
+			<hover imagename="IGW_WidgetStatusImg" left="0" top="13" right="22" bottom="22"/>
+			<press imagename="IGW_WidgetStatusImg" left="0" top="0" right="17" bottom="13"/>
+		</skin>
+		<skin name="btn_WidgetBigStatus" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_WidgetStatusImg" left="52" top="0" right="97" bottom="20"/>
+			<hover imagename="IGW_WidgetStatusImg" left="22" top="24" right="67" bottom="43"/>
+			<press imagename="IGW_WidgetStatusImg" left="22" top="0" right="52" bottom="24"/>
+		</skin>
+		<skin name="btn_close_17x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="0" right="16" bottom="16"/>
+			<hover imagename="IGW_NormalWBControls" left="16" top="0" right="32" bottom="16"/>
+			<press imagename="IGW_NormalWBControls" left="32" top="0" right="48" bottom="16"/>
+			<disabled imagename="IGW_NormalWBControls" left="48" top="0" right="64" bottom="16"/>
+		</skin>
+		<skin name="btn_max_17x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="16" right="16" bottom="32"/>
+			<hover imagename="IGW_NormalWBControls" left="16" top="16" right="32" bottom="32"/>
+			<press imagename="IGW_NormalWBControls" left="32" top="16" right="48" bottom="32"/>
+			<disabled imagename="IGW_NormalWBControls" left="48" top="16" right="64" bottom="32"/>
+		</skin>
+		<skin name="btn_restore_17x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="32" right="16" bottom="48"/>
+			<hover imagename="IGW_NormalWBControls" left="16" top="32" right="32" bottom="48"/>
+			<press imagename="IGW_NormalWBControls" left="32" top="32" right="48" bottom="48"/>
+			<disabled imagename="IGW_NormalWBControls" left="48" top="32" right="64" bottom="48"/>
+		</skin>
+		<skin name="btn_mini_17x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="48" right="16" bottom="64"/>
+			<hover imagename="IGW_NormalWBControls" left="16" top="48" right="32" bottom="64"/>
+			<press imagename="IGW_NormalWBControls" left="32" top="48" right="48" bottom="64"/>
+			<disabled imagename="IGW_NormalWBControls" left="48" top="48" right="64" bottom="64"/>
+		</skin>
+		<skin name="btn_help_20x20" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="64" right="19" bottom="83"/>
+			<hover imagename="IGW_NormalWBControls" left="19" top="64" right="38" bottom="83"/>
+			<press imagename="IGW_NormalWBControls" left="38" top="64" right="57" bottom="83"/>
+			<disabled imagename="IGW_NormalWBControls" left="57" top="64" right="76" bottom="83"/>
+		</skin>
+		<skin name="btn_help_20x20_bar" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="0" top="64" right="19" bottom="83"/>
+			<hover imagename="IGW_NormalWBControls" left="19" top="64" right="38" bottom="83"/>
+			<press imagename="IGW_NormalWBControls" left="38" top="64" right="57" bottom="83"/>
+			<disabled imagename="IGW_NormalWBControls" left="57" top="64" right="76" bottom="83"/>
+		</skin>
+		<skin name="btn_downcomboxbtn_14x16" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="64" top="0" right="77" bottom="15"/>
+			<hover imagename="IGW_NormalWBControls" left="77" top="0" right="90" bottom="15"/>
+			<press imagename="IGW_NormalWBControls" left="90" top="0" right="103" bottom="15"/>
+			<disabled imagename="IGW_NormalWBControls" left="103" top="0" right="116" bottom="15"/>
+		</skin>
+		<skin name="bg_igwNormalTab" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<disabled imagename="IGW_NormalWBControls" left="92" top="15" right="99" bottom="38" imagewell="(1, 1, 1, 1)"/>
+			<normal imagename="IGW_NormalWBControls" left="101" top="15" right="108" bottom="38" imagewell="(1, 2, 1, 2)"/>
+			<hover imagename="IGW_NormalWBControls" left="110" top="15" right="117" bottom="38" imagewell="(3, 4, 3, 2)"/>
+		</skin>
+		<skin name="btn_igwTabLine" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="92" top="15" right="99" bottom="16"/>
+		</skin>
+		<skin name="btn_downcomboxmenu" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="64" top="15" right="71" bottom="34" imagewell="(4, 4, 2, 2)"/>
+		</skin>
+		<skin name="btn_reviewSkinColor_22x22" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="71" top="15" right="92" bottom="36"/>
+		</skin>
+		<skin name="btn_slider_10x14" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="119" top="26" right="128" bottom="39"/>
+			<hover imagename="IGW_NormalWBControls" left="128" top="26" right="137" bottom="39"/>
+			<press imagename="IGW_NormalWBControls" left="137" top="26" right="146" bottom="39"/>
+			<disabled imagename="IGW_NormalWBControls" left="146" top="26" right="155" bottom="39"/>
+		</skin>
+		<skin name="btn_sliderstaff_125x6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="0" top="83" right="124" bottom="89"/>
+		</skin>
+		<skin name="btn_normal_70x22" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="155" right="69" bottom="176"/>
+			<hover imagename="IGW_NormalWBControls" left="69" top="155" right="138" bottom="176"/>
+			<press imagename="IGW_NormalWBControls" left="69" top="176" right="138" bottom="197"/>
+			<disabled imagename="IGW_NormalWBControls" left="0" top="176" right="69" bottom="197"/>
+		</skin>
+		<skin name="btn_edit_60x32" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="0" top="197" right="59" bottom="217" imagewell="(2, 2, 2, 2)"/>
+		</skin>
+		<skin name="btn_first_16x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="217" right="15" bottom="233"/>
+			<hover imagename="IGW_NormalWBControls" left="15" top="217" right="30" bottom="233"/>
+			<press imagename="IGW_NormalWBControls" left="30" top="217" right="45" bottom="233"/>
+			<disabled imagename="IGW_NormalWBControls" left="45" top="217" right="60" bottom="233"/>
+		</skin>
+		<skin name="btn_last_16x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="60" top="217" right="75" bottom="233"/>
+			<hover imagename="IGW_NormalWBControls" left="75" top="217" right="90" bottom="233"/>
+			<press imagename="IGW_NormalWBControls" left="90" top="217" right="105" bottom="233"/>
+			<disabled imagename="IGW_NormalWBControls" left="105" top="217" right="120" bottom="233"/>
+		</skin>
+		<skin name="btn_prior_16x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="0" top="233" right="15" bottom="249"/>
+			<hover imagename="IGW_NormalWBControls" left="15" top="233" right="30" bottom="249"/>
+			<press imagename="IGW_NormalWBControls" left="30" top="233" right="45" bottom="249"/>
+			<disabled imagename="IGW_NormalWBControls" left="45" top="233" right="60" bottom="249"/>
+		</skin>
+		<skin name="btn_next_16x17" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="60" top="233" right="75" bottom="249"/>
+			<hover imagename="IGW_NormalWBControls" left="75" top="233" right="90" bottom="249"/>
+			<press imagename="IGW_NormalWBControls" left="90" top="233" right="105" bottom="249"/>
+			<disabled imagename="IGW_NormalWBControls" left="105" top="233" right="120" bottom="249"/>
+		</skin>
+		<skin name="checkbox_unchecked_13x13" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="171" top="136" right="184" bottom="149"/>
+			<hover imagename="IGW_NormalWBControls" left="184" top="136" right="197" bottom="149"/>
+		</skin>
+		<skin name="checkbox_checked_13x13" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<hover imagename="IGW_NormalWBControls" left="197" top="136" right="210" bottom="149"/>
+			<normal imagename="IGW_NormalWBControls" left="210" top="136" right="223" bottom="149"/>
+		</skin>
+		<skin name="Radio_unchecked_13x13" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="171" top="149" right="184" bottom="162"/>
+			<hover imagename="IGW_NormalWBControls" left="184" top="149" right="197" bottom="162"/>
+		</skin>
+		<skin name="Radio_checked_13x13" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<hover imagename="IGW_NormalWBControls" left="197" top="149" right="210" bottom="162"/>
+			<normal imagename="IGW_NormalWBControls" left="210" top="149" right="223" bottom="162"/>
+		</skin>
+		<skin name="btn_PageUp_22x9" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="80" top="107" right="102" bottom="115"/>
+			<hover imagename="IGW_NormalWBControls" left="102" top="107" right="124" bottom="115"/>
+			<press imagename="IGW_NormalWBControls" left="80" top="115" right="102" bottom="123"/>
+			<disabled imagename="IGW_NormalWBControls" left="102" top="115" right="124" bottom="123"/>
+		</skin>
+		<skin name="btn_PageDown_22x9" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="80" top="123" right="102" bottom="131"/>
+			<hover imagename="IGW_NormalWBControls" left="102" top="123" right="124" bottom="131"/>
+			<press imagename="IGW_NormalWBControls" left="80" top="131" right="102" bottom="139"/>
+			<disabled imagename="IGW_NormalWBControls" left="102" top="131" right="124" bottom="139"/>
+		</skin>
+		<skin name="bg_widgetform" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="176" top="96" right="189" bottom="136" imagewell="(6, 33, 6, 6)"/>
+		</skin>
+		<skin name="bg_widgetform_ad01" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="124" top="62" right="137" bottom="115" imagewell="(6, 33, 6, 19)"/>
+		</skin>
+		<skin name="bg_widgetform_ad02" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="150" top="96" right="163" bottom="162" imagewell="(6, 59, 6, 6)"/>
+		</skin>
+		<skin name="bg_widgetform_ad03" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="137" top="62" right="150" bottom="141" imagewell="(6, 59, 6, 19)"/>
+		</skin>
+		<skin name="bg_widgetform_ad04" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_WebBrowserExCtrl" left="13" top="0" right="26" bottom="114" imagewell="(6, 33, 6, 80)"/>
+		</skin>
+		<skin name="bg_widgetform_ad06" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_WebBrowserExCtrl" left="0" top="0" right="13" bottom="140" imagewell="(6, 59, 6, 80)"/>
+		</skin>
+		<skin name="btn_prior18x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_WebBrowserExCtrl" left="26" top="0" right="44" bottom="18"/>
+			<hover imagename="IGW_WebBrowserExCtrl" left="26" top="18" right="44" bottom="36"/>
+		</skin>
+		<skin name="btn_next18x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_WebBrowserExCtrl" left="44" top="0" right="62" bottom="18"/>
+			<hover imagename="IGW_WebBrowserExCtrl" left="44" top="18" right="62" bottom="36"/>
+		</skin>
+		<skin name="btn_refresh18x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_WebBrowserExCtrl" left="62" top="0" right="80" bottom="18"/>
+			<hover imagename="IGW_WebBrowserExCtrl" left="62" top="18" right="80" bottom="36"/>
+		</skin>				
+		<skin name="bg_widgetformbg" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="244" top="0" right="245" bottom="250"/>
+		</skin>
+		<skin name="btn_managernormal_66x24" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="157" top="0" right="223" bottom="24"/>
+			<hover imagename="IGW_NormalWBControls" left="157" top="24" right="223" bottom="48"/>
+			<press imagename="IGW_NormalWBControls" left="157" top="48" right="223" bottom="72"/>
+			<disabled imagename="IGW_NormalWBControls" left="157" top="72" right="223" bottom="96"/>
+		</skin>
+		<skin name="bg_wbformsideline" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<hover imagename="IGW_NormalWBControls" left="189" top="96" right="223" bottom="115"/>
+			<press imagename="IGW_NormalWBControls" left="189" top="115" right="223" bottom="116"/>
+			<focused imagename="IGW_NormalWBControls" left="189" top="116" right="223" bottom="135"/>
+		</skin>
+		<skin name="bg_igwmanagerdialog" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="223" top="0" right="244" bottom="162" imagewell="(9, 50, 9, 110)"/>
+		</skin>
+		<skin name="bg_igwNormaldialog" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="245" top="0" right="256" bottom="167" imagewell="(5, 35, 5, 34)"/>
+		</skin>
+		<skin name="bg_GearLogo" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="120" top="197" right="154" bottom="231"/>
+		</skin>
+		<skin name="bg_WidgetItem_90x81" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_NormalWBControls" left="154" top="162" right="244" bottom="243"/>
+		</skin>
+		<skin name="bg_igwselectbarsicon" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal fontname="Normal" color="#FF666666"/>
+			<press fontname="Normal" color="#FF666666"/>
+			<focused imagename="IGW_NormalWBControls" left="142" top="0" right="157" bottom="15" imagewell="(4, 4, 4, 4)"/>
+			<hover imagename="IGW_NormalWBControls" left="142" top="0" right="157" bottom="15" imagewell="(4, 4, 4, 4)"/>
+			<disabled fontname="Normal" color="#FF808080"/>
+		</skin>
+		<skin name="bg_igwIMEForm" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="142" top="0" right="157" bottom="15" imagewell="(4, 4, 4, 4)"/>
+		</skin>
+		
+		<skin name="bg_igwselectbarsiconSelect" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="142" top="0" right="157" bottom="15" imagewell="(4, 4, 4, 4)" fontname="Normal" color="#FF666666"/>
+			<press fontname="Normal" color="#FF666666"/>
+			<focused imagename="IGW_NormalWBControls" left="142" top="0" right="157" bottom="15" imagewell="(4, 4, 4, 4)"/>
+			<hover imagename="IGW_NormalWBControls" left="142" top="0" right="157" bottom="15" imagewell="(4, 4, 4, 4)"/>
+			<disabled fontname="Normal" color="#FF808080"/>
+		</skin>
+		<skin name="bg_WidgetTire" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="116" top="0" right="131" bottom="15" imagewell="(4, 4, 4, 4)"/>
+		</skin>
+		<skin name="bg_igwSetFormlblsoundCaption" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="250" top="52" right="251" bottom="70"/>
+		</skin>
+		<skin name="bg_igwSetFormlblsoundCaption1" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="250" top="72" right="251" bottom="88"/>
+		</skin>
+		<skin name="bg_igwManagerLogoOne" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="76" top="64" right="93" bottom="81"/>
+		</skin>
+		<skin name="bg_igwManagerLogoTwo" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_NormalWBControls" left="93" top="64" right="110" bottom="81"/>
+		</skin>
+		
+		<skin name="bg_igwSndaOnlineLogo" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="0" right="72" bottom="20"/>
+		</skin>
+		<skin name="bg_igwNormalTitleShading" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="205" right="255" bottom="255"/>
+		</skin>
+		<skin name="bg_igwHideStatus" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="44" right="21" bottom="65"/>
+		</skin>
+		<skin name="btn_sliderstaffH_125x6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="26" right="124" bottom="32"/>
+		</skin>
+		<skin name="btn_sliderstaffS_125x6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="32" right="124" bottom="38"/>
+		</skin>
+		<skin name="btn_sliderstaffL_125x6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="38" right="124" bottom="44"/>
+		</skin>
+		<skin name="floatbtn_set" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="72" top="0" right="86" bottom="14"/>
+			<press imagename="IGW_LogoControls" left="86" top="0" right="100" bottom="14"/>
+			<hover imagename="IGW_LogoControls" left="100" top="0" right="114" bottom="14"/>
+			<disabled imagename="IGW_LogoControls" left="114" top="0" right="128" bottom="14"/>
+		</skin>
+		<skin name="floatbtn_close" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="128" top="0" right="142" bottom="14"/>
+			<press imagename="IGW_LogoControls" left="142" top="0" right="156" bottom="14"/>
+			<hover imagename="IGW_LogoControls" left="156" top="0" right="170" bottom="14"/>
+			<disabled imagename="IGW_LogoControls" left="170" top="0" right="184" bottom="14"/>
+		</skin>
+		<skin name="floatbtn_drag" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="184" top="0" right="198" bottom="14"/>
+			<disabled imagename="IGW_LogoControls" left="198" top="0" right="212" bottom="14"/>
+		</skin>
+		<skin name="btn_HLSColorNormal" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="21" top="44" right="42" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-109_10_-29" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="42" top="44" right="63" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor106_4_-29" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="63" top="44" right="84" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor61_4_-29" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="84" top="44" right="105" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-10_0_27" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="105" top="44" right="126" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor150_4_-6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="126" top="44" right="147" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-159_8_-40" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="147" top="44" right="168" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-141_8_-36" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="168" top="44" right="189" bottom="65"/>
+		</skin>
+		<skin name="cursor_hand_normal" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="124" top="20" right="148" bottom="44"/>	
+		</skin>
+		<skin name="cursor_hand_drag" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="148" top="20" right="172" bottom="44"/>	
+		</skin>
+		<skin name="cursor02_16x22" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="172" top="20" right="188" bottom="42"/>	
+			<press imagename="IGW_LogoControls" left="188" top="20" right="204" bottom="42"/>	
+		</skin>
+		<skin name="btn_barhelpbtn" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_DefaultControls" left="84" top="174" right="99" bottom="190"/>
+			<hover imagename="IGW_DefaultControls" left="99" top="174" right="114" bottom="190"/>
+			<press imagename="IGW_DefaultControls" left="114" top="174" right="129" bottom="190"/>
+			<disabled imagename="IGW_DefaultControls" left="177" top="140" right="192" bottom="156"/>
+		</skin>
+		<skin name="bg_igwQQMsgNumBk" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="65" right="27" bottom="95" imagewell="(13, 1, 13, 1)"/>
+		</skin>
+		<skin name="bg_igwAdvertising" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_DefaultControls" left="0" top="19" right="66" bottom="50" imagewell="(3, 7, 3, 7)"/>
+		</skin>
+		<skin name="btn_barmorebtn" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<hover imagename="IGW_DefaultControls" left="66" top="0" right="128" bottom="25"/>
+			<normal imagename="IGW_DefaultControls" left="66" top="25" right="128" bottom="50"/>			
+		</skin>
+	</widgetskins>
+</widget>

@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1078741B-CEE6-42F2-BF5D-B441BE369AE6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DNQuest</RootNamespace>
+    <AssemblyName>DNQuest</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>B5790AB709B694A3456ACE90B8BB309AFDD33447</ManifestCertificateThumbprint>
+    <ManifestKeyFile>DNQuest_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>Z:\퀘스트 툴 개발\Working\Release\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GvS.Controls.HtmlTextbox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Class.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Class.Designer.cs">
+      <DependentUpon>Condition_Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Compelete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Compelete.Designer.cs">
+      <DependentUpon>Condition_Compelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Custum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Custum.Designer.cs">
+      <DependentUpon>Condition_Custum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_GeneralItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_GeneralItem.Designer.cs">
+      <DependentUpon>Condition_GeneralItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Inven.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Inven.Designer.cs">
+      <DependentUpon>Condition_Inven.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Level.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Level.Designer.cs">
+      <DependentUpon>Condition_Level.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Prob.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Prob.Designer.cs">
+      <DependentUpon>Condition_Prob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_Quest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_Quest.Designer.cs">
+      <DependentUpon>Condition_Quest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_QuestCnt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_QuestCnt.Designer.cs">
+      <DependentUpon>Condition_QuestCnt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_QuestItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_QuestItem.Designer.cs">
+      <DependentUpon>Condition_QuestItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_StageConstructionLevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_StageConstructionLevel.Designer.cs">
+      <DependentUpon>Condition_StageConstructionLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\Condition_SymbolItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\Condition_SymbolItem.Designer.cs">
+      <DependentUpon>Condition_SymbolItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomAPICheck.cs" />
+    <Compile Include="Executions\Exe_AddDailyQuest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_AddDailyQuest.Designer.cs">
+      <DependentUpon>Exe_AddDailyQuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_AddDel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_AddDel.Designer.cs">
+      <DependentUpon>Exe_AddDel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_AddItemAndQuestItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_AddItemAndQuestItem.Designer.cs">
+      <DependentUpon>Exe_AddItemAndQuestItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_AllHunting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_AllHunting.Designer.cs">
+      <DependentUpon>Exe_AllHunting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Comment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Comment.Designer.cs">
+      <DependentUpon>Exe_Comment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Condition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Condition.Designer.cs">
+      <DependentUpon>Exe_Condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Custum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Custum.Designer.cs">
+      <DependentUpon>Exe_Custum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_MoneyDel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_MoneyDel.Designer.cs">
+      <DependentUpon>Exe_MoneyDel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_FullInven.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_FullInven.Designer.cs">
+      <DependentUpon>Exe_FullInven.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_FullQuest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_FullQuest.Designer.cs">
+      <DependentUpon>Exe_FullQuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_ItemAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_ItemAdd.Designer.cs">
+      <DependentUpon>Exe_ItemAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_ItemColAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_ItemColAdd.Designer.cs">
+      <DependentUpon>Exe_ItemColAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_ItemDel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_ItemDel.Designer.cs">
+      <DependentUpon>Exe_ItemDel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_JournalMod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_JournalMod.Designer.cs">
+      <DependentUpon>Exe_JournalMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Message.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Message.Designer.cs">
+      <DependentUpon>Exe_Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_MonsterAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_MonsterAdd.Designer.cs">
+      <DependentUpon>Exe_MonsterAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_ProbChoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_ProbChoice.Designer.cs">
+      <DependentUpon>Exe_ProbChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestAdd.Designer.cs">
+      <DependentUpon>Exe_QuestAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestComplete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestComplete.Designer.cs">
+      <DependentUpon>Exe_QuestComplete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestItemAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestItemAdd.Designer.cs">
+      <DependentUpon>Exe_QuestItemAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestItemDel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestItemDel.Designer.cs">
+      <DependentUpon>Exe_QuestItemDel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestStepMod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_QuestStepMod.Designer.cs">
+      <DependentUpon>Exe_QuestStepMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Recompense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Recompense.Designer.cs">
+      <DependentUpon>Exe_Recompense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Recompense_View.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Recompense_View.Designer.cs">
+      <DependentUpon>Exe_Recompense_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Return.Designer.cs">
+      <DependentUpon>Exe_Return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_Script.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_Script.Designer.cs">
+      <DependentUpon>Exe_Script.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_CheckStageClearRank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_CheckStageClearRank.Designer.cs">
+      <DependentUpon>Exe_CheckStageClearRank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_SymbolAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_SymbolAdd.Designer.cs">
+      <DependentUpon>Exe_SymbolAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_SymbolColAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_SymbolColAdd.Designer.cs">
+      <DependentUpon>Exe_SymbolColAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Executions\Exe_SymbolDel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Executions\Exe_SymbolDel.Designer.cs">
+      <DependentUpon>Exe_SymbolDel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrom.Designer.cs">
+      <DependentUpon>MainFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\SelectDds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\SelectDds.Designer.cs">
+      <DependentUpon>SelectDds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Conditions\Condition_Class.resx">
+      <DependentUpon>Condition_Class.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Compelete.resx">
+      <DependentUpon>Condition_Compelete.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Custum.resx">
+      <DependentUpon>Condition_Custum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_GeneralItem.resx">
+      <DependentUpon>Condition_GeneralItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Inven.resx">
+      <DependentUpon>Condition_Inven.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Level.resx">
+      <DependentUpon>Condition_Level.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Prob.resx">
+      <DependentUpon>Condition_Prob.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_Quest.resx">
+      <DependentUpon>Condition_Quest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_QuestCnt.resx">
+      <DependentUpon>Condition_QuestCnt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_QuestItem.resx">
+      <DependentUpon>Condition_QuestItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_StageConstructionLevel.resx">
+      <DependentUpon>Condition_StageConstructionLevel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\Condition_SymbolItem.resx">
+      <DependentUpon>Condition_SymbolItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_AddDailyQuest.resx">
+      <DependentUpon>Exe_AddDailyQuest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_AddDel.resx">
+      <DependentUpon>Exe_AddDel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_AddItemAndQuestItem.resx">
+      <DependentUpon>Exe_AddItemAndQuestItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_AllHunting.resx">
+      <DependentUpon>Exe_AllHunting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Comment.resx">
+      <DependentUpon>Exe_Comment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Condition.resx">
+      <DependentUpon>Exe_Condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Custum.resx">
+      <DependentUpon>Exe_Custum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_MoneyDel.resx">
+      <DependentUpon>Exe_MoneyDel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_FullInven.resx">
+      <DependentUpon>Exe_FullInven.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_FullQuest.resx">
+      <DependentUpon>Exe_FullQuest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_ItemAdd.resx">
+      <DependentUpon>Exe_ItemAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_ItemColAdd.resx">
+      <DependentUpon>Exe_ItemColAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_ItemDel.resx">
+      <DependentUpon>Exe_ItemDel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_JournalMod.resx">
+      <DependentUpon>Exe_JournalMod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Message.resx">
+      <DependentUpon>Exe_Message.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_MonsterAdd.resx">
+      <DependentUpon>Exe_MonsterAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_ProbChoice.resx">
+      <DependentUpon>Exe_ProbChoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_QuestAdd.resx">
+      <DependentUpon>Exe_QuestAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_QuestComplete.resx">
+      <DependentUpon>Exe_QuestComplete.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_QuestItemAdd.resx">
+      <DependentUpon>Exe_QuestItemAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_QuestItemDel.resx">
+      <DependentUpon>Exe_QuestItemDel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_QuestStepMod.resx">
+      <DependentUpon>Exe_QuestStepMod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Recompense.resx">
+      <DependentUpon>Exe_Recompense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Recompense_View.resx">
+      <DependentUpon>Exe_Recompense_View.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Return.resx">
+      <DependentUpon>Exe_Return.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_Script.resx">
+      <DependentUpon>Exe_Script.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_CheckStageClearRank.resx">
+      <DependentUpon>Exe_CheckStageClearRank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_SymbolAdd.resx">
+      <DependentUpon>Exe_SymbolAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_SymbolColAdd.resx">
+      <DependentUpon>Exe_SymbolColAdd.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Executions\Exe_SymbolDel.resx">
+      <DependentUpon>Exe_SymbolDel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrom.resx">
+      <DependentUpon>MainFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\SelectDds.resx">
+      <DependentUpon>SelectDds.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_Condition.resx">
+      <DependentUpon>Quest_Condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_FunctionControl.resx">
+      <DependentUpon>Quest_FunctionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_Journal.resx">
+      <DependentUpon>Quest_Journal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_NPC.resx">
+      <DependentUpon>Quest_NPC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_RemoteComplete.resx">
+      <DependentUpon>Quest_RemoteComplete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_SelectControl.resx">
+      <DependentUpon>Quest_SelectControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_Step.resx">
+      <DependentUpon>Quest_Step.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quest_Unit.resx">
+      <DependentUpon>Quest_Unit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\SelectItem.resx">
+      <DependentUpon>SelectItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\SelectNPC.resx">
+      <DependentUpon>SelectNPC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\SelectRewardItem.resx">
+      <DependentUpon>SelectRewardItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="DNQuest_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Quest_Condition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_Condition.Designer.cs">
+      <DependentUpon>Quest_Condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_FunctionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_FunctionControl.Designer.cs">
+      <DependentUpon>Quest_FunctionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_Journal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_Journal.Designer.cs">
+      <DependentUpon>Quest_Journal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_NPC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_NPC.Designer.cs">
+      <DependentUpon>Quest_NPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_RemoteComplete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_RemoteComplete.Designer.cs">
+      <DependentUpon>Quest_RemoteComplete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_SelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_SelectControl.Designer.cs">
+      <DependentUpon>Quest_SelectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_Step.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_Step.Designer.cs">
+      <DependentUpon>Quest_Step.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quest_Unit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quest_Unit.Designer.cs">
+      <DependentUpon>Quest_Unit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\SelectItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\SelectItem.Designer.cs">
+      <DependentUpon>SelectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\SelectNPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\SelectNPC.Designer.cs">
+      <DependentUpon>SelectNPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\SelectRewardItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\SelectRewardItem.Designer.cs">
+      <DependentUpon>SelectRewardItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveLua.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0%28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0%28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\GvS.Controls.HtmlTextbox.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

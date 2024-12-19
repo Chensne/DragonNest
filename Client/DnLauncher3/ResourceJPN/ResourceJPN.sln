@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceJPN", "ResourceJPN.vcproj", "{805F485A-906C-4C47-84DF-C1402D9D7060}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_JPN|Win32 = Debug_JPN|Win32
+		Debug|Win32 = Debug|Win32
+		Release_JPN|Win32 = Release_JPN|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Debug_JPN|Win32.ActiveCfg = Debug_JPN|Win32
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Debug_JPN|Win32.Build.0 = Debug_JPN|Win32
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Debug|Win32.ActiveCfg = Debug|Win32
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Debug|Win32.Build.0 = Debug|Win32
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Release_JPN|Win32.ActiveCfg = Release_JPN|Win32
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Release_JPN|Win32.Build.0 = Release_JPN|Win32
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Release|Win32.ActiveCfg = Release|Win32
+		{805F485A-906C-4C47-84DF-C1402D9D7060}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

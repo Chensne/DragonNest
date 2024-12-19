@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+<skin src="Skins\IGW.QuanFuTong.xml"/>
+<view name="igwUserLoginDialog" type="DefaultUserLoginForm" caption="" left="0" top="0" width="291" height="197" skin="bg_normalform" candock="false" miniheight="215" miniwidth="266" floatbuttonstatus="0" backgroundskinname="" margin="(8,30,10,12)"
+ onhide="OnigwUserLoginDialogHide(Self);" onshow="OnigwUserLoginDialogShow(Self);">
+<label left="12" top="8" width="150" height="20" name="lableCaption" fontname="CaptionFont" caption="盛大通行证用户登录" alignment="taLeftJustify" canactivate="true" onclick="" cannotifydrag="true" shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="3" layout="llCenter" shadowoutline="true" fontmargin="5"/>
+<button type="" left="266" top="10" width="17" height="17" skin="btn_bigclose_17x17" name="btnigwUserLoginDialogFormClose" onclick="btnigwUserLoginDialogFormCloseClick(Self);" showhint="true" hint="关闭" canactivate="false"/>
+<label left="4" top="160" width="281" height="30" name="lblbgAdvertisingBlock" caption="" skina="bg_igwNormalLoginBackground_black" icon=".\Images\bg22.png" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000" iconpressoffsetx="0" iconpressoffsety="0" visiblea="false"/>
+<label left="25" top="50" width="40" height="21" name="lableUserName" caption="帐号：" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+<label left="25" top="85" width="40" height="21" name="lablePassword" caption="密码：" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+<edit left="70" top="50" width="130" height="21" skin="bg_whiteedit" name="edtUserName" text="" caretcolor="$FFFF0000" textrect="(4,1,126,19)" textcolor="$FF000000" hint="输入用户名称" maxlength="50"/>
+<label left="70" top="85" width="130" height="21" skin="bg_whiteedit" name="lableEdtbk" caption="" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+<edit left="90" top="85" width="108" height="21" name="edtPassword" text="" caretcolor="$FFFF0000" textrect="(2,1,104,19)" textcolor="$FF000000" hint="输入密码" passwordchar="*" maxlength="50" onsetfocus="OnedtPasswordSetFocus(Self);" bordercolora="$FFFF0000"/>
+<LinkButton left="73" top="88" width="17" height="15" icon="btn_Keyboard17x15" name="btnKeyboard" canactivate="true" link="DefaultVirtualKeyboard.xml" wglinkbtnpostype="wglbptTop" closelinked="true" iconpressoffsetx="1" iconpressoffsety="1" alignposdx="7" onlinked="OnbtnKeyboardLinked(Self);" onclick="OnbtnKeyboardClick(Self);"/>
+<label left="210" top="50" width="55" height="20" skin="lbl_normalurl" name="lblRegPt" layout="llCenter" caption="注册帐号" onclick="OnBtnRegisterPt(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+<label left="210" top="86" width="55" height="20" skin="lbl_normalurl" name="lblFindPwd" layout="llCenter" caption="忘记密码" onclick="OnBtnFindPwd(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+<label left="9" top="168" width="68" height="14" skin="lblico_normalurl1" name="lblMyComplaint" layout="llTop" caption="我要投诉" textindent="15" alignment="taLeftJustify" onclick="OnBtnMyComplaint(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+<label left="86" top="168" width="69" height="14" skin="lblico_normalurl2" name="lblAccountProtection" layout="llTop" caption="帐号保护" visible="false" textindent="15" alignment="taLeftJustify" onclick="OnBtnlAccountProtection(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+<label left="223" top="167" width="56" height="17" skin="lbl_normalurl" name="lblIco" layout="llCenter" caption="" icon=".\Images\logo2.png" alignment="taCenter" onclick="" ellipsisposition="epWordEllipsis" cursor="" bordercolora="$FFFF0000"/>
+<button left="180" top="122" width="70" height="20" icon="btn_normal_63x20" name="btnOK" caption="登录" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000" downtextoffsetx="2" downtextoffsety="2"/>
+<label left="100" top="122" width="65" height="20" skin="lbl_normalurl" name="lblQueryPt" layout="llCenter" caption="修改密码" onclick="OnBtnChangePwd(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+<checkbox left="28" top="124" width="62" height="16" skin="" checkskinname="checkbox_checked_13x13" uncheckskinname="checkbox_unchecked_13x13" name="checkboxRemember" caption="记住帐号" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick="" showhint="false" hint="" textcolor="$FF000000"/>
+</view>
+<script src="DefaultUserLogin.js"/>
+</xul>

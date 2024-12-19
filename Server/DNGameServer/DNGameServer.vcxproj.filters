@@ -1,0 +1,4156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{6a8b19fa-7868-4dad-ab56-05b6f7dfdda5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task">
+      <UniqueIdentifier>{367484a5-7347-48ee-a887-965a8bd8b3c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\GameTask">
+      <UniqueIdentifier>{8043ebd3-0c7a-4340-943a-382011fb44a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\GameTask\Session">
+      <UniqueIdentifier>{b48afa05-48da-4eb9-8d87-7a71854e76bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\PartyTask">
+      <UniqueIdentifier>{c95855fe-54f9-4209-b4e7-3131b42472f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\ItemTask">
+      <UniqueIdentifier>{98b5774a-ee41-4eb8-865a-479642f79d35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\SkillTask">
+      <UniqueIdentifier>{24b48959-4bc2-4506-a376-a729fc7f5b85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\GuildTask">
+      <UniqueIdentifier>{83c58d83-e5a9-4b3e-876b-010737f93600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\FarmTask">
+      <UniqueIdentifier>{b489c350-407a-4938-aec0-4effbaa599a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Task\ChatTask">
+      <UniqueIdentifier>{7bfd2758-b621-4e23-a1ed-5f8554d37ddc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNGameServerFrame">
+      <UniqueIdentifier>{38168d44-9662-4334-ba45-6bed05a7ac77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNGameServerFrame\DNGameServerManager">
+      <UniqueIdentifier>{90ae63bd-f4f0-4eb2-89e4-0066d01b8f24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNGameServerFrame\DNRUDPGameServer">
+      <UniqueIdentifier>{4d11b615-3bb5-4787-b5f0-de4291741784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNGameServerFrame\BackGroundLoader">
+      <UniqueIdentifier>{1cc8ced7-339b-48c1-9b02-5b7c26b83b85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Action Signal">
+      <UniqueIdentifier>{a31ad7cd-2dd2-4807-b44d-24163a124f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNGameRoom">
+      <UniqueIdentifier>{f59402c7-05d7-491f-9ab3-fa9e8f8db392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNGameRoom\DNPeerManager">
+      <UniqueIdentifier>{6872bb0f-aa35-4ad2-9a48-cd0681168283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNGameRoom\Method">
+      <UniqueIdentifier>{e09a73fb-c585-421f-be89-88136f3e02f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNUserSession">
+      <UniqueIdentifier>{91712936-4b6e-4f27-9766-3179be6c3701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNUserSession\Friend">
+      <UniqueIdentifier>{a9e557e2-85ff-46ec-b409-ad7a44b39a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNUserSession\Isolate">
+      <UniqueIdentifier>{6bf7e89c-4558-4ca3-9b0f-3103d836f10e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNUserSession\User ShareClass">
+      <UniqueIdentifier>{6a5c0538-7233-4b8a-a3f4-e160a10c0c2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNUserSession\Restraint">
+      <UniqueIdentifier>{65ee103d-b0e3-44ae-9d54-de3d2db02a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNUserSession\Fishing">
+      <UniqueIdentifier>{f81bdb32-b9ad-4c47-9976-30dbffe2987b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNUserSession\Event">
+      <UniqueIdentifier>{52647b10-cb7a-4265-a58d-744ebc815778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\DNEvent">
+      <UniqueIdentifier>{ae1577f9-4110-43b7-a16a-f0b854c442f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Notifier">
+      <UniqueIdentifier>{b72d857f-29c1-44e2-9e95-28f43736bc08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DNGameServer">
+      <UniqueIdentifier>{a67b13e7-376e-4687-9e41-b21f82a275b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server">
+      <UniqueIdentifier>{61d128f9-6b7b-4765-9a4b-3fb681b2b7ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop">
+      <UniqueIdentifier>{1090eaab-7863-4469-b676-6b897a94c537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\FSM">
+      <UniqueIdentifier>{90fe2fb4-ff3e-4902-badf-3c50419f3f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\PropState">
+      <UniqueIdentifier>{c8afc443-2bc6-4ce8-ad1e-2e54b2dd8265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\PropState\Base">
+      <UniqueIdentifier>{e4cae77f-3543-47f7-bdf6-0b6020a093df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\PropState\PropStateMessage">
+      <UniqueIdentifier>{5d13c5fb-2512-496b-a287-ca63b5e153a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\PropState\PropStateMessage\Base">
+      <UniqueIdentifier>{6479d28d-3067-4e02-9b12-4236c4e54225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\Condition">
+      <UniqueIdentifier>{93a151b1-4d2d-47e7-b963-eb7ae2b2eb05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\Condition\Base">
+      <UniqueIdentifier>{3d7775af-f098-4e87-80ad-c22be624daa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Prop\Component">
+      <UniqueIdentifier>{6827e4a6-95cc-4852-af15-64299b230851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Trigger">
+      <UniqueIdentifier>{135cd2ad-55c7-4a8e-aead-d9d42cd026e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\Heightmap">
+      <UniqueIdentifier>{dcf7f787-0eed-471f-8d14-4e1bc1e3b768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldBase_Server\GateStruct">
+      <UniqueIdentifier>{3bd0cd16-bde3-43fe-b7c6-2e0f3a12718e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{ee114e9d-8a10-4735-9bea-72adecc22a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor">
+      <UniqueIdentifier>{57e63e51-30ce-4f4b-936f-7773d145a8d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base">
+      <UniqueIdentifier>{c9d4eb12-8823-449c-b7f9-6aa9e2fa028f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method">
+      <UniqueIdentifier>{4a424e1f-b692-442d-b073-ffb52f9ca183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method\Control">
+      <UniqueIdentifier>{2bcb376f-6037-4fe9-b970-49ba4b011bb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method\Render">
+      <UniqueIdentifier>{63d534f1-b15c-45fe-a6fb-4f0e375617fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method\Movement">
+      <UniqueIdentifier>{ddc78ff1-59b4-48b4-bf10-fa8e56df1d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method\Network">
+      <UniqueIdentifier>{74b6ff62-27c9-4e62-b8ba-6b900cb49264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method\Skill">
+      <UniqueIdentifier>{52334f33-bc9d-4c5f-a45c-5da53c40a3d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method\Damage">
+      <UniqueIdentifier>{1a4efc4d-4ede-4478-8525-c5a96e09e618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Base\Method\CP">
+      <UniqueIdentifier>{2b610ce4-10cd-4f04-9616-5d6a2037d5b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class">
+      <UniqueIdentifier>{05a28bc3-dfa2-484a-88da-e42b9944503a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Monster">
+      <UniqueIdentifier>{e0a2bc84-7d71-4b24-841d-e956b539ee9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Monster\Static_SingleBody">
+      <UniqueIdentifier>{b5889f6b-9875-48fd-b484-970a85af6244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Monster\Walk_SingleBody">
+      <UniqueIdentifier>{8abfb784-c648-4e56-b562-5f3b93574e0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Monster\Walk_SingleBody\Child">
+      <UniqueIdentifier>{88f985b6-377e-4fe4-855c-0825bb74bd87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Player">
+      <UniqueIdentifier>{540ef36f-cef4-4f23-ad7d-4657e1875c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Player\Non Local">
+      <UniqueIdentifier>{f2075d28-1071-4d0e-9e34-d976ff6ee595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Player\Template">
+      <UniqueIdentifier>{474d9fe1-b8c0-457c-8c6d-2144d18bbaa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Player\Checker">
+      <UniqueIdentifier>{9eba47e7-2342-4974-b143-abcee59bbe21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\NPC">
+      <UniqueIdentifier>{de621082-6f71-4f9b-b9ae-1c8be852a6aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\PropActor">
+      <UniqueIdentifier>{8dc7956f-1966-4d34-87b6-1ba517eb3e8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\Class\Vehicle">
+      <UniqueIdentifier>{cf0075d6-ef93-4c77-855d-9d9f56bd08bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State">
+      <UniqueIdentifier>{88c86bcc-c278-4ccd-bbd4-0238f8c11917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State\StateBlow">
+      <UniqueIdentifier>{9eeeff9e-1dd2-4a9e-ad03-f20859bdaf91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State\StateBlow\BlowClass">
+      <UniqueIdentifier>{9ef1b94f-6786-4ee8-b234-a27f43f42939}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State\Bubble">
+      <UniqueIdentifier>{d81a9b83-c3ea-4803-abbf-10d786265c9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State\Bubble\Handler">
+      <UniqueIdentifier>{73bf1d62-a1c1-4a61-b09e-6f3eb5db47e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State\Bubble\Condition">
+      <UniqueIdentifier>{0c5fc70e-3f8b-4692-8b5b-8599765ac4ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State\Observer">
+      <UniqueIdentifier>{9228e9bf-b334-4a97-ad6d-a9f683b88f7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Actor\State\Observer\Message">
+      <UniqueIdentifier>{3c8b0817-368b-476f-9e17-70c5db8be3d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Item">
+      <UniqueIdentifier>{06f36712-661f-4e43-b1cf-c9e046f7fc9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Item\Projectile">
+      <UniqueIdentifier>{6a4db094-0d63-4219-a5e7-1c8f448f5e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Item\Projectile\NetworkBase">
+      <UniqueIdentifier>{0df502e1-adb4-4899-92d1-03c07b8766db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Item\Projectile\Orbit">
+      <UniqueIdentifier>{6114ca0d-c76b-4eda-87af-f8723bcc9b27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Item\Projectile\Orbit\Interface">
+      <UniqueIdentifier>{2a983664-f558-44d5-96ca-ed7c4bb77ddf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Weapon">
+      <UniqueIdentifier>{ae57cd03-5217-4aa1-81a4-5706103fc8be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Skill">
+      <UniqueIdentifier>{7320b482-8a8e-4027-a3f4-7c24a73084f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Skill\New">
+      <UniqueIdentifier>{3552ebe4-0bf2-43c5-8b62-8fd9e5873b0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Skill\New\Checker">
+      <UniqueIdentifier>{459d7cfc-93d1-4c49-ac72-59a1e2c24a9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Skill\New\Checker\Interface">
+      <UniqueIdentifier>{03873af8-9b44-4c5e-a2cb-fcedc16a677c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Skill\New\Processor">
+      <UniqueIdentifier>{31eb4eb6-4ae6-4331-94ca-547893867045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Skill\New\Processor\Interface">
+      <UniqueIdentifier>{f72e101b-6c0c-48aa-87c0-6699298c9f4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connections">
+      <UniqueIdentifier>{e11cc97e-70ea-42e1-89b3-c9967c89d389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{beadf264-805d-4f51-bcc7-7ff19cfcd89f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\DPSReport">
+      <UniqueIdentifier>{5656bc3c-7894-4a62-9a6f-2bf71ffa4719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Table">
+      <UniqueIdentifier>{350947fb-197c-48f7-9712-bf299f88fd2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NpcQuest">
+      <UniqueIdentifier>{6b547324-afd1-4d97-92a7-a9033b435bad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua API">
+      <UniqueIdentifier>{a4103cfb-8bad-420b-9b27-c2d472be8ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorldUserState">
+      <UniqueIdentifier>{a332dc1c-704f-40a1-9fe5-d871739817de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher">
+      <UniqueIdentifier>{bb642c31-149f-4b43-b983-973dbff25a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\CH">
+      <UniqueIdentifier>{2c5886dc-db66-47b5-96a2-64f871d4d295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KRAZ">
+      <UniqueIdentifier>{c494c1b9-1272-457a-9f8b-1c8ceec1b9d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP">
+      <UniqueIdentifier>{65e9ff90-2f9a-4496-b85e-54f357772137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\Checker">
+      <UniqueIdentifier>{88508bd8-2d41-43b1-9f22-3397bd3667fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem">
+      <UniqueIdentifier>{ac3da654-0e9a-473e-8154-844bb07d1e08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\RoundMode">
+      <UniqueIdentifier>{916aaf00-824c-4d07-b506-dc4468691408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\OccupationMode">
+      <UniqueIdentifier>{e2bdc3bb-701d-4010-9db4-1c092e293b6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\RespawnMode">
+      <UniqueIdentifier>{808ef69f-2b73-4fc9-8af4-a6f7cf656abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\CaptainMode">
+      <UniqueIdentifier>{a5697f60-5045-47a1-bd45-9184a7d917b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\GuildWarMode">
+      <UniqueIdentifier>{92b26dea-acf8-4c34-9ca2-71250db838ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\ZombieMode">
+      <UniqueIdentifier>{47fba5a3-18db-4fba-b3ef-c88004450aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\AllKillMode">
+      <UniqueIdentifier>{c7fb8dfa-88c5-4225-8239-756bfb42229a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\ScoreSystem\ComboExerciseMode">
+      <UniqueIdentifier>{734e0bbf-92e0-44c1-9851-cb8da5a76747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\RespawnLogic">
+      <UniqueIdentifier>{0bff13a9-165b-430d-850a-4835df9dddeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\LadderSystem">
+      <UniqueIdentifier>{3c4ba124-013e-4dbd-88e7-51afda8533d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\PositionOccupationSystem">
+      <UniqueIdentifier>{8b7a8ca3-5294-4609-9af4-4079fede7815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\PositionOccupationSystem\Position">
+      <UniqueIdentifier>{54b7d338-4004-45dc-a633-8cbbdbefcf1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\PositionOccupationSystem\Team">
+      <UniqueIdentifier>{5d025407-419c-4fc2-92e1-4f1d5b040787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\PositionOccupationSystem\Team\TeamSkill">
+      <UniqueIdentifier>{a8db99e5-360c-4ab4-9322-64b6c65cf52a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode">
+      <UniqueIdentifier>{8c748a2c-4017-43b0-ac4f-68d17f4fdda3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\CaptainMode">
+      <UniqueIdentifier>{386ab96a-433a-4aef-b3c8-da41adba313b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\IndividualRespawnMode">
+      <UniqueIdentifier>{d5e7bb3e-3314-493c-85e0-903e6d5b7401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\OccupationMode">
+      <UniqueIdentifier>{38b70637-623a-43ca-8ca4-34a9ed85d67d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\RespawnMode">
+      <UniqueIdentifier>{f47cc0d4-a872-43fd-b9ab-3038b87038a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\RoundMode">
+      <UniqueIdentifier>{56294404-584e-44fc-872c-70cb42eefdb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\ZombieMode">
+      <UniqueIdentifier>{2d610fac-aa39-48d5-be66-0d7d2017d08b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\AllKillMode">
+      <UniqueIdentifier>{f4d90ad0-57a9-444f-b77f-dbc400e08e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\AllKillMode\State">
+      <UniqueIdentifier>{0cff93a9-c320-43bf-ac89-01d8cca7542a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\RacingMode">
+      <UniqueIdentifier>{a63f74a4-19c1-428b-abbb-44f6c8eaf84d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\TournamentMode">
+      <UniqueIdentifier>{7e953323-9c27-4fc0-a65e-ec96ca0b16f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PvP\GameMode\ComboExerciseMode">
+      <UniqueIdentifier>{0ff2370f-e613-42ff-87c7-fe00c767aa55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnitTest">
+      <UniqueIdentifier>{3cc93633-8810-4f28-93b0-ab707c6c9db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mission">
+      <UniqueIdentifier>{594384e1-de23-4a2d-9f72-fc843f1b2342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Appellation">
+      <UniqueIdentifier>{c130c6c0-9c2d-4424-8849-a683be258f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Schedule">
+      <UniqueIdentifier>{8d91b067-5f69-4c5d-8d6f-45f8b6b26605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NoticeSystem">
+      <UniqueIdentifier>{be97f91c-bdc3-494d-b795-a6171aae0824}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Auth">
+      <UniqueIdentifier>{0aded7aa-f8a5-452a-8f0d-69a1ad5963e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExceptionReport">
+      <UniqueIdentifier>{92c2284d-0af6-4551-93c7-4405a4d379a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Guild">
+      <UniqueIdentifier>{c526b0e7-a19c-4ce2-acd1-bdc59023deda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Def">
+      <UniqueIdentifier>{25a82961-c37a-40e8-a2cf-315479a0e89d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{e2cde510-eec0-4b1b-8cda-63f3c18ab79e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AggroSystem">
+      <UniqueIdentifier>{e1648105-5aa0-46e7-9fea-91efb9e33a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cash">
+      <UniqueIdentifier>{cf556170-a3fc-4a2a-8280-da6a6dd02dc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VoiceChat">
+      <UniqueIdentifier>{2abe3707-67fe-4fb7-bb84-0d8d56c689de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Etc">
+      <UniqueIdentifier>{c2ddb837-0a2f-4f44-bdad-67f42e179666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Etc\PsUpdater">
+      <UniqueIdentifier>{2ebfb073-731e-46d1-bf97-e781a47ea9e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CloseSystem">
+      <UniqueIdentifier>{50d74e29-e543-4c14-b497-a33d9b4accf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ReputationSystem">
+      <UniqueIdentifier>{dc6fc303-252a-466c-aef1-0e8bfb6db87a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mail">
+      <UniqueIdentifier>{fb294b80-d0c3-4e6d-b072-8ffbfc2c99a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MasterSystem">
+      <UniqueIdentifier>{2f805201-2ecd-4848-941c-26b448149919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SecondarySkill">
+      <UniqueIdentifier>{24a82e4e-5a44-47ce-b7a1-c453603763b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Farm">
+      <UniqueIdentifier>{42a194ee-e1b1-418f-9b9c-548c389c4f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Farm\AreaState">
+      <UniqueIdentifier>{b504ce21-493b-4cc0-be4c-011349dc838d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Farm\AreaState\Interface">
+      <UniqueIdentifier>{cc3fbb32-3517-47da-a20d-2718d3a795d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Farm\Area">
+      <UniqueIdentifier>{f33e5fe7-ce51-4d66-aef3-adb9c58d8be5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Farm\Seed">
+      <UniqueIdentifier>{8747a621-104b-4cef-abae-dcef4798b531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Farm\Fishing">
+      <UniqueIdentifier>{115ddc4a-9cc1-47a3-97bd-2b635e439d3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Farm\Fishing\Area">
+      <UniqueIdentifier>{4e7883ba-13e1-4c43-a1a4-4d36dd5bb4f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ChatRoom">
+      <UniqueIdentifier>{d0d4ce0a-ebac-44e9-8f94-ad7cfd7b4f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TimeEvent">
+      <UniqueIdentifier>{4b16df92-5afe-48db-a763-61fd545316ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Donation">
+      <UniqueIdentifier>{c017bb1d-a9d1-4fcb-84c9-af66d9755a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BestFriend">
+      <UniqueIdentifier>{874007eb-48b6-4716-ad6c-580e2288d64c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PrivateChatChannel">
+      <UniqueIdentifier>{9c4084f9-168e-450c-a8ba-64e2d2201321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventSystem">
+      <UniqueIdentifier>{9ab74074-342b-4511-baf7-dea59bb4d2d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StampSystem">
+      <UniqueIdentifier>{c802f68c-d911-4155-a408-cdf1168afcb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_RLKT">
+      <UniqueIdentifier>{8e5626f5-290f-43ff-a7dd-3208aed462d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_RLKT\FarmPVP">
+      <UniqueIdentifier>{94c9361a-9225-4c54-bb2b-086caab79676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_RLKT\_License">
+      <UniqueIdentifier>{f176f6bb-4b7c-401c-8a2d-134be94394c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DnMainFrame.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Task.cpp">
+      <Filter>Framework\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskManager.cpp">
+      <Filter>Framework\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="DnDLGameTask.cpp">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnDungeonHistory.cpp">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnGameTask.cpp">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPvPGameTask.cpp">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClCompile>
+    <ClCompile Include="GameServerSession.cpp">
+      <Filter>Framework\Task\GameTask\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="DnDLPartyTask.cpp">
+      <Filter>Framework\Task\PartyTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPartyTask.cpp">
+      <Filter>Framework\Task\PartyTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPvPPartyTask.cpp">
+      <Filter>Framework\Task\PartyTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnItemTask.cpp">
+      <Filter>Framework\Task\ItemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnSkillTask.cpp">
+      <Filter>Framework\Task\SkillTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnSkillTreeSystem.cpp">
+      <Filter>Framework\Task\SkillTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\TotalLevelSkillSystem.cpp">
+      <Filter>Framework\Task\SkillTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGuildTask.cpp">
+      <Filter>Framework\Task\GuildTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnFarmGameTask.cpp">
+      <Filter>Framework\Task\FarmTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DnChatTask.cpp">
+      <Filter>Framework\Task\ChatTask</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGameServerManager.cpp">
+      <Filter>Framework\DNGameServerFrame\DNGameServerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DNRUDPGameServer.cpp">
+      <Filter>Framework\DNGameServerFrame\DNRUDPGameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="DNBackGroundLoader.cpp">
+      <Filter>Framework\DNGameServerFrame\BackGroundLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="DnActionBase.cpp">
+      <Filter>Framework\Action Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnActionSpecificInfo.cpp">
+      <Filter>Framework\Action Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="DNDLGameRoom.cpp">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="DNFarmGameRoom.cpp">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGameRoom.cpp">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="DNPvPGameRoom.cpp">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="DNPeerManager.cpp">
+      <Filter>Framework\DNGameRoom\DNPeerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameListener.cpp">
+      <Filter>Framework\DNGameRoom\Method</Filter>
+    </ClCompile>
+    <ClCompile Include="DNBreakIntoUserSession.cpp">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNCommonVariable.cpp">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClCompile>
+    <ClCompile Include="DNFarmUserSession.cpp">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNUserBase.cpp">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClCompile>
+    <ClCompile Include="DNUserSession.cpp">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNFriend.cpp">
+      <Filter>Framework\DNUserSession\Friend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNIsolate.cpp">
+      <Filter>Framework\DNUserSession\Isolate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNCheatCommand.cpp">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNGesture.cpp">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNGMCommand.cpp">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNUserItem.cpp">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNUserSendManager.cpp">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNRestraint.cpp">
+      <Filter>Framework\DNUserSession\Restraint</Filter>
+    </ClCompile>
+    <ClCompile Include="DNFishingStatus.cpp">
+      <Filter>Framework\DNUserSession\Fishing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNUserEventHandler.cpp">
+      <Filter>Framework\DNUserSession\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNEvent.cpp">
+      <Filter>Framework\DNEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGameServer.cpp">
+      <Filter>DNGameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>DNGameServer</Filter>
+    </ClCompile>
+    <ClCompile Include="DnBuffProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnShooterProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldActProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldBrokenBuffProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldBrokenDamageProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldBrokenProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldChestProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldEnvironmentProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldHitMoveDamageBrokenProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldHitStateEffectProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldKeepOperationProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldMultiDurabilityProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldNpcProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldOperationDamageProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldOperationProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldShooterBrokenProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldSkillUserProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldTrapProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAActorProp.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="MPTransAction.cpp">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="IDnFSMEntity.cpp">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\TDnFiniteStateMachine.cpp">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\TDnFSMState.cpp">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\TDnFSMTransitCondition.cpp">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropStateCmdOperation.cpp">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropStateDoAction.cpp">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropStateItemDrop.cpp">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropStateNormal.cpp">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropStateScanActor.cpp">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPropStateTrigger.cpp">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropState.cpp">
+      <Filter>WorldBase_Server\Prop\PropState\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\SMScanActor.cpp">
+      <Filter>WorldBase_Server\Prop\PropState\PropStateMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\IStateMessage.cpp">
+      <Filter>WorldBase_Server\Prop\PropState\PropStateMessage\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropActionCondition.cpp">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropCondiDurability.cpp">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropCondiNeedItem.cpp">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropCondiSubDurability.cpp">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropHitCondition.cpp">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropNULLCondition.cpp">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropOperatedCondition.cpp">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropCondition.cpp">
+      <Filter>WorldBase_Server\Prop\Condition\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="DnBuffPropComponent.cpp">
+      <Filter>WorldBase_Server\Prop\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DnHitPropComponent.cpp">
+      <Filter>WorldBase_Server\Prop\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DnSkillPropComponent.cpp">
+      <Filter>WorldBase_Server\Prop\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="DnTrigger.cpp">
+      <Filter>WorldBase_Server\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="DnTriggerElement.cpp">
+      <Filter>WorldBase_Server\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="DnTriggerObject.cpp">
+      <Filter>WorldBase_Server\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorld.cpp">
+      <Filter>WorldBase_Server\Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldGrid.cpp">
+      <Filter>WorldBase_Server\Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWorldSector.cpp">
+      <Filter>WorldBase_Server\Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DnWorldGateStruct.cpp">
+      <Filter>WorldBase_Server\GateStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="DnActorClassDefine.cpp">
+      <Filter>Objects\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="DnActor.cpp">
+      <Filter>Objects\Actor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiBase.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiChecker.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiCommand.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiMultipleTarget.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiProcessor.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiReceiver.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiScript.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAAiSkill.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAScanner.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAScannerFilter.cpp">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MAActorRenderBase.cpp">
+      <Filter>Objects\Actor\Base\Method\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MAPartsBody.cpp">
+      <Filter>Objects\Actor\Base\Method\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MASingleBody.cpp">
+      <Filter>Objects\Actor\Base\Method\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\CollisionAndPush.cpp">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAMovementBase.cpp">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAStaticLookMovement.cpp">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAStaticMovement.cpp">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAWalkMovement.cpp">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAWalkMovementNav.cpp">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="MATransAction.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAPlateUser.cpp">
+      <Filter>Objects\Actor\Base\Method\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MASkillUser.cpp">
+      <Filter>Objects\Actor\Base\Method\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MATalismanUser.cpp">
+      <Filter>Objects\Actor\Base\Method\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDamageBase.cpp">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MADamageBase.cpp">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MAMultiDamage.cpp">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MASingleDamage.cpp">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MACP.cpp">
+      <Filter>Objects\Actor\Base\Method\CP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\MACP_Renewal.cpp">
+      <Filter>Objects\Actor\Base\Method\CP</Filter>
+    </ClCompile>
+    <ClCompile Include="DnMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="DnBasiliskMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCannonMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClCompile>
+    <ClCompile Include="DnGreenDragonMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClCompile>
+    <ClCompile Include="DnSeadragonMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNormalMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPartsMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody</Filter>
+    </ClCompile>
+    <ClCompile Include="DnBeholderMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCelberosMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnDefenseMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnGhoulMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnGiantMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnHideMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnLamiaMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnLotusGolemMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnManticoreMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNormalNestBossMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnSimpleRushMonsterActor.cpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPlayerActor.cpp">
+      <Filter>Objects\Actor\Class\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNLPAAcademic.cpp">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNLPAArcher.cpp">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNLPAAssassin.cpp">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNLPAKali.cpp">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNLPASoceress.cpp">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPlayerActionChecker.cpp">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPlayerDoNotEnterChecker.cpp">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPlayerFloatingChecker.cpp">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPlayerPickupChecker.cpp">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPlayerSkillChecker.cpp">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPlayerSpeedHackChecker.cpp">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="DnNPCActor.cpp">
+      <Filter>Objects\Actor\Class\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPropActor.cpp">
+      <Filter>Objects\Actor\Class\PropActor</Filter>
+    </ClCompile>
+    <ClCompile Include="DnVehicleActor.cpp">
+      <Filter>Objects\Actor\Class\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnActorState.cpp">
+      <Filter>Objects\Actor\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMonsterState.cpp">
+      <Filter>Objects\Actor\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPlayerState.cpp">
+      <Filter>Objects\Actor\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnState.cpp">
+      <Filter>Objects\Actor\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnVehicleState.cpp">
+      <Filter>Objects\Actor\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnActorStatIntervalManipulator.cpp">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCreateBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnStateBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnStateBlowSignalProcessor.cpp">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAbContinueHPIncBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAbContinueMPIncBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAbMeleeMDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAbMeleePDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAbRangeMDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAbRangePDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAccelBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnActionChangeOnHitBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnActionChangeRatioBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddAttackMDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddAttackPDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddDamageOnCriticalBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddDamageOnStateBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAdditionalStateInfoBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddMinimapRadarBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddStateBySkillGroupBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddStateOnConditionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddStateOnHitBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAddStateOnTimer.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAggroBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAggroResetBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAllImmuneBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAllowedSkillsBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnApplyStateBlowOnTimeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAttackerHPAbsolute.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAttackerHPRatio.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnAvoidDebufActionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBasicBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBasicStateBaseAddState.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBasisAttackDmgUpBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBlockBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBloodSuckingBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBoneCrushBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBreakSuperArmorBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBurnCriticalBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCameraRoarBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCantActionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCantAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCantMoveBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCantUseActiveSkillBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCantUseItemBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCantUseMPUsingSkillBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChainAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeActionSetBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeElementBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeHealingRatioBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeMAttackDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeMPConsumeRatioBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangePAttackDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeStandActionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeWeaponBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeWeaponRangeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeWeightBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChargerBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnClericMentalChargeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnComboDamageLimitBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnConcentrationBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnConfuseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnContinueBaseMPIncBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCoolTimeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCoolTimeChangeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCooltimeParryBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCurseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCurseBreakDownBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDamageDuplicateBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDamageLimitBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDamageRatioBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDamageTransitionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDestroySuperArmorBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDisableActionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDisarmamentBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDissolveBufBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDissolveDebufBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDissolveStateBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDOTBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDragonShieldBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnElectricExplosionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnElectricShockBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnEscapeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFinalCriticalBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFinalMDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFinalPDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFinishAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFireBurnBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFireBurnExplosionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFlashBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnForceActionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnForceAggroTargetBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnForceOutBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnForceStunBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFrameBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFrameStopBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFreezingBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFreezingExplosionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFreezingPrisonBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFreezingShieldBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnFrostbiteBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnGhoulTransformBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHealingBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHighLanderBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHolyWaterBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHPBelowUseSkillBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHPIncBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIgnoreCanHitBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIgnoreEffectBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIgnoreGravitySignalBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIgnoreHitSignalBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIgnorePrefixSkillBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIgnoreRestoreHPBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnImmuneBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnImmuneByTypeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIncreaseItemRecoverHPBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnIntelligenceToPhysicAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnInvincibleAtBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnInvincibleBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnInvincibleTypeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnInvisibleBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnKillBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnLithifyBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnManaShieldBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMaxDamageAddBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMaximumAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMeleeMReflectDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMeleePReflectDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMouseSensitiveBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMPBurstBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMPIncBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnNULLBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnOrderMySummonedMonsterBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnParryBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnParryingProbBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPartyAddDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPartyFinishAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPayBackMPBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPhysicalAttackToMagicalAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPileAddEffectBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPingpongBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPlagueBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPoisonBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPoisonExplosionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPrefixDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnProbInvincibleAtBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnProvocationBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPuppetBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPushBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRangeMReflectDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRangePReflectDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRebirthBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRecallSummonBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRecoverHPByAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRemoveStateBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnReverseTeamBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRtContinueHPIncBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRtContinueMPIncBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRtMeleeMDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRtMeleePDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRtRangeMDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRtRangePDefenseBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnShieldBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnShockInfectionBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnSleepBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnSpectatorBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnStealBuffBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnStigmaBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnStrengthToMagicAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnSummonMonsterChangeSkillLevelBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnSuperAmmorShield.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnSuperArmorAttackRatioBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTargetCriticalBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTeleportBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTimeBoomBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTotalLevelSkillBlows.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTransformBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTransformMonsterBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTransmitDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnUnstableHolyWaterBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnUseHitterMAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnUseHitterPAttackBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnUsingSkillWhenDieBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnVarianceDamageBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBubble.cpp">
+      <Filter>Objects\Actor\State\Bubble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBubbleSystem.cpp">
+      <Filter>Objects\Actor\State\Bubble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBubbleEventHandler.cpp">
+      <Filter>Objects\Actor\State\Bubble\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBubbleConditionChecker.cpp">
+      <Filter>Objects\Actor\State\Bubble\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnObservable.cpp">
+      <Filter>Objects\Actor\State\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnObserver.cpp">
+      <Filter>Objects\Actor\State\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnObserverEventMessage.cpp">
+      <Filter>Objects\Actor\State\Observer\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="DnDropItem.cpp">
+      <Filter>Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="DnItem.cpp">
+      <Filter>Objects\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCalcCatmullrom.cpp">
+      <Filter>Objects\Item\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="DnProjectile.cpp">
+      <Filter>Objects\Item\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCurveOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnGravityOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHomingAccellOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHomingOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnLinearAccellOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnLinearOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTerrainHomingOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTerrainLinearOrbit.cpp">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\IDnOrbitProcessor.cpp">
+      <Filter>Objects\Item\Projectile\Orbit\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="DnGlyph.cpp">
+      <Filter>Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="DnParts.cpp">
+      <Filter>Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="DnSimpleParts.cpp">
+      <Filter>Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="DnTalisman.cpp">
+      <Filter>Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="DnWeapon.cpp">
+      <Filter>Objects\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="DnSkill.cpp">
+      <Filter>Objects\Skill\New</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnActorStateChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnBubbleCountChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnEnergyChargeChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnGroundMovableChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHitChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnHPChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnJumpableChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMovableChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnProbabilityChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRangeChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnSummonChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTargetStateChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTargetStateEffectChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnToggleChecker.cpp">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\IDnSkillUsableChecker.cpp">
+      <Filter>Objects\Skill\New\Checker\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnApplySEWhenActionSetBlowEnabledProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnApplySEWhenTargetNormalHitProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="DnAuraProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCallMySummonedMonsterProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeActionStrByBubbleProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeActionStrProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnChangeProjectileProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDivideSEArgumentByTargets.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnImpactBlowProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPartialPlayProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPetPlayAniProcess.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnPlayAniProcess.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnRangeSEProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnStateEffectApplyOnOffByBubbleProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\IDnSkillProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNDBConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNDBConnectionManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNIocpManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNLogConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMasterConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMasterConnectionManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNServiceConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNUserTcpConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\DnCommonUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNReplaceString.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\IniFile.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\SlangFilter.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\SQLConnection.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\Util.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDPSReporter.cpp">
+      <Filter>Common\DPSReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCostumeMixDataMgr.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCostumeRandomMixDataMgr.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNDataManagerBase.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNGameDataManager.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnItemCompounder.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNQuestCondition.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnTableDB.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnUIString.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNNpc.cpp">
+      <Filter>NpcQuest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNPeriodQuestSystem.cpp">
+      <Filter>NpcQuest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNQuest.cpp">
+      <Filter>NpcQuest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNQuestManager.cpp">
+      <Filter>NpcQuest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DnScriptManager.cpp">
+      <Filter>NpcQuest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNTalk.cpp">
+      <Filter>NpcQuest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNUserQuest.cpp">
+      <Filter>NpcQuest</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGameServerScriptAPI.cpp">
+      <Filter>Lua API</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnLuaAPIDefine.cpp">
+      <Filter>Lua API</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNScriptAPICommon.cpp">
+      <Filter>Lua API</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNWorldUserState.cpp">
+      <Filter>WorldUserState</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNActozShield.cpp">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPRoundModeScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\RoundMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\OccupationScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\OccupationMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPOccupationScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\OccupationMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPRespawnModeScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\RespawnMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPCaptainScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\CaptainMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPGuildWarScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\GuildWarMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPZombieScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\ZombieMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPAllKillScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\AllKillMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPComboExerciseScoreSystem.cpp">
+      <Filter>PvP\ScoreSystem\ComboExerciseMode</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemRespawnLogic.cpp">
+      <Filter>PvP\RespawnLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPRespawnLogic.cpp">
+      <Filter>PvP\RespawnLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="LadderStats.cpp">
+      <Filter>PvP\LadderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\PvPOccupationSystem.cpp">
+      <Filter>PvP\PositionOccupationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPOccupationPoint.cpp">
+      <Filter>PvP\PositionOccupationSystem\Position</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPOccupationTeam.cpp">
+      <Filter>PvP\PositionOccupationSystem\Team</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPOccupationTeamSKill.cpp">
+      <Filter>PvP\PositionOccupationSystem\Team\TeamSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPGameMode.cpp">
+      <Filter>PvP\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="RevengeSystem.cpp">
+      <Filter>PvP\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPCaptainMode.cpp">
+      <Filter>PvP\GameMode\CaptainMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPIndividualRespawnMode.cpp">
+      <Filter>PvP\GameMode\IndividualRespawnMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPOccupationMode.cpp">
+      <Filter>PvP\GameMode\OccupationMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPRespawnMode.cpp">
+      <Filter>PvP\GameMode\RespawnMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPRoundMode.cpp">
+      <Filter>PvP\GameMode\RoundMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPZombieMode.cpp">
+      <Filter>PvP\GameMode\ZombieMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPAllKillMode.cpp">
+      <Filter>PvP\GameMode\AllKillMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPRacingMode.cpp">
+      <Filter>PvP\GameMode\RacingMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPTournamentMode.cpp">
+      <Filter>PvP\GameMode\TournamentMode</Filter>
+    </ClCompile>
+    <ClCompile Include="PvPComboExerciseMode.cpp">
+      <Filter>PvP\GameMode\ComboExerciseMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\Allocator_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\Atlmap_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\BubbleSystem_unittest.cpp">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\Encrypt_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\GPK_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\HackShield_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\LoadExtTable_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\MonsterAI_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\PlayerState_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\SundriesFunc_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\Trigger_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNMissionScheduler.cpp">
+      <Filter>Mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNMissionSystem.cpp">
+      <Filter>Mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Connection.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ConnectionManager.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\CryptPacket.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\EventAcceptor.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\IocpManager.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ListenSocket.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Log.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\RUDPSocketFrame.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SendThread.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SocketContext.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SpinBuffer.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ThreadManager.cpp">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNAppellation.cpp">
+      <Filter>Appellation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNSchedule.cpp">
+      <Filter>Schedule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\NoticeSystem.cpp">
+      <Filter>NoticeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\AuthManager.cpp">
+      <Filter>Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNAuthManager.cpp">
+      <Filter>Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\ExceptionReport.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\FileSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MemoryMap.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MiniDumpSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\StringSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\TimeSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNGuildBase.cpp">
+      <Filter>Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGuildGame.cpp">
+      <Filter>Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNGuildRecruitCacheRepository.cpp">
+      <Filter>Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNGuildSystem.cpp">
+      <Filter>Guild</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Protocol\DNCountryUnicodeSet.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="DNAggroRange.cpp">
+      <Filter>AggroSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DNAggroSystem.cpp">
+      <Filter>AggroSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMonsterAggroSystem.cpp">
+      <Filter>AggroSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="DNPvPPlayerAggroSystem.cpp">
+      <Filter>AggroSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNCashConnection.cpp">
+      <Filter>Cash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNCashItem.cpp">
+      <Filter>Cash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNCashRepository.cpp">
+      <Filter>Cash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNLimitedCashItemRepository.cpp">
+      <Filter>Cash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNVoiceChat.cpp">
+      <Filter>VoiceChat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\VoiceChat\VoiceChatServer.cpp">
+      <Filter>VoiceChat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\Directory.cpp">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\HttpClient.cpp">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\PsUpdater.cpp">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\CloseSystem.cpp">
+      <Filter>CloseSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\NpcReputationProcessor.cpp">
+      <Filter>ReputationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\NpcReputationSystem.cpp">
+      <Filter>ReputationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\ReputationSystem.cpp">
+      <Filter>ReputationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ReputationSystemEventHandlerForServer.cpp">
+      <Filter>ReputationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\ReputationSystemRepository.cpp">
+      <Filter>ReputationSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNMailSender.cpp">
+      <Filter>Mail</Filter>
+    </ClCompile>
+    <ClCompile Include="MasterRewardSystem.cpp">
+      <Filter>MasterSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\MasterSystemCacheRepository.cpp">
+      <Filter>MasterSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\ManufactureSkill.cpp">
+      <Filter>SecondarySkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\SecondarySkill.cpp">
+      <Filter>SecondarySkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\SecondarySkillEventHandlerServer.cpp">
+      <Filter>SecondarySkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\SecondarySkillFactory.cpp">
+      <Filter>SecondarySkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\SecondarySkillRecipe.cpp">
+      <Filter>SecondarySkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\SecondarySkillRepository.cpp">
+      <Filter>SecondarySkill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\SecondarySkillRepositoryServer.cpp">
+      <Filter>SecondarySkill</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaStateAddWater.cpp">
+      <Filter>Farm\AreaState</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaStateCompleted.cpp">
+      <Filter>Farm\AreaState</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaStateGrowing.cpp">
+      <Filter>Farm\AreaState</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaStateHarvested.cpp">
+      <Filter>Farm\AreaState</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaStateHarvesting.cpp">
+      <Filter>Farm\AreaState</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaStateNone.cpp">
+      <Filter>Farm\AreaState</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaStatePlanting.cpp">
+      <Filter>Farm\AreaState</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingAreaState.cpp">
+      <Filter>Farm\AreaState\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="GrowingArea.cpp">
+      <Filter>Farm\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="PlantSeed.cpp">
+      <Filter>Farm\Seed</Filter>
+    </ClCompile>
+    <ClCompile Include="FishingArea.cpp">
+      <Filter>Farm\Fishing\Area</Filter>
+    </ClCompile>
+    <ClCompile Include="DNChatRoom.cpp">
+      <Filter>ChatRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="DNChatRoomManager.cpp">
+      <Filter>ChatRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNTimeEventSystem.cpp">
+      <Filter>TimeEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNDonationScheduler.cpp">
+      <Filter>Donation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNBestFriend.cpp">
+      <Filter>BestFriend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNPrivateChatChannel.cpp">
+      <Filter>PrivateChatChannel</Filter>
+    </ClCompile>
+    <ClCompile Include="DnPrivateChatManager.cpp">
+      <Filter>PrivateChatChannel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNEventSystem.cpp">
+      <Filter>EventSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNMissionCommonAPI.cpp">
+      <Filter>EventSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNStampSystem.cpp">
+      <Filter>StampSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="FarmPVP.cpp">
+      <Filter>_RLKT\FarmPVP</Filter>
+    </ClCompile>
+    <ClCompile Include="RLKTAuth.cpp">
+      <Filter>_RLKT\_License</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCheckKeyProcessor.cpp">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnMechanicModeBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDarkTransformationBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnDisableSkillBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnCheckBubbleCancelSkillBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnConsumeBubbleBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\DnEmptyBlow.cpp">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DnMainFrame.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="DnTaskFactory.hpp">
+      <Filter>Framework\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>Framework\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskManager.h">
+      <Filter>Framework\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="DnDLGameTask.h">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnDungeonHistory.h">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnGameTask.h">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPvPGameTask.h">
+      <Filter>Framework\Task\GameTask</Filter>
+    </ClInclude>
+    <ClInclude Include="GameServerSession.h">
+      <Filter>Framework\Task\GameTask\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="DnDLPartyTask.h">
+      <Filter>Framework\Task\PartyTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPartyTask.h">
+      <Filter>Framework\Task\PartyTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPvPPartyTask.h">
+      <Filter>Framework\Task\PartyTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnItemTask.h">
+      <Filter>Framework\Task\ItemTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSkillTask.h">
+      <Filter>Framework\Task\SkillTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnSkillTreeSystem.h">
+      <Filter>Framework\Task\SkillTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\TotalLevelSkillSystem.h">
+      <Filter>Framework\Task\SkillTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGuildTask.h">
+      <Filter>Framework\Task\GuildTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnFarmGameTask.h">
+      <Filter>Framework\Task\FarmTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DnChatTask.h">
+      <Filter>Framework\Task\ChatTask</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGameServerManager.h">
+      <Filter>Framework\DNGameServerFrame\DNGameServerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DNRUDPGameServer.h">
+      <Filter>Framework\DNGameServerFrame\DNRUDPGameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="DNBackGroundLoader.h">
+      <Filter>Framework\DNGameServerFrame\BackGroundLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="DnActionBase.h">
+      <Filter>Framework\Action Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnActionSpecificInfo.h">
+      <Filter>Framework\Action Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SignalHeader.h">
+      <Filter>Framework\Action Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="DNDLGameRoom.h">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="DNFarmGameRoom.h">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGameRoom.h">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="DNPvPGameRoom.h">
+      <Filter>Framework\DNGameRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="DNPeerManager.h">
+      <Filter>Framework\DNGameRoom\DNPeerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameListener.h">
+      <Filter>Framework\DNGameRoom\Method</Filter>
+    </ClInclude>
+    <ClInclude Include="DNBreakIntoUserSession.h">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNCommonVariable.h">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClInclude>
+    <ClInclude Include="DNFarmUserSession.h">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNUserBase.h">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClInclude>
+    <ClInclude Include="DNUserSession.h">
+      <Filter>Framework\DNUserSession</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNFriend.h">
+      <Filter>Framework\DNUserSession\Friend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNIsolate.h">
+      <Filter>Framework\DNUserSession\Isolate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNCheatCommand.h">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNGesture.h">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNGMCommand.h">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNUserItem.h">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNUserSendManager.h">
+      <Filter>Framework\DNUserSession\User ShareClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNRestraint.h">
+      <Filter>Framework\DNUserSession\Restraint</Filter>
+    </ClInclude>
+    <ClInclude Include="DNFishingStatus.h">
+      <Filter>Framework\DNUserSession\Fishing</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGameUserEventHandler.hpp">
+      <Filter>Framework\DNUserSession\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNUserEventHandler.h">
+      <Filter>Framework\DNUserSession\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNEvent.h">
+      <Filter>Framework\DNEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DNNotifierCommon.h">
+      <Filter>Framework\Notifier</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>DNGameServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\EventControlHeader.h">
+      <Filter>WorldBase_Server</Filter>
+    </ClInclude>
+    <ClInclude Include="DnBuffProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnShooterProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldActProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldBrokenBuffProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldBrokenDamageProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldBrokenProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldChestProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldEnvironmentProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldHitMoveDamageBrokenProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldHitStateEffectProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldKeepOperationProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldMultiDurabilityProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldNpcProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldOperationDamageProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldOperationProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldShooterBrokenProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldSkillUserProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldTrapProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAActorProp.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="MPTransAction.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PropHeader.h">
+      <Filter>WorldBase_Server\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="IDnFSMEntity.h">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\TDnFiniteStateMachine.h">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\TDnFSMState.h">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\TDnFSMTransitCondition.h">
+      <Filter>WorldBase_Server\Prop\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropStateCmdOperation.h">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropStateDoAction.h">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropStateItemDrop.h">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropStateNormal.h">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropStateScanActor.h">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPropStateTrigger.h">
+      <Filter>WorldBase_Server\Prop\PropState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropState.h">
+      <Filter>WorldBase_Server\Prop\PropState\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SMScanActor.h">
+      <Filter>WorldBase_Server\Prop\PropState\PropStateMessage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\IStateMessage.h">
+      <Filter>WorldBase_Server\Prop\PropState\PropStateMessage\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropActionCondition.h">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropCondiDurability.h">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropCondiNeedItem.h">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropCondiSubDurability.h">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropHitCondition.h">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropNULLCondition.h">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropOperatedCondition.h">
+      <Filter>WorldBase_Server\Prop\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropCondition.h">
+      <Filter>WorldBase_Server\Prop\Condition\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="DnBuffPropComponent.h">
+      <Filter>WorldBase_Server\Prop\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DnHitPropComponent.h">
+      <Filter>WorldBase_Server\Prop\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSkillPropComponent.h">
+      <Filter>WorldBase_Server\Prop\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="DnTrigger.h">
+      <Filter>WorldBase_Server\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="DnTriggerElement.h">
+      <Filter>WorldBase_Server\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="DnTriggerObject.h">
+      <Filter>WorldBase_Server\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorld.h">
+      <Filter>WorldBase_Server\Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldGrid.h">
+      <Filter>WorldBase_Server\Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldSector.h">
+      <Filter>WorldBase_Server\Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWorldUtil.h">
+      <Filter>WorldBase_Server\Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DnWorldGateStruct.h">
+      <Filter>WorldBase_Server\GateStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="DnRenderBase.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DnUnknownRenderObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DnActorClassDefine.h">
+      <Filter>Objects\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="DnActor.h">
+      <Filter>Objects\Actor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiBase.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiChecker.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiCommand.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiMultipleTarget.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiProcessor.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiReceiver.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiScript.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAAiSkill.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAScanner.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAScannerFilter.h">
+      <Filter>Objects\Actor\Base\Method\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MAActorRenderBase.h">
+      <Filter>Objects\Actor\Base\Method\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MAPartsBody.h">
+      <Filter>Objects\Actor\Base\Method\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="MASingleBody.h">
+      <Filter>Objects\Actor\Base\Method\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\CollisionAndPush.h">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAMovementBase.h">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAMovementInterface.hpp">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAStaticLookMovement.h">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAStaticMovement.h">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAWalkMovement.h">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAWalkMovementNav.h">
+      <Filter>Objects\Actor\Base\Method\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="MATransAction.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAPlateUser.h">
+      <Filter>Objects\Actor\Base\Method\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MASkillUser.h">
+      <Filter>Objects\Actor\Base\Method\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MATalismanUser.h">
+      <Filter>Objects\Actor\Base\Method\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDamageBase.h">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MADamageBase.h">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MAMultiDamage.h">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MASingleDamage.h">
+      <Filter>Objects\Actor\Base\Method\Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MACP.h">
+      <Filter>Objects\Actor\Base\Method\CP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\MACP_Renewal.h">
+      <Filter>Objects\Actor\Base\Method\CP</Filter>
+    </ClInclude>
+    <ClInclude Include="DnMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="DnBasiliskMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCannonMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClInclude>
+    <ClInclude Include="DnGreenDragonMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSeadragonMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Static_SingleBody</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNormalMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPartsMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody</Filter>
+    </ClInclude>
+    <ClInclude Include="DnBeholderMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCelberosMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnClericRelicMonster.hpp">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnDefenseMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnGhoulMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnGiantMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnHideMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnLamiaMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnLotusGolemMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnManticoreMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNormalNestBossMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSimpleRushMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSpittlerMonsterActor.h">
+      <Filter>Objects\Actor\Class\Monster\Walk_SingleBody\Child</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerActor.h">
+      <Filter>Objects\Actor\Class\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerTestFlag.h">
+      <Filter>Objects\Actor\Class\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNLPAAcademic.h">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNLPAArcher.h">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNLPAAssassin.h">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNLPAKali.h">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNLPASoceress.h">
+      <Filter>Objects\Actor\Class\Player\Non Local</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerAcademic.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerArcher.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerAssassin.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerCleric.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerCommon.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerKali.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerLencea.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerMachina.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerSoceress.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TDnPlayerWarrior.h">
+      <Filter>Objects\Actor\Class\Player\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerActionChecker.h">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerChecker.h">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerDoNotEnterChecker.h">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerFloatingChecker.h">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerPickupChecker.h">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerSkillChecker.h">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPlayerSpeedHackChecker.h">
+      <Filter>Objects\Actor\Class\Player\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="DnNPCActor.h">
+      <Filter>Objects\Actor\Class\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPropActor.h">
+      <Filter>Objects\Actor\Class\PropActor</Filter>
+    </ClInclude>
+    <ClInclude Include="DnVehicleActor.h">
+      <Filter>Objects\Actor\Class\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnActorState.h">
+      <Filter>Objects\Actor\State</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMonsterState.h">
+      <Filter>Objects\Actor\State</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPlayerState.h">
+      <Filter>Objects\Actor\State</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnState.h">
+      <Filter>Objects\Actor\State</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnVehicleState.h">
+      <Filter>Objects\Actor\State</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnActorStatIntervalManipulator.h">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBlow.h">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBlowDef.h">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCreateBlow.h">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnStateBlow.h">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnStateBlowSignalProcessor.h">
+      <Filter>Objects\Actor\State\StateBlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAbContinueHPIncBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAbContinueMPIncBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAbMeleeMDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAbMeleePDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAbRangeMDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAbRangePDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAccelBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnActionChangeOnHitBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnActionChangeRatioBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddAttackMDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddAttackPDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddDamageOnCriticalBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddDamageOnStateBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAdditionalStateInfoBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddMinimapRadarBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddStateBySkillGroupBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddStateOnConditionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddStateOnHitBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAddStateOnTimer.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAggroBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAggroResetBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAllImmuneBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAllowedSkillsBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnApplyStateBlowOnTimeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAttackerHPAbsolute.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAttackerHPRatio.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnAvoidDebufActionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBasicBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBasicStateBaseAddState.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBasisAttackDmgUpBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBlockBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBloodSuckingBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBoneCrushBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBreakSuperArmorBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBurnCriticalBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCameraRoarBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCantActionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCantAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCantMoveBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCantUseActiveSkillBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCantUseItemBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCantUseMPUsingSkillBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChainAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeActionSetBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeElementBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeHealingRatioBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeMAttackDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeMPConsumeRatioBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangePAttackDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeStandActionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeWeaponBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeWeaponRangeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeWeightBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChargerBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnClericMentalChargeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnComboDamageLimitBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnConcentrationBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnConfuseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnContinueBaseMPIncBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCoolTimeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCoolTimeChangeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCooltimeParryBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCurseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCurseBreakDownBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDamageDuplicateBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDamageLimitBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDamageRatioBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDamageTransitionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDestroySuperArmorBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDisableActionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDisarmamentBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDissolveBufBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDissolveDebufBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDissolveStateBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDOTBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDragonShieldBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnElectricExplosionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnElectricShockBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnEscapeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFinalCriticalBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFinalMDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFinalPDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFinishAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFireBurnBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFireBurnExplosionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFlashBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnForceActionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnForceAggroTargetBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnForceOutBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnForceStunBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFrameBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFrameStopBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFreezingBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFreezingExplosionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFreezingPrisonBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFreezingShieldBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnFrostbiteBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnGhoulTransformBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHealingBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHighLanderBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHolyWaterBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHPBelowUseSkillBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHPIncBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIgnoreCanHitBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIgnoreEffectBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIgnoreGravitySignalBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIgnoreHitSignalBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIgnorePrefixSkillBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIgnoreRestoreHPBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnImmuneBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnImmuneByTypeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIncreaseItemRecoverHPBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnIntelligenceToPhysicAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnInvincibleAtBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnInvincibleBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnInvincibleTypeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnInvisibleBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnKillBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnLithifyBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnManaShieldBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMaxDamageAddBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMaximumAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMeleeMReflectDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMeleePReflectDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMouseSensitiveBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMPBurstBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMPIncBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnNULLBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnOrderMySummonedMonsterBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnParryBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnParryingProbBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPartyAddDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPartyFinishAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPayBackMPBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPhysicalAttackToMagicalAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPileAddEffectBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPingpongBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPlagueBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPoisonBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPoisonExplosionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPrefixDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnProbInvincibleAtBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnProvocationBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPuppetBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPushBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRangeMReflectDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRangePReflectDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRebirthBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRecallSummonBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRecoverHPByAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRemoveStateBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnReverseTeamBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRtContinueHPIncBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRtContinueMPIncBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRtMeleeMDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRtMeleePDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRtRangeMDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRtRangePDefenseBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnShieldBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnShockInfectionBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnSleepBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnSpectatorBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnStealBuffBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnStigmaBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnStrengthToMagicAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnSummonMonsterChangeSkillLevelBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnSuperAmmorShield.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnSuperArmorAttackRatioBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTargetCriticalBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTeleportBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTimeBoomBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTotalLevelSkillBlows.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTransformBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTransformMonsterBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTransmitDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnUnstableHolyWaterBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnUseHitterMAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnUseHitterPAttackBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnUsingSkillWhenDieBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnVarianceDamageBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBubble.h">
+      <Filter>Objects\Actor\State\Bubble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBubbleSystem.h">
+      <Filter>Objects\Actor\State\Bubble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBubbleEventHandler.h">
+      <Filter>Objects\Actor\State\Bubble\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBubbleConditionChecker.h">
+      <Filter>Objects\Actor\State\Bubble\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnObservable.h">
+      <Filter>Objects\Actor\State\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnObserver.h">
+      <Filter>Objects\Actor\State\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnObserverEventMessage.h">
+      <Filter>Objects\Actor\State\Observer\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="DnDropItem.h">
+      <Filter>Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="DnItem.h">
+      <Filter>Objects\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCalcCatmullrom.h">
+      <Filter>Objects\Item\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="DnProjectile.h">
+      <Filter>Objects\Item\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="DnBaseTransAction.h">
+      <Filter>Objects\Item\Projectile\NetworkBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCurveOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnGravityOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHomingAccellOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHomingOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnLinearAccellOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnLinearOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTerrainHomingOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTerrainLinearOrbit.h">
+      <Filter>Objects\Item\Projectile\Orbit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\IDnOrbitProcessor.h">
+      <Filter>Objects\Item\Projectile\Orbit\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="DnGlyph.h">
+      <Filter>Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="DnParts.h">
+      <Filter>Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSimpleParts.h">
+      <Filter>Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="DnTalisman.h">
+      <Filter>Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="DnWeapon.h">
+      <Filter>Objects\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSkill.h">
+      <Filter>Objects\Skill\New</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnActorStateChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnBubbleCountChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnEnergyChargeChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnGroundMovableChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHitChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnHPChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnJumpableChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMovableChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnProbabilityChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRangeChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DNSummonChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTargetStateChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTargetStateEffectChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnToggleChecker.h">
+      <Filter>Objects\Skill\New\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\IDnSkillUsableChecker.h">
+      <Filter>Objects\Skill\New\Checker\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnApplySEWhenActionSetBlowEnabledProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnApplySEWhenTargetNormalHitProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="DnAuraProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCallMySummonedMonsterProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeActionStrByBubbleProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeActionStrProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnChangeProjectileProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDivideSEArgumentByTargets.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnImpactBlowProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPartialPlayProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPetPlayAniProcess.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnPlayAniProcess.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnRangeSEProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnStateEffectApplyOnOffByBubbleProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\IDnSkillProcessor.h">
+      <Filter>Objects\Skill\New\Processor\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNDBConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNDBConnectionManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNIocpManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNLogConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMasterConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMasterConnectionManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServiceConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNUserTcpConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\DnCommonUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNReplaceString.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\IniFile.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\SlangFilter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPtrDef.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\SQLConnection.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\Util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Version.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDPSReporter.h">
+      <Filter>Common\DPSReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCostumeMixDataMgr.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCostumeRandomMixDataMgr.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNDataManagerBase.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNGameDataManager.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnItemCompounder.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNQuestCondition.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnTableDB.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnUIString.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNNpc.h">
+      <Filter>NpcQuest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNPeriodQuestSystem.h">
+      <Filter>NpcQuest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNQuest.h">
+      <Filter>NpcQuest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNQuestManager.h">
+      <Filter>NpcQuest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DnScriptManager.h">
+      <Filter>NpcQuest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNTalk.h">
+      <Filter>NpcQuest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNUserQuest.h">
+      <Filter>NpcQuest</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGameServerScriptAPI.h">
+      <Filter>Lua API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnLuaAPIDefine.h">
+      <Filter>Lua API</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNScriptAPICommon.h">
+      <Filter>Lua API</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGameWorldUserState.hpp">
+      <Filter>WorldUserState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNWorldUserState.h">
+      <Filter>WorldUserState</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Extern\GPK\Include\GPKitSvr.h">
+      <Filter>Publisher\CH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNActozShield.h">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPGameModeChecker.h">
+      <Filter>PvP\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPGameModeLadderNoGameChecker.h">
+      <Filter>PvP\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPGameModeNoMoreBreakIntoChecker.h">
+      <Filter>PvP\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPGameModeTeamMemberChecker.h">
+      <Filter>PvP\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPGameModeTimeOverChecker.h">
+      <Filter>PvP\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPGameModeZombieChecker.h">
+      <Filter>PvP\Checker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPGameModeScoreSystem.h">
+      <Filter>PvP\ScoreSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPScoreSystem.h">
+      <Filter>PvP\ScoreSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\ScoreSystem.h">
+      <Filter>PvP\ScoreSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPRoundModeScoreSystem.h">
+      <Filter>PvP\ScoreSystem\RoundMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\OccupationScoreSystem.h">
+      <Filter>PvP\ScoreSystem\OccupationMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPOccupationScoreSystem.h">
+      <Filter>PvP\ScoreSystem\OccupationMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPRespawnModeScoreSystem.h">
+      <Filter>PvP\ScoreSystem\RespawnMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPCaptainScoreSystem.h">
+      <Filter>PvP\ScoreSystem\CaptainMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPGuildWarScoreSystem.h">
+      <Filter>PvP\ScoreSystem\GuildWarMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPZombieScoreSystem.h">
+      <Filter>PvP\ScoreSystem\ZombieMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPAllKillScoreSystem.h">
+      <Filter>PvP\ScoreSystem\AllKillMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPComboExerciseScoreSystem.h">
+      <Filter>PvP\ScoreSystem\ComboExerciseMode</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemRespawnLogic.h">
+      <Filter>PvP\RespawnLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPRespawnLogic.h">
+      <Filter>PvP\RespawnLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="LadderStats.h">
+      <Filter>PvP\LadderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PvPOccupationSystem.h">
+      <Filter>PvP\PositionOccupationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPOccupationPoint.h">
+      <Filter>PvP\PositionOccupationSystem\Position</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPOccupationTeam.h">
+      <Filter>PvP\PositionOccupationSystem\Team</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPOccupationTeamSKill.h">
+      <Filter>PvP\PositionOccupationSystem\Team\TeamSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPGameMode.h">
+      <Filter>PvP\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="RevengeSystem.h">
+      <Filter>PvP\GameMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPCaptainMode.h">
+      <Filter>PvP\GameMode\CaptainMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPIndividualRespawnMode.h">
+      <Filter>PvP\GameMode\IndividualRespawnMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPOccupationMode.h">
+      <Filter>PvP\GameMode\OccupationMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPRespawnMode.h">
+      <Filter>PvP\GameMode\RespawnMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPRoundMode.h">
+      <Filter>PvP\GameMode\RoundMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPZombieMode.h">
+      <Filter>PvP\GameMode\ZombieMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPAllKillMode.h">
+      <Filter>PvP\GameMode\AllKillMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPAllKillModeFinishRoundState.hpp">
+      <Filter>PvP\GameMode\AllKillMode\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPAllKillModeNoneState.hpp">
+      <Filter>PvP\GameMode\AllKillMode\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPAllKillModePlayingState.hpp">
+      <Filter>PvP\GameMode\AllKillMode\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPAllKillModeSelectPlayerState.hpp">
+      <Filter>PvP\GameMode\AllKillMode\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPAllKillModeStartingState.hpp">
+      <Filter>PvP\GameMode\AllKillMode\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPAllKillModeState.hpp">
+      <Filter>PvP\GameMode\AllKillMode\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPRacingMode.h">
+      <Filter>PvP\GameMode\RacingMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPTournamentMode.h">
+      <Filter>PvP\GameMode\TournamentMode</Filter>
+    </ClInclude>
+    <ClInclude Include="PvPComboExerciseMode.h">
+      <Filter>PvP\GameMode\ComboExerciseMode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNMissionScheduler.h">
+      <Filter>Mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNMissionSystem.h">
+      <Filter>Mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Connection.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ConnectionManager.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\CryptPacket.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\EventAcceptor.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\IocpManager.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ListenSocket.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Log.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\RUDPCommonDef.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\RUDPSocketFrame.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SendThread.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SocketContext.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SpinBuffer.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ThreadManager.h">
+      <Filter>Objects\Actor\Base\Method\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNAppellation.h">
+      <Filter>Appellation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNSchedule.h">
+      <Filter>Schedule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\NoticeSystem.h">
+      <Filter>NoticeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\AuthManager.h">
+      <Filter>Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNAuthManager.h">
+      <Filter>Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\ExceptionReport.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\FileSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MemoryMap.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MiniDumpSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\StringSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\TimeSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNGuildBase.h">
+      <Filter>Guild</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGuildGame.h">
+      <Filter>Guild</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNGuildRecruitCacheRepository.h">
+      <Filter>Guild</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNGuildSystem.h">
+      <Filter>Guild</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig_Work.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Work.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNHeader.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNLocaleHeader.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNPrjSafe.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerDef.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacket.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketDB.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketGame.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketMaster.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCommonDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCountryUnicodeSet.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNItemTypeDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNPacket.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol_CHN.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol_JPN.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol_KOR.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol_SIN.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol_TWN.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol_USA.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNSecure.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNUserData.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="DNAggroRange.h">
+      <Filter>AggroSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="DNAggroSystem.h">
+      <Filter>AggroSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMonsterAggroSystem.h">
+      <Filter>AggroSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="DNPvPPlayerAggroSystem.h">
+      <Filter>AggroSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNCashConnection.h">
+      <Filter>Cash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNCashItem.h">
+      <Filter>Cash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNCashRepository.h">
+      <Filter>Cash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNLimitedCashItemRepository.h">
+      <Filter>Cash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNVoiceChat.h">
+      <Filter>VoiceChat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\VoiceChat\VoiceChatServer.h">
+      <Filter>VoiceChat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\Directory.h">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\HttpClient.h">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\PsUpdater.h">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\CloseSystem.h">
+      <Filter>CloseSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\NpcReputationProcessor.h">
+      <Filter>ReputationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\NpcReputationSystem.h">
+      <Filter>ReputationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\ReputationSystem.h">
+      <Filter>ReputationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\ReputationSystemEventHandler.h">
+      <Filter>ReputationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ReputationSystemEventHandlerForServer.h">
+      <Filter>ReputationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\ReputationSystemRepository.h">
+      <Filter>ReputationSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNMailSender.h">
+      <Filter>Mail</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterRewardSystem.h">
+      <Filter>MasterSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\MasterSystemCacheRepository.h">
+      <Filter>MasterSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\CommonSkill.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\ManufactureSkill.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\ProductionSkill.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SecondarySkill.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SecondarySkillEventHandler.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\SecondarySkillEventHandlerServer.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SecondarySkillFactory.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SecondarySkillRecipe.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SecondarySkillRepository.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\SecondarySkillRepositoryServer.h">
+      <Filter>SecondarySkill</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaStateAddWater.h">
+      <Filter>Farm\AreaState</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaStateCompleted.h">
+      <Filter>Farm\AreaState</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaStateGrowing.h">
+      <Filter>Farm\AreaState</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaStateHarvested.h">
+      <Filter>Farm\AreaState</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaStateHarvesting.h">
+      <Filter>Farm\AreaState</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaStateNone.h">
+      <Filter>Farm\AreaState</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaStatePlanting.h">
+      <Filter>Farm\AreaState</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingAreaState.h">
+      <Filter>Farm\AreaState\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="GrowingArea.h">
+      <Filter>Farm\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="PlantSeed.h">
+      <Filter>Farm\Seed</Filter>
+    </ClInclude>
+    <ClInclude Include="FishingArea.h">
+      <Filter>Farm\Fishing\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="DNChatRoom.h">
+      <Filter>ChatRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="DNChatRoomManager.h">
+      <Filter>ChatRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNTimeEventSystem.h">
+      <Filter>TimeEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNDonationScheduler.h">
+      <Filter>Donation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNBestFriend.h">
+      <Filter>BestFriend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNPrivateChatChannel.h">
+      <Filter>PrivateChatChannel</Filter>
+    </ClInclude>
+    <ClInclude Include="DnPrivateChatManager.h">
+      <Filter>PrivateChatChannel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNEventSystem.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNMissionCommonAPI.h">
+      <Filter>EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNStampSystem.h">
+      <Filter>StampSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSendPacket.h" />
+    <ClInclude Include="FarmPVP.h">
+      <Filter>_RLKT\FarmPVP</Filter>
+    </ClInclude>
+    <ClInclude Include="RLKTAuth.h">
+      <Filter>_RLKT\_License</Filter>
+    </ClInclude>
+    <ClInclude Include="RLKTPackets.h">
+      <Filter>_RLKT\_License</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCheckKeyProcessor.h">
+      <Filter>Objects\Skill\New\Processor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnMechanicModeBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDarkTransformationBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnDisableSkillBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnCheckBubbleCancelSkillBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnConsumeBubbleBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\DnEmptyBlow.h">
+      <Filter>Objects\Actor\State\StateBlow\BlowClass</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

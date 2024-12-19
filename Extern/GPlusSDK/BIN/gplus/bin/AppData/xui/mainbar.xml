@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.mainbar" >
+        <windowframe id="frame.bar" rect="0,0,171,27"  visible="true" >
+            <button id="button.frame.app1"  rect="1,0,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+             <button id="button.app1"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico01"/>
+            </button>
+            <button id="button.frame.app2"  rect="29,0,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app2"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico02"/>
+            </button>
+            <button id="button.frame.app3"  rect="58,0,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app3"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico03"/>
+            </button>
+            <button id="button.frame.app4"  rect="88,0,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app4"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico04"/>
+            </button>
+			<button id="button.frame.app5"  rect="116,0,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app5"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico05"/>
+            </button>
+			<button id="button.frame.app6"  rect="144,0,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app6"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/gpico06"/>
+            </button>
+        </windowframe>
+    </window>
+</ui>

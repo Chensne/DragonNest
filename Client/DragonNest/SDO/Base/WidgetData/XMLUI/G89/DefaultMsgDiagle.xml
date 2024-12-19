@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="MyTestWidgetDialog" type="TWidgetDialog" caption="" left="270" top="80" width="320" height="300" skin="bg_igwNormaldialog" allowResize="0" candock="false"  backgroundskinnamea="bg_igwiePopupBackBround147x131" margin="(5, 35, 5, 34)" bordercolor="$FFFF0000">
+		<button type="" left="284" top="10" width="24" height="24" skin="btn_close_24x24" name="btnFormClose" onclick="btnFormCloseOnClick(Self);" showhint="true" hint="关闭"  canactivate="false"/>
+		<button type="" left="60" top="154" width="100" height="34" skin="btn_normal_100x34" name="btnOK" caption="确定" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  iconpressoffsetx="1" iconpressoffsety="1" downtextoffsetx="1" downtextoffsety="1" textcolor="$FFb0b166" fontname="NormalFontYH"/>
+		<button type="" left="180" top="154" width="100" height="34" skin="btn_normal_100x34" name="btnCancel" caption="取消" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  iconpressoffsetx="1" iconpressoffsety="1" downtextoffsetx="1" downtextoffsety="1" textcolor="$FFb0b166" fontname="NormalFontYH"/>
+		<label type="" left="90" top="12" width="150" height="20" skin="" name="labelcaption" caption="Caption" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" ellipsisposition="epWordEllipsis" textcolor="$FFE8EBCB" fontname="CaptionFontYH" shadowenabled="true" shadowoffsetx="1" shadowoffsety="1" shadowtextcolor="$FF000000" shadowblur="50" shadowreplay="0" shadowoutline="false" fontmargin="3"/>
+		<label type="" left="30" top="48" width="260" height="100" skin="" name="labelText" caption="text" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" fontname="NormalFontYH" textcolor="$FFd9d9b6" ellipsisposition="epWordEllipsis" wordwrap="true" cannotifydrag="true" shadowenabled="true" shadowoffsetx="1" shadowoffsety="1" shadowtextcolor="$FF000000" shadowblur="50" shadowreplay="0" shadowoutline="false" fontmargin="3" bordercolora="$FFFF0000"/>
+	</view>
+	<script src="DefaultMsgDiagle.js"/>
+</xul>

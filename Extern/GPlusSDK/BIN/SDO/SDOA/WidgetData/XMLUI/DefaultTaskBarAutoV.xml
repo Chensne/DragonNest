@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="taskbarsvertical" type="TaskBar" left="700" top="100" width="66" 
+		height="350" skin="bg_igwbarsvertical" candock="false" 
+		barsinterval="3" barsleft="3" barstop="32" barswidth="59" barsheight="255" defaultbuttonskin="bg_igwmenuitem18x18" 
+		minisize="85" bardirection="wbVertical" docksite="false" ToolBtnAnimationSize="3" ToolBtnShowText="True" 
+		ontaskchanged="taskbarsverticalOnTaskChanged(Self);" ToolBtnAlignment="taLeftJustify" ToolBtnTextIndent="30"  btnhideimage="bg_igwHideStatus" 
+		canactivate="false" animationspeed="30" ToolBtnHeight="21" ToolBtnIconHeight="21" ToolBtnIconWidth="21" ToolBtnIconIndent="5"  Hideshow4ad="true" 
+		onfixtoplistupdate="OnTaskBarfixtoplistupdate(Self);" onbeforclear="OnTaskBarBefoClear(Self);"
+		onbarstylechanged="OnTaskBarStyleChanged(Self);" onbeforefixtoplistupdate="OnTaskBarBeforeFixTopListUpdate(Self);"
+		onendfixtoplistupdate="OnTaskBarEndFixTopListUpdate(Self);">
+		
+		<label left="3" top="97" width="60" height="3" skin="bg_igwbarlinenew" name="lablebarline" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" wordwrap="false" visible="false"/>
+		<label left="3" top="23" width="60" height="3" skin="bg_igwbarlinenewtop" name="lablebarlineTop" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" wordwrap="false" visible="false" />
+		
+		<MessageButton left="19" top="2" width="16" height="16" skin="btn_barmsg_16x16" name="btnBarvFormClose" onclick="btnBarvFormCloseOnClick(Self);" showhint="true" hint="系统消息" canactivate="false" />
+		<ManagerButton left="3" top="2" width="16" height="16" skin="btn_baradd_16x16" name="btnBarvFormSearch" onclick="" showhint="true" hint="添加工具" link=".\DefaultManagerDialog.xml" canactivate="false" />
+		<button left="51" top="0" width="16" height="20" skin="btn_barDownMenu_15x20" name="btnBarvFormSet" onclick="btnBarvFormSetOnClick(Self);" showhint="false" hint="" canactivate="false"  link=".\DefaultSetDialog.xml"/>
+		<LinkButton left="35" top="2" width="16" height="16" skin="btn_barcap_16x16" name="btnBarvFormCap" onclick="" showhint="true" hint="截图" canactivate="false"  link=".\DefaultCapScreen.xml" visible="false"/>
+		<button left="35" top="2" width="16" height="16" skin="btn_barhelpbtn" name="btnBarvFormHelp" onclick="OnbtnBarvFormHelpClick(Self);" showhint="true" hint="帮助" canactivate="false"/>
+		<button left="4" top="15" width="12" height="18" skin="btn_igwFloatPrior_18x12" name="btnBarvFormPageUp" onclick="btnBarvFormPageUpOnClick(Self);" canactivate="false" showhint="true" hint="上一页"/>
+		<button left="50" top="15" width="12" height="18" skin="btn_igwFloatNext_18x12" name="btnBarvFormPageDown" onclick="btnBarvFormPageDownOnClick(Self);" canactivate="false" showhint="true" hint="下一页"/>
+		<resizebutton left="3" top="10" width="60" height="6" skin="btn_barvresize_60x6" name="btnBarvFormBarResize" onclick=""  canactivate="false" cursoraaa="[DragCursor]" resizetype="gwrstBottom" showhint="true" hint="调整高度"/>
+		<label left="18" top="31" width="30" height="10" skin="" name="lablePageTotal" caption="3/4" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" wordwrap="false" textcolor="$FF000000"/>
+
+		<!-- bigwidth="66" bigheight="42" smallwidth="42" smallheight="42" animationspeed="120" -->
+		<bariconbutton left="0" top="-42" width="66" height="48" skin="bg_igwStartSmallLogo" name="Bartopbg" onclick="" cannotifydrag="true" cursor="[HAND]" bordercolora="$FFFF0000">
+				<QuanQuanFlashButton left="1" top="12" width="64" height="28" skin="btn_igwStartSmallLogo" name="BartopLogo" onclick="BartopLogoOnclick(Self);" canactivate="false" cannotifydrag="true" cursor="[HAND]"  DragEnableClick="false"/>
+				<edit left="50" top="-6" width="32" height="30" skin="bg_igwQQMsgNumBk" name="lblUnReadMsg" caption="24" alignment="taCenter" layout="llTop" canactivate="false" onclick="btnBarvFormCloseOnClick(Self);" wordwrap="false" fontname="CaptionFont" textcolor="$FFFFFFFE" textveritical="6" visible="false" oncaptionchange="OnlblUnReadMsgCaptionChange(Self);" cursor="[HAND]" showhint="true"/>
+				<label left="0" top="42" width="66" height="60" skin="bg_igwAdvertising" name="lblBgAdvertising" canactivate="false" onclick="" visible="false"/>
+		</bariconbutton>
+
+		<menu left="100" top="100" width="60" height="56" name="CtrlBarItemMenu" skin="bg_igwmenu" menuitemskin="bg_igwmenuitem18x18" onpopupmenu=""  margin="(2,2,2,2)" autoalign="true">
+			<menuitem left="4" top="8" width="52" height="18" name="MenuItemBarItemSet" skin="bg_igwmenuitem18x18" caption="设置" onmenuitemclick="" alignment="taCenter" visible="false"/> 
+			<menuitem left="4" top="28" width="52" height="18" name="MenuItemBarItemDel" skin="bg_igwmenuitem18x18" caption="删除" onmenuitemclick="" alignment="taCenter"/>
+			<menuitem left="4" top="28" width="52" height="18" name="MenuItemBarItemClose" skin="bg_igwmenuitem18x18" caption="关闭" onmenuitemclick="" alignment="taCenter"/>
+		</menu>
+		<menu left="100" top="100" width="60" height="56" name="CtrlAddWidgetItemMenu" skin="bg_igwmenu" menuitemskin="bg_igwmenuitem18x18" onpopupmenu=""  margin="(2,2,2,2)" autoalign="true">
+			<menuitem left="4" top="8" width="52" height="18" name="MenuItemBarItemAdd" skin="bg_igwmenuitem18x18" caption="添加" onmenuitemclick="OnMenuItemBarItemAddClick(Self);" alignment="taCenter"/>
+		</menu>
+		<menu left="100" top="100" width="60" height="56" name="CtrlDownWidgetItemMenu" skin="bg_igwmenu" menuitemskin="bg_igwmenuitem18x18" onpopupmenu=""  margin="(2,2,2,2)" autoalign="true">
+			<SetMenuItemButton left="7" top="8" width="45" height="18" name="MenuItemBarItemSysSet" skin="bg_igwmenuitem18x18" caption="设置" onmenuitemclick="" alignment="taCenter" link=".\DefaultSetDialog.xml"/>			
+		</menu>
+	</view>
+	<script src="DefaultTaskBarAutoV.js"/>
+</xul>

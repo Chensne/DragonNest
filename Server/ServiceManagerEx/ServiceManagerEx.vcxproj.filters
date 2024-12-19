@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="ServiceServer">
+      <UniqueIdentifier>{bc7cd5c3-dc7d-4f00-81c6-96cd7316f3ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{b152f5e1-2e47-4206-b3c0-15a7d4977516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\DataManagerBase">
+      <UniqueIdentifier>{efe7dac3-58f0-4c84-98da-2828859109c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session">
+      <UniqueIdentifier>{4bd1b2ec-4033-4e55-bdea-8767f032dcb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Launcher">
+      <UniqueIdentifier>{0408c03f-fd51-436e-b46e-d564af9fd489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Service">
+      <UniqueIdentifier>{450a7727-17ca-4ff4-ad6c-10f73bd080a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Patcher">
+      <UniqueIdentifier>{f3bba1e2-3565-45d4-bb88-17aceb400aba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Watcher">
+      <UniqueIdentifier>{1c1517af-1525-40ea-b66e-3b89983ec1c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\ServerMonitor">
+      <UniqueIdentifier>{72f18cb3-1332-4d28-a0e6-cae96eb2cd81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{40ba0919-f487-4b66-a8d4-db81f9a7ea13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\FtpUpdater">
+      <UniqueIdentifier>{4b1dce24-fab4-446c-965f-af154d699254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\HttpUpdater">
+      <UniqueIdentifier>{48b28450-7bf2-410b-80e6-106457d8c664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\URLUpdater">
+      <UniqueIdentifier>{2bfe65e4-a65d-4143-b912-ded6a7d9c291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\ServiceUtil">
+      <UniqueIdentifier>{3ef30dee-bcb1-49cf-a38b-11b7a6f4c233}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\CSVReader">
+      <UniqueIdentifier>{18e5bac1-225d-4024-bcd9-ec697f4da142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Scheduler">
+      <UniqueIdentifier>{ed477c66-b34e-4277-b446-83eebe8e521f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager">
+      <UniqueIdentifier>{43213b29-051b-4f90-81a1-f61c2bdab2b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\PatchWatcher">
+      <UniqueIdentifier>{d5d93ec0-22f0-43c8-b9a3-2d90da399ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\ReservedNotice">
+      <UniqueIdentifier>{e6a378ed-6cb4-4a0c-89b6-714e63ae7f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\ServiceCloser">
+      <UniqueIdentifier>{4e856778-660b-4fca-8943-727f6aea9b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\Watcher">
+      <UniqueIdentifier>{1c9fd50d-b488-458c-86b6-16464565f753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\LivePatcher">
+      <UniqueIdentifier>{29dd6ad5-ab3a-40ed-b498-753870ff5a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\GSMCmdProcess">
+      <UniqueIdentifier>{e8c4cbb6-e84f-4b57-974f-884f61c748ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GSMServer">
+      <UniqueIdentifier>{cf730e39-25b6-4e41-9de5-1df541062119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GSMServer\SimpleServer">
+      <UniqueIdentifier>{65fe2337-d1d9-4302-b1b2-b205a0126512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{7589cfe6-a6e7-4069-b9a7-79c5036808c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher">
+      <UniqueIdentifier>{bbcbac37-8fa3-4b49-a8fe-aeb61765256a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KR">
+      <UniqueIdentifier>{51d10142-4b8b-4086-8581-11d869b25af5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KRAZ">
+      <UniqueIdentifier>{a2d3661a-2f09-4e94-a900-9c27d9f98a64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{6dacc8df-7936-4f14-8a4e-6c2fb34d455b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Log">
+      <UniqueIdentifier>{88a4de99-ded7-4ef6-aeb9-d20f3a2b9d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\Command">
+      <UniqueIdentifier>{bd29f7c8-a983-4180-91e7-33232b0c0b1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\ServerReport">
+      <UniqueIdentifier>{341cb8c6-f131-4716-837c-e3b85cc489b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{7a7d8aae-5644-423e-80bb-273be3aed184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInterface">
+      <UniqueIdentifier>{9f735513-4a02-47e9-a0c9-5c73bd204e64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInterface\View">
+      <UniqueIdentifier>{26db8a49-96e3-4bf4-8bc0-93ee348b21d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInterface\Dialog">
+      <UniqueIdentifier>{47c08d83-1883-4b88-a9eb-4e1e60b04815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInterface\Dialog\Patch">
+      <UniqueIdentifier>{0de52080-e353-441b-8059-5c08ac31845d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInterface\PropertyGrid">
+      <UniqueIdentifier>{70bf8cf0-ae1b-4240-afb5-a6ee645724c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInterface\Common">
+      <UniqueIdentifier>{51a34825-fb03-4689-8051-92d20c96db37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Error">
+      <UniqueIdentifier>{064a201f-0767-4b1d-bf55-334836168a3e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceManagerEx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceManagerExDoc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceManagerExView.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\ServiceServer.cpp">
+      <Filter>ServiceServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\DataManager.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNDataManagerBase.cpp">
+      <Filter>Data\DataManagerBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\LauncherSession.cpp">
+      <Filter>Session\Launcher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\ServiceSession.cpp">
+      <Filter>Session\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\PatcherSession.cpp">
+      <Filter>Session\Patcher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\SessionWatcher.cpp">
+      <Filter>Session\Watcher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\MonitorSession.cpp">
+      <Filter>Session\ServerMonitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\IniFile.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\FtpUpdater.cpp">
+      <Filter>Common\FtpUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\HttpUpdater.cpp">
+      <Filter>Common\HttpUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\URLUpdater.cpp">
+      <Filter>Common\URLUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp">
+      <Filter>Common\ServiceUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\csvreader.cpp">
+      <Filter>Common\CSVReader</Filter>
+    </ClCompile>
+    <ClCompile Include="Scheduler.cpp">
+      <Filter>Common\Scheduler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\ServiceManager.cpp">
+      <Filter>ServiceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\PatchWatcher.cpp">
+      <Filter>ServiceManager\PatchWatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\ReservedNotice.cpp">
+      <Filter>ServiceManager\ReservedNotice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\ServiceCloser.cpp">
+      <Filter>ServiceManager\ServiceCloser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\WatchBase.cpp">
+      <Filter>ServiceManager\Watcher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\LivePatcher.cpp">
+      <Filter>ServiceManager\LivePatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\GsmCmdProcess.cpp">
+      <Filter>ServiceManager\GSMCmdProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\GSMServer.cpp">
+      <Filter>GSMServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\SimpleServerFrame.cpp">
+      <Filter>GSMServer\SimpleServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Connection.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ConnectionManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\EventAcceptor.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\IocpManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ListenSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Log.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SendThread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SocketContext.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SpinBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ThreadManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServiceManager\DNBAM.cpp">
+      <Filter>Publisher\KR</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNActozShield.cpp">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClCompile>
+    <ClCompile Include="LogBuilder.cpp">
+      <Filter>Utility\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="Commander.cpp">
+      <Filter>Utility\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerReporter.cpp">
+      <Filter>Utility\ServerReport</Filter>
+    </ClCompile>
+    <ClCompile Include="SMConfig.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultStateView.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="FileLogView.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="LogList.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="LogSplit.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="LogView.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="LogViewDisplayer.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="MainSplit.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ManagerView.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerList.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="StateSplit.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="StateView.cpp">
+      <Filter>UserInterface\View</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandListDlg.cpp">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="LogFindDlg.cpp">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SendMailDlg.cpp">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldMaxUserDlg.cpp">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PatchDlg.cpp">
+      <Filter>UserInterface\Dialog\Patch</Filter>
+    </ClCompile>
+    <ClCompile Include="PreparePatchDlg.cpp">
+      <Filter>UserInterface\Dialog\Patch</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeCtrlEx.cpp">
+      <Filter>UserInterface\Dialog\Patch</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\DynDialogEx.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\DynDialogItemEx.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\ListDynDialogEx.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\PropertyGrid.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\PropertyGridCombo.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\PropertyGridDirectoryPicker.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\PropertyGridInPlaceEdit.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid\PropertyGridMonthCalCtrl.cpp">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemData.cpp">
+      <Filter>UserInterface\Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainFrm.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceManagerEx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceManagerExDoc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceManagerExView.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Work.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\ServiceServer.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Version.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\DataManager.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNDataManagerBase.h">
+      <Filter>Data\DataManagerBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\LauncherSession.h">
+      <Filter>Session\Launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\ServiceSession.h">
+      <Filter>Session\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\PatcherSession.h">
+      <Filter>Session\Patcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\SessionWatcher.h">
+      <Filter>Session\Watcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\MonitorSession.h">
+      <Filter>Session\ServerMonitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerDef.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacket.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\IniFile.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\SMVersion.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\FtpUpdater.h">
+      <Filter>Common\FtpUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\HttpUpdater.h">
+      <Filter>Common\HttpUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\URLUpdater.h">
+      <Filter>Common\URLUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h">
+      <Filter>Common\ServiceUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\csvreader.h">
+      <Filter>Common\CSVReader</Filter>
+    </ClInclude>
+    <ClInclude Include="Scheduler.h">
+      <Filter>Common\Scheduler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\ServiceManager.h">
+      <Filter>ServiceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\PatchWatcher.h">
+      <Filter>ServiceManager\PatchWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\ReservedNotice.h">
+      <Filter>ServiceManager\ReservedNotice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\ServiceCloser.h">
+      <Filter>ServiceManager\ServiceCloser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\WatcherBase.h">
+      <Filter>ServiceManager\Watcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\WatcherGroup.h">
+      <Filter>ServiceManager\Watcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\LivePatcher.h">
+      <Filter>ServiceManager\LivePatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\GsmCmdProcess.h">
+      <Filter>ServiceManager\GSMCmdProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\GSMServer.h">
+      <Filter>GSMServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\SimpleServerFrame.h">
+      <Filter>GSMServer\SimpleServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Connection.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ConnectionManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\EventAcceptor.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\IocpManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ListenSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Log.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SendThread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SocketContext.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SpinBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ThreadManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServiceManager\DNBAM.h">
+      <Filter>Publisher\KR</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNActozShield.h">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="LogBuilder.h">
+      <Filter>Utility\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="LogInfo.h">
+      <Filter>Utility\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Commander.h">
+      <Filter>Utility\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerReporter.h">
+      <Filter>Utility\ServerReport</Filter>
+    </ClInclude>
+    <ClInclude Include="SMConfig.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultStateView.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLogView.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="LogList.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="LogSplit.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="LogView.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="LogViewDisplayer.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="MainSplit.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ManagerView.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerList.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="StateSplit.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="StateView.h">
+      <Filter>UserInterface\View</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandListDlg.h">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFindDlg.h">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SendMailDlg.h">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldMaxUserDlg.h">
+      <Filter>UserInterface\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PatchDlg.h">
+      <Filter>UserInterface\Dialog\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="PatchInfo.h">
+      <Filter>UserInterface\Dialog\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="PreparePatchDlg.h">
+      <Filter>UserInterface\Dialog\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeCtrlEx.h">
+      <Filter>UserInterface\Dialog\Patch</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\CustomItem.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\DynDialogEx.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\DynDialogItemEx.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\ListDynDialogEx.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\PropertyGrid.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\PropertyGridCombo.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\PropertyGridDirectoryPicker.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\PropertyGridInPlaceEdit.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid\PropertyGridMonthCalCtrl.h">
+      <Filter>UserInterface\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemData.h">
+      <Filter>UserInterface\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerViewType.h">
+      <Filter>UserInterface\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorCode.h">
+      <Filter>Error</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\bitmap1.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ServiceManagerEx.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ServiceManagerEx.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\ServiceManagerExDoc.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\Out\Config\DNServiceManager.ini" />
+    <None Include="..\Out\Config\DNServiceManagerEx.xml" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ServiceManagerEx.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

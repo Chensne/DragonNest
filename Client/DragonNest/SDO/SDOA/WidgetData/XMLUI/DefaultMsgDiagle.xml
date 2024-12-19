@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="MyTestWidgetDialog" type="TWidgetDialog" caption="" left="270" top="80" width="320" height="200"  skin="bg_igwNormaldialog" allowResize="0" candock="false"  backgroundskinname="bg_igwiePopupBackBround147x131" margin="(5, 35, 5, 34)">
+		<button type="" left="296" top="8" width="16" height="16" skin="btn_close_17x17" name="btnFormClose" onclick="btnFormCloseOnClick(Self);" showhint="true" hint="Close"  canactivate="false"/>
+		<button type="" left="60" top="172" width="70" height="22" skin="" icon="btn_normal_70x22" name="btnOK" caption="OK" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  iconpressoffsetx="1" iconpressoffsety="1" downtextoffsetx="1" downtextoffsety="1"/>
+		<button type="" left="180" top="172" width="70" height="22" skin="" icon="btn_normal_70x22" name="btnCancel" caption="Cancel" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  iconpressoffsetx="1" iconpressoffsety="1" downtextoffsetx="1" downtextoffsety="1"/>
+				
+		<label type="" left="10" top="8" width="250" height="20" skin="" name="labelcaption" caption="Caption" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000"  cannotifydrag="true" ellipsisposition="epWordEllipsis" fontname="CaptionFont"/>
+		<label type="" left="10" top="42" width="298" height="119" skin="" name="labelText" caption="text" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000" ellipsisposition="epWordEllipsis" wordwrap="true" cannotifydrag="true"/>
+	</view>
+	<script src="DefaultMsgDiagle.js"/>
+</xul>

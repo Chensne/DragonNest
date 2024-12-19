@@ -1,0 +1,224 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\PatchBuilder.rc2""  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.\r\n"
+    "#include ""afxres.rc""     // 표준 구성 요소입니다.\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PatchBuilder.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PATCHBUILDER_DIALOG DIALOGEX 0, 0, 385, 323
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "PatchBuilder"
+FONT 9, "돋움체", 400, 0, 0x81
+BEGIN
+    EDITTEXT        IDC_BASE_REVISION,85,227,52,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    EDITTEXT        IDC_CURRENT_REVISION,85,246,52,12,ES_AUTOHSCROLL | ES_NUMBER,WS_EX_RIGHT
+    CONTROL         "Make FullVersion",IDC_FULL_VERSION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,227,82,15
+    CONTROL         "Make ServerData",IDC_COPY_SERVER_DATA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,246,82,15
+    PUSHBUTTON      "빌드",ID_BUILD,300,223,50,16
+    PUSHBUTTON      "종료",ID_EXIT,300,245,50,16
+    COMBOBOX        IDC_SELECT_PROFILE,101,29,236,154,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_COUNTRY_CODE,101,46,236,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_SVN_URL,101,64,236,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_SVN_URL_SERVER,101,81,236,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_SVN_UPDATE_FOLDER,101,99,236,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    PUSHBUTTON      "...",IDC_UPDATE_FOLDER_BROWSE,340,99,18,13
+    EDITTEXT        IDC_PATCH_FOLDER,101,115,236,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    PUSHBUTTON      "...",IDC_PATCH_FOLDER_BROWSE,340,115,18,13
+    EDITTEXT        IDC_RMAKE_FOLDER,101,134,236,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    PUSHBUTTON      "...",IDC_RMAKE_FOLDER_BROWSE,339,134,18,13
+    PUSHBUTTON      "추가",ID_ADD_PROFILE,106,177,50,16
+    PUSHBUTTON      "수정",ID_MODIFY_PROFILE,164,177,50,16
+    PUSHBUTTON      "삭제",ID_DELETE_PROFILE,222,177,50,16
+    LTEXT           "시작 리비젼",IDC_STATIC,26,229,45,8
+    LTEXT           "종료 리비젼",IDC_STATIC,26,247,45,8
+    CTEXT           "SVN URL",IDC_STATIC,33,66,49,9
+    CTEXT           "Patch Folder",IDC_STATIC,33,117,49,9
+    CTEXT           "Profile",IDC_STATIC,33,32,49,9
+    GROUPBOX        "설정",IDC_STATIC,17,21,348,176
+    GROUPBOX        "빌드",IDC_STATIC,17,212,348,104
+    CTEXT           "RMakeCmd",IDC_STATIC,33,136,49,9
+    CTEXT           "Country Code",IDC_STATIC,33,48,49,9
+    CTEXT           "SVN Update Folder\n(Client Only!!!)",IDC_STATIC,25,97,68,20
+    CTEXT           "Waiting",IDC_WORK_STATUS,85,205,207,10
+    CTEXT           "SVN URL(Server)",IDC_STATIC,28,83,62,9
+    CONTROL         "Rollback",IDC_ROLLBACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,239,246,51,14
+    CONTROL         "Manual Patch",IDC_MANUAL_PATCH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,263,82,15
+    CTEXT           "ManualPatch",IDC_STATIC,35,153,49,9
+    EDITTEXT        IDC_MANUAL_FOLDER,101,150,236,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    PUSHBUTTON      "...",IDC_IDC_MANUAL_FOLDER_BROWSE2,339,150,18,13
+    CONTROL         "Manual Patch Target Ver.",IDC_CHECK_MANUAL_TARGET_VER,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,155,283,112,10
+    EDITTEXT        IDC_EDIT_MANUALPATCH_TARGET_START_VER,166,295,40,14,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    EDITTEXT        IDC_EDIT_MANUALPATCH_TARGET_END_VER,222,295,40,14,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    CTEXT           "~",IDC_STATIC,209,297,8,8
+    CONTROL         "Use RTPatch",IDC_CHECK_USE_RTPATCH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,290,283,60,10
+END
+
+IDD_NEW_PROFILE DIALOGEX 0, 0, 263, 73
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Profile"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_PROFILE_NAME,23,18,217,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,76,41,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,137,41,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "TODO: <회사 이름>"
+            VALUE "FileDescription", "TODO: <파일 설명>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "PatchBuilder.exe"
+            VALUE "LegalCopyright", "TODO: (c) <회사 이름>.  All rights reserved."
+            VALUE "OriginalFilename", "PatchBuilder.exe"
+            VALUE "ProductName", "TODO: <제품 이름>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PATCHBUILDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 377
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 316
+    END
+
+    IDD_NEW_PROFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\PatchBuilder.rc2"  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.
+#include "afxres.rc"     // 표준 구성 요소입니다.
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

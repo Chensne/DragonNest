@@ -1,0 +1,1784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_CHN|Win32">
+      <Configuration>Debug_CHN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_EU|Win32">
+      <Configuration>Debug_EU</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_IDN|Win32">
+      <Configuration>Debug_IDN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_JPN|Win32">
+      <Configuration>Debug_JPN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_KOR|Win32">
+      <Configuration>Debug_KOR</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_RUS|Win32">
+      <Configuration>Debug_RUS</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_SG|Win32">
+      <Configuration>Debug_SG</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_Test|Win32">
+      <Configuration>Debug_Test</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_THAI|Win32">
+      <Configuration>Debug_THAI</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_TWN|Win32">
+      <Configuration>Debug_TWN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_USA|Win32">
+      <Configuration>Debug_USA</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_CHN|Win32">
+      <Configuration>Release_CHN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_EU|Win32">
+      <Configuration>Release_EU</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_IDN|Win32">
+      <Configuration>Release_IDN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_JPN|Win32">
+      <Configuration>Release_JPN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_KOR|Win32">
+      <Configuration>Release_KOR</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_RUS|Win32">
+      <Configuration>Release_RUS</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_SG|Win32">
+      <Configuration>Release_SG</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Test|Win32">
+      <Configuration>Release_Test</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_THAI|Win32">
+      <Configuration>Release_THAI</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_TWN|Win32">
+      <Configuration>Release_TWN</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_USA|Win32">
+      <Configuration>Release_USA</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9B7978A7-C2AA-43A9-BDA1-F258E2646A1E}</ProjectGuid>
+    <RootNamespace>DnLauncher</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_RUS|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_IDN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_EU|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_THAI|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_SG|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_USA|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CHN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_JPN|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Test|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_KOR|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_RUS|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_IDN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_EU|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_THAI|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_SG|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_USA|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CHN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_JPN|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Test|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_KOR|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_KOR|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_KOR|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_KOR|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Test|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Test|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_Test|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_JPN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_JPN|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_JPN|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_CHN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_CHN|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_CHN|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_USA|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_USA|Win32'">\Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_USA|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'">\Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_SG|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_SG|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_SG|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_THAI|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_THAI|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_THAI|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_EU|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_EU|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_EU|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_IDN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_IDN|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_IDN|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_RUS|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_RUS|Win32'">Output\$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_RUS|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'">Output\$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>./Extern;./Extern/CxImage;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;pngD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>./Extern;./Extern/CxImage;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;png.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_KOR|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/KOR;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_KR_NEXON;_KOR;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/KOR;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_KR_NEXON;_KOR;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Test|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/TEST;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_TEST;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/TEST;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_TEST;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_JPN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/JPN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_JPN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_JPN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/JPN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_JPN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_JPN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CHN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/CHN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_CHN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_CHN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/CHN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_CHN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CHN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/TWN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_TWN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_TWN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/TWN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_TWN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_TWN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_USA|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/USA;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_US_NEXON;_USA;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_USA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/USA;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_US_NEXON;_USA;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_USA;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_SG|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/SG;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_SG;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_SG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/SG;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_SG;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_SG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_THAI|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/THAI;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_THAI;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_THAI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/THAI;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_THAI;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_THAI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_EU|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/EU;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_EU;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_EU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP24 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/EU;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_EU;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_EU;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_IDN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/IDN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_IDN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_IDN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/IDN;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_IDN;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_IDN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_RUS|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/RUS;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_RUS;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)supprot\$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_RUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximageD.lib;JpegD.lib;patchw32.lib;pngD.lib;WLibTorrent-d.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-sgd.lib;libboost_filesystem-vc80-mt-sgd.lib;libboost_system-vc80-mt-sgd.lib;libboost_thread-vc80-mt-sgd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>
+      </OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)supprot\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)supprot\BuildLog.htm</Path>
+    </BuildLog>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>Extern;Extern/CxImage;Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/RUS;Torrent/boost_1_45_0;Torrent/openssl/include;Torrent/libtorrent-rasterbar-0.15.9/include;Torrent/libtorrent-rasterbar-0.15.9/include/libtorrent;Torrent/libtorrent-rasterbar-0.15.9/zlib;Torrent/Source/WLibTorrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_NM_DYNAMIC_LOAD;_RUS;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>$(IntDir)supprot\</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)supprot\vc80.pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>$(IntDir)supprot\</XMLDocumentationFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_RUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cximage.lib;Jpeg.lib;patchw32.lib;png.lib;WLibTorrent.lib;libeay32.lib;ssleay32.lib;libboost_date_time-vc80-mt-s.lib;libboost_filesystem-vc80-mt-s.lib;libboost_system-vc80-mt-s.lib;libboost_thread-vc80-mt-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;Torrent/boost_1_45_0/stage/lib;Torrent/openssl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <OutputManifestFile>$(IntDir)supprot\$(TargetFileName).embed.manifest</OutputManifestFile>
+    </Manifest>
+    <ManifestResourceCompile>
+      <ResourceOutputFileName>$(IntDir)supprot\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
+    </ManifestResourceCompile>
+    <Xdcmake>
+      <OutputFile>$(TargetDir)support\$(TargetName).xml</OutputFile>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="DnControlData.cpp" />
+    <ClCompile Include="DnDownloadInformationDlg.cpp" />
+    <ClCompile Include="DnExplorerDlg.cpp" />
+    <ClCompile Include="DnFIrstPatchDlg.cpp" />
+    <ClCompile Include="DnFirstPatchInfo.cpp" />
+    <ClCompile Include="DnHtmlView.cpp" />
+    <ClCompile Include="DnLauncher.cpp" />
+    <ClCompile Include="DnOptionData.cpp" />
+    <ClCompile Include="DnOptionDlg.cpp" />
+    <ClCompile Include="DnPatchInfo.cpp" />
+    <ClCompile Include="DnPatchThread.cpp" />
+    <ClCompile Include="DnUtil.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_CHN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_EU|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_IDN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_JPN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_KOR|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_RUS|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_SG|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_THAI|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Test|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_USA|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_CHN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_EU|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_IDN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_JPN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_KOR|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_RUS|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_SG|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_THAI|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_Test|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_USA|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Extern\LogWnd.cpp" />
+    <ClCompile Include="Extern\ColorStatic.cpp" />
+    <ClCompile Include="Extern\SkinProgress.cpp" />
+    <ClCompile Include="Extern\xSkinButton.cpp" />
+    <ClCompile Include="Extern\MD5Checksum.cpp" />
+    <ClCompile Include="DnLauncherDlg.cpp" />
+    <ClCompile Include="DnServiceModule.cpp" />
+    <ClCompile Include="Country\TEST\DnLauncherDlgTEST.cpp" />
+    <ClCompile Include="Country\TEST\DnServiceModuleTEST.cpp" />
+    <ClCompile Include="Country\TWN\DnLauncherDlgTWN.cpp" />
+    <ClCompile Include="Country\TWN\DnServiceModuleTWN.cpp" />
+    <ClCompile Include="Country\CHN\DnLauncherDlgCHN.cpp" />
+    <ClCompile Include="Country\CHN\DnServiceModuleCHN.cpp" />
+    <ClCompile Include="Country\JPN\DnLauncherDlgJPN.cpp" />
+    <ClCompile Include="Country\JPN\DnNHNService.cpp" />
+    <ClCompile Include="Country\JPN\DnServiceModuleJPN.cpp" />
+    <ClCompile Include="Country\KOR\DnLauncherDlgKOR.cpp" />
+    <ClCompile Include="Country\KOR\DnServiceModuleKOR.cpp" />
+    <ClCompile Include="Country\USA\DnLauncherDlgUSA.cpp" />
+    <ClCompile Include="Country\USA\DnServiceModuleUSA.cpp" />
+    <ClCompile Include="Country\SG\DnLauncherDlgSG.cpp" />
+    <ClCompile Include="Country\SG\DnServiceModuleSG.cpp" />
+    <ClCompile Include="Country\THAI\DnLauncherDlgTHAI.cpp" />
+    <ClCompile Include="Country\THAI\DnServiceModuleTHAI.cpp" />
+    <ClCompile Include="Country\EU\DnLauncherDlgEU.cpp" />
+    <ClCompile Include="Country\EU\DnServiceModuleEU.cpp" />
+    <ClCompile Include="Country\IDN\DnLauncherDlgIDN.cpp" />
+    <ClCompile Include="Country\IDN\DnServiceModuleIDN.cpp" />
+    <ClCompile Include="Country\RUS\DnLauncherDlgRUS.cpp" />
+    <ClCompile Include="Country\RUS\DnServiceModuleRUS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h" />
+    <ClInclude Include="DnControlData.h" />
+    <ClInclude Include="DnDefine_Launcher.h" />
+    <ClInclude Include="DnDownloadInformationDlg.h" />
+    <ClInclude Include="DnExplorerDlg.h" />
+    <ClInclude Include="DnFIrstPatchDlg.h" />
+    <ClInclude Include="DnFirstPatchInfo.h" />
+    <ClInclude Include="DnHtmlView.h" />
+    <ClInclude Include="DnLauncher.h" />
+    <ClInclude Include="DnOptionData.h" />
+    <ClInclude Include="DnOptionDlg.h" />
+    <ClInclude Include="DnPatchInfo.h" />
+    <ClInclude Include="DnPatchThread.h" />
+    <ClInclude Include="DnUtil.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Extern\LogWnd.h" />
+    <ClInclude Include="Extern\SHFolderDialog.h" />
+    <ClInclude Include="Extern\Color.h" />
+    <ClInclude Include="Extern\ColorStatic.h" />
+    <ClInclude Include="Extern\SkinProgress.h" />
+    <ClInclude Include="Extern\xSkinButton.h" />
+    <ClInclude Include="Extern\CxImage\xfile.h" />
+    <ClInclude Include="Extern\CxImage\ximabmp.h" />
+    <ClInclude Include="Extern\CxImage\ximacfg.h" />
+    <ClInclude Include="Extern\CxImage\ximadef.h" />
+    <ClInclude Include="Extern\CxImage\ximage.h" />
+    <ClInclude Include="Extern\CxImage\ximagif.h" />
+    <ClInclude Include="Extern\CxImage\ximaico.h" />
+    <ClInclude Include="Extern\CxImage\ximaiter.h" />
+    <ClInclude Include="Extern\CxImage\ximajas.h" />
+    <ClInclude Include="Extern\CxImage\ximajbg.h" />
+    <ClInclude Include="Extern\CxImage\ximajpg.h" />
+    <ClInclude Include="Extern\CxImage\ximamng.h" />
+    <ClInclude Include="Extern\CxImage\ximapcx.h" />
+    <ClInclude Include="Extern\CxImage\ximapng.h" />
+    <ClInclude Include="Extern\CxImage\ximaraw.h" />
+    <ClInclude Include="Extern\CxImage\ximaska.h" />
+    <ClInclude Include="Extern\CxImage\ximatga.h" />
+    <ClInclude Include="Extern\CxImage\ximath.h" />
+    <ClInclude Include="Extern\CxImage\ximatif.h" />
+    <ClInclude Include="Extern\CxImage\ximawbmp.h" />
+    <ClInclude Include="Extern\CxImage\ximawmf.h" />
+    <ClInclude Include="Extern\CxImage\xiofile.h" />
+    <ClInclude Include="Extern\CxImage\xmemfile.h" />
+    <ClInclude Include="Extern\MD5Checksum.h" />
+    <ClInclude Include="Extern\MD5ChecksumDefines.h" />
+    <ClInclude Include="Extern\RTPatch\patchwin.h" />
+    <ClInclude Include="DnLauncherDlg.h" />
+    <ClInclude Include="DnServiceModule.h" />
+    <ClInclude Include="Country\TEST\DnLauncherDlgTEST.h" />
+    <ClInclude Include="Country\TEST\DnServiceModuleTEST.h" />
+    <ClInclude Include="Country\TWN\DnLauncherDlgTWN.h" />
+    <ClInclude Include="Country\TWN\DnServiceModuleTWN.h" />
+    <ClInclude Include="Country\CHN\DnLauncherDlgCHN.h" />
+    <ClInclude Include="Country\CHN\DnServiceModuleCHN.h" />
+    <ClInclude Include="Country\JPN\DnLauncherDlgJPN.h" />
+    <ClInclude Include="Country\JPN\DnNHNService.h" />
+    <ClInclude Include="Country\JPN\DnServiceModuleJPN.h" />
+    <ClInclude Include="Country\KOR\DnLauncherDlgKOR.h" />
+    <ClInclude Include="Country\KOR\DnServiceModuleKOR.h" />
+    <ClInclude Include="Country\USA\DnLauncherDlgUSA.h" />
+    <ClInclude Include="Country\USA\DnServiceModuleUSA.h" />
+    <ClInclude Include="Country\SG\DnLauncherDlgSG.h" />
+    <ClInclude Include="Country\SG\DnServiceModuleSG.h" />
+    <ClInclude Include="Country\THAI\DnLauncherDlgTHAI.h" />
+    <ClInclude Include="Country\THAI\DnServiceModuleTHAI.h" />
+    <ClInclude Include="Country\EU\DnLauncherDlgEU.h" />
+    <ClInclude Include="Country\EU\DnServiceModuleEU.h" />
+    <ClInclude Include="Country\IDN\DnLauncherDlgIDN.h" />
+    <ClInclude Include="Country\IDN\DnServiceModuleIDN.h" />
+    <ClInclude Include="Country\RUS\DnLauncherDlgRUS.h" />
+    <ClInclude Include="Country\RUS\DnServiceModuleRUS.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\DnLauncher.ico" />
+    <None Include="res\DnLauncher.rc2" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DnLauncher.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\EtFileSystem\EtFileSystem.vcxproj">
+      <Project>{a33fa286-fda9-4c6d-a7ee-d3de5f62f5ad}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\tinyxml\tinyxmlSTL.vcxproj">
+      <Project>{be23cf77-921d-4747-a02a-038db1e487e2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Utility\Utility.vcxproj">
+      <Project>{89343dcf-fb2e-4a86-83bf-9ad3dca0062b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\zlib\zlib.vcxproj">
+      <Project>{ecaa74a5-5200-4bd9-a3ee-072999a59873}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\WiseLog\WiseLog.vcxproj">
+      <Project>{add54edd-6a92-48f6-8bab-7ee0670ec55f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="DnLauncher.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

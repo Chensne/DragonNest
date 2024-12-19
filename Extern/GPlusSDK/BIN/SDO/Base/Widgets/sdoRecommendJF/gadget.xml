@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<gadget>
+	<name>积分</name>
+	<shortname>积分</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.0.2</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2009</copyright>
+	<description>积分换礼，实惠多多</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://igwGuide.jf.sdo.com/jfGuide.aspx" loginMode="SDO" clientwidth="710" clientheight="400" xul="WebBrowser.xml"/>
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<guid>{08F0E736-3AB8-4341-BE4B-4D30511D6B24}</guid>
+	<invisible>15</invisible>
+</gadget>

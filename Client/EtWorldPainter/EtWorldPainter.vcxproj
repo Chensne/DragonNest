@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F94AE4C0-A8E6-48EA-97ED-C3A783F4BCF9}</ProjectGuid>
+    <RootNamespace>TdWorldPainter</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\Source;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\lib\vc80;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/Zm200
+ %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../Common/EternityEngine;../../Common/Utility;../../Common/EtWorldBase;../../Common/EngineUtil;../../Common/MFCUtility;../../Common/EtActionCoreBase;../../Common/FMODEngine;../../Common/Lua;../../Common/EtResManager;../../Common/SVNLib;../../Common/SVNLib/include;../../Common/EtInterface;../ToolPlugin;../../Common;D:\DN源码\jjjj_src\DragonNest\Third\XTToolkitPro_;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;NO_LOCK;NO_BACKUP;NO_LOGIN;_CRT_SECURE_NO_WARNINGS;_MAPTOOL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../../Common/FMODEngine;../../Common/SVNLib/Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm120
+ %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>../../Common/EternityEngine; ../../Common/Utility; ../../Common/EtWorldBase; ../../Common/EngineUtil; ../../Common/MFCUtility; ../../Common/EtActionCoreBase;../../Common/FMODEngine;../../Common/Lua;../../Common/EtResManager;../../Common/SVNLib;../../Common/SVNLib/include;../../Common/EtInterface;../ToolPlugin;../../Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NO_LOCK;NO_BACKUP;NO_LOGIN;_CRT_SECURE_NO_WARNINGS;_MAPTOOL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>libsvn_client-1.lib;libsvn_delta-1.lib;libsvn_diff-1.lib;libsvn_fs-1.lib;libsvn_fs_base-1.lib;libsvn_fs_fs-1.lib;libsvn_fs_util-1.lib;libsvn_ra-1.lib;libsvn_ra_local-1.lib;libsvn_ra_neon-1.lib;libsvn_ra_serf-1.lib;libsvn_ra_svn-1.lib;libsvn_repos-1.lib;libsvn_subr-1.lib;libsvn_wc-1.lib;libapr.lib;libaprutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../Common/FMODEngine;../../Common/SVNLib/Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Common\DNDefine.h" />
+    <ClInclude Include="EtWorldPainter.h" />
+    <ClInclude Include="EtWorldPainterDoc.h" />
+    <ClInclude Include="EtWorldPainterView.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="UserMessage.h" />
+    <ClInclude Include="PaneDefine.h" />
+    <ClInclude Include="BrushPaneView.h" />
+    <ClInclude Include="LayerPaneView.h" />
+    <ClInclude Include="LayerDecalView.h" />
+    <ClInclude Include="LayerGrassView.h" />
+    <ClInclude Include="LayerHeightView.h" />
+    <ClInclude Include="LayerPrevView.h" />
+    <ClInclude Include="GridInfoPaneView.h" />
+    <ClInclude Include="LoginListPaneView.h" />
+    <ClInclude Include="CameraPaneView.h" />
+    <ClInclude Include="SectorInfoPaneView.h" />
+    <ClInclude Include="RandomDungeonDefaultPaneView.h" />
+    <ClInclude Include="TileManagerPaneView.h" />
+    <ClInclude Include="SkinManagerPaneView.h" />
+    <ClInclude Include="ManagerExplorerPaneView.h" />
+    <ClInclude Include="SoundManagerPaneView.h" />
+    <ClInclude Include="PropPoolPaneView.h" />
+    <ClInclude Include="PropPoolControl.h" />
+    <ClInclude Include="PropPoolView.h" />
+    <ClInclude Include="PropPoolPropertiesView.h" />
+    <ClInclude Include="PropPropertiesPaneView.h" />
+    <ClInclude Include="EnviPaneView.h" />
+    <ClInclude Include="CreateEnviDlg.h" />
+    <ClInclude Include="EnviLightPaneView.h" />
+    <ClInclude Include="EnviLightBase.h" />
+    <ClInclude Include="EnviLightDirection.h" />
+    <ClInclude Include="EnviLightPoint.h" />
+    <ClInclude Include="EnviLightSpot.h" />
+    <ClInclude Include="EnviBasePaneView.h" />
+    <ClInclude Include="EditLabelListCtrl.h" />
+    <ClInclude Include="EventAreaPaneView.h" />
+    <ClInclude Include="EventPropertiesPaneView.h" />
+    <ClInclude Include="SoundListPaneView.h" />
+    <ClInclude Include="SoundListTreeCtrl.h" />
+    <ClInclude Include="SoundPropertyPaneView.h" />
+    <ClInclude Include="NaviPropertyPaneView.h" />
+    <ClInclude Include="RenderOptionPaneView.h" />
+    <ClInclude Include="PropListPaneView.h" />
+    <ClInclude Include="ScriptControl.h" />
+    <ClInclude Include="TriggerAttributePaneView.h" />
+    <ClInclude Include="TriggerPaneView.h" />
+    <ClInclude Include="TriggerPropertiesPaneView.h" />
+    <ClInclude Include="TriggerValueDefinePaneView.h" />
+    <ClInclude Include="ParamInputDlg.h" />
+    <ClInclude Include="ScriptParamStatic.h" />
+    <ClInclude Include="SyntaxColorizer.h" />
+    <ClInclude Include="TriggerSelectDlg.h" />
+    <ClInclude Include="TriggerOperatorDlg.h" />
+    <ClInclude Include="TriggerValueDlg.h" />
+    <ClInclude Include="WaterPaneView.h" />
+    <ClInclude Include="WaterPropPaneView.h" />
+    <ClInclude Include="GridListPaneView.h" />
+    <ClInclude Include="GridDescriptionPaneView.h" />
+    <ClInclude Include="DecalListPaneView.h" />
+    <ClInclude Include="IgnorePropFolderView.h" />
+    <ClInclude Include="DockingPaneAdobeTheme.h" />
+    <ClInclude Include="CustomControlCommon.h" />
+    <ClInclude Include="ConnectSettingDlg.h" />
+    <ClInclude Include="CreateGridDlg.h" />
+    <ClInclude Include="CreateProjectDlg.h" />
+    <ClInclude Include="DeleteGridDlg.h" />
+    <ClInclude Include="ExportPropInfoDlg.h" />
+    <ClInclude Include="ImagePrevDlg.h" />
+    <ClInclude Include="MakeMinimapDlg.h" />
+    <ClInclude Include="MoveToGridDlg.h" />
+    <ClInclude Include="NationDlg.h" />
+    <ClInclude Include="NewProfileDlg.h" />
+    <ClInclude Include="PreLogoDlg.h" />
+    <ClInclude Include="ProfileSettingDlg.h" />
+    <ClInclude Include="PropertiesDlg.h" />
+    <ClInclude Include="SelectConnectNationDlg.h" />
+    <ClInclude Include="SkinPrevDlg.h" />
+    <ClInclude Include="SoundPrevDlg.h" />
+    <ClInclude Include="TexturePrevDlg.h" />
+    <ClInclude Include="CreatePropPropertyDlg.h" />
+    <ClInclude Include="PropEdit_Finish.h" />
+    <ClInclude Include="PropEdit_SelectEditType.h" />
+    <ClInclude Include="PropEditWizardCommon.h" />
+    <ClInclude Include="PropEdit_CreateParameter.h" />
+    <ClInclude Include="PropEdit_SelectParameter.h" />
+    <ClInclude Include="PropEdit_CreateType.h" />
+    <ClInclude Include="PropEdit_SelectType.h" />
+    <ClInclude Include="PropSignalItem.h" />
+    <ClInclude Include="PropSignalManager.h" />
+    <ClInclude Include="ColorListCtrl.h" />
+    <ClInclude Include="CreateEventAreaDlg.h" />
+    <ClInclude Include="EventEdit_Finish.h" />
+    <ClInclude Include="EventEdit_SelectEditType.h" />
+    <ClInclude Include="EventEditWizardCommon.h" />
+    <ClInclude Include="EventEdit_CreateParameter.h" />
+    <ClInclude Include="EventEdit_SelectParameter.h" />
+    <ClInclude Include="EventEdit_CreateControl.h" />
+    <ClInclude Include="EventEdit_SelectControl.h" />
+    <ClInclude Include="EventSignalItem.h" />
+    <ClInclude Include="EventSignalManager.h" />
+    <ClInclude Include="ActionCommander.h" />
+    <ClInclude Include="FileServer.h" />
+    <ClInclude Include="GlobalValue.h" />
+    <ClInclude Include="SundriesFuncEx.h" />
+    <ClInclude Include="LogWnd.h" />
+    <ClInclude Include="TEtWorld.h" />
+    <ClInclude Include="TEtWorldGrid.h" />
+    <ClInclude Include="TEtWorldSector.h" />
+    <ClInclude Include="AxisRenderObject.h" />
+    <ClInclude Include="TEtBuffProp.h" />
+    <ClInclude Include="TEtWorldActProp.h" />
+    <ClInclude Include="TEtWorldLightProp.h" />
+    <ClInclude Include="TEtWorldProp.h" />
+    <ClInclude Include="AxisLockRenderObject.h" />
+    <ClInclude Include="TEtWorldSound.h" />
+    <ClInclude Include="TEtWorldSoundEnvi.h" />
+    <ClInclude Include="PointAxisRenderObject.h" />
+    <ClInclude Include="TEtWorldWater.h" />
+    <ClInclude Include="TEtWorldWaterRiver.h" />
+    <ClInclude Include="TEtWorldDecal.h" />
+    <ClInclude Include="TEtRandomDungeon.h" />
+    <ClInclude Include="TEtWorldEventArea.h" />
+    <ClInclude Include="TEtWorldEventControl.h" />
+    <ClInclude Include="EventCustomRender.h" />
+    <ClInclude Include="ECRVolumeFog.h" />
+    <ClInclude Include="TEtTrigger.h" />
+    <ClInclude Include="TEtTriggerElement.h" />
+    <ClInclude Include="TEtTriggerObject.h" />
+    <ClInclude Include="DummyView.h" />
+    <ClInclude Include="EnviControl.h" />
+    <ClInclude Include="RenderBase.h" />
+    <ClInclude Include="GridRenderView.h" />
+    <ClInclude Include="BrushRenderView.h" />
+    <ClInclude Include="RandomDungeonRenderView.h" />
+    <ClInclude Include="PropRenderView.h" />
+    <ClInclude Include="EventRenderView.h" />
+    <ClInclude Include="SoundRenderView.h" />
+    <ClInclude Include="NaviRenderView.h" />
+    <ClInclude Include="TriggerRenderView.h" />
+    <ClInclude Include="WaterRenderView.h" />
+    <ClInclude Include="TdDummyActor.h" />
+    <ClInclude Include="SignalHeader.h" />
+    <ClInclude Include="PluginManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtWorldPainter.cpp" />
+    <ClCompile Include="EtWorldPainterDoc.cpp" />
+    <ClCompile Include="EtWorldPainterView.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="BrushPaneView.cpp" />
+    <ClCompile Include="LayerPaneView.cpp" />
+    <ClCompile Include="LayerDecalView.cpp" />
+    <ClCompile Include="LayerGrassView.cpp" />
+    <ClCompile Include="LayerHeightView.cpp" />
+    <ClCompile Include="LayerPrevView.cpp" />
+    <ClCompile Include="GridInfoPaneView.cpp" />
+    <ClCompile Include="LoginListPaneView.cpp" />
+    <ClCompile Include="CameraPaneView.cpp" />
+    <ClCompile Include="SectorInfoPaneView.cpp" />
+    <ClCompile Include="RandomDungeonDefaultPaneView.cpp" />
+    <ClCompile Include="TileManagerPaneView.cpp" />
+    <ClCompile Include="SkinManagerPaneView.cpp" />
+    <ClCompile Include="ManagerExplorerPaneView.cpp" />
+    <ClCompile Include="SoundManagerPaneView.cpp" />
+    <ClCompile Include="PropPoolPaneView.cpp" />
+    <ClCompile Include="PropPoolControl.cpp" />
+    <ClCompile Include="PropPoolView.cpp" />
+    <ClCompile Include="PropPoolPropertiesView.cpp" />
+    <ClCompile Include="PropPropertiesPaneView.cpp" />
+    <ClCompile Include="EnviPaneView.cpp" />
+    <ClCompile Include="CreateEnviDlg.cpp" />
+    <ClCompile Include="EnviLightPaneView.cpp" />
+    <ClCompile Include="EnviLightBase.cpp" />
+    <ClCompile Include="EnviLightDirection.cpp" />
+    <ClCompile Include="EnviLightPoint.cpp" />
+    <ClCompile Include="EnviLightSpot.cpp" />
+    <ClCompile Include="EnviBasePaneView.cpp" />
+    <ClCompile Include="EditLabelListCtrl.cpp" />
+    <ClCompile Include="EventAreaPaneView.cpp" />
+    <ClCompile Include="EventPropertiesPaneView.cpp" />
+    <ClCompile Include="SoundListPaneView.cpp" />
+    <ClCompile Include="SoundListTreeCtrl.cpp" />
+    <ClCompile Include="SoundPropertyPaneView.cpp" />
+    <ClCompile Include="NaviPropertyPaneView.cpp" />
+    <ClCompile Include="RenderOptionPaneView.cpp" />
+    <ClCompile Include="PropListPaneView.cpp" />
+    <ClCompile Include="ScriptControl.cpp" />
+    <ClCompile Include="TriggerAttributePaneView.cpp" />
+    <ClCompile Include="TriggerPaneView.cpp" />
+    <ClCompile Include="TriggerPropertiesPaneView.cpp" />
+    <ClCompile Include="TriggerValueDefinePaneView.cpp" />
+    <ClCompile Include="ParamInputDlg.cpp" />
+    <ClCompile Include="ScriptParamStatic.cpp" />
+    <ClCompile Include="SyntaxColorizer.cpp" />
+    <ClCompile Include="TriggerSelectDlg.cpp" />
+    <ClCompile Include="TriggerOperatorDlg.cpp" />
+    <ClCompile Include="TriggerValueDlg.cpp" />
+    <ClCompile Include="WaterPaneView.cpp" />
+    <ClCompile Include="WaterPropPaneView.cpp" />
+    <ClCompile Include="GridListPaneView.cpp" />
+    <ClCompile Include="GridDescriptionPaneView.cpp" />
+    <ClCompile Include="DecalListPaneView.cpp" />
+    <ClCompile Include="IgnorePropFolderView.cpp" />
+    <ClCompile Include="DockingPaneAdobeTheme.cpp" />
+    <ClCompile Include="CustomControlCommon.cpp" />
+    <ClCompile Include="ConnectSettingDlg.cpp" />
+    <ClCompile Include="CreateGridDlg.cpp" />
+    <ClCompile Include="CreateProjectDlg.cpp" />
+    <ClCompile Include="DeleteGridDlg.cpp" />
+    <ClCompile Include="ExportPropInfoDlg.cpp" />
+    <ClCompile Include="ImagePrevDlg.cpp" />
+    <ClCompile Include="MakeMinimapDlg.cpp" />
+    <ClCompile Include="MoveToGridDlg.cpp" />
+    <ClCompile Include="NationDlg.cpp" />
+    <ClCompile Include="NewProfileDlg.cpp" />
+    <ClCompile Include="PreLogoDlg.cpp" />
+    <ClCompile Include="ProfileSettingDlg.cpp" />
+    <ClCompile Include="PropertiesDlg.cpp" />
+    <ClCompile Include="SelectConnectNationDlg.cpp" />
+    <ClCompile Include="SkinPrevDlg.cpp" />
+    <ClCompile Include="SoundPrevDlg.cpp" />
+    <ClCompile Include="TexturePrevDlg.cpp" />
+    <ClCompile Include="CreatePropPropertyDlg.cpp" />
+    <ClCompile Include="PropEdit_Finish.cpp" />
+    <ClCompile Include="PropEdit_SelectEditType.cpp" />
+    <ClCompile Include="PropEditWizardCommon.cpp" />
+    <ClCompile Include="PropEdit_CreateParameter.cpp" />
+    <ClCompile Include="PropEdit_SelectParameter.cpp" />
+    <ClCompile Include="PropEdit_CreateType.cpp" />
+    <ClCompile Include="PropEdit_SelectType.cpp" />
+    <ClCompile Include="PropSignalItem.cpp" />
+    <ClCompile Include="PropSignalManager.cpp" />
+    <ClCompile Include="ColorListCtrl.cpp" />
+    <ClCompile Include="CreateEventAreaDlg.cpp" />
+    <ClCompile Include="EventEdit_Finish.cpp" />
+    <ClCompile Include="EventEdit_SelectEditType.cpp" />
+    <ClCompile Include="EventEditWizardCommon.cpp" />
+    <ClCompile Include="EventEdit_CreateParameter.cpp" />
+    <ClCompile Include="EventEdit_SelectParameter.cpp" />
+    <ClCompile Include="EventEdit_CreateControl.cpp" />
+    <ClCompile Include="EventEdit_SelectControl.cpp" />
+    <ClCompile Include="EventSignalItem.cpp" />
+    <ClCompile Include="EventSignalManager.cpp" />
+    <ClCompile Include="ActionCommander.cpp" />
+    <ClCompile Include="FileServer.cpp" />
+    <ClCompile Include="GlobalValue.cpp" />
+    <ClCompile Include="SundriesFuncEx.cpp" />
+    <ClCompile Include="LogWnd.cpp" />
+    <ClCompile Include="TEtWorld.cpp" />
+    <ClCompile Include="TEtWorldGrid.cpp" />
+    <ClCompile Include="TEtWorldSector.cpp" />
+    <ClCompile Include="AxisRenderObject.cpp" />
+    <ClCompile Include="TEtBuffProp.cpp" />
+    <ClCompile Include="TEtWorldActProp.cpp" />
+    <ClCompile Include="TEtWorldLightProp.cpp" />
+    <ClCompile Include="TEtWorldProp.cpp" />
+    <ClCompile Include="AxisLockRenderObject.cpp" />
+    <ClCompile Include="TEtWorldSound.cpp" />
+    <ClCompile Include="TEtWorldSoundEnvi.cpp" />
+    <ClCompile Include="PointAxisRenderObject.cpp" />
+    <ClCompile Include="TEtWorldWater.cpp" />
+    <ClCompile Include="TEtWorldWaterRiver.cpp" />
+    <ClCompile Include="TEtWorldDecal.cpp" />
+    <ClCompile Include="TEtRandomDungeon.cpp" />
+    <ClCompile Include="TEtWorldEventArea.cpp" />
+    <ClCompile Include="TEtWorldEventControl.cpp" />
+    <ClCompile Include="EventCustomRender.cpp" />
+    <ClCompile Include="ECRVolumeFog.cpp" />
+    <ClCompile Include="TEtTrigger.cpp" />
+    <ClCompile Include="TEtTriggerElement.cpp" />
+    <ClCompile Include="TEtTriggerObject.cpp" />
+    <ClCompile Include="DummyView.cpp" />
+    <ClCompile Include="EnviControl.cpp" />
+    <ClCompile Include="RenderBase.cpp" />
+    <ClCompile Include="GridRenderView.cpp" />
+    <ClCompile Include="BrushRenderView.cpp" />
+    <ClCompile Include="RandomDungeonRenderView.cpp" />
+    <ClCompile Include="PropRenderView.cpp" />
+    <ClCompile Include="EventRenderView.cpp" />
+    <ClCompile Include="SoundRenderView.cpp" />
+    <ClCompile Include="NaviRenderView.cpp" />
+    <ClCompile Include="TriggerRenderView.cpp" />
+    <ClCompile Include="WaterRenderView.cpp" />
+    <ClCompile Include="TdDummyActor.cpp" />
+    <ClCompile Include="PluginManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\__Light.dds" />
+    <None Include="res\__Light.msh" />
+    <None Include="res\AdobeTab.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\bitmap2.bmp" />
+    <None Include="res\bitmap3.bmp" />
+    <None Include="res\bitmap4.bmp" />
+    <None Include="res\bitmap7.bmp" />
+    <None Include="res\bitmap8.bmp" />
+    <None Include="res\bitmap9.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\bmp00002.bmp" />
+    <None Include="res\bmp00003.bmp" />
+    <None Include="res\bmp00004.bmp" />
+    <None Include="res\bmp00005.bmp" />
+    <None Include="res\bmp00006.bmp" />
+    <None Include="res\bmp00007.bmp" />
+    <None Include="res\bmp00008.bmp" />
+    <None Include="res\bmp00009.bmp" />
+    <None Include="res\bmp00010.bmp" />
+    <None Include="res\bmp00011.bmp" />
+    <None Include="res\bmp00012.bmp" />
+    <None Include="res\bmp00013.bmp" />
+    <None Include="res\bmp00014.bmp" />
+    <None Include="res\bmp00015.bmp" />
+    <None Include="res\bmp00016.bmp" />
+    <None Include="res\bmp00017.bmp" />
+    <None Include="res\bmp00018.bmp" />
+    <None Include="res\bmp00019.bmp" />
+    <None Include="res\bmp00020.bmp" />
+    <None Include="res\bmp00021.bmp" />
+    <None Include="res\bmp00022.bmp" />
+    <None Include="res\brushdef.bmp" />
+    <None Include="res\DefaultLayerTexture.dds" />
+    <None Include="res\DummyActor.ani" />
+    <None Include="res\DummyActor.msh" />
+    <None Include="res\DummyActor.skn" />
+    <None Include="res\EtWorldPainter.ico" />
+    <None Include="res\EtWorldPainter.rc2" />
+    <None Include="res\EtWorldPainterDoc.ico" />
+    <None Include="res\EventWizardImage.bmp" />
+    <None Include="res\GrassTexture.dds" />
+    <None Include="res\Light.skn" />
+    <None Include="res\MapTool01.bmp" />
+    <None Include="res\PropPropertyImage.bmp" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="res\toolbar1.bmp" />
+    <None Include="res\Camera.msh" />
+    <None Include="res\Camera.skn" />
+    <None Include="EtWorldPainter.reg" />
+    <None Include="..\..\..\..\Documents and Settings\Administrator\My Documents\GridBack.dds" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EtWorldPainter.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\BugReporter\BugReporter.vcxproj">
+      <Project>{9be51b01-4009-4d71-b809-dc4960ac79d0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EngineUtil\EngineUtil.vcxproj">
+      <Project>{723b846f-2236-4657-8989-0ea6aa46e4d6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtActionCoreBase\EtActionCoreBase.vcxproj">
+      <Project>{58f43268-ecf7-4e3d-a4e3-b64f2dde2b0c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EternityEngine\D3DDevice9\D3DDevice9.vcxproj">
+      <Project>{53598d68-80aa-49e0-92d2-4d50aa44fd91}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EternityEngine\EternityEngine.vcxproj">
+      <Project>{08b1c088-a234-4530-baeb-79f49f2e4881}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtFileSystem\EtFileSystem.vcxproj">
+      <Project>{a33fa286-fda9-4c6d-a7ee-d3de5f62f5ad}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtResManager\EtResManager.vcxproj">
+      <Project>{d4197df0-fc78-4fcd-bde8-dd3230580851}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtWorldBase\EtWorldBase.vcxproj">
+      <Project>{90489a20-10e2-45c4-bd81-dcba36efb1b9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\FMODEngine\FMODEngine.vcxproj">
+      <Project>{98d7c1da-d32a-45ca-aa13-45601dd45c3e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Lua\Lua.vcxproj">
+      <Project>{4cb63f0b-751d-4215-b866-f0d33e488b5d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\MFCUtility\MFCUtility.vcxproj">
+      <Project>{685a09cc-cac4-4e32-9e8d-529f5b11983c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SVNLib\SVNLib.vcxproj">
+      <Project>{ac49cf77-c2c3-4b66-94b7-d7630e9e0db6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Utility\Utility.vcxproj">
+      <Project>{89343dcf-fb2e-4a86-83bf-9ad3dca0062b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\zlib\zlib.vcxproj">
+      <Project>{ecaa74a5-5200-4bd9-a3ee-072999a59873}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="EtWorldPainter.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

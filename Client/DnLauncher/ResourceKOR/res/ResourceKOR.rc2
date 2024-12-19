@@ -1,0 +1,67 @@
+//
+// ResourceKOR.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+/////////////////////////////////////////////////////////////////////////////
+
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	STR_DRAGONNEST_LAUNCHER				"DragonNest Launcher"
+	STR_ALEADY_RUN						"프로그램이 이미 실행 중 입니다."
+	STR_LAUNCHER_INIT_FAILED			"런처 초기화에 실패하였습니다. (E:%d)"
+	STR_CLIENT_ALEADY_RUN				"클라이언트가 실행 중입니다."
+	STR_DX_LOW_VER						"현재 시스템의 DirectX 버전(%s)이 너무 낮습니다\n\n원활한 게임 실행을 위해서는 최신의 DirectX 를 설치해 주십시오."
+	STR_LOAD_PATCHCONFIGLIST_FAILED		"패치 환경 파일을 가져올 수 없습니다."
+	STR_CONFIRM_PATCH_VER				"패치 버전 확인을 시작합니다."
+	STR_CONFIRM_PATCH_VER_FAILED		"패치 버전 확인을 실패 하였습니다."
+	STR_PATCH_DATA_DOWNLOADING			"패치 데이터를 다운로드 중입니다."
+	STR_PATCH_DATA_DOWNLOADING_FAILED	"패치 데이터 다운로드를 실패하였습니다."
+	STR_PATCH_MD5_CHECK					"패치 데이터를 검사하고 있습니다."
+	STR_PATCH_MD5_CHECK_FAILED			"패치 데이터 검사에 실패하였습니다."
+	STR_PATCH_APPLY_PAK_FILE			"패치 데이터를 설치중 입니다."
+	STR_PATCH_APPLY_PAK_FILE_FAILED		"패치 데이터 설치를 실패하였습니다."
+	STR_PATCH_NEED_FULL_VERSION			"클라이언트 데이터 오류 입니다. 클라이언트를 재설치 해주십시요."
+	STR_PATCH_COMPLETE					"패치가 완료 되었습니다."
+	STR_PATCH_FAILED					"패치가 실패하였습니다."
+	STR_PATCH_TERMINATE					"패치가 취소되었습니다."
+	STR_DELETE_FILE_FAIL				"파일 삭제에 실패했습니다. 런쳐를 재시작해주세요."
+	STR_FILE_COPY_FAIL					"파일 복사에 실패 했습니다."
+	STR_PATCH_STATE_LIST_NOT_READ		"패치 상태리스트 읽어오지 못했습니다."
+	STR_LAUNCHER_PATCH_FAIL				"런쳐 패치 실패"
+	STR_LAUNCHER_EXIT					"런쳐를 종료 하시겠습니까?"
+	STR_PATCH_CANCEL					"패치를 취소 하시겠습니까?"
+	STR_LOW								"낮음"
+	STR_MID								"보통"
+	STR_HIGH							"높음"
+	STR_HIGHST							"최상"
+	STR_DLG_FILENAME					"파일명"
+	STR_DLG_TIME_HOUR_MIN_SEC			"%d시 %d분 %d초"
+	STR_DLG_TIME_MIN_SEC				"%d분 %d초"
+	STR_DLG_TIME_SEC					"%d초"
+	STR_DLG_DOWNLOAD_TIME_LEFT			"남은시간"
+	STR_DLG_FILE_SIZE					"파일크기"
+	STR_DLG_DRAGON_NEST					"Dragon Nest"
+	STR_OPTION_WINDOWS_MODE				"창모드"
+	STR_OPTION_VSYNC_MODE				"수직동기화"
+	STR_OPTION_GAME_OPTION				"게임옵션"
+	STR_OPTION_RESOLUTION				"해상도"
+	STR_OPTION_APPLY					"적용"
+	STR_OPTION_CANCEL					"취소"
+	STR_OPTION_GRAPHIC_QUALITY			"그래픽 품질"
+	STR_OPTION_TEXTURE_QUALITY			"텍스쳐 품질"
+	STR_AFTER_UPDATE_ATUOSTART			"패치 종료 후 바로시작"
+	STR_UPDATE_REGISTRE					"레지스트리에 경로를 등록 하였습니다."
+	STR_UPDATE_CHANGE_PATH				"레지스트리에 경로를 변경 하였습니다."
+	STR_WARNNING_AVAILABLE_MEMORY		"PC의 실제 사용가능한 메모리가 부족합니다.\n드래곤네스트는 1GB의 실제 사용가능한 메모리를 권장합니다.\n실제 사용 가능한 메모리가 부족한 경우 원활한 게임플레이에 저해가 될 수 있습니다."
+	STR_PATCH_CURRENT_INFO				"진행상황"
+	STR_HOMEPAGE_LINK					"홈페이지 바로가기"
+	STR_LAUNCHER_INITIALIZE				"DragonNest Launcher Initialize"
+END

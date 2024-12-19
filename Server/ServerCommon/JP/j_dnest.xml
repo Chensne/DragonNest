@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<purple>
+  <module name="auth">
+    <group name="setup_info">
+      <property name="nation" value="japan"/>
+      <property name="service_type" value="alpha"/>
+      <property name="domain" value="alpha-tgs.hangame.co.jp"/>
+      <property name="cookie_domain" value=".hangame.co.jp"/>
+      <property name="conn_pool_size" value="11"/>
+      <property name="query_format">
+        <![CDATA[
+        publish/pca.nhn?gameid=J_DNEST&accid=%s
+        ]]>
+      </property>
+
+      <!-- additional parameters for linux -->
+        <property name="use_accid" value="true"/>
+      <property name="log_file" value="./authsvr.log"/>
+          <!-- available log level = OFF, Fatal, Except, Error, Warn, Info, Debug, Trace, ALL -->
+      <property name="log_level" value="Debug"/>
+    </group>
+  </module>		<!-- end of auth -->
+  <!-- HanBillingForSvr -->
+  <!--
+    DOMAIN 
+        Real : pubbill.hangame.co.jp
+        Alpha : pubbilldev.hangame.co.jp
+        Beta : pubbill.hangame.co.jp
+  -->
+  <module name="billing">
+    <group name="setup_info">
+      <property name="nation" value="japan"/>
+      <!-- service type : alpha, beta, real -->
+      <property name="service_type" value="alpha"/>
+      <property name="service_site" value="hangame"/>
+      <property name="domain" value="alpha-pubbilling.hangame.co.jp"/>
+      
+      <!-- 
+      	REAL :  tgs.hangame.co.jp
+      	ALPHA : alpha-tgs.hangame.co.jp
+      	Beta : 	beta-tgs.hangame.co.jp
+      -->
+      <property name="japan_tgs" value="alpha-tgs.hangame.co.jp"/>
+      <property name="japan_tgs_billno_req" value="publish/getbillno.nhn"/>
+      <property name="japan_tgs_billno_req_by_accid" value="publish/getbillnobyaccid.nhn"/>
+      
+      <property name="query_format">
+        <![CDATA[
+        payhancoin.nhn
+        ]]>
+      </property>
+    </group>
+  </module>
+</purple>

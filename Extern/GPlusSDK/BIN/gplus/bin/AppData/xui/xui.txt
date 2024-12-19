@@ -1,0 +1,29 @@
+id                 //窗口id     id="id"
+rect               //矩形区域   rect="10,10,20,20" //坐标x,坐标y,宽w,高h
+visible            //可见       visible="true","false"
+enable-skin        //开启皮肤   enable-skin="true","false" 
+image-id           //图片id     image-id="q,e,s,a" //普通状态,鼠标滑过,鼠标点击,禁用
+
+hit-ignore         //忽略该控件的鼠标事件,默认不忽略 hit-ignore="true"
+enable             //启用/禁用  enable="true","false" 
+drag               //拖拽       drag="true","false" 
+
+text               //文本          text="文本"
+text-font          //字体          text-font="宋体"
+text-height        //字体大小      text-height="9"
+text-weight        //文本字体      text-weight="700" //400 普通,700加粗
+text-color         //文本颜色      text-color="#00ffff00"
+text-alignv        //纵向对齐      text-alignv="top","center","bottom" //居顶/居中/居下
+text-alignh        //横向对齐      text-alignh="left","center","right" //居左/居中/居右
+text-postion       //文本位置      text-postion="20,20" //坐标x,坐标y ,根据对齐方式计算
+text-tips          //文本提示      text-tips=" 提示内容"
+
+
+窗口类型
+windowframe        窗口框架
+button             
+
+checkbox
+static
+ie
+edit

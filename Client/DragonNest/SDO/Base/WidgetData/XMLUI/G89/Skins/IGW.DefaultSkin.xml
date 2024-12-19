@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+	<!-- namespace标签有则为整个描述文件中的name、fontname、imagename等名称指定加上名称前辍
+			例如:namespace是"igwskin"，则所有定义的名称都为"igwskin." + 定义的名称，下面定义的图片就为"igwskin.IGW_Controls"
+			名称空间可以为空，但如果没有该标签则名称空间默认为该文件的全路径例如："c:\IGW.DefaultSkin.xml."
+	 -->
+	<namespace></namespace>
+	<!-- widgetskinsresource是定义Skin用到的资源包括图片，字体，颜色等，解析时被优先于widgetskins处理 -->
+	<widgetskinsresource>
+		<images>
+			<!-- 注意图片名称全局使用的 system="true" 则没有使用仍然不释放，为false时超过5秒不使用则自动释放 -->
+			<image name="IGW_dnMainBar" src="..\Images\dnMainBar.png" system="true"/>
+			<image name="IGW_dnNormalForm" src="..\Images\dnNormalForm.png" system="true"/>
+			<image name="IGW_dnSet" src="..\Images\dnSet.png" system="true"/>
+			<image name="IGW_LogoControls" src="..\Images\NOHLSWGSkin.png" system="true"/>
+			<image name="IGW_WidgetStatusImg" src="..\Images\IGW_WidgetStatusSkin.png" system="true"/>
+		</images>
+		<fonts>
+			<!-- 注意字体名称全局使用的 -->
+			<font name="normalyouyan" family="幼圆" size="16" bold="False" italic="True" underLine="False" system="False"/> 
+			<font name="Normal" family="宋体" size="9" bold="False" italic="False" underLine="False" system="true"/>
+			<font name="NormalUnderLine" family="宋体" size="9" bold="False" italic="False" underLine="True" system="true"/>
+			<font name="NormalBig" family="宋体" size="16" bold="False" italic="False" underLine="False" system="False"/>
+			<font name="NormalLabelNormal" family="宋体" size="16" bold="False" italic="False" underLine="False" system="False"/>
+			<font name="NormalLabelhover" family="宋体" size="16" bold="False" italic="False" underLine="True" system="False"/>
+			<font name="NormalLabelPress" family="宋体" size="16" bold="False" italic="True" underLine="True" system="False"/>
+			<font name="CaptionFont" family="宋体" size="9" bold="True" italic="False" underLine="False" system="true"/>
+			<font name="VerFont" family="Tahoma" size="9" bold="False" italic="False" underLine="False" system="true"/>
+			<font name="CaptionFontYH" family="微软雅黑" size="12" bold="True" italic="False" underLine="False" system="true" quality="wgfqNormal"/>
+			<font name="NormalFontYH" family="微软雅黑" size="10" bold="True" italic="False" underLine="False" system="true" quality="wgfqNormal"/>
+		</fonts>
+		
+		<!-- skincolors比较特殊是一组配色方案 -->
+		<skincolors>
+			<skincolor name="">			
+			</skincolor>
+		</skincolors>
+		<!-- cursors指定按光标类型指定图片 -->
+		<cursors>
+		  <!-- 确保在skinname中指定的图片在widgetskins中有定义，这里是做个名称映射，使整个控件体系只需要按光标类型响应而不用关心具体的skin -->
+			<normalcursor skinname="cursor02_16x22" />
+			<dragcursor skinname="cursor_hand_drag" />
+			<editcursor skinname="" />
+		</cursors>
+	</widgetskinsresource>
+	<!-- widgetskins中的system为真标识该skin文件只会被加载一次不允许重复加载 -->
+	<widgetskins system="true">
+		<!-- 在formbar中 头、中、尾分别为 sdtHover, sdtPress, sdtFocused -->
+		<skin name="bg_igwbarsvertical" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<hover imagename="IGW_dnMainBar" left="133" top="8" right="199" bottom="37"/>
+			<press imagename="IGW_dnMainBar" left="133" top="37" right="199" bottom="39"/>
+			<focused imagename="IGW_dnMainBar" left="133" top="39" right="199" bottom="76"/>
+		</skin>
+		<skin name="bg_igwbarsvertical_mirror" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<hover imagename="IGW_dnMainBar" left="133" top="0" right="199" bottom="37"/>
+			<press imagename="IGW_dnMainBar" left="133" top="37" right="199" bottom="39"/>
+			<focused imagename="IGW_dnMainBar" left="133" top="39" right="199" bottom="68"/>
+		</skin>
+		<skin name="btn_igwStartSmallLogo" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnMainBar" left="0" top="7" right="66" bottom="43"/>
+			<hover imagename="IGW_dnMainBar" left="66" top="7" right="132" bottom="43"/>
+			<press imagename="IGW_dnMainBar" left="0" top="43" right="66" bottom="79"/>
+			<disabled imagename="IGW_dnMainBar" left="66" top="43" right="132" bottom="79"/>
+		</skin>
+		<skin name="btn_igwFloatNext_17x17" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnMainBar" left="68" top="116" right="85" bottom="133"/>
+			<hover imagename="IGW_dnMainBar" left="85" top="116" right="102" bottom="133"/>
+			<press imagename="IGW_dnMainBar" left="102" top="116" right="119" bottom="133"/>
+			<disabled imagename="IGW_dnMainBar" left="119" top="116" right="136" bottom="133"/>
+		</skin>
+		<skin name="btn_igwFloatPrior_17x17" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnMainBar" left="0" top="116" right="17" bottom="133"/>
+			<hover imagename="IGW_dnMainBar" left="17" top="116" right="34" bottom="133"/>
+			<press imagename="IGW_dnMainBar" left="34" top="116" right="51" bottom="133"/>
+			<disabled imagename="IGW_dnMainBar" left="51" top="116" right="68" bottom="133"/>
+		</skin>
+		<skin name="btn_baradd_17x18" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnMainBar" left="0" top="79" right="17" bottom="97"/>
+			<hover imagename="IGW_dnMainBar" left="17" top="79" right="34" bottom="97"/>
+			<press imagename="IGW_dnMainBar" left="34" top="79" right="51" bottom="97"/>
+			<disabled imagename="IGW_dnMainBar" left="51" top="79" right="68" bottom="97"/>
+		</skin>
+		<skin name="btn_barmsg_17x18" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnMainBar" left="68" top="79" right="85" bottom="97"/>
+			<hover imagename="IGW_dnMainBar" left="85" top="79" right="102" bottom="97"/>
+			<press imagename="IGW_dnMainBar" left="102" top="79" right="119" bottom="97"/>
+			<disabled imagename="IGW_dnMainBar" left="119" top="79" right="136" bottom="97"/>
+		</skin>
+		<skin name="btn_barhelp_17x18" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnMainBar" left="0" top="97" right="17" bottom="115"/>
+			<hover imagename="IGW_dnMainBar" left="17" top="97" right="34" bottom="115"/>
+			<press imagename="IGW_dnMainBar" left="34" top="97" right="51" bottom="115"/>
+			<disabled imagename="IGW_dnMainBar" left="51" top="97" right="68" bottom="115"/>
+		</skin>
+		<skin name="btn_barDownMenu_17x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnMainBar" left="68" top="97" right="85" bottom="115"/>
+			<hover imagename="IGW_dnMainBar" left="85" top="97" right="102" bottom="115"/>
+			<press imagename="IGW_dnMainBar" left="102" top="97" right="119" bottom="115"/>
+			<disabled imagename="IGW_dnMainBar" left="119" top="97" right="136" bottom="115"/>
+		</skin>
+		<skin name="btn_barvresize_60x8" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnMainBar" left="62" top="134" right="122" bottom="142"/>
+			<hover imagename="IGW_dnMainBar" left="62" top="142" right="122" bottom="150"/>
+			<press imagename="IGW_dnMainBar" left="62" top="150" right="122" bottom="158"/>
+			<disabled imagename="IGW_dnMainBar" left="62" top="158" right="122" bottom="166"/>
+		</skin>
+		<skin name="btn_barvresize_mirror_60x8" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnMainBar" left="0" top="134" right="60" bottom="142"/>
+			<hover imagename="IGW_dnMainBar" left="0" top="142" right="60" bottom="150"/>
+			<press imagename="IGW_dnMainBar" left="0" top="150" right="60" bottom="158"/>
+			<disabled imagename="IGW_dnMainBar" left="0" top="158" right="60" bottom="166"/>
+		</skin>
+		<skin name="bg_igwBarFixTopItem" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnMainBar" left="199" top="0" right="255" bottom="24" fontname="Normal" color="#FFF7F5C0"/>
+			<hover imagename="IGW_dnMainBar" left="199" top="24" right="255" bottom="48"/>
+			<press imagename="IGW_dnMainBar" left="199" top="48" right="255" bottom="72"/>
+			<disabled imagename="IGW_dnMainBar" left="199" top="72" right="255" bottom="96" fontname="Normal" color="#FF808080"/>
+		</skin>
+		<skin name="bg_igwBarFixTop" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnMainBar" left="142" top="96" right="204" bottom="135" imagewell="(8, 19, 8, 19)"/>
+		</skin>
+		<skin name="bg_igwAdvertising" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnMainBar" left="133" top="8" right="199" bottom="68" imagewell="(8, 29, 8, 29)"/>
+		</skin>
+		<skin name="bg_igwmenu" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnMainBar" left="142" top="96" right="204" bottom="135" imagewell="(8, 19, 8, 19)"/>
+		</skin>
+		<skin name="bg_igwmenuitem18x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal fontname="Normal" color="#FFF7F5C0"/>
+			<press imagename="IGW_dnMainBar" left="123" top="136" right="132" bottom="156" fontname="Normal" color="#F0FFFFFE"/>
+			<hover imagename="IGW_dnMainBar" left="123" top="136" right="132" bottom="156" fontname="Normal" color="#FFFFFFFE"/>
+			<disabled  fontname="Normal" color="#FF808080"/>
+		</skin>
+		<skin name="btn_barmorebtn" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<hover imagename="IGW_dnMainBar" left="132" top="136" right="194" bottom="161"/>
+			<normal imagename="IGW_dnMainBar" left="132" top="161" right="194" bottom="186"/>
+		</skin>
+		<!-- 以下是dnNormalForm.png相关的资源 -->
+		<skin name="bg_igwNormaldialog" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnNormalForm" left="0" top="0" right="253" bottom="156" imagewell="(124, 89, 123, 58)"/>
+		</skin>
+		<skin name="bg_igwNormalTitleRegion6x30" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnNormalForm" left="124" top="6" right="130" bottom="36"/>
+		</skin>
+		<skin name="btn_close_24x24" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnNormalForm" left="0" top="156" right="24" bottom="180"/>
+			<hover imagename="IGW_dnNormalForm" left="24" top="156" right="48" bottom="180"/>
+			<press imagename="IGW_dnNormalForm" left="48" top="156" right="72" bottom="180"/>
+			<disabled imagename="IGW_dnNormalForm" left="72" top="156" right="96" bottom="180"/>
+		</skin>
+		<skin name="btn_help_24x27" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnNormalForm" left="0" top="180" right="24" bottom="207"/>
+			<hover imagename="IGW_dnNormalForm" left="24" top="180" right="48" bottom="207"/>
+			<press imagename="IGW_dnNormalForm" left="48" top="180" right="72" bottom="207"/>
+			<disabled imagename="IGW_dnNormalForm" left="72" top="180" right="96" bottom="207"/>
+		</skin>
+		<skin name="btn_mini_25x19" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnNormalForm" left="0" top="207" right="25" bottom="226"/>
+			<hover imagename="IGW_dnNormalForm" left="25" top="207" right="50" bottom="226"/>
+			<press imagename="IGW_dnNormalForm" left="50" top="207" right="75" bottom="226"/>
+			<disabled imagename="IGW_dnNormalForm" left="75" top="207" right="100" bottom="226"/>
+		</skin>
+		<skin name="btn_max_26x27" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnNormalForm" left="0" top="226" right="26" bottom="253"/>
+			<hover imagename="IGW_dnNormalForm" left="26" top="226" right="52" bottom="253"/>
+			<press imagename="IGW_dnNormalForm" left="52" top="226" right="78" bottom="253"/>
+			<disabled imagename="IGW_dnNormalForm" left="78" top="226" right="104" bottom="253"/>
+		</skin>
+		<skin name="bg_igwSndaOnlineLogo_82x24" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnNormalForm" left="97" top="156" right="179" bottom="180"/>
+		</skin>
+		<skin name="btn_normal_100x34" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnNormalForm" left="105" top="180" right="205" bottom="214"/>
+			<hover imagename="IGW_dnNormalForm" left="105" top="214" right="205" bottom="248"/>
+		</skin>		
+		<!-- 以下是NOHLSWGSkin.png相关的资源 -->
+		<skin name="bg_igwSndaOnlineLogo" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="0" right="72" bottom="20"/>
+		</skin>
+		<skin name="bg_igwNormalTitleShading" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="205" right="255" bottom="255"/>
+		</skin>
+		<skin name="bg_igwHideStatus" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="44" right="21" bottom="65"/>
+		</skin>
+		<skin name="btn_sliderstaffH_125x6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="26" right="124" bottom="32"/>
+		</skin>
+		<skin name="btn_sliderstaffS_125x6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="32" right="124" bottom="38"/>
+		</skin>
+		<skin name="btn_sliderstaffL_125x6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="0" top="38" right="124" bottom="44"/>
+		</skin>
+		<skin name="floatbtn_set" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="72" top="0" right="86" bottom="14"/>
+			<press imagename="IGW_LogoControls" left="86" top="0" right="100" bottom="14"/>
+			<hover imagename="IGW_LogoControls" left="100" top="0" right="114" bottom="14"/>
+			<disabled imagename="IGW_LogoControls" left="114" top="0" right="128" bottom="14"/>
+		</skin>
+		<skin name="floatbtn_close" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="128" top="0" right="142" bottom="14"/>
+			<press imagename="IGW_LogoControls" left="142" top="0" right="156" bottom="14"/>
+			<hover imagename="IGW_LogoControls" left="156" top="0" right="170" bottom="14"/>
+			<disabled imagename="IGW_LogoControls" left="170" top="0" right="184" bottom="14"/>
+		</skin>
+		<skin name="floatbtn_drag" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="184" top="0" right="198" bottom="14"/>
+			<disabled imagename="IGW_LogoControls" left="198" top="0" right="212" bottom="14"/>
+		</skin>
+		<skin name="btn_HLSColorNormal" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="21" top="44" right="42" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-109_10_-29" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="42" top="44" right="63" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor106_4_-29" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="63" top="44" right="84" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor61_4_-29" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="84" top="44" right="105" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-10_0_27" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="105" top="44" right="126" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor150_4_-6" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="126" top="44" right="147" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-159_8_-40" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="147" top="44" right="168" bottom="65"/>
+		</skin>
+		<skin name="btn_HLSColor-141_8_-36" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_LogoControls" left="168" top="44" right="189" bottom="65"/>
+		</skin>
+		<skin name="cursor_hand_normal" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="124" top="20" right="148" bottom="44"/>	
+		</skin>
+		<skin name="cursor_hand_drag" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="148" top="20" right="172" bottom="44"/>	
+		</skin>
+		<skin name="cursor02_16x22" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_LogoControls" left="172" top="20" right="188" bottom="42"/>	
+			<press imagename="IGW_LogoControls" left="188" top="20" right="204" bottom="42"/>	
+		</skin>
+		<!-- 以下是dnSet.png相关的资源 -->
+		<skin name="bg_region01_273x195" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnSet" left="0" top="0" right="273" bottom="195"/>
+		</skin>
+		<skin name="bg_igwNormalTab_71x29" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<disabled imagename="IGW_dnSet" left="0" top="195" right="71" bottom="224" fontname="Normal" color="$FFf4f5cd"/>
+			<normal imagename="IGW_dnSet" left="71" top="195" right="142" bottom="224" fontname="Normal" color="$FF655c4d"/>
+			<hover imagename="IGW_dnSet" left="71" top="195" right="142" bottom="224" fontname="Normal" color="$FFf4f5cd"/>
+		</skin>
+		<skin name="btn_downcomboxbtn_26x25" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="142" top="195" right="168" bottom="220"/>
+			<hover imagename="IGW_dnSet" left="168" top="195" right="194" bottom="220"/>
+		</skin>
+		<skin name="bg_downcomboxedit_211x32" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="0" top="224" right="211" bottom="256"/>
+		</skin>
+		<skin name="bg_downcomboxmenu" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnSet" left="211" top="224" right="242" bottom="245" imagewell="(8, 8, 8, 8)"/>
+		</skin>
+		<skin name="bg_downcomboxmenu_LightItem_199x21" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<hover imagename="IGW_dnSet" left="0" top="256" right="199" bottom="277"/>
+		</skin>
+		<skin name="btn_slider_16x16" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="0" top="277" right="16" bottom="293"/>
+		</skin>
+		<skin name="btn_sliderstaff_212x14" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnSet" left="0" top="293" right="212" bottom="307"/>
+			<disabled imagename="IGW_dnSet" left="0" top="307" right="212" bottom="321"/>
+		</skin>
+		<skin name="bg_region02_248x27" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="0" top="321" right="248" bottom="348"/>
+		</skin>		
+		<skin name="checkbox_checked_32x32" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="0" top="348" right="32" bottom="380"/>
+		</skin>
+		<skin name="checkbox_unchecked_32x32" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="32" top="348" right="64" bottom="380"/>
+		</skin>
+		<skin name="bg_region03_273x94" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="0" top="380" right="273" bottom="474"/>
+		</skin>
+		
+		<skin name="bg_region04_74x74" system="true" imagecenterdraw="false" imagestretchdraw="True">
+			<normal imagename="IGW_dnSet" left="273" top="140" right="347" bottom="214" imagewell="(32, 32, 32, 32)"/>
+		</skin>
+		<skin name="bg_igwselectbarsicon_91x140" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnSet" left="364" top="0" right="455" bottom="140" fontname="NormalFontYH" color="#FFFFFFFE"/>
+			<press fontname="NormalFontYH" color="#FF666666"/>
+			<focused imagename="IGW_dnSet" left="273" top="0" right="364" bottom="140" fontname="NormalFontYH" color="#FFf6da5a"/>
+			<hover imagename="IGW_dnSet" left="273" top="0" right="364" bottom="140" fontname="NormalFontYH" color="#FFf6da5a"/>
+			<disabled fontname="NormalFontYH" color="#FF808080"/>
+		</skin>
+		<skin name="bg_igwselectbarsiconSelect_91x140" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal imagename="IGW_dnSet" left="273" top="0" right="364" bottom="140" fontname="NormalFontYH" color="#FFf6da5a"/>
+			<focused imagename="IGW_dnSet" left="273" top="0" right="364" bottom="140" fontname="NormalFontYH" color="#FFf6da5a"/>
+			<hover imagename="IGW_dnSet" left="273" top="0" right="364" bottom="140" fontname="NormalFontYH" color="#FFf6da5a"/>
+			<disabled fontname="Normal" color="#FF808080"/>
+		</skin>
+		
+		<skin name="btn_managernormal_77x26" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="273" top="214" right="350" bottom="240" fontname="NormalFontYH" color="#FFeeeed7"/>
+			<hover imagename="IGW_dnSet" left="273" top="240" right="350" bottom="266"/>
+		</skin>
+		
+		<skin name="btn_Left_32x32" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="96" top="348" right="128" bottom="380"/>
+			<hover imagename="IGW_dnSet" left="64" top="348" right="96" bottom="380"/>
+		</skin>
+		<skin name="btn_LeftLeft_32x32" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="160" top="348" right="192" bottom="380"/>
+			<hover imagename="IGW_dnSet" left="128" top="348" right="160" bottom="380"/>
+		</skin>
+		<skin name="btn_Right_32x32" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="192" top="348" right="224" bottom="380"/>
+			<hover imagename="IGW_dnSet" left="224" top="348" right="256" bottom="380"/>
+		</skin>
+		<skin name="btn_RightRight_32x32" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="256" top="348" right="288" bottom="380"/>
+			<hover imagename="IGW_dnSet" left="288" top="348" right="320" bottom="380"/>
+		</skin>
+		<skin name="bt_mmPagebk_114x25" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="0" top="474" right="114" bottom="499"/>
+		</skin>
+		<skin name="bt_Lefticon_25x25" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="139" top="474" right="164" bottom="499"/>
+		</skin>
+		<skin name="bt_Righticon_25x25" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_dnSet" left="114" top="474" right="139" bottom="499"/>
+		</skin>
+		<!-- 以下是dnSet.png相关的资源 -->
+		<skin name="btn_WidgetSmallStatus" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_WidgetStatusImg" left="0" top="22" right="20" bottom="31"/>
+			<hover imagename="IGW_WidgetStatusImg" left="0" top="13" right="22" bottom="22"/>
+			<press imagename="IGW_WidgetStatusImg" left="0" top="0" right="17" bottom="13"/>
+		</skin>
+		<skin name="btn_WidgetBigStatus" system="true" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_WidgetStatusImg" left="52" top="0" right="97" bottom="20"/>
+			<hover imagename="IGW_WidgetStatusImg" left="22" top="24" right="67" bottom="43"/>
+			<press imagename="IGW_WidgetStatusImg" left="22" top="0" right="52" bottom="24"/>
+		</skin>
+				
+	</widgetskins>
+</widget>

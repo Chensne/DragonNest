@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+	<!-- namespace标签有则为整个描述文件中的name、fontname、imagename等名称指定加上名称前辍
+			例如:namespace是"igwskin"，则所有定义的名称都为"igwskin." + 定义的名称，下面定义的图片就为"igwskin.IGW_Controls"
+			名称空间可以为空，但如果没有该标签则名称空间默认为该文件的全路径例如："c:\IGW.DefaultSkin.xml."
+	 -->
+	<!-- widgetskinsresource是定义Skin用到的资源包括图片，字体，颜色等，解析时被优先于widgetskins处理 -->
+	<widgetskinsresource>
+		<images>
+			<!-- 注意图片名称全局使用的 system="true" 则没有使用仍然不释放，为false时超过5秒不使用则自动释放 -->			
+			<image name="IGW_DefaultCapScreenCtrls" src="..\Images\IGW_DefaultCapScrSkin.png" system="false"  skincolor="true"/>
+		</images>
+	</widgetskinsresource>
+	<!-- widgetskins中的system为真标识该skin文件只会被加载一次不允许重复加载 -->
+	<widgetskins system="false">
+		<!-- 注意全部都小写，且一套skin用到的图片尽可能集中到少量的纹理中必须过多的纹理导致的浪费 -->	
+		<!-- name是指定的skin名称 system表示是否为系统级的（系统级的不会因为不使用而被删除） imagecenterdraw居中绘制 image自stretchdraw自动缩放绘制 -->	 
+		<skin name="btn_close12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<!-- imagename为在Images中可获取的图片名称 如果不指定imagename可以使用src来直接指定文件路径，两标记都存在时优先使用imagename
+					 left top right bottom标识图片中的位置
+					 color指定颜色(可以指字体颜色，或者用于其它能标识颜色的地方，主要看控件的实现)
+					 fontname指定在该状态下使用的字体	-->
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="116" top="35" right="128" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="116" top="47" right="128" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="116" top="59" right="128" bottom="71"/>
+			<!-- focused imagename="IGW_DefaultCapScreenCtrls" left="116" top="524" right="128" bottom="537" 浮动按钮没有焦点状态 -->
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="116" top="71" right="128" bottom="83"/>
+		</skin>
+		<skin name="btn_mini12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="104" top="35" right="116" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="104" top="47" right="116" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="104" top="59" right="116" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="104" top="71" right="116" bottom="83"/>
+		</skin>
+		<skin name="btn_max12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="92" top="35" right="104" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="92" top="47" right="104" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="92" top="59" right="104" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="92" top="71" right="104" bottom="83"/>
+		</skin>
+		<skin name="btn_restore12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="80" top="35" right="92" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="80" top="47" right="92" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="80" top="59" right="92" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="80" top="71" right="92" bottom="83"/>
+		</skin>
+		<skin name="btn_down12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="68" top="35" right="80" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="68" top="47" right="80" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="68" top="59" right="80" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="68" top="71" right="80" bottom="83"/>
+		</skin>
+		<skin name="btn_help12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="56" top="35" right="68" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="56" top="47" right="68" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="56" top="59" right="68" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="56" top="71" right="68" bottom="83"/>
+		</skin>		
+		<skin name="btn_Capture35x35" system="false" imagecenterdraw="false" imagestretchdraw="true">
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="0" top="35" right="35" bottom="70"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="70" top="0" right="105" bottom="35"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="35" top="0" right="70" bottom="35"/>
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="0" top="0" right="35" bottom="35"/>
+		</skin>
+		<skin name="bg_igwmenu" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<!-- 注意imagewell用于标识该图片按照九宫格的方式缩放（左上角宽度，左上角高度，右下角宽度，右下角高度） -->	
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="105" top="0" right="124" bottom="18" imagewell="(2, 2, 2, 2)"/>
+		</skin>
+		<skin name="bg_igwmenuitem18x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal fontname="Normal" color="#FF000000"/>
+			<press imagename="IGW_DefaultControls" left="35" top="35" right="44" bottom="55" fontname="Normal" color="#F0FFFFFE"/>
+			<hover imagename="IGW_DefaultControls" left="35" top="35" right="44" bottom="55" fontname="Normal" color="#FFFFFFFE"/>
+			<disabled  fontname="Normal" color="#FF808080"/>
+		</skin>
+	</widgetskins>
+</widget>

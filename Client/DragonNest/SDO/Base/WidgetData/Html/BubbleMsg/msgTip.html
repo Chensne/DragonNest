@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh_cn" lang="zh_cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>msgTip</title>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="AC_RunActiveContent.js" language="javascript"></script>
+</head>
+<body bgcolor="#000100" leftmargin=0 topmargin=0 rightmargin=0 bottomargin=0>
+<!-- saved from url=(0013)about:internet -->
+<script language="javascript">
+	if (AC_FL_RunContent == 0) {
+		alert("此页需要 AC_RunActiveContent.js");
+	} else {
+		AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'width', '550',
+			'height', '400',
+			'src', 'msgTip',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'showall',
+			'wmode', 'window',
+			'devicefont', 'false',
+			'id', 'msgTip',
+			'bgcolor', '#000100',
+			'name', 'msgTip',
+			'menu', 'true',
+			'allowFullScreen', 'false',
+			'allowScriptAccess','always',
+			'movie', 'msgTip',
+			'salign', '',
+			'wmode','transparent'
+			); //end AC code
+	}
+
+
+
+
+
+function thisMovie(movieName) {
+	if (navigator.appName.indexOf("Microsoft") != -1) {
+	 	return document.getElementById(movieName);
+	} else {
+	 	return document[movieName];
+	}
+}
+
+
+var arrowWidth = 28;
+var arrowHeight = 25;
+//背景大小
+var backWidth = 60;
+var backHeight = 65;
+//背景透明度
+var backAlpha = 97;
+//线条颜色
+var lineColor = 0x51BDFF;
+//填充颜色
+var fillColor = 0xffffff;
+//文字总大小
+var txtWidth = 40;
+var txtHeight = 65;
+//方向	lt 左上	lb 左下	rt 右上	rb 右下
+var aspect = "rt";
+//需要显示的文字信息
+var msg = "您有新<br/>消息<br/>请查收";
+
+//显示新信息提示
+function showMsgTip(){
+	//箭头大小
+	return {arrowWidth:arrowWidth,  arrowHeight:arrowHeight, backWidth:backWidth, backHeight:backHeight, lineColor:lineColor, fillColor:fillColor, msg:msg , txtWidth:txtWidth , txtHeight:txtHeight , backAlpha:backAlpha, aspect:aspect};
+}
+
+function TestShowTip(msgText, w, h, a){
+	msg = msgText;
+	arrowWidth = w;
+	arrowHeight = h;
+	aspect = a;
+	thisMovie('msgTip').go();	
+	//System.Content.PopupMsg(msg , "这是提示", 3, "", false);
+}
+
+function InternalShowCall(msgText, TextWidth, TextHeight, ArrowW, ArrowH, AspectValue, vLineColor, vFillColor){
+	msg = msgText;	
+    txtWidth = TextWidth;
+    txtHeight = TextHeight;
+    backWidth = TextWidth + 2;
+    backHeight = TextHeight + 2;
+    lineColor = vLineColor;
+    fillColor = vFillColor;
+    aspect = AspectValue;
+    arrowWidth = ArrowW;
+    arrowHeight = ArrowH;
+	thisMovie('msgTip').go();
+	//System.Content.PopupMsg(msg  + arrowWidth + " d=" + arrowHeight, "这是提示" , 3, "", false);
+}
+
+//TestShowTip('变变变', 50, 60, 'rt');
+</script>
+<noscript>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="550" height="400" id="msgTip" align="middle">
+	<param name="allowScriptAccess" value="always" />
+	<param name="allowFullScreen" value="false" />
+	<param name="movie" value="msgTip.swf" /><param name="quality" value="high" />
+    <param name="bgcolor" value="#006699" />	
+    <param name="wmode" value="transparent" />
+    <embed src="msgTip.swf" quality="high" bgcolor="#006699" width="550" height="400" name="msgTip" align="middle" wmode="transparent" allowScriptAccess="always" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+	</object>
+</noscript>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+#include "Stdafx.h"
+#include "CollisionAndPush.h"
+
+#ifdef _DEBUG
+#define new new(_NORMAL_BLOCK,__FILE__,__LINE__)
+#endif
+
+void ProcessCollisionAndPush( EtObjectHandle hObject, MatrixEx &matEx )
+{
+	// 바실 미는거 나중에 처리하자..
+	// by mapping
+/*	std::vector< SCollisionResponse > vecResult;
+
+	if( hObject->FindCollision( Cross, vecResult, true, false ) )
+	{
+		int i;
+		EtVector3 vMove;
+		CCollisionCallback *pCallback;
+
+		for( i = 0; i < ( int )vecResult.size(); i++ )
+		{
+			pCallback = vecResult[ i ].pCollisionPrimitive->GetCallback();
+			if( pCallback )
+			{
+				vMove = ( 1.0f - vecResult[ i ].fContactTime ) * vecResult[ i ].vMove;
+				if( EtVec3LengthSq( &vMove ) > 0.0f )
+				{
+					pCallback->ProcessCollision( vMove );
+				}
+			}
+		}
+	}*/
+}

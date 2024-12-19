@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.main.icon" >
+        <windowframe id="frame.messagetip" rect="0,00,163,27"  visible="false" image-id="">
+            <button id="button.left-top" rect="40,0,0,0" visible="false" image-id="img/uimain/gplus_newmessagetipup"/>
+            <button id="button.left-bottom" rect="0,0,163,27" visible="true" text-postion="5,5" text-color="#ffffc000" image-id="img/uimain/gplus_newmessagetip,img/uimain/gplus_newmessagetip,img/uimain/gplus_newmessagetip,0"  enable-skin="false"/>
+            <button id="button.right-top" rect="40,30,0,0" visible="false" image-id="img/uimain/gplus_newmessagetipdown"/>
+            <button id="button.right-bottom" rect="40,30,0,0" visible="false" image-id="img/uimain/gplus_newmessagetipdown"/>
+            <button id="button.message" rect="40,30,0,0" visible="false" image-id="img/uimain/gplus_newmessagetipdown"/>
+        </windowframe>
+    </window>
+</ui>

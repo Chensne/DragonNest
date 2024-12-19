@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+	<!-- namespace is a prefix for defined terms such as "name" "fontname" "imagename"etc.
+	     for instance,if igwskin is a namespace,all the difined terms are "igwskin."+term,like "igwskin.IGW_Controls".
+		 namespace can be null,but if it didn't exist,its default is the path of the file such as "c:\IGW.DefaultSkin.xml."n.xml."
+	 -->
+	<!-- widgetskinsresource difined all the elements for Quanquan skin,and it is prior to widget skins.  -->
+	<widgetskinsresource>
+		<images>
+			<!-- the image name is global.while system="true" and image name is not called,it should be reseverd; while system="false" in 5 minites timing out,image name should be released automatically. -->			
+			<image name="IGW_DefaultCapScreenCtrls" src="..\Images\IGW_DefaultCapScrSkin.png" system="false"  skincolor="true"/>
+		</images>
+	</widgetskinsresource>
+	<!-- in widgetskins,while system ="true",the skin file should be loaded once only. -->
+	<widgetskins system="false">
+		<!-- lowercase only,and please use simple-taxtured images to avoid wasting -->	
+		<!-- name means skin name,system means whether it is system scope(it won't be deleted if system is true);imagecenterdraw means image displays in the center; imagestretchdraw means image can zoom automatically.  -->
+		<skin name="btn_close12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<!--  imagename means availabe image for skin.or we can get image by "src".imagename is prior to src;
+					 left, top, right, bottom mean positon of the image;
+					 color means color setting which can set colors of any objects;
+					 fontname means font type.-->
+					
+					 
+					 
+					 
+					 
+					 
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="116" top="35" right="128" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="116" top="47" right="128" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="116" top="59" right="128" bottom="71"/>
+			<!-- focused imagename="IGW_DefaultCapScreenCtrls" left="116" top="524" right="128" bottom="537" float button without focus  -->
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="116" top="71" right="128" bottom="83"/>
+		</skin>
+		<skin name="btn_mini12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="104" top="35" right="116" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="104" top="47" right="116" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="104" top="59" right="116" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="104" top="71" right="116" bottom="83"/>
+		</skin>
+		<skin name="btn_max12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="92" top="35" right="104" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="92" top="47" right="104" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="92" top="59" right="104" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="92" top="71" right="104" bottom="83"/>
+		</skin>
+		<skin name="btn_restore12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="80" top="35" right="92" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="80" top="47" right="92" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="80" top="59" right="92" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="80" top="71" right="92" bottom="83"/>
+		</skin>
+		<skin name="btn_down12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="68" top="35" right="80" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="68" top="47" right="80" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="68" top="59" right="80" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="68" top="71" right="80" bottom="83"/>
+		</skin>
+		<skin name="btn_help12x12" system="false" imagecenterdraw="false" imagestretchdraw="false">
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="56" top="35" right="68" bottom="47"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="56" top="47" right="68" bottom="59"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="56" top="59" right="68" bottom="71"/>
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="56" top="71" right="68" bottom="83"/>
+		</skin>		
+		<skin name="btn_Capture35x35" system="false" imagecenterdraw="false" imagestretchdraw="true">
+			<disabled imagename="IGW_DefaultCapScreenCtrls" left="0" top="35" right="35" bottom="70"/>
+			<press imagename="IGW_DefaultCapScreenCtrls" left="70" top="0" right="105" bottom="35"/>
+			<hover imagename="IGW_DefaultCapScreenCtrls" left="35" top="0" right="70" bottom="35"/>
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="0" top="0" right="35" bottom="35"/>
+		</skin>
+		<skin name="bg_igwmenu" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<!-- imagewell identifies image-zooming as IC TAC TOE -->	
+			<normal imagename="IGW_DefaultCapScreenCtrls" left="105" top="0" right="124" bottom="18" imagewell="(2, 2, 2, 2)"/>
+		</skin>
+		<skin name="bg_igwmenuitem18x18" system="true" imagecenterdraw="false" imagestretchdraw="true">
+			<normal fontname="Normal" color="#FF000000"/>
+			<press imagename="IGW_DefaultControls" left="35" top="35" right="44" bottom="55" fontname="Normal" color="#F0FFFFFE"/>
+			<hover imagename="IGW_DefaultControls" left="35" top="35" right="44" bottom="55" fontname="Normal" color="#FFFFFFFE"/>
+			<disabled  fontname="Normal" color="#FF808080"/>
+		</skin>
+	</widgetskins>
+</widget>

@@ -1,0 +1,65 @@
+/* CSS Document */
+.fL{float:left}
+.fR{float:right}
+.mgAuto{margin-left:auto;margin-right:auto}
+.mgT15{margin-top:15px}
+.mgT10{margin-top:10px}
+.mgT5{margin-top:5px}
+.mgB15{margin-bottom:15px}
+.mgB10{margin-bottom:10px}
+.mgB5{margin-bottom:5px}
+.fB{font-weight:bold}
+.tC{text-align:center}
+.clear{height:0; overflow:hidden; clear:both}
+body{font-family:"Lucida Grande", Verdana, Lucida,sans-serif; color:#3B2F28}
+
+
+a:link, a:visited{color:#646464}
+a:hover, a:active{color:#FF6600}
+
+body{ background:#161D0D}
+.launcherBox{ width:700px; height:600px; background:url(../images/mainbg.jpg) 0 0 no-repeat; position:relative; margin:0 auto}
+.area1, .area2{position:absolute; left:78px; width:555px; height:134px; }
+.area1{top:95px;}
+.area2{top:253px;}
+
+.area1_recommend, .area2_recommend{position:absolute; top:364px; width:230px; height:27px;}
+.area1_recommend{left:121px;}
+.area2_recommend{left:439px;}
+
+.serverList li{float:left; margin:0 11px 7px 0; width:100px; height:27px; overflow:hidden; position:relative}
+	.serverList li a{display:block; width:77vpx; padding-left:0px; text-align:center; height:27px; line-height:28px;_line-height:30px; overflow:hidden; background:url(../images/btnbg.png) 0 0 no-repeat; z-index:1}
+	.serverList li a:link, .serverList li a:visited{color:#FFE17B}
+	.serverList li a:hover{ background-position:0 -27px; text-decoration:none}
+	.serverList li a.Current:link, .serverList li a.Current:visited, .serverList li a.Current:hover{ background-position:0 -54px}
+		 
+	.serverList li b, .serverList li em{position:absolute; z-index:2; display:block;}
+	.serverList li b{width:15px; height:20px; top:4px; left:5px; overflow:hidden; text-indent:-9999px;}
+	.serverList li b.status_b{ background:url(../images/blue.png) 0 0 no-repeat}
+	.serverList li b.status_y{ background:url(../images/yellow.png) 0 0 no-repeat}
+	.serverList li b.status_r{ background:url(../images/red.png) 0 0 no-repeat}
+	
+	.serverList li em{display:block; width:25px; height:22px; background:url(../images/new.png) 0 0 no-repeat; right:0; top:0; overflow:hidden; text-indent:-9999px}
+	
+.config{position:absolute; left:258px; top:456px; height:15px;}
+	.config li{ float:left; width:74px; height:15px; margin-right:42px;text-align:center; }
+		.config li a{display:block; width:74px; height:15px; line-height:16px; overflow:hidden;}
+		.config li a:link, .config li a:visited{color:#B4AE80}
+		.config li a:hover{ color:#FFE17B; text-decoration:none}
+		.config li a:focus{ outline:none}
+
+
+.currentChoice{width:700px; height:120px; position:absolute; left:0; bottom:25px;}
+.gameInfo{position:absolute; left:0; top:40; height:0; width:402;}
+	.gameInfo li.btn1, .gameInfo li.btn2{position:absolute; top:0; width:100px; height:27px;}
+	.gameInfo li.btn1{left:0}
+	.gameInfo li.btn2{right:0}
+		.gameInfo li.btn1 a, .gameInfo li.btn2 a{display:block; width:100px; height:27px; overflow:hidden; text-indent:-9999px; }
+		
+		.gameInfo li.btn1 a{background:url(../images/btn_1.png) 0 0 no-repeat;}
+		.gameInfo li.btn2 a{background:url(../images/btn_2.png) 0 0 no-repeat;}
+		
+		.gameInfo li.btn2 a:hover{ background:url(../images/btn_2_h.png) 0 0 no-repeat;}
+		.gameInfo li.btn1 a:hover{ background:url(../images/btn_1_h.png) 0 0 no-repeat;}
+
+.currentChoice .txtSty{ text-align:center; border-top:1px solid #3F3C37; border-right:1px solid #787272; border-bottom:1px solid #857263; border-left:1px solid #43372B; height:18px; padding:1px; width:150px; position:absolute; left:276px; top:17px; line-height:15px; background:#000; font-size:14px; color:#FFE17B}

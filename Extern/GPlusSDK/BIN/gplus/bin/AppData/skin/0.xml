@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root name="1" desc="2">
+    <i name="img/uimain/gplusno" value="skin\0\image\gplus\gplus_bgno.png"/>
+	<i name="img/uimain/gplus" value="skin\0\image\gplus\gplus_bg.png"/>
+    <i name="img/uimain/gplus2" value="skin\0\image\gplus\gplus_bg2.png"/>
+	<i name="img/uimain/gplus3" value="skin\0\image\gplus\gplus_bg3.png"/>
+    <i name="img/uimain/gplust1" value="skin\0\image\gplus\gplus_bart_01.png"/>
+    <i name="img/uimain/gplust2" value="skin\0\image\gplus\gplus_bart_02.png"/>
+    <i name="img/uimain/gplust3" value="skin\0\image\gplus\gplus_bart_03.png"/>
+    <i name="img/uimain/gplust4" value="skin\0\image\gplus\gplus_bart_04.png"/>
+    <i name="img/uimain/gplust1hove" value="skin\0\image\gplus\gplus_bart_hove_01.png"/>
+    <i name="img/uimain/gplust2hove" value="skin\0\image\gplus\gplus_bart_hove_02.png"/>
+    <i name="img/uimain/gplust3hove" value="skin\0\image\gplus\gplus_bart_hove_03.png"/>
+    <i name="img/uimain/gplust4hove" value="skin\0\image\gplus\gplus_bart_hove_04.png"/>
+    <i name="img/uimain/gplust1click" value="skin\0\image\gplus\gplus_bart_click_01.png"/>
+    <i name="img/uimain/gplust2click" value="skin\0\image\gplus\gplus_bart_click_02.png"/>
+    <i name="img/uimain/gplust3click" value="skin\0\image\gplus\gplus_bart_click_03.png"/>
+    <i name="img/uimain/gplust4click" value="skin\0\image\gplus\gplus_bart_click_04.png"/>
+
+    <i name="img/uimain/info1" value="skin\0\image\gplus\info_01.png"/>
+    <i name="img/uimain/info2" value="skin\0\image\gplus\info_02.png"/>
+    <i name="img/uimain/info3" value="skin\0\image\gplus\info_03.png"/>
+    <i name="img/uimain/info4" value="skin\0\image\gplus\info_04.png"/>
+    <i name="img/uimain/info5" value="skin\0\image\gplus\info_05.png"/>
+    <i name="img/uimain/gplus_bar" value="skin\0\image\gplus\gplus_bar_bg.png"/>
+    <i name="img/uimain/gplus_barbg" value="skin\0\image\gplus\barbg.png"/>
+    <i name="img/uimain/gplus_ie" value="skin\0\image\gplus\gplus_ie_bg.png"/>
+
+    <i name="img/uimain/gplus_message" value="skin\0\image\gplus\mess01.png"/>
+    <i name="img/uimain/gplus_newmessagetip" value="skin\0\image\gplus\mess.png"/>
+    <i name="img/uimain/gplus_newmessagetipup" value="skin\0\image\gplus\tip_up.png"/>
+    <i name="img/uimain/gplus_newmessagetipdown" value="skin\0\image\gplus\tip_down.png"/>
+    <i name="img/uimain/gplus_hide" value="skin\0\image\gplus\hide.png"/>
+    <i name="img/uimain/gplus_hide_on" value="skin\0\image\gplus\hide1.png"/>
+	
+	<i name="img/uimain/gplus_close" value="skin\0\image\gplus\gplus_bart_close_01.png"/>
+	<i name="img/uimain/gplus_close1" value="skin\0\image\gplus\gplus_bart_close_02.png"/>
+	<i name="img/uimain/gplus_close2" value="skin\0\image\gplus\gplus_bart_close_03.png"/>
+	<i name="img/uimain/gplus_help" value="skin\0\image\gplus\gplus_bart_help_01.png"/>
+	<i name="img/uimain/gplus_help1" value="skin\0\image\gplus\gplus_bart_help_02.png"/>
+	<i name="img/uimain/gplus_help2" value="skin\0\image\gplus\gplus_bart_help_03.png"/>
+	
+	<!--windows-->
+	<i name="img/uimain/windowsbg" value="skin\0\image\gplus\windows_02.png"/>
+	<i name="img/uimain/windowsbgleft" value="skin\0\image\gplus\windows_01.png"/>
+	<i name="img/uimain/windowsbgright" value="skin\0\image\gplus\windows_03.png"/>
+	<i name="img/uimain/windowsleft" value="skin\0\image\gplus\windows_04.png"/>
+	<i name="img/uimain/windowsright" value="skin\0\image\gplus\windows_05.png"/>
+	<!--windows-->
+	<!--new ico-->
+	<i name="img/uimain/newico01" value="skin\0\image\gplus\icobg_03.png"/>
+	<i name="img/uimain/newico02" value="skin\0\image\gplus\icobg_02.png"/>
+	<i name="img/uimain/newico03" value="skin\0\image\gplus\icobg_01.png"/>
+	<i name="img/uimain/icobg01" value="skin\0\image\gplus\icobg_04.png"/>
+	<i name="img/uimain/icobg02" value="skin\0\image\gplus\icobg_05.png"/>
+	<i name="img/uimain/ico01" value="skin\0\image\gplus\newico_01.png"/>
+	<i name="img/uimain/ico02" value="skin\0\image\gplus\newico_02.png"/>
+	<i name="img/uimain/ico03" value="skin\0\image\gplus\newico_03.png"/>
+	<i name="img/uimain/ico04" value="skin\0\image\gplus\newico_04.png"/>
+	<i name="img/uimain/ico05" value="skin\0\image\gplus\newico_05.png"/>
+	<i name="img/uimain/ico06" value="skin\0\image\gplus\newico_06.png"/>
+	<i name="img/uimain/gpico01" value="skin\0\image\gplus\gpico_01.png"/>
+	<i name="img/uimain/gpico02" value="skin\0\image\gplus\gpico_02.png"/>
+	<i name="img/uimain/gpico03" value="skin\0\image\gplus\gpico_03.png"/>
+	<i name="img/uimain/gpico04" value="skin\0\image\gplus\gpico_04.png"/>
+	<i name="img/uimain/gpico05" value="skin\0\image\gplus\gpico_05.png"/>
+	<i name="img/uimain/gpico06" value="skin\0\image\gplus\gpico_06.png"/>
+	<i name="img/uimain/icoclick01" value="skin\0\image\gplus\icoclick_01.png"/>
+	<i name="img/uimain/icoclick02" value="skin\0\image\gplus\icoclick_02.png"/>
+	<i name="img/uimain/icoclick03" value="skin\0\image\gplus\icoclick_03.png"/>
+	<i name="img/uimain/icoclick04" value="skin\0\image\gplus\icoclick_04.png"/>
+	<i name="img/uimain/icoclick05" value="skin\0\image\gplus\icoclick_05.png"/>
+	<i name="img/uimain/icoclick06" value="skin\0\image\gplus\icoclick_06.png"/>
+	<i name="img/uimain/dir01" value="skin\0\image\gplus\dir_01.png"/>
+	<i name="img/uimain/dir02" value="skin\0\image\gplus\dir_02.png"/>
+	<i name="img/uimain/dir03" value="skin\0\image\gplus\dir_04.png"/>
+	<i name="img/uimain/dir04" value="skin\0\image\gplus\dir_03.png"/>
+	<!--new ico-->
+
+
+    <i name="iewnd/frm_main_img" value="skin\0\image\common\frame.png"/>
+    <i name="iewnd/frm_main_left" value="5"/>
+    <i name="iewnd/frm_main_top" value="23"/>
+    <i name="iewnd/frm_main_right" value="20"/>
+    <i name="iewnd/frm_main_bottom" value="31"/>
+    <i name="iewnd/edge_left" value="18"/>
+    <i name="iewnd/edge_top" value="50"/>
+    <i name="iewnd/edge_right" value="18"/>
+    <i name="iewnd/edge_bottom" value="18"/>
+    <i name="iewnd/frm_main_el" value="100"/>
+    <i name="iewnd/frm_main_et" value="24"/>
+
+    <i name="iewnd/frm_main_er" value="100"/>
+    <i name="iewnd/frm_main_eb" value="10"/>
+    <i name="iewnd/frm_main_tx" value="55"/>
+    <i name="iewnd/frm_main_ty" value="10"/>
+    <i name="iewnd/close_btn_x" value="5"/>
+    <i name="iewnd/close_btn_y" value="5"/>
+
+    <i name="iewnd/close_btn_img0" value="skin\0\image\common\btn_close_n.png"/>
+    <i name="iewnd/close_btn_img1" value="skin\0\image\common\btn_close_o.png"/>
+    <i name="iewnd/close_btn_img2" value="skin\0\image\common\btn_close_c.png"/>
+    <i name="iewnd/forward_btn_x" value="50"/>
+    <i name="iewnd/forward_btn_y" value="30"/>
+    <i name="iewnd/forward_btn_img0" value=""/>
+    <i name="iewnd/forward_btn_img1" value=""/>
+    <i name="iewnd/forward_btn_img2" value=""/>
+
+
+    <i name="iewnd/back_btn_x" value="20"/>
+    <i name="iewnd/back_btn_y" value="30"/>
+    <i name="iewnd/back_btn_img0" value=""/>
+    <i name="iewnd/back_btn_img1" value=""/>
+    <i name="iewnd/back_btn_img2" value=""/>
+</root>

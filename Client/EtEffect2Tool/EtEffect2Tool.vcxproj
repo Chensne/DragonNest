@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DCB37763-DF45-4455-AC41-FC84A34B693F}</ProjectGuid>
+    <RootNamespace>EtEffect2Tool</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm121
+ %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Common\EternityEngine\D3DDevice9;../../Common/EternityEngine;../../Common;../../Common/Utility;../../Common/EngineUtil;../../Common/MFCUtility;../../Common/FMODEngine;../../Common/EtResManager;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)EtEffectToolD.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../Common/FMODEngine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm113
+ %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\Common\EternityEngine\D3DDevice9;../../Common/EternityEngine;../../Common/Utility;../../Common/EngineUtil;../../Common/MFCUtility;../../Common/FMODEngine;../../Common/EtResManager;../../Common/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0412</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)EtEffectTool.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../Common/FMODEngine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AxisRenderObject.cpp" />
+    <ClCompile Include="ColorPickerDlg.cpp" />
+    <ClCompile Include="EtEffect2Tool.cpp" />
+    <ClCompile Include="EtEffect2ToolDoc.cpp" />
+    <ClCompile Include="EtEffect2ToolView.cpp" />
+    <ClCompile Include="FXPaneView.cpp" />
+    <ClCompile Include="GlobalValue.cpp" />
+    <ClCompile Include="KeyControlPaneView.cpp" />
+    <ClCompile Include="KeyframePropPaneView.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="ParticlePaneView.cpp" />
+    <ClCompile Include="PreviewPaneView.cpp" />
+    <ClCompile Include="PropertyPaneView.cpp" />
+    <ClCompile Include="RenderBase.cpp" />
+    <ClCompile Include="SequenceView.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TreeCtrlEx.cpp" />
+    <ClCompile Include="XColorSpectrumCtrl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AxisRenderObject.h" />
+    <ClInclude Include="ColorPickerDlg.h" />
+    <ClInclude Include="CXDC.h" />
+    <ClInclude Include="CXRect.h" />
+    <ClInclude Include="EtEffect2Tool.h" />
+    <ClInclude Include="EtEffect2ToolDoc.h" />
+    <ClInclude Include="EtEffect2ToolView.h" />
+    <ClInclude Include="FXPaneView.h" />
+    <ClInclude Include="GlobalValue.h" />
+    <ClInclude Include="KeyControlPaneView.h" />
+    <ClInclude Include="KeyframePropPaneView.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="ParticlePaneView.h" />
+    <ClInclude Include="PreviewPaneView.h" />
+    <ClInclude Include="PropertyPaneView.h" />
+    <ClInclude Include="RenderBase.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SequenceView.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TreeCtrlEx.h" />
+    <ClInclude Include="UserMessage.h" />
+    <ClInclude Include="XColorSpectrumCtrl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\bmp00003.bmp" />
+    <None Include="res\EtEffect2Tool.ico" />
+    <None Include="res\EtEffect2Tool.rc2" />
+    <None Include="res\EtEffect2ToolDoc.ico" />
+    <None Include="res\Icons.bmp" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="EtEffect2Tool.reg" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EtEffect2Tool.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\BugReporter\BugReporter.vcxproj">
+      <Project>{9be51b01-4009-4d71-b809-dc4960ac79d0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EngineUtil\EngineUtil.vcxproj">
+      <Project>{723b846f-2236-4657-8989-0ea6aa46e4d6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EternityEngine\D3DDevice9\D3DDevice9.vcxproj">
+      <Project>{53598d68-80aa-49e0-92d2-4d50aa44fd91}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EternityEngine\EternityEngine.vcxproj">
+      <Project>{08b1c088-a234-4530-baeb-79f49f2e4881}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtFileSystem\EtFileSystem.vcxproj">
+      <Project>{a33fa286-fda9-4c6d-a7ee-d3de5f62f5ad}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtInterface\EtInterface.vcxproj">
+      <Project>{088eb8ce-96ab-431b-86d3-f56c89e14e53}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtResManager\EtResManager.vcxproj">
+      <Project>{d4197df0-fc78-4fcd-bde8-dd3230580851}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtStringManager\EtStringManager.vcxproj">
+      <Project>{72a024db-032d-466f-ba5d-0124527ac33e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\FMODEngine\FMODEngine.vcxproj">
+      <Project>{98d7c1da-d32a-45ca-aa13-45601dd45c3e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\MFCUtility\MFCUtility.vcxproj">
+      <Project>{685a09cc-cac4-4e32-9e8d-529f5b11983c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\tinyxml\tinyxmlSTL.vcxproj">
+      <Project>{be23cf77-921d-4747-a02a-038db1e487e2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Utility\Utility.vcxproj">
+      <Project>{89343dcf-fb2e-4a86-83bf-9ad3dca0062b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\zlib\zlib.vcxproj">
+      <Project>{ecaa74a5-5200-4bd9-a3ee-072999a59873}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="EtEffect2Tool.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

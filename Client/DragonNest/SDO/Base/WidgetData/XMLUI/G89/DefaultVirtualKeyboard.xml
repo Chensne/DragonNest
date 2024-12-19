@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.LZG.xml"/>
+	<view name="igwVirtualKeyboardDialog" type="VirtualKeyboard" caption="" left="0" top="0" width="488" height="208" skin="" allowResize="0" candock="false" floatbuttonstatus="0" cachepaint="true" canactivate="false">
+		<label left="0" top="0" width="488" height="209" name="lblbgBlackBlock" skin="frm_kbd" cannotifydrag="true" canactivate="false"/>
+		<button type="" left="440" top="165" width="21" height="20" skin="btn_Close" name="btnigwVirtualKeyboardDialogFormClose" onclick="btnigwVirtualKeyboardDialogFormCloseClick(Self);" showhint="true" hint="关闭" canactivate="false"/>
+		<label left="20" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn001" caption="a" alignment="taCenter" layout="llCenter" onclick="" fontqualitya="wgfqNormal" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="52" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn002" caption="b" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="84" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn003" caption="c" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="116" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn004" caption="d" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="148" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn005" caption="e" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="180" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn006" caption="f" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="212" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn007" caption="g" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="244" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn008" caption="h" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="276" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn009" caption="i" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="308" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn010" caption="j" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="340" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn011" caption="k" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="372" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn012" caption="l" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="404" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn013" caption="m" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="436" top="20" width="32" height="32" skin="btn__kbd" name="lblKeyBtn014" caption="n" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="20" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn015" caption="o" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="52" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn016" caption="p" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="84" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn017" caption="q" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="116" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn018" caption="r" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="148" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn019" caption="s" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="180" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn020" caption="t" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="212" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn021" caption="u" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="244" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn022" caption="v" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="276" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn023" caption="w" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="308" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn024" caption="x" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="340" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn025" caption="y" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="372" top="52" width="32" height="32" skin="btn__kbd" name="lblKeyBtn026" caption="z" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="20" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn027" caption="1" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="52" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn028" caption="2" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="84" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn029" caption="3" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="116" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn030" caption="4" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="148" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn031" caption="5" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="180" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn032" caption="6" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="212" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn033" caption="7" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="244" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn034" caption="8" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="276" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn035" caption="9" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="308" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn036" caption="0" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="340" top="84" width="32" height="32" skin="btn__kbd" name="lblKeyBtn037" caption=";" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="20" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn038" caption="+" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="52" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn039" caption="_" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="84" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn040" caption="(" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="116" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn041" caption=")" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="148" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn042" caption="{" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="180" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn043" caption="}" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="212" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn044" caption="#" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="244" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn045" caption="*" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="276" top="116" width="32" height="32" skin="btn__kbd" name="lblKeyBtn046" caption="^" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="308" top="116" width="34" height="33" skin="btn__kbd" name="lblKeyBtn047" caption="%" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="402" top="116" width="64" height="32" skin="btn__kbd_Enter" name="lblKeyBtnShift" caption="Shift" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1" fontname="Normal_Frm_kbd"/>
+		<label left="402" top="84" width="64" height="32" skin="btn__kbd_Enter"  name="lblKeyBtnEnter" caption="退格" alignment="taCenter" layout="llCenter" onclick="" downtextoffsetx="1" downtextoffsety="1"/>
+		<label left="26" top="165" width="215" height="20" name="lblSafeHintText" layout="llCenter" caption="" ellipsisposition="epWordEllipsis" cannotifydrag="true" textcolor="$FF000000"/>
+	</view>
+	<script src="DefaultVirtualKeyboard.js"/>
+</xul>

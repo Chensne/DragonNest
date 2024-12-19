@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="euc-kr" standalone="yes" ?>
+<document>
+    <ContrlListData RectPos="12.44.678.410" ImgPath="" Type="0" Name="[0] webPage" Enum="0" />
+    <ContrlListData RectPos="514.426.672.476" ImgPath="CancelButton.jpg" Type="0" Name="[1] Btn_Quit" Enum="1" />
+    <ContrlListData RectPos="514.426.672.476" ImgPath="StartButton.jpg" Type="0" Name="[2] Btn_StartGame" Enum="2" />
+    <ContrlListData RectPos="620.549.669.573" ImgPath="OptionButton.jpg" Type="0" Name="[3] Btn_Option" Enum="3" />
+    <ContrlListData RectPos="660.10.681.31" ImgPath="CloseButton.jpg" Type="0" Name="[4] Btn_winClose" Enum="4" />
+    <ContrlListData RectPos="636.10.657.31" ImgPath="MinimumButton.jpg" Type="0" Name="[5] Btn_winMinimum" Enum="5" />
+    <ContrlListData RectPos="86.498.460.504" ImgPath="" Type="2" Name="[6] progress_download" Enum="6" />
+    <ContrlListData RectPos="86.454.460.460" ImgPath="" Type="2" Name="[7] progress_count" Enum="7" />
+    <ContrlListData RectPos="174.15.244.30" ImgPath="" Type="1" Name="[8] Text_version" Enum="8" />
+    <ContrlListData RectPos="0.0.0.0" ImgPath="" Type="1" Name="[9] Text_FileCount" Enum="9" />
+    <ContrlListData RectPos="80.473.300.490" ImgPath="" Type="1" Name="[10] Text_FileName" Enum="10" />
+    <ContrlListData RectPos="390.427.514.444" ImgPath="" Type="1" Name="[11] Text_TimeLeft" Enum="11" />
+    <ContrlListData RectPos="365.473.440.490" ImgPath="" Type="1" Name="[12] Text_FileSize" Enum="12" />
+    <ContrlListData RectPos="475.447.505.464" ImgPath="" Type="1" Name="[13] Text_DownloadPercentage" Enum="13" />
+    <ContrlListData RectPos="85.427.300.444" ImgPath="" Type="1" Name="[14] Text_DownloadState" Enum="14" />
+    <ContrlListData RectPos="531.523.672.540" ImgPath="" Type="1" Name="[15] Text_DirectStart" Enum="15" />
+    <ContrlListData RectPos="514.426.672.476" ImgPath="PatchStartButton.jpg" Type="0" Name="[17] Btn_StartPatch" Enum="17" />
+    <ContrlListData RectPos="514.484.672.517" ImgPath="SelectPartitionButton.jpg" Type="0" Name="[18] Btn_SelectPartition" Enum="18" />
+    <ContrlListData RectPos="24.522.120.540" ImgPath="" Type="1" Name="[19] Text_SelectPartition" Enum="19" />
+    <ContrlListData RectPos="120.522.300.540" ImgPath="" Type="1" Name="[20] Text_SelectPartition Name" Enum="20" />
+    <ContrlListData RectPos="300.522.513.540" ImgPath="" Type="1" Name="[21] Text_SelectPartition Guide" Enum="21" />
+    <ContrlListData RectPos="24.427.233.444" ImgPath="" Type="1" Name="[22] Text_Static_CurrentInfo" Enum="22" />
+    <ContrlListData RectPos="24.473.80.490" ImgPath="" Type="1" Name="[23] Text_Static_FileName" Enum="23" />
+    <ContrlListData RectPos="330.473.365.490" ImgPath="" Type="1" Name="[24] Text_Static_FileSize" Enum="24" />
+    <ContrlListData RectPos="300.427.390.444" ImgPath="" Type="1" Name="[25] Text_Static_TimeLeft" Enum="25" />
+    <ContrlListData RectPos="576.15.626.36" ImgPath="" Type="1" Name="[26] Text_Static_HomepageLink" Enum="26" />
+    <ContrlListData RectPos="24.450.88.467" ImgPath="" Type="1" Name="[27] Text_Static_TotalFile" Enum="27" />
+    <ContrlListData RectPos="24.493.88.510" ImgPath="" Type="1" Name="[28] Text_Static_CurrentFile" Enum="28" />
+    <ContrlListData RectPos="514.523.527.536" ImgPath="" Type="3" Name="[16] CheckBox_DIrectStart" Enum="16" />
+</document>

@@ -1,0 +1,33 @@
+<head>
+
+    <script src="scripts/jquery-1.4.2.min.js" type="text/javascript" language="javascript"></script>
+
+    <script src="scripts/jquery.md5.js" type="text/javascript" language="javascript"></script>
+
+    <script language="javascript" type="text/javascript" src="scripts/core.js"></script>
+
+</head>
+<body>
+
+    <script type="text/javascript"> 
+	
+	 function Button9_onclick()
+	{
+ alert("ffffff");
+	};
+	function cb(taskid, sid, lasterror, statecode, response)
+	{
+	  var http = window.external.System.IO.Http;
+	  var existtask = http.FindTask(taskid);
+ 
+	  //alert(existtask);
+	  //alert(taskid);
+	  //alert(sid);
+	  //alert(lasterror);
+	  alert(statecode);
+	  alert(response);
+	}
+    </script>
+
+    <input id="Button9" onclick="Button9_onclick()" type="button">
+</body>

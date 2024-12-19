@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>在线充值</name>
+	<shortname>充值</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.0.1</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2009</copyright>
+	<description>安全、快捷</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://newigw.pay.sdo.com/InGame/WebGameLogin.aspx?game=$gid$&amp;gamearea=$gaid$&amp;gameserver=$gsid$&amp;type=$SrcParam$" loginMode="SDO" width="602" height="424" clientwidth="589" clientheight="413" xul="WebBrowser.xml" />
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<invisible>8</invisible>
+	<guid>{B13854D0-F7B9-4C5F-A4BC-3B40C1D87798}</guid>
+</gadget>

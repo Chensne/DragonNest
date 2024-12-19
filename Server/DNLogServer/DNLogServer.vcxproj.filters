@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Connections">
+      <UniqueIdentifier>{bab2b831-67d9-445b-b2ae-e31ad81c4be8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LogServer">
+      <UniqueIdentifier>{415e7014-247e-470a-b8e6-b9707c21182c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Def">
+      <UniqueIdentifier>{e6727d7a-73af-459b-b1df-0322d8ea2a2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{adc350cb-0521-494b-94eb-992b1638104c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{b32d4bef-30a7-44a4-b1ac-5317a3353888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExceptionReport">
+      <UniqueIdentifier>{7b899125-607c-441e-bc98-dd74d0c45b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="QueryTest">
+      <UniqueIdentifier>{ec12590e-1b0b-41c6-8e3e-49fa4bdc8fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher">
+      <UniqueIdentifier>{ccb7d971-c81e-4183-803f-bcc14876ecf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KRAZ">
+      <UniqueIdentifier>{12214631-6af6-40ba-bd4d-f82a5719ef57}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ServerCommon\IniFile.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\Util.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="DNConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNConnectionManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNIocpManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNServiceConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNSQLConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNSQLConnectionManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNThreadManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\SQLConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNLogServer.cpp">
+      <Filter>LogServer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>LogServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Connection.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ConnectionManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\EventAcceptor.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\IocpManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ListenSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Log.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SendThread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SocketContext.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SpinBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ThreadManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Protocol\DNCountryUnicodeSet.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\ExceptionReport.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\FileSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MemoryMap.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MiniDumpSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\StringSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\TimeSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="DNQueryTest.cpp">
+      <Filter>QueryTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNActozShield.cpp">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ServerCommon\IniFile.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\Util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Version.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DNConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNConnectionManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNIocpManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServiceConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNSQLConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNSQLConnectionManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNThreadManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\SQLConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>LogServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNHeader.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNPrjSafe.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerDef.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacket.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Connection.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ConnectionManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\EventAcceptor.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\IocpManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ListenSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Log.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SendThread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SocketContext.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SpinBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ThreadManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCommonDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCountryUnicodeSet.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNPacket.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNSecure.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNUserData.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\ExceptionReport.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\FileSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MemoryMap.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MiniDumpSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\StringSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\TimeSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="DNQueryTest.h">
+      <Filter>QueryTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNActozShield.h">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Work.h" />
+  </ItemGroup>
+</Project>

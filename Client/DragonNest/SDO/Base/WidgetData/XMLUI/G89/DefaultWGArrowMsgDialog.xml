@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="defArrowMsgDialog" type="TWGArrowMsgForm" caption="" left="270" top="80" width="320" height="200" allowResize="0" candock="false" candrag="false" visible="false">
+	</view>
+	<script src="DefaultWGArrowMsgDialog.js"/>
+</xul>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.LZG.xml"/>
+	<view name="igwUserLoginEKeyDialog" type="DefaultLoginEKeyForm" caption="" left="0" top="0" width="993" height="346" skin="frm_A8" allowResize="0" candock="false" miniheight="215" miniwidth="266" floatbuttonstatus="0" backgroundskinname="" margin="(8,30,10,12)" onstylechange="onstylechange(Self);">
+		<label left="42" top="166" width="206" height="41" name="lblbgBlackBlock" skin="bg_igwNormalLoginBackground_black" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"/>
+		<label left="190" top="48" width="1" height="155" name="lblbgVerticalLine" skin="bg_vertical_Line" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"/>
+		<label left="12" top="8" width="150" height="20" name="lableCaption" fontname="CaptionFont" caption="" alignment="taLeftJustify" canactivate="true" onclick="" cannotifydrag="true" shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="3" layout="llCenter" shadowoutline="true" fontmargin="5"/>
+		<button type="" left="460" top="10" width="20" height="19" skin="btn_Close" name="btnigwUserLoginEKeyFormClose" onclick="btnigwUserLoginEKeyFormCloseClick(Self);" showhint="true" hint="关闭" canactivate="false"/>
+		<label left="191" top="82" width="111" height="25" name="lableUserName" fontname="Normal_lbl_text" caption="请输入动态密码：" alignment="taRightJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true" bordercolora="$FFFF0000" textcolor="$FFD9D9B6"/>
+		<edit left="304" top="82" width="142" height="21" skin="" name="edtDymPassword" text="" caretcolor="$FF6C8743" textrect="(4,1,87,19)" textcolor="$FFD9D9B6" hint="输入密宝" maxlength="8"/>
+		<label left="205" top="110" width="97" height="23" name="labelChallengeCaption" layout="llCenter" alignment="taRightJustify" fontname="Normal_lbl_text" caption="挑战码：" ellipsisposition="epWordEllipsis" bordercolora="$FFFF0000" textcolor="$FFD9D9B6"/>
+		<label left="308" top="107" width="60" height="26" name="labelChallenge" layout="llCenter" alignment="taLeftJustify" caption="8888" ellipsisposition="epWordEllipsis" bordercolora="$FFFF0000" textcolor="$FFD9D9B6"/>
+		<label left="278" top="134" width="145" height="23" name="labelMb_A8Hint" layout="llCenter" fontname="Normal_lbl_text" caption="注：挑战码为A8密宝专用" ellipsisposition="epWordEllipsis" bordercolora="$FFFF0000" textcolor="$FFD9D9B6"/>
+		<label left="241" top="164" width="115" height="22" name="lblSafeHintText" layout="llCenter" fontname="Normal_lbl_text" caption="安全提醒：" onclicka="MyTest(Self);" ellipsisposition="epWordEllipsis" textcolor="$FFFF7F01" bordercolora="$FFFF0000"/>
+		<label left="241" top="186" width="214" height="22" name="lblSafeHintText001" layout="llCenter" fontname="Normal_lbl_text" caption="如果连续5次输入错误，您的帐号在5分" ellipsisposition="epWordEllipsis" textcolor="$FFD9D9B6" bordercolora="$FFFF0000"/>
+		<label left="239" top="207" width="218" height="24" name="lblSafeHintText002" layout="llCenter" fontname="Normal_lbl_text" caption="钟内将被暂时锁定，请不要再次尝试输" ellipsisposition="epWordEllipsis" textcolor="$FFD9D9B6" bordercolora="$FFFF0000"/>
+		<label left="238" top="227" width="214" height="25" name="lblSafeHintText003" layout="llCenter" fontname="Normal_lbl_text" caption="入，以防帐号被盗。" ellipsisposition="epWordEllipsis" textcolor="$FFD9D9B6" bordercolora="$FFFF0000"/>
+		<label left="50" top="169" width="170" height="20" name="lblMBHintText001" layout="llCenter" fontname="Normal_lbl_text" caption="第一步：将挑战码输入密宝中" ellipsisposition="epWordEllipsis" textcolor="$FFD9D9B6" bordercolora="$FFFF0000"/>
+		<label left="51" top="192" width="170" height="20" name="lblMBHintText002" layout="llCenter" fontname="Normal_lbl_text" caption="" ellipsisposition="epWordEllipsis" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+		<label left="49" top="224" width="177" height="28" name="lblMBHintText003" layout="llCenter" fontname="Normal_lbl_text" caption="第二步：将生成的密宝密码填入" ellipsisposition="epWordEllipsis" textcolor="$FFD9D9B6" bordercolora="$FFFF0000"/>
+		<label left="48" top="251" width="170" height="20" name="lblMBHintText004" layout="llCenter" fontname="Normal_lbl_text" caption="　　　　输入框内" ellipsisposition="epWordEllipsis" textcolor="$FFD9D9B6" bordercolora="$FFFF0000"/>
+		<label left="47" top="252" width="170" height="20" name="lblMBHintText005" layout="llCenter" fontname="Normal_lbl_text" caption="　　　　输入框内" ellipsisposition="epWordEllipsis" textcolor="$FFD9D9B6" bordercolora="$FFFF0000" visible="false"/>
+		<button type="" left="138" top="294" width="102" height="34" icon="btn__A8_bk" name="btnOK" fontname="Normal_lbl_btn" caption="登录" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FFB0B166" downtextoffsetx="2" downtextoffsety="2"/>
+		<button type="" left="259" top="294" width="102" height="34" icon="btn__A8_bk" name="btnCancel" fontname="Normal_lbl_btn" caption="返回" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FFB0B166" downtextoffsetx="2" downtextoffsety="2"/>
+		<label left="57" top="90" width="131" height="66" name="lblbgMiBao" icon=".\Images\A8MiBo.png" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"/>
+	</view>
+	<script src="DefaultLoginEKey.js"/>
+</xul>

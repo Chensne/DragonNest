@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="DefaultAdcolumnBar" type="AdcolumnBar" left="700" top="100" width="38" height="410" 
+		skin="bg_wbformsideline" candock="false" barsinterval="2" margin="(2, 19, 5, 19)" minisize="71"
+		 bardirection="wbVertical" docksite="false" canactivate="false" contenttransparent="true">
+		<button left="8" top="7" width="21" height="8" skin="btn_PageUp_22x9" name="btnPageUp" onclick="" showhint="false" hint="" canactivate="false" visible="false"/>
+		<button left="8" top="50" width="21" height="8" skin="btn_PageDown_22x9" name="btnPageDown" onclick="" showhint="false" hint="" canactivate="false" visible="false"/>
+	</view>
+	<script src="DefaultAdcolumnBar.js"/>
+</xul>

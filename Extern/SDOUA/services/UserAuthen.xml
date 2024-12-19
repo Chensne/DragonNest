@@ -1,0 +1,29 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+
+<service  name="Authen" id="50010">
+	<type name="userType_type" class="int" code="1"/>
+	<type name="userId_type" class="string" code="2"/>
+	
+	<type name="key_type" class="int" code="3"/>
+	<type name="key_Array_type" class="array" itemType="key_type"/>
+	
+	
+	<type name="keyValue_type" class="struct" code="101">
+		<field name="key" type="int" />
+		<field name="value" type="string"/>
+	</type>
+  	<type name="keyValue_Array_type" class="array" itemType="keyValue_type"/>
+	
+	<message name="getUserInfo" id="1">
+		<requestParameter>	
+			<field name="userType" type="userType_type"  />
+			<field name="userId" type="userId_type"  />
+			<field name="key" type="key_Array_type"/>
+			<field name="keyValue" type="keyValue_Array_type" />
+		</requestParameter>
+		
+		<responseParameter>
+			<field name="keyValue" type="keyValue_Array_type" />
+		</responseParameter>
+	</message>
+</service>

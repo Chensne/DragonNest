@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.appsshortcutbar" >
+        <windowframe id="frame.bar" rect="0,0,27,180"  visible="true" >
+            <button id="button.frame.app1"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app1"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/ico01"/>
+            </button>
+            <button id="button.frame.app2"  rect="0,28,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app2"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/ico02"/>
+            </button>
+            <button id="button.frame.app3"  rect="0,55,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app3"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/ico03"/>
+            </button>
+            <button id="button.frame.app4"  rect="2,82,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app4"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/ico04"/>
+            </button>
+            <button id="button.frame.app5"  rect="0,109,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app5"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/ico05"/>
+            </button>
+            <button id="button.frame.app6"  rect="0,136,27,27"  enable-skin="false" image-id="img/uimain/icobg01,img/uimain/icobg01,img/uimain/icobg02">
+                <button id="button.app6"  rect="0,0,27,27"  enable-skin="false" image-id="img/uimain/ico06"/>
+            </button>
+        </windowframe>
+    </window>
+</ui>

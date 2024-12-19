@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="IOCPManager">
+      <UniqueIdentifier>{89730b06-d3a9-47e9-8c38-6505e98131e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{fd361cd7-036d-4a59-9977-46ec56391d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MasterServer">
+      <UniqueIdentifier>{a4a0b0f5-0842-46a1-9f58-e935137c4b8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{0cf46a1a-1737-4f0a-ac52-14c1ff746c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network\Http">
+      <UniqueIdentifier>{77c329b9-14d1-404e-bc4c-655f4c9d2c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Def">
+      <UniqueIdentifier>{1bf1d39f-1834-4b14-9ade-23649ca8e43f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Table">
+      <UniqueIdentifier>{70781e50-9157-4b9a-9d66-1ae2e8e9245c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher">
+      <UniqueIdentifier>{1f0a7eb2-6a34-40ad-bd22-4c4000f312b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\CH">
+      <UniqueIdentifier>{a7eed056-ca2d-4c88-999c-3d32e38d6610}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KR">
+      <UniqueIdentifier>{d37bed19-050d-4408-9584-b9ac63a5e642}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\JP">
+      <UniqueIdentifier>{0cc9e47f-183e-4603-bd69-85816c3e9e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\TW">
+      <UniqueIdentifier>{973ff8be-232c-4860-992b-6dca392ed159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\US">
+      <UniqueIdentifier>{52d5bd2a-eac1-4ef6-915e-a9b565ee810a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\TH">
+      <UniqueIdentifier>{07fef5ac-c031-45fd-ac2b-4dd4f59d52e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\ID">
+      <UniqueIdentifier>{83923888-16b8-4515-97d5-5336c5ab4798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KRAZ">
+      <UniqueIdentifier>{23fad933-4517-400e-9cf5-ba663ed8cfb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExceptionReport">
+      <UniqueIdentifier>{6ae206ab-e7e2-4a64-81f6-d0085fac287e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UnitTest">
+      <UniqueIdentifier>{a9de5f49-e5e8-4561-ac1d-048390621c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{aac71052-05c4-4bd4-b893-9d15d50168f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Etc">
+      <UniqueIdentifier>{b9d7cd82-ecd2-44fe-aa12-79ffa5e09617}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Etc\PsUpdater">
+      <UniqueIdentifier>{1d257144-b19e-41f2-8611-aca9ea6613f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DivisionManager">
+      <UniqueIdentifier>{d79e42d5-3ea1-465b-8b64-d50647e6088f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DivisionManager\Connections">
+      <UniqueIdentifier>{c6c107ee-4348-4407-a2ce-427ae8c9ad4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DivisionManager\GameData">
+      <UniqueIdentifier>{e8531383-81a6-45b3-b26b-df41efe41ce2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DivisionManager\WaitUser">
+      <UniqueIdentifier>{59a69b3d-88d1-45ca-99ed-25f6e56a63fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DivisionManager\GuildWar">
+      <UniqueIdentifier>{79946369-1c7a-4601-9396-7002a810bca9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DNIocpManager.cpp">
+      <Filter>IOCPManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\IniFile.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\Util.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMasterServer.cpp">
+      <Filter>MasterServer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>MasterServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Connection.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ConnectionManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\EventAcceptor.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\IocpManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ListenSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Log.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SendThread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SocketContext.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SpinBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ThreadManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\HttpClientManager.cpp">
+      <Filter>Network\Http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNDataManagerBase.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNExtManager.cpp">
+      <Filter>Table</Filter>
+    </ClCompile>
+    <ClCompile Include="DNC2C.cpp">
+      <Filter>Publisher\CH</Filter>
+    </ClCompile>
+    <ClCompile Include="DNShandaFCM.cpp">
+      <Filter>Publisher\CH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\CH\properties.cpp">
+      <Filter>Publisher\CH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\KR\DNNexonAuth.cpp">
+      <Filter>Publisher\KR</Filter>
+    </ClCompile>
+    <ClCompile Include="DNNHNNetCafe.cpp">
+      <Filter>Publisher\JP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\TW\DNGamaniaAuth.cpp">
+      <Filter>Publisher\TW</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\US\DNNexonPI.cpp">
+      <Filter>Publisher\US</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\TH\DNAsiaSoftPCCafe.cpp">
+      <Filter>Publisher\TH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ID\DNKreonPCCafe.cpp">
+      <Filter>Publisher\ID</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNActozShield.cpp">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\ExceptionReport.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\FileSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MemoryMap.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MiniDumpSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\StringSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\TimeSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\UnitTest\PvP_unittest.cc">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Protocol\DNCountryUnicodeSet.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\Directory.cpp">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\HttpClient.cpp">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\PsUpdater.cpp">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="DNDivisionManager.cpp">
+      <Filter>DivisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DNDoorsConnection.cpp">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGameConnection.cpp">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNLogConnection.cpp">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNLoginConnection.cpp">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNServiceConnection.cpp">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNVillageConnection.cpp">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DnFarm.cpp">
+      <Filter>DivisionManager\GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="DNPvP.cpp">
+      <Filter>DivisionManager\GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="DNUser.cpp">
+      <Filter>DivisionManager\GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="DNWaitUserManager.cpp">
+      <Filter>DivisionManager\WaitUser</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGuildWar.cpp">
+      <Filter>DivisionManager\GuildWar</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGuildWarManager.cpp">
+      <Filter>DivisionManager\GuildWar</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DNIocpManager.h">
+      <Filter>IOCPManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\IniFile.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\Util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>MasterServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Connection.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ConnectionManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\EventAcceptor.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\IocpManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ListenSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Log.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\NetCommon.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SendThread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SocketContext.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SpinBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ThreadManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\HttpClientManager.h">
+      <Filter>Network\Http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="DNDoorsPacket.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNHeader.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNLocaleHeader.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNPrjSafe.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerDef.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketGame.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketLogin.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketMaster.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketVillage.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Version.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNDataManagerBase.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNExtManager.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="DNC2C.h">
+      <Filter>Publisher\CH</Filter>
+    </ClInclude>
+    <ClInclude Include="DNShandaFCM.h">
+      <Filter>Publisher\CH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\CH\FCMsdkBase.h">
+      <Filter>Publisher\CH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\CH\properties.h">
+      <Filter>Publisher\CH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\CH\sdogsdk.h">
+      <Filter>Publisher\CH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\KR\DNNexonAuth.h">
+      <Filter>Publisher\KR</Filter>
+    </ClInclude>
+    <ClInclude Include="DNNHNNetCafe.h">
+      <Filter>Publisher\JP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\JP\HanNetCafeForSvr.h">
+      <Filter>Publisher\JP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\TW\DNGamaniaAuth.h">
+      <Filter>Publisher\TW</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\US\DNNexonPI.h">
+      <Filter>Publisher\US</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\US\ImmigratorSDKErrorCodes.h">
+      <Filter>Publisher\US</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\US\ImmigratorUserEntity.h">
+      <Filter>Publisher\US</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\US\IPIObject.h">
+      <Filter>Publisher\US</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\TH\DNAsiaSoftPCCafe.h">
+      <Filter>Publisher\TH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ID\DNKreonPCCafe.h">
+      <Filter>Publisher\ID</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNActozShield.h">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\ExceptionReport.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\FileSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MemoryMap.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MiniDumpSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\StringSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\TimeSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCommonDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCountryUnicodeSet.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNItemTypeDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNPacket.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNSecure.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNUserData.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\Directory.h">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\HttpClient.h">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\PsUpdater.h">
+      <Filter>Etc\PsUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="DNDivisionManager.h">
+      <Filter>DivisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DNDoorsConnection.h">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGameConnection.h">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNLogConnection.h">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNLoginConnection.h">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServiceConnection.h">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNVillageConnection.h">
+      <Filter>DivisionManager\Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNFarm.h">
+      <Filter>DivisionManager\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="DNPvP.h">
+      <Filter>DivisionManager\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="DNUser.h">
+      <Filter>DivisionManager\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="DNWaitUserManager.h">
+      <Filter>DivisionManager\WaitUser</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGuildWar.h">
+      <Filter>DivisionManager\GuildWar</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGuildWarManager.h">
+      <Filter>DivisionManager\GuildWar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Work.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Out\Config\DNC2C.ini">
+      <Filter>Publisher\CH</Filter>
+    </None>
+    <None Include="..\ServerCommon\CH\fcmsdk.ini">
+      <Filter>Publisher\CH</Filter>
+    </None>
+    <None Include="..\Out\Config\DNNexonAuth.ini">
+      <Filter>Publisher\KR</Filter>
+    </None>
+    <None Include="..\ServerCommon\JP\HanNetCafeForSvr.xml">
+      <Filter>Publisher\JP</Filter>
+    </None>
+    <None Include="..\Out\Config\DNGamaniaAuth.ini">
+      <Filter>Publisher\TW</Filter>
+    </None>
+    <None Include="..\Out\Config\DNNexonUS_PI.ini">
+      <Filter>Publisher\US</Filter>
+    </None>
+    <None Include="..\Out\Config\DNAsiaSoftPCCafe.ini">
+      <Filter>Publisher\TH</Filter>
+    </None>
+  </ItemGroup>
+</Project>

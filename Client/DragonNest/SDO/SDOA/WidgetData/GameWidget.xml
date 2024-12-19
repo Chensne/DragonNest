@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- GameWidget config file -->
+<!-- ConfigName: verification environment -->
+<GameWidget>
+	<SDOA>
+		<!-- SDOA Passport -->
+		<Passport Type="UDP">pre.passport.sdoa.sdo.com:7000</Passport>
+		<Passport Type="TCP">http://pre.cas.sdo.com:8171/CAS/OA/</Passport>
+	</SDOA>
+	<SDO>
+		<!-- SDO CAS -->
+		<CAS><![CDATA[https://pre.cas.sdo.com/CAS/OA/Login.Authen?SessionID=%SessionID%]]></CAS>
+		<KeepAlive Timeout="60"><![CDATA[https://pre.cas.sdo.com/cas/login?service=igw&gateway=]]></KeepAlive>
+		<Logout><![CDATA[https://pre.cas.sdo.com/cas/logout?url=]]></Logout>
+	</SDO>
+	<IGP>
+		<Profile>http://pre.igw.sdoa.sdo.com/Profile/p.asmx</Profile>
+		<Logon>http://pre.igw.sdoa.sdo.com/Auth/Auth.asmx</Logon>
+		<Counter>http://pre.igw.sdoa.sdo.com/stat/stat.asmx</Counter>
+		<MessageList>http://pre.igw.sdoa.sdo.com/web-message/MessageWS.asmx</MessageList>
+		<NetReg>http://pre.igw.sdoa.sdo.com/netregserver/NetReg.asmx</NetReg>
+		<WidgetList>http://pre.igw.sdoa.sdo.com/WidgetListServer/WidgetList.asmx</WidgetList>
+		<MessageHistory><![CDATA[http://pre.ibw.sdo.com:8002/Message/msgCenter.aspx?appId=$gid$&areaId=$gaid$]]></MessageHistory>
+	</IGP>
+	<PT>
+		<FindPwd>http://kf.sdo.com/sdch/FindPwd.asp</FindPwd>
+		<ChangePwd>http://pwd.sdo.com/PTInfo/GetPwd/ChangePassword.aspx</ChangePwd>
+		<RegPt><![CDATA[http://register.sdo.com/PTNew/index.aspx?from=$gid$&zone=igw]]></RegPt>
+		<ViewHelp>http://quanquan.sdo.com/help.aspx</ViewHelp>
+		<GetDriverWiz>http://www.drivergenius.com/</GetDriverWiz>
+	</PT>
+	<ClientService>
+		<UserBalance><![CDATA[http://pre.payment.sdoa.sdo.com/billgate/sdoBalanceQryNoUIV2.do?orderId=$orderId$&spId=$spId$&appId=$gid$&areaId=$gaid$&groupId=$gsid$&userId=$sdid$&userIdType=2&payType=$payType$&cmdType=$cmdType$&callTime=$callTime$&sessionId=$sid$&indication=$indication$]]></UserBalance>
+	</ClientService>
+</GameWidget>

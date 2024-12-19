@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="WinMain">
+      <UniqueIdentifier>{1aa82555-9633-49a5-b8b8-d4c25dce2170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="TaskManager">
+      <UniqueIdentifier>{77da7c18-f71c-498e-a2f6-420186aafc91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{c3dc371e-03c7-4dde-af8d-ad36354d8e31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\Sync">
+      <UniqueIdentifier>{22ac7081-b15e-4dfc-938f-681ab1068a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\ftpUpdater">
+      <UniqueIdentifier>{a77efaa6-7ea3-4d04-92a5-f57a530a5f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\Unzip">
+      <UniqueIdentifier>{75b61e78-8eff-4ed6-8067-2c00563a9426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\Unzip\zlib">
+      <UniqueIdentifier>{c08bc402-2b9e-40cb-b2dd-9e35fdd94fc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\Ini">
+      <UniqueIdentifier>{156668d7-c59c-4468-b227-f50c42f098fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\UrlUpdater">
+      <UniqueIdentifier>{df837fa3-3fe8-4a13-824e-8cb0e08c0da0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\MiniDump">
+      <UniqueIdentifier>{fd282ca8-5e7f-40e9-8bd1-7f373992f7d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\ServiceUtil">
+      <UniqueIdentifier>{7382d4e5-eae3-423e-b484-9e8669ef85c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\UnZipProcess">
+      <UniqueIdentifier>{1c1b56e7-12d1-4c69-954a-ba55711c607a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{a0e994d7-4a64-4e22-9aee-8d5420bd3f87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LauncherFrame">
+      <UniqueIdentifier>{126ecba6-9991-495b-81b6-fb57a54c3e01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LauncherSession">
+      <UniqueIdentifier>{cc4ed9db-7841-4f2a-bc97-b5286693b7a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LauncherSession\ServerSession">
+      <UniqueIdentifier>{213e8cba-5df6-4716-bba7-a8ed222717f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Out\Config\DNNetLauncher.ini">
+      <Filter>WinMain</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>WinMain</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BatchManager.h">
+      <Filter>TaskManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LogCleaner.h">
+      <Filter>TaskManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ProcessManager.h">
+      <Filter>TaskManager</Filter>
+    </ClInclude>
+    <ClInclude Include="strdef.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiSync.h">
+      <Filter>Util\Sync</Filter>
+    </ClInclude>
+    <ClInclude Include="FtpUpdater.h">
+      <Filter>Util\ftpUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="Unzipper.h">
+      <Filter>Util\Unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="ioapi.h">
+      <Filter>Util\Unzip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="iowin32.h">
+      <Filter>Util\Unzip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="unzip.h">
+      <Filter>Util\Unzip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zconf.h">
+      <Filter>Util\Unzip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zip.h">
+      <Filter>Util\Unzip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="zlib.h">
+      <Filter>Util\Unzip\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\IniFile.h">
+      <Filter>Util\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\URLUpdater.h">
+      <Filter>Util\UrlUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Util\MiniDump</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h">
+      <Filter>Util\ServiceUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="UnZipProcess.h">
+      <Filter>Util\UnZipProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Work.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\dnserverdef.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacket.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Version.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="LauncherSession.h">
+      <Filter>LauncherSession</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\SimpleClientSession.h">
+      <Filter>LauncherSession\ServerSession</Filter>
+    </ClInclude>
+    <ClInclude Include="PatchStatusChecker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>WinMain</Filter>
+    </ClCompile>
+    <ClCompile Include="BatchManager.cpp">
+      <Filter>TaskManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LogCleaner.cpp">
+      <Filter>TaskManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ProcessManager.cpp">
+      <Filter>TaskManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiSync.cpp">
+      <Filter>Util\Sync</Filter>
+    </ClCompile>
+    <ClCompile Include="FtpUpdater.cpp">
+      <Filter>Util\ftpUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="Unzipper.cpp">
+      <Filter>Util\Unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\IniFile.cpp">
+      <Filter>Util\Ini</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\URLUpdater.cpp">
+      <Filter>Util\UrlUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Util\MiniDump</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp">
+      <Filter>Util\ServiceUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="UnZipProcess.cpp">
+      <Filter>Util\UnZipProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="LauncherSession.cpp">
+      <Filter>LauncherSession</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\SimpleClientSession.cpp">
+      <Filter>LauncherSession\ServerSession</Filter>
+    </ClCompile>
+    <ClCompile Include="PatchStatusChecker.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NetLauncher.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="zlibstat.lib">
+      <Filter>Util\Unzip\zlib</Filter>
+    </Library>
+    <Library Include="ZipArchive.lib">
+      <Filter>Util\UnZipProcess</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

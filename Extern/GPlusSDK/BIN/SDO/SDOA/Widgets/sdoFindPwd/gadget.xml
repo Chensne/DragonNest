@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>找回密码</name>
+	<shortname>找密</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.0.0</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="http://www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2009</copyright>
+	<description>找回密码</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://ibw.pwd.sdo.com/IgwGetPwd/ChgPwdStepInputAcc.aspx?pwdchoose=findpwd" width="455" height="350" clientwidth="455" clientheight="358" xul="WebBrowser.xml"/>
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<invisible>15</invisible>
+
+	<guid>{C9836973-D66E-4F56-9C7E-334CC83B7089}</guid>
+</gadget>

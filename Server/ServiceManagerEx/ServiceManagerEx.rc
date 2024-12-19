@@ -1,0 +1,546 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\ServiceManagerEx.rc2""  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.\r\n"
+    "#include ""afxres.rc""         // 표준 구성 요소입니다.\r\n"
+    "#include ""afxprint.rc""       // 인쇄 미리 보기 리소스\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ServiceManagerEx.ico"
+IDR_ServiceManagerETYPE ICON                    "res\\ServiceManagerExDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_BITMAP_TREE         BITMAP                  "res\\bitmap1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Command"
+    BEGIN
+        MENUITEM "Patch &URL\tCtrl+U",          ID_MENU_PATCH_URL
+        MENUITEM "File L&og\tCtrl+O",           ID_MENU_LOG
+        POPUP "Exception Report"
+        BEGIN
+            MENUITEM "To &E-Mail\tCtrl+E",          ID_EXCEPTION_REPORT_TO_EMAIL
+            MENUITEM "To Clip&board\tCtrl+B",       ID_EXCEPTION_REPORT_TO_CLIPBOARD
+        END
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "Server View"
+        BEGIN
+            MENUITEM "World View",                  ID_MENU_WORLD_VIEW, CHECKED
+            MENUITEM "Launcher View",               ID_MENU_LAUNCHER_VIEW, CHECKED
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "Config"
+    BEGIN
+        MENUITEM "Load ConfigEx",               ID_MENU_LOAD_CONFIG
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Abount ServiceManagerEx",    ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_LOG MENU 
+BEGIN
+    POPUP "List"
+    BEGIN
+        MENUITEM "Find",                        ID_LIST_FIND
+        MENUITEM "Clear",                       ID_LIST_CLEAR
+        MENUITEM "Open",                        ID_LIST_OPEN
+        MENUITEM "Exception To Clipboard",      ID_LIST_CLIPBOARD
+    END
+END
+
+IDR_MENU_SERVER_COMMAND MENU 
+BEGIN
+    POPUP "Command"
+    BEGIN
+        MENUITEM "Start",                       ID_COMMAND_START
+        MENUITEM "Start Launcher",              ID_COMMAND_START_LAUNCHER
+        MENUITEM SEPARATOR
+        MENUITEM "Stop",                        ID_COMMAND_STOP
+        MENUITEM "Stop DB",                     ID_COMMAND_STOP_DB
+        MENUITEM "Stop Launcher",               ID_COMMAND_STOP_LAUNCHER
+        MENUITEM SEPARATOR
+        MENUITEM "Patch",                       ID_COMMAND_PATCH
+        MENUITEM "Patch Launcher",              ID_COMMAND_PATCH_LAUNCHER
+        MENUITEM SEPARATOR
+        MENUITEM "Max User",                    ID_COMMAND_WORLD_MAX_USER
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "E",            ID_EXCEPTION_REPORT_TO_EMAIL, VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_MENU_LOG,            VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_MENU_PATCH_URL,      VIRTKEY, CONTROL, NOINVERT
+    "B",            ID_EXCEPTION_REPORT_TO_CLIPBOARD, VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ServiceManagerEx 정보"
+FONT 9, "MS 셸 대화 상자", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "DragonNest Service Manager Version 1.0",IDC_STATIC,40,10,134,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) Eyedentity Games. 2011",IDC_STATIC,40,25,134,8
+    DEFPUSHBUTTON   "확인",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_DIALOG_LOG_FIND DIALOGEX 0, 0, 162, 141
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Find"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_LOG_FIND,12,24,138,12,ES_AUTOHSCROLL
+    CONTROL         "Match case",IDC_CHECK_LOG_CASE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,72,52,10
+    CONTROL         "Match whole word",IDC_CHECK_LOG_WHOLE_WORD,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,18,90,74,10
+    DEFPUSHBUTTON   "Find",IDOK,18,120,54,14
+    PUSHBUTTON      "Cancel",IDCANCEL,90,120,54,14
+    GROUPBOX        "Find options",IDC_STATIC,6,54,150,54
+    GROUPBOX        "Find what",IDC_STATIC,6,6,150,42
+END
+
+IDD_DIALOG_COMMAND_LIST DIALOGEX 0, 0, 179, 237
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Command List"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Ok",IDOK,30,216,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,102,216,50,14
+    LISTBOX         IDC_LIST_COMMAND_LIST,6,6,168,198,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_DIALOG_PREPARE_PATCH DIALOGEX 0, 0, 179, 251
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Patch URL"
+FONT 9, "MS Shell Dlg", 400, 0, 0x81
+BEGIN
+    LISTBOX         IDC_LIST_PREPARE_PATCH_LIST,12,24,156,180,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Ok",IDOK,30,228,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,102,228,50,14
+    GROUPBOX        "List",IDC_STATIC,6,6,168,210
+END
+
+IDD_DIALOG_PATCH DIALOGEX 0, 0, 455, 245
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Patch"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Patch",IDOK,162,222,50,14
+    CONTROL         "",IDC_TREE_PATCH_LIST,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP,6,6,438,192
+    PUSHBUTTON      "Cancel",IDCANCEL,240,222,50,14
+    CONTROL         "Only Exe",IDC_CHECK_PATCH_EXE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,204,43,10
+    CTEXT           "",IDC_STATIC_PATCH_RESULT,162,206,126,8,SS_CENTERIMAGE
+END
+
+IDD_DIALOG_WORLD_MAX_USER DIALOGEX 0, 0, 126, 83
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "World Max User"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_WORLD_MAX_USER,12,24,102,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "확인",IDOK,9,60,50,14
+    PUSHBUTTON      "취소",IDCANCEL,68,60,50,14
+    GROUPBOX        "Max User",IDC_STATIC,6,6,114,42
+END
+
+IDD_DIALOG_SEND_MAIL DIALOGEX 0, 0, 323, 173
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Send E-Mail"
+FONT 9, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_EMAIL_SENDER,12,36,138,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_EMAIL_RECIPIENTS,12,78,138,54,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_EMAIL_SUBJECT,174,36,138,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_EMAIL_MSG,174,78,138,54,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | ES_WANTRETURN
+    PUSHBUTTON      "Send",IDOK,102,150,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,174,150,50,14
+    LTEXT           "Sender",IDC_STATIC,14,24,24,8
+    LTEXT           "Recipients",IDC_STATIC,14,66,32,8
+    LTEXT           "Subject",IDC_STATIC,175,24,25,8
+    LTEXT           "Msg",IDC_STATIC,176,66,13,8
+    GROUPBOX        "E-Mail Info",IDC_STATIC,6,6,150,132
+    GROUPBOX        "E-Mail Msg",IDC_STATIC,168,6,150,132
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "TODO: <회사 이름>"
+            VALUE "FileDescription", "TODO: <파일 설명>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "ServiceManagerEx.exe"
+            VALUE "LegalCopyright", "TODO: (c) <회사 이름>.  All rights reserved."
+            VALUE "OriginalFilename", "ServiceManagerEx.exe"
+            VALUE "ProductName", "TODO: <제품 이름>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOG_LOG_FIND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 155
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_DIALOG_COMMAND_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 230
+    END
+
+    IDD_DIALOG_PREPARE_PATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 244
+    END
+
+    IDD_DIALOG_PATCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 448
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 238
+    END
+
+    IDD_DIALOG_WORLD_MAX_USER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 119
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 76
+    END
+
+    IDD_DIALOG_SEND_MAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 316
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 166
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE를 초기화할 수 없습니다. OLE 라이브러리 버전이 올바른지 확인하십시오."
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "ServiceManagerEx\n\nServiceManagerE\n\n\nServiceManagerEx.Document\nServiceManagerEx.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "ServiceManagerEx"
+    AFX_IDS_IDLEMESSAGE     "준비"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "새 문서를 만듭니다.\n새로 만들기"
+    ID_FILE_OPEN            "기존 문서를 엽니다.\n열기"
+    ID_FILE_CLOSE           "활성 문서를 닫습니다.\n닫기"
+    ID_FILE_SAVE            "활성 문서를 저장합니다.\n저장"
+    ID_FILE_SAVE_AS         "활성 문서를 새 이름으로 저장합니다.\n다른 이름으로 저장"
+    ID_FILE_PAGE_SETUP      "인쇄 옵션을 변경합니다.\n페이지 설정"
+    ID_FILE_PRINT_SETUP     "프린터 및 인쇄 옵션을 변경합니다.\n인쇄 설정"
+    ID_FILE_PRINT           "활성 문서를 인쇄합니다.\n인쇄"
+    ID_FILE_PRINT_PREVIEW   "전체 페이지를 표시합니다.\n인쇄 미리 보기"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE2       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE3       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE4       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE5       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE6       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE7       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE8       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE9       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE10      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE11      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE12      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE13      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE14      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE15      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE16      "현재 문서를 엽니다."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "다음 창으로 전환합니다.\n다음 창"
+    ID_PREV_PANE            "이전 창으로 전환합니다.\n이전 창"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "활성 창을 여러 개의 창으로 분할합니다.\n분할"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "선택 영역을 지웁니다.\n지우기"
+    ID_EDIT_CLEAR_ALL       "모두 지웁니다.\n모두 지우기"
+    ID_EDIT_COPY            "선택 영역을 복사하여 클립보드에 넣습니다.\n복사"
+    ID_EDIT_CUT             "선택 영역을 잘라내어 클립보드에 넣습니다.\n잘라내기"
+    ID_EDIT_FIND            "지정한 텍스트를 찾습니다.\n찾기"
+    ID_EDIT_PASTE           "클립보드 내용을 삽입합니다.\n붙여넣기"
+    ID_EDIT_REPEAT          "마지막 작업을 반복합니다.\n반복"
+    ID_EDIT_REPLACE         "특정 텍스트를 다른 텍스트로 바꿉니다.\n바꾸기"
+    ID_EDIT_SELECT_ALL      "전체 문서를 선택합니다.\n모두 선택"
+    ID_EDIT_UNDO            "마지막 작업 실행을 취소합니다.\n실행 취소"
+    ID_EDIT_REDO            "이전에 실행 취소된 작업을 다시 실행합니다.\n다시 실행"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "도구 모음을 표시하거나 숨깁니다.\n도구 모음 설정/해제"
+    ID_VIEW_STATUS_BAR      "상태 표시줄을 표시하거나 숨깁니다.\n상태 표시줄 설정/해제"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "창 크기를 변경합니다."
+    AFX_IDS_SCMOVE          "창 위치를 변경합니다."
+    AFX_IDS_SCMINIMIZE      "창을 아이콘으로 축소합니다."
+    AFX_IDS_SCMAXIMIZE      "창을 전체 화면 크기로 확대합니다."
+    AFX_IDS_SCNEXTWINDOW    "다음 문서 창으로 전환합니다."
+    AFX_IDS_SCPREVWINDOW    "이전 문서 창으로 전환합니다."
+    AFX_IDS_SCCLOSE         "문서를 저장할 것인지 확인하고 활성 창을 닫습니다."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "창을 보통 크기로 복원합니다."
+    AFX_IDS_SCTASKLIST      "작업 목록을 활성화합니다."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "인쇄 미리 보기 모드를 닫습니다.\n미리 보기 취소"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_MENU_LOG             "View log file"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_MENU_COMMAND         "View command list"
+END
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\ServiceManagerEx.rc2"  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.
+#include "afxres.rc"         // 표준 구성 요소입니다.
+#include "afxprint.rc"       // 인쇄 미리 보기 리소스
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

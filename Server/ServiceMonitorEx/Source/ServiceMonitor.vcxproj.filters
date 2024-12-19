@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{f0f3bcff-7354-4139-bc42-a9a6ba69255c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ServiceMonitor">
+      <UniqueIdentifier>{97d842e5-88be-4494-b189-f7e4b747ffa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ServiceMonitor\UserInterface">
+      <UniqueIdentifier>{4a922a5a-dc29-4698-8f96-29c020d83a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ServiceMonitor\Network">
+      <UniqueIdentifier>{d0a94e7c-4db1-4c2b-a30f-e82004e30d98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ServiceMonitor\Base">
+      <UniqueIdentifier>{b8f21585-ab06-4f1a-8f38-07b0ee82f4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ServiceMonitor\ETC">
+      <UniqueIdentifier>{d38e9665-49c6-4bf0-8fc0-cde04c22fbfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ServiceMonitor\Packet">
+      <UniqueIdentifier>{436c5dce-6178-4ebd-a5b1-f5b4df4a7f98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Externals">
+      <UniqueIdentifier>{bb3fd9b8-432c-4c9e-8594-a152969d26b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Externals\PropertyGrid">
+      <UniqueIdentifier>{2af5d4da-c049-4325-b569-c04a5bc515c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Externals\ToolBar">
+      <UniqueIdentifier>{eacb78c9-bffe-4e0a-8ac8-452d2d1d55f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Alert.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ErrorLog.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ErrorLogAlarm1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ErrorLogAlarm2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ErrorLogAlarm3.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Exit.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\EyedentityGames.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\img_larg.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\img_smal.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Important Files.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\NetworkConnect.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\NetworkDisconnect.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\NetworkDisconnect1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\NetworkDisconnect2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\password.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\RefreshCurrentWorldView.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\RefreshWorldViewInfo.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\scb_larg.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\scb_smal.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ServiceMonitor.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ServiceMonitor.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ServerDrawFilter.inl">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </None>
+    <None Include="EventSelectTcpClient.inl">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </None>
+    <None Include="EventSelectTcpClientSession.inl">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h">
+      <Filter>Source Files\ServiceMonitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\SMVersion.h">
+      <Filter>Source Files\ServiceMonitor</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\DNWork\MAIN\source\Server\ServiceMonitorEx\Source\BaseErrorLogView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseInformationView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMonitorView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="BasePartitionView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangePasswordDialog.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionDialog.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlDialog.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDialogBar.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTaskbarIcon.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="MainView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="PartitionDialog.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerDrawFilter.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlBaseView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlGaMeritView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlGaShowHideView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlProcMakeDump.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlProcOnOffView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlViChnlMeritView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlViChnlShowHideView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubControlWorldUserLimitView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubMonitorFrameView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="SubMonitorWorldView.h">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSelectTcpClient.h">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSelectTcpClientSession.h">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="IoBuffer.hpp">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="IpV4.hpp">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetConnection.h">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetPacketParser.h">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetSession.h">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionBase.hpp">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="WinsockBase.hpp">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigMngr.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionInfoMngr.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorLogMngr.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDoc.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\DNWork\MAIN\source\Server\ServiceMonitorEx\Source\ServiceInfo.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceMonitor.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSet.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonMacros.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSection.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugSet.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorFormat.h">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFile.h">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="LockBase.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="LogBase.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFile.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="MemPoolEx.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="SafeStringMacros.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="SysBaseBase.h">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="VarArg.hpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Protocol\DNCommonDef.h">
+      <Filter>Source Files\ServiceMonitor\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Protocol\DNPacket.h">
+      <Filter>Source Files\ServiceMonitor\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Protocol\DNProtocol.h">
+      <Filter>Source Files\ServiceMonitor\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Common\Protocol\DNSecure.h">
+      <Filter>Source Files\ServiceMonitor\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerCommon\DNServerDef.h">
+      <Filter>Source Files\ServiceMonitor\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerCommon\DNServerPacket.h">
+      <Filter>Source Files\ServiceMonitor\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerCommon\DNServerProtocol.h">
+      <Filter>Source Files\ServiceMonitor\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomItem.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="DynDialogEx.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="DynDialogItemEx.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="ListDynDialogEx.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGridCombo.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGridDirectoryPicker.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGridInPlaceEdit.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGridMonthCalCtrl.h">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="OOExToolBar.h">
+      <Filter>Source Files\Externals\ToolBar</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="baseerrorlogview.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseInformationView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseMonitorView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="BasePartitionView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangePasswordDialog.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionDialog.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlDialog.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDialogBar.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="MainTaskbarIcon.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="MainView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="PartitionDialog.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlBaseView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlGaMeritView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlGaShowHideView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlProcMakeDump.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlProcOnOffView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlViChnlMeritView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlViChnlShowHideView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubControlWorldUserLimitView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubMonitorFrameView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="SubMonitorWorldView.cpp">
+      <Filter>Source Files\ServiceMonitor\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="NetConnection.cpp">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetPacketParser.cpp">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NetSession.cpp">
+      <Filter>Source Files\ServiceMonitor\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigMngr.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionInfoMngr.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorLogMngr.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDoc.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceInfo.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceMonitor.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\ServiceMonitor\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorFormat.cpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFile.cpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>Source Files\ServiceMonitor\ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="DynDialogEx.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="DynDialogItemEx.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="ListDynDialogEx.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGrid.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGridCombo.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGridDirectoryPicker.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGridInPlaceEdit.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGridMonthCalCtrl.cpp">
+      <Filter>Source Files\Externals\PropertyGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="OOExToolBar.cpp">
+      <Filter>Source Files\Externals\ToolBar</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

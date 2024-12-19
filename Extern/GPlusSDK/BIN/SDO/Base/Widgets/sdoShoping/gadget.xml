@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>积分商城</name>
+	<shortname>商城</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.0.2</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2008</copyright>
+	<description>使用积分兑换游戏道具、实物礼品，获得超值精彩回报</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://igw.jf.sdo.com/jfIndex.aspx?game=$gid$&amp;open=$SrcParam$" loginMode="SDO" width="738" height="455" clientwidth="710" clientheight="400" xul="WebBrowser.xml" />
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<guid>{54FFD3F4-66FA-4286-86B4-7944069FD317}</guid>
+</gadget>

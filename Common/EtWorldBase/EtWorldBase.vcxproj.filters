@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PreCompileHeader">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Random Dungeon">
+      <UniqueIdentifier>{c1bd64b9-3273-4c70-816b-551beb9e4136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Random Dungeon\Maze">
+      <UniqueIdentifier>{9e894b19-e062-4569-aa66-cf350d557246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Random Dungeon\Material">
+      <UniqueIdentifier>{f285f470-5319-4e69-8062-5c38e9797498}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Heightmap">
+      <UniqueIdentifier>{1fd608e3-1e81-4e60-9b7e-44967c61b6a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Heightmap\Prop">
+      <UniqueIdentifier>{17c67a66-a7a5-4131-b5e6-90473e7a0289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Heightmap\Sound">
+      <UniqueIdentifier>{239388d4-e93f-4f46-914d-96ec28704bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Heightmap\Water">
+      <UniqueIdentifier>{51971b09-fb90-4e69-8556-bac7788db954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Heightmap\Decal">
+      <UniqueIdentifier>{d1c609a1-5d10-4020-a85e-7d28f3b59aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{924acebb-951a-40d7-b76c-ae4736d563e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EventArea">
+      <UniqueIdentifier>{02572177-5406-42d0-85dc-6337944b8e56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NavigationMesh">
+      <UniqueIdentifier>{a49455b4-fa52-4a7b-8bac-4d0b8dde733f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Trigger">
+      <UniqueIdentifier>{5c32c894-2c65-45ad-892d-3afa802ebbb8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PreCompileHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="EtRandomDungeon.cpp">
+      <Filter>Random Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMaze.cpp">
+      <Filter>Random Dungeon\Maze</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMazeMask.cpp">
+      <Filter>Random Dungeon\Maze</Filter>
+    </ClCompile>
+    <ClCompile Include="EtRandomDungeonRoom.cpp">
+      <Filter>Random Dungeon\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorld.cpp">
+      <Filter>Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldGrid.cpp">
+      <Filter>Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldSector.cpp">
+      <Filter>Heightmap</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldProp.cpp">
+      <Filter>Heightmap\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldSound.cpp">
+      <Filter>Heightmap\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldSoundEnvi.cpp">
+      <Filter>Heightmap\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldWater.cpp">
+      <Filter>Heightmap\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldWaterRiver.cpp">
+      <Filter>Heightmap\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldDecal.cpp">
+      <Filter>Heightmap\Decal</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldEventArea.cpp">
+      <Filter>EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWorldEventControl.cpp">
+      <Filter>EventArea</Filter>
+    </ClCompile>
+    <ClCompile Include="EtNavigationMeshGenerator.cpp">
+      <Filter>NavigationMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="mtxlib.cpp">
+      <Filter>NavigationMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="navigationcell.cpp">
+      <Filter>NavigationMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="navigationmesh.cpp">
+      <Filter>NavigationMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTrigger.cpp">
+      <Filter>Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTriggerElement.cpp">
+      <Filter>Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTriggerObject.cpp">
+      <Filter>Trigger</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>PreCompileHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="EtRandomDungeon.h">
+      <Filter>Random Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMaze.h">
+      <Filter>Random Dungeon\Maze</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMazeMask.h">
+      <Filter>Random Dungeon\Maze</Filter>
+    </ClInclude>
+    <ClInclude Include="EtRandomDungeonRoom.h">
+      <Filter>Random Dungeon\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorld.h">
+      <Filter>Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldGrid.h">
+      <Filter>Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldSector.h">
+      <Filter>Heightmap</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldProp.h">
+      <Filter>Heightmap\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldSound.h">
+      <Filter>Heightmap\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldSoundEnvi.h">
+      <Filter>Heightmap\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldWater.h">
+      <Filter>Heightmap\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldWaterRiver.h">
+      <Filter>Heightmap\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldDecal.h">
+      <Filter>Heightmap\Decal</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldEventArea.h">
+      <Filter>EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWorldEventControl.h">
+      <Filter>EventArea</Filter>
+    </ClInclude>
+    <ClInclude Include="EtNavigationMeshGenerator.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="line2d.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="mtxlib.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="navigationcell.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="navigationheap.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="navigationmesh.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="navigationpath.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="navigationwaypoint.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="plane.h">
+      <Filter>NavigationMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTrigger.h">
+      <Filter>Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTriggerElement.h">
+      <Filter>Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTriggerObject.h">
+      <Filter>Trigger</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

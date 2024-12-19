@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.apppanel" >
+        <windowframe id="frame.apppanel" rect="0,0,400,400" drag="true" visible="true" image-id="img/uimain/gplus2" >
+            <windowframe id="frame.caption" rect="0,0,400,20" hit-ignore="true"  image-id="img/uimain/gplus_bar"  >
+                <button id="button.appicon" rect="0,0,20,20"  hit-ignore="true" text="图标" image-id=""  enable-skin="false"/>
+                <button id="button.appname" rect="20,0,60,20" hit-ignore="true" text="名称" image-id=""  enable-skin="false"/>
+                <button id="button.appsruning" rect="300,0,60,20"  text="正在运行" image-id="img/uimain/gplus2"  enable-skin="false"/>
+                <button id="button.close" rect="380,0,20,20"  image-id="img/uimain/gplus_close"  enable-skin="false"/>
+            </windowframe>
+            <ie id="ie.app"  rect="0,20,400,360" image-id="img/uimain/gplus_bar" enable-skin="false"/>
+            <ie id="ie.appdesc"  rect="0,20,400,360"  visible="false" enable-skin="false"/>
+            <windowframe id="frame.appruningbar" rect="0,20,400,30"   image-id="img/uimain/gplus2"  >
+                <button id="button.pre" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                <button id="button.next" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+
+                <button id="button.frame.app1" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app1" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose1" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app2" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app2" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose2" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app3" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app3" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose3" rect="0,10,60,20" image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app4" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app4" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose4" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app5" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app5" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose5" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app6" rect="0,0,400,400"  image-id="img/uimain/gplus2"  >
+                    <button id="button.app6" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose6" rect="0,10,60,20" image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app7" rect="0,0,400,400"  image-id="img/uimain/gplus2"  >
+                    <button id="button.app7" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose7" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app8" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app8" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose8" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app9" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app9" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose9" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app10" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app10" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose10" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app11" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app11" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose11" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app12" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app12" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose12" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+                <button id="button.frame.app13" rect="0,0,400,400"   image-id="img/uimain/gplus2"  >
+                    <button id="button.app13" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                    <button id="button.appclose13" rect="0,10,60,20"  image-id=""  enable-skin="false"/>
+                </button>
+
+
+            </windowframe>
+
+            <windowframe id="frame.state" rect="0,380,400,20"   image-id="img/uimain/gplus2"  >
+                <button id="button.desc" rect="0,0,60,20"  text="介绍" image-id="img/uimain/gplus2"  enable-skin="false"/>
+                <button id="button.attation" rect="100,0,60,20" text="关注" image-id="img/uimain/gplus2"  enable-skin="false"/>
+                <button id="button.like" rect="180,0,60,20"  text="喜欢" image-id="img/uimain/gplus2"  enable-skin="false"/>
+            </windowframe>
+        </windowframe>
+    </window>
+</ui>

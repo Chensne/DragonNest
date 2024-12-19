@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pane">
+      <UniqueIdentifier>{2594636a-8e6e-4f70-a2e8-b8d8917001f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\ActionPane">
+      <UniqueIdentifier>{1fc590b6-56ec-484a-a126-5633fb10ffcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\ActionPane\Dialog">
+      <UniqueIdentifier>{5a0b64d2-f5f2-4d81-aa29-f51d3b985427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\PropertiesPane">
+      <UniqueIdentifier>{3e70d2e0-93b1-459a-91a5-3a6d78fa11dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\EventPaneView">
+      <UniqueIdentifier>{94594288-3a76-4cba-ae70-fffb296fe492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\EventPaneView\Dialog">
+      <UniqueIdentifier>{41d88f83-0c1a-4809-8492-cbeee151aa44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\LightPane">
+      <UniqueIdentifier>{e8110341-2bd5-4e1f-8715-60f991e99025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pane\Xtream">
+      <UniqueIdentifier>{a5a533f8-cde8-4d86-96f5-2bc28aefd6fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global Value">
+      <UniqueIdentifier>{0a8b64e5-8d79-4c28-9d52-ea2bc349dc04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render Base">
+      <UniqueIdentifier>{ddd49748-532d-467c-9d63-1de267951d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MFC Base">
+      <UniqueIdentifier>{66a04e21-3650-4339-8699-92da9f8eaaf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MFC Base\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{4fe58650-ea64-4598-9edf-864a7b7b7e57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Signal">
+      <UniqueIdentifier>{199b5512-0e46-463f-aa26-178625f122af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Signal\Custom Render">
+      <UniqueIdentifier>{9f81fdea-d48b-4d09-ab34-e12030523feb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Signal\Custom Render\Class">
+      <UniqueIdentifier>{861e2254-3390-4a72-ac2f-69acd218c15e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Light">
+      <UniqueIdentifier>{fa67f27a-1388-4ca8-ac15-2b75afbf35ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Etc Control">
+      <UniqueIdentifier>{457189ef-36af-4850-9511-7543e3da9b45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event Create Dialog">
+      <UniqueIdentifier>{9419b501-905c-47bb-8b4c-3758c04e5501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event Create Dialog\Signal">
+      <UniqueIdentifier>{1d44b65a-619a-477e-8b36-a80a46d86ed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event Create Dialog\Parameter">
+      <UniqueIdentifier>{74a478e1-9bcf-4bda-a72c-4847dcce88c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common Dialog">
+      <UniqueIdentifier>{ca3784bf-aa2d-4c24-afab-d7968c5e3526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common Dialog\Loading Dialog">
+      <UniqueIdentifier>{c18f63c8-9d48-499b-a491-2bcd7f6daead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common Dialog\SignalReport">
+      <UniqueIdentifier>{199f7c79-fe90-49fc-83d7-798b47769b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameTable">
+      <UniqueIdentifier>{fef19ff3-572a-4804-9a65-9b3be8a4b551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileChangeNotification">
+      <UniqueIdentifier>{d92e6d85-3e96-4328-b9b9-9db8e0efdc32}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PaneDefine.h">
+      <Filter>Pane</Filter>
+    </ClInclude>
+    <ClInclude Include="UserMessage.h">
+      <Filter>Pane</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionPaneView.h">
+      <Filter>Pane\ActionPane</Filter>
+    </ClInclude>
+    <ClInclude Include="AddActionDlg.h">
+      <Filter>Pane\ActionPane\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertiesPaneView.h">
+      <Filter>Pane\PropertiesPane</Filter>
+    </ClInclude>
+    <ClInclude Include="EventPaneView.h">
+      <Filter>Pane\EventPaneView</Filter>
+    </ClInclude>
+    <ClInclude Include="AddSignalDlg.h">
+      <Filter>Pane\EventPaneView\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="LightPaneView.h">
+      <Filter>Pane\LightPane</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingPaneAdobeTheme.h">
+      <Filter>Pane\Xtream</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalValue.h">
+      <Filter>Global Value</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBase.h">
+      <Filter>Render Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EtActionTool.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EtActionToolDoc.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EtActionToolView.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionBase.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionElement.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionGlobal.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionSignal.h">
+      <Filter>Object\Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalCustomRender.h">
+      <Filter>Object\Signal\Custom Render</Filter>
+    </ClInclude>
+    <ClInclude Include="CSCRRotate.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCGravity.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRAlphaBlend.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRDecal.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCREnvironmentEffect.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRFX.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRHit.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRJump.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRMarkProjectile.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRMoveY.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRParticle.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRProjectile.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRShaderCustomParameter.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRSound.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="SCRVelocity.h">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLightDir.h">
+      <Filter>Object\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLightFolder.h">
+      <Filter>Object\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLightPoint.h">
+      <Filter>Object\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLightSpot.h">
+      <Filter>Object\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorListCtrl.h">
+      <Filter>Etc Control</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceView.h">
+      <Filter>Etc Control</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeCtrlEx.h">
+      <Filter>Etc Control</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEditView_Finish.h">
+      <Filter>Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEditView_SelectEditType.h">
+      <Filter>Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifyEventDlg.h">
+      <Filter>Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="WizardCommon.h">
+      <Filter>Event Create Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEditView_CreateModifySignal.h">
+      <Filter>Event Create Dialog\Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEditView_SelectSignal.h">
+      <Filter>Event Create Dialog\Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEditView_CreateModifyParameter.h">
+      <Filter>Event Create Dialog\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="EventEditView_SelectParameter.h">
+      <Filter>Event Create Dialog\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalItem.h">
+      <Filter>Object\Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalListViewDlg.h">
+      <Filter>Object\Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalManager.h">
+      <Filter>Object\Signal</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertiesDlg.h">
+      <Filter>Common Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinPrevDlg.h">
+      <Filter>Common Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifyLengthDlg.h">
+      <Filter>Common Dialog\Loading Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifyLinkAniDlg.h">
+      <Filter>Common Dialog\Loading Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="SignalReportDlg.h">
+      <Filter>Common Dialog\SignalReport</Filter>
+    </ClInclude>
+    <ClInclude Include="spreadsheet1.h">
+      <Filter>Common Dialog\SignalReport</Filter>
+    </ClInclude>
+    <ClInclude Include="DnGameTable.h">
+      <Filter>GameTable</Filter>
+    </ClInclude>
+    <ClInclude Include="DnGameWeaponMng.h">
+      <Filter>GameTable</Filter>
+    </ClInclude>
+    <ClInclude Include="FileChangeNotification.h">
+      <Filter>FileChangeNotification</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyAndPasteSignalDlg.h" />
+    <ClInclude Include="..\..\Common\Utility\DnCommonUtil.h" />
+    <ClInclude Include="SelectWeaponDlg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ActionPaneView.cpp">
+      <Filter>Pane\ActionPane</Filter>
+    </ClCompile>
+    <ClCompile Include="AddActionDlg.cpp">
+      <Filter>Pane\ActionPane\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertiesPaneView.cpp">
+      <Filter>Pane\PropertiesPane</Filter>
+    </ClCompile>
+    <ClCompile Include="EventPaneView.cpp">
+      <Filter>Pane\EventPaneView</Filter>
+    </ClCompile>
+    <ClCompile Include="AddSignalDlg.cpp">
+      <Filter>Pane\EventPaneView\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="LightPaneView.cpp">
+      <Filter>Pane\LightPane</Filter>
+    </ClCompile>
+    <ClCompile Include="DockingPaneAdobeTheme.cpp">
+      <Filter>Pane\Xtream</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalValue.cpp">
+      <Filter>Global Value</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBase.cpp">
+      <Filter>Render Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EtActionTool.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EtActionToolDoc.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EtActionToolView.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionBase.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionElement.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionGlobal.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionSignal.cpp">
+      <Filter>Object\Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalCustomRender.cpp">
+      <Filter>Object\Signal\Custom Render</Filter>
+    </ClCompile>
+    <ClCompile Include="CSCRRotate.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCGravity.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRAlphaBlend.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRDecal.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCREnvironmentEffect.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRFX.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRHit.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRJump.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRMarkProjectile.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRMoveY.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRParticle.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRProjectile.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRShaderCustomParameter.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRSound.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="SCRVelocity.cpp">
+      <Filter>Object\Signal\Custom Render\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectLightDir.cpp">
+      <Filter>Object\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectLightFolder.cpp">
+      <Filter>Object\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectLightPoint.cpp">
+      <Filter>Object\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectLightSpot.cpp">
+      <Filter>Object\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorListCtrl.cpp">
+      <Filter>Etc Control</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceView.cpp">
+      <Filter>Etc Control</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeCtrlEx.cpp">
+      <Filter>Etc Control</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEditView_Finish.cpp">
+      <Filter>Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEditView_SelectEditType.cpp">
+      <Filter>Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifyEventDlg.cpp">
+      <Filter>Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="WizardCommon.cpp">
+      <Filter>Event Create Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEditView_CreateModifySignal.cpp">
+      <Filter>Event Create Dialog\Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEditView_SelectSignal.cpp">
+      <Filter>Event Create Dialog\Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEditView_CreateModifyParameter.cpp">
+      <Filter>Event Create Dialog\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="EventEditView_SelectParameter.cpp">
+      <Filter>Event Create Dialog\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalItem.cpp">
+      <Filter>Object\Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalListViewDlg.cpp">
+      <Filter>Object\Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalManager.cpp">
+      <Filter>Object\Signal</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertiesDlg.cpp">
+      <Filter>Common Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinPrevDlg.cpp">
+      <Filter>Common Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifyLengthDlg.cpp">
+      <Filter>Common Dialog\Loading Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifyLinkAniDlg.cpp">
+      <Filter>Common Dialog\Loading Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="SignalReportDlg.cpp">
+      <Filter>Common Dialog\SignalReport</Filter>
+    </ClCompile>
+    <ClCompile Include="spreadsheet1.cpp">
+      <Filter>Common Dialog\SignalReport</Filter>
+    </ClCompile>
+    <ClCompile Include="DnGameTable.cpp">
+      <Filter>GameTable</Filter>
+    </ClCompile>
+    <ClCompile Include="DnGameWeaponMng.cpp">
+      <Filter>GameTable</Filter>
+    </ClCompile>
+    <ClCompile Include="FileChangeNotification.cpp">
+      <Filter>FileChangeNotification</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyAndPasteSignalDlg.cpp" />
+    <ClCompile Include="..\..\Common\Utility\DnCommonUtil.cpp" />
+    <ClCompile Include="SelectWeaponDlg.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\AdobeTab.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\bitmap1.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\bitmap2.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\bmp00002.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\bmp00003.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\EtActionTool.ico">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\EtActionTool.rc2">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\EtActionToolDoc.ico">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\ico00001.ico">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\icon1.ico">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\toolbar1.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="res\WizardImage.bmp">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </None>
+    <None Include="EtActionTool.reg" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EtActionTool.rc">
+      <Filter>MFC Base\리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{556DA4C8-3320-4235-A76A-49AF148D4D9B}</ProjectGuid>
+    <RootNamespace>WLibTorrent</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\boost_1_45_0;..\..\openssl\include;..\..\libtorrent-rasterbar-0.15.9\include;..\..\libtorrent-rasterbar-0.15.9\includ\libtorrent;..\..\libtorrent-rasterbar-0.15.9\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)-d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\boost_1_45_0;..\..\openssl\include;..\..\libtorrent-rasterbar-0.15.9\include;..\..\libtorrent-rasterbar-0.15.9\includ\libtorrent;..\..\libtorrent-rasterbar-0.15.9\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;TORRENT_DISABLE_GEO_IP;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x5000;BOOST_ALL_NO_LIB;_FILE_OFFSET_BITS=64;TORRENT_USE_OPENSSL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="WLibTorrent.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\alert.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\allocator.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\assert.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\broadcast_socket.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\bt_peer_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\connection_queue.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ConvertUTF.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\create_torrent.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\disk_buffer_holder.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\disk_io_thread.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\entry.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\enum_net.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\error_code.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\escape_string.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\file.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\file_pool.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\file_storage.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\GeoIP.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\gzip.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_parser.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_seed_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_stream.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_tracker_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\identify_client.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\instantiate_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ip_filter.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\lazy_bdecode.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\logger.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\lsd.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\lt_trackers.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\magnet_uri.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\metadata_transfer.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\natpmp.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\parse_url.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\pe_crypto.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\peer_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\piece_picker.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\policy.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\session.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\session_impl.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\sha1.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\smart_ban.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\socks5_stream.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\stat.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\storage.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\torrent.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\torrent_handle.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\torrent_info.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\tracker_manager.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\udp_socket.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\udp_tracker_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\upnp.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ut_metadata.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ut_pex.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\web_peer_connection.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\closest_nodes.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\dht_tracker.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\find_data.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\node.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\node_id.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\refresh.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\routing_table.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\rpc_manager.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\traversal_algorithm.cpp" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\adler32.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\compress.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\crc32.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\deflate.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\gzio.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\infback.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inffast.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inflate.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inftrees.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\trees.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\uncompr.c" />
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WLibTorrent.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\crc32.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\deflate.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inffast.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inffixed.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inflate.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inftrees.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\trees.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zconf.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zlib.h" />
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zutil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

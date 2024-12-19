@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="euc-kr" standalone="yes" ?>
+<document>
+    <ContrlListData RectPos="28.30.670.430" ImgPath="" Type="0" Name="[ 0 ] WebPage" Enum="0" />
+    <ContrlListData RectPos="587.485.674.511" ImgPath="CancelButton.jpg" Type="0" Name="[ 1 ] Btn_Quit" Enum="1" />
+    <ContrlListData RectPos="586.453.673.498" ImgPath="StartButtonOn.jpg" Type="0" Name="[ 2 ] Btn_StartGame" Enum="2" />
+    <ContrlListData RectPos="586.498.673.524" ImgPath="OptionButtonOn.jpg" Type="0" Name="[ 3 ] Btn_Option" Enum="3" />
+    <ContrlListData RectPos="674.4.697.27" ImgPath="CloseButton.jpg" Type="0" Name="[ 4 ] Btn_WinClose" Enum="4" />
+    <ContrlListData RectPos="650.4.673.27" ImgPath="MinimumButton.jpg" Type="0" Name="[ 5 ] Btn_WinMinimum" Enum="5" />
+    <ContrlListData RectPos="116.478.520.491" ImgPath="" Type="2" Name="[ 6 ] Progress_Download" Enum="6" />
+    <ContrlListData RectPos="116.502.520.515" ImgPath="" Type="2" Name="[ 7 ] Progress_Count" Enum="7" />
+    <ContrlListData RectPos="28.10.178.25" ImgPath="" Type="1" Name="[ 8 ] Text_Version" Enum="8" />
+    <ContrlListData RectPos="530.503.680.518" ImgPath="" Type="1" Name="[ 9 ] Text_FileCount" Enum="9" />
+    <ContrlListData RectPos="33.455.233.470" ImgPath="" Type="1" Name="[ 10 ] Text_FileName" Enum="10" />
+    <ContrlListData RectPos="370.455.520.470" ImgPath="" Type="1" Name="[ 11 ] Text_TimeLeft" Enum="11" />
+    <ContrlListData RectPos="230.455.371.470" ImgPath="" Type="1" Name="[ 12 ] Text_FileSize" Enum="12" />
+    <ContrlListData RectPos="530.479.570.494" ImgPath="" Type="1" Name="[ 13 ] Text_DownPercent" Enum="13" />
+    <ContrlListData RectPos="130.520.430.535" ImgPath="" Type="1" Name="[ 14 ] Text_DownState" Enum="14" />
+    <ContrlListData RectPos="130.537.430.552" ImgPath="" Type="1" Name="[ 15 ] Text_DirectStart" Enum="15" />
+    <ContrlListData RectPos="113.537.126.550" ImgPath="" Type="3" Name="[ 16 ] CheckBox" Enum="16" />
+    <ContrlListData RectPos="587.485.674.511" ImgPath="PatchStartButton.jpg" Type="0" Name="[ 17 ] Btn_StartPatch" Enum="17" />
+    <ContrlListData RectPos="15.565.102.591" ImgPath="SelectPartitionButton.jpg" Type="0" Name="[ 18 ] Btn_SelectPartition" Enum="18" />
+    <ContrlListData RectPos="10.525.110.543" ImgPath="" Type="1" Name="[ 19 ] Text_SelectPartition" Enum="19" />
+    <ContrlListData RectPos="10.540.110.558" ImgPath="" Type="1" Name="[ 20 ] Text_Partition_Name" Enum="20" />
+    <ContrlListData RectPos="340.536.550.554" ImgPath="" Type="1" Name="[ 21 ] Text_Partition_Guide" Enum="21" />
+    <ContrlListData RectPos="260.566.284.590" ImgPath="OpenPathButton.jpg" Type="0" Name="[ 22 ] Btn_OpenPath" Enum="22" />
+    <ContrlListData RectPos="288.570.585.586" ImgPath="" Type="1" Name="[ 23 ] Text_ClientPath" Enum="23" />
+</document>

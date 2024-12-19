@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F1E83BEA-F38C-4EC8-8E5E-B4CBE1D2D604}</ProjectGuid>
+    <RootNamespace>EtUITool</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v80</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">e:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\Source;F:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">e:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\lib\vc80;F:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\Source;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\lib\vc80;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm127 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Common\MFCUtility;..\..\Common\EternityEngine;..\..\Common\Utility;..\..\Common\EngineUtil;..\..\Common\FMODEngine;..\..\Common\EtInterface;..\..\Common;..\..\Common\Nvidia Texture Tool2\src;..\..\Common\Nvidia Texture Tool2\project\vc8;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <Link>
+      <AdditionalDependencies>Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)EtUITool_D.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\Common\FMODEngine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MinSpace</Optimization>
+      <AdditionalIncludeDirectories>..\..\Common\MFCUtility;..\..\Common\EternityEngine;..\..\Common\Utility;..\..\Common\EngineUtil;..\..\Common\FMODEngine;..\..\Common\EtInterface;..\..\Common;..\..\Common\Nvidia Texture Tool2\src;..\..\Common\Nvidia Texture Tool2\project\vc8;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>UITOOL;WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <Link>
+      <AdditionalDependencies>Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)EtUITool.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\Common\FMODEngine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="res\AdobeTab.bmp" />
+    <None Include="res\bitmap2.bmp" />
+    <None Include="res\bmp00001.bmp" />
+    <None Include="res\EtUITool.ico" />
+    <None Include="res\EtUITool.rc2" />
+    <None Include="res\EtUIToolDoc.ico" />
+    <None Include="res\layout_t.bmp" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EtUITool.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtUITool.cpp" />
+    <ClCompile Include="EtUIToolDoc.cpp" />
+    <ClCompile Include="EtUIToolView.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="DummyView.cpp" />
+    <ClCompile Include="LayoutView.cpp" />
+    <ClCompile Include="TemplateView.cpp" />
+    <ClCompile Include="ControlPropertyPaneView.cpp" />
+    <ClCompile Include="TemplatePaneView.cpp" />
+    <ClCompile Include="TemplatePropertyPaneView.cpp" />
+    <ClCompile Include="DockingPaneAdobeTheme.cpp" />
+    <ClCompile Include="CompressCheckDlg.cpp" />
+    <ClCompile Include="CustomControlSelect.cpp" />
+    <ClCompile Include="DialogList.cpp" />
+    <ClCompile Include="FontSetDlg.cpp" />
+    <ClCompile Include="GetFontFile.cpp" />
+    <ClCompile Include="GetNameValue.cpp" />
+    <ClCompile Include="HotkeyDlg.cpp" />
+    <ClCompile Include="Interval.cpp" />
+    <ClCompile Include="PropertiesDlg.cpp" />
+    <ClCompile Include="ScrollBarSelect.cpp" />
+    <ClCompile Include="StringSelect.cpp" />
+    <ClCompile Include="TabOrder.cpp" />
+    <ClCompile Include="TemplateNameDlg.cpp" />
+    <ClCompile Include="GenTexture.cpp" />
+    <ClCompile Include="GlobalValue.cpp" />
+    <ClCompile Include="UIControlInfo.cpp" />
+    <ClCompile Include="UIToolTemplate.cpp" />
+    <ClCompile Include="RenderBase.cpp" />
+    <ClCompile Include="LayerView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EtUITool.h" />
+    <ClInclude Include="EtUIToolDoc.h" />
+    <ClInclude Include="EtUIToolView.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="DummyView.h" />
+    <ClInclude Include="LayoutView.h" />
+    <ClInclude Include="TemplateView.h" />
+    <ClInclude Include="ControlPropertyPaneView.h" />
+    <ClInclude Include="PaneDefine.h" />
+    <ClInclude Include="TemplatePaneView.h" />
+    <ClInclude Include="TemplatePropertyPaneView.h" />
+    <ClInclude Include="DockingPaneAdobeTheme.h" />
+    <ClInclude Include="CompressCheckDlg.h" />
+    <ClInclude Include="CustomControlSelect.h" />
+    <ClInclude Include="DialogList.h" />
+    <ClInclude Include="FontSetDlg.h" />
+    <ClInclude Include="GetFontFile.h" />
+    <ClInclude Include="GetNameValue.h" />
+    <ClInclude Include="HotkeyDlg.h" />
+    <ClInclude Include="Interval.h" />
+    <ClInclude Include="PropertiesDlg.h" />
+    <ClInclude Include="ScrollBarSelect.h" />
+    <ClInclude Include="StringSelect.h" />
+    <ClInclude Include="TabOrder.h" />
+    <ClInclude Include="TemplateNameDlg.h" />
+    <ClInclude Include="GenTexture.h" />
+    <ClInclude Include="GlobalValue.h" />
+    <ClInclude Include="UIControlInfo.h" />
+    <ClInclude Include="UIControlInfoOld.h" />
+    <ClInclude Include="UIToolTemplate.h" />
+    <ClInclude Include="undo.h" />
+    <ClInclude Include="RenderBase.h" />
+    <ClInclude Include="LayerView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\BugReporter\BugReporter.vcxproj">
+      <Project>{9be51b01-4009-4d71-b809-dc4960ac79d0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EngineUtil\EngineUtil.vcxproj">
+      <Project>{723b846f-2236-4657-8989-0ea6aa46e4d6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EternityEngine\D3DDevice9\D3DDevice9.vcxproj">
+      <Project>{53598d68-80aa-49e0-92d2-4d50aa44fd91}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EternityEngine\EternityEngine.vcxproj">
+      <Project>{08b1c088-a234-4530-baeb-79f49f2e4881}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtFileSystem\EtFileSystem.vcxproj">
+      <Project>{a33fa286-fda9-4c6d-a7ee-d3de5f62f5ad}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtInterface\EtInterface.vcxproj">
+      <Project>{088eb8ce-96ab-431b-86d3-f56c89e14e53}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtResManager\EtResManager.vcxproj">
+      <Project>{d4197df0-fc78-4fcd-bde8-dd3230580851}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\EtStringManager\EtStringManager.vcxproj">
+      <Project>{72a024db-032d-466f-ba5d-0124527ac33e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\FMODEngine\FMODEngine.vcxproj">
+      <Project>{98d7c1da-d32a-45ca-aa13-45601dd45c3e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\MFCUtility\MFCUtility.vcxproj">
+      <Project>{685a09cc-cac4-4e32-9e8d-529f5b11983c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Nvidia Texture Tool2\project\vc8\nvcore\nvcore.vcxproj">
+      <Project>{f143d180-d4c4-4037-b3de-be89a21c8d1d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Nvidia Texture Tool2\project\vc8\nvimage\nvimage.vcxproj">
+      <Project>{4046f392-a18b-4c66-9639-3eabfff5d531}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Nvidia Texture Tool2\project\vc8\nvtt\nvtt.vcxproj">
+      <Project>{1aeb7681-57d8-48ee-813d-5c41cc38b647}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Nvidia Texture Tool2\project\vc8\squish\squish.vcxproj">
+      <Project>{ce017322-01fc-4851-9c8b-64e9a8e26c38}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\tinyxml\tinyxmlSTL.vcxproj">
+      <Project>{be23cf77-921d-4747-a02a-038db1e487e2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Utility\Utility.vcxproj">
+      <Project>{89343dcf-fb2e-4a86-83bf-9ad3dca0062b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\zlib\zlib.vcxproj">
+      <Project>{ecaa74a5-5200-4bd9-a3ee-072999a59873}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="EtUITool.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

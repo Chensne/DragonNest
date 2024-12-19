@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="euc-kr" standalone="yes" ?>
+<document>
+    <ContrlListData RectPos="8.40.682.414" ImgPath="" Type="0" Name="[ 0 ] WebPage" Enum="0" />
+    <ContrlListData RectPos="496.492.660.532" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\CancelButton.jpg" Type="0" Name="[ 1 ] Btn_Quit" Enum="1" />
+    <ContrlListData RectPos="496.492.660.532" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\StartButtonOn.jpg" Type="0" Name="[ 2 ] Btn_StartGame" Enum="2" />
+    <ContrlListData RectPos="630.550.679.574" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\OptionButton.jpg" Type="0" Name="[ 3 ] Btn_Option" Enum="3" />
+    <ContrlListData RectPos="660.11.681.32" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\CloseButton.jpg" Type="0" Name="[ 4 ] Btn_WinClose" Enum="4" />
+    <ContrlListData RectPos="636.11.657.32" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\MinimumButton.jpg" Type="0" Name="[ 5 ] Btn_WinMinimum" Enum="5" />
+    <ContrlListData RectPos="88.519.462.525" ImgPath="" Type="2" Name="[6] Progress_Current" Enum="6" />
+    <ContrlListData RectPos="88.456.605.462" ImgPath="" Type="2" Name="[ 7 ]  Progress_Count" Enum="7" />
+    <ContrlListData RectPos="190.20.250.35" ImgPath="" Type="1" Name="[ 8 ] Text_Version" Enum="8" />
+    <ContrlListData RectPos="0.0.0.0" ImgPath="" Type="1" Name="[9] Text_FileCount" Enum="9" />
+    <ContrlListData RectPos="88.496.300.510" ImgPath="" Type="1" Name="[10] CurrentFileName" Enum="10" />
+    <ContrlListData RectPos="380.496.465.510" ImgPath="" Type="1" Name="[11] remainCurrent" Enum="11" />
+    <ContrlListData RectPos="535.432.605.446" ImgPath="" Type="1" Name="[12] FileCurrentSize" Enum="12" />
+    <ContrlListData RectPos="630.452.690.467" ImgPath="" Type="1" Name="[13] 100%" Enum="13" />
+    <ContrlListData RectPos="88.431.480.445" ImgPath="" Type="1" Name="[14] PatchMessage" Enum="14" />
+    <ContrlListData RectPos="497.556.620.571" ImgPath="" Type="1" Name="[15] Direct Start" Enum="15" />
+    <ContrlListData RectPos="480.555.493.568" ImgPath="" Type="3" Name="[16] CheckBox_DIrectStart" Enum="16" />
+    <ContrlListData RectPos="24.430.233.445" ImgPath="" Type="1" Name="[17] PatchState" Enum="17" />
+    <ContrlListData RectPos="24.495.233.510" ImgPath="" Type="1" Name="[18] FileName" Enum="18" />
+    <ContrlListData RectPos="480.431.535.446" ImgPath="" Type="1" Name="[19] FileSize" Enum="19" />
+    <ContrlListData RectPos="300.495.380.510" ImgPath="" Type="1" Name="[20] RemainTime" Enum="20" />
+    <ContrlListData RectPos="570.15.630.30" ImgPath="" Type="1" Name="[21] Link HomePage" Enum="21" />
+    <ContrlListData RectPos="24.450.233.465" ImgPath="" Type="1" Name="[22] Total Progress" Enum="22" />
+    <ContrlListData RectPos="24.515.233.530" ImgPath="" Type="1" Name="[23] Current Progress" Enum="23" />
+    <ContrlListData RectPos="400.11.425.29" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\EnglishButton.jpg" Type="0" Name="[ 24 ] Btn_WinMinimum" Enum="24" />
+    <ContrlListData RectPos="470.11.495.29" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\FrenchButton.jpg" Type="0" Name="[ 25 ] Btn_WinMinimum" Enum="25" />
+    <ContrlListData RectPos="435.11.460.29" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\GermanButton.jpg" Type="0" Name="[ 26 ] Btn_WinMinimum" Enum="26" />
+    <ContrlListData RectPos="505.11.530.29" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\SpanishButton.jpg" Type="0" Name="[ 27 ] Btn_WinMinimum" Enum="27" />
+    <ContrlListData RectPos="250.15.388.30" ImgPath="" Type="1" Name="[28] Link HomePage" Enum="28" />
+</document>

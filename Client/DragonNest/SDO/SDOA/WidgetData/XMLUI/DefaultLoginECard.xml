@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.QuanFuTong.xml"/>	
+	<view name="igwUserLoginECardDialog" type="DefaultLoginECardForm" caption="" left="270" top="80" width="485" height="410" skin="bg_normalform" allowResize="0" candock="false" miniheight="215" miniwidth="266" floatbuttonstatus="0"  backgroundskinname=""  margin="(8, 30, 10, 12)" style="1" safekanormalskin="bg_igwMibo001_208x305" safekaindicatorskin="bg_igwMibo002_208x305">
+		<label left="236" top="244" width="230" height="100" name="lblbgSafeHintBlock" skin="bg_grayedit" cannotifydrag="true" canactivate="false">
+			<label left="5" top="10" width="60" height="21" name="lableKatext003" caption="Caution:" alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true"  textcolor="$FF2765b3" bordercolora="$FFFF0000"/>
+			<label left="5" top="31" width="222" height="21" name="lableKatext004" caption="please try another password " alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true"  textcolor="$FF000000" bordercolora="$FFFF0000"/>
+			<label left="5" top="48" width="222" height="21" name="lableKatext005" caption="before.please try another  " alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true"  textcolor="$FF000000" bordercolora="$FFFF0000"/>
+			<label left="5" top="65" width="222" height="21" name="lableKatext006" caption="password." alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true"  textcolor="$FF000000" bordercolora="$FFFF0000"/>			
+		</label>
+		<label left="12" top="8" width="150" height="20" name="lableCaption" fontname="CaptionFont" caption="SD security card authentication" alignment="taLeftJustify" canactivate="false" onclick="" cannotifydrag="true" shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" 
+			shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="3" layout="llCenter" shadowoutline="true" fontmargin="5"/>
+		<button type="" left="295" top="10" width="17" height="17" skin="btn_bigclose_17x17" name="btnigwUserLoginECardFormClose" onclick="btnigwUserLoginECardDialogFormCloseClick(Self);" showhint="true" hint="Close" canactivate="false"/>
+		<label type="" left="230" top="46" width="4" height="7" name="lableTriangleBack" skin="bg_TriangleBlack_4x7" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true"/>
+		<label left="240" top="40" width="210" height="21" name="lableKatext001" caption="please find the corresponding numbers in the " alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true" bordercolora="$FFFF0000" textcolor="$FF000000"/>
+		<label left="240" top="57" width="210" height="21" name="lableKatext002" caption="security card according to the hint image." alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true" bordercolora="$FFFF0000" textcolor="$FF000000"/>
+		
+		<label left="240" top="82" width="210" height="1" name="lblbgBlueLine" cannotifydrag="true" canactivate="false" skin="bg_blueline"/>
+		
+		<button left="16" top="39" width="209" height="334" skin="bg_igwMibo001_208x305" name="btnMibao03" cannotifydrag="true">
+			<label type="" left="23" top="133" width="185" height="20" name="lableHorizontal" skin="bg_SkGridHorizontal_185x20" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true"/>
+			<label type="" left="23" top="19" width="24" height="286" name="lableVertical" skin="bg_SkGridVertical_24x286" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true"/>
+						
+			<label type="" left="93" top="22" width="22" height="18" name="lableShowKPos01" caption="E10" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" backgroundcolor="$FFF99A00"/>
+			<label type="" left="106" top="60" width="22" height="18" name="lableShowKPos02" caption="F6" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" backgroundcolor="$FFF99A00"/>
+			<label type="" left="24" top="105" width="22" height="18" name="lableShowKPos03" caption="C8" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" backgroundcolor="$FFF99A00"/>
+		</button>
+
+		
+		<label left="240" top="105" width="222" height="21" name="lableKatext007" caption="Please input 3 required numbers according to the security card." alignment="taLeftJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true" bordercolora="$FFFF0000" textcolor="$FF000000"/>
+
+		
+		<label left="240" top="130" width="66" height="34" skin="bg_grayedit" name="lableKPos01" caption="A1" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" fontname="CaptionFont"/>
+		<label left="318" top="130" width="66" height="34" skin="bg_grayedit" name="lableKPos02" caption="A2" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" fontname="CaptionFont"/>
+		<label left="396" top="130" width="66" height="34" skin="bg_grayedit" name="lableKPos03" caption="A3" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" fontname="CaptionFont"/>
+		
+		<edit left="240" top="175" width="66" height="21"  skin="bg_whiteedit" name="edtSafeK01" text="" caretcolor="$FFFF0000" textrect="(26,1,46,19)" textcolor="$FF000000" hint="" maxlength="2"/>
+		<edit left="318" top="175" width="66" height="21"  skin="bg_whiteedit" name="edtSafeK02" text="" caretcolor="$FFFF0000" textrect="(26,1,46,19)" textcolor="$FF000000" hint="" maxlength="2"/>
+		<edit left="396" top="175" width="66" height="21"  skin="bg_whiteedit" name="edtSafeK03" text="" caretcolor="$FFFF0000" textrect="(26,1,46,19)" textcolor="$FF000000" hint="" maxlength="2"/>		
+		
+		<label left="8" top="430" width="240" height="40" name="lblbgBlackBlock1" skin="bg_igwNormalLoginBackground_black" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"/>
+
+		<button type="" left="30" top="372" width="70" height="20" icon="btn_normal_63x20" name="btnOK" caption="OK" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  textcolor="$FF000000"  downtextoffsetx="2" downtextoffsety="2"/>
+		<button type="" left="110" top="372" width="70" height="20" icon="btn_normal_63x20" name="btnCancel" caption="back" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  textcolor="$FF000000" downtextoffsetx="2" downtextoffsety="2"/>
+	</view>
+	<script src="DefaultLoginECard.js"/>
+</xul>

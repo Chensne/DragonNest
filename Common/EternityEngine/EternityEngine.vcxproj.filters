@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="EngineCore">
+      <UniqueIdentifier>{e3323256-b947-4f0a-9558-705884cc7efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{8552fdcc-74c6-476d-8ad5-7d6a8d964035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{c4a69de0-4089-4127-8787-f44872357835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{65afe4da-48bd-4ec5-9281-2ccd400467f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Draw">
+      <UniqueIdentifier>{a2bb5287-1e4a-4403-90e5-ddf7f9445436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Terrain">
+      <UniqueIdentifier>{52c47386-6814-49a2-8385-677904519f93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shadow">
+      <UniqueIdentifier>{2649dfc0-6338-4cef-ba39-4fba2832e596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcess">
+      <UniqueIdentifier>{d80e9910-de4b-4d96-8d5f-098d3bb2b03b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcess\Filter">
+      <UniqueIdentifier>{8fc473e8-7a7d-4e42-80f4-c6a7ff92eb35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{406f2adb-88a9-43e9-b737-6d9248699d2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Option">
+      <UniqueIdentifier>{07771f01-edfe-4dba-a035-482c983dd26a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Colliision">
+      <UniqueIdentifier>{57f8f6cb-4a2f-4819-87cc-7df2c02af255}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtBenchMark.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtEngine.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EternityEngine.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtInstancingMng.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtOcclusionMng.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtRenderStack.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtRTTRenderer.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSkyBoxRTT.cpp">
+      <Filter>EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="EtError.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="HighResolutionCapture.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="LostDeviceProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="EtAni.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtAniKey.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBone.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtGenerateCollisionMesh.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLoader.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMergedSkin.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMesh.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSkin.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSkinInstance.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSubMesh.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtAniObject.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCamera.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCollisionEntity.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLight.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtObject.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSaveMat.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSpring.cpp">
+      <Filter>Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCustomRender.cpp">
+      <Filter>Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="EtDrawQuad.cpp">
+      <Filter>Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="EtPrimitiveDraw.cpp">
+      <Filter>Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSprite.cpp">
+      <Filter>Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTextDraw.cpp">
+      <Filter>Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="EtGrassBlock.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLayeredMultiUVTerrain.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTerrain.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTerrainArea.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWater.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLiSPShadowMap.cpp">
+      <Filter>Shadow</Filter>
+    </ClCompile>
+    <ClCompile Include="EtShadowMap.cpp">
+      <Filter>Shadow</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTrapezoidShadowMap.cpp">
+      <Filter>Shadow</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBackBufferMng.cpp">
+      <Filter>PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMRTMng.cpp">
+      <Filter>PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="EtPostProcessFilter.cpp">
+      <Filter>PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="EtPostProcessMng.cpp">
+      <Filter>PostProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBloomFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCameraBlurFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtColorAdjustFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtColorAdjustTexFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtDOFFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtGaussianFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtHeatHazeFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLightShaftFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMotionBlurFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtOutlineFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtRadialBlurFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTransitionFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EtWaterColorFilter.cpp">
+      <Filter>PostProcess\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="EnvInfo.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBaseEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBillboardEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBillboardEffectData.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtBillboardEffectEmitter.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtDecal.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtEffectData.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtEffectDataContainer.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtEffectElement.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtEffectHelper.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtEffectObject.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtEffectTrail.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLensFlare.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLineEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtLineTrailEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtRainDropSplash.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtRainEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSnowEffect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSwordTrail.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtVolumeFog.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="EtOptionController.cpp">
+      <Filter>Option</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCollisionMng.cpp">
+      <Filter>Colliision</Filter>
+    </ClCompile>
+    <ClCompile Include="EtDefine.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EtBenchMark.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtEngine.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EternityEngine.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtInstancingMng.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtOcclusionMng.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtRenderStack.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtRTTRenderer.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSkyBoxRTT.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtType.h">
+      <Filter>EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="EtError.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="HighResolutionCapture.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="LostDeviceProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtAni.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtAniKey.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBone.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtGenerateCollisionMesh.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLoader.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMergedSkin.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMesh.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSkin.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSkinInstance.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSubMesh.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtAniObject.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCamera.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCollisionEntity.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLight.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtObject.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSaveMat.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSpring.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCustomRender.h">
+      <Filter>Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="EtDrawQuad.h">
+      <Filter>Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="EtPrimitiveDraw.h">
+      <Filter>Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSprite.h">
+      <Filter>Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTextDraw.h">
+      <Filter>Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="EtGrassBlock.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLayeredMultiUVTerrain.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTerrain.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTerrainArea.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWater.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLiSPShadowMap.h">
+      <Filter>Shadow</Filter>
+    </ClInclude>
+    <ClInclude Include="EtShadowMap.h">
+      <Filter>Shadow</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTrapezoidShadowMap.h">
+      <Filter>Shadow</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBackBufferMng.h">
+      <Filter>PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMRTMng.h">
+      <Filter>PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="EtPostProcessFilter.h">
+      <Filter>PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="EtPostProcessMng.h">
+      <Filter>PostProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBloomFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCameraBlurFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtColorAdjustFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtColorAdjustTexFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtDOFFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtGaussianFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtHeatHazeFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLightShaftFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMotionBlurFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtOutlineFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtRadialBlurFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTransitionFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWaterColorFilter.h">
+      <Filter>PostProcess\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvInfo.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBaseEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBillboardEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBillboardEffectData.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtBillboardEffectEmitter.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtDecal.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtEffectData.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtEffectDataContainer.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtEffectElement.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtEffectHelper.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtEffectObject.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtEffectTrail.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLensFlare.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLineEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtLineTrailEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtRainDropSplash.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtRainEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSnowEffect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSwordTrail.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtVolumeFog.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="EtOptionController.h">
+      <Filter>Option</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCollisionMng.h">
+      <Filter>Colliision</Filter>
+    </ClInclude>
+    <ClInclude Include="EtDefine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

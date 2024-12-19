@@ -1,0 +1,728 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: UTStaticLib - Win32 DebugMFCShared--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Jsy\LOCALS~1\Temp\RSP66.tmp" with contents
+[
+/nologo /MDd /W4 /Gm /GX /ZI /Od /I "..\..\Include" /I "..\..\Lib\Jpeg" /I "..\..\Lib\Jpeg\Jpegsrc6" /I "..\..\Lib\Processor\Intel\CPUINF32" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /Fp"DebugMFCShared/UTStaticLib.pch" /Yu"stdafx.h" /Fo"DebugMFCShared/" /Fd"DebugMFCShared/" /FD /c 
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\CONVFILE.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\COPYTREE.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\CPYSTDLG.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\DIR.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\DIRLIST.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\DSTRLIST.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\EVNTLOG.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\FILE.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\FILELIST.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\MDELDLG.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\MFCToolBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OX3DTabView.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXActiveDesktop.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXAdvancedAssert.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXAdvancedAssertMail.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXAppBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXAutoComplete.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXAutoListBox.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBackgroundPainter.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBITBUF.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBitmapButton.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBitmapMenu.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBitmapMenuOrganizer.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBMPFilePickerCombo.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBMPFle.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBrowseColorEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBrowseDirEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXBrowseDirEditList.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXButtonAppearanceDlg.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCalculatorCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCalculatorEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCalendar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCalendarEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCalendarPopup.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCaptionPainter.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXChildFrameState.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXClipPocket.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCMPFL.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXColorPickerButton.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXColorPickerCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXComboPickerCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCOMPR.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXContextHelpDialog.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXContextHelpPropertyPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXContextHelpPropertySheet.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCoolBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCoolComboBox.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCoolControlOrganizer.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCoolCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCoolToolBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCRCChk.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCsvFile.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeBackgroundPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeCaptionPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeCommandsPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeCoolControlsPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeInstanceManagerPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeIntelliMousePage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeManager.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizePage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeShortkeysPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeSplashWindowPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeTabbedMDIPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeToolbarsPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeTrayIconPage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXCustomizeWorkspaceStatePage.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDao.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDateTimeCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDckPPg.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDckPSh.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDFlHdr.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\Oxdib.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDirDlg.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDlgBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDLLManager.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\oxdocktabctrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDocTemplateSpy.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDragDockContext.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXDragDropCommands.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXEditList.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFileChanger.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFileWatcher.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFileWatchNotifier.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFolderPickerDlg.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFontComboBox.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFontPickerButton.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFrameWndDock.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXFullScreenFrame.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXGphFle.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXGraphics.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\oxgridedit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXGridHdr.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXGridList.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHashTable.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHistoryCombo.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHistoryCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHookWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHTMLParser.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHyperbar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHyperBarOverlay.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHyperBarRender.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHyperFrameWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXHyperLinkAction.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXImageListBox.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXImageViewer.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXInstanceManager.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXInteger.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXIntelliMouse.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXIPEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXItemTip.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXItemTipWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXIteratorRegistryItem.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXIteratorService.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXIteratorUNC.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXJPGCod.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXJPGCom.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXJPGDom.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXJPGExp.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXJPGFle.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXLayoutManager.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXListBoxEx.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXListEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXMaskedEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXMDIFloatWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXMenuBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXMetaFile.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXMonthCalCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXMulticlipboardDlg.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXMultiComboBox.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXNetBrowseTree.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXNotesEditView.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXOptionTreeCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXParser.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXPhysicalEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXPhysicalEditEx.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXPopupBarCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXPreviewDialog.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXProcess.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXPropertiesWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXPropertyDescriptionPane.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXPropertyTree.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXQuickString.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRectTracker.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRegExpression.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRegistryItem.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRegistryValFile.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRegistryWatcher.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRegistryWatchNotifier.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXResourceFile.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXResourceLibrary.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRollup.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRoundedButton.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXRulerOrganizer.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXScreenGrab.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXScript.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXScrollTip.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXScrollTipOwner.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXScrollWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSeparator.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXService.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShape.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShdWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShellFolderTree.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShellNamespaceNavigator.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShellObjectList.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShortcut.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShortcutBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXShortkeysOrganizer.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSizeCtrlBar.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSizeDlgBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSizeDockBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSizeToolBar.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSkinnedComboBox.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSkinnedSpinCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSkinnedTabCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSkins.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSound.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSoundCustomizeDlg.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSoundEffectManager.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSoundWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSpinCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSplashWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSplashWndDIB.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSplitterColRowState.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSplitterRect.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSplitterWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXStatic.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXStaticHyperLink.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXStaticText.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSysInfo.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXSzMiniDockFrmWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTabClientWnd.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTabView.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTaskbarIcon.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTleBar.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXToolTipCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTrace.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTreeCal.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTreeCombo.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTreeCtrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTreeEdit.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTreeHeader.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXTreeItem.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXUNC.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXUNCStandardActor.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXURL.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXUsertl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXUUDec.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXUxTheme.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXWABook.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXWatchedDir.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\oxwebctrl.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\OXWorkspaceState.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\Oxzoomvw.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\Path.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\PATHITER.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\PROGRESS.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\UTBStrOp.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\WATCHBUF.CPP"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\Xstatus4.cpp"
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\source\XSTRING.CPP"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Jsy\LOCALS~1\Temp\RSP66.tmp" 
+Creating temporary file "C:\DOCUME~1\Jsy\LOCALS~1\Temp\RSP67.tmp" with contents
+[
+/nologo /MDd /W4 /Gm /GX /ZI /Od /I "..\..\Include" /I "..\..\Lib\Jpeg" /I "..\..\Lib\Jpeg\Jpegsrc6" /I "..\..\Lib\Processor\Intel\CPUINF32" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /Fp"DebugMFCShared/UTStaticLib.pch" /Yc"stdafx.h" /Fo"DebugMFCShared/" /Fd"DebugMFCShared/" /FD /c 
+"C:\Documents and Settings\Jsy\바탕 화면\새 폴더\lib\Build Libs\stdafx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Jsy\LOCALS~1\Temp\RSP67.tmp" 
+Creating temporary file "C:\DOCUME~1\Jsy\LOCALS~1\Temp\RSP68.tmp" with contents
+[
+/nologo /out:"..\libs\UTLibShared_vc6d.lib" 
+".\DebugMFCShared\CONVFILE.OBJ"
+".\DebugMFCShared\COPYTREE.OBJ"
+".\DebugMFCShared\CPYSTDLG.OBJ"
+".\DebugMFCShared\DIR.OBJ"
+".\DebugMFCShared\DIRLIST.OBJ"
+".\DebugMFCShared\DSTRLIST.OBJ"
+".\DebugMFCShared\EVNTLOG.OBJ"
+".\DebugMFCShared\FILE.OBJ"
+".\DebugMFCShared\FILELIST.OBJ"
+".\DebugMFCShared\MDELDLG.OBJ"
+".\DebugMFCShared\MFCToolBar.obj"
+".\DebugMFCShared\OX3DTabView.obj"
+".\DebugMFCShared\OXActiveDesktop.obj"
+".\DebugMFCShared\OXAdvancedAssert.obj"
+".\DebugMFCShared\OXAdvancedAssertMail.obj"
+".\DebugMFCShared\OXAppBar.obj"
+".\DebugMFCShared\OXAutoComplete.obj"
+".\DebugMFCShared\OXAutoListBox.obj"
+".\DebugMFCShared\OXBackgroundPainter.obj"
+".\DebugMFCShared\OXBITBUF.OBJ"
+".\DebugMFCShared\OXBitmapButton.obj"
+".\DebugMFCShared\OXBitmapMenu.obj"
+".\DebugMFCShared\OXBitmapMenuOrganizer.obj"
+".\DebugMFCShared\OXBMPFilePickerCombo.obj"
+".\DebugMFCShared\OXBMPFle.obj"
+".\DebugMFCShared\OXBrowseColorEdit.obj"
+".\DebugMFCShared\OXBrowseDirEdit.obj"
+".\DebugMFCShared\OXBrowseDirEditList.obj"
+".\DebugMFCShared\OXButtonAppearanceDlg.obj"
+".\DebugMFCShared\OXCalculatorCtrl.obj"
+".\DebugMFCShared\OXCalculatorEdit.obj"
+".\DebugMFCShared\OXCalendar.obj"
+".\DebugMFCShared\OXCalendarEdit.obj"
+".\DebugMFCShared\OXCalendarPopup.obj"
+".\DebugMFCShared\OXCaptionPainter.obj"
+".\DebugMFCShared\OXChildFrameState.obj"
+".\DebugMFCShared\OXClipPocket.obj"
+".\DebugMFCShared\OXCMPFL.OBJ"
+".\DebugMFCShared\OXColorPickerButton.obj"
+".\DebugMFCShared\OXColorPickerCtrl.obj"
+".\DebugMFCShared\OXComboPickerCtrl.obj"
+".\DebugMFCShared\OXCOMPR.OBJ"
+".\DebugMFCShared\OXContextHelpDialog.obj"
+".\DebugMFCShared\OXContextHelpPropertyPage.obj"
+".\DebugMFCShared\OXContextHelpPropertySheet.obj"
+".\DebugMFCShared\OXCoolBar.obj"
+".\DebugMFCShared\OXCoolComboBox.obj"
+".\DebugMFCShared\OXCoolControlOrganizer.obj"
+".\DebugMFCShared\OXCoolCtrl.obj"
+".\DebugMFCShared\OXCoolToolBar.obj"
+".\DebugMFCShared\OXCRCChk.obj"
+".\DebugMFCShared\OXCsvFile.obj"
+".\DebugMFCShared\OXCustomizeBackgroundPage.obj"
+".\DebugMFCShared\OXCustomizeCaptionPage.obj"
+".\DebugMFCShared\OXCustomizeCommandsPage.obj"
+".\DebugMFCShared\OXCustomizeCoolControlsPage.obj"
+".\DebugMFCShared\OXCustomizeInstanceManagerPage.obj"
+".\DebugMFCShared\OXCustomizeIntelliMousePage.obj"
+".\DebugMFCShared\OXCustomizeManager.obj"
+".\DebugMFCShared\OXCustomizePage.obj"
+".\DebugMFCShared\OXCustomizeShortkeysPage.obj"
+".\DebugMFCShared\OXCustomizeSplashWindowPage.obj"
+".\DebugMFCShared\OXCustomizeTabbedMDIPage.obj"
+".\DebugMFCShared\OXCustomizeToolbarsPage.obj"
+".\DebugMFCShared\OXCustomizeTrayIconPage.obj"
+".\DebugMFCShared\OXCustomizeWorkspaceStatePage.obj"
+".\DebugMFCShared\OXDao.obj"
+".\DebugMFCShared\OXDateTimeCtrl.obj"
+".\DebugMFCShared\OXDckPPg.obj"
+".\DebugMFCShared\OXDckPSh.obj"
+".\DebugMFCShared\OXDFlHdr.obj"
+".\DebugMFCShared\Oxdib.obj"
+".\DebugMFCShared\OXDirDlg.obj"
+".\DebugMFCShared\OXDlgBar.obj"
+".\DebugMFCShared\OXDLLManager.obj"
+".\DebugMFCShared\oxdocktabctrl.obj"
+".\DebugMFCShared\OXDocTemplateSpy.obj"
+".\DebugMFCShared\OXDragDockContext.obj"
+".\DebugMFCShared\OXDragDropCommands.obj"
+".\DebugMFCShared\OXEdit.obj"
+".\DebugMFCShared\OXEditList.obj"
+".\DebugMFCShared\OXFileChanger.obj"
+".\DebugMFCShared\OXFileWatcher.obj"
+".\DebugMFCShared\OXFileWatchNotifier.obj"
+".\DebugMFCShared\OXFolderPickerDlg.obj"
+".\DebugMFCShared\OXFontComboBox.obj"
+".\DebugMFCShared\OXFontPickerButton.obj"
+".\DebugMFCShared\OXFrameWndDock.obj"
+".\DebugMFCShared\OXFullScreenFrame.obj"
+".\DebugMFCShared\OXGphFle.obj"
+".\DebugMFCShared\OXGraphics.obj"
+".\DebugMFCShared\oxgridedit.obj"
+".\DebugMFCShared\OXGridHdr.obj"
+".\DebugMFCShared\OXGridList.obj"
+".\DebugMFCShared\OXHashTable.obj"
+".\DebugMFCShared\OXHistoryCombo.obj"
+".\DebugMFCShared\OXHistoryCtrl.obj"
+".\DebugMFCShared\OXHookWnd.obj"
+".\DebugMFCShared\OXHTMLParser.obj"
+".\DebugMFCShared\OXHyperbar.obj"
+".\DebugMFCShared\OXHyperBarOverlay.obj"
+".\DebugMFCShared\OXHyperBarRender.obj"
+".\DebugMFCShared\OXHyperFrameWnd.obj"
+".\DebugMFCShared\OXHyperLinkAction.obj"
+".\DebugMFCShared\OXImageListBox.obj"
+".\DebugMFCShared\OXImageViewer.obj"
+".\DebugMFCShared\OXInstanceManager.obj"
+".\DebugMFCShared\OXInteger.obj"
+".\DebugMFCShared\OXIntelliMouse.obj"
+".\DebugMFCShared\OXIPEdit.obj"
+".\DebugMFCShared\OXItemTip.obj"
+".\DebugMFCShared\OXItemTipWnd.obj"
+".\DebugMFCShared\OXIteratorRegistryItem.obj"
+".\DebugMFCShared\OXIteratorService.obj"
+".\DebugMFCShared\OXIteratorUNC.obj"
+".\DebugMFCShared\OXJPGCod.obj"
+".\DebugMFCShared\OXJPGCom.obj"
+".\DebugMFCShared\OXJPGDom.obj"
+".\DebugMFCShared\OXJPGExp.obj"
+".\DebugMFCShared\OXJPGFle.obj"
+".\DebugMFCShared\OXLayoutManager.obj"
+".\DebugMFCShared\OXListBoxEx.obj"
+".\DebugMFCShared\OXListEdit.obj"
+".\DebugMFCShared\OXMaskedEdit.obj"
+".\DebugMFCShared\OXMDIFloatWnd.obj"
+".\DebugMFCShared\OXMenuBar.obj"
+".\DebugMFCShared\OXMetaFile.obj"
+".\DebugMFCShared\OXMonthCalCtrl.obj"
+".\DebugMFCShared\OXMulticlipboardDlg.obj"
+".\DebugMFCShared\OXMultiComboBox.obj"
+".\DebugMFCShared\OXNetBrowseTree.obj"
+".\DebugMFCShared\OXNotesEditView.obj"
+".\DebugMFCShared\OXOptionTreeCtrl.obj"
+".\DebugMFCShared\OXParser.obj"
+".\DebugMFCShared\OXPhysicalEdit.obj"
+".\DebugMFCShared\OXPhysicalEditEx.obj"
+".\DebugMFCShared\OXPopupBarCtrl.obj"
+".\DebugMFCShared\OXPreviewDialog.obj"
+".\DebugMFCShared\OXProcess.obj"
+".\DebugMFCShared\OXPropertiesWnd.obj"
+".\DebugMFCShared\OXPropertyDescriptionPane.obj"
+".\DebugMFCShared\OXPropertyTree.obj"
+".\DebugMFCShared\OXQuickString.obj"
+".\DebugMFCShared\OXRectTracker.obj"
+".\DebugMFCShared\OXRegExpression.obj"
+".\DebugMFCShared\OXRegistryItem.obj"
+".\DebugMFCShared\OXRegistryValFile.obj"
+".\DebugMFCShared\OXRegistryWatcher.obj"
+".\DebugMFCShared\OXRegistryWatchNotifier.obj"
+".\DebugMFCShared\OXResourceFile.obj"
+".\DebugMFCShared\OXResourceLibrary.obj"
+".\DebugMFCShared\OXRollup.obj"
+".\DebugMFCShared\OXRoundedButton.obj"
+".\DebugMFCShared\OXRulerOrganizer.obj"
+".\DebugMFCShared\OXScreenGrab.obj"
+".\DebugMFCShared\OXScript.obj"
+".\DebugMFCShared\OXScrollTip.obj"
+".\DebugMFCShared\OXScrollTipOwner.obj"
+".\DebugMFCShared\OXScrollWnd.obj"
+".\DebugMFCShared\OXSeparator.obj"
+".\DebugMFCShared\OXService.obj"
+".\DebugMFCShared\OXShape.obj"
+".\DebugMFCShared\OXShdWnd.obj"
+".\DebugMFCShared\OXShellFolderTree.obj"
+".\DebugMFCShared\OXShellNamespaceNavigator.obj"
+".\DebugMFCShared\OXShellObjectList.obj"
+".\DebugMFCShared\OXShortcut.obj"
+".\DebugMFCShared\OXShortcutBar.obj"
+".\DebugMFCShared\OXShortkeysOrganizer.obj"
+".\DebugMFCShared\OXSizeCtrlBar.obj"
+".\DebugMFCShared\OXSizeDlgBar.obj"
+".\DebugMFCShared\OXSizeDockBar.obj"
+".\DebugMFCShared\OXSizeToolBar.obj"
+".\DebugMFCShared\OXSkinnedComboBox.obj"
+".\DebugMFCShared\OXSkinnedSpinCtrl.obj"
+".\DebugMFCShared\OXSkinnedTabCtrl.obj"
+".\DebugMFCShared\OXSkins.obj"
+".\DebugMFCShared\OXSound.obj"
+".\DebugMFCShared\OXSoundCustomizeDlg.obj"
+".\DebugMFCShared\OXSoundEffectManager.obj"
+".\DebugMFCShared\OXSoundWnd.obj"
+".\DebugMFCShared\OXSpinCtrl.obj"
+".\DebugMFCShared\OXSplashWnd.obj"
+".\DebugMFCShared\OXSplashWndDIB.obj"
+".\DebugMFCShared\OXSplitterColRowState.obj"
+".\DebugMFCShared\OXSplitterRect.obj"
+".\DebugMFCShared\OXSplitterWnd.obj"
+".\DebugMFCShared\OXStatic.obj"
+".\DebugMFCShared\OXStaticHyperLink.obj"
+".\DebugMFCShared\OXStaticText.obj"
+".\DebugMFCShared\OXSysInfo.obj"
+".\DebugMFCShared\OXSzMiniDockFrmWnd.obj"
+".\DebugMFCShared\OXTabClientWnd.obj"
+".\DebugMFCShared\OXTabView.obj"
+".\DebugMFCShared\OXTaskbarIcon.obj"
+".\DebugMFCShared\OXTleBar.obj"
+".\DebugMFCShared\OXToolTipCtrl.obj"
+".\DebugMFCShared\OXTrace.obj"
+".\DebugMFCShared\OXTreeCal.obj"
+".\DebugMFCShared\OXTreeCombo.obj"
+".\DebugMFCShared\OXTreeCtrl.obj"
+".\DebugMFCShared\OXTreeEdit.obj"
+".\DebugMFCShared\OXTreeHeader.obj"
+".\DebugMFCShared\OXTreeItem.obj"
+".\DebugMFCShared\OXUNC.obj"
+".\DebugMFCShared\OXUNCStandardActor.obj"
+".\DebugMFCShared\OXURL.obj"
+".\DebugMFCShared\OXUsertl.obj"
+".\DebugMFCShared\OXUUDec.obj"
+".\DebugMFCShared\OXUxTheme.obj"
+".\DebugMFCShared\OXWABook.obj"
+".\DebugMFCShared\OXWatchedDir.obj"
+".\DebugMFCShared\oxwebctrl.obj"
+".\DebugMFCShared\OXWorkspaceState.obj"
+".\DebugMFCShared\Oxzoomvw.obj"
+".\DebugMFCShared\Path.obj"
+".\DebugMFCShared\PATHITER.OBJ"
+".\DebugMFCShared\PROGRESS.OBJ"
+".\DebugMFCShared\UTBStrOp.obj"
+".\DebugMFCShared\WATCHBUF.OBJ"
+".\DebugMFCShared\Xstatus4.obj"
+".\DebugMFCShared\XSTRING.OBJ"
+".\DebugMFCShared\stdafx.obj"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\Jsy\LOCALS~1\Temp\RSP68.tmp"
+<h3>Output Window</h3>
+Compiling...
+stdafx.cpp
+Compiling...
+CONVFILE.CPP
+COPYTREE.CPP
+CPYSTDLG.CPP
+DIR.CPP
+DIRLIST.CPP
+DSTRLIST.CPP
+EVNTLOG.CPP
+FILE.CPP
+FILELIST.CPP
+MDELDLG.CPP
+MFCToolBar.cpp
+OX3DTabView.cpp
+OXActiveDesktop.cpp
+OXAdvancedAssert.cpp
+OXAdvancedAssertMail.cpp
+OXAppBar.cpp
+OXAutoComplete.cpp
+OXAutoListBox.cpp
+OXBackgroundPainter.cpp
+OXBITBUF.CPP
+Generating Code...
+Compiling...
+OXBitmapButton.cpp
+OXBitmapMenu.cpp
+OXBitmapMenuOrganizer.cpp
+OXBMPFilePickerCombo.cpp
+OXBMPFle.cpp
+OXBrowseColorEdit.cpp
+OXBrowseDirEdit.cpp
+OXBrowseDirEditList.cpp
+OXButtonAppearanceDlg.cpp
+OXCalculatorCtrl.cpp
+OXCalculatorEdit.cpp
+OXCalendar.cpp
+OXCalendarEdit.cpp
+OXCalendarPopup.cpp
+OXCaptionPainter.cpp
+OXChildFrameState.cpp
+OXClipPocket.cpp
+OXCMPFL.CPP
+OXColorPickerButton.cpp
+OXColorPickerCtrl.cpp
+Generating Code...
+Compiling...
+OXComboPickerCtrl.cpp
+OXCOMPR.CPP
+OXContextHelpDialog.cpp
+OXContextHelpPropertyPage.cpp
+OXContextHelpPropertySheet.cpp
+OXCoolBar.cpp
+OXCoolComboBox.cpp
+OXCoolControlOrganizer.cpp
+OXCoolCtrl.cpp
+OXCoolToolBar.cpp
+OXCRCChk.CPP
+OXCsvFile.cpp
+OXCustomizeBackgroundPage.cpp
+OXCustomizeCaptionPage.cpp
+OXCustomizeCommandsPage.cpp
+OXCustomizeCoolControlsPage.cpp
+OXCustomizeInstanceManagerPage.cpp
+OXCustomizeIntelliMousePage.cpp
+OXCustomizeManager.cpp
+OXCustomizePage.cpp
+Generating Code...
+Compiling...
+OXCustomizeShortkeysPage.cpp
+OXCustomizeSplashWindowPage.cpp
+OXCustomizeTabbedMDIPage.cpp
+OXCustomizeToolbarsPage.cpp
+OXCustomizeTrayIconPage.cpp
+OXCustomizeWorkspaceStatePage.cpp
+OXDao.cpp
+OXDateTimeCtrl.cpp
+OXDckPPg.cpp
+OXDckPSh.cpp
+OXDFlHdr.cpp
+Oxdib.cpp
+OXDirDlg.cpp
+OXDlgBar.cpp
+OXDLLManager.cpp
+oxdocktabctrl.cpp
+OXDocTemplateSpy.cpp
+OXDragDockContext.CPP
+OXDragDropCommands.cpp
+OXEdit.cpp
+Generating Code...
+Compiling...
+OXEditList.cpp
+OXFileChanger.cpp
+OXFileWatcher.cpp
+OXFileWatchNotifier.cpp
+OXFolderPickerDlg.cpp
+OXFontComboBox.cpp
+OXFontPickerButton.cpp
+OXFrameWndDock.CPP
+OXFullScreenFrame.cpp
+OXGphFle.cpp
+OXGraphics.cpp
+oxgridedit.cpp
+OXGridHdr.cpp
+OXGridList.cpp
+OXHashTable.cpp
+OXHistoryCombo.cpp
+OXHistoryCtrl.cpp
+OXHookWnd.cpp
+OXHTMLParser.cpp
+OXHyperbar.cpp
+Generating Code...
+Compiling...
+OXHyperBarOverlay.cpp
+OXHyperBarRender.cpp
+OXHyperFrameWnd.cpp
+OXHyperLinkAction.cpp
+OXImageListBox.cpp
+OXImageViewer.cpp
+OXInstanceManager.cpp
+OXInteger.cpp
+OXIntelliMouse.cpp
+OXIPEdit.cpp
+OXItemTip.cpp
+OXItemTipWnd.cpp
+OXIteratorRegistryItem.cpp
+OXIteratorService.cpp
+OXIteratorUNC.cpp
+OXJPGCod.cpp
+OXJPGCom.cpp
+OXJPGDom.cpp
+OXJPGExp.cpp
+OXJPGFle.cpp
+Generating Code...
+Compiling...
+OXLayoutManager.cpp
+OXListBoxEx.cpp
+OXListEdit.cpp
+OXMaskedEdit.cpp
+OXMDIFloatWnd.cpp
+OXMenuBar.cpp
+OXMetaFile.cpp
+OXMonthCalCtrl.cpp
+OXMulticlipboardDlg.cpp
+OXMultiComboBox.cpp
+OXNetBrowseTree.cpp
+OXNotesEditView.cpp
+OXOptionTreeCtrl.cpp
+OXParser.cpp
+OXPhysicalEdit.cpp
+OXPhysicalEditEx.cpp
+OXPopupBarCtrl.cpp
+OXPreviewDialog.cpp
+OXProcess.cpp
+OXPropertiesWnd.cpp
+Generating Code...
+Compiling...
+OXPropertyDescriptionPane.cpp
+OXPropertyTree.cpp
+OXQuickString.cpp
+OXRectTracker.cpp
+OXRegExpression.cpp
+OXRegistryItem.cpp
+OXRegistryValFile.cpp
+OXRegistryWatcher.cpp
+OXRegistryWatchNotifier.cpp
+OXResourceFile.cpp
+OXResourceLibrary.cpp
+OXRollup.CPP
+OXRoundedButton.cpp
+OXRulerOrganizer.cpp
+OXScreenGrab.cpp
+OXScript.cpp
+OXScrollTip.cpp
+OXScrollTipOwner.cpp
+OXScrollWnd.cpp
+OXSeparator.cpp
+Generating Code...
+Compiling...
+OXService.cpp
+OXShape.cpp
+OXShdWnd.cpp
+OXShellFolderTree.cpp
+OXShellNamespaceNavigator.cpp
+OXShellObjectList.cpp
+OXShortcut.cpp
+OXShortcutBar.cpp
+OXShortkeysOrganizer.cpp
+OXSizeCtrlBar.CPP
+OXSizeDlgBar.cpp
+OXSizeDockBar.cpp
+oxsizedlgbar.cpp line 84 : VS 2003 may need this symbol defined
+OXSizeToolBar.cpp
+OXSkinnedComboBox.cpp
+OXSkinnedSpinCtrl.cpp
+OXSkinnedTabCtrl.cpp
+OXSkins.cpp
+OXSound.cpp
+OXSoundCustomizeDlg.cpp
+OXSoundEffectManager.cpp
+Generating Code...
+Compiling...
+OXSoundWnd.cpp
+OXSpinCtrl.cpp
+OXSplashWnd.cpp
+OXSplashWndDIB.cpp
+OXSplitterColRowState.cpp
+OXSplitterRect.cpp
+OXSplitterWnd.cpp
+OXStatic.cpp
+OXStaticHyperLink.cpp
+OXStaticText.cpp
+OXSysInfo.cpp
+OXSzMiniDockFrmWnd.cpp
+OXTabClientWnd.cpp
+OXTabView.cpp
+OXTaskbarIcon.cpp
+OXTleBar.CPP
+OXToolTipCtrl.cpp
+OXTrace.cpp
+OXTreeCal.cpp
+OXTreeCombo.cpp
+Generating Code...
+Compiling...
+OXTreeCtrl.cpp
+OXTreeEdit.cpp
+OXTreeHeader.cpp
+OXTreeItem.cpp
+OXUNC.cpp
+OXUNCStandardActor.cpp
+OXURL.cpp
+OXUsertl.cpp
+OXUUDec.cpp
+OXUxTheme.cpp
+OXWABook.cpp
+OXWatchedDir.cpp
+oxwebctrl.cpp
+OXWorkspaceState.cpp
+Oxzoomvw.cpp
+Path.cpp
+PATHITER.CPP
+PROGRESS.CPP
+UTBStrOp.cpp
+WATCHBUF.CPP
+Generating Code...
+Compiling...
+Xstatus4.cpp
+XSTRING.CPP
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+UTLibShared_vc6d.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{b6d28942-a68a-4065-8e40-34bbb4ac0707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{0b517baf-9548-44d7-9e8d-adde5776c2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{efc7bec5-e0c5-476c-981e-abf0b940ca54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Function">
+      <UniqueIdentifier>{580e14c8-7a36-4caf-85e4-476c4e31846d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{98a1d801-eb28-427c-a5ce-63383ebf351d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtCallBack.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCustomMeshStream.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtDepth.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMaterial.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtMeshStream.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTexture.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="EtDevice.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="EtStateManager.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="EtOcclusionQuery.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSystemFont.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EtCallBack.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtCustomMeshStream.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtDepth.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMaterial.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtMeshStream.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtTexture.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="EtD3DDevice9.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtDevice.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtStateManager.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EtOcclusionQuery.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSystemFont.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\AmbientMap.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\BakeDepth.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\BakeTerrainLightMap.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\BenchMark.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\BloomFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\CalcBlendBone.fxh">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\CalcFog.fxh">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\CalcLight.fxh">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\CalcNormalMap.fxh">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\CalcShadow.fxh">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\ColorAdjustFilter2.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\ColorAdjustTexFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Decal.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Default.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Diffuse.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseAvatar.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseAvatarFace.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseAvatarFaceTatoo.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseCustomColor.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseEmissive.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseEmissiveCustomColor.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseEmissiveSphericalMap.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseEmissiveUVScroll.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseEmissiveVolumeTex.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseInstancing.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseSphericalMap.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseUVScroll.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseUVScrollTiling.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DiffuseVolumeTex.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\DOFFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Flat.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\GaussianFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Grass.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\HeatHazeFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LayeredCliffTerrain.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LayeredCliffTerrainLow.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LayeredCliffTerrainOpti.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LayeredTerrain.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LayeredTerrainOpti.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LensFlare.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LightShaftFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LineTrail.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\LowDetailTerrain.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\MaterialColor.fxh">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Minimap.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\MotionBlurFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\NormalSpecular.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\NormalSpecularReflect.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\OutlineFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Particle.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\RadialBlurFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\RainDropSplash.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Rainfall.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Shadow.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\SkyBox.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\SkyBoxAni.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\SkyBoxAurora.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\SkyBoxCloud.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Snowfall.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Specular.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\SwordTrail.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\VolumeFog.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\Water.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\WaterColorFilter.fx">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

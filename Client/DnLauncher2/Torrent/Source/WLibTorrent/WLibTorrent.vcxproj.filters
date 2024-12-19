@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="WLibTorrent">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="libTorrent">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="libTorrent\kademlia">
+      <UniqueIdentifier>{94e6b91a-bc9c-4b69-a79e-958b54fe4304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zlib">
+      <UniqueIdentifier>{c7801dcc-3140-4547-a932-b92ee62822d2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WLibTorrent.cpp">
+      <Filter>WLibTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\alert.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\allocator.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\assert.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\broadcast_socket.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\bt_peer_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\connection_queue.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ConvertUTF.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\create_torrent.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\disk_buffer_holder.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\disk_io_thread.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\entry.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\enum_net.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\error_code.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\escape_string.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\file.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\file_pool.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\file_storage.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\GeoIP.c">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\gzip.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_parser.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_seed_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_stream.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\http_tracker_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\identify_client.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\instantiate_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ip_filter.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\lazy_bdecode.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\logger.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\lsd.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\lt_trackers.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\magnet_uri.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\metadata_transfer.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\natpmp.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\parse_url.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\pe_crypto.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\peer_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\piece_picker.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\policy.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\session.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\session_impl.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\sha1.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\smart_ban.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\socks5_stream.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\stat.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\storage.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\torrent.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\torrent_handle.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\torrent_info.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\tracker_manager.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\udp_socket.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\udp_tracker_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\upnp.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ut_metadata.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\ut_pex.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\web_peer_connection.cpp">
+      <Filter>libTorrent</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\closest_nodes.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\dht_tracker.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\find_data.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\node.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\node_id.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\refresh.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\routing_table.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\rpc_manager.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\src\kademlia\traversal_algorithm.cpp">
+      <Filter>libTorrent\kademlia</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\adler32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\compress.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\crc32.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\deflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\gzio.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\infback.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inffast.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inflate.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inftrees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\trees.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\uncompr.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zutil.c">
+      <Filter>zlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WLibTorrent.h">
+      <Filter>WLibTorrent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\crc32.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\deflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inffast.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inffixed.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inflate.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\inftrees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\trees.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zconf.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zlib.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libtorrent-rasterbar-0.15.9\zlib\zutil.h">
+      <Filter>zlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TorrentTest", "TorrentTest.vcproj", "{E606D2B1-C797-4127-82CB-3A65C5123A89}"
+	ProjectSection(ProjectDependencies) = postProject
+		{556DA4C8-3320-4235-A76A-49AF148D4D9B} = {556DA4C8-3320-4235-A76A-49AF148D4D9B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WLibTorrent", "..\WLibTorrent\WLibTorrent.vcproj", "{556DA4C8-3320-4235-A76A-49AF148D4D9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E606D2B1-C797-4127-82CB-3A65C5123A89}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E606D2B1-C797-4127-82CB-3A65C5123A89}.Debug|Win32.Build.0 = Debug|Win32
+		{E606D2B1-C797-4127-82CB-3A65C5123A89}.Release|Win32.ActiveCfg = Release|Win32
+		{E606D2B1-C797-4127-82CB-3A65C5123A89}.Release|Win32.Build.0 = Release|Win32
+		{556DA4C8-3320-4235-A76A-49AF148D4D9B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{556DA4C8-3320-4235-A76A-49AF148D4D9B}.Debug|Win32.Build.0 = Debug|Win32
+		{556DA4C8-3320-4235-A76A-49AF148D4D9B}.Release|Win32.ActiveCfg = Release|Win32
+		{556DA4C8-3320-4235-A76A-49AF148D4D9B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

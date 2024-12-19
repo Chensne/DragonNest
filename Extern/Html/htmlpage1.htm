@@ -1,0 +1,217 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+     function AddChannel(channelID, name) {
+        return;
+        var sTable = document.getElementById("sTable");
+        var trChannel = document.getElementById("trChannel");
+        var tdChannel = trChannel.insertCell(trChannel.cells.length);
+        tdChannel.setAttribute("vAlign", "top");
+
+        if (trChannel.cells.length == 0)
+            tdWidth = 100;
+        else {
+            tdWidth = 100 / trChannel.cells.length;
+            for (i = 0; i < trChannel.cells.length; i++) {
+                trChannel.cells(i).setAttribute("width", tdWidth + '%');
+            }
+        }
+        tdChannel.setAttribute("width", tdWidth + '%');
+
+        var table = document.createElement("table");
+        table.id = "channe_" + channelID;
+        table.setAttribute("border", "1");
+        table.style.width = '100%';
+
+        var table_tr = table.insertRow(0);
+        var table_tr_td = table_tr.insertCell(0);
+        table_tr_td.id = table.id + "_" + channelID;
+
+        table_tr_td.setAttribute("colSpan", "2");
+        table_tr_td.setAttribute("align", "center");
+
+        var span = document.createElement("span");
+        span.innerText = name
+
+        var btn = document.createElement("button");
+        btn.value = name;
+
+        table_tr_td.appendChild(span);
+        tdChannel.appendChild(table);
+    }
+
+    function UpdateServer(channelID, serverID, connectGubun) {
+        var liServer = document.getElementById("server_" + channelID + "_" + serverID);
+
+        if (liServer == null) {
+            alert("??? ?? ? ????.");
+            return;
+        }
+
+        var htmlConnectGubun = "";
+
+        if (connectGubun == "1")
+            htmlConnectGubun = "normal";
+        else if (connectGubun == "2")
+            htmlConnectGubun = "smooth";
+        else if (connectGubun == "3")
+            htmlConnectGubun = "busy";
+        else if (connectGubun == "0")
+            htmlConnectGubun = "maintain";
+
+		liServer.className = htmlConnectGubun;
+    }
+
+    function AddSever(channelID, serverID, name, connectGubun, newServer, preSelServer) {
+        var tbChannel = document.getElementById("channel_" + channelID);
+        if (tbChannel == null) {
+            alert("??? ?? ? ????.");
+            return;
+        }
+
+        var htmlConnectGubun = "";
+        var htmlPreSelServer = "";
+		var htmlNewServer = "";
+
+        if (connectGubun == "1")
+            htmlConnectGubun = "normal";
+        else if (connectGubun == "2")
+            htmlConnectGubun = "smooth";
+        else if (connectGubun == "3")
+            htmlConnectGubun = "busy";
+        else if (connectGubun == "0")
+            htmlConnectGubun = "maintain";
+
+        if (newServer == "1")
+            htmlNewServer = "new";
+
+        var liServer = document.createElement("li");
+        liServer.id = "server_" + channelID + "_" + serverID;
+
+        if (preSelServer == "1") {
+            htmlPreSelServer = "selected";
+            selectServer(channelID, serverID, name);
+        }
+		liServer.className = htmlConnectGubun;
+        
+		var name2 = ByteLength(name);
+		var liServer_TagA = document.createElement("a");
+		liServer_TagA.className =  htmlPreSelServer + htmlNewServer;
+		liServer_TagA.id = "server_" + channelID + "_" + serverID+ "_a";
+
+		if(navigator.appVersion.indexOf("MSIE 6") >= 0 || navigator.appVersion.indexOf("MSIE 7") >= 0){
+			if(ByteLength(name) > 5) {
+				liServer_TagA.style.setAttribute("height", "36px");
+				liServer_TagA.style.setAttribute("line-height", "17px");
+				liServer_TagA.style.setAttribute("padding", "8px 5px 0 24px");
+			} else {
+				liServer_TagA.style.setAttribute("height", "30px");
+				liServer_TagA.style.setAttribute("line-height", "38px");
+				liServer_TagA.style.setAttribute("padding", "14px 3px 0 24px");
+			}
+		} else {
+			if(ByteLength(name) > 5)
+				liServer_TagA.setAttribute("style","height:41px;line-height:17px;padding:3px 5px 0 24px;");
+			else
+				liServer_TagA.setAttribute("style","height:44px;line-height:38px;padding:0 3px 0 24px;");
+		}
+
+		liServer_TagA.setAttribute('href', "#");
+		liServer_TagA.appendChild(document.createTextNode(name));
+//		liServer_TagA.setAttribute("onClick", "javascript:selectServer('"+channelID+"', '"+serverID+"', '"+name+"')");
+		liServer_TagA.onclick = new Function( "return selectServer('"+channelID+"', '"+serverID+"', '"+name+"');" );
+        liServer.appendChild(liServer_TagA);
+        tbChannel.appendChild(liServer);
+        return;
+    }
+
+    var selchannelID = 0;
+    var selServerID = 0;
+    var selServerName = "";
+
+    function selectServer(channelID, serverID, serverName) {
+        var oldliServer = document.getElementById("server_" + selchannelID + "_" + selServerID + "_a");
+
+        if (oldliServer != null) {
+			if(oldliServer.className == "selected")
+				oldliServer.className = "";
+			else if(oldliServer.className == "selectednew")
+				oldliServer.className = "new";
+		}
+
+        selchannelID = channelID;
+        selServerID = serverID;
+        selServerName = serverName;
+
+        var liServer = document.getElementById("server_" + channelID + "_" + serverID + "_a");
+        if (liServer != null){
+			if(liServer.className == "")
+				liServer.className = "selected";
+			else if(liServer.className == "new")
+				liServer.className = "selectednew";
+		}
+
+        document.getElementById("txtServer").value = serverName;
+        document.getElementById("btnServer").setAttribute("serverID", serverID);
+        document.getElementById("btnServer").setAttribute("channelID", channelID);
+    }
+  
+    function ByteLength(str, limit){
+        var tmpStr = "";
+        var byte_count = 0;
+        var len = str.length;
+        var dot = "";
+
+		var tlen = 0;
+        for(i=0; i<len; i++){
+			if(escape(str.charAt(i)).length > 4)
+				tlen = tlen + 1;
+			else
+				tlen = tlen + 0.5;
+        }
+        return tlen;
+    }
+</script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+<body scroll=auto>
+<div class="wrap" id="Divid">
+    <div class="title">请选择大区</div>
+    <div class="dianxin">
+         <ul class="sev_list" id="channel_1">
+		 </ul>	
+    </div>
+    
+    <div class="wangtong">
+         <ul class="sev_list" id="channel_2"></ul>	
+    </div>
+    
+    <div class="dx_tuijian">
+    	   <ul class="sev_list" id="channel_3"></ul>
+    </div>
+    
+    <div class="wt_tuijian">
+    	   <ul class="sev_list" id="channel_4"></ul>
+    </div>
+    
+    <div class="status">
+    	  <p>当前大区网络连接速度：<span class="bus">繁忙</span><span class="nor">一般</span><span class="smo">流畅</span><span class="mai">维护中</span></p>
+    </div>
+    
+    <div class="choose">
+    	   <div class="choose_input">
+    	   	   <em></em>
+    	   	   <input type="text" class="txt"  id="txtServer" value="" readonly />
+    	   	   <input type="button" id="btnServer" serverID="0" channelID="0" class="btn"/>
+    	   </div>
+    </div>
+</div>
+
+</body>
+</html>

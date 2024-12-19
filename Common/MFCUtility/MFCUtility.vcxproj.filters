@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="XTreme Custom">
+      <UniqueIdentifier>{7c64ea66-19d5-4277-94ef-d1e1c044a409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control">
+      <UniqueIdentifier>{10fb4dd5-cedc-4fbd-b149-467c4cbe205f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Property Variable">
+      <UniqueIdentifier>{f9c22241-2235-4e90-8439-0bb9309c9a72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ETC">
+      <UniqueIdentifier>{10d30ea8-3dd5-4fac-ba12-1b9fb6f8c858}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EditLabelTreeCtrl.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="XTCustomPropertyGridItem.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="XTCustomPropertyGridItemColor.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="XTCustomPropertyGridItemFile.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="XTCustomPropertyGridItemNumber.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="XTCustomPropertyGridItemNumberSlider.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="XTCustomPropertyGridItemVector.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="XTCustomPropertyGridItemVector4Color.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatMiniSlider.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatMiniSliderRange.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniSlider.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniSliderEx.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="NumMiniSlider.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="NumMiniSliderRange.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyGridCreator.cpp">
+      <Filter>Property Variable</Filter>
+    </ClCompile>
+    <ClCompile Include="UnionValueProperty.cpp">
+      <Filter>Property Variable</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EditLabelTreeCtrl.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCustomPropertyGridItem.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCustomPropertyGridItemColor.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCustomPropertyGridItemFile.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCustomPropertyGridItemNumber.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCustomPropertyGridItemNumberSlider.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCustomPropertyGridItemVector.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="XTCustomPropertyGridItemVector4Color.h">
+      <Filter>XTreme Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatMiniSlider.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatMiniSliderRange.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniSlider.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniSliderEx.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="NumMiniSlider.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="NumMiniSliderRange.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGridCreator.h">
+      <Filter>Property Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="UnionValueProperty.h">
+      <Filter>Property Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="UnknownRepository.h">
+      <Filter>ETC</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

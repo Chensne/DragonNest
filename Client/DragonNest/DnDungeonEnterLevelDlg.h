@@ -1,0 +1,95 @@
+#pragma once
+#include "DnCustomDlg.h"
+#include "DnDungeonEnterDlg.h"
+
+class CDnItem;
+
+class CDnDungeonEnterLevelDlg : public CDnCustomDlg
+{
+public:
+	CDnDungeonEnterLevelDlg( UI_DIALOG_TYPE dialogType = UI_TYPE_FOCUS, CEtUIDialog *pParentDialog = NULL, int nID = -1, CEtUICallback *pCallback = NULL );
+	virtual ~CDnDungeonEnterLevelDlg(void);
+
+protected:
+	CEtUITextureControl *m_pTextureDungeonArea;
+	EtTextureHandle m_hIntroArea;
+
+	CEtUIStatic *m_pStaticTimer;
+	CEtUIButton *m_pButtonEnter;
+	CEtUIButton *m_pButtonCancel;
+
+	CEtUIStatic *m_pSelectName;
+	CEtUIStatic *m_pSelectLevel;
+	CEtUIStatic *m_pRecommLevel;
+	CEtUIStatic *m_pRecommCount;
+	CEtUIStatic *m_pMaxUsableCoin;
+	CEtUIStatic *m_pDungeonFatigueDegree;
+	CEtUIStatic *m_pNestClearInfo;
+	CEtUIStatic *m_pBeginnerDungeonFatigueDegree;
+	CEtUIStatic *m_pStaticBeginnerMark;
+
+	int		m_nBeginnerMaxLevel;			// 초심자 인정 MAX레벨
+	int		m_nBaseFatigue;					// 기본 피로도
+	int		m_nBeginnerDecreaseFatigue;		// 초심자 피로도 감소량
+	int		m_nMaxLevelDecreaseFatigue;		// 만렙 캐릭터 보유 피로도 감소량
+
+	std::vector<CEtUIRadioButton*> m_vecDungeonLevelButton;
+	std::vector<int> m_vecRecommandLevel;
+	std::vector<int> m_vecRecommandPartyCount;
+	
+	std::map< int, SUICoord > m_mOriginDifficulyUVPos;
+
+	CDnItem *m_pNeedItem;
+	CDnItemSlotButton *m_pItemSlotButton;
+	CEtUIStatic *m_pNeedItemStatic;
+	CEtUIStatic *m_pNeedItemCount;
+	bool m_bEnoughNeedItem;			// 클라이언트 판단 여부. 자신의 필요아이템만 판단.
+	char m_cDungeonEnterPermit;	// 서버 판단 여부. 파티원의 필요아이템 모두를 판단.
+	int m_nMaxUsableCoinCount;
+	std::vector<DnActorHandle> m_hVecPermitActorList;
+
+	float m_fElapsedTime;
+	int m_nCount;
+	int m_nSelectedLevelIndex;
+	int m_nMapIndex;
+
+#ifdef PRE_FIX_DUNGEONENTER_CLOSE_BY_QUEST
+	bool m_bCloseProcessingByUser;
+#endif
+
+protected:
+	void SetTime( int nTime );
+	void SetControlState();
+
+public:
+	void SetImage( int nMapIndex );
+	virtual void SetSelectDungeonInfo( int nMapIndex, int nDifficult );
+	virtual void SetDungeonName( const wchar_t *wszDungeonName );
+	virtual void SetDungeonDesc( const wchar_t *wszStr ) {}
+	virtual void UpdateLevelButton( char *cState, int nAbyssMinLvl, int nAbyssMaxLvl, int nAbyssNeedQuestID );
+	virtual void UpdateRecommandLevel( std::vector<int> &vecRecommandLevel );
+	virtual void UpdateRecommandPartyCount( std::vector<int> &vecRecommandPartyCount );
+	virtual void UpdateNeedItem( int nItemID, int nCount, char cPermitFlag, std::vector<DnActorHandle> *pVecList );
+	virtual void UpdateMaxUsableCoin( int nMaxUsableCoinCount );
+	virtual void UpdateDungeonInfo( CDnDungeonEnterDlg::SDungeonGateInfo *pInfo );
+	virtual int GetDungeonLevel() { return m_nSelectedLevelIndex; }
+#ifdef PRE_FIX_DUNGEONENTER_CLOSE_BY_QUEST
+	bool IsCloseProcessingByUser() const;
+#endif
+	int GetTableIndex(DNTableFileFormat*  pSox, int nMapIndex, int nDifficult);
+	bool CanEnter(int nDungeonID, int nDifficulty);
+
+#ifdef PRE_MOD_STAGE_EASY_DIFFICULTY_HIDE
+	void ModifyDungeonLevelInfo( int nDifficulty );
+	void RestoreDungeonLevelInfo();
+#endif 
+
+public:
+	virtual void Initialize( bool bShow );
+	virtual void InitialUpdate();
+	virtual void Process( float fElapsedTime );
+	virtual bool MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam );
+	virtual void ProcessCommand( UINT nCommand, bool bTriggeredByUser, CEtUIControl *pControl, UINT uMsg = 0 );
+	virtual void Show( bool bShow );
+	void SetFatigueDegree( int nMapIndex, int nDifficult );
+};

@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ServiceServer">
+      <UniqueIdentifier>{feea16bc-bd7c-4437-bf10-021008d4929f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{f1a544fe-84f6-458d-ba9d-9e265ea56da6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\DataManagerBase">
+      <UniqueIdentifier>{5df7c5ba-87df-4ce0-ae5a-b66ea0a106e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session">
+      <UniqueIdentifier>{6d8b8602-639c-4be3-9209-cfc86859328c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Launcher">
+      <UniqueIdentifier>{fd7d9113-9be1-49cb-b304-f634d764c5fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Service">
+      <UniqueIdentifier>{c3cfe333-820d-4db1-914a-6ac43de78f25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Patcher">
+      <UniqueIdentifier>{730225a6-9fb3-4c70-b28f-eec33cdd6108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\Watcher">
+      <UniqueIdentifier>{4969380d-0c29-4e86-9ee8-13f102298c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session\ServerMonitor">
+      <UniqueIdentifier>{22936547-c837-47fb-a429-378ce10d6e96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{fd65149b-7ec7-4d1d-9818-fa55b4bd5584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\FtpUpdater">
+      <UniqueIdentifier>{9c9622c0-99fe-403f-bcae-b4ff3d048b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\HttpUpdater">
+      <UniqueIdentifier>{5ff71ee6-266a-4a08-9d98-31d81b75d860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\URLUpdater">
+      <UniqueIdentifier>{2521e6b7-3997-4b4b-b597-52bb5e85692d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\ServiceUtil">
+      <UniqueIdentifier>{6bb40a90-f058-4754-baad-95d656521316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\CSVReader">
+      <UniqueIdentifier>{6f03a533-66da-434e-9682-ebbed251a1a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager">
+      <UniqueIdentifier>{f8bf08b2-9d8a-4633-a90c-73080a8e0a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\PatchWatcher">
+      <UniqueIdentifier>{23b00588-41d7-48f9-9757-b412cd9fc194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\ReservedNotice">
+      <UniqueIdentifier>{969c9f00-06d2-4f0f-a998-00259cbc6afc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\ServiceCloser">
+      <UniqueIdentifier>{9227fe74-5f1f-4ead-8354-d837d9931dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\Watcher">
+      <UniqueIdentifier>{100c745c-db52-4a75-8f74-22903527917e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\LivePatcher">
+      <UniqueIdentifier>{0dc27c7b-e36e-4a3b-a911-b2758daf30cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceManager\GSMCmdProcess">
+      <UniqueIdentifier>{52fdd77d-0bbc-4110-a7b9-b489b6d2d222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GSMServer">
+      <UniqueIdentifier>{5a2ac444-6017-48d6-8e02-2040883dadb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GSMServer\SimpleServer">
+      <UniqueIdentifier>{8bf71b8f-06f7-46ae-a822-df733bc00d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{65bf8b8e-6062-409a-ba11-e081dcfcfb5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher">
+      <UniqueIdentifier>{34b32e6b-bc2b-46a9-b8ee-9f8816bee1b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KR">
+      <UniqueIdentifier>{1724d7e4-846e-49c8-b089-3e618be62913}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Common\DNDefine.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine_Work.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceServer.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Version.h">
+      <Filter>ServiceServer</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNDataManagerBase.h">
+      <Filter>Data\DataManagerBase</Filter>
+    </ClInclude>
+    <ClInclude Include="LauncherSession.h">
+      <Filter>Session\Launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceSession.h">
+      <Filter>Session\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="PatcherSession.h">
+      <Filter>Session\Patcher</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionWatcher.h">
+      <Filter>Session\Watcher</Filter>
+    </ClInclude>
+    <ClInclude Include="MonitorSession.h">
+      <Filter>Session\ServerMonitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerDef.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacket.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\IniFile.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\SMVersion.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FtpUpdater.h">
+      <Filter>Common\FtpUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpUpdater.h">
+      <Filter>Common\HttpUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\URLUpdater.h">
+      <Filter>Common\URLUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h">
+      <Filter>Common\ServiceUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="csvreader.h">
+      <Filter>Common\CSVReader</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceManager.h">
+      <Filter>ServiceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="PatchWatcher.h">
+      <Filter>ServiceManager\PatchWatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="ReservedNotice.h">
+      <Filter>ServiceManager\ReservedNotice</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceCloser.h">
+      <Filter>ServiceManager\ServiceCloser</Filter>
+    </ClInclude>
+    <ClInclude Include="WatcherBase.h">
+      <Filter>ServiceManager\Watcher</Filter>
+    </ClInclude>
+    <ClInclude Include="WatcherGroup.h">
+      <Filter>ServiceManager\Watcher</Filter>
+    </ClInclude>
+    <ClInclude Include="LivePatcher.h">
+      <Filter>ServiceManager\LivePatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="GsmCmdProcess.h">
+      <Filter>ServiceManager\GSMCmdProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="GSMServer.h">
+      <Filter>GSMServer</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleServerFrame.h">
+      <Filter>GSMServer\SimpleServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Connection.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ConnectionManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\EventAcceptor.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\IocpManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ListenSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Log.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SendThread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SocketContext.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SpinBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ThreadManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="DNBAM.h">
+      <Filter>Publisher\KR</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ServiceServer.cpp">
+      <Filter>ServiceServer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>ServiceServer</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNDataManagerBase.cpp">
+      <Filter>Data\DataManagerBase</Filter>
+    </ClCompile>
+    <ClCompile Include="LauncherSession.cpp">
+      <Filter>Session\Launcher</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceSession.cpp">
+      <Filter>Session\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="PatcherSession.cpp">
+      <Filter>Session\Patcher</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionWatcher.cpp">
+      <Filter>Session\Watcher</Filter>
+    </ClCompile>
+    <ClCompile Include="MonitorSession.cpp">
+      <Filter>Session\ServerMonitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\IniFile.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="FtpUpdater.cpp">
+      <Filter>Common\FtpUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpUpdater.cpp">
+      <Filter>Common\HttpUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\URLUpdater.cpp">
+      <Filter>Common\URLUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp">
+      <Filter>Common\ServiceUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="csvreader.cpp">
+      <Filter>Common\CSVReader</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceManager.cpp">
+      <Filter>ServiceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="PatchWatcher.cpp">
+      <Filter>ServiceManager\PatchWatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="ReservedNotice.cpp">
+      <Filter>ServiceManager\ReservedNotice</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceCloser.cpp">
+      <Filter>ServiceManager\ServiceCloser</Filter>
+    </ClCompile>
+    <ClCompile Include="WatchBase.cpp">
+      <Filter>ServiceManager\Watcher</Filter>
+    </ClCompile>
+    <ClCompile Include="LivePatcher.cpp">
+      <Filter>ServiceManager\LivePatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="GsmCmdProcess.cpp">
+      <Filter>ServiceManager\GSMCmdProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="GSMServer.cpp">
+      <Filter>GSMServer</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleServerFrame.cpp">
+      <Filter>GSMServer\SimpleServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Connection.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ConnectionManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\EventAcceptor.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\IocpManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ListenSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Log.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SendThread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SocketContext.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SpinBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ThreadManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="DNBAM.cpp">
+      <Filter>Publisher\KR</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Out\Config\DNServiceManager.ini" />
+  </ItemGroup>
+</Project>

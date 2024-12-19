@@ -1,0 +1,1651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Precompile Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="FMOD">
+      <UniqueIdentifier>{b1268f6f-4443-4d4e-bf16-c3fc33a2df3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD\Header">
+      <UniqueIdentifier>{cd8c8d1f-ae9a-4453-9cb9-6f9b20f8c15f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{ead52194-922d-4799-b040-660105627936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static">
+      <UniqueIdentifier>{99bdd8aa-67db-4786-8e92-592aa006a6be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static\fmod_static">
+      <UniqueIdentifier>{7cbaa71d-e6ca-4ce3-92a4-739cfc74891b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static\fmod_static\asm">
+      <UniqueIdentifier>{9f303f18-ab3c-4b61-967e-8b0e4739cc12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static\celt_static">
+      <UniqueIdentifier>{6be9aec1-8c3e-4640-8134-56bd6ef72ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static\libFLAC_static">
+      <UniqueIdentifier>{2acf8308-a52e-46f7-9c1c-22abf9d9b71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static\ogg_static">
+      <UniqueIdentifier>{0957dc74-5368-4685-96e2-4a53111f7800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static\vorbis_static">
+      <UniqueIdentifier>{762f2037-99b1-4589-b464-da8500dcf4a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FMOD_static\vorbisfile_static">
+      <UniqueIdentifier>{3a9ade6e-5dc9-4da6-8a0c-c3ff9ea0b345}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Precompile Header</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSoundChannel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSoundChannelGroup.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EtSoundEngine.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\freeverb\allpass.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\sfx\foreverb\aSfxDsp.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\asio\asio.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\asio\asiodrivers.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\asio\asiolist.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\Brev_Table.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\freeverb\comb.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\Delay.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\dlmalloc\dlmalloc.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\FastMathApprox.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\FFT_Overlapped.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\FFT_Overlapped_Stereo.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_async.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channel.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_dsound.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_dsound_eax2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_dsound_eax3.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_dsound_eax4.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_dsound_i3dl2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channel_emulated.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_openal.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_openal_eax2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_openal_eax3.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_openal_eax4.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_channel_openal_eax5.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channel_real.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channel_realmanual3d.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channel_software.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channel_stream.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channelgroup.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channelgroupi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channeli.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_channelpool.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_cmdlog.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_aiff.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_codec_asf.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_codec_cdda.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_celt.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_dls.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_flac.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_fsb.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_it.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_midi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_mod.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_mpeg.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_mpeg_decode.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_mpeg_layer2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_mpeg_layer3.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_oggvorbis.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_playlist.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_raw.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_s3m.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_sf2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_swvag.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_tag.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_tremor.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_user.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_wav.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_wav_imaadpcm.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_wav_riff.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_codec_xm.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_debug.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_dllmain.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_downmix_myears.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_downmix_neuralthx.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_chorus.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_codec.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_codecpool.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_compressor.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_connection.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_connectioni.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_connectionpool.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_convert.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_delay.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_dsp_distortion.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_echo.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_fft.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_filter.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_flange.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_highpass.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_itecho.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_lowpass.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_lowpass2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_lowpass_simple.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_normalize.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_oscillator.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_parameq.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_pitchshift.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_resampler.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_resampler_cubic.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_dsp_resampler_linear.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_resampler_multiinput.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_resampler_nointerp.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_resampler_spline.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_reverb.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_sfxreverb.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_soundcard.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_tremolo.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_vstplugin.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dsp_wavetable.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_dsp_winampplugin.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_dspi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_file.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_file_cdda.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_file_disk.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_file_memory.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_file_net.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_file_null.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_file_user.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_geometry.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_geometry_mgr.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_geometryi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_globals.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_historybuffer_pool.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_listener.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_memory.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_memorytracker.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_metadata.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_music.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_net.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_octree.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_os_cdda.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_os_misc.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_os_net.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_os_output.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_asio.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_dsound.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_dsound_eax2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_dsound_eax3.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_dsound_eax4.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_dsound_i3dl2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_dsound_record.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output_emulated.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output_nosound.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output_nosound_nrt.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_openal.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_openal_eax2.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_openal_eax3.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_openal_eax4.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_openal_eax5.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output_polled.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output_software.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_timer.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_wasapi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output_wavwriter.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_output_wavwriter_nrt.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_output_winmm.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_plugin.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_pluginfactory.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_profile.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_profile_channel.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_profile_codec.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_profile_cpu.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_profile_dsp.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_profile_memory.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_reverb.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_reverbi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_sample_dsound.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\fmod_sample_openal.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_sample_software.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_sound.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_sound_sample.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_sound_stream.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_soundgroup.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_soundgroupi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_soundi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_speakerlevels_pool.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_stack.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_string.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_stringw.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_system.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_systemi.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_thread.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\src\fmod_time.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\FreqDomain_PhaseShift.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\Limiter.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\openal\utils\LoadOAL.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\LR4_LP.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\win32\src\MeteredSection.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\Neural_THX_522_Encode.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\Neural_THX_722_Encode.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\Neural_THX_725_Encode.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\Neural_THX_Interface.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\PeakConverter.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\freeverb\revmodel.cpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\SineWin_512.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\THX_kiss_fft.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\neural_thx\VectorOperations.c">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\bands.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\celt.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\cwrs.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\entcode.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\entdec.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\entenc.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\header.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\kfft_single.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\kiss_fft.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\kiss_fftr.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\laplace.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\mdct.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\modes.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\pitch.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\psy.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\quant_bands.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\rangedec.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\rangeenc.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\rate.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\libcelt\vq.c">
+      <Filter>FMOD_static\celt_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\bitmath.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\bitreader.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\cpu.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\crc.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\fixed.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\float.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\format.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\lpc.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\md5.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\memory.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\metadata_iterators.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\metadata_object.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\stream_decoder.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\window.c">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\ogg\src\bitwise.c">
+      <Filter>FMOD_static\ogg_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\ogg\src\framing.c">
+      <Filter>FMOD_static\ogg_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\block.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\codebook.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\floor1.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\info.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\lpc.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\lsp.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\mapping0.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\mdct.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\registry.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\res0.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\sharedbook.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\smallft.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\synthesis.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\window.c">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </ClCompile>
+    <ClCompile Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\vorbisfile.c">
+      <Filter>FMOD_static\vorbisfile_static</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Precompile Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSoundChannel.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSoundChannelGroup.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="EtSoundEngine.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod.hpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_codec.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_dsp.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_errors.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_memoryinfo.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClInclude>
+    <ClInclude Include="fmod_output.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fmodex.dll">
+      <Filter>FMOD</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="FMOD_static\lib\sfx\foreverb\3dl2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\AFXRES.H">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\freeverb\allpass.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\sfx\foreverb\aSfxDsp.hpp">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\asio\asio.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\asio\asiodrivers.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\asio\asiolist.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\asio\asiosys.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\freeverb\comb.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\freeverb\denormals.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\dlmalloc\dlmalloc.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_3d.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_3dl2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_async.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\wasapi\fmod_audioclient.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_autocleanup.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_dsound.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_dsound_eax2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_dsound_eax3.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_dsound_eax4.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_dsound_i3dl2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channel_emulated.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_openal.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_openal_eax2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_openal_eax3.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_openal_eax4.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_channel_openal_eax5.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channel_real.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channel_realmanual3d.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channel_software.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channel_stream.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channelgroupi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channeli.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_channelpool.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_cmdlog.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_aiff.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_codec_asf.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_codec_cdda.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_celt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_dls.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_flac.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_fsb.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_it.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_midi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_mod.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_mpeg.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_oggvorbis.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_playlist.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_raw.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_s3m.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_sf2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_swvag.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_tag.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_tremor.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_user.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_wav.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_wav_imaadpcm.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codec_xm.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_codeci.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_debug.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_downmix.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_downmix_myears.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_downmix_neuralthx.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_chorus.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_codec.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_codecpool.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_compressor.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_connectioni.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_connectionpool.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_delay.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_distortion.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_echo.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_fft.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_filter.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_flange.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_highpass.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_itecho.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_lowpass.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_lowpass2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_lowpass_simple.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_normalize.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_oscillator.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_parameq.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_pitchshift.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_resampler.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_resampler_cubic.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_resampler_linear.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_resampler_multiinput.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_resampler_nointerp.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_resampler_spline.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_reverb.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_sfxreverb.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_soundcard.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_tremolo.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_vstplugin.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dsp_wavetable.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_dsp_winampplugin.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_dspi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_eax2.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_eax3.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_eax4.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_eax5.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_file.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_file_cdda.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_file_disk.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_file_memory.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_file_net.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_file_null.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_file_user.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_geometry_mgr.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_geometryi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_globals.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_historybuffer_pool.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_linkedlist.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_listener.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_localcriticalsection.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_memory.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_memorytracker.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_metadata.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\wasapi\fmod_mmdeviceapi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_music.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_net.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_octree.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_os_cdda.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_os_misc.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_os_net.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_os_output.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_output_asio.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_output_dsound.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_output_emulated.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_output_nosound.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_output_nosound_nrt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_output_openal.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_output_polled.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_output_software.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_output_timer.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_output_wasapi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_output_wavwriter.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_output_wavwriter_nrt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_output_winmm.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_outputi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_plugin.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_pluginfactory.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_channel.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_channel_pkt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_codec.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_codec_pkt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_cpu.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_cpu_pkt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_dsp.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_dsp_pkt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_memory.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_memory_pkt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_profile_pkt.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_reverbi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_sample_dsound.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\fmod_sample_openal.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_sample_software.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_settings.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_sound_sample.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_sound_stream.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_soundgroupi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_soundi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_speakerlevels_pool.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_speakermap.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_stack.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_string.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_stringw.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_syncpoint.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_systemi.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_thread.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_time.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\src\fmod_types.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\asio\ginclude.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\asio\iasiodrv.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\openal\utils\LoadOAL.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\MeteredSection.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\neural_thx\Neural_THX_Encoders.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\neural_thx\Neural_THX_Global.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\neural_thx\Neural_THX_Interface.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\win32\src\resource.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\freeverb\revmodel.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\neural_thx\THX__kiss_fft_guts.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\neural_thx\THX_kiss_fft.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\freeverb\tuning.h">
+      <Filter>FMOD_static\fmod_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\_kiss_fft_guts.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\arch.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\bands.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\celt.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\celt_header.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\celt_types.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\cwrs.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\ecintrin.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\entcode.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\entdec.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\entenc.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\fixed_c5x.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\fixed_c6x.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\fixed_generic.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\float_cast.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\kfft_double.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\kfft_single.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\kiss_fft.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\kiss_fftr.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\laplace.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\mathops.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\mdct.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\mfrngcod.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\modes.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\os_support.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\pitch.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\psy.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\quant_bands.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\rate.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\stack_alloc.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\libcelt\vq.h">
+      <Filter>FMOD_static\celt_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\all.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\protected\all.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\all.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\assert.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\bitmath.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\bitreader.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\bitwriter.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\callback.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\include\vorbis\codec.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\cpu.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\crc.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\export.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\fixed.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\float.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\format.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\format.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\lpc.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\md5.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\memory.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\metadata.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\metadata.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\ogg_decoder_aspect.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\ogg_encoder_aspect.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\ogg_helper.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\ogg_mapping.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\ordinals.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\protected\stream_decoder.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\stream_decoder.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\protected\stream_encoder.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\include\FLAC\stream_encoder.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\stream_encoder_framing.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\flac-1.2.1\src\libFLAC\include\private\window.h">
+      <Filter>FMOD_static\libFLAC_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\ogg\include\ogg\ogg.h">
+      <Filter>FMOD_static\ogg_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\ogg\include\ogg\os_types.h">
+      <Filter>FMOD_static\ogg_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\backends.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\codebook.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\codec_internal.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\highlevel.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\lookup.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\lookup_data.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\lpc.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\lsp.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\masking.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\mdct.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\misc.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\os.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\psy.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\registry.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\scales.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\smallft.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\lib\window.h">
+      <Filter>FMOD_static\vorbis_static</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="FMOD_static\lib\ogg_vorbis\vorbis\include\vorbis\vorbisfile.h">
+      <Filter>FMOD_static\vorbisfile_static</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="FMOD_static\win32\src\fmod_dsp_connection_asm.s">
+      <Filter>FMOD_static\fmod_static\asm</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FMOD_static\win32\src\fmod_dsp_convert_asm.s">
+      <Filter>FMOD_static\fmod_static\asm</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FMOD_static\win32\src\fmod_dsp_distortion_asm.s">
+      <Filter>FMOD_static\fmod_static\asm</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FMOD_static\win32\src\fmod_dsp_resampler_linear_asm.s">
+      <Filter>FMOD_static\fmod_static\asm</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FMOD_static\win32\src\fmod_os_misc_asm.s">
+      <Filter>FMOD_static\fmod_static\asm</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

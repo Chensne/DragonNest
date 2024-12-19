@@ -1,0 +1,23 @@
+; EventUnitAreaInfo.def : Declares the module parameters for the DLL.
+
+LIBRARY      "EventUnitAreaInfo"
+
+SECTIONS
+	.data READ WRITE
+
+EXPORTS
+    ; Explicit exports can go here
+	GetPluginType
+	GetPluginParam
+    RegResource
+    OnLButtonClick
+    OnRButtonClick
+    OnLButtonDoubleClick
+    OnRButtonDoubleClick
+    OnProcess
+    OnChangeName
+    OnChangeParameter
+    OnInitialize
+    OnOpenView
+    OnCloseView
+    OnRefresh

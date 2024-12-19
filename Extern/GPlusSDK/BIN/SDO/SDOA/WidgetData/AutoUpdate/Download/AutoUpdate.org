@@ -1,0 +1,14 @@
+[AutoUpdate]
+Version = 0.9.1.320
+DownURL = http://igw.autopatch.sdo.com/igw/AutoUpdate/AutoUpdate.0.9.1.320.zip
+Size    = 261427
+MD5     = 51bc70e48c860db00a67a4dee57f1c53
+GUID    = {212B7A1E-05D3-4357-B2E2-A1E21D9C5B09}
+
+[FileList]
+AutoUpdate.dll = 406888,1013936836,03e54af47fedaff9cc9b3098828eee31
+Logo.bmp       = 58854,1000123372,5f68582ef698347b193ff928401d3cdc
+AutoUpdate.dat = 70,1014124374,78c37cf5b31ec2e7bceb2c77a0ffb94c
+
+[Data]
+Signature = Ajh6zxDqerownda6/dXI6XSLvn4Ok7sR5HuF05/v859tP8aVx5y1iJz3FVCHp7ikCTJReHHBiSYR3ce3AAdbTg==

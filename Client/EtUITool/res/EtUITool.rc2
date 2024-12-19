@@ -1,0 +1,15 @@
+//
+// EtUITool.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+#ifdef APSTUDIO_INVOKED
+#error this file is not editable by Microsoft Visual C++
+#endif //APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+// 여기에 수동으로 편집한 리소스를 추가합니다.
+
+#ifndef _DEBUG
+#include <XTToolkitPro.rc>
+#endif
+/////////////////////////////////////////////////////////////////////////////

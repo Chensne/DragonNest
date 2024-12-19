@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>盛大分红</name>
+	<shortname>分红</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.0.4</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2008</copyright>
+	<description>上分红，优惠赚钱两不误</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://igw.178.sdo.com/BPlan/Index.aspx?GameID=$gid$&amp;AreaNumID=$gaid$&amp;ServerNumID=$gsid$&amp;apptype=$SrcParam$" loginMode="SDO" width="578" height="355" clientwidth="550" clientheight="300" xul="WebBrowser.xml"/>
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="icon.png"/>
+		</host>
+	</hosts>
+	<invisible>8</invisible>
+	<guid>{0642C58A-4711-4CDA-B026-26DDC40726D4}</guid>
+</gadget>

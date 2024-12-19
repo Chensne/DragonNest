@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.DefaultSkin.xml"/>	
+	<view name="igwmanagerdlg" type="TManagerWidgetForm" left="50" top="50" width="555" height="475" skin="bg_igwmanagerdialog" candock="false" 
+		docksite="false"  floatbuttonstatus="0" cachepaint="true" margin="(9, 50, 9, 110)" backgroundskinnamea="bg_widgetformbg">
+		<button name="btntitlelogo" left="5" top="5" width="34" height="34" skin="bg_GearLogo"  cannotifydrag="true"/>
+		<button name="btntitleNormalTitleShading" left="2" top="2" width="550" height="40" skin="bg_igwNormalTitleShading"  cannotifydrag="true" bordercolora="$FFFF0000" visible="true"/>
+		<numberexedit left="238" top="346" width="40" height="16" skin="btn_edit_60x32" name="EdtPageInfo" text="0" layout="llCenter" alignment="taRightJustify" textcolor="$FF000000" caretcolor="$FFFF0000"/>
+		<label left="280" top="346" width="40" height="16" skin="" name="LblPageInfo" caption="/0页" layout="llCenter" alignment="taCenter" textcolor="$FF000000"/>
+		<label left="36" top="370" width="250" height="20" skin="" name="WidgetDescTitle" caption="描述信息" fontname="CaptionFont" layout="llCenter"  ellipsisposition="epWordEllipsis" textcolor="$FF000000"/>
+		<label left="336" top="370" width="180" height="20" skin="" name="WidgetVersionTitle" caption="圈圈版本信息" fontname="CaptionFont" layout="llCenter"  ellipsisposition="epWordEllipsis" textcolor="$FF000000"/>
+		<label left="22" top="14" width="80" height="20" skin="" name="WidgetListTitleWWW" caption="圈圈工具集" fontname="CaptionFont" 
+			alignment="taLeftJustify" canactivate="false" cannotifydrag="true"  shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" 
+			shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="0" layout="llCenter" shadowoutline="true" 
+			wordwrap="false" fontmargin="5" ellipsisposition="epEndEllipsis"/>
+		<label left="26" top="391" width="275" height="69" skin="" name="WidgetDesc" caption="" alignment="taLeftJustify" layout="llTop"  ellipsisposition="epWordEllipsis" wordwrap="true" textcolor="$FF000000"/>
+		<button left="220" top="346" width="15" height="16" skin="btn_prior_16x17" name="btnPrePage" onclick="PrePageClick();" canactivate="true"/>
+		<button left="320" top="346" width="15" height="16" skin="btn_next_16x17" name="btnNextPage" onclick="NextPageClick();" canactivate="true"/>
+		<button left="200" top="346" width="15" height="16" skin="btn_first_16x17" name="btnFirstPage" onclick="FirstPageClick();" canactivate="true"/>
+		<button left="340" top="346" width="15" height="16" skin="btn_last_16x17" name="btnLastPage" onclick="LastPageClick();" canactivate="true"/>
+		
+		<button left="530" top="15" width="16" height="16" skin="btn_close_17x17" name="btnManagerFormClose" onclick="btnManagerFormCloseOnClick(Self);" showhint="true" hint="关闭" canactivate="false"/>
+		
+		<button left="320" top="397" width="64" height="64" skin="" name="btnauthorLogo" onclick=""/>
+		<label left="330" top="400" width="145" height="16" skin="" name="lblauthorName" layout="llCenter" ellipsisposition="epWordEllipsis" caption="In-Game-Widget" textcolor="$FF000000"/>
+		<label left="330" top="420" width="145" height="16" skin="" name="lblCopyright" layout="llCenter" ellipsisposition="epWordEllipsis" caption="版本："  textcolor="$FF000000" fontname="VerFont" bordercolora="$FFFF0000"/>
+		<label left="330" top="440" width="185" height="16" skin="lbl_normalurl" name="lblauthorInfoURL" layout="llCenter" caption="SNDA Corporation保留所有权"  ellipsisposition="epWordEllipsis" textcolor="$FF000000"/>
+				
+		<button name="btnHintLogo1" left="12" top="371" width="17" height="17" skin="bg_igwManagerLogoTwo"/>
+		<button name="btnHintLogo2" left="314" top="371" width="17" height="17" skin="bg_igwManagerLogoOne"/>
+		
+		<button name="Widget_ItemBg_1_1" left="21" top="82" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_1_2" left="129" top="82" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_1_3" left="237" top="82" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_1_4" left="345" top="82" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_1_5" left="453" top="82" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_2_1" left="21" top="232" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_2_2" left="129" top="232" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_2_3" left="237" top="232" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_2_4" left="345" top="232" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+		<button name="Widget_ItemBg_2_5" left="453" top="232" width="90" height="81" skin="bg_WidgetItem_90x81"/>
+				
+		<button name="WidgetBG_1_1" left="11" top="51" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,1, 1);" 	alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8" hittestinarea="true"  canactivate="false" onhover="onItemHover(Self, 1, 1);">
+			<WidgetIconButton name="WidgetIcon_1_1" left="11" top="32" width="77" height="77" skin="" onclick="SelectWidget(Self,1, 1);"/>
+			<button name="WidgetAdd_1_1" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(1, 1);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_1_2" left="119" top="51" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,1, 2);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8"  hittestinarea="true"  canactivate="false" onhover="onItemHover(Self, 1, 2);">
+			<WidgetIconButton name="WidgetIcon_1_2" left="11" top="32" width="77" height="77" skin="" onclick="SelectWidget(Self,1, 2);" />
+			<button name="WidgetAdd_1_2" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(1, 2);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_1_3" left="227" top="51" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,1, 3);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8"  hittestinarea="true" canactivate="false" onhover="onItemHover(Self, 1, 3);">
+			<WidgetIconButton name="WidgetIcon_1_3" left="11" top="32" width="77" height="77" skin="bg_igwbarsicon" onclick="SelectWidget(Self,1, 3);" />
+			<button name="WidgetAdd_1_3" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(1, 3);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_1_4" left="335" top="51" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,1, 4);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8"  hittestinarea="true" canactivate="false" onhover="onItemHover(Self, 1, 4);">
+			<WidgetIconButton name="WidgetIcon_1_4" left="11" top="32" width="77" height="77" skin="bg_igwbarsicon" onclick="SelectWidget(Self,1, 4);" />
+			<button name="WidgetAdd_1_4" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(1, 4);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_1_5" left="443" top="51" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,1, 5);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8" hittestinarea="true"  canactivate="false" onhover="onItemHover(Self, 1, 5);">
+			<WidgetIconButton name="WidgetIcon_1_5" left="11" top="32" width="77" height="77" skin="bg_igwbarsicon" onclick="SelectWidget(Self,1, 5);" />
+			<button name="WidgetAdd_1_5" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(1, 5);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+
+		<button name="WidgetBG_2_1" left="11" top="200" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,2, 1);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8"  hittestinarea="true" canactivate="false" onhover="onItemHover(Self, 2, 1);">
+			<WidgetIconButton name="WidgetIcon_2_1" left="11" top="32" width="77" height="77" skin="" onclick="SelectWidget(Self,2, 1);" />
+			<button name="WidgetAdd_2_1" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(2, 1);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_2_2" left="119" top="200" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,2, 2);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8" hittestinarea="true" canactivate="false" onhover="onItemHover(Self, 2, 2);">
+			<WidgetIconButton name="WidgetIcon_2_2" left="11" top="32" width="77" height="77" skin="bg_igwbarsicon" onclick="SelectWidget(Self,2, 2);" />
+			<button name="WidgetAdd_2_2" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(2, 2);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_2_3" left="227" top="200" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,2, 3);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8" hittestinarea="true" canactivate="false" onhover="onItemHover(Self, 2, 3);">
+			<WidgetIconButton name="WidgetIcon_2_3" left="11" top="32" width="77" height="77" skin="bg_igwbarsicon" onclick="SelectWidget(Self,2, 3);" />
+			<button name="WidgetAdd_2_3" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(2, 3);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_2_4" left="335" top="200" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,2, 4);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8" hittestinarea="true" canactivate="false" onhover="onItemHover(Self, 2, 4);">
+			<WidgetIconButton name="WidgetIcon_2_4" left="11" top="32" width="77" height="77" skin="bg_igwbarsicon" onclick="SelectWidget(Self,2, 4);" />
+			<button name="WidgetAdd_2_4" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(2, 4);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>
+		<button name="WidgetBG_2_5" left="443" top="200" width="100" height="144" skin="bg_igwselectbarsicon" onclick="SelectWidget(Self,2, 5);" alignment="taCenter" layout="llTop" ellipsisposition="epWordEllipsis" textindent="10" textveritical="8" hittestinarea="true" canactivate="false" onhover="onItemHover(Self, 2, 5);">
+			<WidgetIconButton name="WidgetIcon_2_5" left="11" top="32" width="77" height="77" skin="bg_igwbarsicon" onclick="SelectWidget(Self,2, 5);" />
+			<button name="WidgetAdd_2_5" left="17" top="115" width="66" height="24" skin="btn_managernormal_66x24" onclick="OpenWidget(2, 5);" linkhover="true" textcolor="$FFFFFFFF"/>
+		</button>				
+	</view>
+	<script src="DefaultManagerDialog.js"/>
+</xul>

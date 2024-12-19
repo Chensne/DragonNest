@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{1fa891ae-bbfb-4b56-933e-18c3051b79ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{cc78c487-ee9c-4b29-aed1-712548058748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tree">
+      <UniqueIdentifier>{16a1b228-6c38-49ab-8f6d-1137332ea2a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{cce1691d-8b1b-4754-a14a-107a02af0cf4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtCollisionFunc.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="EtCollisionPrimitive.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="EtComputeDist.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="EtConvexVolume.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="EtFindCollision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="EtPrimitive.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="EtTestCollision.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CountryByCountryKeyboard.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="InputDevice.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="InputReceiver.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineUtil.cpp" />
+    <ClCompile Include="EtMatrixEx.cpp" />
+    <ClCompile Include="FrameSync.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TimeImp.cpp" />
+    <ClCompile Include="VelocityFunc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EtMathWrapperD3D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="EtOctree.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="EtQuadtree.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="KdTree.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="CountryByCountryKeyboard.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputDevice.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputReceiver.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineUtil.h" />
+    <ClInclude Include="EtMatrixEx.h" />
+    <ClInclude Include="FrameSync.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TimeImp.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="VelocityFunc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="KdTree.inl">
+      <Filter>Tree</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="EtCollisionFunc.h">
+      <Filter>Collision</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="EtCollisionPrimitive.h">
+      <Filter>Collision</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="EtComputeDist.h">
+      <Filter>Collision</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="EtConvexVolume.h">
+      <Filter>Collision</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="EtFindCollision.h">
+      <Filter>Collision</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="EtPrimitive.h">
+      <Filter>Collision</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="EtTestCollision.h">
+      <Filter>Collision</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>

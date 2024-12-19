@@ -1,0 +1,4904 @@
+#include "StdAfx.h"
+#include "DnSkill.h"
+#include "DnTableDB.h"
+#include "DnItemTask.h"
+#include "IDnSkillUsableChecker.h"
+#include "IDnSkillProcessor.h"
+#include "DnDivideSEArgumentByTargets.h"
+#include "DnPlayerActor.h"
+#include "DnBlow.h"
+#include "TaskManager.h"
+#include "DnPartyTask.h"
+#include "DNUserSession.h"
+#include "DnPlayAniProcess.h"
+#include "DnPartialPlayProcessor.h"
+#include "DnApplySEWhenActionSetBlowEnabledProcessor.h"
+#include "DnChangeActionStrProcessor.h"
+#include "DnChangeActionStrByBubbleProcessor.h"
+#include "DnStateEffectApplyOnOffByBubbleProcessor.h"
+#include "DnStateBlow.h"
+#include "DnBubbleSystem.h"
+#include "DnObserverEventMessage.h"
+#include "DnPingpongBlow.h"
+#include "DnBasicBlow.h"
+#include "DnHealingBlow.h"
+#include "DnHPIncBlow.h"
+#include "DnInvincibleAtBlow.h"
+#include "DnProbabilityChecker.h"
+#include "DnCreateBlow.h"
+#include "DnAllowedSkillsBlow.h"
+#include "DnMonsterActor.h"
+#include "DnProjectile.h"
+#include "DnAdditionalStateInfoBlow.h"
+#include "DnAddStateBySkillGroupBlow.h"
+#include "DnTransformBlow.h"
+#include "DnBloodSuckingBlow.h"
+#include "DnOrderMySummonedMonsterBlow.h"
+
+#if defined(PRE_FIX_NEXTSKILLINFO)
+#include "DNGameDataManager.h"
+#endif // PRE_FIX_NEXTSKILLINFO
+
+#if defined(PRE_FIX_46381)
+#include "DnContinueBaseMPIncBlow.h"
+#endif // PRE_FIX_46381
+
+using namespace BubbleSystem;
+using namespace boost;
+
+DECL_MULTISMART_PTR_STATIC( CDnSkill, MAX_SESSION_COUNT, 100 )
+
+
+CDnSkill::CDnSkill( DnActorHandle hActor ) : CMultiSmartPtrBase< CDnSkill, MAX_SESSION_COUNT >(hActor->GetRoom()),
+											 m_hActor( hActor ),
+											 m_LastTimeToggleMPDecreaseTime( 0 ),
+											 m_bToggle( false ),
+											 m_bAura( false ),
+											 m_bItemSkill( false ),
+											 m_fPassiveActionSkillLength( 0.0f ),
+											 m_eElement( CDnState::ElementEnum_Amount ),
+											 m_iNextLevelSkillPoint( -1 ),
+											 m_bChainingPassiveSkill( false ),
+											 m_bAppliedPassiveSelfBlows( false ),
+											 m_bTempSkill( false )
+{
+	SecureZeroMemory( m_iNeedItemID, sizeof(m_iNeedItemID) );
+	SecureZeroMemory( m_iNeedItemDecreaseCount, sizeof(m_iNeedItemDecreaseCount) );
+	SecureZeroMemory( m_fHPConsumeType, sizeof(m_fHPConsumeType) );
+	SecureZeroMemory( m_fMPConsumeType, sizeof(m_fMPConsumeType) );
+	SecureZeroMemory( m_iNeedHP, sizeof(m_iNeedHP) );
+	SecureZeroMemory( m_iNeedMP, sizeof(m_iNeedMP) );
+	SecureZeroMemory( m_iIncreaseRange, sizeof(m_iIncreaseRange) );
+	SecureZeroMemory( m_iDecreaseHP, sizeof(m_iDecreaseHP) );
+	SecureZeroMemory( m_iDecreaseMP, sizeof(m_iDecreaseMP) );
+	SecureZeroMemory( m_fOriginalDelayTime, sizeof(m_fOriginalDelayTime) );
+	SecureZeroMemory( m_fDelayTime, sizeof(m_fDelayTime) );
+
+	m_iSkillID = 0;
+	m_iSkillLevelID = 0;
+	m_iDissolvable = 0;
+	m_iDuplicateCount = 0;
+	m_iSkillDuplicateMethod = 0;
+	m_iEffectDuplicateMethod = 0;
+
+	m_iLevel = 0;
+	m_iMaxLevel = 0;
+
+	m_eSkillType = SkillTypeEnum::Active;
+	m_eDurationType = DurationTypeEnum::Instantly;
+	m_eTargetType = TargetTypeEnum::Self;
+	m_iLevelLimit = 0;
+
+	m_fLeftDelayTime = 0.f;
+	m_fCoolTime = 0.f;
+	m_iAdditionalThreat = 0;
+
+	m_iCPScore = 0;
+
+	m_pEffectAction = NULL;
+	
+	m_fOnceDelayTime = 0.0f;
+	m_fOnceElapsedDelayTime = 0.0f;
+	m_bEquipItemSkill = false;
+	m_iEquipIndex = -1;
+
+	m_fCoolTimeAdjustBlowValue = 1.0f;
+
+	m_fStartSuperArmor = 0.0f;
+	m_bStartCanHit = true;
+
+	m_fResetCooltime = 0.0f;
+
+	m_dwLastUseSkillTimeStamp = 0;
+
+	m_iExclusiveID = 0;
+
+	m_iSelectedSkillLevelDataApplyType = PVE;		// µðÆúÆ®´Â pve ÀÌ´Ù.
+
+	m_iBaseSkillID = 0;
+	m_iAppliedEnchantPassiveSkillID = 0;
+
+	m_nPriority = 0;
+
+	m_nItemID = -1;
+
+	m_fCoolTimeMultipier = 1.0f;
+
+	m_isIgnoreImmuneBackup = false;
+
+	m_nLevelUpValue = 0;
+
+#if defined(PRE_ADD_PREFIX_SYSTE_RENEW)
+	m_nPrefixSkillType = -1;
+#endif // PRE_ADD_PREFIX_SYSTE_RENEW
+
+	m_iGlobalSkillGroupID = 0;
+	SecureZeroMemory( m_afGlobalCoolTime, sizeof(m_afGlobalCoolTime) );
+	m_fAnotherGlobalSkillCoolTime = 0.0f;
+
+	m_nAnotherGlobakSkillID = 0;
+
+#if defined( PRE_ADD_ACADEMIC )
+	m_iSummonerDecreaseSP = 0;
+	m_iSummonerDecreaseSPSkillID = 0;
+#endif // #if defined( PRE_ADD_ACADEMIC )
+
+	m_SummonMonsterID = -1;
+
+	m_bAddStateEffectQueue = false;
+
+	m_bEnchantedFromBubble = false;
+
+	m_SkillStartTime = 0;
+	m_bFinished = false;
+	m_bIsPrefixTriggerSkill = false;
+	m_iNeedJobClassID = 0;
+	m_iNowLevelSkillPoint = 0;
+
+	memset (m_iOriginalNeedMP, 0x00, sizeof(m_iOriginalNeedMP));
+	memset (m_aeNeedEquipType, 0x00, sizeof(m_aeNeedEquipType));
+
+#if defined(PRE_FIX_64312)
+	m_isAppliedSummonMonsterEnchantSkill = false;
+	m_bIsSummonMonsterSkill = false;
+#endif // PRE_FIX_64312
+
+#if defined(PRE_ADD_TOTAL_LEVEL_SKILL)
+	m_fDeltaGlobalCoolTime = 0.0f;
+#endif // PRE_ADD_TOTAL_LEVEL_SKILL
+}
+
+CDnSkill::~CDnSkill(void)
+{
+	for( int iSelectedLevelData = PVE; iSelectedLevelData < NUM_SKILLLEVEL_APPLY_TYPE; ++iSelectedLevelData )
+	{
+		SAFE_DELETE_PVEC( m_vlpUsableCheckers[ iSelectedLevelData ] );
+	}
+
+	for( int iSelectedLevelData = PVE; iSelectedLevelData < NUM_SKILLLEVEL_APPLY_TYPE; ++iSelectedLevelData )
+	{
+		SAFE_DELETE_PVEC( m_vlpProcessors[ iSelectedLevelData ] );
+	}
+
+	for( int iSelectedLevelData = PVE; iSelectedLevelData < NUM_SKILLLEVEL_APPLY_TYPE; ++iSelectedLevelData )
+	{
+		SAFE_DELETE_PVEC( m_vlpProcessorBackup[ iSelectedLevelData ] );
+	}
+
+#if defined(PRE_FIX_66175)
+	for( int iSelectedLevelData = PVE; iSelectedLevelData < NUM_SKILLLEVEL_APPLY_TYPE; ++iSelectedLevelData )
+	{
+		SAFE_DELETE_PVEC( m_vlUsableCheckersBackup[ iSelectedLevelData ] );
+	}
+#endif // PRE_FIX_66175
+}
+
+
+
+void CDnSkill::SetHasActor( DnActorHandle hActor )
+{
+	_ASSERT( hActor && "CDnSkill::SetHasActor() ¾×ÅÍ ÇÚµéÀÌ NULL ÀÓ" );
+
+	m_hActor = hActor;
+
+	for( int iSelectedLevelData = PVE; iSelectedLevelData < NUM_SKILLLEVEL_APPLY_TYPE; ++iSelectedLevelData )
+	{
+		int iNumChecker = (int)m_vlpUsableCheckers[ iSelectedLevelData ].size();
+		for( int iChecker = 0; iChecker < iNumChecker; ++iChecker )
+		{
+			IDnSkillUsableChecker* pChecker = m_vlpUsableCheckers[ iSelectedLevelData ].at( iChecker );
+			pChecker->SetHasActor( hActor );
+		}
+	}
+
+	for( int iSelectedLevelData = PVE; iSelectedLevelData < NUM_SKILLLEVEL_APPLY_TYPE; ++iSelectedLevelData )
+	{
+		int iNumProcessor = (int)m_vlpProcessors[ iSelectedLevelData ].size();
+		for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+		{
+			IDnSkillProcessor* pProcessor = m_vlpProcessors[ iSelectedLevelData ].at( iProcessor );
+			pProcessor->SetHasActor( hActor );
+			pProcessor->SetParentSkill( GetMySmartPtr() );
+		}
+	}
+}
+
+
+DnSkillHandle CDnSkill::CreateSkill( DnActorHandle hActor, int iSkillTableID, int iLevel )
+{
+	CDnSkill* pNewSkill = NULL;
+
+	// ½ºÅ³ ¹ßµ¿ Á¶°Ç, ¹ßµ¿ ÇÁ·Î¼¼¼­µéÀ» ´Þ¾ÆÁØ´Ù.
+	// °¢°¢ 5°³¾¿ ÀÖ°í ÆÄ¶ó¸ÞÅÍ´Â ÀüºÎ ÇÕÃÄ 10°³ÀÓ. º¯°æµÉ °¡´É¼ºµµ ÀÖ´Ù.
+	pNewSkill = new CDnSkill( hActor );
+	
+	bool bResult = pNewSkill->Initialize( iSkillTableID, iLevel );
+	if( false == bResult )
+	{
+		delete pNewSkill;
+		return CDnSkill::Identity();
+	}
+
+	if( hActor && hActor->IsPlayerActor() )
+	{
+		CDnPlayerActor* pPlayerActor = static_cast<CDnPlayerActor*>(hActor.GetPointer());
+		pNewSkill->RegisterObserver( pPlayerActor->GetBubbleSystem() );
+	}
+	
+	return pNewSkill->GetMySmartPtr();
+}
+
+#ifdef PRE_FIX_GAMESERVER_OPTIMIZE
+bool CDnSkill::_LoadMonsterSkillLevelData( int iSkillTableID, int iLevel, int iSkillLevelDataApplyType )
+{
+	DNTableFileFormat* pSkillTable = GetDNTable( CDnTableDB::TSKILL );
+	DNTableFileFormat* pSkillLevelTable = GetDNTable( CDnTableDB::TSKILLLEVEL );
+
+	vector<int> vlSkillLevelList;
+	if( pSkillLevelTable->GetItemIDListFromField( "_SkillIndex", iSkillTableID, vlSkillLevelList ) <= 0 ) 
+		return false;
+
+	if( !pSkillTable->IsExistItem( iSkillTableID) )
+		return false;
+
+	// pve, pvp ´ë»óÀÎÁö È®ÀÎÇÏ¿© °É·¯³¿.
+	vector<int>::iterator iterLevelList = vlSkillLevelList.begin();
+	for( iterLevelList; iterLevelList != vlSkillLevelList.end(); )
+	{
+		int iSkillLevelTableID = *iterLevelList;
+		int iApplyType = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_ApplyType" )->GetInteger();
+		if( iApplyType != iSkillLevelDataApplyType )
+			iterLevelList = vlSkillLevelList.erase( iterLevelList );
+		else
+			++iterLevelList;
+	}
+
+	// ÇØ´ç ´ë»óÀÇ µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì¿£ ±×³É ¾Æ¹«°Íµµ ¾ÈÇÏ°í ¸®ÅÏÇÏ¸é µÈ´Ù.
+	if( vlSkillLevelList.empty() )
+		return true;
+
+	int iSkillLevelTableID = -1;
+	for( int i = 0; i < (int)vlSkillLevelList.size(); ++i )
+	{
+		int iNowLevel = pSkillLevelTable->GetFieldFromLablePtr( vlSkillLevelList.at(i), "_SkillLevel" )->GetInteger();
+		if( iNowLevel == iLevel )
+		{
+			iSkillLevelTableID = vlSkillLevelList.at( i );
+			break;
+		}
+	}
+
+	if( -1 == iSkillLevelTableID )
+		return false;
+
+	char caLabel[ 32 ];
+	int iCheckerParamOffset = 0;
+	int iProcessorParamOffset = 0;
+	for( int i = 0; i < MAX_PROCESSOR_COUNT; ++i )
+	{
+		// ¹ßµ¿Á¶°Ç °´Ã¼ ÀÌ¸§À» Ã£´Â´Ù. ÆÄ¶ó¸ÞÅÍ ÇÊµå°¡ ºñ¾îÀÖÀ¸¸é »ý¼º ÇÔ¼öµé¿¡¼­ NULL ¸®ÅÏµÊ
+		sprintf_s( caLabel, "_UsableChecker%d", i + 1 );
+		int iUsableChecker = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLabel )->GetInteger();
+
+		sprintf_s( caLabel, "_Processor%d", i + 1 );
+		int iProcessor = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLabel )->GetInteger();
+
+		int iOffsetCheck = iCheckerParamOffset;
+		IDnSkillUsableChecker* pUsableChecker = IDnSkillUsableChecker::Create( m_hActor, iUsableChecker, iSkillLevelTableID, &iCheckerParamOffset );
+
+		if( NULL != pUsableChecker )
+		{
+			if( (iCheckerParamOffset - iOffsetCheck) != pUsableChecker->GetNumArgument() )
+			{
+				OutputDebug( "[SkillLevelTable Error!] %d ÀÇ ÆÄ¶ó¸ÞÅÍ °³¼ö°¡ Àß¸øµÇ¾ú½À´Ï´Ù.\n", iSkillLevelTableID );
+				_ASSERT( !"½ºÅ³ ·¹º§ Å×ÀÌºí ÆÄ¶ó¸ÞÅÍ Àß¸øµÊ. OutputDebug Ãâ·Â È®ÀÎ!" );
+			}
+
+			this->AddUsableCheckers( pUsableChecker, iSkillLevelDataApplyType );
+		}
+
+		iOffsetCheck = iProcessorParamOffset;
+		IDnSkillProcessor* pSkillProcessor = IDnSkillProcessor::Create( m_hActor, iProcessor, iSkillLevelTableID, &iProcessorParamOffset, this->GetUseActionNames() );
+
+		if( NULL != pSkillProcessor )
+		{
+			if( (iProcessorParamOffset - iOffsetCheck) != pSkillProcessor->GetNumArgument() )
+			{
+				OutputDebug( "[SkillLevelTable Error!] %d ÀÇ ÆÄ¶ó¸ÞÅÍ °³¼ö°¡ Àß¸øµÇ¾ú½À´Ï´Ù.\n", iSkillLevelTableID );
+				_ASSERT( !"½ºÅ³ ·¹º§ Å×ÀÌºí ÆÄ¶ó¸ÞÅÍ Àß¸øµÊ. OutputDebug Ãâ·Â È®ÀÎ!" );
+			}
+
+			this->AddProcessor( pSkillProcessor, iSkillLevelDataApplyType );
+		}
+	}
+
+	// skill table
+	m_strStaticName = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_StaticName" )->GetString();
+
+	char caLable[ 64 ];
+	ZeroMemory( caLable, sizeof(caLable) );
+	for( int i = 0; i < 2; ++i )
+	{
+		sprintf_s( caLable,  "_NeedWeaponType%d", i+1 );
+		int iEquipType = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLable )->GetInteger();
+		if( -1 != iEquipType )
+			m_aeNeedEquipType[ i ] = (CDnWeapon::EquipTypeEnum)iEquipType;
+		else
+			m_aeNeedEquipType[ i ] = CDnWeapon::EquipTypeEnum_Amount;
+	}
+
+	// ½ºÅ³ Å×ÀÌºíÀÇ ÃÖ´ë ·¹º§Àº ½Å·ÚÇÒ ¼ö ¾ø´Ù. -_-
+	// ½ÇÁ¦ °¹¼ö·Î ¾÷µ¥ÀÌÆ®.
+	if( 0 == m_iMaxLevel )
+	{
+		m_iMaxLevel = (int)vlSkillLevelList.size();
+	}
+	else
+	{
+		_ASSERT( m_iMaxLevel == (int)vlSkillLevelList.size() );
+	}
+
+	m_eSkillType = (SkillTypeEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_SkillType" )->GetInteger();
+	m_eDurationType = (DurationTypeEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_DurationType" )->GetInteger();
+	m_eTargetType = (TargetTypeEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_TargetType" )->GetInteger();
+
+	m_iDissolvable = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_Dissolvable" )->GetInteger();
+	m_iDuplicateCount = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_EffectAmassCount" )->GetInteger();
+	m_iSkillDuplicateMethod = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_SkillDuplicate" )->GetInteger();
+	m_iEffectDuplicateMethod = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_EffectDuplicate" )->GetInteger();
+	m_eElement = (CDnState::ElementEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_Element" )->GetInteger();
+	m_iNeedJobClassID = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_NeedJob" )->GetInteger();
+	if( (CDnState::ElementEnum)-1 == m_eElement )
+		m_eElement = CDnState::ElementEnum_Amount;
+
+	// skill level table
+	m_iSkillLevelID = iSkillLevelTableID;
+	m_iLevel = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_SkillLevel" )->GetInteger();
+	m_iNowLevelSkillPoint = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_NeedSkillPoint" )->GetInteger();
+
+#if defined(PRE_FIX_NEXTSKILLINFO)
+	SKILL_LEVEL_INFO* pTabelInfo = g_pDataManager->GetSkillLevelTableIDList(iSkillTableID, iSkillLevelDataApplyType);
+	int nextSkillLevel = m_iLevel + 1;
+
+	if( m_iLevel < m_iMaxLevel )
+	{
+		int nextLevelTableID = -1;
+		SKILL_LEVEL_TABLE_IDS::iterator findIter = pTabelInfo->_SkillLevelTableIDs.find(nextSkillLevel);
+		if (findIter != pTabelInfo->_SkillLevelTableIDs.end())
+			nextLevelTableID = findIter->second;
+
+		m_iNextLevelSkillPoint = pSkillLevelTable->GetFieldFromLablePtr( nextLevelTableID, "_NeedSkillPoint" )->GetInteger();
+	}
+	else
+		m_iNextLevelSkillPoint = 0;
+
+#else
+	if( m_iLevel < m_iMaxLevel )
+		m_iNextLevelSkillPoint = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID+1, "_NeedSkillPoint" )->GetInteger();
+	else
+		m_iNextLevelSkillPoint = 0;
+#endif // PRE_FIX_NEXTSKILLINFO
+
+	m_iIncreaseRange[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_AddRange" )->GetInteger();
+
+	m_iAdditionalThreat = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_AddThreat" )->GetInteger();
+
+	m_iCPScore = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_CPScore" )->GetInteger();
+	m_fStartSuperArmor = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_StartSuperArmor" )->GetFloat();
+	m_bStartCanHit = (pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_StartCanHit" )->GetInteger() == 1) ? true : false;
+
+	// »óÅÂ È¿°ú Á¤º¸ ·Îµù
+	StateEffectStruct StateEffect;
+	for( int i = 0; i < MAX_STATE_EFFECT_COUNT; ++i )
+	{
+		sprintf_s( caLable, "_EffectClass%d", i + 1 );
+		StateEffect.nID = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLable )->GetInteger();
+
+		if( StateEffect.nID < 1 ) 
+			continue;
+
+		sprintf_s( caLable, "_EffectClass%dApplyType", i + 1 );
+		int iApplyType = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLable )->GetInteger();
+		// ¸ðµÎ Àû¿ëÀÓ. Å¸°Ù¸¸ ´Ù¸£°Ô ÇØ¼­ ¶È°°Àº »óÅÂÈ¿°ú 2°³¸¦ Ãß°¡ÇØÁØ´Ù.
+		// ÇÏÁö¸¸ °­È­ ÆÐ½Ãºê·Î »ç¿ëµÇ´Â ½ºÅ³Àº 2°³·Î ÇÏÁö ¾Ê°í ±×³É »ý¼º. ´Ù¸¥ ½ºÅ³À» °­È­½ÃÅ°´Â µ¥ÀÌÅÍ ¿ªÇÒ¸¸ ¼öÇàÇÏ±â ¶§¹®.
+		bool bApplyAll = (StateEffectApplyType::ApplyAll == iApplyType) && (SkillTypeEnum::EnchantPassive != m_eSkillType);
+
+		if( bApplyAll )
+			StateEffect.ApplyType = StateEffectApplyType::ApplySelf;
+		else
+			StateEffect.ApplyType = (StateEffectApplyType)iApplyType;
+
+		sprintf_s( caLable, "_EffectClassValue%d", i + 1 );
+		StateEffect.szValue = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, caLable )->GetString();
+
+		sprintf_s( caLable, "_EffectClassValue%dDuration", i + 1 );
+		StateEffect.nDurationTime = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, caLable )->GetInteger();
+
+		m_vlStateEffectList[ iSkillLevelDataApplyType ].push_back( StateEffect );
+
+		// ¸ðµÎ Àû¿ëÀÌ¸é Å¸°ÙÀ¸·Î ¹Ù²ã¼­ ¶È°°ÀÌ ÇÑ ¹ø ´õ ³Ö¾îÁÜ.
+		if( bApplyAll )
+		{
+			StateEffect.ApplyType = StateEffectApplyType::ApplyTarget;
+			m_vlStateEffectList[ iSkillLevelDataApplyType ].push_back( StateEffect );
+		}
+	}
+
+	SkillInfo& MySkillInfo = m_SkillInfo[ iSkillLevelDataApplyType ];
+	MySkillInfo.iSkillID = m_iSkillID;
+	MySkillInfo.iSkillLevelID = m_iSkillLevelID;
+	MySkillInfo.iLevel = m_iLevel;
+	MySkillInfo.iSkillDuplicateMethod = m_iSkillDuplicateMethod;
+	MySkillInfo.iDuplicateCount = m_iDuplicateCount;
+
+	MySkillInfo.eSkillType = m_eSkillType;
+	MySkillInfo.eDurationType = m_eDurationType;
+	MySkillInfo.eTargetType = m_eTargetType;
+	MySkillInfo.eApplyType = StateEffect.ApplyType;
+	MySkillInfo.iDissolvable = m_iDissolvable;
+	MySkillInfo.eSkillElement = m_eElement;
+	MySkillInfo.hSkillUser = m_hActor;				// Note: ¾×ÅÍ°¡ Ç×»ó À¯È¿ÇÑ °ÍÀº ¾Æ´Ô
+	if( m_hActor )
+		MySkillInfo.iSkillUserTeam = m_hActor->GetTeam();
+
+	if( m_hActor && _tcslen(m_hActor->GetName()) > 0 )
+		MySkillInfo.strUserName = m_hActor->GetName();
+
+	MySkillInfo.szEffectOutputIDs = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_StateEffectTableID" )->GetString();
+
+	return true;
+}
+
+bool CDnSkill::InitializeMonsterSkill( int iSkillTableID, int iLevel )
+{
+	m_iSkillID = iSkillTableID;
+
+	// °¢ ¸ðµåº°·Î µ¥ÀÌÅÍ ·Îµå. ¸ÕÀú PVP ¸¦ ÀÐ´Â´Ù.
+	// PVE ´Â µðÆúÆ® °ªÀÌ±â ¶§¹®¿¡ ¸ðµåº°·Î ³ª´µ¾îÁö´Â °ªÀÌ ¾Æ´Ï¸é µðÆúÆ® °ªÀ¸·Î Ã¤¿öÁö°Ô µÈ´Ù.
+
+	// ¸ó½ºÅÍ ½ºÅ³ »ý¼º ÇÔ¼öÀÌ¹Ç·Î PVE ¸¸ È£Ãâ.
+	if( false == _LoadSkillLevelData( iSkillTableID, iLevel, PVP ) )
+		return false;
+
+	if( false == _LoadSkillLevelData( iSkillTableID, iLevel, PVE ) )
+		return false;
+
+	int iNumProcessor = (int)m_vlpProcessors[ PVE ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		IDnSkillProcessor* pProcessor = m_vlpProcessors[ PVE ].at( iProcessor );
+
+		// »ç¿ëÇÏ´Â ¾×¼ÇÀÌ ÀÖÀ¸¸é ¿ÜºÎ¿¡¼­ Á¶È¸¿ëÀ¸·Î µ¥ÀÌÅÍ Ã¤¿ö³õÀ½
+		if( pProcessor->GetType() == IDnSkillProcessor::PLAY_ANI )
+			m_setUseActionNames.insert( static_cast<CDnPlayAniProcess*>(pProcessor)->GetActionName() );
+		else
+			if( pProcessor->GetType() == IDnSkillProcessor::PARTIAL_PLAY_ANI )
+			{
+				CDnPartialPlayProcessor* pPartialPlayAni = static_cast<CDnPartialPlayProcessor*>(pProcessor);
+				m_setUseActionNames.insert( pPartialPlayAni->GetStartActionName() );
+				m_setUseActionNames.insert( pPartialPlayAni->GetLoopActionName() );
+				m_setUseActionNames.insert( pPartialPlayAni->GetEndActionName() );
+			}
+	}
+
+	// ÃÊ±âÈ­ ÇßÀ» ¶§´Â pve ¸ðµå°¡ µðÆúÆ®ÀÓ.
+	m_iSelectedSkillLevelDataApplyType = PVE;
+
+	return true;
+}
+
+DnSkillHandle CDnSkill::CreateMonsterSkill( DnActorHandle hActor, int iSkillTableID, int iLevel )
+{
+	if( hActor )
+	{
+		CDnSkill* pNewSkill = pNewSkill = new CDnSkill( hActor );
+		if( pNewSkill )
+		{
+			bool bResult = pNewSkill->InitializeMonsterSkill( iSkillTableID, iLevel );
+			if( false == bResult )
+			{
+				SAFE_DELETE( pNewSkill );
+				return CDnSkill::Identity();
+			}
+
+			if( hActor->IsPlayerActor() )
+			{
+				CDnPlayerActor* pPlayerActor = static_cast<CDnPlayerActor*>(hActor.GetPointer());
+				pNewSkill->RegisterObserver( pPlayerActor->GetBubbleSystem() );
+			}
+
+			return pNewSkill->GetMySmartPtr();
+		}
+		else
+		{
+			SAFE_DELETE( pNewSkill );
+			return CDnSkill::Identity();
+		}
+	}
+
+	return CDnSkill::Identity();
+}
+#endif // #ifdef PRE_FIX_GAMESERVER_OPTIMIZE
+
+void CDnSkill::CreateSkillInfo( int nSkillID, int nSkillLevel, CDnSkill::SkillInfo & sSkillInfo, std::vector<CDnSkill::StateEffectStruct> & vecSkillEffect, bool bUseBattleGround/* = false*/ )
+{
+	if( nSkillID == 0 || nSkillLevel == 0 )
+		return;
+
+	DNTableFileFormat* pSkillTable = NULL;
+	DNTableFileFormat* pSkillLevelTable = NULL;
+	if (bUseBattleGround)
+	{
+		pSkillTable = GetDNTable( CDnTableDB::TBATTLEGROUNDSKILL );
+		pSkillLevelTable = GetDNTable( CDnTableDB::TBATTLEGROUNDSKILLLEVEL );
+	}
+	else
+	{
+		pSkillTable = GetDNTable( CDnTableDB::TSKILL );
+		pSkillLevelTable = GetDNTable( CDnTableDB::TSKILLLEVEL );
+	}
+
+	if (pSkillLevelTable == NULL || pSkillTable == NULL)
+	{
+		_DANGER_POINT();
+		return;
+	}
+	std::vector<int> vlSkillLevelList;
+	if( pSkillLevelTable->GetItemIDListFromField( "_SkillIndex", nSkillID, vlSkillLevelList ) <= 0 ) 
+		return;
+
+	int iSkillLevelTableID = -1;
+	for( int i = 0; i < (int)vlSkillLevelList.size(); ++i )
+	{
+		int iNowLevel = pSkillLevelTable->GetFieldFromLablePtr( vlSkillLevelList.at(i), "_SkillLevel" )->GetInteger();
+		if( iNowLevel == nSkillLevel )
+		{
+			iSkillLevelTableID = vlSkillLevelList.at( i );
+			break;
+		}
+	}
+
+	if( -1 == iSkillLevelTableID )
+		return;
+
+	sSkillInfo.iSkillID = nSkillID;
+	sSkillInfo.iSkillLevelID = iSkillLevelTableID;
+#ifdef PRE_FIX_SYNC_ENCHANT_SKILL
+	sSkillInfo.iAppliedEnchantSkillID = 0;
+#endif
+	sSkillInfo.iLevel = nSkillLevel;
+	sSkillInfo.eDurationType = (CDnSkill::DurationTypeEnum)pSkillTable->GetFieldFromLablePtr( nSkillID, "_DurationType" )->GetInteger();
+	sSkillInfo.eTargetType = (CDnSkill::TargetTypeEnum)pSkillTable->GetFieldFromLablePtr( nSkillID, "_TargetType" )->GetInteger();
+	sSkillInfo.iSkillDuplicateMethod = pSkillTable->GetFieldFromLablePtr( nSkillID, "_SkillDuplicate" )->GetInteger();
+	sSkillInfo.iDuplicateCount = pSkillTable->GetFieldFromLablePtr( nSkillID, "_EffectAmassCount" )->GetInteger();
+	sSkillInfo.iDissolvable = pSkillTable->GetFieldFromLablePtr( nSkillID, "_Dissolvable" )->GetInteger();
+	sSkillInfo.szEffectOutputIDToClient = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_StateEffectTableID" )->GetString();
+
+	sSkillInfo.bFromBuffProp = true;
+
+	// »óÅÂ È¿°ú Á¤º¸ ·Îµù
+	CDnSkill::StateEffectStruct StateEffect;
+	char caLable[ 64 ];
+	ZeroMemory( caLable, sizeof(caLable) );
+	for( int i = 0; i < MAX_STATE_EFFECT_COUNT; ++i )
+	{
+		sprintf_s( caLable, "_EffectClass%d", i + 1 );
+		StateEffect.nID = pSkillTable->GetFieldFromLablePtr( nSkillID, caLable )->GetInteger();
+
+		if( StateEffect.nID < 1 ) 
+			continue;
+
+		sprintf_s( caLable, "_EffectClass%dApplyType", i + 1 );
+		StateEffect.ApplyType = (CDnSkill::StateEffectApplyType)pSkillTable->GetFieldFromLablePtr( nSkillID, caLable )->GetInteger();
+
+		sprintf_s( caLable, "_EffectClassValue%d", i + 1 );
+		StateEffect.szValue = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, caLable )->GetString();
+
+		sprintf_s( caLable, "_EffectClassValue%dDuration", i + 1 );
+		StateEffect.nDurationTime = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, caLable )->GetInteger();
+
+		vecSkillEffect.push_back( StateEffect );
+	}
+}
+
+void CDnSkill::CreateBattleGroundSkillInfo( int nSkillID, int nSkillLevel, CDnSkill::SkillInfo & sSkillInfo, std::vector<CDnSkill::StateEffectStruct> & vecSkillEffect )
+{
+	CreateSkillInfo(nSkillID, nSkillLevel, sSkillInfo, vecSkillEffect, true);
+}
+
+bool CDnSkill::_LoadSkillLevelData( int iSkillTableID, int iLevel, int iSkillLevelDataApplyType )
+{
+	DNTableFileFormat* pSkillTable = GetDNTable( CDnTableDB::TSKILL );
+	DNTableFileFormat* pSkillLevelTable = GetDNTable( CDnTableDB::TSKILLLEVEL );
+
+	vector<int> vlSkillLevelList;
+	if( pSkillLevelTable->GetItemIDListFromField( "_SkillIndex", iSkillTableID, vlSkillLevelList ) <= 0 ) 
+		return false;
+
+	if( !pSkillTable->IsExistItem( iSkillTableID) )
+		return false;
+
+	// pve, pvp ´ë»óÀÎÁö È®ÀÎÇÏ¿© °É·¯³¿.
+	vector<int>::iterator iterLevelList = vlSkillLevelList.begin();
+	for( iterLevelList; iterLevelList != vlSkillLevelList.end(); )
+	{
+		int iSkillLevelTableID = *iterLevelList;
+		int iApplyType = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_ApplyType" )->GetInteger();
+		if( iApplyType != iSkillLevelDataApplyType )
+			iterLevelList = vlSkillLevelList.erase( iterLevelList );
+		else
+			++iterLevelList;
+	}
+
+	// ÇØ´ç ´ë»óÀÇ µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì¿£ ±×³É ¾Æ¹«°Íµµ ¾ÈÇÏ°í ¸®ÅÏÇÏ¸é µÈ´Ù.
+	if( vlSkillLevelList.empty() )
+		return true;
+
+	int iSkillLevelTableID = -1;
+	for( int i = 0; i < (int)vlSkillLevelList.size(); ++i )
+	{
+		int iNowLevel = pSkillLevelTable->GetFieldFromLablePtr( vlSkillLevelList.at(i), "_SkillLevel" )->GetInteger();
+		if( iNowLevel == iLevel )
+		{
+			iSkillLevelTableID = vlSkillLevelList.at( i );
+			break;
+		}
+	}
+
+	if( -1 == iSkillLevelTableID )
+		return false;
+
+#if defined(PRE_FIX_NEXTSKILLINFO)
+	//NextLevelÀÌ ¿¬¼ÓÀ¸·Î ÀÖÁö ¾ÊÀ» ¼ö ÀÖ´Ù.. ±×·¡¼­ ¿©±â¼­ ´ÙÀ½ ·¹º§ µ¥ÀÌÅ¸ Å×ÀÌºí ID¸¦ Ã£¾Æ ³õ´Â´Ù.
+	int iMinSkillLevelTableID = -1;
+	int iNextSkillLevelTableID = -1;
+
+	SKILL_LEVEL_INFO* pTableInfo = g_pDataManager->GetSkillLevelTableIDList(iSkillLevelTableID, iSkillLevelDataApplyType);
+	SKILL_LEVEL_TABLE_IDS::iterator findIter = pTableInfo->_SkillLevelTableIDs.find(pTableInfo->_MinLevel);
+	if (findIter != pTableInfo->_SkillLevelTableIDs.end())
+		iMinSkillLevelTableID = findIter->second;
+
+	findIter = pTableInfo->_SkillLevelTableIDs.find(iLevel + 1);
+	if (findIter != pTableInfo->_SkillLevelTableIDs.end())
+		iNextSkillLevelTableID = findIter->second;
+
+#endif // PRE_FIX_NEXTSKILLINFO
+
+	char caLabel[ 32 ];
+	int iCheckerParamOffset = 0;
+	int iProcessorParamOffset = 0;
+	for( int i = 0; i < MAX_PROCESSOR_COUNT; ++i )
+	{
+		// ¹ßµ¿Á¶°Ç °´Ã¼ ÀÌ¸§À» Ã£´Â´Ù. ÆÄ¶ó¸ÞÅÍ ÇÊµå°¡ ºñ¾îÀÖÀ¸¸é »ý¼º ÇÔ¼öµé¿¡¼­ NULL ¸®ÅÏµÊ
+		sprintf_s( caLabel, "_UsableChecker%d", i + 1 );
+		int iUsableChecker = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLabel )->GetInteger();
+
+		sprintf_s( caLabel, "_Processor%d", i + 1 );
+		int iProcessor = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLabel )->GetInteger();
+		
+		int iOffsetCheck = iCheckerParamOffset;
+		IDnSkillUsableChecker* pUsableChecker = IDnSkillUsableChecker::Create( m_hActor, iUsableChecker, iSkillLevelTableID, &iCheckerParamOffset );
+
+		if( NULL != pUsableChecker )
+		{
+			if( (iCheckerParamOffset - iOffsetCheck) != pUsableChecker->GetNumArgument() )
+			{
+				OutputDebug( "[SkillLevelTable Error!] %d ÀÇ ÆÄ¶ó¸ÞÅÍ °³¼ö°¡ Àß¸øµÇ¾ú½À´Ï´Ù.\n", iSkillLevelTableID );
+				_ASSERT( !"½ºÅ³ ·¹º§ Å×ÀÌºí ÆÄ¶ó¸ÞÅÍ Àß¸øµÊ. OutputDebug Ãâ·Â È®ÀÎ!" );
+			}
+
+			this->AddUsableCheckers( pUsableChecker, iSkillLevelDataApplyType );
+		}
+
+		iOffsetCheck = iProcessorParamOffset;
+		IDnSkillProcessor* pSkillProcessor = IDnSkillProcessor::Create( m_hActor, iProcessor, iSkillLevelTableID, &iProcessorParamOffset, this->GetUseActionNames() );
+
+		if( NULL != pSkillProcessor )
+		{
+			if( (iProcessorParamOffset - iOffsetCheck) != pSkillProcessor->GetNumArgument() )
+			{
+				OutputDebug( "[SkillLevelTable Error!] %d ÀÇ ÆÄ¶ó¸ÞÅÍ °³¼ö°¡ Àß¸øµÇ¾ú½À´Ï´Ù.\n", iSkillLevelTableID );
+				_ASSERT( !"½ºÅ³ ·¹º§ Å×ÀÌºí ÆÄ¶ó¸ÞÅÍ Àß¸øµÊ. OutputDebug Ãâ·Â È®ÀÎ!" );
+			}
+
+			this->AddProcessor( pSkillProcessor, iSkillLevelDataApplyType );
+		}
+	}
+
+	// skill table
+	m_strStaticName = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_StaticName" )->GetString();
+
+	char caLable[ 64 ];
+	ZeroMemory( caLable, sizeof(caLable) );
+	for( int i = 0; i < 2; ++i )
+	{
+		sprintf_s( caLable,  "_NeedWeaponType%d", i+1 );
+		int iEquipType = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLable )->GetInteger();
+		if( -1 != iEquipType )
+			m_aeNeedEquipType[ i ] = (CDnWeapon::EquipTypeEnum)iEquipType;
+		else
+			m_aeNeedEquipType[ i ] = CDnWeapon::EquipTypeEnum_Amount;
+	}
+
+	// ½ºÅ³ Å×ÀÌºíÀÇ ÃÖ´ë ·¹º§Àº ½Å·ÚÇÒ ¼ö ¾ø´Ù. -_-
+	// ½ÇÁ¦ °¹¼ö·Î ¾÷µ¥ÀÌÆ®.
+	if( 0 == m_iMaxLevel )
+	{
+		m_iMaxLevel = (int)vlSkillLevelList.size();
+	}
+	else
+	{
+		_ASSERT( m_iMaxLevel == (int)vlSkillLevelList.size() );
+	}
+
+	m_eSkillType = (SkillTypeEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_SkillType" )->GetInteger();
+	m_eDurationType = (DurationTypeEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_DurationType" )->GetInteger();
+	m_eTargetType = (TargetTypeEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_TargetType" )->GetInteger();
+
+	m_iDissolvable = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_Dissolvable" )->GetInteger();
+	m_iDuplicateCount = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_EffectAmassCount" )->GetInteger();
+	m_iSkillDuplicateMethod = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_SkillDuplicate" )->GetInteger();
+	m_iEffectDuplicateMethod = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_EffectDuplicate" )->GetInteger();
+	m_eElement = (CDnState::ElementEnum)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_Element" )->GetInteger();
+	m_iNeedJobClassID = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_NeedJob" )->GetInteger();
+	if( (CDnState::ElementEnum)-1 == m_eElement )
+		m_eElement = CDnState::ElementEnum_Amount;
+
+	m_iExclusiveID = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_DuplicatedSkillType" )->GetInteger();
+	m_iBaseSkillID = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_BaseSkillID" )->GetInteger();
+
+	m_iGlobalSkillGroupID = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_GlobalSkillGroup" )->GetInteger();
+
+	float fGlobalCoolTime = 0.0f;
+	if( PVE == iSkillLevelDataApplyType )
+		fGlobalCoolTime = (float)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_GlobalCoolTimePvE" )->GetInteger() / 1000.0f;
+	else
+	if( PVP == iSkillLevelDataApplyType )
+		fGlobalCoolTime = (float)pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_GlobalCoolTimePvP" )->GetInteger() / 1000.0f;
+
+	m_afGlobalCoolTime[ iSkillLevelDataApplyType ] = fGlobalCoolTime;
+
+	// skill level table
+	m_iSkillLevelID = iSkillLevelTableID;
+	m_iLevel = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_SkillLevel" )->GetInteger();
+	m_iNowLevelSkillPoint = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_NeedSkillPoint" )->GetInteger();
+	if( m_iLevel < m_iMaxLevel )
+#if defined(PRE_FIX_NEXTSKILLINFO)
+		m_iNextLevelSkillPoint = pSkillLevelTable->GetFieldFromLablePtr( iNextSkillLevelTableID, "_NeedSkillPoint" )->GetInteger();
+#else
+		m_iNextLevelSkillPoint = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID+1, "_NeedSkillPoint" )->GetInteger();
+#endif // PRE_FIX_NEXTSKILLINFO
+	else
+		m_iNextLevelSkillPoint = 0;
+
+	m_iNeedItemID[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_NeedItem" )->GetInteger();
+	m_iNeedItemDecreaseCount[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_NeedItemDecreaseCount" )->GetInteger();
+	m_iIncreaseRange[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_AddRange" )->GetInteger();
+	m_iDecreaseHP[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_DecreaseHP" )->GetInteger();
+	m_iDecreaseMP[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_DecreaseSP" )->GetInteger();
+	m_iLevelLimit = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_LevelLimit" )->GetInteger();
+	m_fDelayTime[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_DelayTime" )->GetInteger() / 1000.f;
+
+	// ¸¸¾à ±Û·Î¹ú ½ºÅ³ ±×·ìÀÌ ¼³Á¤µÇ¾îÀÖ´Ù¸é ½ºÅ³ ÄðÅ¸ÀÓÀ» ±Û·Î¹ú ÄðÅ¸ÀÓÀ¸·Î ´ëÃ¼ ½ÃÄÑÁØ´Ù.
+	if( 0 < m_iGlobalSkillGroupID )
+		m_fDelayTime[ iSkillLevelDataApplyType ] = m_afGlobalCoolTime[ iSkillLevelDataApplyType ];
+
+	m_fOriginalDelayTime[ iSkillLevelDataApplyType ] = m_fDelayTime[ iSkillLevelDataApplyType ];
+	m_iAdditionalThreat = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_AddThreat" )->GetInteger();
+
+	m_fHPConsumeType[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_HPConsumeType" )->GetFloat();
+	m_fMPConsumeType[ iSkillLevelDataApplyType ] = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_SPConsumeType" )->GetFloat();
+	m_iCPScore = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_CPScore" )->GetInteger();
+	m_fStartSuperArmor = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_StartSuperArmor" )->GetFloat();
+	m_bStartCanHit = (pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_StartCanHit" )->GetInteger() == 1) ? true : false;
+
+	// »óÅÂ È¿°ú Á¤º¸ ·Îµù
+	StateEffectStruct StateEffect;
+	for( int i = 0; i < MAX_STATE_EFFECT_COUNT; ++i )
+	{
+		sprintf_s( caLable, "_EffectClass%d", i + 1 );
+		StateEffect.nID = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLable )->GetInteger();
+
+		if( StateEffect.nID < 1 ) 
+			continue;
+
+		sprintf_s( caLable, "_EffectClass%dApplyType", i + 1 );
+		int iApplyType = pSkillTable->GetFieldFromLablePtr( iSkillTableID, caLable )->GetInteger();
+		// ¸ðµÎ Àû¿ëÀÓ. Å¸°Ù¸¸ ´Ù¸£°Ô ÇØ¼­ ¶È°°Àº »óÅÂÈ¿°ú 2°³¸¦ Ãß°¡ÇØÁØ´Ù.
+		// ÇÏÁö¸¸ °­È­ ÆÐ½Ãºê·Î »ç¿ëµÇ´Â ½ºÅ³Àº 2°³·Î ÇÏÁö ¾Ê°í ±×³É »ý¼º. ´Ù¸¥ ½ºÅ³À» °­È­½ÃÅ°´Â µ¥ÀÌÅÍ ¿ªÇÒ¸¸ ¼öÇàÇÏ±â ¶§¹®.
+		bool bApplyAll = (StateEffectApplyType::ApplyAll == iApplyType) && (SkillTypeEnum::EnchantPassive != m_eSkillType);		
+
+		if( bApplyAll )
+		{
+			StateEffect.ApplyType = StateEffectApplyType::ApplySelf;
+			StateEffect.bApplyAllPair = true;
+		}
+		else
+			StateEffect.ApplyType = (StateEffectApplyType)iApplyType;
+
+		sprintf_s( caLable, "_EffectClassValue%d", i + 1 );
+		StateEffect.szValue = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, caLable )->GetString();
+
+		sprintf_s( caLable, "_EffectClassValue%dDuration", i + 1 );
+		StateEffect.nDurationTime = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, caLable )->GetInteger();
+
+		m_vlStateEffectList[ iSkillLevelDataApplyType ].push_back( StateEffect );
+
+		// ¸ðµÎ Àû¿ëÀÌ¸é Å¸°ÙÀ¸·Î ¹Ù²ã¼­ ¶È°°ÀÌ ÇÑ ¹ø ´õ ³Ö¾îÁÜ.
+		if( bApplyAll )
+		{
+			StateEffect.ApplyType = StateEffectApplyType::ApplyTarget;
+			m_vlStateEffectList[ iSkillLevelDataApplyType ].push_back( StateEffect );
+		}
+	}
+
+	SkillInfo& MySkillInfo = m_SkillInfo[ iSkillLevelDataApplyType ];
+	MySkillInfo.iSkillID = m_iSkillID;
+	MySkillInfo.iSkillLevelID = m_iSkillLevelID;
+	MySkillInfo.iLevel = m_iLevel;
+	MySkillInfo.iSkillDuplicateMethod = m_iSkillDuplicateMethod;
+	MySkillInfo.iDuplicateCount = m_iDuplicateCount;
+
+	MySkillInfo.eSkillType = m_eSkillType;
+	MySkillInfo.eDurationType = m_eDurationType;
+	MySkillInfo.eTargetType = m_eTargetType;
+	MySkillInfo.eApplyType = StateEffect.ApplyType;
+	MySkillInfo.iDissolvable = m_iDissolvable;
+	MySkillInfo.eSkillElement = m_eElement;
+	MySkillInfo.hSkillUser = m_hActor;				// Note: ¾×ÅÍ°¡ Ç×»ó À¯È¿ÇÑ °ÍÀº ¾Æ´Ô
+	if( m_hActor )
+		MySkillInfo.iSkillUserTeam = m_hActor->GetTeam();
+
+	if( m_hActor && _tcslen(m_hActor->GetName()) > 0 )
+		MySkillInfo.strUserName = m_hActor->GetName();
+
+	MySkillInfo.szEffectOutputIDs = pSkillLevelTable->GetFieldFromLablePtr( iSkillLevelTableID, "_StateEffectTableID" )->GetString();
+
+	if( 0.0f == m_fHPConsumeType[ iSkillLevelDataApplyType ] )
+	{
+		m_iNeedHP[ iSkillLevelDataApplyType ] = m_iDecreaseHP[ iSkillLevelDataApplyType ];
+	}
+	else
+	{
+		m_iNeedHP[ iSkillLevelDataApplyType ] = int((float)m_hActor->GetMaxHP() * m_fHPConsumeType[ iSkillLevelDataApplyType ]);
+	}
+
+#if defined(PRE_ADD_PREFIX_SYSTE_RENEW)
+	m_nPrefixSkillType = pSkillTable->GetFieldFromLablePtr( iSkillTableID, "_Group" )->GetInteger();
+
+	//½ºÅ³ Á¤º¸¿¡ Á¢¹Ì»ç ½ºÅ³ ±×·ìID¸¦ ¼³Á¤ ÇØ ³õ´Â´Ù..(Å¬¶óÀÌ¾ðÆ®´Â ¸ô¶óµµ µÊ?...)
+	SetPrefixSkillType(m_nPrefixSkillType);
+#endif // PRE_ADD_PREFIX_SYSTE_RENEW
+
+	return true;
+}
+
+
+void CDnSkill::_OnInitialize( void )
+{
+	// 129¹ø ChangeActionSet »óÅÂÈ¿°ú¿Í DnApplySEWhenActionSetBlowEnabledProcessor ¹ßÇö Å¸ÀÔÀÌ ÀÖ´Ù¸é ChangeActionSet À» Á¦¿ÜÇÑ ¸ðµç »óÅÂÈ¿°ú¸¦
+	// ¹ßÇöÅ¸ÀÔ °´Ã¼¿¡ ¸ô¾ÆÁÖ°í »èÁ¦. ÃßÈÄ¿¡ ¹Ù²ï ¾×¼Ç¿¡¼­¸¸ »óÅÂÈ¿°ú°¡ À¯È¿ÇÏµµ·Ï ¹ßÇöÅ¸ÀÔ¿¡¼­ ÄÁÆ®·Ñ ÇÏ°Ô µÈ´Ù.
+	// ¿ì¼± ±×³É Æ÷ÀÎÅÍ¸¦ ¹°·Áº¼±î..
+	for( int k = PVE; k < NUM_SKILLLEVEL_APPLY_TYPE; ++k )
+	{
+		CDnApplySEWhenActionSetBlowEnabledProcessor* pApplySEWhenActionSetBlowEnableProcessor = 
+			static_cast<CDnApplySEWhenActionSetBlowEnabledProcessor*>(GetProcessor( IDnSkillProcessor::APPLY_SE_WHEN_ACTIONSET_ENABLED, k ));
+		if( pApplySEWhenActionSetBlowEnableProcessor )
+		{
+			// ÀÌ ¹ßÇöÅ¸ÀÔÀÌ ÀÖ´Âµ¥ ChangeActionSet »óÅÂÈ¿°ú¿Í ChangeActionStr ¹ßÇöÅ¸ÀÔÀÌ ¾øÀ¸¸é ¿À·ù..
+			bool bValid = false;
+			for( int i = 0; i < (int)m_vlStateEffectList[ k ].size(); ++i )
+			{
+				StateEffectStruct& StateEffect = m_vlStateEffectList[ k ].at( i );
+				if( STATE_BLOW::BLOW_129 == StateEffect.nID )
+				{
+					bValid = true;
+					break;
+				}
+			}
+
+			if( bValid )
+			{
+				CDnChangeActionStrProcessor* pChangeActionStrProcessor = static_cast<CDnChangeActionStrProcessor*>(GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR, k ));
+				if( pChangeActionStrProcessor )
+					bValid = true;
+				else
+					bValid = false;
+			}
+
+			if( bValid )
+			{
+				for( int i = 0; i < (int)m_vlStateEffectList[ k ].size(); ++i )
+				{
+					StateEffectStruct& StateEffect = m_vlStateEffectList[ k ].at( i );
+					if( STATE_BLOW::BLOW_129 != StateEffect.nID )
+					{
+						pApplySEWhenActionSetBlowEnableProcessor->AddStateEffect( &StateEffect );
+						StateEffect.bApplyInProcessor = true;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+bool CDnSkill::Initialize( int iSkillTableID, int iLevel )
+{
+	m_iSkillID = iSkillTableID;
+
+	// °¢ ¸ðµåº°·Î µ¥ÀÌÅÍ ·Îµå. ¸ÕÀú PVP ¸¦ ÀÐ´Â´Ù.
+	// PVE ´Â µðÆúÆ® °ªÀÌ±â ¶§¹®¿¡ ¸ðµåº°·Î ³ª´µ¾îÁö´Â °ªÀÌ ¾Æ´Ï¸é µðÆúÆ® °ªÀ¸·Î Ã¤¿öÁö°Ô µÈ´Ù.
+
+	// ¸ó½ºÅÍÀÎ °æ¿ì¿£ pvp µ¥ÀÌÅÍ°¡ ¾øÀ¸¹Ç·Î ÇÔ¼ö ¾È¿¡¼­ ¾Æ¹«°Íµµ ¾ÈµÇ°í ¸®ÅÏµÈ´Ù.
+	// ¸¸¾à ÇÃ·¹ÀÌ¾îÀÎµ¥ ¾Æ¹«°Íµµ ¾ø´Ù¸é Àß¸øµÈ °ÅÀÓ.
+	if( false == _LoadSkillLevelData( iSkillTableID, iLevel, PVP ) )
+		return false;
+
+	if( false == _LoadSkillLevelData( iSkillTableID, iLevel, PVE ) )
+		return false;
+
+	// ÃÊ±âÈ­ ÀÌÈÄ¿¡ µû·Î ¸ð¾Æ³õÀ» Á¤º¸µé.
+	DNTableFileFormat* pSkillTable = GetDNTable( CDnTableDB::TSKILL );
+
+	RefreshDecreaseMP();
+
+	int iNumProcessor = (int)m_vlpProcessors[ PVE ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		IDnSkillProcessor* pProcessor = m_vlpProcessors[ PVE ].at( iProcessor );
+
+		// »ç¿ëÇÏ´Â ¾×¼ÇÀÌ ÀÖÀ¸¸é ¿ÜºÎ¿¡¼­ Á¶È¸¿ëÀ¸·Î µ¥ÀÌÅÍ Ã¤¿ö³õÀ½
+		if( pProcessor->GetType() == IDnSkillProcessor::PLAY_ANI )
+			m_setUseActionNames.insert( static_cast<CDnPlayAniProcess*>(pProcessor)->GetActionName() );
+		else
+		if( pProcessor->GetType() == IDnSkillProcessor::PARTIAL_PLAY_ANI )
+		{
+			CDnPartialPlayProcessor* pPartialPlayAni = static_cast<CDnPartialPlayProcessor*>(pProcessor);
+			m_setUseActionNames.insert( pPartialPlayAni->GetStartActionName() );
+			m_setUseActionNames.insert( pPartialPlayAni->GetLoopActionName() );
+			m_setUseActionNames.insert( pPartialPlayAni->GetEndActionName() );
+		}
+	}
+
+	// ÃÊ±âÈ­ ÇßÀ» ¶§´Â pve ¸ðµå°¡ µðÆúÆ®ÀÓ.
+	m_iSelectedSkillLevelDataApplyType = PVE;
+
+	_OnInitialize();
+
+	if (m_eDurationType == SummonOnOff)
+		OnInitializeSummonMonsterInfo();
+
+	return true;
+}
+
+
+bool CDnSkill::AddUsableCheckers( IDnSkillUsableChecker* pUsableChecker, int iSelectedLevelData )
+{
+	bool bResult = false;
+
+	if( pUsableChecker )
+	{
+		m_vlpUsableCheckers[ iSelectedLevelData ].push_back( pUsableChecker );
+		bResult = true;
+	}
+
+	return bResult;
+}
+
+
+bool CDnSkill::AddProcessor( IDnSkillProcessor* pProcessor, int iSelectedLevelData )
+{
+	bool bResult = false;
+
+	if( pProcessor )
+	{
+		m_vlpProcessors[ iSelectedLevelData ].push_back( pProcessor );
+		bResult = true;
+	}
+
+	return bResult;
+}
+
+
+bool CDnSkill::IsSatisfyWeapon( void )
+{
+	bool bSatisfy = true;
+
+	if( (CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ 0 ]) ||
+		(CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ 1 ]) )
+	{
+		bSatisfy = false;
+
+		if( CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ 0 ] && CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ 1 ] )
+		{
+			if( CDnWeapon::IsSubWeapon( m_aeNeedEquipType[ 0 ] ) == CDnWeapon::IsSubWeapon( m_aeNeedEquipType[ 1 ] ) )	// 1. µÑ´Ù ÁÖ¹«±âÀÌ°Å³ª º¸Á¶¹«±â ÀÎ °æ¿ì or
+			{
+				int nWeapon = CDnWeapon::IsSubWeapon( m_aeNeedEquipType[ 0 ] ) ? 1 : 0;
+#ifdef _GAMESERVER
+				if( m_hActor->GetWeapon( nWeapon ) && m_aeNeedEquipType[ 0 ] == m_hActor->GetWeapon( nWeapon )->GetEquipType()
+					|| m_hActor->GetWeapon( nWeapon ) && m_aeNeedEquipType[ 1 ] == m_hActor->GetWeapon( nWeapon )->GetEquipType() )
+#else // _GAMESERVER
+				if( m_hActor->GetWeapon( nWeapon, false ) && m_aeNeedEquipType[ 0 ] == m_hActor->GetWeapon( nWeapon, false )->GetEquipType()
+					|| m_hActor->GetWeapon( nWeapon, false ) && m_aeNeedEquipType[ 1 ] == m_hActor->GetWeapon( nWeapon, false )->GetEquipType() )
+#endif // _GAMESERVER
+					bSatisfy = true;
+			}
+			else	// 2. ÁÖ¹«±â, º¸Á¶¹«±âÀÎ °æ¿ì and
+			{
+				if( CDnWeapon::IsSubWeapon( m_aeNeedEquipType[ 0 ] ) )
+				{
+#ifdef _GAMESERVER
+					if( m_hActor->GetWeapon( 1 ) && m_aeNeedEquipType[ 0 ] == m_hActor->GetWeapon( 1 )->GetEquipType()
+						&& m_hActor->GetWeapon( 0 ) && m_aeNeedEquipType[ 1 ] == m_hActor->GetWeapon( 0 )->GetEquipType() )
+#else // _GAMESERVER
+					if( m_hActor->GetWeapon( 1, false ) && m_aeNeedEquipType[ 0 ] == m_hActor->GetWeapon( 1, false )->GetEquipType()
+						&& m_hActor->GetWeapon( 0, false ) && m_aeNeedEquipType[ 1 ] == m_hActor->GetWeapon( 0, false )->GetEquipType() )
+#endif // _GAMESERVER
+						bSatisfy = true;
+				}
+				else
+				{
+#ifdef _GAMESERVER
+					if( m_hActor->GetWeapon( 0 ) && m_aeNeedEquipType[ 0 ] == m_hActor->GetWeapon( 0 )->GetEquipType()
+						&& m_hActor->GetWeapon( 1 ) && m_aeNeedEquipType[ 1 ] == m_hActor->GetWeapon( 1 )->GetEquipType() )
+#else // _GAMESERVER
+					if( m_hActor->GetWeapon( 0, false ) && m_aeNeedEquipType[ 0 ] == m_hActor->GetWeapon( 0, false )->GetEquipType()
+						&& m_hActor->GetWeapon( 1, false ) && m_aeNeedEquipType[ 1 ] == m_hActor->GetWeapon( 1, false )->GetEquipType() )
+#endif // _GAMESERVER
+						bSatisfy = true;
+				}
+			}
+		}
+		else
+		{
+			for( int i=0; i<MAX_SKILL_NEED_EQUIP_COUNT; ++i )
+			{
+				if( CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ i ] )
+				{
+					for( int k=0; k<2; ++k )
+					{
+						// bActionMatchWeapon ¸¦ µðÆúÆ®·Î true ·Î È£ÃâÇÏ´Ï±î ¾×¼Ç¿¡ µû¶ó ¹«±â°¡ ´Ù¸£°Ô ³ª¿À´Â µí ÇÏ¿© Ç×»ó Â÷°í ÀÖ´Â ¸ÞÀÎ ¹«±â À§ÁÖ·Î Ã¼Å©Åä·Ï..
+#ifdef _GAMESERVER
+						if( m_hActor->GetWeapon( k ) && m_aeNeedEquipType[ i ] == m_hActor->GetWeapon( k )->GetEquipType() )
+#else // _GAMESERVER
+						if( m_hActor->GetWeapon( k, false ) && m_aeNeedEquipType[ i ] == m_hActor->GetWeapon( k, false )->GetEquipType() )
+#endif // _GAMESERVER
+						{
+							bSatisfy = true;
+							break;
+						}
+					}
+					if( bSatisfy )
+						break;
+				}
+			}
+		}
+	}
+
+	return bSatisfy;
+}
+
+CDnSkill::UsingResult CDnSkill::CanExecute( void )
+{
+	UsingResult eResult = UsingResult::Failed;
+
+	if( !m_hActor )
+		return UsingResult::Failed;
+
+	if( m_hActor->IsPlayerActor() )
+	{
+		CDnPlayerActor* pPlayerActor = static_cast<CDnPlayerActor*>(m_hActor.GetPointer());
+		if( pPlayerActor && pPlayerActor->IsSwapSingleSkin() )
+		{
+			if( pPlayerActor->IsTransformSkill(GetClassID()) == false )
+				return UsingResult::Failed;
+		}
+	}
+	if (m_hActor->IsAppliedThisStateBlow(STATE_BLOW::BLOW_176))
+	{
+		DNVector(DnBlowHandle) vlBlows;
+		CDnAllowedSkillsBlow* pAllowedSkillBlow = NULL;
+		m_hActor->GatherAppliedStateBlowByBlowIndex(STATE_BLOW::BLOW_176, vlBlows);
+		for (int i = 0; i < (int)vlBlows.size(); ++i)
+		{
+			pAllowedSkillBlow = static_cast<CDnAllowedSkillsBlow*>(vlBlows[i].GetPointer());
+			if (!pAllowedSkillBlow) continue;
+
+			if (!pAllowedSkillBlow->IsAllowSkill(m_iSkillID))
+				return UsingResult::Failed;
+		}
+	}
+
+	// ÀÜ¿© SP Ã¼Å©, Ã¼·Â Ã¼Å©, ·¹º§ Ã¼Å© µîµî
+	// ¿À¶ó³ª Åä±ÛÀº ÇöÀç È°¼ºÈ­ ÁßÀÌ¶ó¸é MP »ó°ü ¾øÀÌ ²ø ¼ö ÀÖ´Ù.
+	if( !IsToggleOn() && !IsAuraOn() )
+		if( m_hActor->GetSP() < m_iNeedMP[ m_iSelectedSkillLevelDataApplyType ] )
+			return UsingResult::Failed;
+
+	// ¿ö¸®¾îÀÇ ¸±¸®ºê°°Àº ½ºÅ³Àº ¼ö¸é, ½ºÅÏ ÁßÀÏ¶§µµ »ç¿ë°¡´ÉÇØ¾ß ÇÑ´Ù.
+	// Å×ÀÌºí¿¡ °ø°ÝºÒ°¡ ¹«½Ã ¹ßÇöÅ¸ÀÔÀ» Ãß°¡ÇÒ±îÇÏ´Ù°¡ ÇöÀç ¸±¸®ºê¿¡¼­¸¸ ÀÇ¹ÌÀÖ´Â °ÍÀÌ¹Ç·Î
+	// ´Ù¸¥ °÷¿¡¼­ ¾î¶² ½ÄÀ¸·Î ¾²ÀÌ°Ô µÉÁö Á» ´õ ÁöÄÑº¸°í ±Ô°ÝÈ­ ½ÃÅ°µµ·Ï ÇÑ´Ù.
+	// ¿ì¼± Dissolve »óÅÂÈ¿°ú ÀÖ´Â ½ºÅ³Àº Çàµ¿ ºÒ°¡ Ã¼Å©¸¦ °Ç³Ê¶Ú´Ù.
+	// ½ºÅ³¿¡ ÇØ´çÇÏ´Â ¾×¼ÇÀÇ State ½Ã±×³Î¿¡ ¹Ýµå½Ã IgnorectCantAction ÀÌ ÄÑÁ® ÀÖ¾î¾ß ½ºÅ³ ¾×¼ÇÀÌ ³ª°£´Ù.
+	bool bPassCheckCantAction = false;
+	for( DWORD i = 0; i < GetStateEffectCount(); ++i )
+	{
+		//#40480 °áºù»óÅÂ¿¡¼­ ´ÜÃà½½·Ô È°¼ºÈ­¸¦ À§ÇØ¼­..
+		CDnSkill::StateEffectStruct* pSE = GetStateEffectFromIndex( i );
+
+		if( STATE_BLOW::BLOW_069 == pSE->nID )
+		{
+			// 76643 ( Dissolvable ÀÌ 2¸é ±×³É ºñÈ°¼ºÈ­ ÇØ´Þ¶ó°í ÇÕ´Ï´Ù )
+			for( int i=0 ; i<m_hActor->GetNumAppliedStateBlow() ; ++i )
+			{
+				DnBlowHandle hBlow = m_hActor->GetAppliedStateBlow( i );
+				if( hBlow )
+				{
+					const CDnSkill::SkillInfo* pSkillInfo = hBlow->GetParentSkillInfo();
+					if( pSkillInfo && pSkillInfo->iDissolvable == 2 )
+						return UsingResult::Failed;
+				}
+			}
+
+			bPassCheckCantAction = true;
+			break;
+		}
+
+		if( STATE_BLOW::BLOW_155 == pSE->nID )
+		{
+			bPassCheckCantAction = true;
+			break;
+		}
+	}
+
+	// ½ºÅ³ »ç¿ëºÒ°¡ »óÅÂÈ¿°ú°¡ ÀÖÀ¸¸é mp ¼Ò¸ðÇÏ´Â ½ºÅ³Àº »ç¿ëÇÒ ¼ö ¾ø´Ù.
+	if( 0 < m_hActor->GetCantUseSkillSEReferenceCount() )
+		if( 0 < m_iNeedMP[ m_iSelectedSkillLevelDataApplyType ] )
+			return UsingResult::Failed;
+
+	// 67¹ø ½ºÅ³ Á¦ÇÑ »óÅÂÈ¿°ú°¡ ÀÖÀ¸¸é ¾×Æ¼ºê ½ºÅ³Àº »ç¿ëÇÒ ¼ö ¾øÀ½. 
+	if( m_eSkillType == CDnSkill::Active )
+	{
+		int iAppliedStateBlow = m_hActor->GetNumAppliedStateBlow();
+		for( int iBlow = 0; iBlow < iAppliedStateBlow; ++iBlow )
+		{
+			DnBlowHandle hBlow = m_hActor->GetAppliedStateBlow( iBlow );
+			if( hBlow && hBlow->GetBlowIndex() == STATE_BLOW::BLOW_067 )
+				return UsingResult::Failed;
+		}
+	}
+
+	// HP 
+	if( m_hActor->GetHP() < m_iNeedHP[ m_iSelectedSkillLevelDataApplyType ] )
+		return UsingResult::Failed;
+
+	bool isCharacterLevelCheck = true;
+	//½ºÅ³ ·¹º§¾÷ ¾ÆÀÌÅÛ¿¡ ÀÇÇØ ½ºÅ³·¹º§¾÷ÀÌ µÈ ½ºÅ³Àº Ä³¸¯ÅÍ ·¹º§ Ã¼Å© ÇÏÁö ¾Êµµ·Ï ÇÑ´Ù.
+	isCharacterLevelCheck = (GetLevelUpValue() == 0);
+	
+	if (isCharacterLevelCheck)
+	{
+		if( m_hActor->GetLevel() < m_iLevelLimit )
+			return UsingResult::Failed;
+	}
+
+	// ÇÊ¿ä ¹«±â°¡ ÀÖ´Ù¸é ÀåÂøÇß´ÂÁö È®ÀÎ. ÃÖ´ë 2°³ÀÓ. µÑ Áß ÇÏ³ª¸¸ ÃæÁ·µÇµµ ½ºÅ³ »ç¿ë °¡´É.
+	if( (CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ 0 ]) ||
+		(CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ 1 ]) )
+	{
+		bool bSatisfy = false;
+		for( int i = 0; i < MAX_SKILL_NEED_EQUIP_COUNT; ++i )
+		{
+			if( CDnWeapon::EquipTypeEnum_Amount != m_aeNeedEquipType[ i ] )
+			{
+				for( int k = 0; k < 2; ++k )
+				{
+					// #11120 °ü·Ã. ¹ßÂ÷±â »óÅÂ¿¡¼­´Â ÀåÂøÇÏ°í ÀÖ´Â ¹«±â¸¦ ¾òÁö ¸øÇÏ±â ¶§¹®¿¡ ¸í½ÃÀûÀ¸·Î ¿ø·¡ ÇÔ¼ö·Î ÀåÂøÇÏ°í ÀÖ´Â ¹«±â¸¦ ¾ò¾î¿ÀÀÚ.
+					if( m_hActor->CDnActor::GetWeapon( k ) && m_aeNeedEquipType[ i ] == m_hActor->CDnActor::GetWeapon( k )->GetEquipType() )
+					{
+						bSatisfy = true;
+						break;
+					}
+				}
+				if( bSatisfy )
+					break;
+			}
+		}
+
+		if( false == bSatisfy )
+			return UsingResult::Failed;
+	}
+
+	// È­»ì °°Àº ¼Ò¸ð¼º ¾ÆÀÌÅÛÀÇ °¹¼ö È®ÀÎ
+	bool bCheckNeedItem = true;
+	if( GetRoom() && bIsExtremitySkill() && static_cast<CDNGameRoom*>(GetRoom())->bIsLadderRoom() )	// ·¡´õ¿¡¼­ ±Ã±Ø±â ½ºÅ³
+		bCheckNeedItem = false;
+
+	if( bCheckNeedItem && m_iNeedItemID[ m_iSelectedSkillLevelDataApplyType ] > 0 )
+	{
+		int iNumNeedItem = CDnItemTask::GetInstance( m_hActor->GetRoom() ).ScanItemFromID( m_hActor, m_iNeedItemID[ m_iSelectedSkillLevelDataApplyType ], NULL );
+		if( iNumNeedItem < m_iNeedItemDecreaseCount[ m_iSelectedSkillLevelDataApplyType ] )
+			return UsingResult::Failed;
+	}
+	// Á÷¾÷ Ã¼Å©
+	//if( m_hActor->GetClassID() <= CDnActor::Reserved6  )
+	if( m_hActor->IsPlayerActor() )
+	{
+		//CDnPlayerActor* pActor = dynamic_cast<CDnPlayerActor*>(m_hActor.GetPointer());
+		CDnPlayerActor* pActor = static_cast<CDnPlayerActor*>(m_hActor.GetPointer());
+		if( NULL == pActor )
+			return UsingResult::Failed;
+		if( 0 != m_iNeedJobClassID )
+		{
+			if( pActor->IsPassJob( m_iNeedJobClassID ) == false ) 
+				return UsingResult::Failed;
+		}
+
+		// ¹èÆ² ¸ðµå°¡ ¾Æ´Ï¸é ½ºÅ³ ¹ßµ¿ ºÒ°¡!
+		if( !pActor->IsBattleMode() )
+			return UsingResult::Failed;
+	}
+
+	switch( m_eDurationType )
+	{
+	    case CDnSkill::Instantly:
+		case CDnSkill::Buff:
+		case CDnSkill::Debuff:
+		case CDnSkill::SummonOnOff:
+		case CDnSkill::StanceChange:
+			{
+				// ÄðÅ¸ÀÓÀÌ ³¡³ªÁö ¾Ê¾Ò´Ù¸é ½ºÅ³ ¹ßµ¿ ºÒ°¡.. ¿ì¼± Å¬¶ó¿¡¼­ Ã¼Å©ÇØ¼­ º¸³»ÁÖ¹Ç·Î ¼­¹ö¿¡¼± ¾à°£ÀÇ À¯¿¹ ½Ã°£À» ³²°ÜµÐ´Ù.
+				// ¸ó½ºÅÍÀÌ°Å³ª ¿ÀÅä ÆÐ½Ãºê ½ºÅ³ÀÎ °æ¿ì¿£ Ä®°°ÀÌ Ã¼Å©.
+				if( m_hActor->IsMonsterActor() ||
+					SkillTypeEnum::AutoPassive == m_eSkillType )
+				{
+					if( m_fCoolTime > 0.0f )
+						return UsingResult::FailedByCooltime;
+				}
+				else
+				{
+					if( m_fLeftDelayTime > 0.5f )
+						return UsingResult::FailedByCooltime;
+				}
+			}
+			break;
+
+		case CDnSkill::TimeToggle: 
+			break;
+
+		case CDnSkill::ActiveToggle:
+		case CDnSkill::ActiveToggleForSummon:
+			break;
+
+		case CDnSkill::Aura:
+			break;
+	}
+
+	if( m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].empty() )
+		eResult = UsingResult::Success;
+	else
+	{
+		int iNumChecker = (int)m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].size();
+
+		for( int iChecker = 0; iChecker < iNumChecker; ++iChecker )
+		{
+			IDnSkillUsableChecker* pChecker = m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].at( iChecker );
+			if( false == pChecker->CanUse() )
+			{
+				eResult = UsingResult::FailedByUsableChecker;
+				break;
+			}
+			else
+				eResult = UsingResult::Success;
+		}
+	}
+
+	return eResult;
+}
+
+
+
+float CDnSkill::GetDelayTime( void ) 
+{ 
+
+#if defined(PRE_ADD_TOTAL_LEVEL_SKILL)
+	float fDelayTime = 0.0f;
+
+	if( 0.0f < m_fAnotherGlobalSkillCoolTime )
+	{
+		fDelayTime = m_fAnotherGlobalSkillCoolTime;
+
+		DnSkillHandle hAnotherSkill;
+		if (m_hActor)
+			hAnotherSkill = m_hActor->FindSkill(m_nAnotherGlobakSkillID);
+
+		if (hAnotherSkill)
+		{
+			if (hAnotherSkill->GetAnotherGlobalSkillID() != GetClassID())
+				fDelayTime = hAnotherSkill->GetDelayTime();
+		}
+	}
+	else
+	//À§m_fAnotherGlobalSkillCoolTimeÀÌ Àû¿ë µÇ¾î ÀÖÀ¸¸é Àû¿ë ¾È ÇÏµµ·Ï..
+	{
+		fDelayTime = m_fDelayTime[ m_iSelectedSkillLevelDataApplyType ]; 
+
+		float fGlobalCoolTimeRate = 0.0f;
+		if (m_hActor &&
+			m_hActor->IsAppliedThisStateBlow(STATE_BLOW::BLOW_269) && 
+			m_iGlobalSkillGroupID > 0)
+		{
+			DNVector(DnBlowHandle) vlBlows;
+			m_hActor->GatherAppliedStateBlowByBlowIndex(STATE_BLOW::BLOW_269, vlBlows);
+			{
+				int nCount = (int)vlBlows.size();
+				for (int i = 0; i < nCount; ++i)
+				{
+					DnBlowHandle hBlow = vlBlows[i];
+					if (hBlow && hBlow->IsEnd() == false)
+					{
+						fGlobalCoolTimeRate += hBlow->GetFloatValue();
+					}
+				}
+			}
+		}
+
+		fDelayTime -= fDelayTime * fGlobalCoolTimeRate;
+	}	
+
+	return fDelayTime;
+#else
+	if( 0.0f < m_fAnotherGlobalSkillCoolTime )
+		return m_fAnotherGlobalSkillCoolTime;
+
+	return  m_fDelayTime[ m_iSelectedSkillLevelDataApplyType ]; 
+#endif // PRE_ADD_TOTAL_LEVEL_SKILL
+}
+
+
+void CDnSkill::OnBeginCoolTime()
+{
+	m_dwLastUseSkillTimeStamp = timeGetTime();
+
+	m_fCoolTime = (GetDelayTime() == 0.0f) ? 0.0f : 1.0f;
+
+	m_fCoolTimeAdjustBlowValue = 1.0f;
+
+	m_fLeftDelayTime = GetDelayTime()*m_fCoolTimeAdjustBlowValue;
+
+	m_fLeftDelayTime *= m_fCoolTimeMultipier;
+
+	// [2011/03/09 semozz]
+	// ½ÃÀÛÇÒ¶§ LeftDelayTimeÀÌ 0.0ÀÌ µÇ¸é m_fCoolTimeÀ» 0.0f·Î º¯°æÇØ¾ßÇÑ´Ù.
+	// ±×·¸Áö ¾ÊÀ¸¸é ÄðÅ¸ÀÓÀÌ 1.0À¸·Î °è¼Ó À¯ÁöµÊ.(ProcessÇÔ¼ö¿¡¼­ m_fLeftDelayTimeÀÌ 0ÀÌ¸é CoolTime°»½Å¾ÈµÊ.
+	if (m_fLeftDelayTime == 0.0f)
+	{
+		m_fCoolTime = 0.0f;
+
+#if defined(PRE_ADD_TOTAL_LEVEL_SKILL)
+		m_fDeltaGlobalCoolTime = 0.0f;
+#endif // PRE_ADD_TOTAL_LEVEL_SKILL
+	}
+}
+
+
+
+void CDnSkill::_OnBeginProcessException( void )
+{
+	// °áºù»óÅÂ¿¡¼­ ¿ö¸®¾î ¸±¸®ºê ½ºÅ³À» ¾²´Â °æ¿ì ¹Ù·Î ÇÁ·¹ÀÓ °íÁ¤À» Ç®¾îÁØ´Ù. #12438
+	// °áºù»óÅÂÈ¿°ú°¡ °É¸° »óÅÂ¿¡¼­ µð¹öÇÁ »óÅÂÈ¿°ú ÇØÁ¦ »óÅÂÈ¿°ú°¡ self ·Î Àû¿ëµÇ´Â ½ºÅ³À» 
+	// »ç¿ëÇÏ´Â °æ¿ì·Î ÀÏ¹ÝÈ­ ½ÃÅ´.
+	if( m_hActor && 
+		(
+		m_hActor->IsAppliedThisStateBlow( STATE_BLOW::BLOW_041 ) ||
+		m_hActor->IsAppliedThisStateBlow( STATE_BLOW::BLOW_146 ) ||
+		m_hActor->IsAppliedThisStateBlow( STATE_BLOW::BLOW_218 ) //#53900 Escape½ºÅ³ Ãß°¡
+		))
+	{
+		int iNumStateBlow = (int)m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].size();
+		for( int i = 0; i < iNumStateBlow; ++i )
+		{
+			const StateEffectStruct& SE = m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].at( i );
+			if( STATE_BLOW::BLOW_069 == SE.nID &&
+				StateEffectApplyType::ApplySelf == SE.ApplyType )
+			{
+				// ÇÁ·¹ÀÓ Á¤Áö »óÅÂÈ¿°ú ÂüÁ¶ ÀÎµ¦½º¸¦ ¸ðµÎ Ç®¾îÁØ´Ù. ÇÁ·¹ÀÓÀÌ µ¹¾Æ¾ß ¾×¼ÇÀÌ µ¹¾Æ°¡°í
+				// ¾×¼ÇÀÌ µ¹¾Æ°¡¾ß ¸±¸®ºê »óÅÂÈ¿°ú°¡ µé¾î°£´Ù.
+				while( 0 < m_hActor->GetFrameStopRefCount() )
+					m_hActor->RemovedFrameStop();
+				break;
+			}
+		}
+	}
+
+	//³«ÀÎ »óÅÂÈ¿°ú Á¦°Å
+	ClearStigmaStateEffect();
+}
+
+void CDnSkill::ClearStigmaStateEffect()
+{
+	//////////////////////////////////////////////////////////////////////////
+	//³«ÀÎ »óÅÂÈ¿°ú°¡ ÀÖ´Â ½ºÅ³ÀÎÁö È®ÀÎ...
+	bool hasStigmaState = false;
+	int nListCount = (int)m_vlStateEffectList[m_iSelectedSkillLevelDataApplyType].size();
+	for (int i = 0; i < nListCount; ++i)
+	{
+		const StateEffectStruct& SE = m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].at( i );
+		if (SE.nID == STATE_BLOW::BLOW_246)
+		{
+			hasStigmaState = true;
+			break;
+		}
+	}
+
+	//ÁÖÀ§ ³«ÀÎ È¿°ú¸¦ Ã£¾Æ¼­ Á¦°Å ÇØÁØ´Ù...
+	if (hasStigmaState == true)
+	{
+		DNVector(DnActorHandle) hVecList;
+		m_hActor->ScanActor(m_hActor->GetRoom(), *m_hActor->GetPosition(), FLT_MAX, hVecList);
+
+		int nActorCount = (int)hVecList.size();
+		for (int i = 0; i < nActorCount; ++i)
+		{
+			DnActorHandle hActor = hVecList[i];
+			if (hActor && hActor->IsDie() == false && hActor->IsAppliedThisStateBlow(STATE_BLOW::BLOW_246))
+			{
+				DNVector(DnBlowHandle) vlhBlows;
+				hActor->GetStateBlow()->GetStateBlowFromBlowIndex( STATE_BLOW::BLOW_246, vlhBlows );
+				int iNumBlow = (int)vlhBlows.size();
+				for( int j = 0; j < iNumBlow; ++j )
+				{
+					DnBlowHandle hBlow = vlhBlows[j];
+					if (hBlow && hBlow->IsEnd() == false)
+					{
+						CDnSkill::SkillInfo* pSkillInfo = const_cast<CDnSkill::SkillInfo*>(hBlow->GetParentSkillInfo());
+						if (pSkillInfo && pSkillInfo->hSkillUser == m_hActor)
+						{
+							int nBlowID = hBlow->GetBlowID();
+							hActor->SendRemoveStateEffectFromID(nBlowID);	//Á¦°Å ÆÐÅ¶ º¸³»°í
+							hActor->GetStateBlow()->RemoveImediatlyStateEffectFromID(nBlowID);	//Áï½Ã Á¦°Å ÇÑ´Ù.
+						}
+					}
+				}
+			}
+
+		}
+
+	}
+	//////////////////////////////////////////////////////////////////////////
+}
+
+// ½ºÅ³¿¡ ´Þ·ÁÀÖ´Â Processor µé Áß¿¡ ¼±Ã³¸® ÇØ¾ßÇÏ´Â °Íµé ¸ÕÀú Ã³¸®.
+void CDnSkill::CheckProcessorOnBegin( void )
+{
+	CheckChangeActionStrByBubbleProcessor();
+	CheckStateEffectApplyOnOffByBubbleProcessor();
+}
+
+void CDnSkill::CheckChangeActionStrByBubbleProcessor( void )
+{
+	CDnChangeActionStrByBubbleProcessor* pProcessor = static_cast<CDnChangeActionStrByBubbleProcessor*>(GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR_BY_BUBBLE ));
+	if( pProcessor )
+	{
+		bool bChanged = false;
+		const char* pChangedActionName = pProcessor->GetChangeActionNameAndRemoveNeedBubble( &bChanged );
+		if( bChanged )
+		{
+			// ¾×¼ÇÀ» ¹Ù²ãÁØ´Ù.
+			CDnPlayAniProcess* pPlayAniProcessor = static_cast<CDnPlayAniProcess*>(GetProcessor( IDnSkillProcessor::PLAY_ANI ));
+			if (pPlayAniProcessor)
+				pPlayAniProcessor->ChangeActionNameOnce( pChangedActionName );
+		}
+	}
+}
+
+
+void CDnSkill::CheckStateEffectApplyOnOffByBubbleProcessor( void )
+{
+	// ¹öºí °¹¼ö¿¡ µû¶ó »óÅÂÈ¿°ú °¹¼ö¸¦ º¯°æ½ÃÅ°´Â Processor
+	CDnStateEffectApplyOnOffByBubbleProcessor* pProcessor = static_cast<CDnStateEffectApplyOnOffByBubbleProcessor*>(GetProcessor(IDnSkillProcessor::STATE_EFFECT_APPLY_ONOFF_BY_BUBBLE));
+	if( pProcessor )
+	{
+		pProcessor->SelectAvailableSE( m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ] );
+	}
+}
+
+
+void CDnSkill::OnBegin( LOCAL_TIME LocalTime, float fDelta )
+{
+	ApplyAddtionalStateInfo();
+
+	// µî·ÏµÈ ¿ÉÀú¹ö¿¡°Ô ½ºÅ³ »ç¿ë ¸Þ½ÃÁö º¸³¿.
+	boost::shared_ptr<IDnObserverNotifyEvent> pNotifyEvent( new CDnUseSkillMessage );
+    boost::shared_ptr<CDnUseSkillMessage> pSkillUseEvent = shared_polymorphic_downcast<CDnUseSkillMessage>( pNotifyEvent );
+	pSkillUseEvent->SetSkillID( m_iSkillID );
+	CDnObservable::Notify( pNotifyEvent );
+
+	CheckProcessorOnBegin();
+
+	// °°Àº ±Û·Î¹ú ID ¸¦ »ç¿ëÇÏ´Â ´Ù¸¥ ±Û·Î¹ú ½ºÅ³À» »ç¿ëÇÏ¿© ¼ÂÆÃµÈ ÄðÅ¸ÀÓ °ªÀ» ½ÇÁ¦·Î ÀÌ ½ºÅ³ »ç¿ëµÉ ¶§´Â Á¦°ÅÇÑ´Ù.
+	m_fAnotherGlobalSkillCoolTime = 0.0f;
+
+	m_nAnotherGlobakSkillID = 0;
+
+	m_SkillStartTime = LocalTime;
+	//m_LastAuraCheckTime = 0;
+
+#if defined( PRE_ADD_ACADEMIC ) // ¼ÒÈ¯Çü ¸ó½ºÅÍ ¾×Æ¼ºê Åä±Û ½ºÅ³Àº ÄðÅ¸ÀÓÀÌ µ¹ÇÊ¿ä°¡ ¾ø½À´Ï´Ù.
+	if(m_eDurationType != DurationTypeEnum::ActiveToggleForSummon)
+		//OnBeginCoolTime();
+
+	{
+		//--------------------------------------------------
+		//[debug_skill]  server
+		//¼¼ÄÜ´ÎÊýÉèÖÃ
+		//Ñ¸²½Õ¶=6001   ÐÇÐÎ¶ú¶¤=6003  Ìì½µÓêµã=6204   ¼«¶È´ò»÷=6208
+
+		if ( 6001 == GetClassID() || 6003 == GetClassID() || 6204 == GetClassID() || 6208 == GetClassID() )
+		{
+			//int nSkillID = GetClassID();
+		} 
+		else
+		{
+			OnBeginCoolTime();
+		}
+		//--------------------------------------------------
+	}
+#else
+		//--------------------------------------------------
+		//[debug_skill]  server
+		//¼¼ÄÜ´ÎÊýÉèÖÃ
+	    //Ñ¸²½Õ¶=6001   ÐÇÐÎ¶ú¶¤=6003  Ìì½µÓêµã=6204   ¼«¶È´ò»÷=6208
+
+	    if ( 6001 == GetClassID() || 6003 == GetClassID() || 6204 == GetClassID() || 6208 == GetClassID() )
+		{
+			int nSkillID = GetClassID();
+		} 
+		else
+		{
+			OnBeginCoolTime();
+		}
+		//--------------------------------------------------
+#endif
+
+	m_LastTimeToggleMPDecreaseTime = LocalTime;
+	m_bFinished = false;
+
+	// ¾ÆÀÌÅÛ ¼Ò¸ð·Î ¼ÂÆÃµÇ¾îÀÖ´Ù¸é ¼Ò¸ðÇÏµµ·Ï Ã³¸®.
+	bool bCheckNeedItem = true;
+	if( GetRoom() && bIsExtremitySkill() && static_cast<CDNGameRoom*>(GetRoom())->bIsLadderRoom() )	// ·¡´õ¿¡¼­ ±Ã±Ø±â ½ºÅ³
+		bCheckNeedItem = false;
+
+	if( bCheckNeedItem && m_iNeedItemID[ m_iSelectedSkillLevelDataApplyType ] > 0 )
+	{
+		if( m_hActor && m_hActor->IsPlayerActor() )
+		{
+			CDNUserItem* pUserItem = static_cast<CDnPlayerActor*>(m_hActor.GetPointer())->GetUserSession()->GetItem();
+			//int iNeedItemSlotIndex = pUserItem->FindInventorySlot( m_iNeedItemID, m_iNeedItemDecreaseCount );
+			if (!pUserItem->DeleteInventoryByItemID( m_iNeedItemID[ m_iSelectedSkillLevelDataApplyType ], m_iNeedItemDecreaseCount[ m_iSelectedSkillLevelDataApplyType ], DBDNWorldDef::UseItem::Use )) return;
+		}
+	}
+
+	if( ActiveToggle != m_eDurationType && TimeToggle != m_eDurationType && ActiveToggleForSummon != m_eDurationType )
+	{
+		CheckAndAddSelfStateEffect();
+	}
+
+	int iNumProcessor = (int)m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		IDnSkillProcessor* pProcessor = m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].at( iProcessor );
+		pProcessor->OnBegin( LocalTime, fDelta, GetMySmartPtr() );
+	}
+
+	if( false == m_bItemSkill )
+	{
+		m_hActor->SetSkillSuperAmmor( int(m_hActor->GetSuperAmmor() * m_fStartSuperArmor) );
+		m_hActor->SetHittable( m_bStartCanHit );
+	}
+
+	// ½ºÅ³ »ç¿ë °ü·Ã ¿¹¿Ü »óÈ² Ã³¸®.
+	_OnBeginProcessException();
+
+	if( m_hActor->IsPlayerActor() && 0.0f != m_fResetCooltime )
+	{
+		int nRand = _rand(m_hActor->GetRoom())%100;
+
+		if( nRand < (int)(m_fResetCooltime * 100) )
+		{
+			static_cast<CDnPlayerActor*>(m_hActor.GetPointer())->RequestCooltimeReset( m_iSkillID );
+			m_fCoolTime = 0.0f; 
+			m_fLeftDelayTime = 0.0f;
+
+#if defined(PRE_ADD_TOTAL_LEVEL_SKILL)
+			m_fDeltaGlobalCoolTime = 0.0f;
+#endif // PRE_ADD_TOTAL_LEVEL_SKILL
+		}
+	}
+
+#if defined(PRE_ADD_50903)
+	//½ºÅ³ ½ÃÀÛµÉ¶§ ¸®¼Â ½ÃÅ´..
+	SetHitCountForVarianceDamage(0);
+#endif // PRE_ADD_50903
+}
+
+
+// ½ÇÁ¦·Î ½ºÅ³ÀÌ ¹ßµ¿ µÇ¾úÀ» ½Ã¿¡ Ã³¸®
+void CDnSkill::ProcessExecute( LOCAL_TIME LocalTime, float fDelta )
+{
+	switch( m_eDurationType )
+	{
+		case DurationTypeEnum::TimeToggle:
+			break;
+
+		case DurationTypeEnum::Aura:
+			break;
+	}
+
+	// µþ·Á ÀÖ´Â ÇÁ·Î¼¼¼­ Ã³¸®
+	int iNumProcessor = (int)m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		IDnSkillProcessor* pProcessor = m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].at( iProcessor );
+		pProcessor->Process( LocalTime, fDelta );
+	}
+
+	// -1 ÀÎ °æ¿ì´Â ´ë½Ã Ã³·³ ¹æÇâÅ°¸¦ ´©¸£°í ÀÖ´Âµ¿¾È °è¼Ó ¹ßµ¿µÇ´Â ½ºÅ³.
+	if( -1.0f != m_fPassiveActionSkillLength )
+	{
+		m_fPassiveActionSkillLength -= fDelta;
+		if( m_fPassiveActionSkillLength < 0.0f )
+		{
+			m_fPassiveActionSkillLength = 0.0f;
+		}
+	}
+}
+
+
+void CDnSkill::OnEnd( LOCAL_TIME LocalTime, float fDelta )
+{
+	CheckAndRemoveInstantApplySelfStateEffect();
+
+	//Á¢µÎ¾î¿¡¼­ Ãß°¡µÈ »óÅÂ È¿°ú Á¦°Å
+	RemovePrefixBlow();
+
+	int iNumProcessor = (int)m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		IDnSkillProcessor* pProcessor = m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].at( iProcessor );
+		pProcessor->OnEnd( LocalTime, fDelta );
+	}
+
+	m_SkillInfo->bIgnoreImmune = m_isIgnoreImmuneBackup;
+
+	CheckProcessorOnEnd();
+
+	// ¹öºí·Î °­È­µÈ »óÅÂ¶ó¸é ¿ø·¡´ë·Î.
+	if( m_bEnchantedFromBubble )
+	{
+		ReleaseEnchantSkill();
+		m_bEnchantedFromBubble = false;
+	}
+
+	RemoveAddtionalStateInfo();
+
+#if defined(PRE_FIX_64312)
+	if (m_isAppliedSummonMonsterEnchantSkill == true)
+	{
+		ReleaseEnchantSkill();
+		m_isAppliedSummonMonsterEnchantSkill = false;
+	}
+#endif // PRE_FIX_64312
+
+}
+
+
+void CDnSkill::CheckProcessorOnEnd( void )
+{
+	// ¹öºí °¹¼ö¿¡ µû¶ó »óÅÂÈ¿°ú °¹¼ö¸¦ º¯°æ½ÃÅ°´Â Processor
+	CDnStateEffectApplyOnOffByBubbleProcessor* pProcessor = static_cast<CDnStateEffectApplyOnOffByBubbleProcessor*>(GetProcessor(IDnSkillProcessor::STATE_EFFECT_APPLY_ONOFF_BY_BUBBLE));
+	if( pProcessor )
+	{
+		pProcessor->RestoreSEList( m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ] );
+	}
+}
+
+
+// Äð Å¸ÀÓ µîµîÀÇ Ã³¸®
+void CDnSkill::Process( LOCAL_TIME LocalTime, float fDelta )
+{
+	if( TIME_ACCELERATION_SKILL_ID != m_iSkillID && SPRIT_BOOST_SKILL_ID != m_iSkillID )
+		fDelta *= m_hActor->GetCoolTimeDeltaAdjustValue();
+
+	float fTempAdjustValue = m_fCoolTimeAdjustBlowValue;
+
+	fTempAdjustValue *= m_fCoolTimeMultipier;
+
+	switch( m_eDurationType )
+	{
+		case DurationTypeEnum::Instantly:
+		case DurationTypeEnum::Buff:
+		case DurationTypeEnum::Debuff:
+		case DurationTypeEnum::SummonOnOff:
+		case DurationTypeEnum::StanceChange:
+			{
+				if( 0.0f == m_fOnceElapsedDelayTime )
+				{
+					if( m_fLeftDelayTime == 0.0f ) return;
+
+					m_fLeftDelayTime -= fDelta;
+					if( m_fLeftDelayTime < 0.f ) 
+					{
+						m_fLeftDelayTime = 0.f;
+
+#if defined(PRE_ADD_TOTAL_LEVEL_SKILL)
+						m_fDeltaGlobalCoolTime = 0.0f;
+#endif // PRE_ADD_TOTAL_LEVEL_SKILL
+					}
+
+					// [2011/03/09 semozz]
+					// À©µå¿öÄ¿ÀÇ ½ºÅ³Áß ¼îÅ¸ÀÓ¿¡ ÀÇÇØ fTempAdjustValue°¡ 0ÀÌµÇ´Â °æ¿ì°¡ ¹ß»ý..
+					// ¿¹¿Ü Ã³¸® Ãß°¡
+					float fTempDelayTime = (GetDelayTime()*fTempAdjustValue);
+					if (fTempDelayTime == 0.0f)
+						m_fCoolTime = 0.0f;
+					else
+						m_fCoolTime = ( 1.0f / fTempDelayTime ) * m_fLeftDelayTime;
+
+				}
+				else
+				{
+					if( m_fOnceElapsedDelayTime == 0.0f ) 
+					{
+						m_fOnceDelayTime = 0.0f;
+						return;
+					}
+
+					m_fOnceElapsedDelayTime -= fDelta;
+					if( m_fOnceElapsedDelayTime < 0.0f )
+						m_fOnceElapsedDelayTime = 0.0f;
+
+					m_fCoolTime = ( 1.0f / (m_fOnceDelayTime*m_fCoolTimeAdjustBlowValue) ) * m_fOnceElapsedDelayTime;
+
+				}
+			}
+			break;
+
+		case DurationTypeEnum::TimeToggle:
+
+			break;
+
+		case DurationTypeEnum::ActiveToggle:
+		case DurationTypeEnum::ActiveToggleForSummon:
+
+			break;
+
+
+		case DurationTypeEnum::Aura:
+		
+			break;
+	}
+
+	// ÄðÀÌ Á¾·áµÈ »óÅÂ¶ó¸é ¼ÂÆÃµÈ ±Û·Î¹ú ½ºÅ³ ÄðÅ¸ÀÓÀ» ´Ù½Ã ¾ø¾ÖÁØ´Ù.
+	if( 0.0f < m_fAnotherGlobalSkillCoolTime && 0.0f == m_fCoolTime )
+	{
+		m_fAnotherGlobalSkillCoolTime = 0.0f;
+
+		m_nAnotherGlobakSkillID = 0;
+	}
+}
+
+bool CDnSkill::IsFinished( void )
+{
+	bool bResult = false;
+
+	// ¿À¶ó ½ºÅ³ÀÌ¶ó¸é ¸Ê ÀÌµ¿ ÇÏ±â Àü¿£ ³¡³»Áö ¾ÊÀ½.
+	if( Aura == m_eDurationType )
+		return IsFinishedAuraSkill();
+	
+	if( m_bFinished )
+		return m_bFinished;
+
+	if( m_bChainingPassiveSkill )
+		return false;
+
+	// MP ¸¦ Áö¼ÓÀûÀ¸·Î ¼Ò¸ðÇÏ´Â ½ºÅ³ÀÏ°æ¿ì ¿¥ÇÇ¸¦ ¸ðµÎ ¼ÒÁøÇÏ¿´À»¶§ ½ºÅ³À» ³¡³»ÁÝ´Ï´Ù.
+	if( 0.0f < m_fPassiveActionSkillLength || -1.0f == m_fPassiveActionSkillLength )
+	{
+		float fDecreaseMPRatio = 0.f;
+		DNVector( DnBlowHandle ) vlhBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex( STATE_BLOW::BLOW_014, vlhBlows );
+
+		for( DWORD i=0; i<vlhBlows.size(); i++ )
+		{
+			if( vlhBlows[i] && vlhBlows[i]->GetParentSkillInfo()->iSkillID == GetClassID() )
+			{
+				fDecreaseMPRatio = vlhBlows[i]->GetFloatValue();
+				break;
+			}
+		}
+
+		if( m_hActor->GetSP() < m_iNeedMP[ m_iSelectedSkillLevelDataApplyType ] && fDecreaseMPRatio < 0.f )
+			return true;
+
+		return false;
+	}
+
+#ifdef PRE_FIX_76603
+	if( m_hActor->IsAppliedThisStateBlow( STATE_BLOW::BLOW_232 ) )
+	{
+		DNVector(DnBlowHandle) vlBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex(STATE_BLOW::BLOW_232, vlBlows);
+
+		for (DWORD i = 0; i < vlBlows.size(); i++)
+		{
+			if( vlBlows[i] )
+			{
+				CDnTransformBlow *pTransformBlow = static_cast<CDnTransformBlow*>( vlBlows[i].GetPointer() );
+				if( pTransformBlow && pTransformBlow->GetParentSkillInfo()->iSkillID == GetClassID() )
+				{
+					if( pTransformBlow->CheckSkillDefendency() == true )
+						return false;
+				}
+			}
+		}
+	}
+#endif
+
+	if( m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].empty() )
+		bResult = true;
+	else
+	{
+		int iNumProcessor = (int)m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].size();
+		for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+		{
+			IDnSkillProcessor* pProcessor = m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].at( iProcessor );
+
+			if( true == pProcessor->IsFinished() )
+				bResult = true;
+			else
+			{
+				bResult = false;
+				break;
+			}
+		}
+	}
+
+	// lazy evaluation
+	m_bFinished = bResult;
+
+	return bResult;
+}
+
+
+
+IDnSkillProcessor* CDnSkill::GetProcessor( int iType )
+{
+	IDnSkillProcessor* pResult = NULL;
+
+	int iNumProcessor = (int)m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		IDnSkillProcessor* pSkillProcessor = m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].at( iProcessor );
+		if( iType == pSkillProcessor->GetType() )
+		{
+			pResult = pSkillProcessor;
+			break;
+		}
+	}
+
+	return pResult;
+}
+
+IDnSkillProcessor* CDnSkill::GetProcessor( int iType, int iLevelDataApplyType )
+{
+	IDnSkillProcessor* pResult = NULL;
+
+	int iNumProcessor = (int)m_vlpProcessors[ iLevelDataApplyType ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		IDnSkillProcessor* pSkillProcessor = m_vlpProcessors[ iLevelDataApplyType ].at( iProcessor );
+		if( iType == pSkillProcessor->GetType() )
+		{
+			pResult = pSkillProcessor;
+			break;
+		}
+	}
+
+	return pResult;
+}
+
+
+void CDnSkill::CheckTargetCount( int iTargetActorCount )
+{
+	// ÀÏ´ÜÀº Èú¸µ ¿¡ÀÌ¸®¾î¿¡¼­¸¸ ¾²ÀÌ°Ô µÉ °ÍÀÓ..
+	IDnSkillProcessor* pProcessor = GetProcessor( IDnSkillProcessor::DIVIDE_STATE_EFFECT_ARG );
+	
+	if( pProcessor )
+	{
+		// ºê·¹½º ¿Àºê °¡µ¥½º ½ºÅ³ Å×ÀÌºí¿¡¼­´Â Å¸°ÙÀ¸·Î¸¸ ¼³Á¤ÇÏ°í ¿©±â¼­ º»ÀÎÀÇ »óÅÂÈ¿°ú¸¦ Ãß°¡ÇÏ°Ô ÇÕ´Ï´Ù.
+		_ASSERT( "¾ÆÁ÷ ÀÌ ºÎºÐÀº ºê·¹½º ¿Àºê °¡µ¥½º¿¡¼­¸¸ ¾²ÀÔ´Ï´Ù..." && m_iSkillID == 3004 );
+
+		CDnDivideSEArgumentByTargets* pDivideSEProcessor = static_cast<CDnDivideSEArgumentByTargets*>(pProcessor);
+		int iSEArgument = pDivideSEProcessor->GetStateEffectArgument();
+
+		// ÀÚ±â ÀÚ½Å±îÁö Æ÷ÇÔÇØ¼­ ÇÏ³ª ´õ Ãß°¡
+		int iDividedValue = iSEArgument / (iTargetActorCount+1);
+
+		int iNumStateEffect = (int)m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].size();
+		char acBuf[ 256 ];
+		for( int iStateEffect = 0; iStateEffect < iNumStateEffect; ++iStateEffect )
+		{
+			ZeroMemory( acBuf, sizeof(acBuf) );
+			StateEffectStruct& StateEffect = m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].at( iStateEffect );
+			itoa( iDividedValue, acBuf, 10 );
+			StateEffect.szValue.assign( acBuf );
+
+			// ÀÚ±â ÀÚ½Å¿¡°Ôµµ Ãß°¡
+			int iID = m_hActor->CmdAddStateEffect( /*m_hActor,*/ GetInfo(), (STATE_BLOW::emBLOW_INDEX)StateEffect.nID, 
+												   StateEffect.nDurationTime, StateEffect.szValue.c_str() );
+		}
+	}
+
+#if defined(PRE_ADD_50903)
+	SetHitCountForVarianceDamage(iTargetActorCount);
+#endif // PRE_ADD_50903
+}
+
+
+
+void CDnSkill::CheckAndAddSelfStateEffect( void )
+{
+	map<int, bool> mapDuplicateResult;		// ÀÚ±â ÀÚ½Å¿¡°Ô °Å´Â »óÅÂÈ¿°ú´Â µû·Î È®·ü ÁßÃ¸ Ã³¸® ÇÏÁö ¾Ê´Â´Ù.
+	CanApply eResult = CDnSkill::CanApplySkillStateEffect( m_hActor, GetMySmartPtr(), mapDuplicateResult );
+
+	if( CanApply::Fail != eResult )
+	{
+		int nID(-1);
+		StateEffectStruct *pStruct(NULL);
+
+		// Note ÇÑ±â: 2009.12.21
+		// ÀÚ½Å¿¡°Ô »ç¿ëÇÏ´Â È¿°ú Àû¿ë ½Ã°£ °ü·Ã (#1911)
+		// ÀÚ±â ÀÚ½Å¿¡°Ô »ç¿ëÇÏ´Â »óÅÂÈ¿°ú Àû¿ë ½Ã±×³ÎÀ» Ã£¾Æ¼­ °¹¼ö¸¦ ÁöÁ¤ÇÑ´Ù.
+		// ÇöÀç ÆÐ½Ãºê ½ºÅ³ÀÇ °æ¿ì¿£ playaniprocessor ¸¦ ¼³Á¤ÇÏÁö ¾Ê±â ¶§¹®¿¡ ÀÌ ºÎºÐ¿¡¼­ °É·¯Áø´Ù. 
+		// ÀÚ±â ÀÚ½Å¿¡°Ô »ç¿ëÇÏ´Â »óÅÂÈ¿°ú Å¸ÀÌ¹Ö ½Ã±×³ÎÀ» »ç¿ëÇÒ ¼ö ¾øÀ½.
+		// µû¶ó¼­ ÃßÈÄ¿¡ ÆÐ½Ãºê·Î »ç¿ëÇÏ´Â ¾×¼Ç ½ºÅ³µéµµ »óÅÂÈ¿°ú Å¸ÀÌ¹Ö ½Ã±×³ÎÀÌ ÇÊ¿äÇÏ´Ù¸é
+		// Ãß°¡ÀûÀÎ ÀÛ¾÷ÀÌ ÇÊ¿äÇÏ´Ù.
+		bool bUseApplySelfStateBlowSignal = false;
+		CDnPlayAniProcess* pPlayAniProcessor = static_cast<CDnPlayAniProcess*>(GetProcessor( IDnSkillProcessor::PLAY_ANI ));
+		if( pPlayAniProcessor )
+		{
+			const char* pActionName = pPlayAniProcessor->GetActionName();
+
+			CEtActionBase::ActionElementStruct* pActionElement = m_hActor->GetElement( pActionName );
+			_ASSERT( pActionElement );
+			if( pActionElement )
+			{
+				int iApplyStateEffectSignalCount = 0;
+				int iNumSignal = (int)pActionElement->pVecSignalList.size();
+				for( int iSignal = 0; iSignal < iNumSignal; ++iSignal )
+				{
+					CEtActionSignal* pSignal = pActionElement->pVecSignalList.at( iSignal );
+					if( STE_ApplyStateEffect == pSignal->GetSignalIndex() )
+					{
+						bUseApplySelfStateBlowSignal = true;
+						++iApplyStateEffectSignalCount;
+					}
+				}
+			}
+		}
+
+		for( DWORD i=0; i<m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].size(); i++ ) 
+		{
+			pStruct = &m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ][ i ];
+			if( !pStruct ) 
+				continue;
+			
+			// ¹ßÇöÅ¸ÀÔ¿¡¼­ Á÷Á¢ »óÅÂÈ¿°ú Ãß°¡¸¦ ÄÁÆ®·Ñ ÇÏ´Â °æ¿ì°¡ ÀÖÀ½. (¼¼ÀÌÅ©¸®µå ÇØ¸Ó¸µ)
+			if( pStruct->bApplyInProcessor )
+				continue;
+
+			if( pStruct->ApplyType == ApplySelf )
+			{
+				// ¾×¼ÇÀÌ ³¡³¯ ½ÃÁ¡¿¡ Á¾·áµÇ´Â ÀÚ±â ÀÚ½Å¿¡°Ô »ç¿ëÇÏ´Â »óÅÂÈ¿°ú.
+				if( 0 == pStruct->nDurationTime || -1 == pStruct->nDurationTime  )
+				{
+					// Å×ÀÌºí¿¡¼± 0À¸·Î ÇÏ³ª -1·Î ÇÏ³ª ÇÁ·Î±×·¥ÂÊ¿¡¼± -1·Î ±âÁØ½ÃÅ´
+					pStruct->nDurationTime = -1;
+
+					// ÇÑ±â 2009.7.27 
+					// ÀÚ½Å¿¡°Ô »ç¿ëÇÏ´Â È¿°ú Àû¿ë ½Ã°£ °ü·Ã (#1911)
+					// ½ºÅ³ °­È­ ¹®ÀåÀ¸·Î Ãß°¡µÈ »óÅÂÈ¿°úµéÀº ¿ø·¡ »óÅÂÈ¿°ú¿¡ ÀÖ´ø »óÅÂÈ¿°úµéÀÌ ¾Æ´Ï¹Ç·Î 
+					// ÀÚ±â ÀÚ½Å¿¡°Ô °Å´Â »óÅÂÈ¿°ú Å¸ÀÌ¹Ö ½Ã±×³ÎÀ» ¹«½ÃÇÏ°í °ð¹Ù·Î Ãß°¡.
+					if( bUseApplySelfStateBlowSignal && (0 == pStruct->nGlyphID) )
+					{
+						StateEffectStruct InstantSelfStateEffect = *pStruct;
+						InstantSelfStateEffect.nDurationTime = pStruct->nDurationTime;
+						m_hActor->AddStateEffectQueue( *GetInfo(), InstantSelfStateEffect );
+
+						SetAddStateEffectQueue(true);
+					}
+					else
+					{
+						// [2010/12/13 semozz]
+						// ±âÁ¸ ÆÐÅ¶ ¾øÀÌ Ãß°¡ µÇ´Â »óÅÂ È¿°úµé Ã³¸®¸¦ À§ÇØ Á÷Á¢ »ý¼ºÇÏ°í m_vlApplyNoPacketStateEffectList¿¡ ´ã¾Æ ³õ´Âµ¥,
+						// ÆÐÅ¶À¸·Î »ý¼ºÇÏ°í, m_vlApplyNoPacketStateEffectList¿¡ ´ã¾Æ ³õ´Â´Ù.
+
+						// #32160 ¹Ù²ï ½ºÅ³ ÁßÃ¸ Ã³¸® ·çÆ¾ÀÌ ¾ÆÀÌÅÛÀÇ ½ºÅ³¿¡¼­µµ Àû¿ëµÇµµ·Ï Ã³¸®.
+						// ¾ÆÀÌÅÛ »Ó¸¸ ¾Æ´Ï¶ó ApplyStateEffect ½Ã±×³Î ¾È ºÙ¾îÀÖ´Â ½ºÅ³Àº ¿©±â¼­ ¹Ù·Î »óÅÂÈ¿°ú Ãß°¡ µÇ¹Ç·Î »©¾ßµÉ »óÅÂÈ¿°úµé »«´Ù.
+						m_hActor->RemoveResetStateBlow();
+
+						nID = m_hActor->CmdAddStateEffect( GetInfo(), (STATE_BLOW::emBLOW_INDEX)pStruct->nID, pStruct->nDurationTime, pStruct->szValue.c_str() );
+						
+						if( -1 == nID ) 
+							continue;
+
+						// Note ÇÑ±â: ¹°¾à °°Àº °Å »¡°í ³ª¼­ »óÅÂÈ¿°ú 1ÇÁ·¹ÀÓ µ¹°í Àû¿ëµÉ ½Ã¿¡ µ¥¹ÌÁö ¹Þ¾Æ¼­ Á×À¸¸é Å¬¶ó¿£ 
+						// ¸ÔÀº °Å Àû¿ëµÇ°í ¼­¹ö¿£ Á×À¸¸é¼­ »óÅÂÈ¿°ú ÀüºÎ ºñ¿ö¼­ Àû¿ë¾È µÉ ¼ö°¡ ÀÖ´Ù.. HP µ¿±â Æ²¾îÁú ¼öµµ ÀÖÀ½.
+						if( m_bItemSkill )
+						{
+							DnBlowHandle hBlow = m_hActor->GetStateBlowFromID( nID );
+							hBlow->OnBegin( 0, 0.0f );
+
+#ifndef _GAMESERVER
+							if( hBlow->IsUseTableDefinedGraphicEffect() )
+								hBlow->AttachGraphicEffectDefaultType();
+#endif
+							m_hActor->OnBeginStateBlow( hBlow );
+
+							hBlow->SetState( STATE_BLOW::STATE_DURATION );
+						}
+
+						m_vlApplySelfNoDurationStateEffectList.push_back( nID );
+					}
+				}
+				else
+				{
+					// Áö¼Ó ½Ã°£ÀÌ ÀÖ´Â self »óÅÂÈ¿°ú
+					if( bUseApplySelfStateBlowSignal && (0 == pStruct->nGlyphID) )
+					{
+						m_hActor->AddStateEffectQueue( *GetInfo(), *pStruct );
+						SetAddStateEffectQueue(true);
+					}
+					else
+					{
+						// #32160 ¹Ù²ï ½ºÅ³ ÁßÃ¸ Ã³¸® ·çÆ¾ÀÌ ¾ÆÀÌÅÛÀÇ ½ºÅ³¿¡¼­µµ Àû¿ëµÇµµ·Ï Ã³¸®.
+						// ¾ÆÀÌÅÛ »Ó¸¸ ¾Æ´Ï¶ó ApplyStateEffect ½Ã±×³Î ¾È ºÙ¾îÀÖ´Â ½ºÅ³Àº ¿©±â¼­ ¹Ù·Î »óÅÂÈ¿°ú Ãß°¡ µÇ¹Ç·Î »©¾ßµÉ »óÅÂÈ¿°úµé »«´Ù.
+						m_hActor->RemoveResetStateBlow();
+
+						nID = m_hActor->CmdAddStateEffect( /*m_hActor,*/ GetInfo(), (STATE_BLOW::emBLOW_INDEX)pStruct->nID, 
+															   pStruct->nDurationTime, pStruct->szValue.c_str() );
+						if( -1 == nID )
+							continue;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+void CDnSkill::CheckAndRemoveInstantApplySelfStateEffect( void )
+{
+	for( DWORD i=0; i<m_vlApplySelfNoDurationStateEffectList.size(); i++ ) 
+	{
+		if( m_hActor )
+			m_hActor->CmdRemoveStateEffectFromID( m_vlApplySelfNoDurationStateEffectList[i] );
+	}
+
+	if( m_hActor )
+	{
+		// #40768 ¾ÆÀÌÅÛ ½ºÅ³Àº MASkillUser::m_hItemSkill ·Î MASkillUser::m_hProcessSkill °ú µû·Î ³î°í ÀÖÀ¸¹Ç·Î
+		// m_hItemSkill ÀÌ ³¡³ªÁö ¾Ê´õ¶óµµ m_hProcessSkill ÀÌ ½ÃÀÛµÉ ¼ö ÀÖÀ¸¹Ç·Î ±× »óÅÂ¿¡¼­ 
+		// m_hItemSkill ÀÌ Á¾·áµÇ¾î ÀÌ ÇÔ¼ö°¡ È£ÃâµÇ¸é m_hProcessSkill ¿¡ µî·ÏµÈ BlowQueue ¸¦ ³¯·Á¹ö¸®°Ô µÈ´Ù.
+		// µû¶ó¼­ ¾ÆÀÌÅÛ ½ºÅ³Àº ±¸ºÐÇØ¼­ Ã³¸®ÇØÁÖµµ·Ï ÇÑ´Ù.
+
+		//#40760
+		//½ºÅ³ »ç¿ë ½ÃÁ¡¿¡ Á¢¹Ì»ç ½ºÅ³ ¹ßµ¿µÉ¶§ ±âÁ¸ ½ºÅ³¿¡¼­ µî·ÏµÈ »óÅÂÈ¿°ú°¡
+		//Á¢¹Ì»ç ½ºÅ³ ³¡³ª´Â ½ÃÁ¡¿¡¼­ ¾Æ·¡ ÇÔ¼ö È£Ãâ·Î ÀÎÇØ¼­ Å¥°¡ ºñ¿öÀú ¹ö¸®´Â °æ¿ì°¡ ¹ß»ý.
+		//AddStateEffectQueueÈ£Ãâ ½Ã SetAddStateEffectQueue(true)·Î ÇÃ·¡±× ¼³Á¤ ÇØ ³õ°í
+		//ÇÃ·¡±×°¡ ¼³Á¤µÇ¾î ÀÖ´Â ½ºÅ³¸¸ »óÅÂÈ¿°ú Å¥¸¦ ÃÊ±âÈ­ ÇÏµµ·Ï ÇÑ´Ù..
+
+		if ( IsAddStateEffectQueue() )
+			m_hActor->ClearSelfStateSignalBlowQueue( IsItemSkill() );
+	}
+
+	SAFE_DELETE_VEC( m_vlApplySelfNoDurationStateEffectList );
+}
+
+
+DWORD CDnSkill::GetStateEffectCount( void )
+{
+	return (DWORD)m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].size();
+}
+
+
+CDnSkill::StateEffectStruct* CDnSkill::GetStateEffectFromIndex( DWORD dwIndex )
+{
+	if( dwIndex >= m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].size() ) return NULL;
+	return &m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ][ dwIndex ];
+}
+
+bool CDnSkill::IsUseCheckerType( int iCheckerType )
+{
+	bool bResult = false;
+
+	int iNumChecker = (int)m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iChecker = 0; iChecker < iNumChecker; ++iChecker )
+	{ 
+		if( m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].at( iChecker )->GetType() == iCheckerType )
+		{
+			bResult = true;
+			break;
+		}
+	}
+
+	return bResult;
+}
+
+
+bool CDnSkill::IsUseProcessorType( int iProcessorType )
+{
+	bool bResult = false;
+
+	int iNumProcessor = (int)m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iProcessor = 0; iProcessor < iNumProcessor; ++iProcessor )
+	{
+		if( m_vlpProcessors[ m_iSelectedSkillLevelDataApplyType ].at( iProcessor )->GetType() == iProcessorType )
+		{
+			bResult = true;
+			break;
+		}
+	}
+
+	return bResult;
+}
+
+CDnSkill::SkillTypeEnum CDnSkill::GetSkillType( int nSkillID )
+{
+	if (nSkillID <= 0) return SkillTypeEnum::Active;
+
+	DNTableFileFormat* pSkillTable = GetDNTable( CDnTableDB::TSKILL );
+	if( pSkillTable->IsExistItem( nSkillID ) == false ) return SkillTypeEnum::Active;
+	return (SkillTypeEnum)pSkillTable->GetFieldFromLablePtr( nSkillID, "_SkillType" )->GetInteger();
+}
+
+
+bool CDnSkill::IsUseActionNames( const set<string>& setUseActionNames )
+{
+	list<string> listIntersect;
+	set_intersection( setUseActionNames.begin(), setUseActionNames.end(), 
+					  m_setUseActionNames.begin(), m_setUseActionNames.end(), 
+					  back_inserter(listIntersect) );
+
+	return !listIntersect.empty();
+}
+
+void CDnSkill::_RefreshDecreaseMP( int iSkillLevelDataApplyType )
+{
+	if( 0.0f == m_fMPConsumeType[ iSkillLevelDataApplyType ] )
+	{
+		if( !m_hActor || m_hActor->IsMonsterActor() ) {
+			m_iNeedMP[ iSkillLevelDataApplyType ] = m_iDecreaseMP[ iSkillLevelDataApplyType ];
+			return;
+		}
+
+		if( m_hActor->IsPlayerActor() )
+		{
+#ifndef _ADD_NEW_MPCONSUME
+			float fRatio = 1.f;
+			if( m_hActor->GetLevel() > 0 )
+			{
+				int nJobClassID = ((CDnPlayerActor*)m_hActor.GetPointer())->GetJobClassID();
+				float fDecreaseRatio = CPlayerLevelTable::GetInstance().GetValueFloat( nJobClassID , m_hActor->GetLevel(), CPlayerLevelTable::SPDecreaseRatio );
+				fRatio =  fDecreaseRatio * m_hActor->GetLevelWeightValue();
+			}
+
+			m_iNeedMP[ iSkillLevelDataApplyType ] = (int)( m_iDecreaseMP[ iSkillLevelDataApplyType ] * fRatio );
+#else
+			m_iNeedMP[iSkillLevelDataApplyType] = (int)(m_iDecreaseMP[iSkillLevelDataApplyType]);
+#endif
+		}
+	}
+	else
+	{
+		m_iNeedMP[ iSkillLevelDataApplyType ] = int((float)m_hActor->GetMaxSP() * m_fMPConsumeType[ iSkillLevelDataApplyType ]);
+	}
+
+	m_iOriginalNeedMP[ iSkillLevelDataApplyType ] = m_iNeedMP[ iSkillLevelDataApplyType ];
+}
+
+void CDnSkill::RefreshDecreaseMP( int iSkillLevelDataApplyType /*= NUM_SKILLLEVEL_APPLY_TYPE*/ )
+{
+	if( iSkillLevelDataApplyType == NUM_SKILLLEVEL_APPLY_TYPE )
+	{
+		for( int iApplyType = PVE; iApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iApplyType )
+			_RefreshDecreaseMP( iApplyType );
+	}
+	else
+	{
+		_RefreshDecreaseMP( iSkillLevelDataApplyType );
+	}
+}
+
+
+void CDnSkill::SetOnceCoolTime( float fDelayTime, float fElapsedDelayTime )
+{
+	_ASSERT( fElapsedDelayTime <= fDelayTime );
+
+	m_fOnceDelayTime = fDelayTime;
+	m_fOnceElapsedDelayTime = fElapsedDelayTime;
+}
+
+
+void CDnSkill::SetPassiveSkillActionName( const char* pActionName )
+{
+	if( pActionName )
+	{
+		// °°Àº °ÍÀÌ ¿À¸é ÀÚµ¿À¸·Î Ãß°¡ µÇÁö ¾ÊÀ½.
+		m_setUseActionNames.insert( string(pActionName) );
+	}
+}
+
+
+// ÀÌ½´ #6190 °ü·Ã.
+CDnSkill::CanApply CDnSkill::CanApplySkillStateEffect( const SkillInfo* pUsingSkillInfo, DnActorHandle hTargetActor, int iSkillID, int iLevel, 
+													   int iSkillDuplicateMethod, int iDuplicateCount, map<int, bool>& mapDuplicateResult, bool isHitProcess )
+{
+	// »óÅÂÈ¿°ú °Ë»çÇÒ¶§ ¸®¼Â¸®½ºÆ® ÃÊ±âÈ­ [2010/12/09 semozz]
+	if (hTargetActor)
+		hTargetActor->InitStateBlowIDToRemove();
+
+	CDnSkill::CanApply eResult = CDnSkill::CanApply::Apply;
+	bool bExistingSameSkill = false;
+	int iExistingSameSkillCount = 0;
+
+	// Áßº¹µÇ¾î °°Àº Àú·¾ ½ºÅ³ÀÇ »óÅÂÈ¿°ú°¡ Á¦°ÅµÉ ½Ã¿¡ ´ã¾Æµ×´Ù°¡ Á¦°ÅÇÔ.
+	// ´Ù¸¥ ½ºÅ³ÀÇ °°Àº »óÅÂÈ¿°ú°¡ °É·ÁÀÖ´Â °æ¿ìµµ ÀÖÀ¸¹Ç·Î ¹Ýµå½Ã »óÅÂÈ¿°ú »ý¼º½Ã ºÎ¿©¹ÞÀº id ·Î »èÁ¦ÇÑ´Ù.
+
+	vector<int> vlStateBlowIDToRemove;
+	DNVector( DnBlowHandle ) vlhSameSkillBlows;
+
+	int iNumAppliedStateEffect = (int)hTargetActor->GetNumAppliedStateBlow();
+	for( int iAppliedStateEffect = 0; iAppliedStateEffect < iNumAppliedStateEffect; ++iAppliedStateEffect )
+	{
+		DnBlowHandle hExistingBlow = hTargetActor->GetAppliedStateBlow( iAppliedStateEffect );
+
+		const CDnSkill::SkillInfo* pExistingParentSkillInfo = NULL;
+		if( hExistingBlow )
+			pExistingParentSkillInfo = hExistingBlow->GetParentSkillInfo();
+
+		// ¸ðÃ¼ ½ºÅ³ Á¤º¸°¡ ¾ø´Â »óÅÂÈ¿°ú´Â ½ºÅ³·Î °É¸° °ÍÀÌ ¾Æ´Ï¹Ç·Î ¿©±â¼­ ´Ù·ê ´ë»óÀÌ ¾Æ´Ô
+		if( NULL == pExistingParentSkillInfo )
+			continue;
+
+		// ½ºÅ³ Áßº¹ Ä«¿îÆ® Ã¼Å©
+		// °°Àº ½ºÅ³ ¾ÆÀÌµð¿¡ µ¿ÀÏÇÑ »óÅÂÈ¿°ú°¡ ¶Ç ³ªÅ¸³­´Ù¸é Áßº¹µÈ ½ºÅ³ÀÓ.
+		bool bIsSameSkillID = false;
+#if defined(PRE_FIX_58505)
+		//Á¢¹Ì»ç ½ºÅ³ Å¸ÀÔÀÌ ¼³Á¤ µÇ¾î ÀÖÁö ¾ÊÀ¸¸é ½ºÅ³ ¾ÆÀÌµð·Î ºñ±³ÇÏ°í,
+		//Á¢¹Ì»ç ½ºÅ³ Å¸ÀÔÀÌ ¼³Á¤ µÇ¾î ÀÖÀ¸¸é Á¢¹Ì»ç ½ºÅ³ Å¸ÀÔÀÌ °°ÀºÁö ºñ±³.
+		if ( pUsingSkillInfo->bItemPrefixSkill == true && pUsingSkillInfo->nPrefixSkillType != CDnPrefixSkill::Prefix_Non )
+			bIsSameSkillID = pUsingSkillInfo->nPrefixSkillType == pExistingParentSkillInfo->nPrefixSkillType;
+		else
+			bIsSameSkillID = iSkillID == pExistingParentSkillInfo->iSkillID;
+#else
+		if( iSkillID == pExistingParentSkillInfo->iSkillID )
+			bIsSameSkillID = true;
+#endif // PRE_FIX_58505
+
+		if (bIsSameSkillID == true)
+		{
+			// °°Àº ½ºÅ³ ¾ÆÀÌµð°¡ Ã³À½ ³ª¿Â´Ù¸é Ã³À½¿£ Àû¿ëÁß ½ºÅ³ Ä«¿îÆ® ÇÏ³ª ¿Ã·ÁÁÜ.
+
+			// #27335 - ¾ÞÅ¬¼¦ °æ¿ì [2011/01/11 semozz]
+			// »ó´ë¹æÀÌ ³ª¿¡°Ô ¾ÞÅ©¼¦À» ½î°í CantMove»óÅÂÈ¿°ú°¡ Àû¿ë µÇ¾î ÀÖÀ»¶§
+			// ³»°¡ °°Àº ¾ÞÅ¬¼¦À» ½ò¶§, ³» ÀÚ½Å¿¡ °É¸° CantMove»óÅÂÈ¿°ú°¡ ½ºÅ³ID°¡ °°¾Æ¼­
+			// °°Àº ½ºÅ³ Áßº¹ Ã³¸®¿¡ °É¸®°Ô µÊ..
+			// ÇöÀç »óÅÂÈ¿°úÀÇ ApplyTypeÀ» È®ÀÎÇØ¼­
+			// ÇöÀç »óÅÂÈ¿°ú¸¦ °Ç Actor¿Í TargetActor¸¦ ºñ±³ÇØ¼­
+			// À¯È¿ÇÑ Actor°¡ »ç¿ëÇÑ°Ô ¾Æ´Ï¸é °°Àº ½ºÅ³ÀÌ ¾Æ´ÔÀ¸·Î ¼³Á¤
+			
+			DnActorHandle hSkillUserActor = pUsingSkillInfo->hSkillUser;
+			DnSkillHandle hSkill;
+			if (hSkillUserActor)
+				hSkill = hSkillUserActor->FindSkill( iSkillID );
+			
+			//Prop¿¡ÀÇÇÑ »óÅÂÈ¿°ú´Â ½ºÅ³ Á¤º¸°¡ ¾øÀ» ¼ö ÀÖ´Ù.
+			if (hSkill)
+			{
+				// ±âÁ¸¿¡ Àû¿ë ÁßÀÎ, Áö±Ý »ç¿ëÇÏ·Á´Â ½ºÅ³ÀÇ »óÅÂÈ¿°ú Áß ÇÏ³ªÀÇ Àû¿ë ´ë»ó Å¸ÀÔ.
+				StateEffectApplyType eExistingSEApplyType = ApplySelf;
+
+				bExistingSameSkill = true;
+				for( int i = 0; i < (int)hSkill->GetStateEffectCount(); ++i )
+				{
+					const StateEffectStruct* pSE = hSkill->GetStateEffectFromIndex( i );
+					if( pSE->nID == hExistingBlow->GetBlowIndex()
+						&& pSE->ApplyType == pExistingParentSkillInfo->eApplyType )
+					{
+						eExistingSEApplyType = pSE->ApplyType;
+						break;
+					}
+				}
+
+				//ÇöÀç Àû¿ëµÈ »óÅÂÈ¿°úÀÇ applyType¿¡ µû¶ó
+				switch(eExistingSEApplyType)
+				{
+				case StateEffectApplyType::ApplySelf:
+					if (isHitProcess == false)
+						bExistingSameSkill = (hTargetActor == hSkillUserActor);
+					else
+						bExistingSameSkill = false;
+					break;
+				case StateEffectApplyType::ApplyEnemy:
+					bExistingSameSkill = (hTargetActor->GetTeam() != hSkillUserActor->GetTeam());
+					break;
+				case StateEffectApplyType::ApplyTarget:
+					bExistingSameSkill = (hTargetActor != hSkillUserActor);
+					break;
+				case StateEffectApplyType::ApplyFriend:
+					bExistingSameSkill = (hTargetActor->GetTeam() == hSkillUserActor->GetTeam());
+					break;
+				case StateEffectApplyType::ApplyAll:
+					bExistingSameSkill = true;
+					break;
+				}
+			}
+			else
+				bExistingSameSkill = true;
+			
+			if( bExistingSameSkill )
+			{
+				iExistingSameSkillCount += hExistingBlow->GetDuplicateCount();
+				vlhSameSkillBlows.push_back( hExistingBlow );
+			}
+		}
+
+		if (pUsingSkillInfo->eTargetType == All  //Áö±Ý »ç¿ë ÇÏ´Â ½ºÅ³ÀÇ TargetTypeÀÌ AllÀÌ°í, 
+			&& (0 != iSkillDuplicateMethod && (iSkillDuplicateMethod == pExistingParentSkillInfo->iSkillDuplicateMethod)) //ÁßÃ¸ Ã³¸®ID°¡ ¼³Á¤µÇ¾î ÀÖ°í, ±âÁ¸ ½ºÅ³°ú µ¿ÀÏÇÑ IDÀÏ¶§,
+			&& (hTargetActor == pUsingSkillInfo->hSkillUser) //ÀÚ±â ÀÚ½Å
+			)
+			continue;
+
+		// Áö¼ÓÈ¿°ú ±¸ºÐ ÀÎµ¦½º°¡ 0ÀÌ ¾Æ´Ï¶ó¸é ½ºÅ³ È¿°ú Áßº¹ °ü·Ã Ã³¸®°¡ ÇÊ¿äÇÔ.
+		// Áö¼ÓÈ¿°ú ±¸ºÐ ÀÎµ¦½º°¡ 0ÀÌ¸é ±×³É ÁßÃ¸µÊ.
+		// È¤Àº °°Àº ½ºÅ³ÀÌ¸é¼­ ÃÖ´ë ÁßÃ¸ Ä«¿îÆ®°¡ 1ÀÌÇÏÀÎ°æ¿ì¿£ ½ºÅ³ ´ëÃ¼µÇµµ·Ï Ã³¸®.
+#if defined(PRE_FIX_58505)
+		if( 0 != iSkillDuplicateMethod ||
+			(bIsSameSkillID == true && iDuplicateCount <= 1) )
+#else
+		if( 0 != iSkillDuplicateMethod ||
+			(iSkillID == pExistingParentSkillInfo->iSkillID && iDuplicateCount <= 1) )
+#endif // PRE_FIX_58505
+		{
+			// ±âÁ¸¿¡ ½ÇÇàµÇ°í ÀÖ´ø ½ºÅ³°ú °°Àº Áö¼ÓÈ¿°ú ÀÎµ¦½ºÀÎ°¡. ±×·¸´Ù¸é ÁßÃ¸ÀÌ °¡´ÉÇÑÁö Ã¼Å©µé¾î°£´Ù.
+			// ¶ÇÇÑ ½ºÅ³À» ¾´ À¯ÀúÀÇ ÆÀÀÌ °°À»¶§¸¸ ÁßÃ¸Ã³¸®¸¦ ÇÏµµ·Ï ÇÑ´Ù.
+			// ´Ù¸¥ ÆÀÀÎµ¥ °°Àº ½ºÅ³À» ¾µ °æ¿ì ³ª¿¡°Ô °É¸° µð¹öÇÁ »óÅÂÈ¿°ú°¡ ÇØÁ¦µÇ¾î ¹ö¸°´Ù. (#19812)
+			if( (iSkillDuplicateMethod == pExistingParentSkillInfo->iSkillDuplicateMethod) &&
+				(pUsingSkillInfo->iSkillUserTeam == pExistingParentSkillInfo->iSkillUserTeam) )
+			{
+				if( iLevel >= pExistingParentSkillInfo->iLevel )
+				{
+					// 242¹ø »óÅÂÈ¿°ú´Â ÇÑ¹ø Ãß°¡°¡ µÇ¸é ¸®¼Â µÇ¸é ¾ÈµÈ´Ù.
+
+					// È®·ü Ã¼Å©¿¡¼­ Åë°úÇÑ´Ù¸é ¸®¼Â½ÃÅ³ »óÅÂÈ¿°ú¿¡ ³Ö¾îµÒ.
+					// ½ÇÁ¦ È®·üÃ¼Å©ÇÏ´Â °´Ã¼´Â ±âÁ¸¿¡ Àû¿ëµÈ »óÅÂÈ¿°ú °´Ã¼¸¦ »ç¿ëÇÏÁö¸¸ È®·ü¸¸ Ã¼Å©ÇÏ´Â °ÍÀÌ±â ¶§¹®¿¡
+					// ±×´ë·Î »ç¿ëÇÑ´Ù.
+					if( hExistingBlow->CanBegin() )
+					{
+						bool isSelfStateEffect = false;
+
+						//#60966 ÀÚ½Å¿¡°Ô Àû¿ëÇÏ´Â »óÅÂÈ¿°ú¿Í ´Ù¸¥ÀÌ¿¡°Ô Àû¿ë ÇÏ´Â »óÅÂÈ¿°ú°¡ °°ÀÌ ÀÖÀº °æ¿ì
+						//½ºÅ³ ½ÃÀÛ¿¡¼­´Â »ó°ü ¾øÁö¸¸, HitÃ³¸®½Ã¿¡´Â self»óÅÂÈ¿°ú´Â ´Ù½Ã Àû¿ë µÇÁö ¾Ê´Â´Ù.
+						//±×·¡¼­ È÷Æ® Ã³¸®µÇ´Â Áß¿¡ ¿©±â¼­ selfÀû¿ëµÈ »óÅÂÈ¿°ú¸¦ Á¦°Å ¸®½ºÆ®¿¡ Ãß°¡ ÇØ ³õÀ¸¸é
+						//´Ù½Ã Ãß°¡ ÇÒ ¹æ¹ýÀÌ ¾ø´Ù.
+						//È÷Æ® Ã³¸®½Ã¿¡ µé¾î ¿Â°æ¿ì SelfÀû¿ë »óÅÂÈ¿°ú´Â ½ºÅµ..
+						if (isHitProcess == true)
+						{
+							StateEffectApplyType eExistingSEApplyType = ApplySelf;
+
+							bool bCheck = false;
+
+							DnActorHandle hExistingSkillUserActor = pExistingParentSkillInfo->hSkillUser;
+							DnSkillHandle hSkill;
+							if (hExistingSkillUserActor)
+								hSkill = hExistingSkillUserActor->FindSkill( pExistingParentSkillInfo->iSkillID );
+
+							if (hSkill)
+							{
+								for( int i = 0; i < (int)hSkill->GetStateEffectCount(); ++i )
+								{
+									const StateEffectStruct* pSE = hSkill->GetStateEffectFromIndex( i );
+									if( pSE->nID == hExistingBlow->GetBlowIndex() 
+										&& pSE->ApplyType == pExistingParentSkillInfo->eApplyType )
+									{
+										bCheck = true;
+										eExistingSEApplyType = pSE->ApplyType;
+										break;
+									}
+								}
+
+								//ÀÚ½Å¿¡°Ô °Å´Â »óÅÂÈ¿°ú´Â Àû¿ë °¡´É ÇÏµµ·Ï? ÇÑ´Ù..
+								if ( StateEffectApplyType::ApplySelf == eExistingSEApplyType && bCheck )
+								{
+									isSelfStateEffect = true;
+								}
+							}
+
+						}
+
+						if (isSelfStateEffect == false &&
+							hExistingBlow->GetBlowIndex() != STATE_BLOW::BLOW_242 )
+						{
+							vlStateBlowIDToRemove.push_back( hExistingBlow->GetBlowID() );
+							mapDuplicateResult[ hExistingBlow->GetBlowIndex() ] = true;
+
+							// ¸®¼ÂµÇ¾î¾ßÇÒ »óÅÂµéÀ» ´ã¾Æ ³õ´Â´Ù. [2010/12/08 semozz]
+							// ¿©±â¼­ ¸®½ºÆ®¿¡ ´ã±ä »óÅÂµéÀº OnSignalÀÇ STE_ApplyStateEffect ½ÃÁ¡¿¡ »óÅÂ Àû¿ëÇÒ¶§
+							// ±âÁ¸ÀÇ »óÅÂ¸¦ Á¦°Å ÇÑ´Ù.
+							hTargetActor->AddStateBlowIDToRemove( hExistingBlow->GetBlowID() );
+						}
+					}
+					else
+					{
+						eResult = CDnSkill::CanApply::Fail;		// È¿°ú °»½Å ½Ã È®·ü Ã¼Å©¿¡¼­ ½ÇÆÐÇßÀ¸¹Ç·Î Ãß°¡ÇÏÁö ¾Ê´Â´Ù.
+						mapDuplicateResult[ hExistingBlow->GetBlowIndex() ] = false;
+					}
+				}
+				else
+				if( iLevel < pExistingParentSkillInfo->iLevel )
+				{
+					// È¿°ú Àû¿ë ¾ÈµÊ.
+					eResult = CDnSkill::CanApply::Fail;
+
+					// Note ÇÑ±â: ÃßÈÄ¿¡ ±×·¡ÇÈÀûÀ¸·Î ¹º°¡ Ç¥½ÃÇØÁà¾ß ÇÑ´Ù¸é ÀÌ °÷¿¡¼­ Ã³¸®ÇÏ¸é µÊ.
+
+					// [2011/01/20 semozz]
+					// Ã¼ÀÎ¶óÀÌÆ®´× ½ÃÀüÀÌ ³¡³ª±â Àü Çìºì½º ÀúÁö¸ÕÆ®¸¦ »ç¿ë½Ã ¹®Á¦Á¡.
+					// A ½ºÅ³ ·¹º§ÀÌ ³ô°í, ±× µÚ¿¡ »ç¿ëµÇ´Â B½ºÅ³ÀÇ ·¹º§ÀÌ ³·À»¶§, DuplicationMethod°¡ °°À¸¸é
+					// ¿©±â¼­ ½ºÅ³ Ãß°¡ ¾ÈµÊÀ¸·Î Self»óÅÂÈ¿°ú Àû¿ëÀÌ µÇÁö ¾ÊÀ½. TargetÀº »ó°ü ¾øÀ»µí..
+
+					// ÇöÀç »óÅÂÈ¿°ú¸¦ »ç¿ëÇÑ ¾×ÅÍ¸¦ ¼±ÅÃ
+					DnActorHandle hExistingSkillUserActor = pExistingParentSkillInfo->hSkillUser;
+					DnSkillHandle hSkill;
+					if (hExistingSkillUserActor)
+						hSkill = hExistingSkillUserActor->FindSkill( pExistingParentSkillInfo->iSkillID );
+
+					if (hSkill)
+					{
+						// ±âÁ¸¿¡ Àû¿ë ÁßÀÎ, Áö±Ý »ç¿ëÇÏ·Á´Â ½ºÅ³ÀÇ »óÅÂÈ¿°ú Áß ÇÏ³ªÀÇ Àû¿ë ´ë»ó Å¸ÀÔ.
+						StateEffectApplyType eExistingSEApplyType = ApplySelf;
+
+						for( int i = 0; i < (int)hSkill->GetStateEffectCount(); ++i )
+						{
+							const StateEffectStruct* pSE = hSkill->GetStateEffectFromIndex( i );
+							if( pSE->nID == hExistingBlow->GetBlowIndex() 
+								&& pSE->ApplyType == pExistingParentSkillInfo->eApplyType )
+							{
+								eExistingSEApplyType = pSE->ApplyType;
+								break;
+							}
+						}
+
+						//ÀÚ½Å¿¡°Ô °Å´Â »óÅÂÈ¿°ú´Â Àû¿ë °¡´É ÇÏµµ·Ï? ÇÑ´Ù..
+						if (StateEffectApplyType::ApplySelf == eExistingSEApplyType)
+						{
+							eResult = CDnSkill::CanApply::Apply;
+
+							vlStateBlowIDToRemove.push_back( hExistingBlow->GetBlowID() );
+							mapDuplicateResult[ hExistingBlow->GetBlowIndex() ] = true;
+
+							hTargetActor->AddStateBlowIDToRemove( hExistingBlow->GetBlowID() );
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if( false == vlStateBlowIDToRemove.empty() )
+	{
+		// ½ºÅ³ È¿°ú ´ëÃ¼. ÁßÃ¸ Ä«¿îÆ® ¼¼¾ú´ø °Í Ã³¸®ÇÒ ÇÊ¿ä ¾ø´Ù.
+		bExistingSameSkill = false;
+		eResult = CDnSkill::CanApply::ApplyDuplicateSameSkill;
+	}
+
+	// »óÅÂ È¿°ú¸¦ ÁßÃ¸ÇØ¼­ Àû¿ëÇØ¾ßÇÏ´Â °æ¿ì, ÃÖ´ë ÁßÃ¸ °¹¼ö°¡ ³ÑÀ¸¸é ¾ÈµÈ´Ù.
+	// ³ôÀº ·¹º§ÀÇ »óÅÂÈ¿°ú°¡ ÀÌ¹Ì Àû¿ëÁßÀÌ¶ó¸é ÁßÃ¸Ã³¸®°¡ µÇÁö ¾Ê´Â´Ù.
+	if( CDnSkill::CanApply::Fail != eResult )
+	{
+		if( bExistingSameSkill )
+		{
+			if( iDuplicateCount <= iExistingSameSkillCount )
+			{
+				// ÃÖ´ë ÁßÃ¸ °¹¼ö¸¦ ³Ñ´Â °æ¿ì ±âÁ¸ »óÅÂÈ¿°úÀÇ ½Ã°£¸¸ ÃÊ±âÈ­ ÇÑ´Ù.
+				int iNumSameSkillBlowsToResetDurationTime = (int)vlhSameSkillBlows.size();
+				for( int iBlow = 0; iBlow < iNumSameSkillBlowsToResetDurationTime; ++iBlow )
+				{
+					DnBlowHandle hBlow = vlhSameSkillBlows.at( iBlow );
+
+					//////////////////////////////////////////////////////////////////////////
+					//#53448
+					//249¹ø »óÅÂÈ¿°ú °æ¿ì ÁßÃ¸ °¹¼ö ÀÌ»óÀº Ãß°¡ µÉ ¼ö ¾ø´Ù.
+					//ÃÖ´ë ÁßÃ¸ °¹¼ö¸¦ ³ÑÀº °æ¿ì ¾Æ·¡ ·çÇÁ¸¦ µ¹¸é¼­ ±âÁ¸ »óÅÂÈ¿°ú Á¦°Å ÇÏ°í, ´Ù½Ã Ãß°¡ ÀÛ¾÷ ÇÊ¿ä ¾øÀ½.
+					if (hBlow && 
+						(hBlow->GetBlowIndex() == STATE_BLOW::BLOW_249 || hBlow->GetBlowIndex() == STATE_BLOW::BLOW_242)
+						)
+						continue;
+					//////////////////////////////////////////////////////////////////////////
+
+					// ¾Æ¿¹ »èÁ¦Çß´Ù°¡ »õ·Î Ãß°¡ÇÏ´Â °ÍÀÌ ¸íÈ®ÇÔ.
+					int nDurationTime = int(hBlow->GetDurationTime() * 1000.0f);
+					hBlow->ResetDurationTime();
+
+					CDnSkill::SkillInfo SkillInfo = *(hBlow->GetParentSkillInfo());
+					STATE_BLOW::emBLOW_INDEX BlowIndex = hBlow->GetBlowIndex();
+					string strValue( hBlow->GetValue() );
+
+					// ÀÌ ½ÃÁ¡¿¡¼­ Áï½Ã Áö¿öÀú¾ß ÇÑ´Ù. [2011/01/18 semozz]
+					int nBlowID = hBlow->GetBlowID();
+					// ÆÐÅ¶ º¸³¾²¨ º¸³»°í
+					hTargetActor->SendRemoveStateEffectFromID(nBlowID);
+					// ¹Ù·Î »èÁ¦ÇÑ´Ù..
+					if (hTargetActor->GetStateBlow())
+						hTargetActor->GetStateBlow()->RemoveImediatlyStateEffectFromID(nBlowID);
+
+					// ¿©±â¿¡ °áºù°°Àº È®·ü ÀÖ´Â »óÅÂÈ¿°ú¸¦ 100% ¼º°ø½ÃÄÑ¾ß ÇÏ¹Ç·Î 
+					// CanBegin ÇÔ¼ö È£ÃâÇÏÁö ¾Êµµ·Ï bCheckCanBegin ÇÃ·¡±×¸¦ ²¨¼­ È£Ãâ.
+					hTargetActor->CmdAddStateEffect( &SkillInfo, BlowIndex, nDurationTime, strValue.c_str(), false, false );
+				}
+
+				eResult = CDnSkill::CanApply::Fail;
+			}
+		}
+	}
+
+	return eResult;
+}
+
+
+CDnSkill::CanApply CDnSkill::CanApplySkillStateEffect( DnActorHandle hTargetActor, DnSkillHandle hUsingSkill, map<int, bool>& mapDuplicateResult, bool isHitProcess )
+{
+	const SkillInfo* pUsingSkillInfo = hUsingSkill->GetInfo();
+	int iSkillID = hUsingSkill->GetClassID();
+	int iLevel = hUsingSkill->GetLevel();
+	int iSkillDuplicateMethod = hUsingSkill->GetDuplicateMethod();
+	int iDuplicateCount = hUsingSkill->GetMaxDuplicateCount();
+
+	// ½ºÅ³¿¡¼­ »óÅÂ È¿°úµéÁß¿¡ Áö¼Ó½Ã°£ÀÌ ÇÏ³ª¶óµµ ÀÖÀ¸¸é Áö¼Ó½Ã°£ÀÌ ÀÖ´Â°É·Î ÆÇ´Ü
+	// ÇØ´ç ½ºÅ³ÀÌ Áö¼Ó½Ã°£ÀÌ ¾ø´Ù¸é ±×³É Ãß°¡ µÉ ¼ö ÀÖµµ·Ï ÇÑ´Ù. [2010/11/12 semozz]
+	bool hasDuration = false;
+	for( DWORD k = 0; k < hUsingSkill->GetStateEffectCount(); k++ ) 
+	{
+		CDnSkill::StateEffectStruct *pLocalStruct = hUsingSkill->GetStateEffectFromIndex(k);
+		if( pLocalStruct && (IsNeedCheckApplyStateBlow((STATE_BLOW::emBLOW_INDEX)pLocalStruct->nID) || pLocalStruct->nDurationTime > 0) )
+		{
+			hasDuration = true;
+			break;
+		}
+#if defined(PRE_FIX_52267)
+		//#52267
+		//»óÅÂÈ¿°ú ApplyTypeÀÌ Self°¡ ¾Æ´Ï¾îµµ Áö¼Ó½Ã°£ÀÌ 0ÀÎ °æ¿ì CanApplySkillStateEffectÇÔ¼ö È£ÃâÀÌ µÇÁö ¾Ê¾Æ¼­
+		//ÀÇµµÄ¡ ¾Ê°Ô ÁßÃ¸ÀÌ µÇ´Â °æ¿ì°¡ ¹ß»ýÇÑ´Ù.
+		//ApplyTypeÀÌ self°¡ ¾Æ´Ï°í, durationTimeÀÌ 0ÀÎ°æ¿ìµµ Ã¼Å© °¡´É ÇÏµµ·Ï hasDurationÀ» true·Î ¼³Á¤ ÇÑ´Ù.
+		else if (pLocalStruct->nDurationTime == 0 && pLocalStruct->ApplyType != StateEffectApplyType::ApplySelf)
+		{
+			hasDuration = true;
+			break;
+		}
+#endif // PRE_FIX_52267
+	}
+
+	bool bResist = false;
+	if( !hTargetActor->IsHittableSkill( iSkillID , bResist ) )
+	{
+		if( bResist )
+		{
+			hTargetActor->SendAddSEFail( CDnStateBlow::ADD_FAIL_BY_IMMUNE , STATE_BLOW::BLOW_154 );
+		}
+
+		return  CDnSkill::CanApply::Fail;
+	}
+
+	if ( false == hasDuration )
+	{
+		return CDnSkill::CanApply::Apply;
+	}
+
+	return CanApplySkillStateEffect( pUsingSkillInfo, hTargetActor, iSkillID, iLevel, iSkillDuplicateMethod, iDuplicateCount, mapDuplicateResult, isHitProcess );
+}
+
+
+// ¾×¼Ç Àç»ý ÇÁ·Î¼¼¼­°¡ ¹Ýµå½Ã ÀÖ´Â ¾×Æ¼ºê ½ºÅ³ÀÇ µ¿ÀÛ °è½Â ¿äÃ»!
+void CDnSkill::OnChainInput( const char* pActionName )
+{
+	if( GetSkillType() == CDnSkill::Active &&
+		( GetDurationType() == CDnSkill::Instantly ||
+		  GetDurationType() == CDnSkill::Buff ||
+		  GetDurationType() == CDnSkill::Debuff || 
+		  GetDurationType() == CDnSkill::StanceChange ) )
+	{
+		IDnSkillProcessor* pProcessor = GetProcessor( IDnSkillProcessor::PLAY_ANI );
+		_ASSERT( pProcessor );
+		if( pProcessor )
+		{
+			CDnPlayAniProcess* pPlayAniProcessor = static_cast<CDnPlayAniProcess*>( pProcessor );
+			pPlayAniProcessor->OnChainInput( pActionName );
+		}
+	}
+	else
+	if( GetSkillType() == CDnSkill::Passive )
+	{
+		CEtActionBase::ActionElementStruct* pStruct = m_hActor->GetElement( pActionName );
+		if( pStruct )
+		{
+			m_fPassiveActionSkillLength += (float)pStruct->dwLength / s_fDefaultFps;
+			m_bChainingPassiveSkill = true;
+		}
+	}
+}
+
+bool CDnSkill::IsChainInputAction( const char* pActionName )
+{
+	IDnSkillProcessor* pProcessor = GetProcessor( IDnSkillProcessor::PLAY_ANI );
+	if( pProcessor )
+	{
+		CDnPlayAniProcess* pPlayAniProcessor = static_cast<CDnPlayAniProcess*>( pProcessor );
+		if( strcmp( pActionName , pPlayAniProcessor->GetChainActionName() ) == 0 )
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool CDnSkill::CheckChainingPassiveSkill( void )
+{
+	bool bResult = m_bChainingPassiveSkill;
+	m_bChainingPassiveSkill = false;
+
+	return bResult;
+}
+
+void CDnSkill::AddGlyphStateEffect( int nGlyphID )
+{
+	DNTableFileFormat* pGlyphTable = GetDNTable( CDnTableDB::TGLYPHSKILL );
+	if( !pGlyphTable ) return;
+
+#if defined(PRE_ADD_65808)
+	int monsterID = -1;
+	if (IsSummonMonsterRecall(monsterID) == true)
+	{
+		m_hActor->AddSummonMonsterGlyphInfo(monsterID, nGlyphID);
+		return;
+	}
+#endif // PRE_ADD_65808
+
+	char caLable[64];
+
+	// ½ºÅ³ °­È­ ¹®Àå °°Àº °æ¿ì pvp/pve ¸ðµÎ ¼ÂÆÃÇØÁØ´Ù.
+	for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+	{
+		// ¿ø·¡ »óÅÂÈ¿°ú °®°í ÀÖ´ø °¹¼ö
+		int iNumOriginalStateEffect = (int)m_vlStateEffectList[ iSkillLevelApplyType ].size();
+
+		// »óÅÂ È¿°ú Ãß°¡
+		StateEffectStruct StateEffect;
+		StateEffect.nGlyphID = nGlyphID;
+		for( int i = 0; i < MAX_GLYPH_STATE_EFFECT_COUNT; ++i )
+		{
+			sprintf_s( caLable, "_EffectClass%d", i + 1 );
+			StateEffect.nID = pGlyphTable->GetFieldFromLablePtr( nGlyphID, caLable )->GetInteger();
+
+			if( StateEffect.nID < 1 ) 
+				continue;
+
+			sprintf_s( caLable, "_EffectClass%dApplyType", i + 1 );
+			int iApplyType = pGlyphTable->GetFieldFromLablePtr( nGlyphID, caLable )->GetInteger();
+			bool bApplyAll = (StateEffectApplyType::ApplyAll == iApplyType);		// ¸ðµÎ Àû¿ëÀÓ. Å¸°Ù¸¸ ´Ù¸£°Ô ÇØ¼­ ¶È°°Àº »óÅÂÈ¿°ú 2°³¸¦ Ãß°¡ÇØÁØ´Ù.
+
+			if( bApplyAll )
+			{
+				StateEffect.ApplyType = StateEffectApplyType::ApplySelf;
+				StateEffect.bApplyAllPair = true;
+			}
+			else
+				StateEffect.ApplyType = (StateEffectApplyType)iApplyType;
+
+			sprintf_s( caLable, "_EffectClassValue%d", i + 1 );
+			StateEffect.szValue = pGlyphTable->GetFieldFromLablePtr( nGlyphID, caLable )->GetString();
+
+			// Áö¼Ó½Ã°£Àº ±âÁ¸¿¡ ÀÖ´ø »óÅÂÈ¿°ú¿¡¼­ ±×´ë·Î ´ëÃ¼ÇÑ´Ù.
+			bool bFound = false;
+			for( int k = 0; k < iNumOriginalStateEffect; ++k )
+			{
+				const StateEffectStruct& OriginalSE = m_vlStateEffectList[ iSkillLevelApplyType ].at( k );
+				if( OriginalSE.nID == StateEffect.nID )
+				{
+					StateEffect.nDurationTime = OriginalSE.nDurationTime;
+					bFound = true;
+				}
+			}
+			
+			// ¸¸¾à °°Àº »óÅÂÈ¿°ú°¡ ¾ø´Ù¸é Áö¼Ó½Ã°£Àº ±×³É 0 À¸·Î ÇØÁØ´Ù. 
+			// ±×·³ ¾×¼Ç°ú µ¿ÀÏÇÑ °£°Ý¸¸Å­ »óÅÂÈ¿°ú°¡ Áö¼ÓµÊ.
+			if( false == bFound )
+				StateEffect.nDurationTime = 0;
+
+			m_vlStateEffectList[ iSkillLevelApplyType ].push_back( StateEffect );
+
+			// ¸ðµÎ Àû¿ëÀÌ¸é Å¸°ÙÀ¸·Î ¹Ù²ã¼­ ¶È°°ÀÌ ÇÑ ¹ø ´õ ³Ö¾îÁÜ.
+			if( bApplyAll )
+			{
+				StateEffect.ApplyType = StateEffectApplyType::ApplyTarget;
+				m_vlStateEffectList[ iSkillLevelApplyType ].push_back( StateEffect );
+			}
+		}
+	}
+
+	// ½ºÅ³ ¼Ó¼º Ãß°¡
+	GlyphEffectStruct GlyphEffect;
+	
+	GlyphEffect.eEffectIndex = pGlyphTable->GetFieldFromLablePtr( nGlyphID, "_GlyphSkillEffect" )->GetInteger();
+	GlyphEffect.fEffectValue = pGlyphTable->GetFieldFromLablePtr( nGlyphID, "_GlyphSkillEffectValue" )->GetFloat();
+	GlyphEffect.nGlyphID = nGlyphID;
+
+	switch( GlyphEffect.eEffectIndex )
+	{
+	case SKILLMP_PRO :
+		{
+			for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+				m_iNeedMP[ iSkillLevelApplyType ] += (int)( (float)m_iOriginalNeedMP[ iSkillLevelApplyType ] * GlyphEffect.fEffectValue );
+			break;
+		}
+
+	case SKILLDELAY_PRO :
+		{
+			for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+				m_fDelayTime[ iSkillLevelApplyType ] += m_fOriginalDelayTime[ iSkillLevelApplyType ] * GlyphEffect.fEffectValue;
+			break;
+		}
+
+	case SKILLDELAY_RESET_PRO :
+		{
+			m_fResetCooltime += GlyphEffect.fEffectValue;
+			break;
+		}
+
+	case SKILLDURATION_PRO :
+		{
+			// pair<int, int> <»óÅÂÈ¿°ú, ±â°£>
+			for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+			{
+				bool bEmpty = m_vlStateDurationList[iSkillLevelApplyType].empty();
+				for( int itr = 0; itr < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++itr ) {
+					if( bEmpty )
+						m_vlStateDurationList[iSkillLevelApplyType].push_back( make_pair(m_vlStateEffectList[ iSkillLevelApplyType ][itr].nID, m_vlStateEffectList[ iSkillLevelApplyType ][itr].nDurationTime) );
+					else m_vlStateEffectList[ iSkillLevelApplyType ][itr].nDurationTime = m_vlStateDurationList[iSkillLevelApplyType][itr].second;
+				}
+			}
+
+			float fRatio = GlyphEffect.fEffectValue;
+			for( int itr = 0; itr < (int)m_vGlyphEffectList.size(); ++itr )
+			{
+				if( SKILLDURATION_PRO == m_vGlyphEffectList[itr].eEffectIndex )
+					fRatio += m_vGlyphEffectList[itr].fEffectValue;
+			}
+
+			for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+			{
+				for( int itr = 0; itr < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++itr )
+					m_vlStateEffectList[ iSkillLevelApplyType ][itr].nDurationTime += (int)(m_vlStateEffectList[ iSkillLevelApplyType ][itr].nDurationTime * fRatio);
+			}
+
+			break;
+		}
+	case SKILLATTACKHEAL_ABSOLUTE:
+		{
+			float fValue = GlyphEffect.fEffectValue;
+
+			for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+			{
+				for( int itr = 0; itr < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++itr )
+				{
+					if( m_vlStateEffectList[ iSkillLevelApplyType ][itr].nID == STATE_BLOW::BLOW_248 )
+					{
+						m_vlStateEffectList[ iSkillLevelApplyType ][itr].szValue = FormatA( "%f", fValue + atof(m_vlStateEffectList[ iSkillLevelApplyType ][itr].szValue.c_str()) ).c_str();
+					}
+				}
+			}
+		}
+		break;
+	}
+
+	m_vGlyphEffectList.push_back( GlyphEffect );
+}
+
+void CDnSkill::DelGlyphStateEffect( int nGlyphID )
+{
+#if defined(PRE_ADD_65808)
+	int monsterID = -1;
+	if (IsSummonMonsterRecall(monsterID) == true)
+	{
+		m_hActor->RemoveSummonMonsterGlyphInfo(monsterID, nGlyphID);
+		return;
+	}
+#endif // PRE_ADD_65808
+
+	// ½ºÅ³ °­È­ ¹®Àå °°Àº °æ¿ì pvp/pve ¸ðµÎ ¼ÂÆÃÇØÁØ´Ù.
+	for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+	{
+		for( DNVector(StateEffectStruct)::iterator Itor = m_vlStateEffectList[ iSkillLevelApplyType ].begin(); 
+			Itor < m_vlStateEffectList[ iSkillLevelApplyType ].end(); )
+		{
+			if( nGlyphID == Itor->nGlyphID )
+				Itor = m_vlStateEffectList[ iSkillLevelApplyType ].erase(Itor);
+			else
+				++Itor;
+		}
+	}
+
+	for( std::vector<GlyphEffectStruct>::iterator Itor = m_vGlyphEffectList.begin();
+		Itor < m_vGlyphEffectList.end(); )
+	{
+		if( nGlyphID == Itor->nGlyphID )
+		{
+			switch( Itor->eEffectIndex )
+			{
+			case SKILLMP_PRO :
+				{
+					for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+						m_iNeedMP[ iSkillLevelApplyType ] -= (int)( (float)m_iOriginalNeedMP[ iSkillLevelApplyType ] * Itor->fEffectValue );
+					break;
+				}
+
+			case SKILLDELAY_PRO :
+				{
+					for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+						m_fDelayTime[ iSkillLevelApplyType ] -= m_fOriginalDelayTime[ iSkillLevelApplyType ] * Itor->fEffectValue;
+					break;
+				}
+
+			case SKILLDELAY_RESET_PRO :
+				{
+					m_fResetCooltime -= Itor->fEffectValue;
+					break;
+				}
+
+			case SKILLDURATION_PRO :
+				{
+					// pair<int, int> <»óÅÂÈ¿°ú, ±â°£>
+					bool bExist = false, bOnce = true;
+					float fRatio = 0.0f;
+					for( int itr = 0; itr < (int)m_vGlyphEffectList.size(); ++itr )
+					{
+						if( Itor->nGlyphID == m_vGlyphEffectList[itr].nGlyphID && bOnce) 
+						{
+							bOnce = false;
+							continue;
+						}
+						if( SKILLDURATION_PRO == m_vGlyphEffectList[itr].eEffectIndex )
+						{
+							bExist = true;
+							fRatio += m_vGlyphEffectList[itr].fEffectValue;
+						}
+					}
+
+					if( !bExist )
+					{
+						for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+						{
+							for( int itr = 0; itr < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++itr )
+								m_vlStateEffectList[ iSkillLevelApplyType ][itr].nDurationTime = m_vlStateDurationList[iSkillLevelApplyType][itr].second;
+							m_vlStateDurationList[iSkillLevelApplyType].clear();
+						}
+					}
+					else
+					{
+						for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+						{
+							for( int itr = 0; itr < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++itr )
+								m_vlStateEffectList[ iSkillLevelApplyType ][itr].nDurationTime = m_vlStateDurationList[iSkillLevelApplyType][itr].second + (int)(m_vlStateDurationList[iSkillLevelApplyType][itr].second * fRatio);
+						}
+					}
+
+					break;
+				}
+			case SKILLATTACKHEAL_ABSOLUTE:
+				{
+					float fValue = Itor->fEffectValue;
+					for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+					{
+						for( int itr = 0; itr < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++itr )
+						{
+							if( m_vlStateEffectList[ iSkillLevelApplyType ][itr].nID == STATE_BLOW::BLOW_248 )
+								m_vlStateEffectList[ iSkillLevelApplyType ][itr].szValue = FormatA( "%f", atof(m_vlStateEffectList[ iSkillLevelApplyType ][itr].szValue.c_str()) - fValue).c_str();
+						}
+					}
+				}
+				break;
+			}
+
+			Itor = m_vGlyphEffectList.erase( Itor );
+		}
+		else
+			++Itor;
+	}
+}
+
+void CDnSkill::UpdateSkillCoolTimeExactly( void )
+{
+	// 96, 171¹ø ÄðÅ¸ÀÓ º¯°æ »óÅÂÈ¿°ú°¡ °É·ÁÀÖ´Â °æ¿ì ¼­¹ö¿¡¼­ Ã¼Å©ÇÏÁö ¾Êµµ·Ï Ã³¸®.
+	// °×¼­¹ö¿¡¼­ ÄðÅ¸ÀÓ °»½ÅÀÌ 10ÇÁ·¹ÀÓÀ¸·Î ÁÙ¾îµé¾úÀ¸¹Ç·Î Á¶ÀÛ°¨ ¹®Á¦¶§¹®¿¡ ÀÌ·¸°Ô Ç®¾î³õÀ½. 2011.07.25
+	DWORD dwNowTime = timeGetTime();
+	if(	DWORD(GetDelayTime()*1000.0f) < dwNowTime - m_dwLastUseSkillTimeStamp )
+	{
+		ResetCoolTime();
+	}
+}
+
+
+bool CDnSkill::SelectLevelDataType( int iSkillLevelDataType, bool bPlayerSummonedMonster/* = false*/ )
+{ 
+	_ASSERT( (m_hActor->IsPlayerActor() || bPlayerSummonedMonster) && (PVE <= iSkillLevelDataType) && (iSkillLevelDataType < NUM_SKILLLEVEL_APPLY_TYPE) );
+
+	if( (m_hActor->IsPlayerActor() || bPlayerSummonedMonster) &&
+		(PVE <= iSkillLevelDataType) &&
+		(iSkillLevelDataType < NUM_SKILLLEVEL_APPLY_TYPE) ) 
+	{
+		m_iSelectedSkillLevelDataApplyType = iSkillLevelDataType;
+		return true;
+	}
+
+	return false;
+};
+
+
+bool CDnSkill::IsNeedCheckApplyStateBlow( STATE_BLOW::emBLOW_INDEX emBlowIndex )
+{
+	bool bResult = false;
+
+	if( STATE_BLOW::BLOW_030 == emBlowIndex )
+		bResult = true;
+
+	return bResult;
+}
+
+int CDnSkill::GetBaseSkillID( void )
+{
+	int iResult = 0;
+
+	if( EnchantPassive == m_eSkillType )
+	{
+		iResult = m_iBaseSkillID;
+	}
+
+	return iResult;
+}
+
+// Å¬¶óÀÌ¾ðÆ®µµ µ¿±âÈ­ ¸ÂÃß¾îÁÖ¼¼¿ä CheckAndDivideStateEffectArgument ÀÌ ÇÔ¼öµµ ¼öÁ¤ÇØÁÖ¼¼¿ä 
+bool CDnSkill::CheckAndUnifyStateEffectArgument( int iSkillLevelApplyType, StateEffectStruct* pEnchantSkillSE )
+{
+	bool bResult = false;
+
+	if( CDnCreateBlow::IsBasicBlow( (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID ) )
+	{
+		for( int i = 0; i < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++i )
+		{
+			StateEffectStruct* pDestSkillSE = &(m_vlStateEffectList[ iSkillLevelApplyType ].at( i ));
+			if( pDestSkillSE->nID == pEnchantSkillSE->nID )
+			{
+				CDnBasicBlow::AddStateEffectValue( pDestSkillSE->szValue.c_str(), pEnchantSkillSE->szValue.c_str(), pDestSkillSE->szValue );
+				pDestSkillSE->strEnchantSkillSEParam = pEnchantSkillSE->szValue;
+				bResult = true;
+			}
+		}
+	}
+	else if( STATE_BLOW::BLOW_016 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID )
+	{
+		for( int i = 0; i < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++i )
+		{
+			StateEffectStruct* pDestSkillSE = &(m_vlStateEffectList[ iSkillLevelApplyType ].at( i ));
+			if( pDestSkillSE->nID == pEnchantSkillSE->nID )
+			{
+				CDnHPIncBlow::AddStateEffectValue( pDestSkillSE->szValue.c_str(), pEnchantSkillSE->szValue.c_str(), pDestSkillSE->szValue );
+				pDestSkillSE->strEnchantSkillSEParam = pEnchantSkillSE->szValue;
+				bResult = true;
+			}
+		}
+	}
+	else if( STATE_BLOW::BLOW_208 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID )
+	{
+		for( int i = 0; i < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++i )
+		{
+			StateEffectStruct* pDestSkillSE = &(m_vlStateEffectList[ iSkillLevelApplyType ].at( i ));
+			if( pDestSkillSE->nID == pEnchantSkillSE->nID )
+			{
+				CDnPingpongBlow::AddStateEffectValue( pDestSkillSE->szValue.c_str(), pEnchantSkillSE->szValue.c_str(), pDestSkillSE->szValue );
+				pDestSkillSE->strEnchantSkillSEParam = pEnchantSkillSE->szValue;
+				bResult = true;
+			}
+		}
+	}
+	else if( STATE_BLOW::BLOW_140 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID )
+	{
+		for( int i = 0; i < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++i )
+		{
+			StateEffectStruct* pDestSkillSE = &(m_vlStateEffectList[ iSkillLevelApplyType ].at( i ));
+			if( pDestSkillSE->nID == pEnchantSkillSE->nID )
+			{
+				CDnHealingBlow::AddStateEffectValue( pDestSkillSE->szValue.c_str(), pEnchantSkillSE->szValue.c_str(), pDestSkillSE->szValue );
+				pDestSkillSE->strEnchantSkillSEParam = pEnchantSkillSE->szValue;
+				bResult = true;
+			}
+		}
+	}
+	else if( STATE_BLOW::BLOW_227 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID )
+	{
+		for( int i = 0; i < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++i )
+		{
+			StateEffectStruct* pDestSkillSE = &(m_vlStateEffectList[ iSkillLevelApplyType ].at( i ));
+			if( pDestSkillSE->nID == pEnchantSkillSE->nID )
+			{
+				CDnBloodSuckingBlow::AddStateEffectValue( pDestSkillSE->szValue.c_str(), pEnchantSkillSE->szValue.c_str(), pDestSkillSE->szValue );
+				pDestSkillSE->strEnchantSkillSEParam = pEnchantSkillSE->szValue;
+				bResult = true;
+			}
+		}
+	}
+	else if( STATE_BLOW::BLOW_215 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID )
+	{
+		for( int i = 0; i < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++i )
+		{
+			StateEffectStruct* pDestSkillSE = &(m_vlStateEffectList[ iSkillLevelApplyType ].at( i ));
+			if( pDestSkillSE->nID == pEnchantSkillSE->nID )
+			{
+				CDnOrderMySummonedMonsterBlow::AddStateEffectValue( pDestSkillSE->szValue.c_str(), pEnchantSkillSE->szValue.c_str(), pDestSkillSE->szValue );
+				pDestSkillSE->strEnchantSkillSEParam = pEnchantSkillSE->szValue;
+				bResult = true;
+			}
+		}
+	}
+	else if( STATE_BLOW::BLOW_179 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID
+			|| STATE_BLOW::BLOW_121 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID
+			|| STATE_BLOW::BLOW_129 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID
+			|| STATE_BLOW::BLOW_062 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID 
+			|| STATE_BLOW::BLOW_242 == (STATE_BLOW::emBLOW_INDEX)pEnchantSkillSE->nID )
+	{
+		for( int i = 0; i < (int)m_vlStateEffectList[ iSkillLevelApplyType ].size(); ++i )
+		{
+			StateEffectStruct* pDestSkillSE = &(m_vlStateEffectList[ iSkillLevelApplyType ].at( i ));
+			if( pDestSkillSE->nID == pEnchantSkillSE->nID )
+			{
+				pDestSkillSE->strEnchantSkillSEParam = pDestSkillSE->szValue;
+				pDestSkillSE->szValue = pEnchantSkillSE->szValue;
+				bResult = true;
+				break;
+			}
+		}
+	}
+
+	return bResult;
+}
+
+bool CDnSkill::ApplyEnchantSkill( DnSkillHandle hEnchantPassiveSkill )
+{
+	bool bSuccess = false;
+
+	if( 0 < m_iAppliedEnchantPassiveSkillID )
+		return false;
+
+	_ASSERT( m_iSkillID == hEnchantPassiveSkill->GetBaseSkillID() );
+	_ASSERT( EnchantPassive != m_eSkillType );
+	if( EnchantPassive != m_eSkillType )
+	{
+		int iNowLevelDataType = m_iSelectedSkillLevelDataApplyType;
+		for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+		{
+			// ±âÁ¸¿¡ Á¸ÀçÇÏ´Â »óÅÂÈ¿°ú¿£ ÀÎÀÚ°ªÀ» ´õÇØÁÖ°í »õ·Î¿î »óÅÂÈ¿°ú´Â ¸®½ºÆ®¿¡ Ãß°¡.
+			// ÄðÅ¸ÀÓÀº °­È­ ÆÐ½Ãºê ½ºÅ³ÀÇ ÄðÅ¸ÀÓÀ¸·Î µ¤¾î¾º¿öÁØ´Ù.
+			SelectLevelDataType( iSkillLevelApplyType );
+			hEnchantPassiveSkill->SelectLevelDataType( iSkillLevelApplyType );
+			int iNumStateEffect = (int)hEnchantPassiveSkill->GetStateEffectCount();
+			for( int i = 0; i < iNumStateEffect; ++i )
+			{
+				StateEffectStruct* pEnchantPassiveSE = hEnchantPassiveSkill->GetStateEffectFromIndex( i );
+
+				// #40643 ÇÎÆþ¹ãEX Ã³·³ Æ¯¼öÇÏ°Ô ±¸ÇöµÈ »óÅÂÈ¿°úÀÇ ÀÎÀÚ¸¦ °Çµå¸®´Â °æ¿ì..
+				// ¾îÂ¿ ¼ö ¾øÀÌ ÇÕÃÄÁà¾ß ÇÑ´Ù. ½ÇÁ¦·Î m_vlStateEffectList ¿¡ Ãß°¡µÇ´Â °ÍÀÌ ¾Æ´Ô.
+				if( false == CheckAndUnifyStateEffectArgument( iSkillLevelApplyType, pEnchantPassiveSE ) )
+				{
+					// °ø°Ý·Â °­È­ »óÅÂÈ¿°ú´ø ¾Æ´Ï°Ç Ãß°¡ÇØÁÖ¸é ½ºÅ³ »ç¿ë½Ã ÀÚµ¿À¸·Î ´É·ÂÄ¡ ¸®ÇÁ·¹½Ã µÈ´Ù.
+					m_vlStateEffectList[ iSkillLevelApplyType ].push_back( *pEnchantPassiveSE );
+					m_vlStateEffectList[ iSkillLevelApplyType ].back().nFromEnchantPassiveSkillID = hEnchantPassiveSkill->GetClassID();
+				}
+			}
+
+			// ¾×¼Ç ÇÁ·Î¼¼¼­¸¦ °­È­ ½ºÅ³ÀÇ °ÍÀ¸·Î º¯°æÇÑ´Ù.
+			IDnSkillProcessor* pMyPlayAniProcessor = GetProcessor( IDnSkillProcessor::PLAY_ANI );
+			if( pMyPlayAniProcessor )
+			{
+				IDnSkillProcessor* pEnchantPassiveSkillPlayAniProcessor =  hEnchantPassiveSkill->GetProcessor( IDnSkillProcessor::PLAY_ANI );
+				if( pEnchantPassiveSkillPlayAniProcessor )
+				{
+					// ±âÁ¸ °Í ¹é¾÷.
+					IDnSkillProcessor* pBackup = new CDnPlayAniProcess;
+					pBackup->CopyFrom( pMyPlayAniProcessor );
+					m_vlpProcessorBackup[ iSkillLevelApplyType ].push_back( pBackup );
+
+					// °­È­ ÆÐ½Ãºê ½ºÅ³ÀÇ °ÍÀ¸·Î µ¥ÀÌÅÍ Àû¿ë.
+					pMyPlayAniProcessor->CopyFrom( pEnchantPassiveSkillPlayAniProcessor );
+				}
+			}
+
+			IDnSkillProcessor* pMyPartialPlayAniProcessor = GetProcessor( IDnSkillProcessor::PARTIAL_PLAY_ANI );
+			if( pMyPartialPlayAniProcessor )
+			{
+				IDnSkillProcessor* pEnchantPassivePartialSkillPlayAniProcessor =  hEnchantPassiveSkill->GetProcessor( IDnSkillProcessor::PARTIAL_PLAY_ANI );
+				if( pEnchantPassivePartialSkillPlayAniProcessor )
+				{
+					// ±âÁ¸ °Í ¹é¾÷.
+					IDnSkillProcessor* pBackup = new CDnPartialPlayProcessor;
+					pBackup->CopyFrom( pMyPartialPlayAniProcessor );
+					m_vlpProcessorBackup[ iSkillLevelApplyType ].push_back( pBackup );
+
+					pMyPartialPlayAniProcessor->CopyFrom( pEnchantPassivePartialSkillPlayAniProcessor );
+				}
+			}
+
+			IDnSkillProcessor* pMyChangeActionStrProcessor = GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR );
+			if( pMyChangeActionStrProcessor )
+			{
+				IDnSkillProcessor* pEnchantPassiveChangeActionStrProcessor =  hEnchantPassiveSkill->GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR );
+				if( pEnchantPassiveChangeActionStrProcessor )
+				{
+					// ±âÁ¸ °Í ¹é¾÷.
+					IDnSkillProcessor* pBackup = new CDnChangeActionStrProcessor;
+					pBackup->CopyFrom( pMyChangeActionStrProcessor );
+					m_vlpProcessorBackup[ iSkillLevelApplyType ].push_back( pBackup );
+
+					pMyChangeActionStrProcessor->CopyFrom( pEnchantPassiveChangeActionStrProcessor );
+				}
+			}
+
+#ifdef PRE_ADD_ENCHANTSKILL_BUBBLE_ACTION
+			IDnSkillProcessor* pMyChangeActionStrByBubbleProcessor = GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR_BY_BUBBLE );
+			if( pMyChangeActionStrByBubbleProcessor )
+			{
+				IDnSkillProcessor* pEnchantPassiveChangeActionStrProcessor =  hEnchantPassiveSkill->GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR_BY_BUBBLE );
+				if( pEnchantPassiveChangeActionStrProcessor )
+				{
+					IDnSkillProcessor* pBackup = new CDnChangeActionStrByBubbleProcessor( );
+					pBackup->CopyFrom( pMyChangeActionStrByBubbleProcessor );
+					m_vlpProcessorBackup[ iSkillLevelApplyType ].push_back( pBackup );
+
+					pMyChangeActionStrByBubbleProcessor->CopyFrom( pEnchantPassiveChangeActionStrProcessor );
+				}
+			}
+#endif
+
+			m_eElement = hEnchantPassiveSkill->GetElement();
+			m_SkillInfo[iSkillLevelApplyType].eSkillElement = hEnchantPassiveSkill->GetElement();
+
+#ifdef PRE_FIX_SYNC_ENCHANT_SKILL
+			bool bSummonMonsterToggleSkill = ( m_isAppliedSummonMonsterEnchantSkill && hEnchantPassiveSkill->GetDurationType() == CDnSkill::ActiveToggleForSummon );
+			if( bSummonMonsterToggleSkill == false )
+			{
+				m_eDurationType = hEnchantPassiveSkill->GetDurationType();
+				m_SkillInfo[iSkillLevelApplyType].eDurationType = hEnchantPassiveSkill->GetDurationType();
+			}
+#endif
+
+#if defined(PRE_FIX_66175)
+			//#66175
+			//UsableChecker¸¦ º£ÀÌ½º ½ºÅ³°ú EX½ºÅ³ ±³Ã¼ÇÑ´Ù...
+			vector<IDnSkillUsableChecker*>& enchangeSkillUsableChecker = hEnchantPassiveSkill->GetUsableChecker(iSkillLevelApplyType);
+
+			//EX½ºÅ³¿¡ UsableChecker°¡ ¼³Á¤ µÇ¾î ÀÖ´Â °æ¿ì¸¸ ±³Ã¼ ÇÏµµ·Ï ÇÑ´Ù...
+			if (enchangeSkillUsableChecker.size() > 0)
+			{
+				vector<IDnSkillUsableChecker*>& baseSkillUsableChecker = GetUsableChecker(iSkillLevelApplyType);
+
+				{
+					//ÀÚ½ÅÀÇ CheckerµéÀ» ¹é¾÷ ¸®½ºÆ®¿¡ ´ã¾Æ ³õ´Â´Ù.
+					vector<IDnSkillUsableChecker*>::iterator iter = baseSkillUsableChecker.begin();
+					vector<IDnSkillUsableChecker*>::iterator endIter = baseSkillUsableChecker.begin();
+
+					//¹é¾÷ ¸®½ºÆ®¿¡ ÀúÀå ÇØ³õ°í...
+					m_vlUsableCheckersBackup[iSkillLevelApplyType].clear();
+
+					for (; iter != endIter; ++iter)
+					{
+						m_vlUsableCheckersBackup[iSkillLevelApplyType].push_back((*iter));
+					}
+
+				}				
+
+				//EX½ºÅ³ÀÇ usableChecker¸¦ º£ÀÌ½º ½ºÅ³¿¡ Àû¿ëÇÑ´Ù.
+				baseSkillUsableChecker.clear();
+				vector<IDnSkillUsableChecker*>::iterator iter = enchangeSkillUsableChecker.begin();
+				vector<IDnSkillUsableChecker*>::iterator endIter = enchangeSkillUsableChecker.end();
+				for (; iter != endIter; ++iter)
+				{
+					IDnSkillUsableChecker* pChecker = (*iter);
+					baseSkillUsableChecker.push_back(pChecker->Clone());
+				}
+			}
+#endif // PRE_FIX_66175
+
+			//EffectIDsµµ º¯°æ..
+			string enchantEffectIDs = hEnchantPassiveSkill->GetEffectOutputIDs(iSkillLevelApplyType);
+			string enchantEffectIDToClient = hEnchantPassiveSkill->GetEffectOutputIDToClient(iSkillLevelApplyType);
+
+			m_BackupEffectOutputIDs[iSkillLevelApplyType] = m_SkillInfo[iSkillLevelApplyType].szEffectOutputIDs;
+			m_BackupEffectOutputIDToClient[iSkillLevelApplyType] = m_SkillInfo[iSkillLevelApplyType].szEffectOutputIDToClient;
+
+			//SC_CMDADDSTATEEFFECT ÆÐÅ¶À» Å¬¶óÀÌ¾ðÆ®·Î º¸³¾¶§, szEffectOutputIDToClient°ªÀÌ ¾øÀ¸¸é Å¬¶óÀÌ¾ðÆ®´Â Å×ÀÌºí °ªÀ» ÀÐ¾î¼­ »ç¿ëÇÑ´Ù.
+			//EX½ºÅ³À» »ç¿ë ½Ã ½ºÅ³ ID´Â º£ÀÌ½º ½ºÅ³ ID°¡ Àü´Þ µÇ±â ¶§¹®¿¡, EX½ºÅ³¿¡ÀÇÇØ º¯°æµÈ °ªÀ» »ç¿ë ÇÏÁö ¸øÇÏ°Ô µÊ.
+			//eX½ºÅ³ Àû¿ë½Ã szEffectOutputIDToClient°ªÀ» EX½ºÅ³ °ªÀ¸·Î º¯°æ ÇØ³õ´Â´Ù.
+			m_SkillInfo[iSkillLevelApplyType].szEffectOutputIDs = enchantEffectIDs;
+			m_SkillInfo[iSkillLevelApplyType].szEffectOutputIDToClient = enchantEffectIDs;
+
+#ifdef PRE_FIX_SYNC_ENCHANT_SKILL
+			m_SkillInfo[iSkillLevelApplyType].iAppliedEnchantSkillID = hEnchantPassiveSkill->GetClassID();
+#endif
+		}
+
+		SelectLevelDataType( iNowLevelDataType );
+
+		m_iAppliedEnchantPassiveSkillID = hEnchantPassiveSkill->GetClassID();
+		bSuccess = true;
+	}
+
+	return bSuccess;
+}
+
+
+void CDnSkill::ApplyEnchantSkillOnceFromBubble( DnSkillHandle hEnchantPassiveSkill )
+{
+	m_bEnchantedFromBubble = true;
+	ApplyEnchantSkill( hEnchantPassiveSkill );
+}
+
+
+bool CDnSkill::CheckAndDivideStateEffectArgument( StateEffectStruct* pDestSkillSE )
+{
+	if( pDestSkillSE->strEnchantSkillSEParam.empty() == true )
+		return false;
+
+	bool bResult = false;
+
+	if( CDnCreateBlow::IsBasicBlow( (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID ) )
+	{
+		CDnBasicBlow::RemoveStateEffectValue( pDestSkillSE->szValue.c_str(), pDestSkillSE->strEnchantSkillSEParam.c_str(), pDestSkillSE->szValue );
+		pDestSkillSE->strEnchantSkillSEParam.clear();
+		bResult = true;
+	}
+	else if( STATE_BLOW::BLOW_016 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID )
+	{
+		CDnHPIncBlow::RemoveStateEffectValue( pDestSkillSE->szValue.c_str(), pDestSkillSE->strEnchantSkillSEParam.c_str(), pDestSkillSE->szValue );
+		pDestSkillSE->strEnchantSkillSEParam.clear();
+		bResult = true;
+	}
+	else if( STATE_BLOW::BLOW_208 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID )
+	{
+		CDnPingpongBlow::RemoveStateEffectValue( pDestSkillSE->szValue.c_str(), pDestSkillSE->strEnchantSkillSEParam.c_str(), pDestSkillSE->szValue );
+		pDestSkillSE->strEnchantSkillSEParam.clear();
+		bResult = true;
+	}
+	else if( STATE_BLOW::BLOW_140 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID )
+	{
+		CDnHealingBlow::RemoveStateEffectValue( pDestSkillSE->szValue.c_str(), pDestSkillSE->strEnchantSkillSEParam.c_str(), pDestSkillSE->szValue );
+		pDestSkillSE->strEnchantSkillSEParam.clear();
+		bResult = true;
+	}
+	else if( STATE_BLOW::BLOW_227 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID )
+	{
+		CDnBloodSuckingBlow::RemoveStateEffectValue( pDestSkillSE->szValue.c_str(), pDestSkillSE->strEnchantSkillSEParam.c_str(), pDestSkillSE->szValue );
+		pDestSkillSE->strEnchantSkillSEParam.clear();
+		bResult = true;
+	}
+	else if( STATE_BLOW::BLOW_215 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID )
+	{
+		CDnOrderMySummonedMonsterBlow::RemoveStateEffectValue( pDestSkillSE->szValue.c_str(), pDestSkillSE->strEnchantSkillSEParam.c_str(), pDestSkillSE->szValue );
+		pDestSkillSE->strEnchantSkillSEParam.clear();
+		bResult = true;
+	}
+	else if( STATE_BLOW::BLOW_179 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID
+		|| STATE_BLOW::BLOW_121 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID
+		|| STATE_BLOW::BLOW_129 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID
+		|| STATE_BLOW::BLOW_062 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID 
+		|| STATE_BLOW::BLOW_242 == (STATE_BLOW::emBLOW_INDEX)pDestSkillSE->nID )
+	{
+		pDestSkillSE->szValue = pDestSkillSE->strEnchantSkillSEParam;
+		pDestSkillSE->strEnchantSkillSEParam.clear();
+		bResult = true;
+	}
+	
+	return bResult;
+}
+
+void CDnSkill::ReleaseEnchantSkill( void )
+{
+	if( 0 == m_iAppliedEnchantPassiveSkillID )
+		return;
+
+	_ASSERT( EnchantPassive != m_eSkillType );
+	if( EnchantPassive != m_eSkillType )
+	{
+		int iNowLevelDataType = m_iSelectedSkillLevelDataApplyType;
+		for( int iSkillLevelApplyType = PVE; iSkillLevelApplyType < NUM_SKILLLEVEL_APPLY_TYPE; ++iSkillLevelApplyType )
+		{
+			// ±âÁ¸¿¡ Á¸ÀçÇÏ´Â »óÅÂÈ¿°ú¿£ ÀÎÀÚ°ªÀ» ´õÇØÁÖ°í »õ·Î¿î »óÅÂÈ¿°ú´Â ¸®½ºÆ®¿¡ Ãß°¡.
+			// ÄðÅ¸ÀÓÀº °­È­ ÆÐ½Ãºê ½ºÅ³ÀÇ ÄðÅ¸ÀÓÀ¸·Î µ¤¾î¾º¿öÁØ´Ù.
+			SelectLevelDataType( iSkillLevelApplyType );
+			DNVector( StateEffectStruct )::iterator iter = m_vlStateEffectList[ iSkillLevelApplyType ].begin();
+			for( iter; iter != m_vlStateEffectList[ iSkillLevelApplyType ].end(); )
+			{
+				if( false == CheckAndDivideStateEffectArgument( &(*iter) ) )
+				{
+					if( 0 < iter->nFromEnchantPassiveSkillID )
+					{
+						iter = m_vlStateEffectList[ iSkillLevelApplyType ].erase( iter );
+						continue;
+					}
+				}
+
+				++iter;
+			}
+
+			for( int i = 0; i < (int)m_vlpProcessorBackup[ iSkillLevelApplyType ].size(); ++i )
+			{
+				IDnSkillProcessor* pProcessor = m_vlpProcessorBackup[ iSkillLevelApplyType ].at( i );
+				switch( pProcessor->GetType() )
+				{
+					case IDnSkillProcessor::PLAY_ANI:
+						{
+							IDnSkillProcessor* pMyPlayAniProcessor = GetProcessor( IDnSkillProcessor::PLAY_ANI );
+							if( pMyPlayAniProcessor )
+								pMyPlayAniProcessor->CopyFrom( pProcessor );
+						}
+						break;
+
+					case IDnSkillProcessor::PARTIAL_PLAY_ANI:
+						{
+							IDnSkillProcessor* pMyPartialPlayAniProcessor = GetProcessor( IDnSkillProcessor::PARTIAL_PLAY_ANI );
+							if( pMyPartialPlayAniProcessor )
+								pMyPartialPlayAniProcessor->CopyFrom( pProcessor );
+						}
+						break;
+					case IDnSkillProcessor::CHANGE_ACTIONSTR:
+						{
+							IDnSkillProcessor* pMyChangeActionStrProcessor = GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR );
+							if( pMyChangeActionStrProcessor )
+								pMyChangeActionStrProcessor->CopyFrom( pProcessor );
+						}
+						break;
+#ifdef PRE_ADD_ENCHANTSKILL_BUBBLE_ACTION
+					case IDnSkillProcessor::CHANGE_ACTIONSTR_BY_BUBBLE:
+						{
+							IDnSkillProcessor* pMyChangeActionStrByBubbleProcessor = GetProcessor( IDnSkillProcessor::CHANGE_ACTIONSTR_BY_BUBBLE );
+							if( pMyChangeActionStrByBubbleProcessor )
+								pMyChangeActionStrByBubbleProcessor->CopyFrom( pProcessor );
+						}
+						break;
+#endif
+				}
+			}
+
+			SAFE_DELETE_PVEC( m_vlpProcessorBackup[ iSkillLevelApplyType ] );
+
+#if defined(PRE_FIX_66175)
+			if (m_vlUsableCheckersBackup[iSkillLevelApplyType].size() > 0)
+			{
+				std::swap(m_vlpUsableCheckers[iSkillLevelApplyType], m_vlUsableCheckersBackup[iSkillLevelApplyType]);
+			}
+#endif // PRE_FIX_66175
+
+			//EffectIDsµµ º¯°æ..
+			m_SkillInfo[iSkillLevelApplyType].szEffectOutputIDs = m_BackupEffectOutputIDs[iSkillLevelApplyType];
+			m_SkillInfo[iSkillLevelApplyType].szEffectOutputIDToClient = m_BackupEffectOutputIDToClient[iSkillLevelApplyType];
+
+			m_BackupEffectOutputIDs[iSkillLevelApplyType].clear();
+			m_BackupEffectOutputIDToClient[iSkillLevelApplyType].clear();
+		}
+
+		SelectLevelDataType( iNowLevelDataType );
+		m_iAppliedEnchantPassiveSkillID = 0;
+	}
+}
+
+
+IDnSkillUsableChecker* CDnSkill::GetChecker( int iType )
+{
+	IDnSkillUsableChecker* pResult = NULL;
+
+	int iNumChecker = (int)m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iChecker = 0; iChecker < iNumChecker; ++iChecker )
+	{
+		IDnSkillUsableChecker* pSkillChecker = m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].at( iChecker );
+		if( iType == pSkillChecker->GetType() )
+		{
+			pResult = pSkillChecker;
+			break;
+		}
+	}
+
+	return pResult;
+}
+
+bool CDnSkill::IsExistUsableChecker( int iType ) // Á¤ÀÇµÈ UsableCheckerÀ» °¡Áö°íÀÖ´À³Ä?
+{
+	int iNumChecker = (int)m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].size();
+	for( int iChecker = 0; iChecker < iNumChecker; ++iChecker )
+	{
+		IDnSkillUsableChecker* pSkillChecker = m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].at( iChecker );
+		if( iType == pSkillChecker->GetType() )
+			return true;
+	}
+	return false;
+}
+
+bool CDnSkill::IsFinishedAuraSkill()
+{
+	//¿À¶ó ½ºÅ³ÀÏ¶§ Áö¼Ó Àý´ë/ºñÀ² ¸¶³ª Áõ°¡°¡ ÀÖÀ»¶§ ÃÑ ¸¶³ª º¯È­·®À» ÇÕ»êÇØ¼­ Áö±Ý ³²Àº ¸¶³ª¿Í ºñ±³ÇØ¼­
+	//½ºÅ³ Áö¼Ó °¡´É ¿©ºÎ¸¦ ÆÇ´ÜÇÑ´Ù.
+	if (m_hActor)
+	{
+		float fIncManaDelta = 0.0f;
+
+		//Àý´ë Áõ°¡ ºÐ
+		DNVector( DnBlowHandle ) vlManaAbIncBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex( STATE_BLOW::BLOW_013, vlManaAbIncBlows );
+		if (!vlManaAbIncBlows.empty())
+		{
+			for( int i = 0; i < (int)vlManaAbIncBlows.size(); ++i )
+			{
+				DnBlowHandle hBlow = vlManaAbIncBlows.at( i );
+				fIncManaDelta += hBlow->GetFloatValue();							
+			}
+		}
+
+		//ºñÀ² Áõ°¡ ºÐ
+		float fMaxMP = static_cast<float>(m_hActor->GetMaxSP());
+		DNVector( DnBlowHandle ) vlManaRateIncBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex( STATE_BLOW::BLOW_014, vlManaRateIncBlows );
+		if (!vlManaRateIncBlows.empty())
+		{
+			for( int i = 0; i < (int)vlManaRateIncBlows.size(); ++i )
+			{
+				DnBlowHandle hBlow = vlManaRateIncBlows.at( i );
+				fIncManaDelta += fMaxMP * hBlow->GetFloatValue();							
+			}
+		}
+
+#if defined(PRE_FIX_46381)
+		//231¹ø »óÅÂÈ¿°ú Àû¿ë.
+		DNVector(DnBlowHandle) vlContinueBaseMPIncBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex( STATE_BLOW::BLOW_231, vlContinueBaseMPIncBlows);
+		if (!vlContinueBaseMPIncBlows.empty())
+		{
+			for (int i = 0; i < (int)vlContinueBaseMPIncBlows.size(); ++i)
+			{
+				DnBlowHandle hBlow = vlContinueBaseMPIncBlows.at(i);
+				fIncManaDelta += static_cast<CDnContinueBaseMPIncBlow*>(hBlow.GetPointer())->GetMPIncValue();
+			}
+		}
+#endif // PRE_FIX_46381
+
+		//ÃÖÁ¾ -Áõ°¡ºÐÀÌ ÇöÀç ³²Àº ¸¶³ªº¸´Ù ¸¹À¸¸é ¸¶³ª ¸ðÀÚ¸§..
+		if (m_hActor->GetSP() < -(int)fIncManaDelta)
+			return true;		
+	}
+	
+	return false;
+}
+
+void CDnSkill::AddPrefixBlow(DnActorHandle hActor, int nBlowID)
+{
+	PREFIX_SKILL_BLOWLIST::iterator findIter = m_PrefixBlowList.find(hActor);
+	if (findIter != m_PrefixBlowList.end())
+	{
+		findIter->second.push_back(nBlowID);
+	}
+	else
+	{
+		BLOWLIST blowList;
+		blowList.push_back(nBlowID);
+
+		m_PrefixBlowList.insert(PREFIX_SKILL_BLOWLIST::value_type(hActor, blowList));
+	}
+}
+
+void CDnSkill::RemovePrefixBlow()
+{
+	PREFIX_SKILL_BLOWLIST::iterator iter = m_PrefixBlowList.begin();
+	PREFIX_SKILL_BLOWLIST::iterator endIter = m_PrefixBlowList.end();
+
+	for (; iter != endIter; ++iter)
+	{
+		DnActorHandle hActor = iter->first;
+		if (!hActor)
+			continue;
+
+		BLOWLIST& blowList = iter->second;
+		for (int i = 0; i < (int)blowList.size(); ++i)
+		{
+			// [2010/12/13 semozz]
+			// ÀÌÁ¦´Â ¸ðµç »óÅÂÈ¿°ú´Â ÆÐÅ¶À¸·Î »ý¼º µÇ¹Ç·Î, ÆÐÅ¶À¸·Î »óÅÂÈ¿°ú Á¦°ÅÇÑ´Ù.
+			hActor->CmdRemoveStateEffectFromID( blowList[i] );
+		}
+
+		blowList.clear();
+	}
+
+	m_PrefixBlowList.clear();
+}
+
+void CDnSkill::OnInitializeSummonMonsterInfo()
+{
+	if (!m_hActor)
+		return;
+
+	set<string>::iterator iter = m_setUseActionNames.begin();
+	set<string>::iterator endIter = m_setUseActionNames.end();
+
+	string actionName;
+	CEtActionBase::ActionElementStruct *pActionElement = NULL;
+
+	bool bFindMonsterID = false;
+
+	for (; iter != endIter; ++iter)
+	{
+		actionName = *iter;
+		pActionElement = m_hActor->GetElement(actionName.c_str());
+		if (pActionElement)
+		{
+			CEtActionSignal *pSignal = NULL;
+			for( DWORD i=0; i<pActionElement->pVecSignalList.size(); i++ ) 
+			{
+				pSignal = pActionElement->pVecSignalList[i];
+
+				if (pSignal->GetSignalIndex() == STE_SummonMonster)
+				{
+					SummonMonsterStruct* pStruct = (SummonMonsterStruct *)pSignal->GetData();
+
+					m_SummonMonsterID = pStruct ? pStruct->MonsterID : -1;
+
+					if (m_SummonMonsterID != -1) 
+					{
+						bFindMonsterID = true;
+						break;
+					}
+				}
+			}
+		}
+
+		if (bFindMonsterID)
+			break;
+	}
+	
+}
+DnActorHandle CDnSkill::FindSummonMonster(int nMonsterID)
+{
+	DnActorHandle hSummonMonster;
+
+	if (m_hActor && m_hActor->IsPlayerActor())
+	{
+		const list<DnMonsterActorHandle>& listSummonMonster = m_hActor->GetSummonedMonsterList();
+
+		if( false == listSummonMonster.empty() )
+		{
+			list<DnMonsterActorHandle>::const_iterator iter = listSummonMonster.begin();
+			for( iter; iter != listSummonMonster.end(); ++iter )
+			{
+				DnMonsterActorHandle hMonster = (*iter);
+				if( hMonster && hMonster->GetMonsterClassID() == nMonsterID )
+				{
+					hSummonMonster = hMonster;
+					break;
+				}
+			}
+		}	
+	}
+
+	return hSummonMonster;
+}
+
+bool CDnSkill::SummonMonsterOff()
+{
+	DnActorHandle hSummonMonster;
+
+	if (m_SummonMonsterID != -1)
+		hSummonMonster = FindSummonMonster(m_SummonMonsterID);
+
+	if (hSummonMonster)
+	{
+		hSummonMonster->CmdSuicide(false, false);
+		return true;
+	}
+	else
+		return false;
+}
+
+bool CDnSkill::IsSkipStateBlow(const char* szSkipStateBlows, STATE_BLOW::emBLOW_INDEX blowIndex)
+{
+	if (szSkipStateBlows == NULL)
+		return false;
+
+	std::string stringValue = szSkipStateBlows;
+	std::vector<std::string> tokens;
+	std::string delimiters = ";";
+
+	TokenizeA(stringValue, tokens, delimiters);
+
+	for (UINT i = 0; i < tokens.size(); ++i)
+	{
+		STATE_BLOW::emBLOW_INDEX skipStateBlowIndex = (STATE_BLOW::emBLOW_INDEX)(atoi(tokens[i].c_str()));
+		if (skipStateBlowIndex == blowIndex)
+			return true;
+	}
+
+	return false;
+}
+
+void CDnSkill::AddProjectile(CDnProjectile* pProjectile)
+{
+	if (pProjectile)
+	{
+		LOCAL_TIME startTime = pProjectile->GetSkillStartTime();
+
+		SKILL_PROJECTILE_LIST::iterator findIter = m_ProjectileList.find(startTime);
+		
+		if (findIter == m_ProjectileList.end())
+		{
+			PROJECTILE_LIST projectileList;
+			projectileList.push_back(pProjectile);
+
+			m_ProjectileList.insert(std::make_pair(startTime, projectileList));
+		}
+		else
+		{
+			findIter->second.push_back(pProjectile);
+		}
+	}
+}
+
+void CDnSkill::RemoveProjectile(CDnProjectile* pProjectile)
+{
+	if (pProjectile == NULL)
+		return;
+
+	LOCAL_TIME startTime = pProjectile->GetSkillStartTime();
+
+	SKILL_PROJECTILE_LIST::iterator findIter = m_ProjectileList.find(startTime);
+	if (findIter != m_ProjectileList.end())
+	{
+		PROJECTILE_LIST::iterator iter = findIter->second.begin();
+		for ( ; iter != findIter->second.end(); ++iter)
+		{
+			CDnProjectile* pTemp = *iter;
+			if (pTemp == pProjectile)
+			{
+				iter = findIter->second.erase(iter);
+
+				//¸®½ºÆ®°¡ ºñ¾ú´Ù¸é ¸ÞÀÎ ¸®½ºÆ®¿¡¼­ Á¦°ÅÇÑ´Ù.
+				if (findIter->second.empty() == true)
+					m_ProjectileList.erase(findIter);
+				
+				break;
+			}
+		}
+	}
+	
+}
+
+int CDnSkill::GetProjectileCount(LOCAL_TIME startTime)
+{
+	int nListCount = 0;
+
+	SKILL_PROJECTILE_LIST::iterator findIter = m_ProjectileList.find(startTime);
+	if (findIter != m_ProjectileList.end())
+		nListCount = (int)findIter->second.size();
+	
+	return nListCount;
+}
+
+void CDnSkill::ApplyAddtionalStateInfo()
+{
+	if( !m_hActor ) return;
+
+	//#52905 [Ä®¸®]"ÁßÃ¸ Ãß°¡ È¿°ú"
+	//»óÅÂÈ¿°ú°¡ Àû¿ë µÇ¾î ÀÖÀ»¶§ Á¶°Ç¿¡ ¸Â´Â »óÅÂÈ¿°ú°¡ Àû¿ë µÇ¾î ÀÖÀ¸¸é ½ºÅ³ÀÇ »óÅÂÈ¿°ú¿¡ Ãß°¡ ÇÑ´Ù..
+	if( m_hActor->IsAppliedThisStateBlow(STATE_BLOW::BLOW_253) )
+	{
+		DNVector(DnBlowHandle) vlBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex(STATE_BLOW::BLOW_253, vlBlows);
+		int nListCount = (int)vlBlows.size();
+
+		for (int iIndex = 0; iIndex < nListCount; ++iIndex)
+		{
+			DnBlowHandle hBlow = vlBlows[iIndex];
+			if (hBlow && hBlow->IsEnd() == false)
+			{
+				CDnAdditionalStateInfoBlow* pAddtionalStateInfoBlow = static_cast<CDnAdditionalStateInfoBlow*>(hBlow.GetPointer());
+				if (pAddtionalStateInfoBlow)
+				{
+					STATE_BLOW::emBLOW_INDEX DestBlowIndex = pAddtionalStateInfoBlow->GetDestStateIndex();
+					CDnSkill::StateEffectStruct addStateInfo = pAddtionalStateInfoBlow->GetTargetStateInfo();
+
+					int iNumStateBlow = (int)m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].size();
+					for( int i = 0; i < iNumStateBlow; ++i )
+					{
+						const StateEffectStruct& SE = m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].at( i );
+						if( DestBlowIndex == SE.nID)
+						{
+							addStateInfo.nDurationTime = SE.nDurationTime;	//Áö¼Ó ½Ã°£Àº Á¶°Ç »óÅÂÈ¿°ú ½Ã°£À¸·Î ¼³Á¤ÇÑ´Ù.
+
+							//Ãß°¡ÇÒ »óÅÂÈ¿°ú ¸®½ºÆ®¸¦ ¸¸µç´Ù.
+							m_AddtionalStateInfoList.push_back(addStateInfo);
+
+							OutputDebug("Ãß°¡ »óÅÂÈ¿°ú Àû¿ëµÊ.... %d, %s\n", addStateInfo.nID, addStateInfo.szValue.c_str());
+						}
+					}
+				}
+			}
+		}
+
+		//Ãß°¡ÇÒ »óÅÂÈ¿°ú ¸®½ºÆ® ¼øÈ¸ ÇÏ¸é¼­ ½ÇÁ¦ ½ºÅ³ »óÅÂÈ¿°ú ¸®½ºÆ®¿¡ Ãß°¡ ÇÑ´Ù.
+		int nAddStateCount = (int)m_AddtionalStateInfoList.size();
+		for (int i = 0; i < nAddStateCount; ++i)
+		{
+			CDnSkill::StateEffectStruct addStateEffect = m_AddtionalStateInfoList[i];
+			 m_vlStateEffectList[m_iSelectedSkillLevelDataApplyType].push_back(addStateEffect);
+		}
+	}
+
+	if( m_hActor->IsAppliedThisStateBlow(STATE_BLOW::BLOW_276) )
+	{
+		DNVector(DnBlowHandle) vlBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex(STATE_BLOW::BLOW_276, vlBlows);
+		
+		for( DWORD i=0; i<vlBlows.size(); i++ )
+		{
+			if( vlBlows[i] )
+			{
+				CDnAddStateBySkillGroupBlow* pAddStateBySkillGroupBlow = static_cast<CDnAddStateBySkillGroupBlow*>(vlBlows[i].GetPointer());
+				if( pAddStateBySkillGroupBlow ) pAddStateBySkillGroupBlow->ApplyAddtionalStateBlowFromSkill( GetClassID() );
+			}
+		}
+	}
+}
+
+void CDnSkill::RemoveAddtionalStateInfo()
+{
+	//½ºÅ³ »ç¿ë½Ã Ãß°¡ »óÅÂÈ¿°ú Ãß°¡µÈ °Íµé Á¦°Å...
+	int nListCount = (int)m_AddtionalStateInfoList.size();
+	for (int iIndex = 0; iIndex < nListCount; ++iIndex)
+	{
+		StateEffectStruct addStateInfo = m_AddtionalStateInfoList[iIndex];
+
+		std::vector<StateEffectStruct>::iterator iter = m_vlStateEffectList[ m_iSelectedSkillLevelDataApplyType ].begin();
+		for( ; iter != m_vlStateEffectList[m_iSelectedSkillLevelDataApplyType].end(); ++iter)
+		{
+			StateEffectStruct SE = (*iter);
+
+			if (SE.nID == addStateInfo.nID &&
+				SE.ApplyType == addStateInfo.ApplyType &&
+				/*SE.nDurationTime == addStateInfo.nDurationTime &&*/	//Áö¼Ó½Ã°£Àº °¡º¯...
+				SE.bAddtionalStateInfo == addStateInfo.bAddtionalStateInfo)
+			{
+				
+				iter = m_vlStateEffectList[m_iSelectedSkillLevelDataApplyType].erase(iter);
+				break;
+			}			
+		}
+	}
+
+	m_AddtionalStateInfoList.clear();
+
+
+	if( m_hActor->IsAppliedThisStateBlow(STATE_BLOW::BLOW_276) )
+	{
+		DNVector(DnBlowHandle) vlBlows;
+		m_hActor->GatherAppliedStateBlowByBlowIndex(STATE_BLOW::BLOW_276, vlBlows);
+
+		for( DWORD i=0; i<vlBlows.size(); i++ )
+		{
+			if( vlBlows[i] )
+			{
+				CDnAddStateBySkillGroupBlow* pAddStateBySkillGroupBlow = static_cast<CDnAddStateBySkillGroupBlow*>(vlBlows[i].GetPointer());
+				if( pAddStateBySkillGroupBlow )	pAddStateBySkillGroupBlow->RemoveAdditionalStateBlow();
+			}
+		}
+	}
+}
+
+#if defined(PRE_FIX_64312)
+bool CDnSkill::IsSummonMonsterSkill()
+{
+	m_bIsSummonMonsterSkill = false;
+
+	//½ºÅ³ CheckerÁß¿¡ ¼ÒÈ¯¸ó½ºÅÍ Ã¼Å©°¡ ÀÖÀ¸¸é ¼ÒÈ¯¸ó½ºÅÍ¿¡ »ç¿ë ÇÏ´Â ½ºÅ³???(±âÈ¹ÀÇ°ß..)
+	int iNumChecker = (int)m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].size();
+
+	for( int iChecker = 0; iChecker < iNumChecker; ++iChecker )
+	{
+		IDnSkillUsableChecker* pChecker = m_vlpUsableCheckers[ m_iSelectedSkillLevelDataApplyType ].at( iChecker );
+		if( pChecker && pChecker->GetType() == IDnSkillUsableChecker::SUMMON_CHECKER )
+		{
+			m_bIsSummonMonsterSkill = true;
+			break;
+		}
+	}
+
+	return m_bIsSummonMonsterSkill;
+}
+
+void CDnSkill::AddSummonMonsterEnchantSkill(DnSkillHandle hSkill)
+{
+	m_SummonMonsterEnchantSkill = hSkill;
+}
+
+void CDnSkill::RemoveSummonMonsterEnchantSkill()
+{
+	m_SummonMonsterEnchantSkill.Identity();
+}
+
+bool CDnSkill::ApplySummonMonsterEnchantSkill(DnSkillHandle hSkill)
+{
+	m_isAppliedSummonMonsterEnchantSkill = true;
+	return ApplyEnchantSkill(hSkill);
+}
+#endif // PRE_FIX_64312
+
+#if defined(PRE_ADD_TOTAL_LEVEL_SKILL)
+float CDnSkill::GetOrigDelayTime()
+{
+	float fDelayTime = 0.0f;
+
+	if( 0.0f < m_fAnotherGlobalSkillCoolTime )
+		fDelayTime = m_fAnotherGlobalSkillCoolTime;
+	else
+		fDelayTime = m_fDelayTime[ m_iSelectedSkillLevelDataApplyType ]; 
+
+	return fDelayTime;
+}
+
+void CDnSkill::UpdateGlobalCoolTime(float fRate)
+{
+	//±Û·Î¹ú ÄðÅ¸ÀÓÀÌ ¼³Á¤ µÇ¾î ÀÖ°í, ÄðÅ¸ÀÓÀÌ ÀÌ¹Ì ½ÃÀÛ µÇ¾úÀ» °æ¿ì
+	if (m_iGlobalSkillGroupID > 0)
+	{
+		if (m_fLeftDelayTime > 0)
+		{
+			m_fDeltaGlobalCoolTime += fRate;
+
+			float fOrigDelayTime = GetOrigDelayTime();
+
+			m_fLeftDelayTime -= fOrigDelayTime * fRate;		
+		}
+	}
+}
+
+void CDnSkill::ResetGlobalCoolTime(float fRate)
+{
+	//±Û·Î¹ú ÄðÅ¸ÀÓÀÌ ¼³Á¤ µÇ¾î ÀÖ°í, ÄðÅ¸ÀÓÀÌ ÀÌ¹Ì ½ÃÀÛ µÇ¾úÀ» °æ¿ì
+	if (m_iGlobalSkillGroupID > 0 )
+	{
+		//±Û·Î¹ú ÄðÅ¸ÀÓ º¯°æ ¼öÄ¡°¡ ¼³Á¤ µÈ °æ¿ì
+		if (m_fDeltaGlobalCoolTime > 0.0)
+		{
+			float fOrigDelayTime = GetOrigDelayTime();
+
+			//Àû¿ëµÈ ¼öÄ¡°¡ Áö±Ý ¸®¼Â ÇÏ·Á´Â ¼öÄ¡º¸´Ù ÀÛÀº °ªÀÎ °æ¿ì
+			if (m_fDeltaGlobalCoolTime < fRate)
+				fRate = m_fDeltaGlobalCoolTime;
+
+			//Àû¿ëµÈ ¼öÄ¡´Â °¨¼Ò ½ÃÄÑÁØ´Ù..
+			m_fDeltaGlobalCoolTime -= fRate;
+			if (m_fDeltaGlobalCoolTime < 0.0f)
+				m_fDeltaGlobalCoolTime = 0.0f;
+
+			//ÇöÀç ÄðÅ¸ÀÓÀÌ ³²¾Æ ÀÖ´Â °æ¿ì
+			if (m_fLeftDelayTime > 0)
+				m_fLeftDelayTime += fOrigDelayTime * fRate;		
+		}
+	}
+}
+#endif // PRE_ADD_TOTAL_LEVEL_SKILL
+
+#if defined(PRE_ADD_65808)
+bool CDnSkill::IsSummonMonsterRecall(int& monsterID)
+{
+	//PlayAniProcess¸¦ ÀÌ¿ëÇÏ°í, ÇØ´ç µ¿ÀÛ¿¡ SummonMonster½Ã±×³ÎÀÌ Á¸Àç ÇÏ¸é true¸¦ ¸®ÅÏ..
+	CDnPlayAniProcess* pAniProcess = static_cast<CDnPlayAniProcess*>(GetProcessor( IDnSkillProcessor::PLAY_ANI ));
+	if (pAniProcess && m_hActor)
+	{
+		const char* szActionName = pAniProcess->GetActionName();
+		if (szActionName == NULL)
+			return false;
+
+		CEtActionBase::ActionElementStruct *pStruct = m_hActor->GetElement(szActionName);
+		if (pStruct)
+		{
+			int selectedMonsterID = -1;
+
+			CEtActionSignal *pSignal = NULL;
+			for (int i = 0; i < (int)pStruct->pVecSignalList.size(); ++i)
+			{
+				pSignal = pStruct->pVecSignalList[i];
+				if (pSignal == NULL)
+					continue;
+
+				int signalIndex = pSignal->GetSignalIndex();
+				switch(signalIndex)
+				{
+				case STE_SummonMonster:
+					{
+						SummonMonsterStruct* pSummonMonsterInfo = (SummonMonsterStruct *)pSignal->GetData();
+						if (pSummonMonsterInfo)
+							selectedMonsterID = pSummonMonsterInfo->MonsterID;
+					}
+					break;
+				case STE_SummonMonsterInfo:
+					{
+						SummonMonsterInfoStruct* pInfo = (SummonMonsterInfoStruct*)pSignal->GetData();
+						if (pInfo)
+							selectedMonsterID = pInfo->MonsterID;
+					}
+					break;
+				}
+
+				if (selectedMonsterID != -1)
+					break;
+			}
+
+			if (selectedMonsterID != -1)
+			{
+				monsterID = selectedMonsterID;
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+#endif // PRE_ADD_65808
+
+
+#if defined(_GAMESERVER)
+bool CoolTimeInfo::Process(LOCAL_TIME localTime, float fDelta)
+{
+	switch( m_eDurationType )
+	{
+	case CDnSkill::DurationTypeEnum::Instantly:
+	case CDnSkill::DurationTypeEnum::Buff:
+	case CDnSkill::DurationTypeEnum::Debuff:
+	case CDnSkill::DurationTypeEnum::SummonOnOff:
+	case CDnSkill::DurationTypeEnum::StanceChange:
+		{
+			if( m_fLeftDelayTime == 0.0f ) return false;
+
+			m_fLeftDelayTime -= fDelta;
+			if( m_fLeftDelayTime < 0.f ) 
+				m_fLeftDelayTime = 0.f;
+
+			m_fCoolTime = ( 1.0f / (m_fDelayTime*m_fCoolTimeAdjustBlowValue) ) * m_fLeftDelayTime;
+		}
+		break;
+
+	case CDnSkill::DurationTypeEnum::TimeToggle:
+		break;
+	case CDnSkill::DurationTypeEnum::ActiveToggle:
+	case CDnSkill::DurationTypeEnum::ActiveToggleForSummon:
+		break;
+	case CDnSkill::DurationTypeEnum::Aura:
+		break;
+	}
+
+	return (m_fCoolTime != 0.0f && m_fLeftDelayTime > 0.0f);
+}
+
+void CoolTimeInfo::OnBeginCoolTime()
+{
+	m_fCoolTime = (m_fDelayTime == 0.f) ? 0.0f : 1.0f;
+	m_fCoolTimeAdjustBlowValue = 1.0f;
+
+	m_fLeftDelayTime = m_fDelayTime * m_fCoolTimeAdjustBlowValue;
+}
+
+void CoolTimeInfo::SetInfo(DnSkillHandle &hSkill)
+{
+	m_nSkillID = hSkill->GetClassID();
+	m_hActor = hSkill->GetActor();
+	m_eDurationType = hSkill->GetDurationType();
+
+	m_fCoolTimeAdjustBlowValue = 1.0f;
+
+	m_fDelayTime = hSkill->GetDelayTime();
+}
+
+#if defined(PRE_ADD_PREFIX_SYSTE_RENEW)
+void CoolTimeInfo::SetInfo(CDnPrefixSkill* pPrefixSkill)
+{
+	m_nSkillID = pPrefixSkill->GetSkillType();
+
+	DnSkillHandle hSkill = pPrefixSkill->GetSkillHandle();
+	if (hSkill)
+	{
+		m_hActor = hSkill->GetActor();
+		m_eDurationType = hSkill->GetDurationType();
+
+		m_fCoolTimeAdjustBlowValue = 1.0f;
+
+		m_fDelayTime = hSkill->GetDelayTime();
+	}
+}
+#endif // PRE_ADD_PREFIX_SYSTE_RENEW
+
+
+bool CoolTimeManager::IsCoolTime(int nSkillID)
+{
+	COOLTIME_LIST::iterator findIter = m_CoolTimeList.find(nSkillID);
+
+	//¾ÆÁ÷ µî·ÏµÇ¾î ÀÖ´Ù¸é ÄðÅ¸ÀÓÀÌ ³¡³ªÁö ¾Ê¾Ò´Ù??
+	return (findIter != m_CoolTimeList.end());
+}
+
+void CoolTimeManager::AddCoolTime(DnSkillHandle hSkill)
+{
+	if (!hSkill)
+		return;
+
+	int nSkillID = hSkill->GetClassID();
+	COOLTIME_LIST::iterator findIter = m_CoolTimeList.find(nSkillID);
+	//°°Àº ½ºÅ³ ID°¡ ¾øÀ»¶§¸¸ µî·ÏÇÑ´Ù.
+	if (findIter == m_CoolTimeList.end())
+	{
+		CoolTimeInfo *pCoolTimeInfo = new CoolTimeInfo();
+		pCoolTimeInfo->SetInfo(hSkill);
+		pCoolTimeInfo->OnBeginCoolTime();
+
+		m_CoolTimeList.insert(COOLTIME_LIST::value_type(nSkillID, pCoolTimeInfo));
+	}
+}
+
+#if defined(PRE_ADD_PREFIX_SYSTE_RENEW)
+void CoolTimeManager::AddCoolTime(CDnPrefixSkill* pPrefixSkill)
+{
+	if (!pPrefixSkill)
+		return;
+
+	int nSkillType = pPrefixSkill->GetSkillType();
+	COOLTIME_LIST::iterator findIter = m_CoolTimeList.find(nSkillType);
+	//°°Àº ½ºÅ³ ID°¡ ¾øÀ»¶§¸¸ µî·ÏÇÑ´Ù.
+	if (findIter == m_CoolTimeList.end())
+	{
+		CoolTimeInfo *pCoolTimeInfo = new CoolTimeInfo();
+		pCoolTimeInfo->SetInfo(pPrefixSkill);
+		pCoolTimeInfo->OnBeginCoolTime();
+
+		m_CoolTimeList.insert(COOLTIME_LIST::value_type(nSkillType, pCoolTimeInfo));
+	}
+}
+#endif // PRE_ADD_PREFIX_SYSTE_RENEW
+
+void CoolTimeManager::RemoveCoolTime(int nSkillID)
+{
+	COOLTIME_LIST::iterator findIter = m_CoolTimeList.find(nSkillID);
+	if (findIter != m_CoolTimeList.end())
+	{
+		CoolTimeInfo* pCoolTimeInfo = findIter->second;
+		if (pCoolTimeInfo)
+			delete pCoolTimeInfo;
+
+		m_CoolTimeList.erase(findIter);
+	}
+}
+
+void CoolTimeManager::Process(LOCAL_TIME localTime, float fDelta)
+{
+	COOLTIME_LIST::iterator iter = m_CoolTimeList.begin();
+	COOLTIME_LIST::iterator endIter = m_CoolTimeList.end();
+
+	std::list<int> removeCoolTimeList;
+
+	for (; iter != endIter; ++iter)
+	{
+		if (!iter->second->Process(localTime, fDelta))
+			removeCoolTimeList.push_back(iter->first);			
+	}
+
+	if (!removeCoolTimeList.empty())
+	{
+		std::list<int>::iterator iter = removeCoolTimeList.begin();
+		std::list<int>::iterator endIter = removeCoolTimeList.end();
+
+		for (; iter != endIter; ++iter)
+		{
+			RemoveCoolTime((*iter));
+		}
+
+		removeCoolTimeList.clear();
+	}
+}
+
+void CoolTimeManager::InitList()
+{
+	COOLTIME_LIST::iterator iter = m_CoolTimeList.begin();
+	COOLTIME_LIST::iterator endIter = m_CoolTimeList.end();
+
+	for (; iter != endIter; ++iter)
+	{
+		CoolTimeInfo* pCoolTimeInfo = iter->second;
+		if (pCoolTimeInfo)
+			delete pCoolTimeInfo;
+	}
+
+	m_CoolTimeList.clear();
+}
+#endif // _GAMESERVER
+
+
+#if defined(PRE_ADD_PREFIX_SYSTE_RENEW)
+
+CDnPrefixSkill::CDnPrefixSkill(int nPrefixType)
+{
+	m_nPrefixType = nPrefixType;
+
+	m_fProbability = 0.0f;
+}
+
+CDnPrefixSkill::~CDnPrefixSkill()
+{
+
+}
+
+void CDnPrefixSkill::SetSkillHandle(DnSkillHandle hSkill)
+{
+	m_hSkill = hSkill;
+}
+
+void CDnPrefixSkill::UpdateCandidateSkill()
+{
+	std::list<DnSkillHandle>::iterator iter = m_SkillList.begin();
+	std::list<DnSkillHandle>::iterator endIter = m_SkillList.end();
+
+	float fDelayTime = FLT_MAX;
+
+	DnSkillHandle hSelectedSkill;
+	for (; iter != endIter; ++iter)
+	{
+		DnSkillHandle hSkill = *iter;
+		if (!hSkill)
+			continue;
+
+		float fSkillDelayTime = hSkill->GetDelayTime();
+		if (fSkillDelayTime < fDelayTime)
+		{
+			hSelectedSkill = hSkill;
+			fDelayTime = fSkillDelayTime;
+		}
+	}
+
+	if (hSelectedSkill)
+		SetSkillHandle(hSelectedSkill);
+}
+
+void CDnPrefixSkill::AddSkill(DnSkillHandle hSkill)
+{
+	if (!hSkill) return;
+
+	m_SkillList.push_back(hSkill);
+
+	//ÇØ´ç ½ºÅ³ÀÇ È®·ü°ªÀ» °¡Á®¿Â´Ù.
+	CDnProbabilityChecker* pProbabilityChecker = static_cast<CDnProbabilityChecker*>(hSkill->GetChecker(IDnSkillUsableChecker::PROB_CHECKER));
+	m_fProbability += pProbabilityChecker ? pProbabilityChecker->GetProbability() : 0.0f;
+
+	UpdateCandidateSkill();
+
+	AddStateEffectInfo(hSkill);
+}
+
+void CDnPrefixSkill::RemoveSkill(DnSkillHandle hSkill)
+{
+	std::list<DnSkillHandle>::iterator iter = m_SkillList.begin();
+	std::list<DnSkillHandle>::iterator endIter = m_SkillList.end();
+
+	for (; iter != endIter; ++iter)
+	{
+		if ((*iter) == hSkill)
+		{
+			//ÇØ´ç ½ºÅ³ÀÇ È®·ü°ªÀ» °¡Á®¿Â´Ù.
+			CDnProbabilityChecker* pProbabilityChecker = static_cast<CDnProbabilityChecker*>(hSkill->GetChecker(IDnSkillUsableChecker::PROB_CHECKER));
+			m_fProbability -= pProbabilityChecker ? pProbabilityChecker->GetProbability() : 0.0f;
+			m_SkillList.erase(iter);
+			break;
+		}
+	}
+
+	UpdateCandidateSkill();
+
+	//½ºÅ³ Á¦°Å µÉ¶§ ½ºÅ³ ¸®½ºÆ® µ¹¸é¼­ »óÅÂÈ¿°ú ´Ù½Ã Àû¿ëÇÏµµ·Ï..
+	UpdateStateEffects();
+}
+
+void CDnPrefixSkill::UpdateStateEffects()
+{
+	//1.±âÁ¸ »óÅÂÈ¿°ú ¼³Á¤ °ªÀ» Á¦°Å..
+	m_vlStateEffectList.clear();
+
+	//½ºÅ³ ¸®½ºÆ® µ¹¸é¼­ »óÅÂÈ¿°ú °ª Àû¿ë.
+	std::list<DnSkillHandle>::iterator iter = m_SkillList.begin();
+	std::list<DnSkillHandle>::iterator endIter = m_SkillList.end();
+
+	for (; iter != endIter; ++iter)
+	{
+		DnSkillHandle hSkill = (*iter);
+		if (hSkill)
+		{
+			AddStateEffectInfo(hSkill);
+		}
+	}
+}
+
+void CDnPrefixSkill::AddStateEffectInfo(DnSkillHandle hSkill)
+{
+	if (m_vlStateEffectList.empty())
+	{
+		//hSkillÀÇ »óÅÂÈ¿°ú ¼³Á¤°ªÀ» ±×´ë·Î ¸®½ºÆ®¿¡ Ãß°¡ ÇÑ´Ù.
+		int nStateEffectCount = hSkill->GetStateEffectCount();
+		for (int i = 0; i < nStateEffectCount; ++i)
+		{
+			CDnSkill::StateEffectStruct* pAddStateEffect = hSkill->GetStateEffectFromIndex(i);
+
+			if (pAddStateEffect)
+				m_vlStateEffectList.push_back(*pAddStateEffect);
+		}
+	}
+	else
+	{
+		//»óÅÂÈ¿°ú °¹¼ö°¡ ¸ÂÁö ¾ÊÀ¸¸é Ãß°¡ ¸øÇÔ..
+		if (m_vlStateEffectList.size() != hSkill->GetStateEffectCount())
+			return;
+
+		switch(m_nPrefixType)
+		{
+		case Prefix_000: //ÆÄ±«ÀÇ
+			AddStateEffectInfo_Prefix_000(hSkill);
+			break;
+		case Prefix_001: //¸¶¹ýÀÇ
+			AddStateEffectInfo_Prefix_001(hSkill);
+			break;
+		case Prefix_002: //°õÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_002(hSkill);
+			break;
+		case Prefix_003: //¹Ù¶÷ÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_003(hSkill);
+			break;
+		case Prefix_004: //ÁöÇýÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_004(hSkill);
+			break;
+		case Prefix_005: //°¡È¤ÇÑ
+			AddStateEffectInfo_Prefix_005(hSkill);
+			break;
+		case Prefix_006: //¾îµÒÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_006(hSkill);
+			break;
+		case Prefix_007: //»ý¸íÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_007(hSkill);
+			break;
+		case Prefix_008: //¸¶³ªÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_008(hSkill);
+			break;
+		case Prefix_009: //È°±âÀÇ
+			AddStateEffectInfo_Prefix_009(hSkill);
+			break;
+		case Prefix_010: //Ä¡¸íÀûÀÎ
+			AddStateEffectInfo_Prefix_010(hSkill);
+			break;
+		case Prefix_011: //±¸¼ÓÀÇ
+			AddStateEffectInfo_Prefix_011(hSkill);
+			break;
+		case Prefix_012: //Ãæ°ÝÀÇ
+			AddStateEffectInfo_Prefix_012(hSkill);
+			break;
+		case Prefix_013: //¿ëÀÚÀÇ
+			AddStateEffectInfo_Prefix_013(hSkill);
+			break;
+		case Prefix_014: //±â»çÀÇ
+			AddStateEffectInfo_Prefix_014(hSkill);
+			break;
+		case Prefix_015: //Ã¶º®ÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_015(hSkill);
+			break;
+		case Prefix_016: //Àå¸·ÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_016(hSkill);
+			break;
+		case Prefix_017: //ºÒÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_017(hSkill);
+			break;
+		case Prefix_018: //¹°ÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_018(hSkill);
+			break;
+		case Prefix_019: //ºûÀÇ ¹«±â
+			AddStateEffectInfo_Prefix_019(hSkill);
+			break;
+		case Prefix_020: //Ã¶º®ÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_020(hSkill);
+			break;
+		case Prefix_021: //Àå¸·ÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_021(hSkill);
+			break;
+		case Prefix_022: //°õÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_022(hSkill);
+			break;
+		case Prefix_023: //¹Ù¶÷ÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_023(hSkill);
+			break;
+		case Prefix_024: //ÁöÇýÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_024(hSkill);
+			break;
+		case Prefix_025: //°Ç°­ÇÑ
+			AddStateEffectInfo_Prefix_025(hSkill);
+			break;
+		case Prefix_026: //Çà¿îÀÇ
+			AddStateEffectInfo_Prefix_026(hSkill);
+			break;
+		case Prefix_027: //»ý¸íÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_027(hSkill);
+			break;
+		case Prefix_028: //¸¶³ªÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_028(hSkill);
+			break;
+// 		case Prefix_029: //°ß°íÇÑ
+// 			AddStateEffectInfo_Prefix_029(hSkill);
+// 			break;
+		case Prefix_030: //À¯¿¬ÇÑ
+			AddStateEffectInfo_Prefix_030(hSkill);
+			break;
+		case Prefix_031: //ÀÇÁöÀÇ
+			AddStateEffectInfo_Prefix_031(hSkill);
+			break;
+// 		case Prefix_032: //°­ÀÎÇÑ
+// 			AddStateEffectInfo_Prefix_032(hSkill);
+// 			break;
+// 		case Prefix_033: //ºÒ±¼ÀÇ
+// 			AddStateEffectInfo_Prefix_033(hSkill);
+// 			break;
+		case Prefix_034: //ºÒÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_034(hSkill);
+			break;
+		case Prefix_035: //¹°ÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_035(hSkill);
+			break;
+		case Prefix_036: //ºûÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_036(hSkill);
+			break;
+		case Prefix_037: //¾îµÒÀÇ ¹æ¾î±¸
+			AddStateEffectInfo_Prefix_037(hSkill);
+			break;
+
+		default:
+			break;
+
+		}		
+	}
+}
+
+void CDnPrefixSkill::AddStateEffectInfo( STATE_BLOW::emBLOW_INDEX blowList[], int nCount, DnSkillHandle hSkill )
+{
+	if (!hSkill)
+		return;
+
+	int nAddStateEffectCount = hSkill->GetStateEffectCount();
+
+	//»óÅÂÈ¿°ú °¹¼ö°¡ 4°³
+	if (nAddStateEffectCount != nCount)
+	{
+		OutputDebug("Á¢µÎ»ç ½ºÅ³ Type[%d]ÀÇ »óÅÂÈ¿°ú °¹¼ö°¡ ´Ù¸§...!!\n", m_nPrefixType);
+		return;
+	}
+
+	for (int i = 0; i < nCount; ++i)
+	{
+		CDnSkill::StateEffectStruct* pAddStateEffect = hSkill->GetStateEffectFromIndex(i);
+		CDnSkill::StateEffectStruct* pOrigStateEffect = &m_vlStateEffectList[i];
+
+		//»óÅÂÈ¿°ú Index°¡ BLOW_213ÀÌ ¾Æ´Ï¸é Àß¸øµÈ°Å´Ù..
+		if ((STATE_BLOW::emBLOW_INDEX)pOrigStateEffect->nID != blowList[i])
+		{
+			OutputDebug("»óÅÂÈ¿°ú Index°¡ ´Ù¸§..%dÀÌ¾î¾ß ÇÏ´Âµ¥ %dÀÌ³×...!!!\n", blowList[i], pOrigStateEffect->nID);
+			continue;
+		}
+
+		//µÎ°³ »óÅÂÈ¿°ú Index°¡ ´Ù¸£¸é..
+		if (pAddStateEffect->nID != pOrigStateEffect->nID)
+		{
+			OutputDebug("µÎ »óÅÂÈ¿°ú Index°¡ ´Ù¸§..Orig[%d], Add[%d]..!!!\n", pOrigStateEffect->nID, pAddStateEffect->nID);
+			continue;
+		}
+
+		std::string szNewValue = "";
+		CDnCreateBlow::AddStateEffectValue((STATE_BLOW::emBLOW_INDEX)pOrigStateEffect->nID, pOrigStateEffect->szValue.c_str(), pAddStateEffect->szValue.c_str(), szNewValue);
+		
+		OutputDebug("¿ø·¡ »óÅÂÈ¿°ú ¼³Á¤°ª(%s), Ãß°¡ µÇ´Â »óÅÂÈ¿°ú ¼³Á¤°ª(%s), ÃÖÁ¾ °á°ú(%s)\n", pOrigStateEffect->szValue.c_str(), pAddStateEffect->szValue.c_str(), szNewValue.c_str());
+
+		pOrigStateEffect->szValue = szNewValue;
+		//Áö¼Ó ½Ã°£Àº Å« °ªÀ¸·Î º¯°æ.
+		pOrigStateEffect->nDurationTime = max(pOrigStateEffect->nDurationTime, pAddStateEffect->nDurationTime);
+	}
+}
+
+
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_000(DnSkillHandle hSkill) //ÆÄ±«ÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_213,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_001(DnSkillHandle hSkill) //¸¶¹ýÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_214,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_002(DnSkillHandle hSkill) //°õÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_221,
+		STATE_BLOW::BLOW_124,
+		STATE_BLOW::BLOW_128,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_003(DnSkillHandle hSkill) //¹Ù¶÷ÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_221,
+		STATE_BLOW::BLOW_126,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_004(DnSkillHandle hSkill) //ÁöÇýÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_214,
+		STATE_BLOW::BLOW_036,
+		STATE_BLOW::BLOW_037,
+		STATE_BLOW::BLOW_038,
+		STATE_BLOW::BLOW_039,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_005(DnSkillHandle hSkill) //°¡È¤ÇÑ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_157,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_006(DnSkillHandle hSkill) //¾îµÒÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_035,
+		STATE_BLOW::BLOW_182,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_007(DnSkillHandle hSkill) //»ý¸íÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_016,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_008(DnSkillHandle hSkill) //¸¶³ªÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_018,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_009(DnSkillHandle hSkill) //È°±âÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_014,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_010(DnSkillHandle hSkill) //Ä¡¸íÀûÀÎ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_158,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_011(DnSkillHandle hSkill) //±¸¼ÓÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_070,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_012(DnSkillHandle hSkill) //Ãæ°ÝÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_221,
+		STATE_BLOW::BLOW_175,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_013(DnSkillHandle hSkill) //¿ëÀÚÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_079,
+	};
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_014(DnSkillHandle hSkill) //±â»çÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_076,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_015(DnSkillHandle hSkill) //Ã¶º®ÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_004,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_016(DnSkillHandle hSkill) //Àå¸·ÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_094,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_017(DnSkillHandle hSkill) //ºÒÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_032,
+		STATE_BLOW::BLOW_182,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_018(DnSkillHandle hSkill) //¹°ÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_033,
+		STATE_BLOW::BLOW_182,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_019(DnSkillHandle hSkill) //ºûÀÇ ¹«±â
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_034,
+		STATE_BLOW::BLOW_182,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_020(DnSkillHandle hSkill) //Ã¶º®ÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_134,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);;
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_021(DnSkillHandle hSkill) //Àå¸·ÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_135,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_022(DnSkillHandle hSkill) //°õÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_124,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_023(DnSkillHandle hSkill) //¹Ù¶÷ÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_126,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_024(DnSkillHandle hSkill) //ÁöÇýÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_036,
+		STATE_BLOW::BLOW_037,
+		STATE_BLOW::BLOW_038,
+		STATE_BLOW::BLOW_039,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_025(DnSkillHandle hSkill) //°Ç°­ÇÑ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_124,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_026(DnSkillHandle hSkill) //Çà¿îÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_111,
+		STATE_BLOW::BLOW_112,
+		STATE_BLOW::BLOW_113,
+		STATE_BLOW::BLOW_114,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_027(DnSkillHandle hSkill) //»ý¸íÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_016,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_028(DnSkillHandle hSkill) //¸¶³ªÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_018,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_029(DnSkillHandle hSkill) //°ß°íÇÑ
+{
+// 	STATE_BLOW::emBLOW_INDEX blowList[] = 
+// 	{
+// 	};
+// 
+// 	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+// 
+// 	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_030(DnSkillHandle hSkill) //À¯¿¬ÇÑ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_076,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_031(DnSkillHandle hSkill) //ÀÇÁöÀÇ
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_156,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_032(DnSkillHandle hSkill) //°­ÀÎÇÑ
+{
+// 	STATE_BLOW::emBLOW_INDEX blowList[] = 
+// 	{
+// 	};
+// 
+// 	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+// 
+// 	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_033(DnSkillHandle hSkill) //ºÒ±¼ÀÇ
+{
+// 	STATE_BLOW::emBLOW_INDEX blowList[] = 
+// 	{
+// 	};
+// 
+// 	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+// 
+// 	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_034(DnSkillHandle hSkill) //ºÒÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_036,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_035(DnSkillHandle hSkill) //¹°ÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_037,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_036(DnSkillHandle hSkill) //ºûÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_038,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+void CDnPrefixSkill::AddStateEffectInfo_Prefix_037(DnSkillHandle hSkill) //¾îµÒÀÇ ¹æ¾î±¸
+{
+	STATE_BLOW::emBLOW_INDEX blowList[] = 
+	{
+		STATE_BLOW::BLOW_039,
+	};
+
+	int nCount = sizeof(blowList) / sizeof(STATE_BLOW::emBLOW_INDEX);
+
+	AddStateEffectInfo(blowList, nCount, hSkill);
+}
+#endif // PRE_ADD_PREFIX_SYSTE_RENEW
+
+void CDnSkill::OnAnotherGlobalSkillBeginCoolTime( DnSkillHandle hSkill )
+{
+	if( hSkill )
+	{
+		m_fAnotherGlobalSkillCoolTime = hSkill->GetDelayTime();
+
+		m_nAnotherGlobakSkillID = hSkill->GetClassID();
+	}
+}

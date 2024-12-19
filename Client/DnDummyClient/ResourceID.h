@@ -1,0 +1,20 @@
+#pragma once
+
+struct ResID
+{
+	enum 
+	{
+		SETTING_PROPERTY = wxID_HIGHEST + 100,
+		USER_PROPERTY,
+
+		CONNECT,
+		DISCONNECT,
+		AUTO_CONNECT,
+		AUTO_DISCONNECT,
+		CAPTURE_INFO,
+		RETRY_CONNECT,
+		USER_LIST_CTRL,
+		MAX
+	};
+};
+

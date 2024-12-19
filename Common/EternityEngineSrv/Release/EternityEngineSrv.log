@@ -1,0 +1,31 @@
+﻿  stdafx.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  EtEngine.cpp
+  EternityEngine.cpp
+D:\projects\cpp\DragonNest\Common\EternityEngineSrv\EternityEngine.cpp(4,9): warning C4603: “new”: 未定义宏或在预编译头使用后定义发生改变
+  EtAniObject.cpp
+  (编译源文件“/EternityEngine.cpp”)
+      D:\projects\cpp\DragonNest\Common\EternityEngineSrv\EternityEngine.cpp(4,9):
+      将宏添加到预编译头中，而不是在此处定义
+      D:\projects\cpp\DragonNest\Common\EternityEngineSrv\EternityEngine.cpp(7,1):
+      使用预编译头
+  
+D:\projects\cpp\DragonNest\Common\EternityEngineSrv\EtAniObject.cpp(65,17): warning C4018: “>=”: 有符号/无符号不匹配
+  (编译源文件“/EtAniObject.cpp”)
+  
+  EtCamera.cpp
+  EtCollisionEntity.cpp
+  EtObject.cpp
+  EtError.cpp
+  EtAni.cpp
+  EtAniKey.cpp
+  EtBone.cpp
+  EtLoader.cpp
+  EtMesh.cpp
+  EtResource.cpp
+  EtSkin.cpp
+  EtSubMesh.cpp
+  EtTerrain.cpp
+  EtTerrainArea.cpp
+  EtCollisionMng.cpp
+  EternityEngineSrv.vcxproj -> D:\projects\cpp\DragonNest\Server\DNGameServer\Release\EternityEngineSrv.lib

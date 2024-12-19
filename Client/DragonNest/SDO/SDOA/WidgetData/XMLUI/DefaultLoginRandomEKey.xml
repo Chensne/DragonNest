@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.QuanFuTong.xml"/>	
+	<view name="igwUserLoginEKeyDialog" type="DefaultLoginRandomECardForm" caption="" left="270" top="80" width="420" height="262" skin="bg_normalform" allowResize="0" candock="false" miniheight="215" miniwidth="266" floatbuttonstatus="0"  backgroundskinname=""  margin="(8, 30, 10, 12)">
+		<label left="8" top="167" width="240" height="41" name="lblbgBlackBlock" skin="bg_igwNormalLoginBackground_black" cannotifydrag="true" canactivate="false"/>
+		<label left="12" top="8" width="150" height="20" name="lableCaption" fontname="CaptionFont" caption="Login with SD-EKey" alignment="taLeftJustify" canactivate="true" onclick="" cannotifydrag="true" shadowenabled="true" shadowoffsetx="0" shadowoffsety="0" 
+			shadowtextcolor="$FFFFFFFF" textcolor="$FF000000" shadowblur="30" shadowreplay="3" layout="llCenter" shadowoutline="true" fontmargin="5"/>
+		<button type="" left="295" top="10" width="17" height="17" skin="btn_bigclose_17x17" name="btnigwUserLoginEKeyFormClose" onclick="btnigwUserLoginEKeyFormCloseClick(Self);" showhint="true" hint="Close" canactivate="false"/>
+		
+		
+		<label left="20" top="50" width="280" height="21" name="lableInputCaption" caption="Please input the corresponding numbers in the dynamic password according to the guidance: " alignment="taRightJustify" layout="llCenter" canactivate="true" onclick="" cannotifydrag="true" bordercolora="$FFFF0000" textcolor="$FF000000"/>
+		
+		<label left="20" top="75" width="50" height="28" skin="bg_grayedit" name="lableEKPos01" caption="the fifth number" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" fontname="CaptionFont"/>
+		<label left="90" top="75" width="50" height="28" skin="bg_grayedit" name="lableEKPos02" caption="the first number" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" fontname="CaptionFont"/>
+		<label left="160" top="75" width="50" height="28" skin="bg_grayedit" name="lableEKPos03" caption="the sixth number" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" fontname="CaptionFont"/>
+		<label left="230" top="75" width="50" height="28" skin="bg_grayedit" name="lableEKPos04" caption="the fourth number" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" fontname="CaptionFont"/>
+		
+		<numberedit left="20" top="110" width="50" height="21"  skin="bg_whiteedit" name="edtNum01" text="" caretcolor="$FFFF0000" textrect="(21,1,32,19)" textcolor="$FF000000" maxlength="1"/>
+		<numberedit left="90" top="110" width="50" height="21"  skin="bg_whiteedit" name="edtNum02" text="" caretcolor="$FFFF0000" textrect="(21,1,32,19)" textcolor="$FF000000" maxlength="1"/>
+		<numberedit left="160" top="110" width="50" height="21"  skin="bg_whiteedit" name="edtNum03" text="" caretcolor="$FFFF0000" textrect="(21,1,32,19)" textcolor="$FF000000" maxlength="1"/>
+		<numberedit left="230" top="110" width="50" height="21"  skin="bg_whiteedit" name="edtNum04" text="" caretcolor="$FFFF0000" textrect="(21,1,32,19)" textcolor="$FF000000" maxlength="1"/>
+
+		<button type="" left="50" top="132" width="70" height="20" icon="btn_normal_63x20" name="btnOK" caption="Login" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  textcolor="$FF000000" downtextoffsetx="2" downtextoffsety="2"/>
+		<button type="" left="140" top="132" width="70" height="20" icon="btn_normal_63x20" name="btnCancel" caption="back" alignment="taCenter" layout="llCenter" canactivate="false" onclick=""  textcolor="$FF000000" downtextoffsetx="2" downtextoffsety="2"/>
+
+		<label left="20" top="142" width="135" height="20" name="lblSafeHintText" layout="llCenter" caption="Security Notification:"  ellipsisposition="epWordEllipsis" textcolor="$FF2765b3" bordercolora="$FFFF0000"/>
+		<label left="20" top="162" width="375" height="20" name="lblSafeHintText001" layout="llCenter" caption="Please try another password in 5 minutes after typing wrong password for 5 times  "  ellipsisposition="epWordEllipsis" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+		<label left="20" top="182" width="245" height="20" name="lblSafeHintText002" layout="llCenter" caption="inputing for your account security."  ellipsisposition="epWordEllipsis" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+		
+		<label left="290" top="60" width="108" height="76" name="lblbgMiBao" icon=".\Images\NormalMiBo.png" cannotifydrag="true" canactivate="false" bordercolora="$FFFF0000"/>
+	</view>
+	<script src="DefaultLoginRandomEKey.js"/>
+</xul>

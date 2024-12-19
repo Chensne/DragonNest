@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- GameWidget配置文件 -->
+<!-- ConfigName: 正式环境 -->
+<GameWidget>
+	<SDOA>
+		<!-- SDOA Passport -->
+		<Passport Type="UDP">passport.sdoa.sdo.com:7000</Passport>
+		<Passport Type="TCP">https://cpassport.sdo.com:9443/CAS/OA/</Passport>
+	</SDOA>
+	<SSO>
+		<!-- SSO Passport -->
+		<Passport Type="UDP">upassport.sdo.com:7000</Passport>
+		<Passport Type="URL">https://cas.sdo.com/cas/Login.Validate.Account.Evp</Passport>
+	</SSO>
+	<SDO>
+		<!-- SDO CAS -->
+		<CAS><![CDATA[https://cas.sdo.com/CAS/OA/Login.Authen?SessionID=%SessionID%]]></CAS>
+		<KeepAlive Timeout="60"><![CDATA[https://cas.sdo.com/cas/login?service=igw&gateway=]]></KeepAlive>
+		<Logout><![CDATA[https://cas.sdo.com/cas/logout?url=]]></Logout>
+		<!-- SDO CAS For SSO -->
+		<CAS For="SSO"><![CDATA[https://cas.sdo.com/cas/signverifier?EncryptData=%EncryptData%&EncryptToken=%EncryptToken%]]></CAS>
+		<!-- SDO ADRS -->
+		<ADRS>http://adrs.sdo.com/ADRefererSystem/LoginLog.aspx</ADRS>
+	</SDO>
+	<IGP>
+		<Profile>http://p[$UserHash30].igw.sdo.com/p.asmx</Profile>
+		<Logon>http://auth.igw.sdo.com/Auth.asmx</Logon>
+		<Counter>http://hb.igw.sdo.com/Stat.asmx</Counter>
+		<MessageList>http://msg.igw.sdo.com/MessageWS.asmx</MessageList>
+		<NetReg>http://netreg.igw.sdo.com/NetReg.asmx</NetReg>
+		<WidgetList>http://widgetlist.igw.sdo.com/WidgetList.asmx</WidgetList>
+		<MessageHistory><![CDATA[http://msg.ibw.sdo.com/message/MsgCenter.aspx?appId=$gid$&areaId=$gaid$]]></MessageHistory>
+	</IGP>
+	<PT>
+		<FindPwd>http://kf.sdo.com/sdch/FindPwd.asp</FindPwd>
+		<ChangePwd>http://pwd.sdo.com/PTInfo/GetPwd/ChangePassword.aspx</ChangePwd>
+		<RegPt><![CDATA[http://register.sdo.com/PTNew/index.aspx?from=$gid$&zone=igw]]></RegPt>
+		<ViewHelp>http://quanquan.sdo.com/help.aspx</ViewHelp>
+		<GetDriverWiz>http://www.drivergenius.com/</GetDriverWiz>
+	</PT>
+	<ClientService>
+		<UserBalance><![CDATA[http://payment.sdoa.sdo.com/billgate/sdoBalanceQryNoUIV2.do?orderId=$orderId$&spId=$spId$&appId=$gid$&areaId=$gaid$&groupId=$gsid$&userId=$sdid$&userIdType=2&payType=$payType$&cmdType=$cmdType$&callTime=$callTime$&sessionId=$sid$&indication=$indication$]]></UserBalance>
+	</ClientService>
+</GameWidget>

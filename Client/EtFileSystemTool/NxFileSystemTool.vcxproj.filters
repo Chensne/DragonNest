@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildDivisionPacking.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildDivisionPackingCapacity.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\GameCommon\ExportBrowseFolder.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIOThread.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="LogWnd.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="NewFolderDlg.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="NxFileSystemTool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="NxFileSystemToolDlg.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkDialog.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildDivisionPacking.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildDivisionPackingCapacity.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\ExportBrowseFolder.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIOThread.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="LogWnd.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="NewFolderDlg.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="NxFileSystemTool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="NxFileSystemToolDlg.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="SHFolderDialog.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkDialog.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>리소스 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\FileListIcon.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\NxFileSystemTool.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\NxFileSystemTool.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NxFileSystemTool.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="res\NxFileSystemTool.manifest">
+      <Filter>리소스 파일</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>

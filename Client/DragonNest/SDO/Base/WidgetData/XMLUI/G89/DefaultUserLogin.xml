@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<skin src="Skins\IGW.LZG.xml"/>
+	<view name="igwUserLoginDialog" type="DefaultUserLoginForm" caption="" left="0" top="0" width="403" height="208" skin="bg_Frm" candock="false" miniheight="215" miniwidth="266" floatbuttonstatus="0" backgroundskinname="" margin="(8,30,10,12)" onhide="OnigwUserLoginDialogHide(Self);" onshow="OnigwUserLoginDialogShow(Self);">
+		<label left="30" top="57" width="66" height="26" name="lableUserName" fontname="Normal" caption="帐号：" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FFE8EBCB" bordercolora="$FFFF0000"/>
+		<button type="" left="370" top="13" width="23" height="21" skin="btn_Close" name="btnigwUserLoginDialogFormClose" onclick="btnigwUserLoginDialogFormCloseClick(Self);" showhint="true" hint="关闭" canactivate="false"/>
+		<label left="29" top="86" width="66" height="27" name="lablePassword" fontname="Normal" caption="密码：" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FFE8EBCB" bordercolora="$FFFF0000"/>
+		<edit left="92" top="59" width="175" height="26" skin="bg_whiteedit" name="edtUserName" text="" caretcolor="$FF6C8743" textrect="(4,4,173,22)" textcolor="$FFD9D9B6" hint="输入用户名称" maxlength="50"/>
+		<label left="92" top="90" width="175" height="26" skin="bg_whiteedit" name="lableEdtbk" caption="" alignment="taRightJustify" layout="llCenter" canactivate="false" onclick="" cannotifydrag="true" textcolor="$FF000000" bordercolora="$FFFF0000"/>
+		<edit left="93" top="89" width="175" height="26" name="edtPassword" text="" caretcolor="$FF6C8743" textrect="(4,4,172,22)" textcolor="$FFD9D9B6" hint="输入密码" passwordchar="*" maxlength="50" onsetfocus="OnedtPasswordSetFocus(Self);" bordercolora="$FFFF0000"/>
+		<LinkButton left="271" top="90" width="26" height="25" icon="btn_KeyboardBtn59x19" name="btnKeyboard" canactivate="true" link="DefaultVirtualKeyboard.xml" wglinkbtnpostype="wglbptTop" closelinked="true" iconpressoffsetx="1" iconpressoffsety="1" alignposdx="7" onlinked="OnbtnKeyboardLinked(Self);" onclick="OnbtnKeyboardClick(Self);"/>
+		<label left="296" top="143" width="81" height="28" skin="btn_RgID" name="lblRegPt" layout="llCenter" caption="" onclick="OnBtnRegisterPt(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+		<label left="296" top="88" width="81" height="30" skin="btn_Fgt" name="lblFindPwd" layout="llCenter" caption="" onclick="OnBtnFindPwd(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+		<button left="38" top="147" width="256" height="44" skin="btn_normal_63x20" name="btnOK" caption="" alignment="taCenter" layout="llCenter" canactivate="false" onclick="" textcolor="$FF000000" downtextoffsetx="2" downtextoffsety="2"/>
+		<label left="296" top="169" width="77" height="30" skin="btn_ChangeID" name="lblQueryPt" layout="llCenter" caption="" onclick="OnBtnChangePwd(Self);" ellipsisposition="epWordEllipsis" cursor="[HAND]" bordercolora="$FFFF0000"/>
+		<checkbox left="271" top="58" width="94" height="28" skin="" checkskinname="checkbox_checked_13x13" uncheckskinname="checkbox_unchecked_13x13" name="checkboxRemember" fontname="Normal_chek" caption="记住帐号" alignment="taLeftJustify" layout="llCenter" canactivate="false" onclick="" showhint="false" hint="" textcolor="$FF9EA98C"/>
+	</view>
+	<script src="DefaultUserLogin.js"/>
+</xul>

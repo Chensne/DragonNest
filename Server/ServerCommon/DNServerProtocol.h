@@ -1,0 +1,1961 @@
+#pragma once
+
+//----------------------------------------------------------------------------------------------------------------------------
+//                     protocol    
+//----------------------------------------------------------------------------------------------------------------------------
+
+enum eServerMainCmd
+{
+	MAINCMD_LOGIN,
+	MAINCMD_AUTH,
+	MAINCMD_STATUS,		// attribute쪽 애들이 주?
+	MAINCMD_ETC,		// 기타 등등;
+	MAINCMD_QUEST,
+	MAINCMD_MISSION,
+	MAINCMD_APPELLATION,
+	MAINCMD_SKILL,
+	MAINCMD_FRIEND,
+	MAINCMD_ISOLATE,
+	MAINCMD_PARTY,
+	MAINCMD_PVP,
+	MAINCMD_DARKLAIR,
+	MAINCMD_GUILD,
+	MAINCMD_MAIL,
+	MAINCMD_MARKET,
+	MAINCMD_ITEM,
+	MAINCMD_CASH,
+	MAINCMD_MSGADJUST,
+	MAINCMD_LOG,
+	MAINCMD_REPUTATION,
+	MAINCMD_MASTERSYSTEM,
+	MAINCMD_SECONDARYSKILL,
+	MAINCMD_FARM,
+	MAINCMD_JOBSYSTEM,
+	MAINCMD_GUILDRECRUIT,
+	MAINCMD_DONATION,
+	MAINCMD_BESTFRIEND,
+	MAINCMD_PRIVATECHATCHANNEL,
+	MAINCMD_ACTOZCOMMON,
+	MAINCMD_ALTEIAWORLD,
+	MAINCMD_STAMPSYSTEM,
+	MAINCMD_DWC,
+};
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	Login
+//----------------------------------------------------------------------------------------------------------------------------
+
+// Login -> Master
+// MainCmd: MAINCMD_LOGIN
+enum eLoginToMaster
+{
+	LOMA_NONE,
+	LOMA_REGIST,				// Master에 등록
+	LOMA_ADDUSER,				// AddUser Flow변경
+#if !defined(PRE_MOD_SELECT_CHAR)
+	LOMA_USERINFO,				// Master에 유저 정보 보내주기
+#endif		// #if defined(PRE_MOD_SELECT_CHAR)
+	LOMA_DETACHUSER,			// 끊어버릴 유저 보내기
+	LOMA_REQTUTORIALGAMEID,		// 게임서버 아이디 요청
+	LOMA_CONCOUNTINFO,			// 로그인서버 현재 접속자 수 정보 보냄
+	LOMA_ADDWAITUSER,			// 대기자추가.
+	LOMA_DELWAITUSER,			// 대기자삭제
+	LOMA_DETACHUSEROTHER,		// 다른 로그인서버에 있는 유저를 끊어주기
+#ifdef PRE_MOD_RESTRICT_IDENTITY_IP
+	LOMA_DETACHUSER_BY_IP,		// 아이피단위로 끊기
+#endif		//#ifdef PRE_MOD_RESTRICT_IDENTITY_IP
+#ifdef PRE_ADD_BEGINNERGUILD
+	LOMA_ADDGUILDMEMB,			// 초보길드원 추가 알림
+#endif		//#ifdef PRE_ADD_BEGINNERGUILD	
+};
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	Village
+//----------------------------------------------------------------------------------------------------------------------------
+
+// Village -> Master
+enum eVillageToMaster
+{
+	VIMA_NONE,
+	VIMA_REGIST,				// master에 등록
+	VIMA_ENDOFREGIST,			// master에 등록시 village정보 끝		
+
+	VIMA_CHECKUSER,				// 로긴을 제대로 거쳐서 온 유저인지, 걍 온 유저인지... (마스터에 유저가 없으면 안된다)
+	VIMA_ADDUSERLIST,			// master가 connect됐을때 village에 있는 user들 보내주기
+	VIMA_DELUSER,				// 유저 제거
+
+	VIMA_ENTERVILLAGE,			//필드에 정상적으로 엔터 완료!
+	VIMA_VILLAGETOVILLAGE,		// 빌리지에서 빌리지 이동
+	VIMA_LOGINSTATE,			// 로그인 살았는지 죽었는지
+	VIMA_RECONNECTLOGIN,		// 캐릭터선택창으로 이동
+
+	VIMA_PROCESSDELAYED,
+	VIMA_VILLAGEUSERREPORT,			// 채널유저카운트
+
+	// party
+	VIMA_REQGAMEID,				// 접속할 수 있는 게임서버 아이디 알려주기
+#if defined( PRE_PARTY_DB )
+	VIMA_REQPARTYINVITE,
+	VIMA_RESPARTYINVITE,
+	VIMA_PARTYINVITEDENIED,
+#if defined(PRE_MOD_REQ_JOIN_PARTY_ANSWER_MSG_APP)
+	VIMA_REQPARTYASKJOIN,
+	VIMA_RESPARTYASKJOIN,
+	VIMA_ASKJOINAGREEINFO,
+#endif
+#else
+	VIMA_REQPARTYID,				//파티 아이디 얻기
+#endif // #if defined( PRE_PARTY_DB )
+	VIMA_RETINVITEPARTYMEMBER,	// 파티초대 결과
+#if defined(PRE_MOD_REQ_JOIN_PARTY_ANSWER_MSG_APP)
+	VIMA_GETPARTYID,			// 케릭터 명으로 파티 ID 검색
+	VIMA_GETPARTYID_RESULT,
+#endif
+
+	//Friend
+	VIMA_FRIENDADD,				//누군가가 친구 추가했을 경우 알려주기 기능
+
+	// chat
+	VIMA_PRIVATECHAT,			// 귓속말 유저찾아서 보내주기
+	VIMA_CHAT,					// 파티채팅, 길드채팅 등등
+	VIMA_WORLDSYSTEMMSG,		// 월드전체 시스템(?)메시지처리 (예: 강화x레벨 이상 성공, 미션 x번 성공 등...)
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	VIMA_PRIVATECHANNELCHAT,	// 사설채팅채널 메시지
+#endif
+
+	//PvP
+	VIMA_PVP_MOVELOBBYTOVILLAGE,
+	VIMA_PVP_CREATEROOM,
+	VIMA_PVP_MODIFYROOM,
+	VIMA_PVP_LEAVEROOM,
+	VIMA_PVP_CHANGECAPTAIN,
+	VIMA_PVP_ROOMLIST,
+	VIMA_PVP_JOINROOM,
+	VIMA_PVP_READY,
+	VIMA_PVP_START,
+	VIMA_PVP_RANDOMJOINROOM,
+	VIMA_PVP_CHANGETEAM,
+	VIMA_PVP_BAN,
+	VIMA_PVP_ENTERLOBBY,
+	VIMA_PVP_FATIGUE_OPTION,
+	VIMA_PVP_SWAPTMEMBER_INDEX,
+	VIMA_PVP_CHANGEMEMBER_GRADE,
+
+	VIMA_NOTIFYMAIL,			// 메일 왔다는 통보
+	VIMA_NOTIFYMARKET,			// 마켓 왔따는 통보
+	VIMA_NOTIFYGIFT,			// 선물 왔다는 통보
+
+	// Cheat Notice
+	VIMA_NOTICE,
+	VIMA_ZONENOTICE,
+
+	// 치트관련
+	VIMA_TRACEBREAKINTO,
+	VIMA_REQRECALL,
+	VIMA_BANUSER,
+	VIMA_DESTROYPVP,
+	// VoiceChat
+	VIMA_REQVOICECHANNELID,		//보이스채널아이디 요청
+
+	// Guild
+	VIMA_INVAITEGUILDMEMB,		// 길드원 초대
+	VIMA_RETINVITEGUILDMEMBER,	// 길드 초대 결과
+
+	VIMA_GUILDWAREINFO,			// 길드창고  정보요청
+	VIMA_RETGUILDWAREINFO,		// 길드창고  정보요청 결과
+
+	VIMA_DISMISSGUILD,			// 길드 해체 알림
+	VIMA_ADDGUILDMEMB,			// 길드원 추가 알림
+	VIMA_DELGUILDMEMB,			// 길드원 제거 (탈퇴/추방) 알림
+	VIMA_CHANGEGUILDINFO,		// 길드 정보 변경 알림
+	VIMA_CHANGEGUILDMEMBINFO,	// 길드원 정보 변경 알림
+	VIMA_GUILDCHAT,				// 길드 채팅 알림
+
+	VIMA_GUILDMEMBER_LEVELUP,	// 길드원 레벨업 알림
+	VIMA_GUILDCHANGENAME,		// 길드 이름 변경
+	VIMA_GUILDCHANGEMARK,		// 길드마크 변경 
+
+	// GuildWar	
+	VIMA_ENROLLGUILDWAR,		// 길드전 신청
+	VIMA_SETGUILDWAR_SCHEDULE,		// 길드전 스케줄 셋팅
+	VIMA_SETGUILDWAR_FINALSCHEDULE, // 길드전 본선 스케줄 셋팅
+	VIMA_SETGUILDWAR_POINT,			// 길드전 청팀, 홍팀 포인트 조회
+	VIMA_ADDGUILDWAR_POINT,			// 길드전 포인트 획득	
+	VIMA_SETGUILDWAR_FINAL,			// 본선 진출 길드 정보 셋팅		
+	VIMA_SETGUILDWAR_TOURNAMENTINFO, // 토너먼트(대진표) 정보 셋팅
+	VIMA_SETGUILDWAR_PRE_WIN_GUILD,		// 지난 차수 우승 길드
+	VIMA_SETGUILDWAR_PREWIN_SKILLCOOLTIME,	// 길드전 우승스킬 쿨타임
+	VIMA_ADD_DBJOBSYSTEM_RESERVE,		// DB Job 등록 결과
+	VIMA_GET_DBJOBSYSTEM_RESERVE,		// DB Job 실행 결과
+	VIMA_MATCHLIST_SAVE_RESULT,			// 대진표 정보 저장 여부
+	VIMA_SETGUILDWAR_POINT_RUNNING_TOTAL,	// 길드전 예선전 집계 현황
+	VIMA_SETGUILDWAR_PRE_WIN_REWARD,	// 우승길드에 보상이 지급되었는지 확인..(농장, 제스쳐)
+	VIMA_GUILDWAR_REFRESH_GUILD_POINT,		// 길드전 보상에 따른 길드 포인트 Refresh
+	VIMA_GUILDWAR_SCHEDULE_RELOAD,			// 길드전 스케쥴 다시 읽기.
+
+	VIMA_UPDATEGUILDEXP,			// 길드 경험치 업데이트
+	VIMA_GUILDRECRUIT_MEBMER,			// 길드 게시판 가입/거부 캐릭터에게 알림
+	VIMA_GUILD_ADD_REWARDITEM,			// 길드보상아이템 적용
+	VIMA_GUILD_EXTEND_GUILDSIZE,		// 길드최대인원사이즈
+	
+	// Channel
+	VIMA_UPDATECHANNELSHOWINFO,
+	VIMA_PCBANGRESULT,			// 피씨방 관련 결과값 받아오기
+
+	VIMA_PVP_WAITUSERLIST,
+	VIMA_MASTERSYSTEM_CHECKMASTERAPPLICATION,
+	VIMA_MASTERSYSTEM_SYNC_SIMPLEINFO,
+	VIMA_MASTERSYSTEM_SYNC_JOIN,
+	VIMA_MASTERSYSTEM_SYNC_LEAVE,
+	VIMA_MASTERSYSTEM_SYNC_GRADUATE,
+	VIMA_MASTERSYSTEM_SYNC_CONNECT,
+	VIMA_MASTERSYSTEM_CHECK_LEAVE,
+	VIMA_MASTERSYSTEM_RECALL_MASTER,
+	VIMA_MASTERSYSTEM_BREAKINTO,
+	VIMA_MASTERSYSTEM_JOIN_CONFIRM,			// 사제 승인 요청
+	VIMA_MASTERSYSTEM_JOIN_CONFIRM_RESULT,	// 사제 승인 결과
+#if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+	VIMA_SYNC_SYSTEMMAIL,
+#endif // #if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+
+	VIMA_REFRESH_GUILDITEM,			// 길드창고 아이템 업데이트
+	VIMA_REFRESH_GUILDCOIN,			// 길드창고 코인 업데이트
+	VIMA_EXTEND_GUILDWARE,			// 길드창고 사이즈 확장
+
+	VIMA_FARMLIST,					//마스터에서 관리할 수 있도록 리스트를 날려준다. 여러번 날라가도 상관없다.
+	VIMA_CHANGECHARACTERNAME,		// 캐릭터 이름 변경
+	VIMA_LADDER_ENTERCHANNEL,
+	VIMA_LADDER_REQGAMEID,			// 접속할 수 있는 게임서버 아이디 알려주기
+	VIMA_LADDER_OBSERVER,
+	VIMA_LADDER_INVITEUSER,
+	VIMA_LADDER_INVITECONFIRM,
+
+	VIMA_SAVE_USERTEMPDATA,			// 임시데이터 저장
+	VIMA_LOAD_USERTEMPDATA,			// 임시데이터 로드
+	VIMA_UPPDATE_WORLDEVENTCOUNTER,
+	VIMA_DUPLICATE_LOGIN,			// 중복로그인
+	VIMA_CHECK_LASTDUNGEONINFO,
+	VIMA_CONFIRM_LASTDUNGEONINFO,
+
+#if defined( PRE_ADD_QUICK_PVP)
+	VIMA_MAKEQUICKPVP_ROOM,
+#endif
+#if defined(PRE_ADD_PVP_VILLAGE_ACCESS)
+	VIMA_PVP_ROOMLIST_RELAY,	// 콜로마을 아닌곳에서 룸리스트 받기
+#endif
+#if defined (PRE_ADD_BESTFRIEND)
+	VIMA_SEARCH_BESTFRIEND,		// 유저 검색
+	VIMA_REGIST_BESTFRIEND,		// 절친 신청
+	VIMA_RETREGIST_BESTFRIEND,	// 절친 신청 결과
+	VIMA_COMPLETE_BESTFRIEND,	// 절친 등록 완료
+	VIMA_EDIT_BESTFRIENDMEMO,	// 절친 메모 수정
+	VIMA_CANCEL_BESTFRIEND,		// 절친 파기
+	VIMA_CLOSE_BESTFRIEND,		// 절친 삭제
+	VIMA_LEVELUP_BESTFRIEND,	// 절친 레벨업
+#endif
+#ifdef PRE_ADD_COLOSSEUM_BEGINNER
+	VIMA_PVP_CHANGECHANNEL,
+#endif		//#ifdef PRE_ADD_COLOSSEUM_BEGINNER
+#if defined( PRE_WORLDCOMBINE_PARTY )
+	VIMA_GET_WORLDPARTYMEMBER,
+#endif	//	#if defined( PRE_WORLDCOMBINE_PARTY )
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	VIMA_PRIVATECHATCHANNEL_ADD,	
+	VIMA_PRIVATECHATCHANNEL_MEMBERADD,
+	VIMA_PRIVATECHATCHANNEL_MEMBERINVITE,
+	VIMA_PRIVATECHATCHANNEL_MEMBERINVITERESULT,
+	VIMA_PRIVATECHATCHANNEL_MEMBERDEL,
+	VIMA_PRIVATECHATCHANNEL_MEMBERKICKRESULT,
+	VIMA_PRIVATECHATCHANNEL_MOD,
+	VIMA_PRIVATECHATCHANNEL_MODMEMBERNAME,
+#endif
+#if defined(PRE_ADD_PVP_TOURNAMENT)
+	VIMA_PVP_SWAP_TOURNAMENT_INDEX,
+#endif // #if defined(PRE_ADD_PVP_TOURNAMENT)
+#if defined( PRE_WORLDCOMBINE_PVP )
+	VIMA_WORLDPVP_REQGAMEID,
+	VIMA_WORLDPVP_BREAKINTO,
+#endif
+#if defined( PRE_ADD_MUTE_USERCHATTING )
+	VIMA_MUTE_USERFIND, //GM명령. 특정 유저 체팅 막기
+#endif	// #if defined( PRE_ADD_MUTE_USERCHATTING )
+#if defined( PRE_ALTEIAWORLD_EXPLORE )
+	VIMA_ALTEIAWORLD_SENDTICKET,
+	VIMA_ALTEIAWORLD_SENDTICKET_RESULT,
+#endif
+#if defined(PRE_ADD_CHNC2C)
+	VIMA_C2C_CHAR_COINBALANCE,
+	VIMA_C2C_CHAR_ADDCOIN,
+	VIMA_C2C_CHAR_REDUCECOIN,
+#endif //#if defined(PRE_ADD_CHNC2C)
+#if defined( PRE_DRAGONBUFF )
+	VIMA_APPLY_WORLDBUFF,
+#endif
+	//DWC
+#if defined(PRE_ADD_DWC)
+	VIMA_INVITE_DWCTEAMMEMB,
+	VIMA_INVITE_DWCTEAMMEMB_ACK,	//초대 실패 상황
+	VIMA_ADD_DWCTEAMMEMB,			//초대 후 가입 성공
+	VIMA_DEL_DWCTEAMMEMB,
+	VIMA_DISMISS_DWCTEAM,
+	VIMA_CHANGE_DWCTEAMMEMB_STATE,
+	VIMA_DWC_TEAMMEMBERLIST,
+	VIMA_DWC_TEAMCHAT,
+#endif
+#if defined( PRE_PVP_GAMBLEROOM )
+	VIMA_GAMBLE_CREATEROOMFLAG,
+	VIMA_GAMBLE_DELETEROOM,
+#endif
+};
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	Game
+//----------------------------------------------------------------------------------------------------------------------------
+
+// Game -> Master
+enum eGameToMaster
+{
+	GAMA_NONE,
+	GAMA_REGIST,				// master에 등록
+	GAMA_ENDOFREGIST,
+	GAMA_CONNECTCOMPLETE,
+	GAMA_DELAYREPORT,
+	
+	GAMA_CHECKUSER,				// 로긴을 제대로 거쳐서 온 유저인지, 걍 온 유저인지... (마스터에 유저가 없으면 안된다)
+	GAMA_ADDUSERLIST,			// master가 connect됐을때 game에 있는 user들 보내주기
+	GAMA_DELUSER,				// user 제거
+	GAMA_ENTERGAME,
+
+	GAMA_CHANGESERVER,			// 서버 정보 바꿔주기 (game <-> village)
+	GAMA_SETROOMID,				// 만들 방 id 얻어오기
+	GAMA_SETTUTORIALROOMID,		// 만들 방 id 얻어오기
+	GAMA_REQNEXTVILLAGEINFO,	// 다음 마을 정보 얻어오기
+	GAMA_REBIRTHVILLAGEINFO,	// 부활할 마을정보 얻기
+	GAMA_MOVEPVPGAMETOPVPLOBBY,	// PvP게임->PvP로비 이동
+	GAMA_LOGINSTATE,			// 로그인 살았는지 죽었는지
+	GAMA_VILLAGESTATE,			// 빌리지 살았는지 죽었는지
+	GAMA_RECONNECTLOGIN,		// 로그인으로 이동
+
+	// party
+	//GAMA_DELPARTYMEMBER,		// 파티 멤버 제거
+	//GAMA_PARTY,
+
+	//Friend
+	GAMA_FRIENDADD,
+
+	// chat
+	GAMA_PRIVATECHAT,			// 귓속말 유저찾아서 보내주기
+	GAMA_CHAT,					// 파티채팅, 길드채팅 등등
+	GAMA_WORLDSYSTEMMSG,		// 월드전체 시스템(?)메시지처리 (예: 강화x레벨 이상 성공, 미션 x번 성공 등...)
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	GAMA_PRIVATECHANNELCHAT,	// 사설채팅채널
+#endif
+
+	// CheatNotice
+	GAMA_NOTICE,
+	GAMA_BANUSER,
+
+	// PvP
+	GAMA_PVP_ROOMSYNCOK,
+	GAMA_PVP_BREAKINTOOK,
+	GAMA_PVP_COMMAND,
+
+	GAMA_PVP_SWAPTMEMBER_INDEX,
+	GAMA_PVP_CHANGEMEMBER_GRADE,
+	GAMA_PVP_GUILDWARSCORE,
+	GAMA_PVP_GUILDWARRESULT,
+	GAMA_PVP_GUILDWAREXCEPTION,
+
+	// Ladder
+	GAMA_PVP_LADDERROOMSYNC,
+
+	//UserState
+	GAMA_UPDATEWORLDUSERSTATE,		//현재위치 업데이트용
+
+	// Guild
+	GAMA_CHANGEGUILDINFO,			// 길드 정보 변경 알림
+	GAMA_CHANGEGUILDMEMBINFO,		// 길드원 정보 변경 알림
+	GAMA_GUILDCHAT,					// 길드 채팅 알림
+	GAMA_GUILDCHANGENAME,			// 길드 이름 변경
+	GAMA_ADDGUILDWAR_POINT,			// 길드전 포인트 획득	
+	GAMA_UPDATEGUILDEXP,			// 길드 경험치 업데이트
+
+	//etc
+	GAMA_PCBANGRESULT,				// 피씨방 관련 결과값 받아오기
+	GAMA_NOTIFYGIFT,				// 선물 왔다는 통보
+
+	//Party
+	GAMA_INVITEPARTYMEMBER,			// 게임서버에서 빌리지에 있는 유저 초대메세지 보내기
+	GAMA_INVITEPARTYMEMBER_RETURNMSG,	// 초대 받는 유저가 들어올때 에러시 메세지
+#if defined(PRE_MOD_REQ_JOIN_PARTY_ANSWER_MSG_APP)
+	GAMA_GETPARTYID_RESULT,
+	GAMA_RESPARTYASKJOIN,
+	GAMA_ASKJOINAGREEINFO,
+#endif
+
+#if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+	GAMA_SYNC_SYSTEMMAIL,
+#endif // #if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+	GAMA_MASTERSYSTEM_SYNC_SIMPLEINFO,
+	GAMA_MASTERSYSTEM_SYNC_GRADUATE,
+	GAMA_MASTERSYSTEM_SYNC_CONNECT,
+	GAMA_FARM_DATALOADED,
+	GAMA_FARM_USERCOUNT,
+	GAMA_FARM_INTENDEDDESTROY,
+	GAMA_FARM_SYNC,
+	GAMA_FARM_SYNC_ADDWATER,
+
+	GAMA_GUILDMEMBER_LELVEUP,
+	GAMA_CHANGECHARACTERNAME,
+	GAMA_LOAD_USERTEMPDATA,		
+	GAMA_SAVE_USERTEMPDATA,			
+	GAMA_DUPLICATE_LOGIN,
+	GAMA_CHECK_LASTDUNGEONINFO,
+	GAMA_CONFIRM_LASTDUNGEONINFO,
+
+#if defined( PRE_WORLDCOMBINE_PARTY )
+	GAMA_DELWORLDPARTY,
+	GAMA_WORLDPARTYMEMBER,
+#endif
+#if defined( PRE_ADD_BESTFRIEND )
+	GAMA_LEVELUP_BESTFRIEND,	// 절친 레벨업
+#endif
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	GAMA_PRIVATECHATCHANNEL_ADD,	
+	GAMA_PRIVATECHATCHANNEL_MEMBERADD,
+	GAMA_PRIVATECHATCHANNEL_MEMBERINVITE,
+	GAMA_PRIVATECHATCHANNEL_MEMBERINVITERESULT,
+	GAMA_PRIVATECHATCHANNEL_MEMBERDEL,
+	GAMA_PRIVATECHATCHANNEL_MEMBERKICKRESULT,
+	GAMA_PRIVATECHATCHANNEL_MOD,
+#endif
+#if defined( PRE_FIX_WORLDCOMBINEPARTY )
+	GAMA_WORLDCOMBINEGAMESERVER,
+#endif
+#if defined( PRE_WORLDCOMBINE_PVP )
+	GAMA_DEL_WORLDPVPROOM,
+	GAMA_WORLDPVPROOM_JOINRESULT,
+	GAMA_WORLDPVPROOM_GMCREATERESULT,
+#endif
+#if defined( PRE_ADD_MUTE_USERCHATTING )
+	GAMA_MUTE_USERFIND, //GM명령. 특정 유저 체팅 막기
+#endif	// #if defined( PRE_ADD_MUTE_USERCHATTING )
+#if defined( PRE_MOD_71820 )
+	GAMA_NOTIFYMAIL,
+#endif // #if defined( PRE_MOD_71820 )
+#if defined( PRE_ALTEIAWORLD_EXPLORE )
+	GAMA_ALTEIAWORLD_SENDTICKET_RESULT,
+#endif
+#if defined(PRE_ADD_CHNC2C)
+	GAMA_C2C_CHAR_ADDCOIN,
+	GAMA_C2C_CHAR_REDUCECOIN,
+#endif //#if defined(PRE_ADD_CHNC2C)
+#if defined(PRE_ADD_DWC)
+	GAMA_DWC_TEAMCHAT,
+	GAMA_DWC_UPDATE_SCORE,
+#endif
+};
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	Master
+//----------------------------------------------------------------------------------------------------------------------------
+
+// Master -> Login
+enum MasterToLogin
+{
+	MALO_NONE,
+	MALO_REGIST,					// Login에 등록
+	MALO_VILLAGEINFO,				// 빌리지 채널인포
+	MALO_VILLAGEINFODEL,			// 빌리지 채널인포 지우기
+	MALO_CHECKUSER,					// 마스터에서 체킹(난입용) -- 사용하지 않음..삭제해도 되삼~
+#if !defined(PRE_MOD_SELECT_CHAR)
+	MALO_USERINFO,					// Login에서 보내온 유저데이터 제대로 등록했는지 결과값
+#endif		// #if defined(PRE_MOD_SELECT_CHAR)
+	MALO_SETTUTORIALGAMEID,			// 접속할 game id 보내주기
+	MALO_DETACHUSER,				// 유저 끊기
+	MALO_ADDUSER,					// 로그인을 통항 전상진입시 마스터에 유저 애드결과값
+	MALO_ADDWAITUSER,				// 대기열추가결과값
+	MALO_WAITUSERPROCESS,			// 대기열프로세스
+	MALO_UPDATECHANNELSHOWINFO,
+	MALO_DUPLICATE_LOGIN,			// 중복 로그인 결과
+};
+
+// Master -> Village
+enum eMasterToVillage
+{
+	MAVI_NONE,
+
+	MAVI_REGISTWORLDINFO,			// 월드에 대한 정보 알려줌
+	MAVI_REQUSERLIST,				// 유저리스트 요청
+	MAVI_REGISTCOMPLETE,			// 빌리지 등록완료
+
+	//MAVI_REGIST,					// village에 등록
+	MAVI_SETGAMEID,					// 접속할 game id 보내주기
+	//MAVI_VILLAGESERVERINFO,			// 마스터가 구성해서 보내주는 빌리지 서버의 정보~
+	MAVI_VILLAGEINFO,				// 물리적인 타 프로세스 또는 타 서버(빌리지)의 채널정보
+	MAVI_VILLAGEINFODEL,			// 채널정보 지우기~
+	MAVI_LOGINSTATE,				// 로그인 상태 체크
+
+	MAVI_CHECKUSER,					// 유저가 진짜 있는지 체크하고 데이터 넘겨주기
+	MAVI_TARGETVILLAGEINFO,
+	MAVI_DETACHUSER,				// 유저 강제로 끊게 보내기
+	MAVI_USERSTATE,					// User State
+	MAVI_FCMSTATE,					// 피로도 상태 날려주기 (Shanda)
+
+	// party
+#if defined( PRE_PARTY_DB )
+	MAVI_RESPARTYINVITE,
+	MAVI_REQPARTYINVITE,
+	MAVI_PARTYINVITEDENIED,
+#if defined(PRE_MOD_REQ_JOIN_PARTY_ANSWER_MSG_APP)
+	MAVI_REQPARTYASKJOIN,
+	MAVI_RESPARTYASKJOIN,
+	MAVI_ASKJOINAGREEINFO,
+#endif
+#else
+	MAVI_REQPARTYID,
+	MAVI_REQPARTYIDFAIL,
+#endif // #if defined( PRE_PARTY_DB )
+	MAVI_PUSHPARTY,					// 파티 정보 날려주기
+	MAVI_INVITEPARTYMEMBER,			// 초대해주세요~
+	MAVI_INVITEPARTYMEMBER_RETMSG,	// 초대결과에 응답에 대한 결과
+
+	//friend
+	MAVI_FRIENDADDNOTICE,
+
+	// chat
+	MAVI_PRIVATECHAT,				// 귓속말 보내기
+	MAVI_CHAT,						// 길드, 파티 등등
+	MAVI_ZONECHAT,					// 같은 마을이면 채널관계없이 전부(형식이 달라서 새로만듬)
+	MAVI_WORLDSYSTEMMSG,			// 월드전체 시스템(?)메시지처리 (예: 강화x레벨 이상 성공, 미션 x번 성공 등...)
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	MAVI_PRIVATECHNNELCHAT,			// 사설채팅채널 메시지
+#endif
+
+	//	PvP
+	MAVI_PVP_CREATEROOM,			// PvP방 생성
+	MAVI_PVP_MODIFYROOM,			// PvP방 변경
+	MAVI_PVP_DESTROYROOM,			// PvP방 파괴
+	MAVI_PVP_LEAVEROOM,				// PvP방 유저 나감
+	MAVI_PVP_ROOMLIST,				// PvP방 리스트
+	MAVI_PVP_JOINROOM,				// PvP방 조인
+	MAVI_PVP_ROOMSTATE,				// PvP방 상태
+	MAVI_PVP_CHANGETEAM,			// PvP 팀 변경
+	MAVI_PVP_CHANGEUSERSTATE,		// PvP 유저 상태 변경
+	MAVI_PVP_START,					// PvP 시작
+	MAVI_PVP_STARTMSG,				// PvP 시작 메세지
+	MAVI_PVP_ROOMINFO,				// PvP 방정보
+
+	// 치트관련
+	MAVI_RESRECALL,
+	MAVI_VILLAGETRACE,
+	MAVI_RESTRAINT,
+
+	//notice
+	MAVI_NOTICE,
+	MAVI_CANCELNOTICE,
+	//종류가 늘어 나서 통합
+	//MAVI_ZONENOTICE,				//공지 최종적으론 chat메세지로 보내집니다. 여러번 안쏠려고..
+
+	MAVI_NOTIFYMAIL,				// 메일 왔다는 통보
+	MAVI_NOTIFYMARKET,				// 마켓 왔다는 통보
+	MAVI_NOTIFYGIFT,				// 선물 왔다는 통보
+
+	//VoiceChannel
+	MAVI_VOICECHANNELID,
+
+	// Guild
+	MAVI_INVITEGUILDMEMB,			// 길드 초대 알림
+	MAVI_INVITEGUILDMEMBER_RETMSG,	// 길드 초대결과에 응답에 대한 결과
+	MAVI_GUILDWAREINFO,				// 길드 창고 정보 요청
+	MAVI_RETGUILDWAREINFO,			// 길드 창고 정보 요청 결과
+	MAVI_DISMISSGUILD,				// 길드 해체 알림
+	MAVI_ADDGUILDMEMB,				// 길드원 추가 알림
+	MAVI_DELGUILDMEMB,				// 길드원 제거 (탈퇴/추방) 알림
+	MAVI_CHANGEGUILDINFO,			// 길드 정보 변경 알림
+	MAVI_CHANGEGUILDMEMBINFO,		// 길드원 정보 변경 알림
+	MAVI_GUILDCHAT,					// 길드 채팅 알림
+	MAVI_GUILDMEMBER_LEVELUP,		// 길드원 레벨업 알림
+	MAVI_GUILDCHANGE_NAME,			// 길드명 변경
+	MAVI_GUILDCHANGEMARK,			// 길드마크 변경
+#ifdef PRE_ADD_DOORS_GUILDCHAT_DISCONNECT
+	MAVI_GUILDCHAT_MOBILE,			// 모바일 길드채팅
+#endif		//#ifdef PRE_ADD_DOORS_GUILDCHAT_DISCONNECT
+
+	// GuildWar
+	MAVI_ENROLL_GUILDWAR,			// 길드전 신청 알림
+	MAVI_CHANGE_GUILDWAR_STEP,		// 길드전 변화 알림(예선, 본선 등등)
+	MAVI_GETGUILDWAR_SCHEDULE,		// 길드전 스케줄 조회 요청	
+	MAVI_GETGUILDWAR_FINALSCHEDULE, // 길드전 본선 스케줄 조회 요청
+	MAVI_SETGUILDWAR_FINALPROCESS,	// 길드전 본선 진행 현황
+	MAVI_GETGUILDWAR_POINT,			// 길드전 포인트 조회 요청(청팀, 홍팀)
+	MAVI_SETGUILDWAR_POINT,			// 길드전 포인트 셋팅.
+	MAVI_ADDGUILDWAR_POINT,			// 길드전 포인트 획득
+	MAVI_GETGUILDWAR_FINAL_TEAM,	// 본선 진출 길드 정보(본선 시작전)
+	MAVI_SETGUILDWAR_FINAL_TEAM,	// 본선 진출 길드 정보 저장(대진표 저장)
+	MAVI_GETGUILDWAR_TOURNAMENTINFO, // 이미 시작된 본선의 토너먼트 정보 가져오기
+	MAVI_SETGUILDWAR_TOURNAMENTINFO, // 이미 시작된 본선의 토너먼트 정보 주기
+	MAVI_GETGUILDWAR_TRIAL_STATS,	// 예선 통계 정보	
+	MAVI_SETGUILDWAR_SECRETMISSION,	// 길드전 시크릿 미션
+	MAVI_SETGUILDWAR_FINAL_RESULT,	// 길드전 본선 결과(승,패)
+	MAVI_SETGUILDWAR_FINAL_REWARD,	// 길드전 방이 뽀사졌을때 보상.
+	MAVI_ADDGUILD_POINT,			// 그냥 길드포인트 획득..
+	MAVI_SETGUILDWAR_FINAL_RESULT_DB,	// DB에 본선 결과좀 저장해 주라.
+	MAVI_GETGUILDWAR_PREWIN_GUILD,		// 길드전 지난 차수 우승팀 가져오기
+	MAVI_SETGUILDWAR_PREWIN_GUILD,		// 길드전 지난 차수 우승팀 셋팅
+	MAVI_SETGUILDWAR_PREWIN_SKILLCOOLTIME,	// 길드전 우승스킬 쿨타임
+	MAVI_SETGUILDWAR_EVENT_TIME,		// 길드전 스케쥴 알림
+	MAVI_SETGUILDWAR_TOURNAMENTWIN,		// 길드전 본선 우승길드 알림
+	MAVI_ADD_DBJOBSYSTEM_RESERVE,		// DB Job 등록
+	MAVI_GET_DBJOBSYSTEM_RESERVE,		// DB Job 결과
+	MAVI_GETGUILDWAR_POINT_RUNNING,		// 길드전 예선 길드순위(약 10분 단위) 가져오기..
+	MAVI_SETGUILDWAR_POINT_RUNNING,		// 길드전 예선 길드순위 셋팅
+	MAVI_GETGUILDWAR_PREWIN_REWARD,		// 길드전 지난 차수 우승팀 보상여부(농장, 제스쳐)
+	MAVI_GUILDWAR_REFRESH_GUILD_POINT,	// 길드 포인트 Refresh
+	MAVI_GUILDWAR_RESET_BUYED_ITEM_COUNT, // 길드전 축제포인트로 구매한 아이템 갯수 초기화.
+	MAVI_UPDATEGUILDEXP,				// 길드 경험치 업데이트
+	MAVI_GUILDRECRUIT_MEMBER,			//길드모집게시판 가입 승인/거부 유저에게 전송
+	MAVI_GUILD_ADD_REWARDITEM,			// 길드 보상 아이템 효과 추가
+	MAVI_GUILD_EXTEND_GUILDSIZE,				// 길드 최대 사이즈 증가
+
+	MAVI_PCBANGRESULT,				// 피씨방 결과관련 (Nexon)
+
+	// Channel
+	MAVI_UPDATECHANNELSHOWINFO,
+
+	MAVI_PVP_WAITUSERLIST,
+	MAVI_PVP_MEMBERINDEX,
+	MAVI_PVP_MEMBERGRADE,
+	MAVI_MASTERSYSTEM_CHECK_MASTERAPPLICATION,
+	MAVI_MASTERSYSTEM_SYNC_SIMPLEINFO,
+	MAVI_MASTERSYSTEM_SYNC_JOIN,
+	MAVI_MASTERSYSTEM_SYNC_LEAVE,
+	MAVI_MASTERSYSTEM_SYNC_GRADUATE,
+	MAVI_MASTERSYSTEM_SYNC_CONNECT,
+	MAVI_MASTERSYSTEM_CHECK_LEAVE,
+	MAVI_MASTERSYSTEM_RECALL_MASTER,
+	MAVI_MASTERSYSTEM_JOIN_CONFIRM,				// 사제 승인 요청
+	MAVI_MASTERSYSTEM_JOIN_CONFIRM_RESULT,		// 사제 승인 요청 결과
+#if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+	MAVI_SYNC_SYSTEMMAIL,
+#endif // #if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+
+	MAVI_REFRESH_GUILDITEM,		// 길드창고 아이템 업데이트
+	MAVI_REFRESH_GUILDCOIN,		// 길드창고 코인 업데이트
+	MAVI_EXTEND_GUILDWARE,		// 길드창고 확장
+
+	MAVI_FARMINFOUPDATE,		// 농장관련 동기 맞춰야할 것들
+	MAVI_FARM_SYNC,
+
+	MAVI_CHANGE_CHARACTERNAME,	// 캐릭터명 변경
+	MAVI_LADDERSYSTEM_ENTERCHANNEL,
+	MAVI_LADDERSYSTEM_DELUSER,
+	MAVI_LADDERSYSTEM_SETGAMEID,	// 접속할 game id 보내주기
+	MAVI_LADDERSYSTEM_ROOMSYNC,
+	MAVI_LADDERSYSTEM_INVITEUSER,
+	MAVI_LADDERSYSTEM_INVITECONFIRM,
+	MAVI_USERTEMPDATA_RESULT,
+	MAVI_UPPDATE_WORLDEVENTCOUNTER,
+	MAVI_CHECK_LASTDUNGEONINFO,
+	MAVI_CONFIRM_LASTDUNGEONINFO,
+#ifdef _WORK
+	MAVI_RELOADEXT,
+#endif		//#ifdef _WORK
+#if defined(PRE_ADD_QUICK_PVP)
+	MAVI_MAKEQUICKPVP_ROOM,
+#endif
+#if defined(PRE_ADD_PVP_VILLAGE_ACCESS)
+	MAVI_PVP_ROOMLIST_RELAY,			// PVP 방리스트 릴레이
+	MAVI_PVP_ROOMLIST_RELAY_ACK,		// PVP 방리스트 릴레이 응답(실제 방 리스트전달)
+#endif
+#if defined (PRE_ADD_BESTFRIEND)
+	MAVI_SEARCH_BESTFRIEND,
+	MAVI_REGIST_BESTFRIEND,
+	MAVI_REGIST_BESTFRIEND_RETMSG,
+	MAVI_COMPLETE_BESTFRIEND,
+	MAVI_EDIT_BESTFRIENDMEMO,
+	MAVI_CANCEL_BESTFRIEND,
+	MAVI_CLOSE_BESTFRIEND,
+	MAVI_LEVELUP_BESTFRIEND,
+#endif
+#ifdef PRE_ADD_COLOSSEUM_BEGINNER
+	MAVI_PVP_CHANGECHANNEL,
+#endif		//#ifdef PRE_ADD_COLOSSEUM_BEGINNER
+#if defined( PRE_WORLDCOMBINE_PARTY )
+	MAVI_DELWORLDPARTY,
+	MAVI_WORLDPARTYMEMBER,
+#endif
+#if defined(PRE_MOD_REQ_JOIN_PARTY_ANSWER_MSG_APP)
+	MAVI_GETPARTYID,			// 케릭터 명으로 파티 ID 검색
+	MAVI_GETPARTYID_RESULT,
+#endif
+	MAVI_UPDATEGUILDWARE,
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	MAVI_PRIVATECHATCHANNEL_ADD,
+	MAVI_PRIVATECHATCHANNEL_MEMBERADD,
+	MAVI_PRIVATECHATCHANNEL_MEMBERINVITE,
+	MAVI_PRIVATECHATCHANNEL_MEMBERINVITERESULT,
+	MAVI_PRIVATECHATCHANNEL_MEMBERDEL,
+	MAVI_PRIVATECHATCHANNEL_MEMBERKICKRESULT,
+	MAVI_PRIVATECHATCHANNEL_MOD,
+	MAVI_PRIVATECHATCHANNEL_MODMEMBERNAME,
+#endif
+#if defined(PRE_ADD_PVP_TOURNAMENT)
+	MAVI_PVP_SWAP_TOURNAMENT_INDEX,
+	MAVI_PVP_SHUFFLE_TOURNAMENT_INDEX,
+#endif // #if defined(PRE_ADD_PVP_TOURNAMENT)
+#if defined( PRE_WORLDCOMBINE_PVP )
+	MAVI_DEL_WORLDPVPROOM,
+	MAVI_WORLDPVPROOM_JOINRESULT,	
+	MAVI_WORLDPVPROOM_GMCRETERESULT,
+#endif
+#if defined(PRE_ADD_MUTE_USERCHATTING)
+	MAVI_MUTE_USERCHAT,	// GM명령. 특정 유저 체팅 막기
+#endif	// #if defined(PRE_ADD_MUTE_USERCHATTING)
+#if defined( PRE_ALTEIAWORLD_EXPLORE )
+	MAVI_ALTEIAWORLD_SENDTICKET,
+	MAVI_ALTEIAWORLD_SENDTICKET_RESULT,
+#endif
+#if defined(PRE_ADD_CHNC2C)
+	MAVI_C2C_CHAR_COINBALANCE,
+	MAVI_C2C_CHAR_ADDCOIN,
+	MAVI_C2C_CHAR_REDUCECOIN,
+#endif //#if defined(PRE_ADD_CHNC2C)
+#if defined( PRE_DRAGONBUFF )
+	MAVI_APPLYWORLDBUFF,
+#endif
+#if defined(PRE_ADD_DWC)
+	MAVI_INVITE_DWCTEAMMEMB,
+	MAVI_INVITE_DWCTEAMMEMB_ACK,
+	MAVI_ADD_DWCTEAMMEMBER,
+	MAVI_DEL_DWCTEAMMEMB,
+	MAVI_DISMISS_DWCTEAM,
+	MAVI_CHANGE_DWCTEAMMEMB_STATE,
+	MAVI_DWC_UPDATE_SCORE,
+#endif
+#if defined( PRE_PVP_GAMBLEROOM )
+	MAVI_GAMBLEROOM_CREATE,
+#endif
+};
+
+// Master -> Game
+enum eMasterToGame
+{
+	MAGA_NONE,
+
+	MAGA_REGISTWORLDINFO,			// 월드에 대한 정보 알려줌
+	MAGA_REQUSERLIST,				// 유저리스트 요청
+	MAGA_REGISTCOMPLETE,			// 빌리지 등록완료
+
+	//MAGA_REGIST,					// game에 등록
+
+	MAGA_REQROOMID,					// room id 요청
+	//MAGA_REQFARMROOMID,				// 농장아이디요청
+	MAGA_REQTUTORIALROOMID,			// tutorial room id 요청
+	MAGA_CHECKUSER,					// 유저가 진짜 있는지 체크하고 데이터 넘겨주기
+	MAGA_DETACHUSER,				// 유저 강제로 끊게 보내기
+	MAGA_USERSTATE,					// User State
+	MAGA_FCMSTATE,					// 피로도 상태 날려주기 (Shanda)
+	MAGA_LOGINSTATE,				// 로그인 상태
+	MAGA_VILLAGESTATE,				// 빌리지 상태
+
+	//channel
+	MAGA_NEXTVILLAGEINFO,
+	MAGA_REBIRTHVILLAGEINFO,		// 부활눌렀을때 기존있던 마을정보 보내주기
+	MAGA_MOVEPVPGAMETOPVPLOBBY,		// 게임->PvP로비 이동
+
+	//Friend
+	MAGA_FRIENDADDNOTICE,
+ 
+	// party
+	//MAGA_DELPARTYMEMBER,			// 파티 멤버 제거
+	MAGA_INVITEPARTYMEMBERRESULT,	// 게임서버에서 파티원 초대 결과(성공적이면 안감)
+#if defined(PRE_MOD_REQ_JOIN_PARTY_ANSWER_MSG_APP)
+	MAGA_GETPARTYID,
+	MAGA_REQPARTYASKJOIN,
+#endif
+
+	// chat
+	MAGA_PRIVATECHAT,				// 귓속말 보내기
+	MAGA_CHAT,						// 길드, 파티 등등
+	MAGA_WORLDSYSTEMMSG,			// 월드전체 시스템(?)메시지처리 (예: 강화x레벨 이상 성공, 미션 x번 성공 등...)
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	MAGA_PRIVATECHANNELCHAT,		// 사설채팅채널 메시지
+#endif
+
+	//notice
+	MAGA_NOTICE,					// 공지 최종적으론 chat메세지로 보내집니다. 여러번 안쏠려고..
+	MAGA_CANCELNOTICE,				// 진행중인 슬라이드공지의 취소
+	MAGA_NOTIFYMAIL,				// 메일 왔다는 통보
+	MAGA_NOTIFYMARKET,				// 마켓 왔다는 통보
+	MAGA_NOTIFYGIFT,				// 선물 왔다는 통보
+
+	// Cheat
+	MAGA_RESRECALL,		
+	MAGA_RESTRAINT,					// 제재 추가
+
+	// PvP
+	MAGA_PVP_GAMEMODE,				// 게임모드 정보
+	MAGA_BREAKINTOROOM,				// 방 난입
+	MAGA_PVP_MEMBERINDEX,
+	MAGA_PVP_MEMBERGRADE,
+	MAGA_PVP_MEMBERUSERSTATE,
+	MAGA_PVP_FORCESTOP,
+	MAGA_PVP_ALLSTOPGUILDWAR,
+
+	// Auth
+	MAGA_RESETAUTHLIST,				// 특정 사용자 목록 연결종료 및 보고 요청
+	MAGA_RESETAUTHONLY,				// 특정 사용자 단일 연결종료 및 보고 요청
+
+	// Guild
+	MAGA_DISMISSGUILD,				// 길드 해체 알림
+	MAGA_ADDGUILDMEMBER,				// 길드원 추가 알림
+	MAGA_DELGUILDMEMBER,				// 길드원 제거 (탈퇴/추방) 알림
+	MAGA_CHANGEGUILDINFO,			// 길드 정보 변경 알림
+	MAGA_CHANGEGUILDMEMBERINFO,		// 길드원 정보 변경 알림
+	MAGA_REFRESHGUILDSELFVIEW,		// 길드 시각정보 (개인/단체) 변경 알림
+	MAGA_GUILDCHAT,					// 길드 채팅 알림
+	MAGA_GUILDMEMBLOGINLIST,		// 길드원 로그인 목록 알림
+	MAGA_GUILDMEMBER_LEVELUP,		// 길드원 레벨업 알림
+	MAGA_CHANGEGUILDNAME,			// 길드명 변경
+	MAGA_CHANGEGUILDMARK,			// 길드마크 변경
+#ifdef PRE_ADD_DOORS_GUILDCHAT_DISCONNECT
+	MAGA_GUILDCHAT_MOBILE,			// 모바일 길드채팅
+#endif		//#ifdef PRE_ADD_DOORS_GUILDCHAT_DISCONNECT
+
+	// GuildWar
+	MAGA_ENROLLGUILDWAR,			// 길드전 신청 알림
+	MAGA_CHANGE_GUILDWAR_STEP,		// 길드전 변화 알림(예선, 본선 등등)
+	MAGA_SETGUILDWAR_POINT,			// 길드전 포인트 셋팅.
+	MAGA_ADDGUILDWAR_POINT,			// 길드전 포인트 획득
+	MAGA_SETGUILDWAR_SECRETMISSION,	// 길드전 시크릿 미션
+	MAGA_SETGUILDWAR_FINALPROCESS,	// 길드전 현재 차수
+	MAGA_SETGUILDWAR_PRE_WIN_GUILD,	// 지난 차수 우승길드
+	MAGA_SETGUILDWAR_TOURNAMENTWIN,	// 길드전 본선 승리 길드 알림.
+	MAGA_SETGUILDWAR_EVENT_TIME,	// 길드전 스케쥴 알림
+	MAGA_UPDATEGUILDEXP,			// 길드 경험치 업데이트
+	MAGA_GUILDLEVELUP,				// 길드 레벨업
+	MAGA_GUILDRECRUIT_MEMBER,		// 길드모집게시판 길드 가입 결과 유저에게 전송
+	MAGA_GUILD_ADD_REWARDITEM,		// 길드 보상 아이템 효과 추가
+	MAGA_GUILD_EXTEND_GUILDSIZE,			// 길드 최대 인원수 증가
+
+	//pcbang
+	MAGA_PCBANGRESULT,				// 피씨방 결과관련 (Nexon)
+
+	//ServerControl
+	MAGA_ZEROPOPULATION,
+
+	MAGA_MASTERSYSTEM_SYNC_SIMPLEINFO,
+	MAGA_MASTERSYSTEM_SYNC_JOIN,
+	MAGA_MASTERSYSTEM_SYNC_LEAVE,
+	MAGA_MASTERSYSTEM_SYNC_GRADUATE,
+	MAGA_MASTERSYSTEM_SYNC_CONNECT,
+#if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+	MAGA_SYNC_SYSTEMMAIL,
+#endif // #if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+
+	MAGA_FARM_SYNC,
+	MAGA_FARM_SYNC_ADDWATER,
+	MAGA_CHANGE_CHARACTERNAME,	// 캐릭터명 변경
+	MAGA_ASSIGN_PERIODQUEST,
+	MAGA_UPPDATE_WORLDEVENTCOUNTER,
+	MAGA_NOTICE_PERIODQUEST,
+	MAGA_USERTEMPDATA_RESULT,
+	MAGA_CHECK_LASTDUNGEONINFO,
+	MAGA_DELETE_BACKUPDUNGEONINFO,
+#if defined( PRE_WORLDCOMBINE_PARTY )
+	MAGA_GET_WORLDPARTYMEMBER,
+#endif
+#if defined( PRE_ADD_BESTFRIEND )
+	MAGA_CANCEL_BESTFRIEND,
+	MAGA_CLOSE_BESTFRIEND,
+	MAGA_LEVELUP_BESTFRIEND,
+#endif
+	MAGI_UPDATEGUILDWARE,
+#if defined( PRE_PRIVATECHAT_CHANNEL )
+	MAGA_PRIVATECHATCHANNEL_ADD,
+	MAGA_PRIVATECHATCHANNEL_MEMBERADD,
+	MAGA_PRIVATECHATCHANNEL_MEMBERINVITE,
+	MAGA_PRIVATECHATCHANNEL_MEMBERINVITERESULT,
+	MAGA_PRIVATECHATCHANNEL_MEMBERDEL,
+	MAGA_PRIVATECHATCHANNEL_MEMBERKICKRESULT,
+	MAGA_PRIVATECHATCHANNEL_MOD,
+	MAGA_PRIVATECHATCHANNEL_MODMEMBERNAME,
+#endif
+#if defined(PRE_ADD_PVP_TOURNAMENT)
+	MAGA_PVP_TOURNAMENT_INFO,		// 대진표 정보
+#endif
+
+#ifdef _WORK
+	MAGA_RELOADEXT,
+	MAGA_RELOADACT,
+#endif		//#ifdef _WORK
+
+#if defined( PRE_ADD_PVP_COMBOEXERCISE )
+	MAGA_PVP_CHANGEROOMMASTER, // 방장 변경
+#endif // #if defined( PRE_ADD_PVP_COMBOEXERCISE )
+#if defined(PRE_ADD_MUTE_USERCHATTING)
+	MAGA_MUTE_USERCHAT,	//GM명령. 특정 유저 체팅 막기
+#endif	// #if defined(PRE_ADD_MUTE_USERCHATTING)
+#if defined( PRE_ALTEIAWORLD_EXPLORE )
+	MAGA_ALTEIAWORLD_SENDTICKET,
+	MAGA_ALTEIAWORLD_SENDTICKET_RESULT,
+#endif
+#if defined(PRE_ADD_CHNC2C)
+	MAGA_C2C_CHAR_ADDCOIN,
+	MAGA_C2C_CHAR_REDUCECOIN,
+#endif //#if defined(PRE_ADD_CHNC2C)
+#if defined(PRE_ADD_DWC)
+	MAGA_ADD_DWCTEAMMEMBER,
+	MAGA_DEL_DWCTEAMMEMB,
+	MAGA_DISMISS_DWCTEAM,
+	MAGA_CHANGE_DWCTEAMMEMB_STATE,
+#endif
+#if defined(PRE_ADD_DWC)
+	MAGA_DWC_TEAMCHAT,
+#endif
+};
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	DB
+//----------------------------------------------------------------------------------------------------------------------------
+
+namespace DB{
+	// MAINCMD_AUTH
+	enum eDB_MainCmdAuth
+	{
+		// Auth
+		QUERY_BEGINAUTH,			// 인증정보 세팅 (최초 로그인) (GA, VI 사용)			// PRE_MODIFY_AUTH_PROCESS_04	// 제거되어야 함 !!!
+		QUERY_STOREAUTH,			// 인증정보 세팅 (서버간 이동 직전) (GA, VI 사용)
+		QUERY_CHECKAUTH,			// 인증정보 체크 (서버간 이동 직후) (GA, VI 사용)
+		QUERY_RESETAUTH,			// 인증정보 초기화 (특정 계정) (GA, VI 사용)
+		QUERY_RESETAUTHSERVER,		// 인증정보 초기화 (특정 서버)
+		QUERY_RESETERRORCHECK,		// DB에러 체크 초기화
+	};
+
+	// MAINCMD_ETC
+	enum eDB_MainCmdEtc
+	{
+		QUERY_UPDATEQUERYQUEUE,			// 여러 DB 작업 단위들을 쿼리 큐에 저장하여 일시에 순차적으로 수행
+		QUERY_EVENTLIST,				//이벤트리스트 얻기
+		QUERY_GETGAMEOPTION,
+		QUERY_SETGAMEOPTION,
+		QUERY_UPDATE_SECONDAUTH_PASSWORD,
+		QUERY_UPDATE_SECONDAUTH_LOCK,
+		QUERY_INIT_SECONDAUTH,
+		QUERY_VALIDATE_SECONDAUTH,
+		QUERY_RESTRAINT,
+		QUERY_LOGOUT,
+		QUERY_GET_KEYSETTING_OPTION,	// 키세팅 정보 불러오기
+		QUERY_MOD_KEYSETTING_OPTION,	// 키세팅 정보 수정하기
+		QUERY_DBRESULTERROR,			// 응답없이 일방적으로 보낸 저장패킷중 디비가 ERROR_NONE이 아닌값을 뱉을때 서버에 통보해서 끊어버리게 하는 패킷
+		QUERY_LOGINCHARACTER,			// 캐릭터 로그인 
+		QUERY_LOGOUTCHARACTER,			// 캐릭터 로그아웃
+		QUERY_GET_PADSETTING_OPTION,	// 패드세팅 정보 불러오기
+		QUERY_MOD_PADSETTING_OPTION,	// 패드세팅 정보 수정하기
+		QUERY_SETRESTRAINT,				// 서버에서 제재발생시
+		QUERY_GET_PROFILE,
+		QUERY_SET_PROFILE,
+		QUERY_UPDATECONNECTINGTIME,		// 접속시간저장
+		QUERY_ADD_ABUSELOG,				// 어뷰징유저에 대한 로그추가.
+		QUERY_ADD_ABUSEMONITOR,
+		QUERY_DEL_ABUSEMONITOR,
+		QUERY_GET_ABUSEMONITOR,
+		QUERY_GET_WHOLE_ABUSEMONITOR,		//월드 전체 캐릭터 조회
+#if defined( _US )
+		QUERY_KEEPALIVE,
+#endif // #if defined( _US )
+#ifdef PRE_MOD_RESTRICT_IDENTITY_IP
+		QUERY_GET_SIMPLECONFIG,				//기본설정값 로드
+#endif		//#ifdef PRE_MOD_RESTRICT_IDENTITY_IP
+		QUERY_GET_DBSID,
+		QUERY_MODLASTCONNECTDATE,
+#if defined( PRE_FIX_67546 )
+		QUERY_ADD_CHANNELCOUNT,				// 채널 갯수
+#endif
+#if defined(PRE_ADD_GAMEQUIT_REWARD)
+		QUERY_MOD_NEWBIE_REWARDFLAG,	// 신규 유저 지정된 시간 이후 보상 체크용
+#endif	// #if defined(PRE_ADD_GAMEQUIT_REWARD)
+#if defined(PRE_ADD_CP_RANK)
+		QUERY_ADD_STAGE_CLEAR_BEST,			// CP기록 저장
+		QUERY_GET_STAGE_CLEAR_BEST,			// CP기록 조회
+		QUERY_GET_STAGE_PERSONAL_BEST,		// 개인 CP 기록 조회
+		QUERY_INIT_STAGE_BEST,				// CP기록 초기화(치트키)
+#endif
+		QUERY_MODCHARACTERSLOTCOUNT,
+		QUERY_MAINTENANCEFLAG,
+	};
+
+	// MAINCMD_STATUS
+	enum eDB_MainCmdStatus
+	{
+		QUERY_SELECTCHARACTER,			// 캐릭터 선택
+		QUERY_UPDATEUSERDATA,			// 유저 데이터 세이브
+		QUERY_CHANGESERVERUSERDATA,		// 서버 바꾸면서 유저 데이터 세이브 (Village <-> Game, Village <-> Village, Game <-> Game)
+		QUERY_LASTUPDATEUSERDATA,		// 접속 끊으면서 유저 데이터 세이브
+		QUERY_CHANGESTAGEUSERDATA,		// 스테이지 나갈때마다 정보저장
+		QUERY_GETCHARACTERPARTIALYBYNAME,	//  1: CharacterID/bigint, CharacterClassCode/tinyint, CharacterLevel/tinyint, JobCode/tinyint
+		QUERY_GETCHARACTERPARTIALYBYDBID,
+		QUERY_LEVEL,					// 레벨
+		QUERY_EXP,						// exp
+		QUERY_COIN,						// 돈
+		QUERY_WAREHOUSECOIN,			// 창고코인
+		QUERY_MAPINFO,					// 맵정보 (lastgate, lastmap, map)
+		QUERY_CASHREBIRTHCOIN,			// RebirthCashCoin 업뎃
+		QUERY_FATIGUE,					// 피로도, 
+		QUERY_JOB,
+		QUERY_GLYPHDELAYTIME,
+		QUERY_GLYPHREMAINTIME,
+		QUEST_NOTIFIER,					// 알리미
+#if !defined(PRE_DELETE_DUNGEONCLEAR)
+		QUERY_DUNGEONCLEAR,				// 던젼클리어
+#endif		// #if !defined(PRE_DELETE_DUNGEONCLEAR)
+		QUERY_ETERNITYITEM,				// 영구적용 아이템
+		QUERY_CHECKFIRSTVILLAGE,		// 마을 처음 체크
+		QUERY_ADDCASHREBIRTHCOIN,		// RebirthCashCoin 업뎃
+		QUERY_COLOR,					// hair, eye, skin color
+		QUERY_REBIRTHCOIN,				// 부활코인
+		QUERY_GETLISTEFFECTITEM,		// 
+		QUERY_EVENTFATIGUE,				// 이벤트 피로도
+		QUERY_OWNCHRACTERLEVEL,			// 내소유 캐릭터의 레벨리스트
+		QUERY_NESTCLEARCOUNT,			// NEST 클리어 횟수 UPSERT 
+		QUERY_INITNESTCLEARCOUNT,		// NEST 주간 클리어 횟수 초기화 
+		QUERY_CHANGECHARACTERNAME,		// 캐릭터명 변경
+		QUERY_GETLIST_ETCPOINT,			// 포인트를 얻어오기.
+		QUERY_ADD_ETCPOINT,
+		QUERY_USE_ETCPOINT,
+		QUERY_MOD_TIMEEVENT_DATE,
+		QUERY_CHANGEJOBCODE,			// 전직 아이템 사용.
+		QUERY_GETLIST_VARIABLERESET,
+		QUERY_MOD_VARIABLERESET,
+		QUERY_CHANGE_SKILLPAGE,
+#if defined(PRE_ADD_DOORS_PROJECT)
+		QUERY_SAVE_CHARACTER_ABILITY,	// 캐릭터 능력치 저장..
+#endif
+#if defined( PRE_ADD_TOTAL_LEVEL_SKILL )
+		QUERY_GET_TOTALSKILLLEVEL,		// 통합스킬레벨
+		QUERY_ADD_TOTALSKILLLEVEL,		// 통합스킬레벨 장착		
+#endif
+#ifdef PRE_ADD_PRESET_SKILLTREE
+		QUERY_GET_SKILLPRESET_LIST,
+		QUERY_ADD_SKILLPRESET,
+		QUERY_DEL_SKILLPRESET,
+#endif		//#ifdef PRE_ADD_PRESET_SKILLTREE
+#if defined( PRE_ADD_NEWCOMEBACK )
+		QUERY_MOD_COMEBACKFLAG,
+#endif
+	};
+
+	// MAINCMD_ITEM
+	enum eDB_MainCmdItem
+	{
+		QUERY_ADDITEM,				// 아이템 획득 - P_AddMaterializedItem
+		QUERY_USEITEM,				// 아이템 소멸 (소모성 아이템 사용/버리기/분해) - P_UseItem
+		QUERY_RESELLITEM,			// 아이템 되팔기 - P_ResellItem
+		QUERY_ENCHANTITEM,			// 아이템 강화 - P_EnchantItem
+		QUERY_CHANGEITEMLOCATION,	// 아이템 위치 변경 - P_ChangeItemLocation
+		QUERY_SWITCHITEMLOCATION,	// 두 아이템의 위치 바꾸기 - P_SwitchItemLocation
+		QUERY_MODITEMDURABILITY,	// 내구도 일괄 변경 - P_ModItemDurability
+		QUERY_MODITEM,				// 아이템 속성 변경 - P_ModMaterializedItem
+		QUERY_EXCHANGEPROPERTY,		// 아이템/코인 교환 - P_ExchangeProperty
+		QUERY_UPSEQUIP,				// 장착 아이템 변경 (equip / cashequip)
+		QUERY_PUTONEPIECEON,		// 원피스 장착
+		QUERY_TAKECASHEQUIPMENTOFF,	// 한꺼번에 탈착 (cashequip -> cashinven)
+		QUERY_GETPAGEMATERIALIZEDITEM,	// 캐쉬템 리스트 페이지 단위로 호출
+		QUERY_GETPAGEVEHICLE,		// 탈것인벤 리스트 페이지 단위로 호출
+		QUERY_MODPETSKINCOLOR,		// P_ModPetSkinColor
+		QUERY_DELPETEQUIPMENT,		// P_DelPetEquipment
+		QUERY_MISSINGITEMLIST,
+		QUERY_RECOVERMISSINGITEM,
+		QUERY_ADDEFFECTITEMS,		// 이펙트아이템 추가
+		QUERY_MWTEST,
+		QUERY_CHANGEPETNAME,
+		QUERY_MODITEMEXPIREDATE,
+		QUERY_MODPETEXP,		
+		QUERY_ITEMEXPIREBYCHEAT,
+		QUERY_MODADDITIVEITEM,		// P_ModAdditiveItemID
+		QUERY_SAVEITEMLOCATIONINDEX,	// P_SaveItemLocationIndex
+		QUERY_MODPETSKILL,			// 펫 스킬변경
+		QUERY_MODPETSKILLEXPAND,	// 펫 스킬슬롯 확장
+		QUERY_GETLIST_REPURCHASEITEM,
+		QUERY_DELEXPIREITEM,
+#if defined (PRE_ADD_COSRANDMIX)
+		QUERY_MODRANDOMITEM,
+#endif
+		QUERY_DELCASHITEM,
+		QUERY_RECOVERCASHITEM,
+#if defined( PRE_ADD_NAMEDITEM_SYSTEM )
+		QUERY_CHECK_NAMEDITEMCOUNT,
+		QUERY_CHEATCHECK_NAMEDITEMCOUNT,
+#endif
+#if defined (PRE_ADD_EXCHANGE_POTENTIAL)
+		QUERY_MOVEPOTENTIAL,
+#endif		//#if defined (PRE_ADD_EXCHANGE_POTENTIAL)
+		QUERY_MODDEGREEOFHUNGER,
+#if defined( PRE_ADD_LIMITED_SHOP )
+		QUERY_GETLIMITEDSHOPITEM,
+		QUERY_ADDLIMITEDSHOPITEM,
+		QUERY_RESETLIMITEDSHOPITEM,
+#endif
+		QUERY_DEL_EFFECTITEM,
+#if defined(PRE_ADD_CHNC2C)
+		QUERY_GET_GAMEMONEY,
+		QUERY_KEEP_GAMEMONEY,
+		QUERY_TRANSFER_GAMEMONEY,
+#endif //#if defined(PRE_ADD_CHNC2C)
+#if defined(PRE_ADD_TALISMAN_SYSTEM)
+		QUERY_MOD_TALISMANSLOTOPENFLAG,
+#endif
+#if defined(PRE_ADD_EQUIPLOCK)
+		QUERY_ADDLOCK_ITEM,
+		QUERY_REQUEST_ITEMUNLOCK,
+		QUERY_UNLOCK_ITEM,
+		QUERY_GET_LIST_LOCKEDITEMS,
+#endif	// #if defined(PRE_ADD_EQUIPLOCK)
+	};
+
+	// MAINCMD_QUEST
+	enum eDB_MainCmdQuest
+	{
+		QUERY_ADDQUEST,						// 퀘스트 넣기
+		QUERY_DELQUEST,						// 퀘스트 지우기
+		QUERY_MODQUEST,						// 퀘스트 수정
+		QUERY_CLEARQUEST,					// 퀘스트 초기화
+		QUERY_FORCECOMPLETEQUEST,			// 퀘스트 강제 완료
+		QUERY_DELETE_CHARACTER_PERIODQUEST,	// 할당된 기간퀘스트 삭제
+		QUERY_GET_CHARACTER_PERIODQUESTDATE,// 기간퀘스트를 할당한 일자 가져오기
+		QUERY_GET_LISTCOMPLETE_EVENTQUEST,	// 완료한 이벤트 퀘스트 가져오기
+		QUERY_COMPLETE_EVENTQUEST,			// 이벤트 퀘스트 완료
+		QUERY_GET_WORLDEVENTQUESTCOUNTER,	// 월드 퀘스트 달성 카운트
+		QUERY_MOD_WORLDEVENTQUESTCOUNTER,	// 월드 퀘스트 카운트 업데이트
+	};
+
+	// MAINCMD_SKILL
+	enum eDB_MainCmdSkill
+	{
+		QUERY_ADDSKILL,					// 스킬 추가
+		QUERY_MODSKILLLEVEL,			// 스킬레벨변경
+		QUERY_INCREASESKILLPOINT,		// 스킬포인트 증가
+		QUERY_DELSKILL,					// del skill
+		QUERY_RESETSKILL,				// 스킬 초기화했는지 유무
+		QUERY_RESETSKILLBYSKILLIDS,		//
+		QUERY_DECREASESKILLPOINT,		// 스킬포인트 증가
+		QUERY_USEEXPANDSKILLPAGE,		// 이중스킬트리 확장 아이템 사용
+		QUERY_SETSKILLPOINT,			// 스킬포인트 저장( 보정용 )
+	};
+
+	// MAINCMD_MISSION
+	enum eDB_MainCmdMission
+	{
+		QUERY_MISSIONGAIN,				// 획득 가능한 미션 비트맵 저장
+		QUERY_MISSIONACHIEVE,			// 미션 ON/OFF
+		QUERY_SETDAILYMISSION,			// 일일 미션 정보 저장하기 (처음 싹~ 넣어줄때)
+		QUERY_SETWEEKLYMISSION,			// 주간 미션 정보 저장하기 (처음 싹~ 넣어줄때)
+		QUERY_SETWEEKENDEVENTMISSION,	// 이벤트 미션 정보 저장하기
+		QUERY_SETGUILDWARMISSION,		// 길드 축제 미션 정보 저장하기
+		QUERY_MODDAILYWEEKLYMISSION,	// 일일/주간 미션 정보 저장하기
+		QUERY_SETPCBANGMISSION,			// 피씨방미션 정보 저장하기
+		QUERY_CLEARMISSION,				// 미션 클리어 치트키
+		QUERY_SETGUILDCOMMONMISSION,	// 길드 일반 미션 정보 저장하기
+		QUERY_SETWEEKENDREPEATMISSION,	// 주간 반복 미션 정보 저장하기
+#if defined(PRE_ADD_MONTHLY_MISSION)
+		QUERY_SETMONTHLYMISSION,	// 월간 미션 정보 저장하기 (처음 받고 전부 넣어줄 때)
+#endif	// #if defined(PRE_ADD_MONTHLY_MISSION)
+	};
+
+	// MAINCMD_APPELLATION
+	enum eDB_MainCmdAppellation
+	{
+		QUERY_ADDAPPELLATION,				// 호칭
+		QUERY_SELECTAPPELLATION,		// 선택한 호칭
+		QUERY_DELETEAPPELLATION,		//호칭 삭제
+	};
+
+	// MAINCMD_MAIL
+	enum eDB_MainCmdMail
+	{
+		QUERY_GETCOUNTRECEIVEMAIL,		// 받은 메일 카운트
+		QUERY_GETPAGERECEIVEMAIL,		// 받은 메일 목록 페이징
+		QUERY_SENDMAIL,					// 메일발송
+		QUERY_SENDSYSTEMMAIL,			// 시스템메일 (미션보상)
+		QUERY_READMAIL,					// 메일읽기
+		QUERY_TAKEATTACHMAILLIST,		// 첨부받기 (한꺼번에 리스트로)
+		QUERY_TAKEATTACHMAIL,			// 첨부받기
+		QUERY_DELMAIL,					// 메일삭제
+		QUERY_GETLISTMAILATTACHMENT,	// 메일첨부된 아이템수량, 첨부코인 조회
+		QUERY_SENDWISHMAIL,					// 조르기 우편 발송
+		QUERY_READWISHMAIL,					// 조르기 우편 읽기
+#ifdef PRE_ADD_BEGINNERGUILD
+		// 로그인서버에서 이벤트 발생하여 우편으로 무언가를 주어야 할경우 빌리지에서 처리되도록 하는 간략한 시스템용
+		QUERY_GETWILLSENDMAIL,			// 주어야할 MailID얻기
+		QUERY_DELWILLSENDMAIL,			// ID지우기
+#endif		//#ifdef PRE_ADD_BEGINNERGUILD
+
+		// SpecialBox
+		QUERY_ADDEVENTREWARD,
+		QUERY_GETCOUNTEVENTREWARD,
+		QUERY_GETLISTEVENTREWARD,
+		QUERY_GETLISTEVENTREWARDITEM,
+		QUERY_ADDEVENTREWARDRECEIVER,
+
+#ifdef PRE_ADD_JOINGUILD_SUPPORT
+		QUERY_GUILDSUPPORT_REWARDINFO,
+		QUERY_SENDGUILDMAIL,			// 유저한테 주지만 받으면 길드창고로 가는 우편
+#endif		//#ifdef PRE_ADD_JOINGUILD_SUPPORT
+	};
+
+	// MAINCMD_MARKET
+	enum eDB_MainCmdMarket
+	{
+		QUERY_GETPAGETRADE,					// 등록된 아이템 목록 페이징 - P_GetPageTrade
+		QUERY_GETCOUNTTRADE,				// 등록된 아이템 카운트 - P_GetCountTrade
+		QUERY_GETLISTMYTRADE,				// 내가 등록한 판매중 아이템 목록 - P_GetListMyTrade
+		QUERY_GETCOUNTMYTRADE,				// 내가 등록한 판매중 아이템 카운트 - P_GetCountMyTrade
+		QUERY_ADDTRADE,						// 아이템 등록 - P_AddTrade
+		QUERY_CANCELTRADE,					// 아이템 등록 취소 - P_CancelTrade
+		QUERY_BUYTRADEITEM,					// 아이템 구입 - P_BuyTradeItem
+		QUERY_GETLISTTRADEFORCALCULATION,	// 아이템 정산 목록 - P_GetListTradeForCalculation
+		QUERY_GETCOUNTTRADEFORCALCULATION,	// 아이템 정산 카운트 - P_GetCountTradeForCalculation
+		QUERY_TRADECALCULATE,				// 개별 정산 - P_TradeCalculate
+		QUERY_TRADECALCULATEALL,				// 전체 정산 - P_TradeCalculateAll
+#if !defined(PRE_ADD_DIRECT_BUY_UPGRADEITEM)
+		QUERY_GETTRADEITEMID,				// MarketDBID로 ItemID알아내기
+#endif		// #if defined(PRE_ADD_DIRECT_BUY_UPGRADEITEM)
+		QUERY_GETPETALBALANCE,				// 페탈 금액 얻어오기.
+		QUERY_GETTRADEPRICE,				// 거래소 시세 얻어오기
+		QUERY_GETLISTMINITRADE,				// 특정 아이템이 거래소에 등록된 목록을 반환
+	};
+
+	// MAINCMD_FRIEND
+	enum eDB_MainCmdFriend
+	{
+		QUERY_FRIENDLIST,				// 그룹, 친구 리스트 받기
+		QUERY_ADDGROUP,					// 그룹 추가
+		QUERY_MODGROUPNAME,				// 그룹이름 수정
+		QUERY_DELGROUP,					// 그룹삭제
+		QUERY_MODFRIENDANDGROUPMAPPING,	// 친구와 친구그룹 메핑수정
+		QUERY_ADDFRIEND,				// 친구 추가
+		QUERY_MODFRIENDMEMO,			// 친구메모수정
+		QUERY_DELFRIEND,				// 친구삭제
+	};
+
+	// MAINCMD_ISOLATE
+	enum eDB_MainCmdIsolate
+	{
+		QUERY_GETISOLATELIST,			//차단리스트 얻기
+		QUERY_ADDISOLATE,				//차단 추가
+		QUERY_DELISOLATE,				//차단 삭제
+	};
+
+#if defined( PRE_PARTY_DB )
+	// MAINCMD_PARTY
+	enum eDB_MainCmdParty
+	{
+		QUERY_DELPARTY_FORSERVER,
+		QUERY_ADDPARTY,
+		QUERY_DELPARTY,
+		QUERY_JOINPARTY,
+		QUERY_OUTPARTY,
+		QUERY_GETLISTPARTY,
+		QUERY_ADDPARTYANDMEMBERGAME,
+		QUERY_ADDPARTYANDMEMBERVILLAGE,
+		QUERY_MODPARTY,
+		QUERY_MODPARTYLEADER,
+		QUERY_GETPARTY_JOINMEMBERS,
+		QUERY_DELPARTY_FORGAMESERVER,
+		QUERY_ADDWORLDPARTY,
+		QUERY_GETLISTWORLDPARTY,
+#if defined( PRE_ADD_NEWCOMEBACK )
+		QUERY_MOD_COMEBACKINFO,
+#endif
+	};
+#endif // #if defined( PRE_PARTY_DB )
+
+	// MAINCMD_GUILD
+	enum eDB_MainCmdGuild
+	{
+		// Guild
+		QUERY_CREATEGUILD,				// 길드 창설 요청/결과
+		QUERY_DISMISSGUILD,				// 길드 해체 요청/결과
+		QUERY_ADDGUILDMEMBER,			// 길드원 추가 요청/결과
+		QUERY_DELGUILDMEMBER,			// 길드원 제거 (탈퇴/추방) 요청/결과
+		QUERY_CHANGEGUILDINFO,			// 길드 정보 변경 요청/결과
+		QUERY_CHANGEGUILDMEMBERINFO,	// 길드원 정보 변경 요청/결과
+		QUERY_ADDGUILDHISTORY,			// 길드 히스토리 추가 요청
+		QUERY_GETGUILDHISTORYLIST,		// 길드 히스토리 목록 요청/결과
+		QUERY_GETGUILDINFO,				// 길드 정보 요청/결과
+		QUERY_INVITEGUILDMEMBER,		// 길드원 초대 요청/결과
+		QUERY_MOVE_ITEM_IN_GUILDWARE,	// 길드창고간 아이템 이동
+		QUERY_MOVE_INVEN_TO_GUILDWARE,	// 인벤 -> 길드창고
+		QUERY_MOVE_GUILDWARE_TO_INVEN,	// 길드창고 -> 인벤
+		QUERY_GUILDWARE_COIN,			// 길드창고 코인
+		QUERY_GET_GUILDWAREINFO,		// 길드창고 정보 요청
+		QUERY_GET_GUILDWAREHISTORY,		// 길드창고 히스토리 요청
+		QUERY_SET_GUILDWAREINFO,		// 길드창고 저장
+		QUERY_CHANGEGUILDNAME,			// 길드명 변경
+		QUERY_CHANGEGUILDWARESIZE,		// 길드창고 사이즈 변경 요청/결과
+		QUERY_CHANGEGUILDMARK,			// 길드마크 변경
+
+		QUERY_ENROLL_GUILDWAR,			// 길드전 신청
+		QUERY_GET_GUILDWARSCHEDULE,		// 길드전 일정 가져오기
+		QUERY_GET_GUILDWARFINALSCHEDULE,	// 본선 일정 가져오기
+		QUERY_ADD_GUILDWARPOINT,			// 예선 미션 클리어시 포인트 적립
+		QUERY_GET_GUILDWARPOINT,			// 예선 포인트 조회(캐릭터, 길드, 팀)
+		QUERY_GET_GUILDWARPOINT_PARTTOTAL,			// 부문별 1위 조회(개인)
+		QUERY_GET_GUILDWARPOINT_GUILD_PARTTOTAL,	// 부문별 길드 순위
+		QUERY_GET_GUILDWARPOINT_DAILY,				// 예선전 각 일자별 1위		
+		QUERY_GET_GUILDWARPOINT_GUILD_TOTAL,		// 각 길드의 포인트 집계 순위현황(여기서 본선 진출팀 조회도 가능함)
+		QUERY_ADD_GUILDWAR_FINAL_MATCHLIST,			// 본선 대진표 저장
+		QUERY_ADD_GUILDWARPOPULARITYVOTE,	// 인기 투표 저장
+		QUERY_GET_GUILDWARPOPULARITYVOTE,	// 인기 투표 결과
+		QUERY_ADD_GUILDWARFINALRESULTS,		// 길드전 본선 결과 저장
+		QUERY_GET_GUILDWARFINALRESULTS,		// 길드전 본선 결과 가져오기
+		QUERY_ADD_GUILDWAR_REWARD_CHARACTER,	// 길드전 예선 보상결과 저장
+		QUERY_GET_GUILDWAR_REWARD_CHARACTER,	// 길드전 예선 보상결과 가져오기
+		QUERY_ADD_GUILDWAR_REWARD_GUILD,		// 길드전 길드 보상결과 저장
+		QUERY_GET_GUILDWAR_REWARD_GUILD,		// 길드전 길드 보상결과 가져오기
+		QUERY_ADD_GUILDWAR_POINT_QUEUE,			// 길드전 본선 보상 포인트 지급(개인 축제포인트 지급)
+		QUERY_ADD_GUILDWAR_SYSTEM_MAIL_QUEUE,	// 길드전 본선 보상 메일 보내기
+		QUERY_ADD_GUILDWAR_MAKE_GIFT_QUEUE,		// 길드전 본선 보상 선물 보내기
+		QUERY_ADD_GUILDWAR_MAKE_GIFT_NOTGUILDINFO,	// 길드전 본선 보상 선물 보내기(길드정보가 없을때)
+		QUERY_GET_GUILDWAR_PRE_WIN_GUILD,				// 길드전 지난 차수 우승팀 가져오기
+		QUERY_GET_GUILDWARPOINT_RUNNING_TOTAL,		// 길드전 예선전 점수 현황(24위까지)
+		QUERY_GET_GUILDWARPOINT_FINAL_REWARDS,		// 본선 보상에서 길드 포인트 Refresh 용
+		QUERY_GETLIST_GUILDWAR_ITEM_TRADE_RECORD,
+		QUERY_ADD_GUILDWAR_ITEM_TRADE_RECORD,
+
+		QUERY_MOD_GUILDEXP,						// 길드 경험치 변경
+		QUERY_MOD_GUILDCHEAT,					// 길드 치트
+		QUERY_GET_GUILDREWARDITEM,				// 길드보상 적용아이템
+		QUERY_ADD_GUILDREWARDITEM,				// 길드보상 아이템 추가
+		QUERY_DEL_GUILDREWARDITEM,				// 길드보상 아이템 삭제(치트용)
+		QUERY_CHANGE_GUILDSIZE,					// 길드최대인원 증가
+		QUERY_GET_GUILDMEMBER,					// 길드원 받아오기
+#if defined(PRE_ADD_GUILD_CONTRIBUTION)
+		QUERY_GET_GUILDCONTRIBUTION_POINT,		// 길드 공헌도 조회(개인)
+		QUERY_GET_GUILDCONTRIBUTION_WEEKLYRANKING,	// 길드 공헌도 주간 랭킹
+#endif	// #if defined(PRE_ADD_GUILD_CONTRIBUTION)
+	};
+
+	// MAINCMD_PVP
+	enum eDB_MainCmdPvP
+	{
+		QUERY_UPDATEPVPDATA,			// PvP데이터 변경
+		QUERY_ADD_PVP_LADDERRESULT,
+		QUERY_GETLIST_PVP_LADDERSCORE,
+		QUERY_GETLIST_PVP_LADDERSCORE_BYJOB,
+		QUERY_INIT_PVP_LADDERGRADEPOINT,
+		QUERY_USE_PVP_LADDERPOINT,
+		QUERY_ADD_PVP_LADDERCUCOUNT,
+		QUERY_MOD_PVP_LADDERSCORE_FORCHEAT,
+		QUERY_GETLIST_PVPLADDERRANKING,
+		QUERY_GET_PVP_GHOULSCORES,
+		QUERY_ADD_PVP_GHOULSCORES,
+#ifdef PRE_MOD_PVPRANK
+		QUERY_UPDATE_PVPRANKCRITERIA,
+		QUERY_FORCE_CALCPVPRANK,
+#endif		//#ifdef PRE_MOD_PVPRANK
+#if defined(PRE_ADD_PVP_RANKING)
+		QUERY_GET_PVP_RANKBOARD,
+		QUERY_GET_PVP_RANKLIST,
+		QUERY_GET_PVP_RANKINFO,
+		QUERY_GET_PVP_LADDER_RANKBOARD,
+		QUERY_GET_PVP_LADDER_RANKLIST,
+		QUERY_GET_PVP_LADDER_RANKINFO,
+		QUERY_FORCE_AGGREGATE_PVP_RANKING,
+#endif
+#if defined( PRE_WORLDCOMBINE_PVP )
+		QUERY_ADD_WORLDPVPROOM,
+		QUERY_ADD_WORLDPVPROOMMEMBER,
+		QUERY_DEL_WORLDPVPROOM,
+		QUERY_DEL_WORLDPVPROOMMEMBER,
+		QUERY_DEL_WORLDPVPROOMFORSERVER,
+		QUERY_GETLIST_WORLDPVPROOM,
+		QUERY_UPDATE_WORLDPVPROOM,
+#endif
+#if defined(PRE_ADD_PVP_TOURNAMENT)
+		QUERY_ADD_PVP_TOURNAMENTRESULT,
+#endif //#if defined(PRE_ADD_PVP_TOURNAMENT)
+#if defined( PRE_FIX_76282 )
+		SYNC_GOPVPLOBBY,
+#endif // #if defined( PRE_FIX_76282 )
+#if defined( PRE_PVP_GAMBLEROOM )
+		QUERY_ADD_GAMBLEROOM,
+		QUERY_ADD_GAMBLEROOMMEMBER,
+		QUERY_END_GAMBLEROOM,
+#endif
+	};
+
+	// MAINCMD_DARKLAIR
+	enum eDB_MainCmdDarkLair
+	{
+		QUERY_UPDATE_DARKLAIR_RESULT,	// 다크레어 결과 저장
+		QUERY_GET_DARKLAIR_RANK_BOARD,	// 다크레어 랭킹 보드 정보 얻기
+	};
+
+	// MAINCMD_CASH
+	enum eDB_MainCmdCashShop
+	{
+		QUERY_GETLISTGIVEFAILITEM,			// 캐쉬아이템 실패한거 리스트 얻어오기
+		QUERY_MODGIVEFAILFLAG,				// 캐쉬아이템 실패한거 갱신 (인벤에 다시 넣어주기)
+
+		QUERY_CHECKGIFTRECEIVER,			// 캐쉬샵 선물 받는 사람 체크
+		QUERY_GETLISTGIFTBOX,				// 선물함 목록 조회
+		QUERY_MODGIFTRECEIVEFLAG,			// 선물 인벤에 넣어주기전에 일단 PurchaseOrder테이블에 flag체크
+		QUERY_RECEIVEGIFT,					// 선물받기
+		QUERY_NOTIFYGIFT,					// 선물 알리미
+
+		QUERY_MAKEGIFTBYQUEST,				// 퀘스트 완료 보상
+		QUERY_MAKEGIFTBYMISSION,			// 미션 완료 보상
+		QUERY_MAKEGIFT,						// 기타.. 완료 보상
+		QUERY_INCREASEVIPPOINT,				// VIP 기본 포인트 가산
+		QUERY_GETVIPPOINT,					// VIP 기간 및 포인트 조회
+		QUERY_MODVIPAUTOPAYFLAG,			// VIP 자동 결제 상태 변경
+		QUERY_GIFTBYCHEAT,					// 치트키
+		QUERY_PETAL,						// 페탈
+		QUERY_GIFTRETURN,					// 선물 거절, 반송
+#if defined(PRE_ADD_CASH_REFUND)
+		QUERY_PAYMENTINVEN_LIST,			// 결재인벤 요청.(요청은 한개로, 응답은 단품, 패키지 나눠서 보낸다)
+		QUERY_PAYMENTINVEN_PAKAGELIST,		// 결재인벤 결과(패키지)
+#endif
+		QUERY_CHEAT_GIFTCLEAR,				// 선물함 비우는 치트
+#if defined( PRE_PVP_GAMBLEROOM )
+		QUERY_LOGCODE_PETAL,				// 페탈 추가시 로그코드 추가
+		QUERY_USE_PETAL,					// 페탈 사용
+#endif
+	};
+
+	// MAINCMD_MSGADJUST
+	enum eDB_MessageAdjust
+	{
+		QUERY_MSGADJUST,					// 실재 디비작업은 없습니다. 다 끝났는지 확인 하는 패킷
+#ifdef PRE_FIX_63822
+		QUERY_MSGADJUST_SEQ_CHANGEPARTS,	// 실재 디비작업은 없습니다. 중복 실행을 막기위한 패킷
+#endif		//#ifdef PRE_FIX_63822
+	};
+
+	enum eDB_MainCmdLog
+	{
+		QUERY_ADDPARTY_STARTLOG,
+		QUERY_ADDPARTY_ENDLOG,
+		QUERY_ADDSTAGE_STARTLOG,
+		QUERY_ADDSTAGE_CLEARLOG,
+		QUERY_ADDSTAGE_REWARDLOG,
+		QUERY_ADDSTAGE_ENDLOG,
+		QUERY_ADDPVP_STARTLOG,
+		QUERY_ADDPVP_RESULTLOG,
+		QUERY_ADDPVP_ENDLOG,
+		QUERY_ADDNESTGATE_STARTLOG,
+		QUERY_ADDNESTGATE_ENDLOG,
+		QUERY_ADDNESTGATE_CLEARLOG,
+		QUERY_ADDNESTDEATHLOG,
+	};
+
+	enum eDB_MainCmdReputation
+	{
+#if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+		QUERY_MOD_NPCLOCATION,
+		QUERY_MOD_NPCFAVOR,
+		QUERT_GET_LISTNPCFAVOR,
+#endif // #if defined( PRE_ADD_NPC_REPUTATION_SYSTEM )
+
+	};
+
+	enum eDB_MainCmdMasterSystem
+	{
+		QUERY_GET_SIMPLEINFO,
+		QUERY_GET_PAGEMASTERCHARACTER,
+		QUERY_GET_MASTERCHARACTER_TYPE1,
+		QUERY_GET_MASTERCHARACTER_TYPE2,
+		QUERY_GET_PUPILLIST,
+		QUERY_REGISTER_MASTER,
+		QUERY_REGISTERCANCEL_MASTER,
+		QUERY_JOIN_MASTERSYSTEM,
+		QUERY_GET_MASTERANDCLASSMATE,
+		QUERY_GET_CLASSMATEINFO,
+		QUERY_LEAVE_MASTERSYSTEM,
+		QUERY_GET_MASTERANDFAVORPOINT,
+		QUERY_GRADUATE,
+		QUERY_GET_COUNTINFO,
+		QUERY_MOD_RESPECTPOINT,
+		QUERY_MOD_FAVORPOINT,
+		QUERY_MOD_GRADUATECOUNT,
+	};
+
+#if defined( PRE_ADD_SECONDARY_SKILL )
+	enum eDB_MainCmdSecondarySkill
+	{
+		QUERY_ADD_SECONDARYSKILL,
+		QUERY_DELETE_SECONDARYSKILL,
+		QUERY_GETLIST_SECONDARYSKILL,
+		QUERY_MOD_SECONDARYSKILL_EXP,
+		QUERY_GETLIST_SECONDARYSKILL_RECIPE,
+		QUERY_ADD_SECONDARYSKILL_RECIPE,
+		QUERY_DELETE_SECONDARYSKILL_RECIPE,
+		QUERY_EXTRACT_SECONDARYSKILL_RECIPE,
+		QUERY_MOD_SECONDARYSKILL_RECIPE_EXP,
+	};
+#endif // #if defined( PRE_ADD_SECONDARY_SKILL )
+
+	enum eDB_MainCmdFarm
+	{
+		QUERY_GETLIST_FARM,
+		QUERY_GETLIST_FIELD,
+		QUERY_GETLIST_FIELD_BYCHARACTER,
+		QUERY_ADD_FIELD,
+		QUERY_DEL_FIELD,
+		QUERY_ADD_FIELD_ATTACHMENT,
+		QUERY_MOD_FIELD_ELAPSEDTIME,
+		QUERY_HARVEST,
+		QUERY_GETLIST_HARVESTDEPOTITEM,
+		QUERY_GETFIELDCOUNT_BYCHARACTER,
+		QUERY_GETCOUNT_HARVESTDEPOTITEM,
+		QUERY_UPDATEFARM_ACTIVATION,
+		QUERY_GET_FIELDITEMCOUNT,
+		QUERY_GETLIST_FIELD_FORCHARACTER,
+		QUERY_ADD_FIELD_FORCHARACTER,
+		QUERY_DEL_FIELD_FORCHARACTER,
+		QUERY_ADD_FIELD_FORCHARACTER_ATTACHMENT,
+		QUERY_MOD_FIELD_FORCHARACTER_ELAPSEDTIME,
+		QUERY_HARVEST_FORCHARACTER,
+	};
+	//일단 길드전으로 묶어요.난중에 이런 job류의 프로시저가 필요하면 쓰면 됩니다.
+	enum eDB_MainCmdJobSystem
+	{
+		QUERY_ADD_JOB_RESERVE,		// 잡 쿼리 등록용
+		QUERY_GET_JOB_RESERVE,		// 잡 돌았는지 확인용.
+	};
+	enum eDB_MainCmdGuildRecruit
+	{
+		QUERY_GET_PAGEGUILDRECRUIT,				//길드모집 목록
+		QUERY_GET_PAGEGUILDRECRUITCHARACTER,	//길드가입신청 유저
+		QUERY_GET_MYGUILDRECRUIT,				//유저가 가입신청한 길드 목록		
+		QUERY_GET_GUILDRECRUIT_REQUESTCOUNT,	//유저가 가입신청 횟수
+		QUERY_REGISTERINFO_GUILDRECRUIT,		//길드모집 정보 확인
+		QUERY_REGISTERON_GUILDRECRUIT,			//길드모집 등록
+		QUERY_REGISTERMOD_GUILDRECRUIT,			//길드모집 수정
+		QUERY_REGISTEROFF_GUILDRECRUIT,			//길드모집 삭제		
+		QUERY_REQUESTON_GUILDRECRUIT,			//길드모집 가입신청
+		QUERY_REQUESTOFF_GUILDRECRUIT,			//길드모집 가입해지
+		QUERY_ACCEPTON_GUILDRECRUIT,			//길드모집 가입승인
+		QUERY_ACCEPTOFF_GUILDRECRUIT,			//길드모집 가입거절
+		QUERY_DELETE_GUILDRECRUIT,				//길드 및 개인 모집내역 삭제
+	};
+
+#if defined (PRE_ADD_DONATION)
+	enum eDB_MainCmdDonation
+	{
+		QUERY_DONATE,
+		QUERY_DONATION_RANKING,
+		QUERY_DONATION_TOP_RANKER,
+	};
+#endif // #if defined (PRE_ADD_DONATION)
+
+#if defined (PRE_ADD_BESTFRIEND)
+	enum eDB_MainCmdBestFriend
+	{
+		QUERY_GET_BESTFRIEND,
+		QUERY_REGIST_BESTFRIEND,
+		QUERY_CANCEL_BESTFRIEND,
+		QUERY_CLOSE_BESTFRIEND,
+		QUERY_EDIT_BESTFRIENDMEMO,
+		QUERY_MOD_BESTFRIEND_REWARDITEM,
+	};
+#endif
+
+#if defined (PRE_PRIVATECHAT_CHANNEL)
+	enum eDB_MainCmdPrivateChatChannel
+	{
+		QUERY_GET_PRIVATECHATCHANNEL,
+		QUERY_GET_PRIVATECHATCHANNELMEMBER,
+		QUERY_CREATE_PRIVATECHATCHANNEL,
+		QUERY_ADD_PRIVATECHATMEMBER,		
+		QUERY_DEL_PRIVATECHATMEMBER,
+		QUERY_KICK_PRIVATECHATMEMBER,
+		QUERY_MOD_PRIVATECHATCHANNELINFO,		
+		QUERY_INVITE_PRIVATECHATMEMBER,
+		QUERY_MOD_PRIVATEMEMBERSERVERID,
+		QUERY_DEL_PRIVATEMEMBERSERVERID,
+	};
+#endif
+
+	// MAINCMD_ACTOZCOMMON
+	enum eDB_MainCmdActozCommon
+	{
+		QUERY_ACTOZ_UPDATECHARACTERINFO,
+		QUERY_ACTOZ_UPDATECHARACTERNAME,
+	};
+
+#if defined( PRE_ALTEIAWORLD_EXPLORE )
+	// MAINCMD_ALTEIAWORLD
+	enum eDB_MainCmdAlteiaWorld
+	{
+		QUERY_RESET_ALTEIAWORLDEVENT,
+		QUERY_ADD_ALTEIAWORLDPLAYRESULT,
+		QUERY_GET_ALTEIAWORLDINFO,
+		QUERY_GET_ALTEIAWORLDPRIVATEGOLDKEYRANK,
+		QUERY_GET_ALTEIAWORLDPRIVATEPLAYTIMERANK,
+		QUERY_GET_ALTEIAWORLDGUILDGOLDKEYRANK,
+		QUERY_GET_ALTEIAWORLDSENDTICKETLIST,
+		QUERY_ADD_ALTEIAWORLDSENDTICKETLIST,
+		QUERY_RESET_ALTEIAWORLDPLAYALTEIA,
+		QUERY_ADD_ALTEIAWORLDEVENT,
+	};
+#endif // #if defined( PRE_ALTEIAWORLD_EXPLORE )
+
+#if defined( PRE_ADD_STAMPSYSTEM )
+	// MAINCMD_STAMPSYSTEM
+	enum eDB_MainCmdStampSystem
+	{
+		QUERY_GETLIST_COMPLETECHALLENGES,
+		QUERY_INIT_COMPLETECHALLENGE,
+		QUERY_ADD_COMPLETECHALLENGE,
+	};
+#endif // #if defined( PRE_ADD_STAMPSYSTEM )
+
+#if defined(PRE_ADD_DWC)
+	enum eDB_MainCmdDWC
+	{
+		QUERY_CREATE_DWC_TEAM,		
+		QUERY_ADD_DWC_TEAMMEMBER,
+		QUERY_DWC_INVITE_MEMBER,
+		QUERY_DEL_DWC_TEAMMEMBER,
+		QUERY_GET_DWC_TEAMINFO,
+		QUERY_GET_DWC_TEAMMEMBER,
+		QUERY_ADD_DWC_RESULT,
+		QUERY_GET_DWC_SCORELIST,
+		QUERY_GET_DWC_RANKLIST,
+		QUERY_GET_DWC_CHANNELINFO,
+		QUERY_GET_DWC_FINDRANK,
+	};
+#endif
+};
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	ServiceManager <-> NetLauncher & ServiceServer
+//----------------------------------------------------------------------------------------------------------------------------
+enum eServiceManager
+{
+	NETSERVICE_RESULT = 1,
+	NETSERVICE_RUN_PROCESS,
+	NETSERVICE_TERMINATE_ALLPROCESS,
+	NETSERVICE_TERMINATE_PROCESS,
+	NETSERVICE_PATCHSTART,
+	NETSERVICE_PATCHEND,
+	NETSERVICE_PATCHAPPLY,
+	NETSERVICE_INFOCOPY,
+	NETSERVICE_PATCH,
+	NETSERVICE_PATCH_BYURL,
+	NETSERVICE_STARTOF_MANAGING,
+	NETSERVICE_MANAGING,
+	NETSERVICE_ENDOF_MANAGING,
+	NETSERVICE_RETURN_PING,
+	NETSERVICE_PATCHBATCH,
+	NETSERVICE_RUNBATCH,
+	NETSERVICE_STOPBATCH,
+	NETSERVICE_LIVEEXTDEL,
+	NETSERVICE_LIVEEXTCOPY,
+	NETSERVICE_STARTESM,
+	NETSERVICE_STOPESM,
+
+	//to server
+	NETSERVICE_CONNECTED,
+	NETSERVICE_NOTICE,
+	NETSERVICE_MAKE_DUMP,
+	NETSERVICE_CHANNEL_CONTROL,
+	NETSERVICE_POPULATION_CONTROL,
+	NETSERVICE_EVENTUPDATE,
+	NETSERVICE_AFFINITY_CONTROL,
+	NETSERVICE_DETACHALLUSER,
+	NETSERVICE_USERRESTRAINT,
+	NETSERVICE_USERBAN,
+	NETSERVICE_WORLDMAXUSER,
+	NETSERVICE_PING,
+	NETSERVICE_CANCELNOTICE,
+	NETSERVICE_SELECTJOIN,
+	NETSERVICE_CLEAR_SELECTJOIN,
+    NETSERVICE_RELOADDYNCODE,
+	NETSERVICE_SCHEDULE_SERVERCLOSE,
+	NETSERVICE_UPDATESALEDATA,
+	NETSERVICE_UPDATEFARM,
+	NETSERVICE_UPDATEGUILDWAR_SCHEDULE,
+	NETSERVICE_EXTRELOAD,
+	NETSERVICE_CREATEWORLDDB,
+	NETSERVICE_RELOADGUILDWARSCHEDULE,
+	NETSERVICE_SIMPLECONFIGUPDATE,
+	NETSERVICE_LIMITEITEM_CHANGEQUANTITY,
+	NETSERVICE_UPDATEGUILDWARE,
+	NETSERVICE_UPDATEWORLDPVPROOM,
+	NETSERVICE_CREATEGAMBLEROOM,
+	NETSERVICE_STOPGAMBLEROOM,
+	NETSERVICE_DELGAMBLEROOM,
+	NETSERVICE_UPDATE_DWCSTATUS,
+};
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	ServiceManager <-> NetLauncher
+//----------------------------------------------------------------------------------------------------------------------------
+enum ePatcherService
+{
+	PATCHERSERVICE_RESULT = 1,
+	PATCHERSERVICE_STARTLAUNCHER,
+	PATCHERSERVICE_STOPLAUNCHER,
+	PATCHERSERVICE_PATCHLAUNCHER,
+
+	//to server
+	PATCHERSERVICE_PATCHSTATE,
+	PATCHERSERVICE_PING,
+};
+
+enum eManagedType
+{
+	MANAGED_TYPE_NONE = 0,
+	MANAGED_TYPE_LOGIN = 1,
+	MANAGED_TYPE_DB,
+	MANAGED_TYPE_MASTER,
+	MANAGED_TYPE_VILLAGE,
+	MANAGED_TYPE_GAME,
+	MANAGED_TYPE_LOG,
+	MANAGED_TYPE_CASH,
+	MANAGED_TYPE_MAX,
+};
+
+enum eNetService
+{
+	SERVICE_LAUNCHER_CREATED_PROCESS = 1,
+	SERVICE_LAUNCHER_PROCESS_TERMINATED,	
+	SERVICE_LAUNCHER_PROCESS_STATE,
+	SERVICE_LAUNCHER_PATCH_STATE,
+	SERVICE_LAUNCHER_VERSION,
+	SERVICE_LAUNCHER_PING,
+	SERVICE_LAUNCHER_RETURN_PING,
+	SERVICE_LAUNCHER_RUNBATCH_STATE,
+	SERVICE_LAUNCHER_STOPBATCH_STATE,
+	SERVICE_LAUNCHER_LIVEEXTCOPY,
+	SERVICE_LAUNCHER_PATCH_PROGRESS,
+	SERVICE_LAUNCHER_UNZIP_PROGRESS,
+	SERVICE_LAUNCHER_ESM_STATE,	
+};
+
+enum eServiceServer
+{
+	SERVICE_SERVER_REGIST_MANAGEDID,
+	SERVICE_SERVER_USUAL_LOGINREPORT,
+	SERVICE_SERVER_USUAL_VILLAGEREPORT,
+	SERVICE_SERVER_USUAL_GAMEREPORT,
+	SERVICE_SERVER_EXCEPTION_REPORT,
+	SERVICE_SERVER_SERVICE_CLOSED,
+	SERVICE_SERVER_DELAYEDREPORT,
+	SERVICE_SERVER_PONG,
+	SERVICE_SERVER_MERITINFO,
+	SERVICE_SERVER_CHANNELINFO,
+	SERVICE_SERVER_WORLDINFO,
+	SERVICE_SERVER_UNRECOVERY,
+	SERVICE_SERVER_USUAL_MASTERREPORT,
+	SERVICE_SERVER_GPKRELOADFAIL,
+	SERVICE_SERVER_EXT_RELOADRESULT,
+	SERVICE_SERVER_LOGIN_WORDDBRESULT,
+	SERVICE_SERVER_QUERYDELAYREPORT,
+	SERVICE_SERVER_REQUESTSERVICE,
+	SERVICE_SERVER_GAMEDELAYREPORT,
+	SERVICE_SERVER_DBERROR_REPORT,
+	SERVICE_SERVER_VILLAGEDELAYREPORT,
+	SERVICE_SERVER_HEARTBEAT,
+	SERVICE_SERVER_UPDATEWORLDPVPROOM,
+};
+
+enum eMonitorToManager
+{
+	MONITOR2MANAGER_CHECK_LOGIN = 1,
+	MONITOR2MANAGER_SERVERSTRUCT_REQ,
+	MONITOR2MANAGER_REALTIME_REQ,	
+	MONITOR2MANAGER_STARTSERVICE,
+	MONITOR2MANAGER_STOPSERVICE,
+	MONITOR2MANAGER_MAKEDUMP,
+	MONITOR2MANAGER_CHANNELCONTROL,
+	MONITOR2MANAGER_GAMECONTROL,
+	MONITOR2MANAGER_REPORT_REQ,
+	MANAGER2MONITOR_SERVER_DEALYINFO_REQ,
+	MONITOR2MANAGER_CHANGEPASSWORD,
+};
+
+enum eServerToMonitor
+{
+	MANAGER2MONITOR_LOGIN_RESULT = 1,
+	MANAGER2MONITOR_MERITLIST,
+	MANAGER2MONITOR_NETLAUNCHERLIST,
+	MANAGER2MONITOR_SERVERINFO_LIST,
+	MANAGER2MONITOR_CHANNELINFO_LIST,
+	MANAGER2MONITOR_UPDATE_NOTICE,
+	MANAGER2MONITOR_UPDATE_SERVERSTATE,
+	MANAGER2MONITOR_LOGIN_UPDATEINFO,
+	MANAGER2MONITOR_VILLAGE_UPDATEINFO,
+	MANAGER2MONITOR_GAME_UPDATEINFO,
+	MANAGER2MONITOR_SERVERSTATE_LIST,
+	MANAGER2MONITOR_FARM_UPDATEINFO,
+	MANAGER2MONITOR_OPERATING_RESULT,
+	MANAGER2MONITOR_WORLDINFO_RESULT,
+	MANAGER2MONITOR_REPORT_RESULT,
+	MANAGER2MONITOR_SERVER_DEALYINFO,
+};
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	Log
+//----------------------------------------------------------------------------------------------------------------------------
+
+enum eLog
+{
+	LOG_FILE,					// 파일로그
+	LOG_HEARTBEAT,				// LiveCheck 용
+
+/*
+	// Master Log
+	MASTERLOG_LOGIN,			// 계정 로그인
+	MASTERLOG_LOGOUT,			// 계정 로그아웃
+	MASTERLOG_CONNECT,			// 캐릭터 접속로그
+
+	// Detail Log
+	LOG_CHARCHANGE,				// 캐릭터 변경
+	LOG_CHARJOB,				// 캐릭터 전직
+	LOG_CHARCREATEDELETE,		// 캐릭터 생성/삭제
+	LOG_CHARZONE,				// 캐릭터 지역 입/퇴장
+	LOG_CHARDEATHREBIRTH,		// 캐릭터 사망/부활
+
+	LOG_ITEM,					// 아이템 변경 (획득/사용)
+	LOG_ITEMENCHANT,			// 아이템 강화
+
+	LOG_PARTY,					// 파티
+	LOG_QUEST,					// 퀘스트
+	LOG_SKILL,					// 스킬
+	LOG_STAGECHAR,				// 스테이지
+	LOG_STAGE,
+	LOG_CUTSCENE,				// 컷씬
+	
+	// PvP Log
+	LOG_PvP_Combat,
+	LOG_PvP_RoomStart,
+	LOG_PvP_RoomEnd,
+	LOG_PvP_User,
+
+	LOG_MISSION,
+	LOG_SPEEDHACK,				// 스핵로그
+
+	// Auth
+	LOG_AUTH,					// 인증
+*/
+};
+
+enum eHeartBeat
+{
+	SYN,
+	SYN_ACK,
+	ACK,
+};
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	Auth (Nexon)
+//----------------------------------------------------------------------------------------------------------------------------
+enum eAuthKor
+{
+	AUTH_INITIALIZE = 41,	// initialize
+	AUTH_LOGIN = 42,		// login
+	AUTH_LOGOUT = 43,		// logout
+	AUTH_TERMINATE = 44,
+	AUTH_MESSAGE = 45,
+	AUTH_SYNCHRONIZE = 46,
+	AUTH_ALIVE = 100,		// alive
+};
+
+
+//----------------------------------------------------	------------------------------------------------------------------------
+//	Cash	Village, Game <-> CashServer
+//----------------------------------------------------------------------------------------------------------------------------
+
+// MAINCMD_CASH,
+enum eCash
+{
+	/*
+	CASH_GETPRODUCT,						// 1.유료 상품 단건 조회 - P_GetProduct
+	CASH_ADDPURCHASEORDERBYCASH,			// 2.캐쉬 결제 요청 - P_AddPurchaseOrderByCash
+	CASH_SETPURCHASEORDERRESULT,			// 3.캐쉬 결제 응답 기록 - P_SetPurchaseOrderResult
+	CASH_ROLLBACKPURCHASEORDERBYCASH,		// 4.캐쉬 결제 취소 요청 - P_RollbackPurchaseOrderByCash
+	CASH_SETROLLBACKPURCHASEORDERRESULT,	// 5.캐쉬 결제 취소 응답 기록 - P_SetRollbackPurchaseOrderResult
+	CASH_GETPETALBALANCE,					// 1.페탈 잔액 조회 - P_GetPetalBalance
+	CASH_PURCHASEITEMBYPETAL,				// 2.페탈 결제 - P_PurchaseItemByPetal
+	CASH_ROLLBACKPURCHASEITEMBYPETAL,		// 3.페탈 결제 취소 - P_RollbackPurchaseItemByPetal
+	*/
+
+	CASH_BALANCEINQUIRY,	// 잔액조회
+	CASH_BUY,				// 상품 구매하기
+	CASH_PACKAGEBUY,		// 패키지상품 구매하기
+	CASH_DELUSER,			// 유저 끊기
+	// CASH_MODGIVEFAILFLAG,	// 캐쉬아이템 실패한거 갱신 (인벤에 다시 넣어주기)
+	CASH_GIFT,				// 상품 선물하기
+	CASH_PACKAGEGIFT,		// 패키지상품 선물하기
+	CASH_COUPON,			// 쿠폰  
+
+	CASH_VIPBUY,
+	CASH_VIPGIFT,
+
+	CASH_SALEABORTLIST,		// 구매중지
+#if defined(PRE_ADD_CASH_REFUND)	
+	CASH_MOVE_CASHINVEN,	// 캐쉬 인벤으로 옮기기	(일반)
+	CASH_PACKAGE_MOVE_CASHINVEN,	// 캐쉬 인벤으로 옮기기 (패키지)
+	CASH_REFUNDCASH,		// 캐쉬 환불	
+#endif
+#ifdef PRE_ADD_LIMITED_CASHITEM
+	CASH_LIMITEDITEM_INFOLIST,		//갯수제한 캐쉬템리스트 얻기(판매카운트얻기)
+	CASH_CHANGEDLIMITEDITEM_INFOLIST,	//라이브중 변경된 갯수제한캐쉬템정보
+#endif		//#ifdef PRE_ADD_LIMITED_CASHITEM
+};
+
+//----------------------------------------------------------------------------------------------------------------------------
+//	Cash (Nexon)	CashServer <-> NISMS
+//----------------------------------------------------------------------------------------------------------------------------
+enum eCashKor
+{
+	CASH_INITIALIZE = 0x01,							// 게임서버연결 초기화
+	CASH_HEARTBEAT = 0x02,							// 연결된 서버와의 상태체크
+	CASH_CHECK_BALANCE = 0x11,						// 사용자 잔액 체크
+	CASH_CHECK_BALANCE_WITH_NOT_REFUNDABLE = 0x12,	// 사용자 잔액 체크 및 환불 가능 하지 않은 금액도 리턴(북미&유럽)
+	CASH_CHECK_BALANCE_WITH_PAYMENT_TYPE = 0x13,	// PaymentType(결제금액타입) 에 따른 사용자 잔액 체크
+	CASH_PURCHASE_ITEM = 0x21,						// 상품 구매 (다량상품구매)
+	CASH_PURCHASE_ITEM_DISCOUNT = 0x26,				// PaymentType(결제금액타입) 에 따른 상품 구매. 캐시 차감만 할 경우.
+	CASH_PURCHASE_ITEM_EXTEND = 0x23,				// 충전 방식에 따른 상품 구매 (다량상품구매) (북미 & 유럽)
+	CASH_PURCHASE_ITEM_ATTRIBUTE = 0x24,			// 상품 구매 시 유동적인 Attribute값을 적용을 원할 때.(다량상품구매)
+	CASH_PURCHASE_ITEM_REFUND = 0x27,				// 구매한 상품을 환불(청약철회) 요청한다
+	CASH_PURCHASE_GIFT = 0x22,						// 상품 선물 (다량상품선물)
+	CASH_PURCHASE_GIFT_ATTRIBUTE = 0x25,			// 상품 선물 시 유동적인 Attribute값을 적용을 원할 때.(다량상품선물)
+	CASH_COUPON_INQUIRY = 0x31,						// 쿠폰사용여부조회
+	CASH_COUPON_INQUIRY2 = 0x33,					// 쿠폰사용여부 조회
+	CASH_COUPON_USING = 0x32,						// 쿠폰사용
+	CASH_INVENTORY_INQUIRY = 0x41,					// NISMS Inventory조회
+	CASH_INVENTORY_INQUIRY_ORDER = 0x42,			// NISMS Inventory 조회 (기본주문정보)
+	CASH_INVENTORY_INQUIRY_PACKAGE = 0x43,			// NISMS Inventory 조회 (패키지상품정보)
+	CASH_INVENTORY_INQUIRY_LOTTERY = 0x44,			// NISMS Inventory 조회 (복권상품정보)
+	CASH_INVENTORY_CHECK_READABLE = 0x45,			// NISMS Inventory에 읽지 않은 상품이 있는지 조회
+	CASH_INVENTORY_INQUIRY_REDUCTION = 0x46,		// NISMS에 상품정보를 저장하지 않고 캐시 인벤토리만 사용하는 경우의 캐시 인벤토리 상품조회
+	CASH_INVENTORY_CHECK = 0x40,					// NISMS Inventory 체크 (주문 정보 체크)
+	CASH_INVENTORY_INQUIRY_READ = 0x49,				// NISMS Inventory 상품을 읽음 상태로 변경
+	CASH_INVENTORY_PICKUP = 0x4A,					// NISMS Inventory 에서 Game 으로 상품 가져오기
+	CASH_INVENTORY_PICKUP_ONCE = 0x4C,				// PickUp 후 상품의 정보를 가지고 오기
+	CASH_INVENTORY_PICKUP_FOR_PACKAGE = 0x4D,		// 패키지 상품 중 개별 상품 처리
+	CASH_INVENTORY_PICKUP_ROLLBACK = 0x4B,			// Pickup에 대한 Rollback
+	CASH_INVENTORY_PICKUP_ROLLBACK_FOR_PACKAGE = 0x4E,	// PickUp For Package 실행 후 복구 하기
+	CASH_INVENTORY_CLEAR = 0x48,					// NISMS Inventory 삭제(탈퇴로 인한 주문 정보 삭제)
+	CASH_PRODUCT_INQUIRY_XML = 0x51,				// 상품조회 (상품의 모든 정보를 XML형식으로 반환)
+	CASH_PRODUCT_INQUIRY = 0x52,					// 상품조회
+	CASH_PRODUCT_INQUIRY2 = 0x55,					// 
+	CASH_HIDDEN_PRODUCT_INQUIRY_XML = 0x53,			// 상품조회 (판매리스트에 보이지 않는 상품)
+	CASH_HIDDEN_PRODUCT_INQUIRY = 0x54,				// 상품조회
+	CASH_CATEGORY_INQUIRY = 0x61,
+	CASH_LOGIN = 0xB0,
+	CASH_LOGIN_WITH_MID = 0xB3,
+	CASH_LOGOUT = 0xB1,
+	CASH_REFUND = 0x80,								// 캐쉬 환불
+};
+

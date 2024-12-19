@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Connections">
+      <UniqueIdentifier>{0bb21f7b-2168-425b-bd9c-84d623e8b72e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connections\SQL">
+      <UniqueIdentifier>{a80e5adb-1eae-4a58-865c-aea7ffe8b384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connections\MessageProcess">
+      <UniqueIdentifier>{ff32f63c-425e-480d-8705-3e7e666a0bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connections\MessageProcess\TaskBase">
+      <UniqueIdentifier>{b4224fc6-d247-44e5-bbe0-1dda3c575cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DBServer">
+      <UniqueIdentifier>{1d373dd1-7eb1-4e47-98ac-b55601887fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Def">
+      <UniqueIdentifier>{afabe6d0-93ed-445b-9cb5-d3e747311cbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{e7336879-d2b5-4c88-90e6-5cd90f1d085d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{0cf6977a-1dda-44f1-a28d-27d8b177feab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ExceptionReport">
+      <UniqueIdentifier>{e077a8a3-5ab5-42e5-83f7-d81d724b538e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="QueryTest">
+      <UniqueIdentifier>{4f1b8565-0b6c-4dfc-bca8-ba431f6115eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher">
+      <UniqueIdentifier>{05d175c4-40c3-408a-9606-bf8ff7f57765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Publisher\KRAZ">
+      <UniqueIdentifier>{705bf676-c2ff-41e8-97f8-f1ded20573cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ServerCommon\IniFile.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\ServiceUtil.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\Util.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="DNConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNIocpManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNLogConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNServiceConnection.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="DNThreadManager.cpp">
+      <Filter>Connections</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNSQLActozCommon.cpp">
+      <Filter>Connections\SQL</Filter>
+    </ClCompile>
+    <ClCompile Include="DNSQLConnectionManager.cpp">
+      <Filter>Connections\SQL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNSQLMembership.cpp">
+      <Filter>Connections\SQL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNSQLWorld.cpp">
+      <Filter>Connections\SQL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\SQLConnection.cpp">
+      <Filter>Connections\SQL</Filter>
+    </ClCompile>
+    <ClCompile Include="DNAdjustTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNAlteiaWorldTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNAppellationTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNAuthTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNBestFriendTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNCashShopTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNDarkLairTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNDonationTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNDWCTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNEtcTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNFarmTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNFriendTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGuildRecruitSystemTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNGuildTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNIsolateTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNItemTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNJobSystemTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNLogTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMailTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMarketTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMasterSystemTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMissionTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNPartyTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNPrivateChatChannelTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNPvPTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNQuestTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNReputationTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNSecondarySkillTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNSkillTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNStampSystemTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNStatusTask.cpp">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="DNMessageTask.cpp">
+      <Filter>Connections\MessageProcess\TaskBase</Filter>
+    </ClCompile>
+    <ClCompile Include="DNDBServer.cpp">
+      <Filter>DBServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNExtManager.cpp">
+      <Filter>DBServer</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>DBServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Buffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Connection.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ConnectionManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\EventAcceptor.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\IocpManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ListenSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Log.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\MiniDump.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SendThread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SocketContext.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\SpinBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\Thread.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetworkLib\ThreadManager.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Protocol\DNCountryUnicodeSet.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\ExceptionReport.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\FileSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MemoryMap.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\MiniDumpSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\StringSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Utility\TimeSet.cpp">
+      <Filter>ExceptionReport</Filter>
+    </ClCompile>
+    <ClCompile Include="DNQueryTest.cpp">
+      <Filter>QueryTest</Filter>
+    </ClCompile>
+    <ClCompile Include="DNActozCommonDBTask.cpp">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ServerCommon\DNActozShield.cpp">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ServerCommon\IniFile.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\ServiceUtil.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\Util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Version.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="DNConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNIocpManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNLogConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServiceConnection.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="DNThreadManager.h">
+      <Filter>Connections</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNSQLActozCommon.h">
+      <Filter>Connections\SQL</Filter>
+    </ClInclude>
+    <ClInclude Include="DNSQLConnectionManager.h">
+      <Filter>Connections\SQL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNSQLMembership.h">
+      <Filter>Connections\SQL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNSQLWorld.h">
+      <Filter>Connections\SQL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\SQLConnection.h">
+      <Filter>Connections\SQL</Filter>
+    </ClInclude>
+    <ClInclude Include="DNAdjustTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNAlteiaWorldTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNAppellationTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNAuthTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNBestFriendTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNCashShopTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNDarkLairTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNDonationTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNDWCTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNEtcTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNFarmTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNFriendTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGuildRecruitSystemTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNGuildTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNIsolateTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNItemTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNJobSystemTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNLogTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMailTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMarketTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMasterSystemTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMissionTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNPartyTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNPrivateChatChannelTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNPvPTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNQuestTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNReputationTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNSecondarySkillTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNSkillTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNStampSystemTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNStatusTask.h">
+      <Filter>Connections\MessageProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="DNMessageTask.h">
+      <Filter>Connections\MessageProcess\TaskBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNExtManager.h">
+      <Filter>DBServer</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>DBServer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNConfig.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNHeader.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNPrjSafe.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerDef.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerPacketDB.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNServerProtocol.h">
+      <Filter>Def</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Buffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Connection.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ConnectionManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\EventAcceptor.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\IocpManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ListenSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Log.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\MiniDump.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SendThread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SocketContext.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\SpinBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\Thread.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetworkLib\ThreadManager.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCommonDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNCountryUnicodeSet.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNItemTypeDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNPacket.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNProtocol.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Protocol\DNUserData.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\ExceptionReport.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\FileSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MemoryMap.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\MiniDumpSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\StringSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Utility\TimeSet.h">
+      <Filter>ExceptionReport</Filter>
+    </ClInclude>
+    <ClInclude Include="DNQueryTest.h">
+      <Filter>QueryTest</Filter>
+    </ClInclude>
+    <ClInclude Include="DNActozCommonDBTask.h">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ServerCommon\DNActozShield.h">
+      <Filter>Publisher\KRAZ</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DNDefine.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Patch.h" />
+    <ClInclude Include="..\..\Common\DNDefine_Work.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Out\Config\ActozCommonDB.ini">
+      <Filter>Publisher\KRAZ</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="euc-kr" standalone="yes" ?>
+<document>
+    <ContrlListData RectPos="12.44.678.410" ImgPath="" Type="0" Name="[0] WebPageHtml" Enum="0" />
+    <ContrlListData RectPos="500.493.664.533" ImgPath="CancelButton.jpg" Type="0" Name="[1] BtnQuit" Enum="1" />
+    <ContrlListData RectPos="500.493.664.533" ImgPath="StartButton.jpg" Type="0" Name="[2] BtnStartGame" Enum="2" />
+    <ContrlListData RectPos="620.549.669.573" ImgPath="OptionButtonOn.jpg" Type="0" Name="[3] BtnOption" Enum="3" />
+    <ContrlListData RectPos="660.10.681.31" ImgPath="CloseButton.jpg" Type="0" Name="[4] BtnWinClose" Enum="4" />
+    <ContrlListData RectPos="636.10.657.31" ImgPath="MinimumButton.jpg" Type="0" Name="[5] BtnWinMiniMum" Enum="5" />
+    <ContrlListData RectPos="170.18.240.33" ImgPath="" Type="1" Name="[8] Ver.403" Enum="8" />
+    <ContrlListData RectPos="0.0.0.0" ImgPath="" Type="1" Name="[9] Text_FileCount" Enum="9" />
+    <ContrlListData RectPos="70.495.500.510" ImgPath="" Type="1" Name="[10] CurrentFileName" Enum="10" />
+    <ContrlListData RectPos="575.431.690.446" ImgPath="" Type="1" Name="[11] remainCurrent" Enum="11" />
+    <ContrlListData RectPos="630.452.690.467" ImgPath="" Type="1" Name="[13] 100%" Enum="13" />
+    <ContrlListData RectPos="83.430.380.445" ImgPath="" Type="1" Name="[14] PatchMessage" Enum="14" />
+    <ContrlListData RectPos="477.556.660.571" ImgPath="" Type="1" Name="[15] Direct Start" Enum="15" />
+    <ContrlListData RectPos="460.555.473.568" ImgPath="" Type="3" Name="[16] CheckBox_DIrectStart" Enum="16" />
+    <ContrlListData RectPos="24.430.233.445" ImgPath="" Type="1" Name="[17] PatchState" Enum="17" />
+    <ContrlListData RectPos="24.495.76.510" ImgPath="" Type="1" Name="[18] FileName" Enum="18" />
+    <ContrlListData RectPos="380.431.440.446" ImgPath="" Type="1" Name="[19] FileSize" Enum="19" />
+    <ContrlListData RectPos="520.431.580.446" ImgPath="" Type="1" Name="[20] RemainTime" Enum="20" />
+    <ContrlListData RectPos="530.15.636.36" ImgPath="" Type="1" Name="[21] Link HomePage" Enum="21" />
+    <ContrlListData RectPos="88.456.605.462" ImgPath="" Type="2" Name="[ 7 ]  Progress_Count" Enum="7" />
+    <ContrlListData RectPos="88.519.462.525" ImgPath="" Type="2" Name="[6] Progress_Current" Enum="6" />
+    <ContrlListData RectPos="436.431.492.446" ImgPath="" Type="1" Name="[12] FileCurrentSize" Enum="12" />
+</document>

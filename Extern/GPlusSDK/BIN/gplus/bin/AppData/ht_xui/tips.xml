@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.tips" >
+        <windowframe id="frame.tips" rect="0,0,60,20"  visible="false" image-id="">
+            <static id="tips" rect="0,10,60,20" visible="true" text-postion="3,3" image-id="img/uimain/gplus_newmessagetip,img/uimain/gplus_newmessagetip,img/uimain/gplus_newmessagetip,0"  enable-skin="false"/>
+        </windowframe>
+    </window>
+</ui>

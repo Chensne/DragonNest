@@ -1,0 +1,39 @@
+===== Start [12:24:52] =====
+[12:24:54.114] Left Button Clicked. X = 355, Y = 27
+[12:24:55.988] Left Button Clicked. X = 193, Y = 347
+[12:24:56.678] Right Button Clicked. X = 674, Y = 407
+[12:24:57.923] Left Button Clicked. X = 186, Y = 439
+[12:24:58.270] Left Button Clicked. X = 58, Y = 402
+[12:24:58.652] Left Button Clicked. X = 42, Y = 196
+[12:24:58.941] Left Button Clicked. X = 42, Y = 147
+[12:24:59.170] Left Button Clicked. X = 44, Y = 90
+[12:24:59.526] Left Button Clicked. X = 48, Y = 61
+[12:24:59.948] Right Button Clicked. X = 247, Y = 38
+[12:25:00.707] Right Button Clicked. X = 610, Y = 511
+[12:25:01.099] Right Button Clicked. X = 667, Y = 579
+[12:25:01.505] Right Button Clicked. X = 675, Y = 582
+[12:25:01.675] Right Button Clicked. X = 679, Y = 581
+[12:25:01.827] Left Button Clicked. X = 679, Y = 581
+[12:25:02.015] Left Button Clicked. X = 679, Y = 581
+[12:25:02.373] Left Button Clicked. X = 679, Y = 579
+[12:25:02.529] Right Button Clicked. X = 679, Y = 574
+[12:25:02.603] Left Button Clicked. X = 679, Y = 574
+[12:25:02.749] Left Button Clicked. X = 679, Y = 572
+[12:25:02.935] Left Button Clicked. X = 679, Y = 572
+[12:25:03.117] Left Button Clicked. X = 679, Y = 572
+[12:25:03.281] Left Button Clicked. X = 679, Y = 572
+[12:25:03.453] Right Button Clicked. X = 679, Y = 572
+[12:25:03.487] Left Button Clicked. X = 679, Y = 572
+[12:25:03.639] Left Button Clicked. X = 679, Y = 572
+[12:25:03.797] Left Button Clicked. X = 679, Y = 572
+[12:25:03.977] Left Button Clicked. X = 679, Y = 572
+[12:25:04.139] Left Button Clicked. X = 679, Y = 572
+[12:25:04.653] Left Button Clicked. X = 131, Y = 311
+[12:25:05.448] HS_ERR_INVALID_FILES[101] = AhnHS_Initialize()
+[12:25:06.233] HS_ERR_NOT_INITIALIZED[3] = AhnHS_StartService()
+[12:25:06.957] Left Button Clicked. X = 131, Y = 311
+[12:25:07.165] Left Button Clicked. X = 131, Y = 311
+[12:25:07.303] Left Button Clicked. X = 131, Y = 311
+[12:25:07.483] Left Button Clicked. X = 131, Y = 311
+[12:25:07.657] HS_ERR_NOT_INITIALIZED[3] = AhnHS_StopService()
+[12:25:07.923] Left Button Clicked. X = 131, Y = 311

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceTWN", "ResourceTWN.vcproj", "{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_TWN|Win32 = Debug_TWN|Win32
+		Debug|Win32 = Debug|Win32
+		Release_TWN|Win32 = Release_TWN|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Debug_TWN|Win32.ActiveCfg = Debug_TWN|Win32
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Debug_TWN|Win32.Build.0 = Debug_TWN|Win32
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Debug|Win32.Build.0 = Debug|Win32
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Release_TWN|Win32.ActiveCfg = Release_TWN|Win32
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Release_TWN|Win32.Build.0 = Release_TWN|Win32
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Release|Win32.ActiveCfg = Release|Win32
+		{7FA46A9B-EDA8-472C-853F-E8EC2C68BED7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

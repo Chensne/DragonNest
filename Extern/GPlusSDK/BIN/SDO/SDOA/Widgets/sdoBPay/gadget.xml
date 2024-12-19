@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>在线划账</name>
+	<shortname>划账</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.6.3</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2008</copyright>
+	<description>登录盛大通行证后，您可以通过通行证帐号划账快速为您当前的游戏充值。</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://newigw.pay.sdo.com/InGame/WebGameLogin.aspx?game=$gid$&amp;gamearea=$gaid$&amp;gameserver=$gsid$&amp;type=payforgame" loginMode="SDO" width="602" height="424" clientwidth="589" clientheight="413" xul="WebBrowser.xml"/>
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<guid>{451DF907-6EAD-4434-9B4F-68BDEE8C5221}</guid>
+</gadget>

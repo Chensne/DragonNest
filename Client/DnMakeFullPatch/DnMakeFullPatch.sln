@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DnMakeFullPatch", "DnMakeFullPatch.vcproj", "{AC86AB76-F52E-416E-A4BB-238067D904B8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9BE51B01-4009-4D71-B809-DC4960AC79D0} = {9BE51B01-4009-4D71-B809-DC4960AC79D0}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugReporter", "..\..\Common\BugReporter\BugReporter.vcproj", "{9BE51B01-4009-4D71-B809-DC4960AC79D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC86AB76-F52E-416E-A4BB-238067D904B8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AC86AB76-F52E-416E-A4BB-238067D904B8}.Debug|Win32.Build.0 = Debug|Win32
+		{AC86AB76-F52E-416E-A4BB-238067D904B8}.Release|Win32.ActiveCfg = Release|Win32
+		{AC86AB76-F52E-416E-A4BB-238067D904B8}.Release|Win32.Build.0 = Release|Win32
+		{9BE51B01-4009-4D71-B809-DC4960AC79D0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9BE51B01-4009-4D71-B809-DC4960AC79D0}.Debug|Win32.Build.0 = Debug|Win32
+		{9BE51B01-4009-4D71-B809-DC4960AC79D0}.Release|Win32.ActiveCfg = Release|Win32
+		{9BE51B01-4009-4D71-B809-DC4960AC79D0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

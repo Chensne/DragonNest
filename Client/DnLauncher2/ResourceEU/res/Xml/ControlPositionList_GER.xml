@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="euc-kr" standalone="yes" ?>
+<document>
+    <ContrlListData RectPos="31.30.668.429" ImgPath="" Type="0" Name="[ 0 ] WebPage" Enum="0" />
+    <ContrlListData RectPos="583.482.670.508" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\CancelButton_GER.jpg" Type="0" Name="[ 1 ] Btn_Quit" Enum="1" />
+    <ContrlListData RectPos="584.451.671.496" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\StartButton_GER.jpg" Type="0" Name="[ 2 ] Btn_StartGame" Enum="2" />
+    <ContrlListData RectPos="584.496.671.522" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\OptionButton_GER.jpg" Type="0" Name="[ 3 ] Btn_Option" Enum="3" />
+    <ContrlListData RectPos="672.4.695.27" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\CloseButton_GER.jpg" Type="0" Name="[ 4 ] Btn_WinClose" Enum="4" />
+    <ContrlListData RectPos="649.4.672.27" ImgPath="C:\DragonNest\Client\DnLauncher\ResourceEU\res\Image\MinimumButton_GER.jpg" Type="0" Name="[ 5 ] Btn_WinMinimum" Enum="5" />
+    <ContrlListData RectPos="116.480.516.489" ImgPath="" Type="2" Name="[ 6 ] Progress_Download" Enum="6" />
+    <ContrlListData RectPos="116.503.516.512" ImgPath="" Type="2" Name="[ 7 ] Progress_Count" Enum="7" />
+    <ContrlListData RectPos="29.12.196.23" ImgPath="" Type="1" Name="[ 8 ] Text_Version" Enum="8" />
+    <ContrlListData RectPos="34.450.134.461" ImgPath="" Type="1" Name="[ 9 ] Text_FileCount" Enum="9" />
+    <ContrlListData RectPos="141.450.241.461" ImgPath="" Type="1" Name="[ 10 ] Text_FileName" Enum="10" />
+    <ContrlListData RectPos="249.452.349.463" ImgPath="" Type="1" Name="[ 11 ] Text_TimeLeft" Enum="11" />
+    <ContrlListData RectPos="354.451.454.462" ImgPath="" Type="1" Name="[ 12 ] Text_FileSize" Enum="12" />
+    <ContrlListData RectPos="465.450.565.461" ImgPath="" Type="1" Name="[ 13 ] Text_DownPercent" Enum="13" />
+    <ContrlListData RectPos="129.522.406.533" ImgPath="" Type="1" Name="[ 14 ] Text_DownState" Enum="14" />
+    <ContrlListData RectPos="129.538.369.549" ImgPath="" Type="1" Name="[ 15 ] Text_DirectStart" Enum="15" />
+    <ContrlListData RectPos="114.536.127.549" ImgPath="" Type="3" Name="[ 16 ] CheckBox" Enum="16" />
+</document>

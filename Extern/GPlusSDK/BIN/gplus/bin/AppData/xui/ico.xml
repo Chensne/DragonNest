@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window id="ui.main.icon" >
+        <windowframe id="frame.newico" rect="0,0,39,26"  visible="true" >
+		   <button id="newicoG"  rect="0,0,39,26"  enable-skin="false" image-id="img/uimain/newico02,img/uimain/newico01,img/uimain/newico01"/>
+		</windowframe>
+     </window>  
+</ui>

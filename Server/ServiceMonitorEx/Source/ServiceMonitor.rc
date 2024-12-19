@@ -1,0 +1,551 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\ServiceMonitor.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\EyedentityGames.ico"
+IDI_ALERT               ICON                    "res\\Alert.ico"
+IDI_ERRORLOG            ICON                    "res\\ErrorLog.ico"
+IDI_NETDSCN1            ICON                    "res\\NetworkDisconnect1.ico"
+IDI_NETDSCN2            ICON                    "res\\NetworkDisconnect2.ico"
+IDI_NETCONN             ICON                    "res\\NetworkConnect.ico"
+IDI_REFRESHWORLDINFO    ICON                    "res\\RefreshWorldViewInfo.ico"
+IDI_EXIT                ICON                    "res\\Exit.ico"
+IDI_PASSWORD            ICON                    "res\\password.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Control"
+    BEGIN
+        MENUITEM "&Connections From File",      ID_CONTROL_CONNECTIONFROMFILE
+        MENUITEM "&New Connection",             ID_SETTING_CONNECTION
+        MENUITEM SEPARATOR
+        MENUITEM "&Config",                     ID_SETTING_CONFIG
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About ServiceMonitor...",    ID_APP_ABOUT
+    END
+END
+
+IDR_TASKBAR_POPUP MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Restore",                    ID_POPUP_RESTORE
+        MENUITEM "&Minimize",                   ID_POPUP_MINIMIZE
+        MENUITEM "&Exit",                       ID_POPUP_EXIT
+        MENUITEM SEPARATOR
+        MENUITEM "&About",                      ID_POPUP_ABOUT
+    END
+END
+
+IDR_WORLDVIEW_POPUP MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "Process On / Off",            ID_POPUP_PROCONOFF
+        MENUITEM "Process Make Dump",           ID_POPUP_PROCMAKEDUMP
+        MENUITEM SEPARATOR
+        MENUITEM "World User Limit",            ID_POPUP_WORLDUSERLIMIT
+        MENUITEM SEPARATOR
+        MENUITEM "Village Server Channel Show / Hide", ID_POPUP_VICHNLSHOWHIDE
+        MENUITEM "Village Server Channel Merit", ID_POPUP_VICHNLMERIT
+        MENUITEM "Game Server Show / Hide",     ID_POPUP_GASHOWHIDE
+        MENUITEM "Game Server Merit",           ID_POPUP_GAMERIT
+    END
+END
+
+IDR_PROCONOFF_POPUP MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Delete Item(s)",             ID_POPUP_PROCONOFF_DELETEITEM
+    END
+END
+
+IDR_VICHNLSHOWHIDE_POPUP MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Delete Item(s)",             ID_POPUP_VICHNLSHOWHIDE_DELETEITEM
+    END
+END
+
+IDR_GASHOWHIDE_POPUP MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Delete Item(s)",             ID_POPUP_GASHOWHIDE_DELETEITEM
+    END
+END
+
+IDR_PROCMAKEDUMP_POPUP MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "&Delete Item(s)",             ID_POPUP_PROCMAKEDUMP_DELETEITEM
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+END
+
+IDR_MAINACCEL ACCELERATORS 
+BEGIN
+    "A",            ID_PICKALLCURVIEWSERVER, VIRTKEY, CONTROL, NOINVERT
+    VK_F5,          ID_REFRESHWORLDINFO,    VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 248, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About DragonNest Service Monitor"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "DragonNest Service Monitor Version",IDC_STATIC,40,14,116,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) Eyedentity Games.",IDC_STATIC,40,29,107,8
+    DEFPUSHBUTTON   "OK",IDOK,191,7,50,16,WS_GROUP
+    LTEXT           "0.0.0",IDC_STATIC_VERSION,158,14,18,8,SS_NOPREFIX
+    LTEXT           "(1900.01.01)",IDC_STATIC_DATE,149,29,44,8,SS_NOPREFIX
+END
+
+IDD_BASEPATFRM DIALOGEX 0, 0, 33, 31
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_BASEMNTFRM DIALOGEX 0, 0, 159, 137
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_SERVERSTATE_GRID,"Static",SS_BLACKFRAME | SS_NOTIFY,21,39,48,65,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_CHANNELSTATE_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,75,43,66,40,WS_EX_CLIENTEDGE
+END
+
+IDD_BASEERLFRM DIALOGEX 0, 0, 159, 137
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_MONERRITELIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,18,23,122,36,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_MONERRECPLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,18,73,122,36,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Clear",IDC_ERRITELISTCLEAR,105,7,32,14
+    PUSHBUTTON      "Clear",IDC_ERRECPLISTCLEAR,101,57,32,14
+END
+
+IDD_MAINFRM DIALOGEX 0, 0, 33, 31
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_SUBMNTFRM DIALOGEX 0, 0, 33, 31
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_CNNTDLG DIALOGEX 0, 0, 186, 202
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
+FONT 9, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Connect",IDC_CNNDLG_CONNECT,13,175,46,14
+    PUSHBUTTON      "Disconnect",IDC_CNNDLG_DISCONNECT,70,175,46,14
+    CONTROL         "",IDC_IPADDRESS_SVMN,"SysIPAddress32",WS_TABSTOP,63,72,100,15
+    EDITTEXT        IDC_PORT_SVMN,63,92,100,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ID_SVMN,63,119,100,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASS_SVMN,63,139,100,15,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "Cancel",IDC_CNNDLG_CANCEL,127,175,46,14
+    GROUPBOX        "",IDC_STATIC,6,2,173,193,BS_CENTER
+    ICON            IDR_MAINFRAME,IDC_STATIC,31,34,20,20
+    LTEXT           "IP Address : ",IDC_STATIC,18,74,42,8,0,WS_EX_RIGHT
+    LTEXT           "Port : ",IDC_STATIC,18,94,42,8,0,WS_EX_RIGHT
+    GROUPBOX        "",IDC_STATIC,21,21,144,40,BS_CENTER
+    LTEXT           "ID : ",IDC_STATIC,18,121,42,8,0,WS_EX_RIGHT
+    LTEXT           "Password : ",IDC_STATIC,18,141,42,8,0,WS_EX_RIGHT
+END
+
+IDD_CTRLDLG DIALOGEX 0, 0, 626, 356
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU | WS_THICKFRAME
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_CONTROLTAB,"SysTabControl32",TCS_MULTILINE,73,77,437,203
+    PUSHBUTTON      "Cancel",IDC_CONTROLCANCEL,533,326,50,14
+END
+
+IDD_CTRLFRM_PROCONOFF DIALOGEX 0, 0, 369, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROCONOFFLIST,"SysListView32",LVS_REPORT | LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,20,79,122,36,WS_EX_CLIENTEDGE
+    GROUPBOX        "",IDC_PROCONOFFGROUP,155,15,190,200
+    CONTROL         "Start (Select)",IDC_PROCONOFFRADIO_STARTSEL,"Button",BS_AUTORADIOBUTTON,169,53,59,10
+    CONTROL         "Stop Safe (Select)",IDC_PROCONOFFRADIO_STOPSAFESEL,
+                    "Button",BS_AUTORADIOBUTTON,169,93,74,10
+    PUSHBUTTON      "Request",IDC_PROCONOFFREQUEST,164,196,50,14
+END
+
+IDD_CTRLFRM_VICHNLSHOWHIDE DIALOGEX 0, 0, 369, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_VICHNLSHOWHIDELIST,"SysListView32",LVS_REPORT | LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,20,79,122,36,WS_EX_CLIENTEDGE
+    GROUPBOX        "",IDC_VICHNLSHOWHIDEGROUP,155,15,190,200
+    PUSHBUTTON      "Request",IDC_VICHNLSHOWHIDEREQUEST,164,196,50,14
+    CONTROL         "Show",IDC_VICHNLSHOWHIDERADIO_SHOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,170,33,33,10
+    CONTROL         "Hide",IDC_VICHNLSHOWHIDERADIO_HIDE,"Button",BS_AUTORADIOBUTTON,170,49,30,10
+END
+
+IDD_CTRLFRM_VICHNLMERIT DIALOGEX 0, 0, 369, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_CTRLFRM_GASHOWHIDE DIALOGEX 0, 0, 369, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_GASHOWHIDELIST,"SysListView32",LVS_REPORT | LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,20,79,122,36,WS_EX_CLIENTEDGE
+    GROUPBOX        "",IDC_GASHOWHIDEGROUP,155,15,190,200
+    PUSHBUTTON      "Request",IDC_GASHOWHIDEREQUEST,164,196,50,14
+    CONTROL         "Show",IDC_GASHOWHIDERADIO_SHOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,170,33,33,10
+    CONTROL         "Hide",IDC_GASHOWHIDERADIO_HIDE,"Button",BS_AUTORADIOBUTTON,170,49,30,10
+END
+
+IDD_CTRLFRM_GAMERIT DIALOGEX 0, 0, 369, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_CTRLFRM_WORLDUSERLIMIT DIALOGEX 0, 0, 369, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_BASEINFOFRM DIALOGEX 0, 0, 159, 137
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_INFOMERITLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,18,23,122,36,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_INFONTLCLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,18,73,122,36,WS_EX_CLIENTEDGE
+END
+
+IDD_CTRLFRM_PROCMAKEDUMP DIALOGEX 0, 0, 369, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROCMAKEDUMPLIST,"SysListView32",LVS_REPORT | LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,20,79,122,36,WS_EX_CLIENTEDGE
+    GROUPBOX        "",IDC_PROCMAKEDUMPGROUP,155,15,190,200
+    PUSHBUTTON      "Request",IDC_PROCMAKEDUMPREQUEST,164,196,50,14
+END
+
+IDD_PARDLG DIALOGEX 0, 0, 680, 49
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    RTEXT           "Total User Count : ",IDC_STATIC,0,22,73,8
+    EDITTEXT        IDC_MDB_TOTAL_USERCOUNT,81,23,52,12,ES_CENTER | ES_READONLY
+    RTEXT           "Total Server Count : ",IDC_STATIC,7,36,70,8
+    EDITTEXT        IDC_MDB_TOTAL_SERVERCOUNT,81,37,52,12,ES_CENTER | ES_READONLY
+    GROUPBOX        "",IDC_STATIC,346,0,204,45,BS_CENTER
+    PUSHBUTTON      "Connect",IDC_MDB_CONNECTBUTTON,350,10,35,29,BS_ICON
+    PUSHBUTTON      "Error Log",IDC_MDB_ERRORLOGBUTTON,389,10,35,29,BS_ICON
+    PUSHBUTTON      "Refresh",IDC_MDB_REFRESHWORLDINFO,430,10,35,29,BS_ICON
+    COMBOBOX        IDC_COMBO_PROCESSTYPE,144,23,56,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Start",IDC_START_PROCESS,206,11,41,28
+    PUSHBUTTON      "Stop All",IDC_STOP_PROCESS,250,11,41,28
+    GROUPBOX        "",IDC_STATIC,138,0,204,45,BS_CENTER
+    PUSHBUTTON      "Stop DB",IDC_STOPFORCE_PROCESS,294,11,41,28
+    CTEXT           "Process Type",IDC_STATIC,146,12,51,8
+    GROUPBOX        "",IDC_STATIC,553,0,98,45,BS_CENTER
+    CTEXT           "Log Days",IDC_STATIC,557,6,41,8
+    EDITTEXT        IDC_EDIT_LOGDAYS,559,16,40,14,ES_CENTER | ES_AUTOHSCROLL
+    PUSHBUTTON      "Report",IDC_EXCEPT_REPORT,604,16,41,14
+    CTEXT           "Status",IDC_STATIC_REPORTSTATUS,558,33,87,8
+    PUSHBUTTON      "Reset Delay",IDC_MDB_RESETDELAYCOUNT,469,10,35,29,BS_ICON | BS_CENTER | BS_MULTILINE
+    PUSHBUTTON      "Change PassWD",IDC_MDB_CHANGEPW,508,10,35,29,BS_ICON | BS_CENTER | BS_MULTILINE
+    CTEXT           "RLKT LABS",IDC_STATIC,20,2,111,15,WS_BORDER,WS_EX_DLGMODALFRAME | WS_EX_STATICEDGE
+END
+
+IDD_CHGPWDLG DIALOGEX 0, 0, 147, 101
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Change Password"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,74,68,50,14
+    DEFPUSHBUTTON   "Summit",IDSUMMIT,17,69,50,14
+    COMBOBOX        IDC_COMBO_USERNAME,25,17,93,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_PASSWORD,26,45,92,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Eyedentity Games"
+            VALUE "FileDescription", "DragonNest Service Monitor"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "DragonNest Service Monitor"
+            VALUE "LegalCopyright", "(c) Eyedentity Games.  All rights reserved."
+            VALUE "OriginalFilename", "ServiceMonitor.exe"
+            VALUE "ProductName", "DragonNest Service Monitor"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_IMG_LARGE           BITMAP                  "res\\img_larg.bmp"
+IDB_IMG_SMALL           BITMAP                  "res\\img_smal.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PARDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 651
+    END
+
+    IDD_CHGPWDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 140
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "DragonNest Integration Service Monitor"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "ServiceMonitor"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOTALSTATUSBAR  "Show or hide Total Status Bar\nToggle Total Status Bar"
+END
+
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\ServiceMonitor.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

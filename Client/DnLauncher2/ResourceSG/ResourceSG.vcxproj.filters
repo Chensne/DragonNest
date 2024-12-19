@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\IMAGE">
+      <UniqueIdentifier>{38d20c27-9ad4-4a2d-830e-d8d61efe662e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\XML">
+      <UniqueIdentifier>{d4270479-2e50-42d4-a82e-d39a2b2ce283}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ResourceInit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceInit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\DnLauncher.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\ResourceSG.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Image\CancelButton.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\CancelButtonClick.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\CancelButtonOn.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\CloseButton.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\CloseButtonClick.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\CloseButtonOn.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\MinimumButton.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\MinimumButtonClick.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\MinimumButtonOn.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\OptionButton.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\OptionButtonClick.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\OptionButtonOn.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\PatchBackBase.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\ProgressBarCount.bmp">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\ProgressBarDownload.bmp">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\StartButton.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\StartButtonClick.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Image\StartButtonOn.jpg">
+      <Filter>Resource Files\IMAGE</Filter>
+    </None>
+    <None Include="res\Xml\ControlPositionList.xml">
+      <Filter>Resource Files\XML</Filter>
+    </None>
+    <None Include="res\Xml\FirstPatchControlData.xml">
+      <Filter>Resource Files\XML</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ResourceSG.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

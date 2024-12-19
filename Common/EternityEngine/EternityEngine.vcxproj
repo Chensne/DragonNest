@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_DLL|Win32">
+      <Configuration>Debug_DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RDebug|Win32">
+      <Configuration>RDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_DLL|Win32">
+      <Configuration>Release_DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{08B1C088-A234-4530-BAEB-79F49F2E4881}</ProjectGuid>
+    <RootNamespace>TornadoEngine</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RDebug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Out\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Out\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\release\librarys\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\release\temps\EternityEngine\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">Out\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">Out\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">Out\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">Out\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RDebug|Win32'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RDebug|Win32'">$(Configuration)\</IntDir>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IncludePath);$(SolutionDir)..\..\Third\dx9sdk\dx9sdk\dx9sdk\Include</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(LibraryPath);$(SolutionDir)..\..\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">
+    <IncludePath>E:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\Source;F:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\lib\vc80;F:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP8 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../Utility;../EngineUtil;../EtResManager;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;DEVICE=D3D9;%(PreprocessorDefinitions);_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)D.lib</OutputFile>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>../Utility;../EngineUtil;../EtResManager;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;DEVICE=D3D9;%(PreprocessorDefinitions);_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP8 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../Utility;../EngineUtil;../EtResManager;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;DEVICE=D3D9;%(PreprocessorDefinitions);_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)D.lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>../Utility;../EngineUtil;../EtResManager;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;DEVICE=D3D9;%(PreprocessorDefinitions);_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RDebug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP8 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>../Utility;../EngineUtil;../EtResManager;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;DEVICE=D3D9;_RDEBUG;%(PreprocessorDefinitions);_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="EtBenchMark.cpp" />
+    <ClCompile Include="EtEngine.cpp" />
+    <ClCompile Include="EternityEngine.cpp" />
+    <ClCompile Include="EtInstancingMng.cpp" />
+    <ClCompile Include="EtOcclusionMng.cpp" />
+    <ClCompile Include="EtRenderStack.cpp" />
+    <ClCompile Include="EtRTTRenderer.cpp" />
+    <ClCompile Include="EtSkyBoxRTT.cpp" />
+    <ClCompile Include="EtError.cpp" />
+    <ClCompile Include="HighResolutionCapture.cpp" />
+    <ClCompile Include="LostDeviceProcess.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RDebug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="EtAni.cpp" />
+    <ClCompile Include="EtAniKey.cpp" />
+    <ClCompile Include="EtBone.cpp" />
+    <ClCompile Include="EtGenerateCollisionMesh.cpp" />
+    <ClCompile Include="EtLoader.cpp" />
+    <ClCompile Include="EtMergedSkin.cpp" />
+    <ClCompile Include="EtMesh.cpp" />
+    <ClCompile Include="EtResource.cpp" />
+    <ClCompile Include="EtSkin.cpp" />
+    <ClCompile Include="EtSkinInstance.cpp" />
+    <ClCompile Include="EtSubMesh.cpp" />
+    <ClCompile Include="EtAniObject.cpp" />
+    <ClCompile Include="EtCamera.cpp" />
+    <ClCompile Include="EtCollisionEntity.cpp" />
+    <ClCompile Include="EtLight.cpp" />
+    <ClCompile Include="EtObject.cpp" />
+    <ClCompile Include="EtSaveMat.cpp" />
+    <ClCompile Include="EtSpring.cpp" />
+    <ClCompile Include="EtCustomRender.cpp" />
+    <ClCompile Include="EtDrawQuad.cpp" />
+    <ClCompile Include="EtPrimitiveDraw.cpp" />
+    <ClCompile Include="EtSprite.cpp" />
+    <ClCompile Include="EtTextDraw.cpp" />
+    <ClCompile Include="EtGrassBlock.cpp" />
+    <ClCompile Include="EtLayeredMultiUVTerrain.cpp" />
+    <ClCompile Include="EtTerrain.cpp" />
+    <ClCompile Include="EtTerrainArea.cpp" />
+    <ClCompile Include="EtWater.cpp" />
+    <ClCompile Include="EtLiSPShadowMap.cpp" />
+    <ClCompile Include="EtShadowMap.cpp" />
+    <ClCompile Include="EtTrapezoidShadowMap.cpp" />
+    <ClCompile Include="EtBackBufferMng.cpp" />
+    <ClCompile Include="EtMRTMng.cpp" />
+    <ClCompile Include="EtPostProcessFilter.cpp" />
+    <ClCompile Include="EtPostProcessMng.cpp" />
+    <ClCompile Include="EtBloomFilter.cpp" />
+    <ClCompile Include="EtCameraBlurFilter.cpp" />
+    <ClCompile Include="EtColorAdjustFilter.cpp" />
+    <ClCompile Include="EtColorAdjustTexFilter.cpp" />
+    <ClCompile Include="EtDOFFilter.cpp" />
+    <ClCompile Include="EtGaussianFilter.cpp" />
+    <ClCompile Include="EtHeatHazeFilter.cpp" />
+    <ClCompile Include="EtLightShaftFilter.cpp" />
+    <ClCompile Include="EtMotionBlurFilter.cpp" />
+    <ClCompile Include="EtOutlineFilter.cpp" />
+    <ClCompile Include="EtRadialBlurFilter.cpp" />
+    <ClCompile Include="EtTransitionFilter.cpp" />
+    <ClCompile Include="EtWaterColorFilter.cpp" />
+    <ClCompile Include="EnvInfo.cpp" />
+    <ClCompile Include="EtBaseEffect.cpp" />
+    <ClCompile Include="EtBillboardEffect.cpp" />
+    <ClCompile Include="EtBillboardEffectData.cpp" />
+    <ClCompile Include="EtBillboardEffectEmitter.cpp" />
+    <ClCompile Include="EtDecal.cpp" />
+    <ClCompile Include="EtEffectData.cpp" />
+    <ClCompile Include="EtEffectDataContainer.cpp" />
+    <ClCompile Include="EtEffectElement.cpp" />
+    <ClCompile Include="EtEffectHelper.cpp" />
+    <ClCompile Include="EtEffectObject.cpp" />
+    <ClCompile Include="EtEffectTrail.cpp" />
+    <ClCompile Include="EtLensFlare.cpp" />
+    <ClCompile Include="EtLineEffect.cpp" />
+    <ClCompile Include="EtLineTrailEffect.cpp" />
+    <ClCompile Include="EtRainDropSplash.cpp" />
+    <ClCompile Include="EtRainEffect.cpp" />
+    <ClCompile Include="EtSnowEffect.cpp" />
+    <ClCompile Include="EtSwordTrail.cpp" />
+    <ClCompile Include="EtVolumeFog.cpp" />
+    <ClCompile Include="EtOptionController.cpp" />
+    <ClCompile Include="EtCollisionMng.cpp" />
+    <ClCompile Include="EtDefine.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EtBenchMark.h" />
+    <ClInclude Include="EtEngine.h" />
+    <ClInclude Include="EternityEngine.h" />
+    <ClInclude Include="EtInstancingMng.h" />
+    <ClInclude Include="EtOcclusionMng.h" />
+    <ClInclude Include="EtRenderStack.h" />
+    <ClInclude Include="EtRTTRenderer.h" />
+    <ClInclude Include="EtSkyBoxRTT.h" />
+    <ClInclude Include="EtType.h" />
+    <ClInclude Include="EtError.h" />
+    <ClInclude Include="HighResolutionCapture.h" />
+    <ClInclude Include="LostDeviceProcess.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="EtAni.h" />
+    <ClInclude Include="EtAniKey.h" />
+    <ClInclude Include="EtBone.h" />
+    <ClInclude Include="EtGenerateCollisionMesh.h" />
+    <ClInclude Include="EtLoader.h" />
+    <ClInclude Include="EtMergedSkin.h" />
+    <ClInclude Include="EtMesh.h" />
+    <ClInclude Include="EtResource.h" />
+    <ClInclude Include="EtSkin.h" />
+    <ClInclude Include="EtSkinInstance.h" />
+    <ClInclude Include="EtSubMesh.h" />
+    <ClInclude Include="EtAniObject.h" />
+    <ClInclude Include="EtCamera.h" />
+    <ClInclude Include="EtCollisionEntity.h" />
+    <ClInclude Include="EtLight.h" />
+    <ClInclude Include="EtObject.h" />
+    <ClInclude Include="EtSaveMat.h" />
+    <ClInclude Include="EtSpring.h" />
+    <ClInclude Include="EtCustomRender.h" />
+    <ClInclude Include="EtDrawQuad.h" />
+    <ClInclude Include="EtPrimitiveDraw.h" />
+    <ClInclude Include="EtSprite.h" />
+    <ClInclude Include="EtTextDraw.h" />
+    <ClInclude Include="EtGrassBlock.h" />
+    <ClInclude Include="EtLayeredMultiUVTerrain.h" />
+    <ClInclude Include="EtTerrain.h" />
+    <ClInclude Include="EtTerrainArea.h" />
+    <ClInclude Include="EtWater.h" />
+    <ClInclude Include="EtLiSPShadowMap.h" />
+    <ClInclude Include="EtShadowMap.h" />
+    <ClInclude Include="EtTrapezoidShadowMap.h" />
+    <ClInclude Include="EtBackBufferMng.h" />
+    <ClInclude Include="EtMRTMng.h" />
+    <ClInclude Include="EtPostProcessFilter.h" />
+    <ClInclude Include="EtPostProcessMng.h" />
+    <ClInclude Include="EtBloomFilter.h" />
+    <ClInclude Include="EtCameraBlurFilter.h" />
+    <ClInclude Include="EtColorAdjustFilter.h" />
+    <ClInclude Include="EtColorAdjustTexFilter.h" />
+    <ClInclude Include="EtDOFFilter.h" />
+    <ClInclude Include="EtGaussianFilter.h" />
+    <ClInclude Include="EtHeatHazeFilter.h" />
+    <ClInclude Include="EtLightShaftFilter.h" />
+    <ClInclude Include="EtMotionBlurFilter.h" />
+    <ClInclude Include="EtOutlineFilter.h" />
+    <ClInclude Include="EtRadialBlurFilter.h" />
+    <ClInclude Include="EtTransitionFilter.h" />
+    <ClInclude Include="EtWaterColorFilter.h" />
+    <ClInclude Include="EnvInfo.h" />
+    <ClInclude Include="EtBaseEffect.h" />
+    <ClInclude Include="EtBillboardEffect.h" />
+    <ClInclude Include="EtBillboardEffectData.h" />
+    <ClInclude Include="EtBillboardEffectEmitter.h" />
+    <ClInclude Include="EtDecal.h" />
+    <ClInclude Include="EtEffectData.h" />
+    <ClInclude Include="EtEffectDataContainer.h" />
+    <ClInclude Include="EtEffectElement.h" />
+    <ClInclude Include="EtEffectHelper.h" />
+    <ClInclude Include="EtEffectObject.h" />
+    <ClInclude Include="EtEffectTrail.h" />
+    <ClInclude Include="EtLensFlare.h" />
+    <ClInclude Include="EtLineEffect.h" />
+    <ClInclude Include="EtLineTrailEffect.h" />
+    <ClInclude Include="EtRainDropSplash.h" />
+    <ClInclude Include="EtRainEffect.h" />
+    <ClInclude Include="EtSnowEffect.h" />
+    <ClInclude Include="EtSwordTrail.h" />
+    <ClInclude Include="EtVolumeFog.h" />
+    <ClInclude Include="EtOptionController.h" />
+    <ClInclude Include="EtCollisionMng.h" />
+    <ClInclude Include="EtDefine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

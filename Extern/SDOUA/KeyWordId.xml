@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<KeyWordIdList>
+	<KeyWordId>ServerAddr:1</KeyWordId>
+	<KeyWordId>SignKey:2</KeyWordId>
+	<KeyWordId>SocPwd:3</KeyWordId>
+	<KeyWordId>SpId:4</KeyWordId>
+	<KeyWordId>ServerId:5</KeyWordId>
+	<KeyWordId>AreaId:6</KeyWordId>
+	<KeyWordId>GroupId:7</KeyWordId>
+	<KeyWordId>HostId:8</KeyWordId>
+	<KeyWordId>SiteCode:9</KeyWordId>
+	<KeyWordId>Ip:10</KeyWordId>
+	<KeyWordId>Port:11</KeyWordId>
+</KeyWordIdList>

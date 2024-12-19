@@ -1,0 +1,146 @@
+﻿<html>
+<head>
+<script type="text/javascript">
+    function AddChannel(channelID, name) {
+        return;
+        var sTable = document.getElementById("sTable");
+        var trChannel = document.getElementById("trChannel");
+        var tdChannel = trChannel.insertCell(trChannel.cells.length);
+        tdChannel.setAttribute("vAlign", "top");
+        
+        if (trChannel.cells.length == 0)
+            tdWidth = 100;
+        else {
+            tdWidth = 100 / trChannel.cells.length;
+            for (i = 0; i < trChannel.cells.length; i++) {
+                trChannel.cells(i).setAttribute("width", tdWidth + '%');
+            }
+        }
+        tdChannel.setAttribute("width", tdWidth + '%');
+        
+        var table = document.createElement("table");
+        table.id = "channe_" + channelID;
+        table.setAttribute("border", "1");
+        table.style.width = '100%';
+        
+        var table_tr = table.insertRow(0);
+        var table_tr_td = table_tr.insertCell(0);
+        table_tr_td.id = table.id + "_" + channelID;
+        
+        table_tr_td.setAttribute("colSpan", "2");
+        table_tr_td.setAttribute("align", "center");
+        
+        var span = document.createElement("span");
+        span.innerText = name
+
+        var btn = document.createElement("button");
+        btn.value = name;
+
+        table_tr_td.appendChild(span);
+        tdChannel.appendChild(table);
+    }
+
+    function UpdateServer(channelID, serverID, connectGubun) {
+        var liServer = document.getElementById("server_" + channelID + "_" + serverID);
+        
+        if (liServer == null) {
+            alert("??? ?? ? ????.");
+            return;
+        }
+        
+        var htmlConnectGubun = "";
+
+        if (connectGubun == "1")
+            htmlConnectGubun = "status_b";
+        else if (connectGubun == "2")
+            htmlConnectGubun = "status_y";
+        else if (connectGubun == "3")
+            htmlConnectGubun = "status_r";    
+        
+        liServer.innerHTML = liServer.innerHTML.replace("B class=status_b", "B class=" + htmlConnectGubun);
+        liServer.innerHTML = liServer.innerHTML.replace("B class=status_y", "B class=" + htmlConnectGubun);
+        liServer.innerHTML = liServer.innerHTML.replace("B class=status_r", "B class=" + htmlConnectGubun);
+    }
+    
+    function AddSever(channelID, serverID, name, connectGubun, newServer, preSelServer) {
+        var tbChannel = document.getElementById("channel_" + channelID);
+        if (tbChannel == null) {
+            alert("??? ?? ? ????.");
+            return;
+        }
+
+        var htmlConnectGubun = "";
+        var htmlNewServer = "";
+        var htmlPreSelServer = "#";
+        
+        if (connectGubun == "1")
+            htmlConnectGubun = "status_b";
+        else if (connectGubun == "2")
+            htmlConnectGubun = "status_y";
+        else if (connectGubun == "3")
+            htmlConnectGubun = "status_r";
+        
+        if (newServer == "1")
+            htmlNewServer = "<em></em>";
+
+        var liServer = document.createElement("li");
+        liServer.id = "server_" + channelID + "_" + serverID;
+
+        if (preSelServer == "1") {
+            htmlPreSelServer = "Current";
+            selectServer(channelID, serverID, name);
+        }
+
+        liServer.innerHTML = "<b class='" + htmlConnectGubun + "'></b><a href=\"#\" class=" + htmlPreSelServer + " onclick=\"selectServer(" + channelID + ", " + serverID + ", '" + name + "');\">" + name + "</a>" + htmlNewServer;
+        tbChannel.appendChild(liServer);
+        return;
+    }
+
+    var selchannelID = 0;
+    var selServerID = 0;
+    var selServerName = "";
+
+    function selectServer(channelID, serverID, serverName) {
+        var oldliServer = document.getElementById("server_" + selchannelID + "_" + selServerID);
+        if (oldliServer != null)
+            oldliServer.innerHTML = oldliServer.innerHTML.replace("<A class=Current", "<A class=#");
+
+        selchannelID = channelID;
+        selServerID = serverID;
+        selServerName = serverName;
+
+        var liServer = document.getElementById("server_" + channelID + "_" + serverID);
+        if (liServer != null)
+            liServer.innerHTML = liServer.innerHTML.replace("<A class=#", "<A class=Current");
+        
+        document.getElementById("txtServer").value = serverName;
+        document.getElementById("btnServer").setAttribute("serverID", serverID);
+        document.getElementById("btnServer").setAttribute("channelID", channelID);
+    }
+</script>
+<link rel="stylesheet" type="text/css" href="css/global.css"/>
+<link rel="stylesheet" type="text/css" href="css/home.css"/>
+</head>
+<body scroll=auto>
+<div class="launcherBox" id="Divid">
+	<div class="area1">
+		<ul class="serverList" id="channel_1"></ul>
+	</div>
+	<div class="area2">
+		<ul class="serverList" id="channel_2"></ul>
+	</div>
+	<div class="area1_recommend">
+		<ul class="serverList" id="channel_3"></ul>
+	</div>
+	<div class="area2_recommend">
+		<ul class="serverList" id="channel_4"></ul>
+	</div>	
+	<div class="currentChoice">
+		<ul class="gameInfo">
+			<li class="btn2"><a href="#" id="btnServer" serverID="0" channelID="0"></a></li>
+		</ul>
+		<input type="text" class="txtSty" id="txtServer" value="" readonly />
+	</div>	
+</div>
+</body>
+</html>

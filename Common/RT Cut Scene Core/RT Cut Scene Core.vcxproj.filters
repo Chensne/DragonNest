@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{b070ea90-637a-41b3-800f-4dee28b4c148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Data">
+      <UniqueIdentifier>{e7564074-cd20-4058-8521-13cf2f4c2f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Sequence Player">
+      <UniqueIdentifier>{6f16e424-953d-41bb-b24d-742de15f2d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\script">
+      <UniqueIdentifier>{f045e2f3-e5aa-4c2e-9194-f80016459183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Use Eternity">
+      <UniqueIdentifier>{d4a32ade-0836-4ad4-895f-9e59af45828d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Use Eternity\Actor">
+      <UniqueIdentifier>{13dc8b16-893f-4443-adcc-b25a055e6f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Use Eternity\Actor\ActionBase">
+      <UniqueIdentifier>{5f690e32-294d-4eb4-ab33-bdf1b95cb22a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Use Eternity\Camera">
+      <UniqueIdentifier>{00b408d7-c98c-49ee-99db-a5f63374fe53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Use Eternity\WorldBase">
+      <UniqueIdentifier>{814c058b-6b9a-4918-b3ee-a1aa6b5f7303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Use Eternity\WorldBase\World">
+      <UniqueIdentifier>{5f8b9ad2-8773-4bc6-9e17-b70b7abd81da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Use Eternity\WorldBase\World\Prop">
+      <UniqueIdentifier>{42291878-f583-4baa-94bf-caa905215fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LuaDelegate">
+      <UniqueIdentifier>{1e95877a-b4fe-46ce-b7dd-599eddecf5fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DnCutSceneData.cpp">
+      <Filter>Core\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="IDnCutSceneDataModifier.cpp">
+      <Filter>Core\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="IDnCutSceneDataReader.cpp">
+      <Filter>Core\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutScenePlayer.cpp">
+      <Filter>Core\Sequence Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ICustomActorProcessor.cpp">
+      <Filter>Core\Sequence Player</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneTable.cpp">
+      <Filter>Use Eternity</Filter>
+    </ClCompile>
+    <ClCompile Include="IDnCutSceneRenderObject.cpp">
+      <Filter>Use Eternity</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneActor.cpp">
+      <Filter>Use Eternity\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneWeapon.cpp">
+      <Filter>Use Eternity\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneActionBase.cpp">
+      <Filter>Use Eternity\Actor\ActionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraData.cpp">
+      <Filter>Use Eternity\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneWorld.cpp">
+      <Filter>Use Eternity\WorldBase\World</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneWorldGrid.cpp">
+      <Filter>Use Eternity\WorldBase\World</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneWorldSector.cpp">
+      <Filter>Use Eternity\WorldBase\World</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneActProp.cpp">
+      <Filter>Use Eternity\WorldBase\World\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneLightProp.cpp">
+      <Filter>Use Eternity\WorldBase\World\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="DnCutSceneWorldProp.cpp">
+      <Filter>Use Eternity\WorldBase\World\Prop</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaDebugger.cpp">
+      <Filter>LuaDelegate</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaDelegate.cpp">
+      <Filter>LuaDelegate</Filter>
+    </ClCompile>
+    <ClCompile Include="IResourcePathFinder.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DnCutSceneData.h">
+      <Filter>Core\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="IDnCutSceneDataModifier.h">
+      <Filter>Core\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="IDnCutSceneDataReader.h">
+      <Filter>Core\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutScenePlayer.h">
+      <Filter>Core\Sequence Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ICustomActorProcessor.h">
+      <Filter>Core\Sequence Player</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneTable.h">
+      <Filter>Use Eternity</Filter>
+    </ClInclude>
+    <ClInclude Include="IDnCutSceneRenderObject.h">
+      <Filter>Use Eternity</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneActor.h">
+      <Filter>Use Eternity\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneWeapon.h">
+      <Filter>Use Eternity\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneActionBase.h">
+      <Filter>Use Eternity\Actor\ActionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\SignalHeader.h">
+      <Filter>Use Eternity\Actor\ActionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraData.h">
+      <Filter>Use Eternity\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneWorld.h">
+      <Filter>Use Eternity\WorldBase\World</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneWorldGrid.h">
+      <Filter>Use Eternity\WorldBase\World</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneWorldSector.h">
+      <Filter>Use Eternity\WorldBase\World</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneActProp.h">
+      <Filter>Use Eternity\WorldBase\World\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneLightProp.h">
+      <Filter>Use Eternity\WorldBase\World\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="DnCutSceneWorldProp.h">
+      <Filter>Use Eternity\WorldBase\World\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\GameCommon\PropHeader.h">
+      <Filter>Use Eternity\WorldBase\World\Prop</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaDebugger.h">
+      <Filter>LuaDelegate</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaDelegate.h">
+      <Filter>LuaDelegate</Filter>
+    </ClInclude>
+    <ClInclude Include="IResourcePathFinder.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="luaUtil.lua">
+      <Filter>Core\script</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

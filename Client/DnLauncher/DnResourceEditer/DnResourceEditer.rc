@@ -1,0 +1,431 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\DnResourceEditer.rc2""  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.\r\n"
+    "#include ""afxres.rc""     // 표준 구성 요소입니다.\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\DnResourceEditer.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DnResourceEditer 정보"
+FONT 9, "MS 셸 대화 상자", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "리소스 수정툴 많이 허접함.. ",IDC_STATIC,40,13,119,8,SS_NOPREFIX
+    LTEXT           "eyedentity만세",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "확인",IDOK,171,21,50,16,WS_GROUP
+END
+
+IDD_DNRESOURCEEDITER_DIALOG DIALOGEX 0, 0, 146, 88
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "런처 뒷배경을 선택해주세요"
+FONT 9, "MS 셸 대화 상자", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "배경 불러오기",IDC_BTN_NEWFILE,11,14,122,39
+    DEFPUSHBUTTON   "종료",IDOK,11,59,122,16
+END
+
+IDD_DNEDITLAUNCHERDLG DIALOGEX 0, 0, 520, 327
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "런처 리소스 편집 툴"
+MENU IDR_MENU_MAIN
+FONT 9, "MS Sans Serif, 굴림", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_TREE_CONTROL,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_CHECKBOXES | WS_BORDER | WS_TABSTOP,359,7,150,284,WS_EX_CLIENTEDGE | WS_EX_LEFTSCROLLBAR
+    PUSHBUTTON      "BtnStartGame",IDC_BUTTON_GAMESTART,12,199,50,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "BtnQuit",IDC_BUTTON_QUIT,12,185,50,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    CONTROL         "",IDC_CHECK_DIRECTSTART,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_DISABLED | WS_TABSTOP,13,138,9,8,WS_EX_TRANSPARENT
+    LTEXT           "Launcher Version",IDC_STATIC_LAUNCHER_VER,104,149,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Option",IDC_BUTTON_OPTION,12,212,50,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "WinCLose",IDC_BUTTON_WINCLOSE,12,226,50,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "WinMinimum",IDC_BUTTON_WINMINIMUM,12,240,50,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Select Partition",IDC_BUTTON_SELECT_PARTITION,12,269,63,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Start Patch",IDC_BUTTON_START_PATCH,12,254,63,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "FileCount",IDC_STATIC_FILECOUNT,104,161,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "FileName",IDC_STATIC_FILENAME,104,173,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "TimeLeft",IDC_STATIC_TIMELEFT,104,185,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "FileSize",IDC_STATIC_FILESIZE,104,197,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "Download Percente",IDC_STATIC_DOWNLOAD_PER,104,209,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "Download State",IDC_STATIC_DOWNLOAD_STATE,104,221,93,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "DirectStart",IDC_STATIC_DIRECTSTART_TEXT,104,233,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "Select Partition",IDC_STATIC_SELECT_PARTITION,104,253,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "Partition Name",IDC_STATIC_SELECT_PARTITION_NAME,104,266,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    LTEXT           "Partition Guide",IDC_STATIC_SELECT_PARTITION_GUIDE,104,279,68,8,NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    PUSHBUTTON      "",IDC_BUTTON_WEBPAGE,7,7,341,125,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "progress_Download",IDC_BUTTON_PROGRESS_DOWNLOAD,12,148,81,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "progress_Count",IDC_BUTTON_PROGRESS_COUNT,12,163,81,14,BS_BITMAP | NOT WS_VISIBLE | WS_DISABLED
+    CONTROL         "",IDC_PROGRESS_FILECOUNT,"msctls_progress32",NOT WS_VISIBLE | WS_DISABLED | WS_BORDER,276,259,80,14
+    CONTROL         "",IDC_PROGRESS_DOWNLOAD,"msctls_progress32",NOT WS_VISIBLE | WS_DISABLED | WS_BORDER,276,277,80,14
+END
+
+IDD_DIALOG_TEXTMODIFY DIALOGEX 0, 0, 163, 58
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "텍스트 변경"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,28,31,50,14
+    PUSHBUTTON      "취소",IDCANCEL,86,31,50,14
+    EDITTEXT        IDC_EDIT_TEXT,14,11,135,16,ES_AUTOHSCROLL | ES_NOHIDESEL
+END
+
+IDD_DIALOG_SCALE DIALOGEX 0, 0, 245, 147
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scale Window"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_SCALEX,44,43,61,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SCALEY,44,65,61,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_SLIDER_WIDTH,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | WS_TABSTOP,41,11,159,27
+    CONTROL         "",IDC_SLIDER_HEIGHT,"msctls_trackbar32",TBS_AUTOTICKS | TBS_VERT | TBS_BOTH | WS_TABSTOP,137,38,25,98
+    DEFPUSHBUTTON   "완료",IDOK,14,93,94,38
+    LTEXT           "Scale X :",IDC_STATIC,13,43,28,8
+    LTEXT           "Scale Y :",IDC_STATIC,13,65,28,8
+    LTEXT           "MIN : 50",IDC_STATIC,12,19,28,8
+    LTEXT           "MAX : 700",IDC_STATIC,204,19,34,8
+    LTEXT           "MIN : 5",IDC_STATIC,165,42,24,8
+    LTEXT           "MAX : 400",IDC_STATIC,165,119,40,8
+END
+
+IDD_DIALOG_CREATECTRL DIALOGEX 0, 0, 246, 99
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "컨트롤 생성창"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_ENUM,83,15,147,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RESOURCE_NAME,83,47,147,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "확인",IDOK,61,70,50,14
+    PUSHBUTTON      "취소",IDCANCEL,125,70,50,14
+    LTEXT           "Enum값 :",IDC_STATIC,21,18,31,11
+    LTEXT           "컨트롤 이름 :",IDC_STATIC,21,47,50,11
+END
+
+IDD_DIALOG_DYNAMIC_CREATE DIALOGEX 0, 0, 186, 93
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "컨트롤 생성창"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_ENUM_VALUE,82,15,87,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_CTRL_NAME,82,41,87,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "확인",IDOK,28,62,50,14
+    PUSHBUTTON      "취소",IDCANCEL,101,62,50,14
+    LTEXT           "Enum값 :",IDC_STATIC,23,18,31,8
+    LTEXT           "컨트롤 이름:",IDC_STATIC,22,44,46,8
+END
+
+IDD_DIALOG_HOWTO DIALOGEX 0, 0, 338, 143
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "주의사항"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,144,118,50,14
+    LTEXT           "2. MFC Control과 일치하는 Enum을 만들어둔다.",IDC_STATIC,19,67,255,8
+    LTEXT           "!! 주의사항 !!",IDC_STATIC,143,15,50,9
+    LTEXT           "1. DnLauncher에서, MFC Control(버튼,텍스트,프로그레시브바 등등)들을 미리 만들어둔 상태이여야 한다.",IDC_STATIC,19,46,301,17
+    LTEXT           "4. ReadMe.txt에 좀더 상세하게 설명이 되어 있습니다.",IDC_STATIC,19,91,255,8
+    LTEXT           "3. 리소스 툴에서는 Enum만 맞춰주면 된다.",IDC_STATIC,19,79,255,8
+    LTEXT           "만든이 : 안기홍",IDC_STATIC,20,30,55,8
+    LTEXT           "사용하시다가 문제가 생긴다면 말씀해주세요~",IDC_STATIC,19,106,187,8
+END
+
+IDD_DIALOG_SETRECT DIALOGEX 0, 0, 216, 75
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SET RECT.."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_SETRECT_1,16,25,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SETRECT_2,64,25,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SETRECT_3,112,25,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_SETRECT_4,160,25,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "확인",IDOK,49,49,50,14
+    PUSHBUTTON      "취소",IDCANCEL,109,49,50,14
+    CTEXT           "말 그대로 SetRect 기능입니다!",IDC_STATIC,14,10,183,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "TODO: <회사 이름>"
+            VALUE "FileDescription", "TODO: <파일 설명>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "DnResourceEditer.exe"
+            VALUE "LegalCopyright", "TODO: (c) <회사 이름>.  All rights reserved."
+            VALUE "OriginalFilename", "DnResourceEditer.exe"
+            VALUE "ProductName", "TODO: <제품 이름>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DNRESOURCEEDITER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 139
+        VERTGUIDE, 7
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_DNEDITLAUNCHERDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 513
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 320
+    END
+
+    IDD_DIALOG_TEXTMODIFY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    IDD_DIALOG_SCALE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_DIALOG_CREATECTRL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 239
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 92
+    END
+
+    IDD_DIALOG_DYNAMIC_CREATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_DIALOG_HOWTO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 331
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_DIALOG_SETRECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 68
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU_MODIFY MENU 
+BEGIN
+    POPUP "마우스 우클릭"
+    BEGIN
+        MENUITEM "이미지 불러오기.",                   ID_LOAD_IMAGE
+        MENUITEM SEPARATOR
+        MENUITEM "컨트롤 크기 설정.",                  ID_MENU_SCALE
+        MENUITEM "컨트롤 속성 수정.",                  ID_MENU_CTRLMODIFY
+        MENUITEM "컨트롤 Lock.",                   ID_CONTROL_LOCK
+        MENUITEM "컨트롤 UnLock.",                 ID_CONTROL_UNLOCK
+        MENUITEM SEPARATOR
+        MENUITEM "위치 초기화.",                     ID_MENU_POS_DEFAULT
+        MENUITEM "이미지 초기화.",                    ID_MENU_RESOURCE_RESET
+        MENUITEM SEPARATOR
+        MENUITEM "컨트롤 삭제.",                     ID_MENU_DELETE
+        MENUITEM "SetRect",                     ID_MENU_SETRECT
+    END
+END
+
+IDR_MENU_MAIN MENU 
+BEGIN
+    POPUP "파일(&F)"
+    BEGIN
+        MENUITEM "새로 만들기(&N)",                  ID_FILE_NEWFILE
+        MENUITEM "불러오기(&L)",                    ID_FILE_MAIN_LOAD
+        MENUITEM "저장하기(&S)",                    ID_FILE_MAIN_SAVE
+        MENUITEM "종료(&Q)",                      ID_FILE_MAIN_QUIT
+    END
+    POPUP "컨트롤 생성(&C)"
+    BEGIN
+        MENUITEM "버튼 만들기(&1)",                  ID_CREATE_BTN
+        MENUITEM "텍스트 만들기(&2)",                 ID_CREATE_STATICTEXT
+        MENUITEM "체크 박스 만들기(&3)",               ID_CREATE_CHECKBOX
+        MENUITEM "프로그레스바 만들기(&4)",              ID_CREATE_PROGRESS
+    END
+    POPUP "정보"
+    BEGIN
+        MENUITEM "정보",                          ID_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS 
+BEGIN
+    VK_F5,          ID_CREATE_BTN,          VIRTKEY, NOINVERT
+    VK_F6,          ID_CREATE_STATICTEXT,   VIRTKEY, NOINVERT
+    VK_F7,          ID_CREATE_PROGRESS,     VIRTKEY, NOINVERT
+    VK_F8,          ID_CREATE_CHECKBOX,     VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "DnResourceEditer 정보(&A)..."
+END
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\DnResourceEditer.rc2"  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.
+#include "afxres.rc"     // 표준 구성 요소입니다.
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

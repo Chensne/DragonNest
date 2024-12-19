@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gadget>
+	<name>修改密码</name>
+	<shortname>修密</shortname>
+	<namespace>snda.igw</namespace>
+	<version>1.0.0.0</version>
+	<author name="SNDA Corporation">
+		<info url="http://www.sdo.com" text="http://www.sdo.com"/>
+		<logo src="icon.png"/>
+	</author>
+	<copyright>© 2009</copyright>
+	<description>修改密码</description>
+	<icons>
+		<icon height="64" width="64" src="icon.png"/>
+		<icon height="32" width="32" src="icon32.png"/>
+		<icon height="21" width="21" src="icon21.png"/>
+	</icons>
+	<hosts>
+		<host name="sidebar">
+			<base type="html" apiVersion="1.0.0" src="http://ibw.pwd.sdo.com/IgwGetPwd/ChgPwdStepInputAcc.aspx?pwdchoose=chgpwd" width="455" height="350" clientwidth="455" clientheight="358" xul="WebBrowser.xml"/>
+			<permissions>full</permissions>
+			<platform minPlatformVersion="1.0"/>
+			<defaultImage src="drag.png"/>
+		</host>
+	</hosts>
+	<invisible>15</invisible>
+	<guid>{EBB46E24-C2D3-49AA-8D7E-1E4ACC72F7FE}</guid>
+</gadget>

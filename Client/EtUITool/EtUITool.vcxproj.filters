@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="MFC Base">
+      <UniqueIdentifier>{34dc0242-1c38-470f-8f15-7a4aca1f5510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainView">
+      <UniqueIdentifier>{22de3d5e-f63a-4966-ac5c-7f2857436882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PaneView">
+      <UniqueIdentifier>{8bfba4b9-9c0d-498d-a210-cc173d17597d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control">
+      <UniqueIdentifier>{ba816be5-8bf9-414c-8f66-02d038f1f8e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Additional Window Control\Xtreme">
+      <UniqueIdentifier>{849495aa-cd27-4047-b30d-210862c26499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog">
+      <UniqueIdentifier>{ffcceef4-346d-40e9-962e-e48c0ef6e6fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{d55aa902-040d-4101-a087-38bdcf215b26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderView">
+      <UniqueIdentifier>{b4f60b1c-6241-48ec-9911-68cfc4b21f54}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\AdobeTab.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bitmap2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EtUITool.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EtUITool.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\EtUIToolDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\layout_t.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EtUITool.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EtUITool.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIToolDoc.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EtUIToolView.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>MFC Base</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyView.cpp">
+      <Filter>MainView</Filter>
+    </ClCompile>
+    <ClCompile Include="LayoutView.cpp">
+      <Filter>MainView</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplateView.cpp">
+      <Filter>MainView</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlPropertyPaneView.cpp">
+      <Filter>PaneView</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplatePaneView.cpp">
+      <Filter>PaneView</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplatePropertyPaneView.cpp">
+      <Filter>PaneView</Filter>
+    </ClCompile>
+    <ClCompile Include="DockingPaneAdobeTheme.cpp">
+      <Filter>Additional Window Control\Xtreme</Filter>
+    </ClCompile>
+    <ClCompile Include="CompressCheckDlg.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomControlSelect.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogList.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="FontSetDlg.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="GetFontFile.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="GetNameValue.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="HotkeyDlg.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="Interval.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertiesDlg.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollBarSelect.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="StringSelect.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TabOrder.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplateNameDlg.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="GenTexture.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalValue.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="UIControlInfo.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="UIToolTemplate.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBase.cpp">
+      <Filter>RenderView</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EtUITool.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIToolDoc.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EtUIToolView.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>MFC Base</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyView.h">
+      <Filter>MainView</Filter>
+    </ClInclude>
+    <ClInclude Include="LayoutView.h">
+      <Filter>MainView</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateView.h">
+      <Filter>MainView</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlPropertyPaneView.h">
+      <Filter>PaneView</Filter>
+    </ClInclude>
+    <ClInclude Include="PaneDefine.h">
+      <Filter>PaneView</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplatePaneView.h">
+      <Filter>PaneView</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplatePropertyPaneView.h">
+      <Filter>PaneView</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingPaneAdobeTheme.h">
+      <Filter>Additional Window Control\Xtreme</Filter>
+    </ClInclude>
+    <ClInclude Include="CompressCheckDlg.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomControlSelect.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogList.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="FontSetDlg.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="GetFontFile.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="GetNameValue.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="HotkeyDlg.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="Interval.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertiesDlg.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollBarSelect.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="StringSelect.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="TabOrder.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateNameDlg.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="GenTexture.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalValue.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="UIControlInfo.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="UIControlInfoOld.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="UIToolTemplate.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="undo.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBase.h">
+      <Filter>RenderView</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerView.h" />
+  </ItemGroup>
+</Project>

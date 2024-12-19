@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xul majorVer="1" minorVer="0" type="wg2d">
+	<view name="WebBrowser" type="TScriptFullIEForm" caption="" left="270" top="80" width="266" height="315" skin="" allowResize="0" candock="false" miniheight="315" miniwidth="266" margin="(0, 30, 0, 0)" floatbuttonstatus="0" contentcandrag="false" contenttransparent="false" contentcolor="#FFFFFFFF" >
+		<label type="" left="0" top="0" width="150" height="30" name="formCaption" skin="|bg_igwSetFormlblsoundCaption|" fontname="|CaptionFont|" alignment="taLeftJustify" canactivate="true" cannotifydrag="true"  textcolor="$FF000000" ellipsisposition="epEndEllipsis" layout="llCenter" textindent="15"/>
+		<button type="" left="31" top="6" width="70" height="22" skin="|btn_normal_70x22|" name="btnFormClose" onclick="btnFormCloseOnClick(Self)" caption="return to game" alignment="taCenter" canactivate="true" layout="llCenter" textcolor="$FF000000"/>
+	</view>
+	<script src="FullScrWebBrowser.js"/>
+</xul>

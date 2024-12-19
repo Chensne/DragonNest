@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui>
+    <window      id="ui.edit.bar">
+        <windowframe id="frame.bar"   rect="0,0,500,140"  drag="true">
+            <button id="frame.caption"  rect="0,0,500,20" hit-ignore="true"  text="标题栏"  image-id="img/uimain/gplus_barbg" />"
+            <button      id="bar.refresh"  rect="0,21,80,20" image-id="img/uimain/gplus_barbg" text-tips="refresh xml files" text="refresh"/>"
+            <edit        id="bar.file"     rect="82,21,420,20"   text-tips="xml files path"/>
+            <multiedit   id="bar.output"   rect="0,41,500,100"  text-tips="xml files output"/>
+        </windowframe>
+    </window>
+</ui>

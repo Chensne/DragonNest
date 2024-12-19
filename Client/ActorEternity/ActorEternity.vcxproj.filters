@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{db0384ce-c829-43fc-b527-14a80414d193}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ActorEternity.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ActorEternity.cpp" />
+    <ClCompile Include="AtgStrip.cpp" />
+    <ClCompile Include="DllEntry.cpp" />
+    <ClCompile Include="DumpUtil.cpp" />
+    <ClCompile Include="ExportUtil.cpp" />
+    <ClCompile Include="SaveAni.cpp" />
+    <ClCompile Include="SaveCamera.cpp" />
+    <ClCompile Include="SaveMesh.cpp" />
+    <ClCompile Include="SaveSkin.cpp" />
+    <ClCompile Include="Stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ActorEternity.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ActorEternity.h" />
+    <ClInclude Include="AtgStrip.h" />
+    <ClInclude Include="CollisionPrimitive.h" />
+    <ClInclude Include="DumpUtil.h" />
+    <ClInclude Include="ExportUtil.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SaveAni.h" />
+    <ClInclude Include="SaveCamera.h" />
+    <ClInclude Include="SaveMesh.h" />
+    <ClInclude Include="SaveSkin.h" />
+    <ClInclude Include="Stdafx.h" />
+  </ItemGroup>
+</Project>

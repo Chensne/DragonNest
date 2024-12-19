@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Tool\EditDialog">
+      <UniqueIdentifier>{e8db23f1-84b1-4e5f-b06c-bd218e78575c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tool\EditDialog\Child Dialog">
+      <UniqueIdentifier>{20aa1db7-6740-45b8-a837-06f1efd488bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tool\EditDialog\Main Dialog">
+      <UniqueIdentifier>{e2f28350-0614-47cb-b495-8b16c01f332a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tool\ControlManager Class">
+      <UniqueIdentifier>{912c6952-30f2-4746-b1b7-c2f54da1370a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Extern">
+      <UniqueIdentifier>{3ec4f034-f1c4-4076-bd68-764bf549ec0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extern\CxImage">
+      <UniqueIdentifier>{e7a06965-22ce-4775-9edd-01fdd2c3a3f8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DnResourceEditer.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="DnResourceEditerDlg.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="DnAboutDlg.cpp">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DnDynamicCtrl.cpp">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DnScaleDlg.cpp">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DnSetRectDlg.cpp">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DnTextModifyDlg.cpp">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DnEditLauncherDlg.cpp">
+      <Filter>Tool\EditDialog\Main Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="DnControlManager.cpp">
+      <Filter>Tool\ControlManager Class</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DnResourceEditer.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="DnResourceEditerDlg.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="DnAboutDlg.h">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DnDynamicCtrl.h">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DnScaleDlg.h">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DnSetRectDlg.h">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DnTextModifyDlg.h">
+      <Filter>Tool\EditDialog\Child Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DnEditLauncherDlg.h">
+      <Filter>Tool\EditDialog\Main Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="DnControlManager.h">
+      <Filter>Tool\ControlManager Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>리소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\xfile.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximabmp.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximacfg.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximadef.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximage.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximagif.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximaico.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximaiter.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximajas.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximajbg.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximajpg.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximamng.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximapcx.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximapng.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximaraw.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximaska.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximatga.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximath.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximatif.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximawbmp.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\ximawmf.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\xiofile.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Extern\CxImage\xmemfile.h">
+      <Filter>Extern\CxImage</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\DnResourceEditer.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DnResourceEditer.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\DnResourceEditer.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

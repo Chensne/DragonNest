@@ -1,0 +1,1082 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 한국어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#include ""res\\EtActionTool.rc2""  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.\r\n"
+    "#include ""afxres.rc""         // 표준 구성 요소입니다.\r\n"
+    "#include ""afxprint.rc""       // 인쇄 미리 보기 리소스\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\EtActionTool.ico"
+IDR_EtActionToolTYPE    ICON                    "res\\EtActionToolDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_ACTIONICON          BITMAP                  "res\\bitmap1.bmp"
+IDR_ACTION_TOOLBAR      BITMAP                  "res\\toolbar1.bmp"
+IDR_PLAY_TOOLBAR        BITMAP                  "res\\bmp00001.bmp"
+IDR_TEMP_TOOLBAR        BITMAP                  "res\\bmp00002.bmp"
+IDB_WIZARDBITMAP        BITMAP                  "res\\WizardImage.bmp"
+IDB_LIGHTICON           BITMAP                  "res\\bitmap2.bmp"
+IDB_CHECKIMAGE          BITMAP                  "res\\bmp00003.bmp"
+IDB_BITMAP4             BITMAP                  "res\\AdobeTab.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_ACTION_TOOLBAR TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_ACTION_ADD_ELEMENT
+    BUTTON      ID_ACTION_REMOVE_ELEMENT
+    SEPARATOR
+    BUTTON      ID_ACTION_ADD_DLG
+END
+
+IDR_PLAY_TOOLBAR TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_PLAY_REWIND
+    BUTTON      ID_PLAY_PREV
+    BUTTON      ID_PLAY_PLAY
+    BUTTON      ID_PLAY_NEXT
+    BUTTON      ID_PLAY_FOWARD
+    SEPARATOR
+    BUTTON      ID_PLAY_LOOP
+    SEPARATOR
+    BUTTON      ID_PLAY_RELOAD
+    SEPARATOR
+    BUTTON      ID_PLAY_FRAME
+    SEPARATOR
+    BUTTON      ID_PLAY_SLIDER
+END
+
+IDR_TEMP_TOOLBAR TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_PLAY_RESUME
+    BUTTON      ID_PLAY_NOLOOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "파일(&F)"
+    BEGIN
+        MENUITEM "Reset(&N)\tCtrl+N",           ID_FILE_NEW
+        MENUITEM "열기(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "저장(&S)\tCtrl+S",              ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "Export Action",               ID_FILE_EXPORT
+        MENUITEM "Import Action",               ID_FILE_IMPORT
+        MENUITEM SEPARATOR
+        MENUITEM "최근에 사용한 파일",                  ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "끝내기(&X)",                     ID_APP_EXIT
+    END
+    POPUP "편집(&E)"
+    BEGIN
+        MENUITEM "잘라내기(&T)\tCtrl+X",            ID_EDIT_CUT
+        MENUITEM "복사(&C)\tCtrl+C",              ID_EDIT_COPY
+        MENUITEM "붙여넣기(&P)\tCtrl+V",            ID_EDIT_PASTE
+        MENUITEM "삭제(&D)\tDel",                 ID_EDIT_REMOVE
+    END
+    POPUP "보기(&V)"
+    BEGIN
+        MENUITEM "도구 모음(&T)",                   ID_VIEW_TOOLBAR
+        MENUITEM "상태 표시줄(&S)",                  ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Signal Report",               ID_SIGNAL_REPORT
+        MENUITEM "Save Signal Report",          ID_SAVE_SIGNAL_REPORT
+    END
+    POPUP "설정(&S)"
+    BEGIN
+        MENUITEM "Signal Editer",               ID_SIGNAL_EDIT
+        MENUITEM "Rebuild Signals",             ID_32806
+        MENUITEM SEPARATOR
+        MENUITEM "Properties",                  ID_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "Less Priority",               ID_LESSPRIORITY
+        MENUITEM SEPARATOR
+        MENUITEM "Select Weapon",               32845
+        MENUITEM SEPARATOR
+        MENUITEM "Capture",                     ID_CAPTURE
+        MENUITEM SEPARATOR
+        MENUITEM "Hit Signal Show",             ID_HIT_SIGNAL_SHOW
+        MENUITEM SEPARATOR
+        MENUITEM "Copy&Paste Signal",           ID_COPY_PASTE_SIGNAL_MENU
+    END
+    POPUP "도움말(&H)"
+    BEGIN
+        MENUITEM "EtActionTool 정보(&A)...",      ID_APP_ABOUT
+    END
+END
+
+IDR_CONTEXT MENU 
+BEGIN
+    POPUP "ActionPane Context"
+    BEGIN
+        MENUITEM "Add Action",                  ID_ACTION_ADD_ELEMENT
+        MENUITEM "Remove Action",               ID_ACTION_REMOVE_ELEMENT
+        MENUITEM SEPARATOR
+        MENUITEM "Open Add Dialog",             ID_ACTION_ADD_DLG
+        MENUITEM SEPARATOR
+        MENUITEM "Clone Action",                ID_ACTION_CLONE_ELEMENT
+        MENUITEM "Export Excel",                ID_ACTIONPANECONTEXT_EXPORTEXCEL
+    END
+    POPUP "LightPane Context"
+    BEGIN
+        MENUITEM "Add Directional",             ID_LIGHTPANE_ADDDIRECTIONAL
+        MENUITEM "Add Point",                   ID_LIGHTPANE_ADDPOINT
+        MENUITEM "Add Spot",                    ID_LIGHTPANE_ADDSPOT
+        MENUITEM SEPARATOR
+        MENUITEM "Delete Light",                ID_LIGHTPANECONTEXT_DELETE
+    END
+    POPUP "EventPane Context"
+    BEGIN
+        MENUITEM "Insert Signal",               ID_EVENTPANECONTEXT_INSERTSIGNAL
+        MENUITEM "Remove Signal",               ID_EVENTPANECONTEXT_REMOVESIGNAL
+        MENUITEM SEPARATOR
+        MENUITEM "Copy Signal",                 ID_EVENTPANECONTEXT_COPYSIGNAL
+        MENUITEM "Cut Signal",                  ID_EVENTPANECONTEXT_CUTSIGNAL
+        MENUITEM "Paste Signal",                ID_EVENTPANECONTEXT_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "Export Signal",               ID_EVENTPANECONTEXT_EXPORTSIGNAL
+        MENUITEM "Import Signal",               ID_EVENTPANECONTEXT_IMPORTSIGNAL
+        MENUITEM SEPARATOR
+        MENUITEM "Full Range",                  ID_EVENTPANECONTEXT_FULLRANGE
+        MENUITEM "ExportExcel",                 ID_EVENTPANECONTEXT_EXPORTEXCEL
+    END
+END
+
+IDR_PLAY_MENU MENU 
+BEGIN
+    POPUP "Play"
+    BEGIN
+        MENUITEM "REWIND",                      ID_PLAY_REWIND
+        MENUITEM "PREV",                        ID_PLAY_PREV
+        MENUITEM "PLAY",                        ID_PLAY_PLAY
+        MENUITEM "NEXT",                        ID_PLAY_NEXT
+        MENUITEM "FOWARD",                      ID_PLAY_FOWARD
+        MENUITEM "FRAME",                       ID_PLAY_FRAME
+        MENUITEM "LOOP",                        ID_PLAY_LOOP
+        MENUITEM "RELOAD",                      ID_PLAY_RELOAD
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_OEM_PERIOD,  ID_PLAY_NEXT,           VIRTKEY, NOINVERT
+    VK_OEM_2,       ID_PLAY_PLAY,           VIRTKEY, NOINVERT
+    VK_OEM_COMMA,   ID_PLAY_PREV,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "G",            ID_TOGGLE_GRID,         VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_REMOVE,         VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "EtActionTool 정보"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "EtActionTool 버전 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007 EyedentityGames All right reserved.",IDC_STATIC,40,25,188,8
+    DEFPUSHBUTTON   "확인",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_ACTIONPANEVIEW DIALOGEX 0, 0, 75, 89
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | TVS_SHOWSELALWAYS | WS_TABSTOP,7,7,61,75
+END
+
+IDD_PROPERTIESPANEVIEW DIALOGEX 0, 0, 106, 109
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+END
+
+IDD_EVENTPANEVIEW DIALOGEX 0, 0, 9, 9
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+END
+
+IDD_ADDACTION_DLG DIALOGEX 0, 0, 163, 124
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Add Action"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_COMBO1,28,20,121,88,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,29,50,121,88,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT2,28,80,121,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "확인",IDOK,63,107,45,13
+    PUSHBUTTON      "취소",IDCANCEL,113,107,45,13
+    GROUPBOX        "",IDC_STATIC,4,1,154,99
+    CONTROL         "Select Define String",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,7,7,83,11
+    CONTROL         "Select Package",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,7,38,83,11
+    CONTROL         "Custom",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,7,67,83,11
+END
+
+IDD_CREATEEVENT_DLG DIALOGEX 0, 0, 483, 247
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT | WS_EX_APPWINDOW
+CAPTION "Signal Wizard"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Next >",IDC_NEXT,346,227,65,13
+    PUSHBUTTON      "< Back",IDC_BACK,276,227,65,13
+    PUSHBUTTON      "Cancel",IDOK,430,227,50,13
+    CONTROL         146,IDC_STATIC,"Static",SS_BITMAP,0,0,124,220
+    GROUPBOX        "",IDC_STATIC,0,219,483,25
+END
+
+IDD_EVENTEDIT_SELECTEDITTYPE DIALOGEX 0, 0, 347, 210
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    CONTROL         "Create New Signal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,35,33,176,9
+    CONTROL         "Modify Signal",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,36,53,176,9
+    CONTROL         "Delete Signal",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,36,74,176,9
+    CONTROL         "Create New Signal Parameter",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,35,124,176,9
+    CONTROL         "Modify Signal Parameter",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,35,145,176,9
+    CONTROL         "Delete Signal Parameter",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,35,165,176,9
+    GROUPBOX        "Signal",IDC_STATIC,11,18,322,77
+    GROUPBOX        "Signal Parameter",IDC_STATIC,11,108,322,78
+END
+
+IDD_EVENTEDITVIEW_CREATEMODIFYSIGNAL DIALOGEX 0, 0, 347, 210
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EDIT1,67,19,213,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "..",IDC_BUTTON1,67,40,40,10
+    PUSHBUTTON      "..",IDC_BUTTON2,185,40,40,10
+    CONTROL         "Has Length",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,19,60,56,9
+    LTEXT           "Signal Name",IDC_STATIC,19,20,44,8
+    LTEXT           "Initials Color",IDC_STATIC,20,42,44,8
+    LTEXT           "Background Color",IDC_STATIC,125,41,61,8
+    GROUPBOX        " Preview Image ",IDC_STATIC_PREVIEW,7,82,134,94
+    GROUPBOX        " Common Variable ",IDC_STATIC,8,6,283,71
+END
+
+IDD_EVENTEDITVIEW_SELECTSIGNAL DIALOGEX 0, 0, 347, 210
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_OWNERDRAWFIXED | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,14,14,319,195
+END
+
+IDD_EVENTEDITVIEW_FINISH DIALOGEX 0, 0, 347, 210
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    CONTROL         "Export Signal Header File",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,20,112,10
+    LTEXT           "Location",IDC_STATIC,38,41,32,8
+    EDITTEXT        IDC_EDIT1,74,40,225,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON1,302,40,21,12
+END
+
+IDD_EVENTEDITVIEW_CREATEMODIFYPARAMETER DIALOGEX 0, 0, 347, 210
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EDIT1,79,18,201,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,79,33,201,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,79,48,128,91,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT3,137,87,50,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,43,87,50,12,ES_AUTOHSCROLL
+    LTEXT           "Max :",IDC_STATIC_MAX,117,88,19,9
+    LTEXT           "Parameter Name",IDC_STATIC,21,20,53,8
+    LTEXT           "Value Type",IDC_STATIC,21,50,53,8
+    LTEXT           "Min :",IDC_STATIC_MIN,24,89,19,9
+    GROUPBOX        " Common Variable",IDC_STATIC,8,6,283,61
+    GROUPBOX        " Additional Variable",IDC_STATIC_ADDITIONAL,8,68,283,48
+    LTEXT           "Data :",IDC_STATIC_DATA,23,88,23,9
+    EDITTEXT        IDC_EDIT4,47,87,234,12,ES_AUTOHSCROLL
+    GROUPBOX        " Preview ",IDC_STATIC_PREVIEW,8,119,161,90
+    LTEXT           "Description",IDC_STATIC,21,35,53,8
+END
+
+IDD_EVENTEDITVIEW_SELECTPARAMETER DIALOGEX 0, 0, 347, 210
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_OWNERDRAWFIXED | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,14,14,319,195
+END
+
+IDD_ADDSIGNALDLG DIALOGEX 0, 0, 168, 198
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_APPWINDOW
+CAPTION "Add Signal"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,60,180,48,13
+    PUSHBUTTON      "Cancel",IDCANCEL,116,180,47,13
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_OWNERDRAWFIXED | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,4,5,159,170
+END
+
+IDD_CHANGELINKDLG DIALOGEX 0, 0, 255, 154
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Question"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDOK,202,135,46,12
+    LTEXT           "Original Link Animation Name",IDC_STATIC,7,58,96,8
+    EDITTEXT        IDC_EDIT1,23,71,225,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "다음 액션의 링크되어 있는 에니메이션을 찾을 수 없습니다.   다른 에니메이션으로 링크시켜 주세요",IDC_STATIC,7,7,241,20
+    LTEXT           "New Link Animation Name",IDC_STATIC,7,89,96,8
+    COMBOBOX        IDC_COMBO1,23,103,225,93,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Action Name",IDC_STATIC,26,30,42,8
+    EDITTEXT        IDC_EDIT2,73,28,160,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_REQUEUESIGNAL_DLG DIALOGEX 0, 0, 273, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Question"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDOK,168,110,46,12
+    LTEXT           "다음 엑션의 에니메이션의 길이가 짦아졌습니다. 어떻게 하시겠습니까?",IDC_STATIC,7,7,259,8
+    CONTROL         "길이 이상의 시그널들을 전부 날린다.",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,25,49,143,8
+    CONTROL         "마지막 프레임으로 옮겨놓는다.",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,68,143,8
+    CONTROL         "기존 길이와 비율을 따져 시그널들을 제위치 시킨다.",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,25,87,210,8
+    PUSHBUTTON      "Yes All",IDOKALL,220,110,46,12
+    LTEXT           "Action Name",IDC_STATIC,25,24,42,8
+    EDITTEXT        IDC_EDIT2,72,22,160,12,ES_AUTOHSCROLL | WS_DISABLED,WS_EX_RIGHT
+END
+
+IDD_PROPERTIESDLG DIALOGEX 0, 0, 295, 181
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,191,162,46,12
+    PUSHBUTTON      "Cancel",IDCANCEL,242,162,46,12
+    GROUPBOX        " Working Directory ",IDC_STATIC,7,7,281,43
+    EDITTEXT        IDC_EDIT1,20,25,237,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON1,259,25,19,11
+    GROUPBOX        " Shader Directory",IDC_STATIC,7,57,281,43
+    EDITTEXT        IDC_EDIT6,20,76,237,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON3,259,76,19,11
+    GROUPBOX        " Resource Directory ",IDC_STATIC,7,108,281,43
+    EDITTEXT        IDC_EDIT7,20,125,236,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BUTTON4,259,125,19,11
+END
+
+IDD_LIGHTPANEVIEW DIALOGEX 0, 0, 55, 47
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | WS_TABSTOP,0,0,55,47
+END
+
+IDD_SKINPREVDLG DIALOGEX 0, 0, 225, 118
+STYLE DS_SETFONT | DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_SYSMENU
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    GROUPBOX        " Preview ",IDC_STATIC_PREV,7,1,128,115
+END
+
+IDD_SIGNALREPORTDLG DIALOGEX 0, 0, 311, 260
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Signal Report"
+FONT 8, "Microsoft Sans Serif", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,254,239,50,14
+    CONTROL         "",IDC_SPREADSHEET1,
+                    "{0002E559-0000-0000-C000-000000000046}",WS_TABSTOP,0,0,311,237
+    PUSHBUTTON      "Save",IDC_SAVE,200,239,48,14
+END
+
+IDD_SELECTWEAPON DIALOGEX 0, 0, 127, 68
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Weapon"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,7,47,50,14
+    PUSHBUTTON      "취소",IDCANCEL,69,47,50,14
+    CTEXT           "주무기 :",IDC_STATIC,7,7,40,9
+    CTEXT           "보조무기 :",IDC_STATIC,7,24,40,9
+    EDITTEXT        IDC_EDIT1,54,7,66,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT5,53,22,66,12,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+IDD_COPYPASTE_SIGNAL_DLG DIALOGEX 0, 0, 168, 198
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_APPWINDOW
+CAPTION "Copy&Paste Signal"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,60,180,48,13
+    PUSHBUTTON      "Cancel",IDCANCEL,116,180,47,13
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_OWNERDRAWFIXED | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,5,154,170
+END
+
+IDD_SIGNALLIST DIALOGEX 0, 0, 174, 94
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Export",IDOK,117,56,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,117,73,50,14
+    COMBOBOX        IDC_COMBO1,16,19,141,411,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,17,48,39,15,ES_AUTOHSCROLL
+    GROUPBOX        "시그널 목록",IDC_STATIC,7,7,160,32
+    GROUPBOX        "갯 수",IDC_STATIC,7,39,58,28
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041203b5"
+        BEGIN
+            VALUE "CompanyName", "EyedentityGames"
+            VALUE "FileDescription", "Eternity Engine Action File Format"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "EtActionTool.exe"
+            VALUE "LegalCopyright", "EyedentityGames.  All rights reserved."
+            VALUE "OriginalFilename", "EtActionTool.exe"
+            VALUE "ProductName", "Eternity Action Tool"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 949
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_ACTIONPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 68
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_PROPERTIESPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 99
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+
+    IDD_EVENTPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 2
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 2
+    END
+
+    IDD_ADDACTION_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
+
+    IDD_CREATEEVENT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 476
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+
+    IDD_EVENTEDIT_SELECTEDITTYPE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 280
+        VERTGUIDE, 35
+    END
+
+    IDD_EVENTEDITVIEW_CREATEMODIFYSIGNAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 340
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_EVENTEDITVIEW_SELECTSIGNAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 340
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_EVENTEDITVIEW_FINISH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 340
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_EVENTEDITVIEW_CREATEMODIFYPARAMETER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 340
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_EVENTEDITVIEW_SELECTPARAMETER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 340
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_ADDSIGNALDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 161
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 191
+    END
+
+    IDD_CHANGELINKDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_REQUEUESIGNAL_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 266
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_PROPERTIESDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 288
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
+    END
+
+    IDD_LIGHTPANEVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 48
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+
+    IDD_SKINPREVDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_SIGNALREPORTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 253
+    END
+
+    IDD_SELECTWEAPON, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 120
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 61
+    END
+
+    IDD_COPYPASTE_SIGNAL_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 161
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 191
+    END
+
+    IDD_SIGNALLIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 167
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_SIGNALREPORTDLG DLGINIT
+BEGIN
+    IDC_SPREADSHEET1, 0x37a, 2766, 0
+0x0017, 0x0000, 0x004d, 0x0079, 0x0020, 0x0072, 0x0075, 0x006e, 0x002d, 
+0x0074, 0x0069, 0x006d, 0x0065, 0x0020, 0x006c, 0x0069, 0x0063, 0x0065, 
+0x006e, 0x0073, 0x0065, 0x0020, 0x006b, 0x0065, 0x0079, 0x002f, 0x0000, 
+0x0001, 0x0000, 0x0027, 0x0000, 0x045b, 0x0000, 0x0000, 0x045b, 0x0000, 
+0x0000, 0x0001, 0x8001, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0002, 
+0x8001, 0x0001, 0x0000, 0x3c00, 0x783f, 0x6c6d, 0x7620, 0x7265, 0x6973, 
+0x6e6f, 0x223d, 0x2e31, 0x2230, 0x3e3f, 0x0a0d, 0x733c, 0x3a73, 0x6f57, 
+0x6b72, 0x6f62, 0x6b6f, 0x7820, 0x6c6d, 0x736e, 0x783a, 0x223d, 0x7275, 
+0x3a6e, 0x6373, 0x6568, 0x616d, 0x2d73, 0x696d, 0x7263, 0x736f, 0x666f, 
+0x2d74, 0x6f63, 0x3a6d, 0x666f, 0x6966, 0x6563, 0x653a, 0x6378, 0x6c65, 
+0x0d22, 0x200a, 0x6d78, 0x6e6c, 0x3a73, 0x7373, 0x223d, 0x7275, 0x3a6e, 
+0x6373, 0x6568, 0x616d, 0x2d73, 0x696d, 0x7263, 0x736f, 0x666f, 0x2d74, 
+0x6f63, 0x3a6d, 0x666f, 0x6966, 0x6563, 0x733a, 0x7270, 0x6165, 0x7364, 
+0x6568, 0x7465, 0x0d22, 0x200a, 0x6d78, 0x6e6c, 0x3a73, 0x3d63, 0x7522, 
+0x6e72, 0x733a, 0x6863, 0x6d65, 0x7361, 0x6d2d, 0x6369, 0x6f72, 0x6f73, 
+0x7466, 0x632d, 0x6d6f, 0x6f3a, 0x6666, 0x6369, 0x3a65, 0x6f63, 0x706d, 
+0x6e6f, 0x6e65, 0x3a74, 0x7073, 0x6572, 0x6461, 0x6873, 0x6565, 0x2274, 
+0x0d3e, 0x200a, 0x783c, 0x453a, 0x6378, 0x6c65, 0x6f57, 0x6b72, 0x6f62, 
+0x6b6f, 0x0d3e, 0x200a, 0x3c20, 0x3a78, 0x7250, 0x746f, 0x6365, 0x5374, 
+0x7274, 0x6375, 0x7574, 0x6572, 0x463e, 0x6c61, 0x6573, 0x2f3c, 0x3a78, 
+0x7250, 0x746f, 0x6365, 0x5374, 0x7274, 0x6375, 0x7574, 0x6572, 0x0d3e, 
+0x200a, 0x3c20, 0x3a78, 0x6341, 0x6974, 0x6576, 0x6853, 0x6565, 0x3e74, 
+0x3c30, 0x782f, 0x413a, 0x7463, 0x7669, 0x5365, 0x6568, 0x7465, 0x0d3e, 
+0x200a, 0x2f3c, 0x3a78, 0x7845, 0x6563, 0x576c, 0x726f, 0x626b, 0x6f6f, 
+0x3e6b, 0x0a0d, 0x3c20, 0x7373, 0x533a, 0x7974, 0x656c, 0x3e73, 0x0a0d, 
+0x2020, 0x733c, 0x3a73, 0x7453, 0x6c79, 0x2065, 0x7373, 0x493a, 0x3d44, 
+0x4422, 0x6665, 0x7561, 0x746c, 0x3e22, 0x0a0d, 0x2020, 0x3c20, 0x7373, 
+0x413a, 0x696c, 0x6e67, 0x656d, 0x746e, 0x7320, 0x3a73, 0x6f48, 0x6972, 
+0x6f7a, 0x746e, 0x6c61, 0x223d, 0x7541, 0x6f74, 0x616d, 0x6974, 0x2263, 
+0x7320, 0x3a73, 0x6f52, 0x6174, 0x6574, 0x223d, 0x2e30, 0x2230, 0x7320, 
+0x3a73, 0x6556, 0x7472, 0x6369, 0x6c61, 0x223d, 0x6f42, 0x7474, 0x6d6f, 
+0x0d22, 0x200a, 0x2020, 0x7320, 0x3a73, 0x6552, 0x6461, 0x6e69, 0x4f67, 
+0x6472, 0x7265, 0x223d, 0x6f43, 0x746e, 0x7865, 0x2274, 0x3e2f, 0x0a0d, 
+0x2020, 0x3c20, 0x7373, 0x423a, 0x726f, 0x6564, 0x7372, 0x0d3e, 0x200a, 
+0x2020, 0x2f3c, 0x7373, 0x423a, 0x726f, 0x6564, 0x7372, 0x0d3e, 0x200a, 
+0x2020, 0x733c, 0x3a73, 0x6f46, 0x746e, 0x7320, 0x3a73, 0x6f46, 0x746e, 
+0x614e, 0x656d, 0x223d, 0xb5ea, 0xebb4, 0xbca6, 0x2022, 0x7373, 0x533a, 
+0x7a69, 0x3d65, 0x3122, 0x2231, 0x7320, 0x3a73, 0x6f43, 0x6f6c, 0x3d72, 
+0x4122, 0x7475, 0x6d6f, 0x7461, 0x6369, 0x2022, 0x7373, 0x423a, 0x6c6f, 
+0x3d64, 0x3022, 0x0d22, 0x200a, 0x2020, 0x7320, 0x3a73, 0x7449, 0x6c61, 
+0x6369, 0x223d, 0x2230, 0x7320, 0x3a73, 0x6e55, 0x6564, 0x6c72, 0x6e69, 
+0x3d65, 0x4e22, 0x6e6f, 0x2265, 0x3e2f, 0x0a0d, 0x2020, 0x3c20, 0x7373, 
+0x493a, 0x746e, 0x7265, 0x6f69, 0x2072, 0x7373, 0x433a, 0x6c6f, 0x726f, 
+0x223d, 0x7541, 0x6f74, 0x616d, 0x6974, 0x2263, 0x7320, 0x3a73, 0x6150, 
+0x7474, 0x7265, 0x3d6e, 0x4e22, 0x6e6f, 0x2265, 0x3e2f, 0x0a0d, 0x2020, 
+0x3c20, 0x7373, 0x4e3a, 0x6d75, 0x6562, 0x4672, 0x726f, 0x616d, 0x2074, 
+0x7373, 0x463a, 0x726f, 0x616d, 0x3d74, 0x4722, 0x6e65, 0x7265, 0x6c61, 
+0x2f22, 0x0d3e, 0x200a, 0x2020, 0x733c, 0x3a73, 0x7250, 0x746f, 0x6365, 
+0x6974, 0x6e6f, 0x7320, 0x3a73, 0x7250, 0x746f, 0x6365, 0x6574, 0x3d64, 
+0x3122, 0x2f22, 0x0d3e, 0x200a, 0x3c20, 0x732f, 0x3a73, 0x7453, 0x6c79, 
+0x3e65, 0x0a0d, 0x3c20, 0x732f, 0x3a73, 0x7453, 0x6c79, 0x7365, 0x0d3e, 
+0x200a, 0x633c, 0x433a, 0x6d6f, 0x6f70, 0x656e, 0x746e, 0x704f, 0x6974, 
+0x6e6f, 0x3e73, 0x0a0d, 0x2020, 0x633c, 0x4c3a, 0x6261, 0x6c65, 0x0d3e, 
+0x200a, 0x2020, 0x633c, 0x433a, 0x7061, 0x6974, 0x6e6f, 0x4d3e, 0x6369, 
+0x6f72, 0x6f73, 0x7466, 0x4f20, 0x6666, 0x6369, 0x2065, 0x7053, 0x6572, 
+0x6461, 0x6873, 0x6565, 0x3c74, 0x632f, 0x433a, 0x7061, 0x6974, 0x6e6f, 
+0x0d3e, 0x200a, 0x3c20, 0x632f, 0x4c3a, 0x6261, 0x6c65, 0x0d3e, 0x200a, 
+0x3c20, 0x3a63, 0x614d, 0x4878, 0x6965, 0x6867, 0x3e74, 0x3038, 0x3c25, 
+0x632f, 0x4d3a, 0x7861, 0x6548, 0x6769, 0x7468, 0x0d3e, 0x200a, 0x3c20, 
+0x3a63, 0x614d, 0x5778, 0x6469, 0x6874, 0x383e, 0x2530, 0x2f3c, 0x3a63, 
+0x614d, 0x5778, 0x6469, 0x6874, 0x0d3e, 0x200a, 0x3c20, 0x3a63, 0x654e, 
+0x7478, 0x6853, 0x6565, 0x4e74, 0x6d75, 0x6562, 0x3e72, 0x3c34, 0x632f, 
+0x4e3a, 0x7865, 0x5374, 0x6568, 0x7465, 0x754e, 0x626d, 0x7265, 0x0d3e, 
+0x200a, 0x3c20, 0x3a63, 0x724f, 0x6769, 0x6e69, 0x6c61, 0x6f53, 0x7275, 
+0x6563, 0x6320, 0x543a, 0x7079, 0x3d65, 0x3622, 0x2f22, 0x0d3e, 0x200a, 
+0x2f3c, 0x3a63, 0x6f43, 0x706d, 0x6e6f, 0x6e65, 0x4f74, 0x7470, 0x6f69, 
+0x736e, 0x0d3e, 0x200a, 0x783c, 0x573a, 0x726f, 0x626b, 0x6f6f, 0x4f6b, 
+0x7470, 0x6f69, 0x736e, 0x0d3e, 0x200a, 0x3c20, 0x3a63, 0x574f, 0x5643, 
+0x7265, 0x6973, 0x6e6f, 0x313e, 0x2e31, 0x2e30, 0x2e30, 0x3138, 0x3636, 
+0x2020, 0x2020, 0x2020, 0x2020, 0x3c20, 0x632f, 0x4f3a, 0x4357, 0x6556, 
+0x7372, 0x6f69, 0x3e6e, 0x0a0d, 0x2020, 0x783c, 0x483a, 0x6965, 0x6867, 
+0x3e74, 0x3031, 0x3831, 0x3c36, 0x782f, 0x483a, 0x6965, 0x6867, 0x3e74, 
+0x0a0d, 0x2020, 0x783c, 0x573a, 0x6469, 0x6874, 0x313e, 0x3332, 0x3635, 
+0x2f3c, 0x3a78, 0x6957, 0x7464, 0x3e68, 0x0a0d, 0x3c20, 0x782f, 0x573a, 
+0x726f, 0x626b, 0x6f6f, 0x4f6b, 0x7470, 0x6f69, 0x736e, 0x0d3e, 0x200a, 
+0x733c, 0x3a73, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x2074, 0x7373, 0x4e3a, 
+0x6d61, 0x3d65, 0x5322, 0x6568, 0x7465, 0x2231, 0x0d3e, 0x200a, 0x3c20, 
+0x3a78, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x4f74, 0x7470, 0x6f69, 0x736e, 
+0x0d3e, 0x200a, 0x2020, 0x783c, 0x533a, 0x6c65, 0x6365, 0x6574, 0x2f64, 
+0x0d3e, 0x200a, 0x2020, 0x783c, 0x563a, 0x6569, 0x6177, 0x6c62, 0x5265, 
+0x6e61, 0x6567, 0x523e, 0x3a31, 0x3252, 0x3236, 0x3431, 0x3c34, 0x782f, 
+0x563a, 0x6569, 0x6177, 0x6c62, 0x5265, 0x6e61, 0x6567, 0x0d3e, 0x200a, 
+0x2020, 0x783c, 0x533a, 0x6c65, 0x6365, 0x6974, 0x6e6f, 0x523e, 0x4331, 
+0x3c31, 0x782f, 0x533a, 0x6c65, 0x6365, 0x6974, 0x6e6f, 0x0d3e, 0x200a, 
+0x2020, 0x783c, 0x543a, 0x706f, 0x6f52, 0x5677, 0x7369, 0x6269, 0x656c, 
+0x303e, 0x2f3c, 0x3a78, 0x6f54, 0x5270, 0x776f, 0x6956, 0x6973, 0x6c62, 
+0x3e65, 0x0a0d, 0x2020, 0x3c20, 0x3a78, 0x654c, 0x7466, 0x6f43, 0x756c, 
+0x6e6d, 0x6956, 0x6973, 0x6c62, 0x3e65, 0x3c30, 0x782f, 0x4c3a, 0x6665, 
+0x4374, 0x6c6f, 0x6d75, 0x566e, 0x7369, 0x6269, 0x656c, 0x0d3e, 0x200a, 
+0x2020, 0x783c, 0x503a, 0x6f72, 0x6574, 0x7463, 0x6f43, 0x746e, 0x6e65, 
+0x7374, 0x463e, 0x6c61, 0x6573, 0x2f3c, 0x3a78, 0x7250, 0x746f, 0x6365, 
+0x4374, 0x6e6f, 0x6574, 0x746e, 0x3e73, 0x0a0d, 0x2020, 0x2f3c, 0x3a78, 
+0x6f57, 0x6b72, 0x6873, 0x6565, 0x4f74, 0x7470, 0x6f69, 0x736e, 0x0d3e, 
+0x200a, 0x3c20, 0x3a63, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x4f74, 0x7470, 
+0x6f69, 0x736e, 0x0d3e, 0x200a, 0x3c20, 0x632f, 0x573a, 0x726f, 0x736b, 
+0x6568, 0x7465, 0x704f, 0x6974, 0x6e6f, 0x3e73, 0x0a0d, 0x2020, 0x733c, 
+0x3a73, 0x6154, 0x6c62, 0x2065, 0x7373, 0x443a, 0x6665, 0x7561, 0x746c, 
+0x6f43, 0x756c, 0x6e6d, 0x6957, 0x7464, 0x3d68, 0x3522, 0x2e34, 0x2230, 
+0x7320, 0x3a73, 0x6544, 0x6166, 0x6c75, 0x5274, 0x776f, 0x6548, 0x6769, 
+0x7468, 0x223d, 0x3231, 0x372e, 0x2235, 0x0d3e, 0x200a, 0x3c20, 0x732f, 
+0x3a73, 0x6154, 0x6c62, 0x3e65, 0x0a0d, 0x3c20, 0x732f, 0x3a73, 0x6f57, 
+0x6b72, 0x6873, 0x6565, 0x3e74, 0x0a0d, 0x3c20, 0x7373, 0x573a, 0x726f, 
+0x736b, 0x6568, 0x7465, 0x7320, 0x3a73, 0x614e, 0x656d, 0x223d, 0x6853, 
+0x6565, 0x3274, 0x3e22, 0x0a0d, 0x2020, 0x783c, 0x573a, 0x726f, 0x736b, 
+0x6568, 0x7465, 0x704f, 0x6974, 0x6e6f, 0x3e73, 0x0a0d, 0x2020, 0x3c20, 
+0x3a78, 0x6956, 0x7765, 0x6261, 0x656c, 0x6152, 0x676e, 0x3e65, 0x3152, 
+0x523a, 0x3632, 0x3132, 0x3434, 0x2f3c, 0x3a78, 0x6956, 0x7765, 0x6261, 
+0x656c, 0x6152, 0x676e, 0x3e65, 0x0a0d, 0x2020, 0x3c20, 0x3a78, 0x6553, 
+0x656c, 0x7463, 0x6f69, 0x3e6e, 0x3152, 0x3143, 0x2f3c, 0x3a78, 0x6553, 
+0x656c, 0x7463, 0x6f69, 0x3e6e, 0x0a0d, 0x2020, 0x3c20, 0x3a78, 0x6f54, 
+0x5270, 0x776f, 0x6956, 0x6973, 0x6c62, 0x3e65, 0x3c30, 0x782f, 0x543a, 
+0x706f, 0x6f52, 0x5677, 0x7369, 0x6269, 0x656c, 0x0d3e, 0x200a, 0x2020, 
+0x783c, 0x4c3a, 0x6665, 0x4374, 0x6c6f, 0x6d75, 0x566e, 0x7369, 0x6269, 
+0x656c, 0x303e, 0x2f3c, 0x3a78, 0x654c, 0x7466, 0x6f43, 0x756c, 0x6e6d, 
+0x6956, 0x6973, 0x6c62, 0x3e65, 0x0a0d, 0x2020, 0x3c20, 0x3a78, 0x7250, 
+0x746f, 0x6365, 0x4374, 0x6e6f, 0x6574, 0x746e, 0x3e73, 0x6146, 0x736c, 
+0x3c65, 0x782f, 0x503a, 0x6f72, 0x6574, 0x7463, 0x6f43, 0x746e, 0x6e65, 
+0x7374, 0x0d3e, 0x200a, 0x3c20, 0x782f, 0x573a, 0x726f, 0x736b, 0x6568, 
+0x7465, 0x704f, 0x6974, 0x6e6f, 0x3e73, 0x0a0d, 0x2020, 0x633c, 0x573a, 
+0x726f, 0x736b, 0x6568, 0x7465, 0x704f, 0x6974, 0x6e6f, 0x3e73, 0x0a0d, 
+0x2020, 0x2f3c, 0x3a63, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x4f74, 0x7470, 
+0x6f69, 0x736e, 0x0d3e, 0x200a, 0x3c20, 0x7373, 0x543a, 0x6261, 0x656c, 
+0x7320, 0x3a73, 0x6544, 0x6166, 0x6c75, 0x4374, 0x6c6f, 0x6d75, 0x576e, 
+0x6469, 0x6874, 0x223d, 0x3435, 0x302e, 0x2022, 0x7373, 0x443a, 0x6665, 
+0x7561, 0x746c, 0x6f52, 0x4877, 0x6965, 0x6867, 0x3d74, 0x3122, 0x2e32, 
+0x3537, 0x3e22, 0x0a0d, 0x2020, 0x2f3c, 0x7373, 0x543a, 0x6261, 0x656c, 
+0x0d3e, 0x200a, 0x2f3c, 0x7373, 0x573a, 0x726f, 0x736b, 0x6568, 0x7465, 
+0x0d3e, 0x200a, 0x733c, 0x3a73, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x2074, 
+0x7373, 0x4e3a, 0x6d61, 0x3d65, 0x5322, 0x6568, 0x7465, 0x2233, 0x0d3e, 
+0x200a, 0x3c20, 0x3a78, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x4f74, 0x7470, 
+0x6f69, 0x736e, 0x0d3e, 0x200a, 0x2020, 0x783c, 0x563a, 0x6569, 0x6177, 
+0x6c62, 0x5265, 0x6e61, 0x6567, 0x523e, 0x3a31, 0x3252, 0x3236, 0x3431, 
+0x3c34, 0x782f, 0x563a, 0x6569, 0x6177, 0x6c62, 0x5265, 0x6e61, 0x6567, 
+0x0d3e, 0x200a, 0x2020, 0x783c, 0x533a, 0x6c65, 0x6365, 0x6974, 0x6e6f, 
+0x523e, 0x4331, 0x3c31, 0x782f, 0x533a, 0x6c65, 0x6365, 0x6974, 0x6e6f, 
+0x0d3e, 0x200a, 0x2020, 0x783c, 0x543a, 0x706f, 0x6f52, 0x5677, 0x7369, 
+0x6269, 0x656c, 0x303e, 0x2f3c, 0x3a78, 0x6f54, 0x5270, 0x776f, 0x6956, 
+0x6973, 0x6c62, 0x3e65, 0x0a0d, 0x2020, 0x3c20, 0x3a78, 0x654c, 0x7466, 
+0x6f43, 0x756c, 0x6e6d, 0x6956, 0x6973, 0x6c62, 0x3e65, 0x3c30, 0x782f, 
+0x4c3a, 0x6665, 0x4374, 0x6c6f, 0x6d75, 0x566e, 0x7369, 0x6269, 0x656c, 
+0x0d3e, 0x200a, 0x2020, 0x783c, 0x503a, 0x6f72, 0x6574, 0x7463, 0x6f43, 
+0x746e, 0x6e65, 0x7374, 0x463e, 0x6c61, 0x6573, 0x2f3c, 0x3a78, 0x7250, 
+0x746f, 0x6365, 0x4374, 0x6e6f, 0x6574, 0x746e, 0x3e73, 0x0a0d, 0x2020, 
+0x2f3c, 0x3a78, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x4f74, 0x7470, 0x6f69, 
+0x736e, 0x0d3e, 0x200a, 0x3c20, 0x3a63, 0x6f57, 0x6b72, 0x6873, 0x6565, 
+0x4f74, 0x7470, 0x6f69, 0x736e, 0x0d3e, 0x200a, 0x3c20, 0x632f, 0x573a, 
+0x726f, 0x736b, 0x6568, 0x7465, 0x704f, 0x6974, 0x6e6f, 0x3e73, 0x0a0d, 
+0x2020, 0x733c, 0x3a73, 0x6154, 0x6c62, 0x2065, 0x7373, 0x443a, 0x6665, 
+0x7561, 0x746c, 0x6f43, 0x756c, 0x6e6d, 0x6957, 0x7464, 0x3d68, 0x3522, 
+0x2e34, 0x2230, 0x7320, 0x3a73, 0x6544, 0x6166, 0x6c75, 0x5274, 0x776f, 
+0x6548, 0x6769, 0x7468, 0x223d, 0x3231, 0x372e, 0x2235, 0x0d3e, 0x200a, 
+0x3c20, 0x732f, 0x3a73, 0x6154, 0x6c62, 0x3e65, 0x0a0d, 0x3c20, 0x732f, 
+0x3a73, 0x6f57, 0x6b72, 0x6873, 0x6565, 0x3e74, 0x0a0d, 0x2f3c, 0x7373, 
+0x573a, 0x726f, 0x626b, 0x6f6f, 0x3e6b, 0x0a0d, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE를 초기화할 수 없습니다. OLE 라이브러리 버전이 올바른지 확인하십시오."
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "EtActionTool\n\nEtActionTool\n\n\nEtActionTool.Document\nEtActionTool.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "EtActionTool"
+    AFX_IDS_IDLEMESSAGE     "준비"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "새 문서를 만듭니다.\n새로 만들기"
+    ID_FILE_OPEN            "기존 문서를 엽니다.\n열기"
+    ID_FILE_CLOSE           "활성 문서를 닫습니다.\n닫기"
+    ID_FILE_SAVE            "활성 문서를 저장합니다.\n저장"
+    ID_FILE_SAVE_AS         "활성 문서를 새 이름으로 저장합니다.\n다른 이름으로 저장"
+    ID_FILE_PAGE_SETUP      "인쇄 옵션을 변경합니다.\n페이지 설정"
+    ID_FILE_PRINT_SETUP     "프린터 및 인쇄 옵션을 변경합니다.\n인쇄 설정"
+    ID_FILE_PRINT           "활성 문서를 인쇄합니다.\n인쇄"
+    ID_FILE_PRINT_PREVIEW   "전체 페이지를 표시합니다.\n인쇄 미리 보기"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "프로그램 정보, 버전 번호, 저작권을 표시합니다.\n정보"
+    ID_APP_EXIT             "문서를 저장할지를 묻고 응용 프로그램을 끝냅니다.\n끝내기"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE2       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE3       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE4       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE5       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE6       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE7       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE8       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE9       "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE10      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE11      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE12      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE13      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE14      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE15      "현재 문서를 엽니다."
+    ID_FILE_MRU_FILE16      "현재 문서를 엽니다."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "다음 창으로 전환합니다.\n다음 창"
+    ID_PREV_PANE            "이전 창으로 전환합니다.\n이전 창"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "활성 창을 여러 개의 창으로 분할합니다.\n분할"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "선택 영역을 지웁니다.\n지우기"
+    ID_EDIT_CLEAR_ALL       "모두 지웁니다.\n모두 지우기"
+    ID_EDIT_COPY            "선택 영역을 복사하여 클립보드에 넣습니다.\n복사"
+    ID_EDIT_CUT             "선택 영역을 잘라내어 클립보드에 넣습니다.\n잘라내기"
+    ID_EDIT_FIND            "지정한 텍스트를 찾습니다.\n찾기"
+    ID_EDIT_PASTE           "클립보드 내용을 삽입합니다.\n붙여넣기"
+    ID_EDIT_REPEAT          "마지막 작업을 반복합니다.\n반복"
+    ID_EDIT_REPLACE         "특정 텍스트를 다른 텍스트로 바꿉니다.\n바꾸기"
+    ID_EDIT_SELECT_ALL      "전체 문서를 선택합니다.\n모두 선택"
+    ID_EDIT_UNDO            "마지막 작업 실행을 취소합니다.\n실행 취소"
+    ID_EDIT_REDO            "이전에 실행 취소된 작업을 다시 실행합니다.\n다시 실행"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "도구 모음을 표시하거나 숨깁니다.\n도구 모음 설정/해제"
+    ID_VIEW_STATUS_BAR      "상태 표시줄을 표시하거나 숨깁니다.\n상태 표시줄 설정/해제"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "창 크기를 변경합니다."
+    AFX_IDS_SCMOVE          "창 위치를 변경합니다."
+    AFX_IDS_SCMINIMIZE      "창을 아이콘으로 축소합니다."
+    AFX_IDS_SCMAXIMIZE      "창을 전체 화면 크기로 확대합니다."
+    AFX_IDS_SCNEXTWINDOW    "다음 문서 창으로 전환합니다."
+    AFX_IDS_SCPREVWINDOW    "이전 문서 창으로 전환합니다."
+    AFX_IDS_SCCLOSE         "문서를 저장할 것인지 확인하고 활성 창을 닫습니다."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "창을 보통 크기로 복원합니다."
+    AFX_IDS_SCTASKLIST      "작업 목록을 활성화합니다."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "인쇄 미리 보기 모드를 닫습니다.\n미리 보기 취소"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_REMOVE          "선택된 시그널을 삭제합니다.\n삭제"
+    ID_CONFIG_SELECT_WEAPON "해당 액션파일에 무기를 설정합니다.(툴에서만 적용됩니다.)"
+END
+
+#endif    // 한국어 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+LANGUAGE 18, 1
+#pragma code_page(949)
+#include "res\EtActionTool.rc2"  // Microsoft Visual C++ 이외의 다른 도구에서 편집한 리소스입니다.
+#include "afxres.rc"         // 표준 구성 요소입니다.
+#include "afxprint.rc"       // 인쇄 미리 보기 리소스
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
