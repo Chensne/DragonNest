@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EtUITool", "EtUITool.vcxproj", "{F1E83BEA-F38C-4EC8-8E5E-B4CBE1D2D604}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugReporter", "..\..\Common\BugReporter\BugReporter.vcxproj", "{9BE51B01-4009-4D71-B809-DC4960AC79D0}"
@@ -186,8 +188,8 @@ Global
 		{98D7C1DA-D32A-45CA-AA13-45601DD45C3E}.Release (no cuda)|Win32.Build.0 = Release_DLL|Win32
 		{98D7C1DA-D32A-45CA-AA13-45601DD45C3E}.Release_DLL|Win32.ActiveCfg = Release_DLL|Win32
 		{98D7C1DA-D32A-45CA-AA13-45601DD45C3E}.Release_DLL|Win32.Build.0 = Release_DLL|Win32
-		{98D7C1DA-D32A-45CA-AA13-45601DD45C3E}.Release|Win32.ActiveCfg = Release|Win32
-		{98D7C1DA-D32A-45CA-AA13-45601DD45C3E}.Release|Win32.Build.0 = Release|Win32
+		{98D7C1DA-D32A-45CA-AA13-45601DD45C3E}.Release|Win32.ActiveCfg = ReleaseUseDLL|Win32
+		{98D7C1DA-D32A-45CA-AA13-45601DD45C3E}.Release|Win32.Build.0 = ReleaseUseDLL|Win32
 		{685A09CC-CAC4-4E32-9E8D-529F5B11983C}.Debug (no cuda)|Win32.ActiveCfg = Debug_DLL|Win32
 		{685A09CC-CAC4-4E32-9E8D-529F5B11983C}.Debug (no cuda)|Win32.Build.0 = Debug_DLL|Win32
 		{685A09CC-CAC4-4E32-9E8D-529F5B11983C}.Debug_DLL|Win32.ActiveCfg = Debug_DLL|Win32
