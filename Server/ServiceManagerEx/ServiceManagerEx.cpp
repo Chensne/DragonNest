@@ -1,4 +1,4 @@
-// ServiceManagerEx.cpp : ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ Å¬·¡½º µ¿ÀÛÀ» Á¤ÀÇÇÕ´Ï´Ù.
+// ServiceManagerEx.cpp : è§ˆä¾© æ©‡è‚ºå¼Šä¼ä¿Š æªèŒ„ åŠªè´°èƒ¶ æ‚¼ç´¯é˜‘ æ²¥ç‹¼é’¦èªä¿ƒ.
 //
 
 #include "stdafx.h"
@@ -41,19 +41,19 @@ extern CLog g_DBSystemErrorLog;
 extern CLog g_MonitorLog;
 extern CLog g_FileLog;
 
-// ÀÀ¿ë ÇÁ·Î±×·¥ Á¤º¸¿¡ »ç¿ëµÇ´Â CAboutDlg ´ëÈ­ »óÀÚÀÔ´Ï´Ù.
+// è§ˆä¾© æ©‡è‚ºå¼Šä¼ æ²¥ç„Šä¿Š è¤ä¾©ç™»ç»° CAboutDlg æªæ‹³ æƒ‘ç£Šæ¶èªä¿ƒ.
 class CAboutDlg : public CDialog
 {
 public:
 	CAboutDlg();
 
-	// ´ëÈ­ »óÀÚ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+	// æªæ‹³ æƒ‘ç£Š å•æç£æ¶èªä¿ƒ.
 	enum { IDD = IDD_ABOUTBOX };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Áö¿øÀÔ´Ï´Ù.
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV ç˜¤ç›”æ¶èªä¿ƒ.
 
-	// ±¸ÇöÀÔ´Ï´Ù.
+	// å¤‡æ³…æ¶èªä¿ƒ.
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -74,20 +74,20 @@ END_MESSAGE_MAP()
 
 BEGIN_MESSAGE_MAP(CServiceManagerExApp, CWinApp)
 	ON_COMMAND(ID_APP_ABOUT, &CServiceManagerExApp::OnAppAbout)
-	// Ç¥ÁØ ÆÄÀÏÀ» ±âÃÊ·Î ÇÏ´Â ¹®¼­ ¸í·ÉÀÔ´Ï´Ù.
+	// é’éœ– é¢‡è€é˜‘ æ‰æª¬è‚º çªç»° å·©è¾‘ ç–™é£æ¶èªä¿ƒ.
 	ON_COMMAND(ID_FILE_NEW, &CWinApp::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)
-	// Ç¥ÁØ ÀÎ¼â ¼³Á¤ ¸í·ÉÀÔ´Ï´Ù.
+	// é’éœ– ç‰¢å°– æ±²æ²¥ ç–™é£æ¶èªä¿ƒ.
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinApp::OnFilePrintSetup)
 END_MESSAGE_MAP()
 
-// CServiceManagerExApp »ı¼º
+// CServiceManagerExApp ç§¯å·±
 
 CServiceManagerExApp::CServiceManagerExApp()
 	: m_pLogDisplayer(NULL), m_hMutex(NULL)
 {
-	// TODO: ¿©±â¿¡ »ı¼º ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
-	// InitInstance¿¡ ¸ğµç Áß¿äÇÑ ÃÊ±âÈ­ ÀÛ¾÷À» ¹èÄ¡ÇÕ´Ï´Ù.
+	// TODO: å’¯æ‰ä¿Š ç§¯å·± å†…é›ç”« çœ å•Šé’¦èªä¿ƒ.
+	// InitInstanceä¿Š è‘›ç”µ åå¤¸èŒ„ æª¬æ‰æ‹³ ç´¯è¯€é˜‘ ç¡…æ‘¹é’¦èªä¿ƒ.
 }
 
 CServiceManagerExApp::~CServiceManagerExApp()
@@ -95,12 +95,12 @@ CServiceManagerExApp::~CServiceManagerExApp()
 
 }
 
-// À¯ÀÏÇÑ CServiceManagerExApp °³Ã¼ÀÔ´Ï´Ù.
+// èœ¡è€èŒ„ CServiceManagerExApp ä¿ºçœ‰æ¶èªä¿ƒ.
 
 CServiceManagerExApp theApp;
 
 int CServiceManagerExApp::ExitInstance(){
-	//·Î±× Ãâ·ÂºÎÅÍ ÀÏ´Ü ¸·°í ½ÃÀÛ
+	//è‚ºå¼Š å…ä»¿ä½•ç£ è€çªœ é˜œç»Š çŸ«ç´¯
 	g_Log.SetDisplayer(NULL);
 	
 	m_GSMServer.Close();
@@ -116,7 +116,7 @@ int CServiceManagerExApp::ExitInstance(){
 	return CWinApp::ExitInstance();
 }
 
-// CServiceManagerExApp ÃÊ±âÈ­
+// CServiceManagerExApp æª¬æ‰æ‹³
 BOOL CServiceManagerExApp::InitInstance()
 {
 	m_hMutex = ::CreateMutex(NULL, TRUE, L"ServiceManagerEx");
@@ -130,59 +130,59 @@ BOOL CServiceManagerExApp::InitInstance()
 	LoadConfigEx();
 	CLogBuilder::Initialize();
 
-	// ÀÀ¿ë ÇÁ·Î±×·¥ ¸Å´ÏÆä½ºÆ®°¡ ComCtl32.dll ¹öÀü 6 ÀÌ»óÀ» »ç¿ëÇÏ¿© ºñÁÖ¾ó ½ºÅ¸ÀÏÀ»
-	// »ç¿ëÇÏµµ·Ï ÁöÁ¤ÇÏ´Â °æ¿ì, Windows XP »ó¿¡¼­ ¹İµå½Ã InitCommonControlsEx()°¡ ÇÊ¿äÇÕ´Ï´Ù. 
-	// InitCommonControlsEx()¸¦ »ç¿ëÇÏÁö ¾ÊÀ¸¸é Ã¢À» ¸¸µé ¼ö ¾ø½À´Ï´Ù.
+	// è§ˆä¾© æ©‡è‚ºå¼Šä¼ æ¦‚èªå…¶èƒ¶é£˜å•Š ComCtl32.dll æ»šå‚ˆ 6 ææƒ‘é˜‘ è¤ä¾©çªå’¯ åšæ—å€” èƒ¶é¸¥è€é˜‘
+	// è¤ä¾©çªæ¡£åºŸ ç˜¤æ²¥çªç»° ç‰ˆå¿«, Windows XP æƒ‘ä¿Šè¾‘ é¦†é›çŸ« InitCommonControlsEx()å•Š é˜å¤¸é’¦èªä¿ƒ. 
+	// InitCommonControlsEx()ç”« è¤ä¾©çªç˜¤ è‡¼æ æ èŠ’é˜‘ çˆ¶ç”¸ è ç»åš¼èªä¿ƒ.
 	INITCOMMONCONTROLSEX InitCtrls;
 	InitCtrls.dwSize = sizeof(InitCtrls);
-	// ÀÀ¿ë ÇÁ·Î±×·¥¿¡¼­ »ç¿ëÇÒ ¸ğµç °ø¿ë ÄÁÆ®·Ñ Å¬·¡½º¸¦ Æ÷ÇÔÇÏµµ·Ï
-	// ÀÌ Ç×¸ñÀ» ¼³Á¤ÇÏ½Ê½Ã¿À.
+	// è§ˆä¾© æ©‡è‚ºå¼Šä¼ä¿Šè¾‘ è¤ä¾©ä¸” è‘›ç”µ å‚ä¾© ç‰§é£˜è´¹ åŠªè´°èƒ¶ç”« å™¨çªƒçªæ¡£åºŸ
+	// æ äº²æ ¼é˜‘ æ±²æ²¥çªç»çŸ«å·.
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
 	CWinApp::InitInstance();
 
-	// OLE ¶óÀÌºê·¯¸®¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
+	// OLE æ‰¼æå®çŸ¾åºœç”« æª¬æ‰æ‹³é’¦èªä¿ƒ.
 	if (!AfxOleInit())
 	{
 		AfxMessageBox(IDP_OLE_INIT_FAILED);
 		return FALSE;
 	}
 	AfxEnableControlContainer();
-	// Ç¥ÁØ ÃÊ±âÈ­
-	// ÀÌµé ±â´ÉÀ» »ç¿ëÇÏÁö ¾Ê°í ÃÖÁ¾ ½ÇÇà ÆÄÀÏÀÇ Å©±â¸¦ ÁÙÀÌ·Á¸é
-	// ¾Æ·¡¿¡¼­ ÇÊ¿ä ¾ø´Â Æ¯Á¤ ÃÊ±âÈ­
-	// ·çÆ¾À» Á¦°ÅÇØ¾ß ÇÕ´Ï´Ù.
-	// ÇØ´ç ¼³Á¤ÀÌ ÀúÀåµÈ ·¹Áö½ºÆ®¸® Å°¸¦ º¯°æÇÏ½Ê½Ã¿À.
-	// TODO: ÀÌ ¹®ÀÚ¿­À» È¸»ç ¶Ç´Â Á¶Á÷ÀÇ ÀÌ¸§°ú °°Àº
-	// ÀûÀıÇÑ ³»¿ëÀ¸·Î ¼öÁ¤ÇØ¾ß ÇÕ´Ï´Ù.
-	SetRegistryKey(_T("·ÎÄÃ ÀÀ¿ë ÇÁ·Î±×·¥ ¸¶¹ı»ç¿¡¼­ »ı¼ºµÈ ÀÀ¿ë ÇÁ·Î±×·¥"));
-	LoadStdProfileSettings(4);  // MRU¸¦ Æ÷ÇÔÇÏ¿© Ç¥ÁØ INI ÆÄÀÏ ¿É¼ÇÀ» ·ÎµåÇÕ´Ï´Ù.
-	// ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ ¹®¼­ ÅÛÇÃ¸´À» µî·ÏÇÕ´Ï´Ù. ¹®¼­ ÅÛÇÃ¸´Àº
-	//  ¹®¼­, ÇÁ·¹ÀÓ Ã¢ ¹× ºä »çÀÌÀÇ ¿¬°á ¿ªÇÒÀ» ÇÕ´Ï´Ù.
+	// é’éœ– æª¬æ‰æ‹³
+	// æç”¸ æ‰ç“·é˜‘ è¤ä¾©çªç˜¤ è‡¼ç»Š å¼¥è¾† è§’é’ é¢‡è€ç‹¼ å†œæ‰ç”« ä¸´æå¦¨æ
+	// é…’è´°ä¿Šè¾‘ é˜å¤¸ ç»ç»° æ¼‚æ²¥ æª¬æ‰æ‹³
+	// é£å‡­é˜‘ åŠ›èŠ­ç§¦å…· é’¦èªä¿ƒ.
+	// ç§¦å¯¸ æ±²æ²¥æ å†å˜ç­‰ é¥­ç˜¤èƒ¶é£˜åºœ è™ç”« å‡½ç‰ˆçªç»çŸ«å·.
+	// TODO: æ å·©ç£Šå‡¯é˜‘ é›€è¤ è‚šç»° ç‚¼æµç‹¼ ææŠšè‹ éç¯®
+	// åˆ©ä¾‹èŒ„ éƒ´ä¾©æ è‚º èæ²¥ç§¦å…· é’¦èªä¿ƒ.
+	SetRegistryKey(_T("è‚ºæ‹¿ è§ˆä¾© æ©‡è‚ºå¼Šä¼ ä»˜è¿‡è¤ä¿Šè¾‘ ç§¯å·±ç­‰ è§ˆä¾© æ©‡è‚ºå¼Šä¼"));
+	LoadStdProfileSettings(4);  // MRUç”« å™¨çªƒçªå’¯ é’éœ– INI é¢‡è€ å¯è®°é˜‘ è‚ºé›é’¦èªä¿ƒ.
+	// è§ˆä¾© æ©‡è‚ºå¼Šä¼ç‹¼ å·©è¾‘ è¢æ•²å¤é˜‘ æ®¿åºŸé’¦èªä¿ƒ. å·©è¾‘ è¢æ•²å¤ç¯®
+	//  å·©è¾‘, æ©‡é¥­çƒ™ èŠ’ æ£º è½° è¤æç‹¼ æ¥·æ¬ å¼€ä¸”é˜‘ é’¦èªä¿ƒ.
 	CSingleDocTemplate* pDocTemplate;
 	pDocTemplate = new CSingleDocTemplate(
 		IDR_MAINFRAME,
 		RUNTIME_CLASS(CServiceManagerExDoc),
-		RUNTIME_CLASS(CMainFrame),       // ÁÖ SDI ÇÁ·¹ÀÓ Ã¢ÀÔ´Ï´Ù.
+		RUNTIME_CLASS(CMainFrame),       // æ— SDI æ©‡é¥­çƒ™ èŠ’æ¶èªä¿ƒ.
 		RUNTIME_CLASS(CServiceManagerExView));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
 	
-	// Ç¥ÁØ ¼Ğ ¸í·É, DDE, ÆÄÀÏ ¿­±â¿¡ ´ëÇÑ ¸í·ÉÁÙÀ» ±¸¹® ºĞ¼®ÇÕ´Ï´Ù.
+	// é’éœ– å¤¹ ç–™é£, DDE, é¢‡è€ å‡¯æ‰ä¿Š æªèŒ„ ç–™é£ä¸´é˜‘ å¤‡å·© ç›’ç±é’¦èªä¿ƒ.
 	CCommandLineInfo cmdInfo;
 	ParseCommandLine(cmdInfo);
 
-	// ¸í·ÉÁÙ¿¡ ÁöÁ¤µÈ ¸í·ÉÀ» µğ½ºÆĞÄ¡ÇÕ´Ï´Ù.
-	// ÀÀ¿ë ÇÁ·Î±×·¥ÀÌ /RegServer, /Register, /Unregserver ¶Ç´Â /Unregister·Î ½ÃÀÛµÈ °æ¿ì FALSE¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
+	// ç–™é£ä¸´ä¿Š ç˜¤æ²¥ç­‰ ç–™é£é˜‘ å¼èƒ¶è©æ‘¹é’¦èªä¿ƒ.
+	// è§ˆä¾© æ©‡è‚ºå¼Šä¼æ /RegServer, /Register, /Unregserver è‚šç»° /Unregisterè‚º çŸ«ç´¯ç­‰ ç‰ˆå¿« FALSEç”« é¦†åˆ¸é’¦èªä¿ƒ.
 	if (!ProcessShellCommand(cmdInfo))
 		return FALSE;
 
 	if (!InitServiceManager())
 		return FALSE;
 
-	Sleep(1000);
+	//Sleep(1000);
 
 	if (!CreateDisplayer())
 		return FALSE;
@@ -192,19 +192,19 @@ BOOL CServiceManagerExApp::InitInstance()
 	BuildView();
 	RefreshStateView();
 
-	// Ã¢ ÇÏ³ª¸¸ ÃÊ±âÈ­µÇ¾úÀ¸¹Ç·Î ÀÌ¸¦ Ç¥½ÃÇÏ°í ¾÷µ¥ÀÌÆ®ÇÕ´Ï´Ù.
+	// èŠ’ çªå”±çˆ¶ æª¬æ‰æ‹³ç™»èŒæ éª¨è‚º æç”« é’çŸ«çªç»Š è¯€å•æé£˜é’¦èªä¿ƒ.
 	m_pMainWnd->SetWindowTextW(L"ServiceManagerEx");
 	m_pMainWnd->ShowWindow(SW_SHOW);
 	m_pMainWnd->UpdateWindow();
-	// Á¢¹Ì»ç°¡ ÀÖÀ» °æ¿ì¿¡¸¸ DragAcceptFiles¸¦ È£ÃâÇÕ´Ï´Ù.
-	//  SDI ÀÀ¿ë ÇÁ·Î±×·¥¿¡¼­´Â ProcessShellCommand ÈÄ¿¡ ÀÌ·¯ÇÑ È£ÃâÀÌ ¹ß»ıÇØ¾ß ÇÕ´Ï´Ù.
+	// ç«‹å›ºè¤å•Š ä¹é˜‘ ç‰ˆå¿«ä¿Šçˆ¶ DragAcceptFilesç”« é¾‹å…é’¦èªä¿ƒ.
+	//  SDI è§ˆä¾© æ©‡è‚ºå¼Šä¼ä¿Šè¾‘ç»° ProcessShellCommand é¥¶ä¿Š æçŸ¾èŒ„ é¾‹å…æ æƒ¯ç§¯ç§¦å…· é’¦èªä¿ƒ.
 
 	return TRUE;
 }
 
 bool CServiceManagerExApp::LoadConfig()
 {
-	wstring wszFileName = L"./Config/DNServiceManager.ini";			// ÇÑ±¹
+	wstring wszFileName = L"./Config/DNServiceManager.ini";			// èŒ„æƒ«
 	if (!g_IniFile.Open(wszFileName.c_str())){
 		g_Log.Log(LogType::_FILELOG, L"%s File not Found!!\n", wszFileName.c_str());
 		return false;
@@ -403,7 +403,7 @@ void CServiceManagerExApp::OnCommandPatch()
 	mainSplit.OnCommandPatch();
 }
 
-// ´ëÈ­ »óÀÚ¸¦ ½ÇÇàÇÏ±â À§ÇÑ ÀÀ¿ë ÇÁ·Î±×·¥ ¸í·ÉÀÔ´Ï´Ù.
+// æªæ‹³ æƒ‘ç£Šç”« è§’é’çªæ‰ å›°èŒ„ è§ˆä¾© æ©‡è‚ºå¼Šä¼ ç–™é£æ¶èªä¿ƒ.
 void CServiceManagerExApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
@@ -412,7 +412,7 @@ void CServiceManagerExApp::OnAppAbout()
 
 BOOL CServiceManagerExApp::PreTranslateMessage(MSG* pMsg)
 {
-	// TODO: ¿©±â¿¡ Æ¯¼öÈ­µÈ ÄÚµå¸¦ Ãß°¡ ¹×/¶Ç´Â ±âº» Å¬·¡½º¸¦ È£ÃâÇÕ´Ï´Ù.
+	// TODO: å’¯æ‰ä¿Š æ¼‚èæ‹³ç­‰ å†…é›ç”« çœ å•Š æ£º/è‚šç»° æ‰å¤¯ åŠªè´°èƒ¶ç”« é¾‹å…é’¦èªä¿ƒ.
 
 	return CWinApp::PreTranslateMessage(pMsg);
 }
