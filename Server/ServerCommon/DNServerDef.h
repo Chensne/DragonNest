@@ -4,7 +4,7 @@
 #include "MemPool.h"
 
 /*--------------------------------------------------------------------------
-					ServerÂÊ¿¡¼­ ¾²´Â ¸ğµç°Íµé(?)
+					Serverìª½ì—ì„œ ì“°ëŠ” ëª¨ë“ ê²ƒë“¤(?)
 --------------------------------------------------------------------------*/
 
 // const ----------------------------------------------------------------------------------------------
@@ -69,15 +69,15 @@ const int DWCPREFIXLEN			= 6;
 const char DBSERVERMAX			= 16;
 const char THREADMAX			= 8;	// DB THREAD
 const char LOGINTIMELENMAX		= 20;	// last login time length max
-const char TIMELENMAX = 20;				// µ¥ÀÌÆ®Å¸ÀÓ Å¸ÀÔ
+const char TIMELENMAX = 20;				// ë°ì´íŠ¸íƒ€ì„ íƒ€ì…
 
-const int LOGINCOUNTMAX				= 64;			// ÃÑ ·Î±×ÀÎ ¼­¹ö °³¼ö
-const int LOGINCONCOUNTINFOTERM		= (1*30*1000);	// ·Î±×ÀÎ ¼­¹ö ÇöÀç µ¿½ÃÁ¢¼ÓÀÚ Á¤º¸ ¸¶½ºÅÍ ¼­¹ö¿¡ º¸°í Á¦ÇÑ°£°İ (´ÜÀ§:ms)
-const int LOGINSERVERLISTSORTTERM	= (1*3*1000);	// ·Î±×ÀÎ ¼­¹ö ¼¼¼Ç Á¤·Ä Á¦ÇÑ°£°İ (´ÜÀ§:ms)
-const int MASTERCOUNTMAX			= 10;			// ÃÑ ¸¶½ºÅÍ ¼­¹ö °³¼ö
+const int LOGINCOUNTMAX				= 64;			// ì´ ë¡œê·¸ì¸ ì„œë²„ ê°œìˆ˜
+const int LOGINCONCOUNTINFOTERM		= (1*30*1000);	// ë¡œê·¸ì¸ ì„œë²„ í˜„ì¬ ë™ì‹œì ‘ì†ì ì •ë³´ ë§ˆìŠ¤í„° ì„œë²„ì— ë³´ê³  ì œí•œê°„ê²© (ë‹¨ìœ„:ms)
+const int LOGINSERVERLISTSORTTERM	= (1*3*1000);	// ë¡œê·¸ì¸ ì„œë²„ ì„¸ì…˜ ì •ë ¬ ì œí•œê°„ê²© (ë‹¨ìœ„:ms)
+const int MASTERCOUNTMAX			= 10;			// ì´ ë§ˆìŠ¤í„° ì„œë²„ ê°œìˆ˜
 
-const int  DELETECHAR_WAITTIME_MINUTE	= 7*24*60;	// 7ÀÏ
-const BYTE PROCESSCOUNT = 40;	// ÃÊ´ç ¿ÀºêÁ§Æ® Ã³¸®°³¼ö
+const int  DELETECHAR_WAITTIME_MINUTE	= 7*24*60;	// 7ì¼
+const BYTE PROCESSCOUNT = 40;	// ì´ˆë‹¹ ì˜¤ë¸Œì íŠ¸ ì²˜ë¦¬ê°œìˆ˜
 
 const int INTERNALBUFFERLENMAX = 51200;
 
@@ -88,31 +88,31 @@ const int QUESTSIZEINFO = 2775;
 
 const int QUERYOVERTIME = 1000;
 
-const int QUERYNAMESIZE = 200; // Äõ¸® ÃÖ´ë Å©±â
-const int GAMEDELAYSIZE = 200; // °ÔÀÓµô·¹ÀÌ ·Î±× ÃÖ´ë Å©±â
+const int QUERYNAMESIZE = 200; // ì¿¼ë¦¬ ìµœëŒ€ í¬ê¸°
+const int GAMEDELAYSIZE = 200; // ê²Œì„ë”œë ˆì´ ë¡œê·¸ ìµœëŒ€ í¬ê¸°
 
-const int SERVERDETACHPACKETSIZE = 1024*40;	// ÆĞÅ¶Àü¼Û½Ã ¹öÆÛ»çÀÌÁîÅ©±â
+const int SERVERDETACHPACKETSIZE = 1024*40;	// íŒ¨í‚·ì „ì†¡ì‹œ ë²„í¼ì‚¬ì´ì¦ˆí¬ê¸°
 //const variable.
 #ifdef _FINAL_BUILD
-const unsigned long RUDP_CONNECT_TIME_LIMIT_FOR_PARTY = 120 * 1000;								//ÃÖÃÊ °ÔÀÓ¼­¹ö ÄÁ³ØÆ® ´ë±â ½Ã°£
+const unsigned long RUDP_CONNECT_TIME_LIMIT_FOR_PARTY = 120 * 1000;								//ìµœì´ˆ ê²Œì„ì„œë²„ ì»¨ë„¥íŠ¸ ëŒ€ê¸° ì‹œê°„
 const unsigned long RUDP_CONNECT_TIME_LIMIT_FOR_SINGLE = 120 * 1000;
-const unsigned long WAIT_FOR_ANOTHER_USER_TIME_LIMIT = 15 * 1000;						//ÃÖÃÊÀÎ¿øÀÌ ÄÁ³ØÀ» ÇÏ°í ´Ù¸¥ÀÎ¿øÀ» ±â´Ù¸®´Â ½Ã°£
-const unsigned long WAIT_FOR_LOAD_TIME_LIMIT = 60 * 1000;								//µ¥ÀÌÅ¸º£ÀÌ½ºÀÇ ·ÎµùÀ» ±â´Ù¸®´Â ½Ã°£
-const unsigned long GOGO_SING_TO_PLAY_FOR_WAIT_TIME_LIMIT = 2 * 60 * 1000;					//Å¬¶óÀÌ¾ğÆ® ·Îµù°ú ½ÌÅ©¸¦ ±â´Ù¸®´Â ½Ã°£
-const unsigned long GOGO_SING_TO_FARMPLAY_FOR_WAIT_TIME_LIMIT = 5 * 60 * 1000;			//³óÀå·Îµù ½Ã°£Àº ÃÊÅ­ º°°³·Î
+const unsigned long WAIT_FOR_ANOTHER_USER_TIME_LIMIT = 15 * 1000;						//ìµœì´ˆì¸ì›ì´ ì»¨ë„¥ì„ í•˜ê³  ë‹¤ë¥¸ì¸ì›ì„ ê¸°ë‹¤ë¦¬ëŠ” ì‹œê°„
+const unsigned long WAIT_FOR_LOAD_TIME_LIMIT = 60 * 1000;								//ë°ì´íƒ€ë² ì´ìŠ¤ì˜ ë¡œë”©ì„ ê¸°ë‹¤ë¦¬ëŠ” ì‹œê°„
+const unsigned long GOGO_SING_TO_PLAY_FOR_WAIT_TIME_LIMIT = 2 * 60 * 1000;					//í´ë¼ì´ì–¸íŠ¸ ë¡œë”©ê³¼ ì‹±í¬ë¥¼ ê¸°ë‹¤ë¦¬ëŠ” ì‹œê°„
+const unsigned long GOGO_SING_TO_FARMPLAY_FOR_WAIT_TIME_LIMIT = 5 * 60 * 1000;			//ë†ì¥ë¡œë”© ì‹œê°„ì€ ì´ˆí¼ ë³„ê°œë¡œ
 #else
-const unsigned long RUDP_CONNECT_TIME_LIMIT_FOR_PARTY = 60 * 1000;								//ÃÖÃÊ °ÔÀÓ¼­¹ö ÄÁ³ØÆ® ´ë±â ½Ã°£
+const unsigned long RUDP_CONNECT_TIME_LIMIT_FOR_PARTY = 60 * 1000;								//ìµœì´ˆ ê²Œì„ì„œë²„ ì»¨ë„¥íŠ¸ ëŒ€ê¸° ì‹œê°„
 const unsigned long RUDP_CONNECT_TIME_LIMIT_FOR_SINGLE = 120 * 1000;
 const unsigned long WAIT_FOR_ANOTHER_USER_TIME_LIMIT = 60 * 1000;						//
 const unsigned long WAIT_FOR_LOAD_TIME_LIMIT = 150 * 1000;								//
 const unsigned long GOGO_SING_TO_PLAY_FOR_WAIT_TIME_LIMIT = 5 * 60 * 1000;				//
-const unsigned long GOGO_SING_TO_FARMPLAY_FOR_WAIT_TIME_LIMIT = 5 * 60 * 1000;			//³óÀå·Îµù ½Ã°£Àº ÃÊÅ­ º°°³·Î
+const unsigned long GOGO_SING_TO_FARMPLAY_FOR_WAIT_TIME_LIMIT = 5 * 60 * 1000;			//ë†ì¥ë¡œë”© ì‹œê°„ì€ ì´ˆí¼ ë³„ê°œë¡œ
 #endif
 
 const int EACH_GAMESERVER_MAX_ROOM_COUNT = 20;
 const int EACH_GAMESERVER_MAX_USER_COUNT = 100;
 
-const int INTERVALDELETE_TIMINGTICK = 1000 * 60;		//1ºĞÂë??...-_-;
+const int INTERVALDELETE_TIMINGTICK = 1000 * 60;		//1ë¶„ì¯¤??...-_-;
 const int CHECK_ZOMBIE_DISCONNECT_TICK = 1000 * 60 * 5;
 const int DISTRIBUTE_IDLE_TICK = 1000 * 5;
 
@@ -122,73 +122,73 @@ const int FRAMEDEADLINE = 17;
 
 const int EVENTMAPSTRMAX = 50;
 
-const int CHECKLIVETICK = 60000 * 2;//  * 5;	// ÇÙ½¯µå 5ºĞ ¸¶´Ù Ã¼Å© -> 1ºĞÀ¸·Î ¹Ù²Ù¶ó°í ÇØ¼­ ¹Ù²Ş -> 2ºĞÀ¸·Î ´Ã¸²
-const int CHECKRESPONSETICK = 60000 * 3;		// ÇÙ½¯µå ÀÀ´ä ½Ã°£ (3ºĞÁ¤µµ?)
+const int CHECKLIVETICK = 60000 * 2;//  * 5;	// í•µì‰´ë“œ 5ë¶„ ë§ˆë‹¤ ì²´í¬ -> 1ë¶„ìœ¼ë¡œ ë°”ê¾¸ë¼ê³  í•´ì„œ ë°”ê¿ˆ -> 2ë¶„ìœ¼ë¡œ ëŠ˜ë¦¼
+const int CHECKRESPONSETICK = 60000 * 3;		// í•µì‰´ë“œ ì‘ë‹µ ì‹œê°„ (3ë¶„ì •ë„?)
 
-const int CHECKGPKFIRSTTICK = 1000 * 60 * 2;	// ÃÖÃÊ °Ë»çÅ¸ÀÌ¹Ö
+const int CHECKGPKFIRSTTICK = 1000 * 60 * 2;	// ìµœì´ˆ ê²€ì‚¬íƒ€ì´ë°
 const int CHECKGPKTICK = 60000;
 const int MANAGEDMAX = 20;
 
 #if !defined(_FINAL_BUILD)
-const DWORD CHECK_TCP_PING_TICK	= 1000*30*1;	// 1ºĞ
-const DWORD CHECK_UDP_PING_TICK = 1000*30*1;	// 1ºĞ
+const DWORD CHECK_TCP_PING_TICK	= 1000*30*1;	// 1ë¶„
+const DWORD CHECK_UDP_PING_TICK = 1000*30*1;	// 1ë¶„
 #else		//#if !defined(_FINAL_BUILD)
-const DWORD CHECK_TCP_PING_TICK	= 1000*60*1;	// 1ºĞ
-const DWORD CHECK_UDP_PING_TICK = 1000*60*1;	// 1ºĞ
+const DWORD CHECK_TCP_PING_TICK	= 1000*60*1;	// 1ë¶„
+const DWORD CHECK_UDP_PING_TICK = 1000*60*1;	// 1ë¶„
 #endif		//#if !defined(_FINAL_BUILD)
 
 #if defined(_CH)
-const int CHECKLOGINUSERKICKTICK = 30 * 60 * 1000;		// ·Î±×ÀÎ ¼­¹ö¿¡ 30ºĞ µ¿¾È ¸Ó¹°¸é °­Åğ!(Áß±¹¸¸)
+const int CHECKLOGINUSERKICKTICK = 30 * 60 * 1000;		// ë¡œê·¸ì¸ ì„œë²„ì— 30ë¶„ ë™ì•ˆ ë¨¸ë¬¼ë©´ ê°•í‡´!(ì¤‘êµ­ë§Œ)
 #else
-const int CHECKLOGINUSERKICKTICK = 15 * 60 * 1000;		// ·Î±×ÀÎ ¼­¹ö¿¡ 15ºĞ µ¿¾È ¸Ó¹°¸é °­Åğ!
+const int CHECKLOGINUSERKICKTICK = 15 * 60 * 1000;		// ë¡œê·¸ì¸ ì„œë²„ì— 15ë¶„ ë™ì•ˆ ë¨¸ë¬¼ë©´ ê°•í‡´!
 #endif //#if defined(_CH)
-const int CHECKNOTAUTHLOGINUSERKICKTICK = 5 * 60 * 1000;  // ·Î±×ÀÎ ¼­¹ö¿¡ ÀÎÁõµÇÁö ¾ÊÀºÃ¼ 5ºĞ µ¿¾È ¸Ó¹°¸é °­Åğ!
+const int CHECKNOTAUTHLOGINUSERKICKTICK = 5 * 60 * 1000;  // ë¡œê·¸ì¸ ì„œë²„ì— ì¸ì¦ë˜ì§€ ì•Šì€ì²´ 5ë¶„ ë™ì•ˆ ë¨¸ë¬¼ë©´ ê°•í‡´!
 
 const unsigned int DEFAULTUSERSESSIONID = 10000;
 
 const unsigned int CASHDELUSERDELAY_LIMITTICK = (4*30*1000);
 
-// DB ´©ÀûÀÛ¾÷ °ü·Ã °³¼ö
-const int DBQUERYSTREAMDATAMAX			= (36*1024);	// DB ´©ÀûÀÛ¾÷ µ¥ÀÌÅÍ ÃÖ´ë Å©±â			: DB ¼­¹ö¿¡ ¹Ù·Î ¼Û½ÅµÇ´Â ´ë½Å Å¥¿¡ ´©Àû ÈÄ ÀÏ°ıÃ³¸®°¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ ±¸Á¶Ã¼ Áß °¡Àå Å« °ÍÀ» ±âÁØÀ¸·Î ¼³Á¤ ¡æ Å©±â°¡ ºÎÁ·ÇÒ °æ¿ì Áö¼ÓÀûÀÎ ÀçÁ¶Á¤ ÇÊ¿ä ¿¹»ó
-const unsigned int DBQUERYAUTOCHKSUM	= 0xE41C723F;	// DB Äõ¸® Á÷·ÄÈ­ Ã³¸® ½Ã Ã¼Å©°ª
+// DB ëˆ„ì ì‘ì—… ê´€ë ¨ ê°œìˆ˜
+const int DBQUERYSTREAMDATAMAX			= (36*1024);	// DB ëˆ„ì ì‘ì—… ë°ì´í„° ìµœëŒ€ í¬ê¸°			: DB ì„œë²„ì— ë°”ë¡œ ì†¡ì‹ ë˜ëŠ” ëŒ€ì‹  íì— ëˆ„ì  í›„ ì¼ê´„ì²˜ë¦¬ê°€ í•„ìš”í•œ ë°ì´í„° êµ¬ì¡°ì²´ ì¤‘ ê°€ì¥ í° ê²ƒì„ ê¸°ì¤€ìœ¼ë¡œ ì„¤ì • â†’ í¬ê¸°ê°€ ë¶€ì¡±í•  ê²½ìš° ì§€ì†ì ì¸ ì¬ì¡°ì • í•„ìš” ì˜ˆìƒ
+const unsigned int DBQUERYAUTOCHKSUM	= 0xE41C723F;	// DB ì¿¼ë¦¬ ì§ë ¬í™” ì²˜ë¦¬ ì‹œ ì²´í¬ê°’
 
-const int QUESTINVENBLANKCHECKMIN	= 2;				// Äù½ºÆ® ÀÎº¥Åä¸® Ã¼Å© ½Ã ¸Ş½ÃÁö ¹ß¼ÛÀÌ µÇ´Â ÃÖ¼Ò °³¼ö
+const int QUESTINVENBLANKCHECKMIN	= 2;				// í€˜ìŠ¤íŠ¸ ì¸ë²¤í† ë¦¬ ì²´í¬ ì‹œ ë©”ì‹œì§€ ë°œì†¡ì´ ë˜ëŠ” ìµœì†Œ ê°œìˆ˜
 const float MAX_ITEMPRICE_RATE = 0.5f;
 
 #if defined(_FINAL_BUILD)
-const int BEGINAUTHLIMITSEC			= (9*10);			// ÃÖÃÊ ÀÎÁõ Á¦ÇÑ½Ã°£ (´ÜÀ§:ÃÊ, 0 ÀÌÇÏ´Â ¹«Á¦ÇÑ ´ë±â ?)
-const int CHECKAUTHLIMITSEC			= (6*10);			// ÀÏ¹İ ÀÎÁõ Á¦ÇÑ½Ã°£ (´ÜÀ§:ÃÊ)
-const int BEGINAUTHLIMITTERM		= (BEGINAUTHLIMITSEC*1000);		// ÃÖÃÊ ÀÎÁõ Á¦ÇÑ°£°İ (´ÜÀ§:ms)
-//const int CHECKAUTHLIMITTERM		= (CHECKAUTHLIMITSEC*1000);		// ÀÏ¹İ ÀÎÁõ Á¦ÇÑ°£°İ (´ÜÀ§:ms)
-const int CHECKAUTHLIMITTERM		= (1*30*1000);		// ÀÏ¹İ ÀÎÁõ Á¦ÇÑ°£°İ (´ÜÀ§:ms)		// P.S.> ´øÀü, PVP µî ÄÁÅÙÃ÷ Âü¿©ÀÚµéÀÇ ºÒÆí»çÇ×À» °í·ÁÇÏ¿© ±âÁ¸ ½Ã°£º¸´Ù Âª°Ô Á¤ÇÔ
+const int BEGINAUTHLIMITSEC			= (9*10);			// ìµœì´ˆ ì¸ì¦ ì œí•œì‹œê°„ (ë‹¨ìœ„:ì´ˆ, 0 ì´í•˜ëŠ” ë¬´ì œí•œ ëŒ€ê¸° ?)
+const int CHECKAUTHLIMITSEC			= (6*10);			// ì¼ë°˜ ì¸ì¦ ì œí•œì‹œê°„ (ë‹¨ìœ„:ì´ˆ)
+const int BEGINAUTHLIMITTERM		= (BEGINAUTHLIMITSEC*1000);		// ìµœì´ˆ ì¸ì¦ ì œí•œê°„ê²© (ë‹¨ìœ„:ms)
+//const int CHECKAUTHLIMITTERM		= (CHECKAUTHLIMITSEC*1000);		// ì¼ë°˜ ì¸ì¦ ì œí•œê°„ê²© (ë‹¨ìœ„:ms)
+const int CHECKAUTHLIMITTERM		= (1*30*1000);		// ì¼ë°˜ ì¸ì¦ ì œí•œê°„ê²© (ë‹¨ìœ„:ms)		// P.S.> ë˜ì „, PVP ë“± ì»¨í…ì¸  ì°¸ì—¬ìë“¤ì˜ ë¶ˆí¸ì‚¬í•­ì„ ê³ ë ¤í•˜ì—¬ ê¸°ì¡´ ì‹œê°„ë³´ë‹¤ ì§§ê²Œ ì •í•¨
 #else	// _FINAL_BUILD
-const int BEGINAUTHLIMITSEC			= (6*10);			// ÃÖÃÊ ÀÎÁõ Á¦ÇÑ½Ã°£ (´ÜÀ§:ÃÊ, 0 ÀÌÇÏ´Â ¹«Á¦ÇÑ ´ë±â ?)
-const int CHECKAUTHLIMITSEC			= (4*10);			// ÀÏ¹İ ÀÎÁõ Á¦ÇÑ½Ã°£ (´ÜÀ§:ÃÊ)
-const int BEGINAUTHLIMITTERM		= (BEGINAUTHLIMITSEC*1000);		// ÃÖÃÊ ÀÎÁõ Á¦ÇÑ°£°İ (´ÜÀ§:ms)
-//const int CHECKAUTHLIMITTERM		= (CHECKAUTHLIMITSEC*1000);		// ÀÏ¹İ ÀÎÁõ Á¦ÇÑ°£°İ (´ÜÀ§:ms)
-const int CHECKAUTHLIMITTERM		= (1*20*1000);		// ÀÏ¹İ ÀÎÁõ Á¦ÇÑ°£°İ (´ÜÀ§:ms)		// P.S.> ´øÀü, PVP µî ÄÁÅÙÃ÷ Âü¿©ÀÚµéÀÇ ºÒÆí»çÇ×À» °í·ÁÇÏ¿© ±âÁ¸ ½Ã°£º¸´Ù Âª°Ô Á¤ÇÔ
+const int BEGINAUTHLIMITSEC			= (6*10);			// ìµœì´ˆ ì¸ì¦ ì œí•œì‹œê°„ (ë‹¨ìœ„:ì´ˆ, 0 ì´í•˜ëŠ” ë¬´ì œí•œ ëŒ€ê¸° ?)
+const int CHECKAUTHLIMITSEC			= (4*10);			// ì¼ë°˜ ì¸ì¦ ì œí•œì‹œê°„ (ë‹¨ìœ„:ì´ˆ)
+const int BEGINAUTHLIMITTERM		= (BEGINAUTHLIMITSEC*1000);		// ìµœì´ˆ ì¸ì¦ ì œí•œê°„ê²© (ë‹¨ìœ„:ms)
+//const int CHECKAUTHLIMITTERM		= (CHECKAUTHLIMITSEC*1000);		// ì¼ë°˜ ì¸ì¦ ì œí•œê°„ê²© (ë‹¨ìœ„:ms)
+const int CHECKAUTHLIMITTERM		= (1*20*1000);		// ì¼ë°˜ ì¸ì¦ ì œí•œê°„ê²© (ë‹¨ìœ„:ms)		// P.S.> ë˜ì „, PVP ë“± ì»¨í…ì¸  ì°¸ì—¬ìë“¤ì˜ ë¶ˆí¸ì‚¬í•­ì„ ê³ ë ¤í•˜ì—¬ ê¸°ì¡´ ì‹œê°„ë³´ë‹¤ ì§§ê²Œ ì •í•¨
 #endif	// _FINAL_BUILD
 
-const int RESETAUTHLISTMAX			= (1000);			// ÀÎÁõÁ¤º¸ ¸ñ·Ï ÃÊ±âÈ­ Å©±â (ÁÖÀÇ!!! - º» Àü¿ª»ó¼ö¸¦ »ç¿ëÇÏ´Â ÆĞÅ¶µéÀÌ ¼Û½Å/¼ö½Å ÆĞÅ¶ Å©±â¸¦ ³ÑÁö ¾Ê¾Æ¾ß ÇÔ)
-const int RESETAUTHLISTTERM			= (1*1000);			// ÀÎÁõÁ¤º¸ ¸ñ·Ï ÃÊ±âÈ­ ÀÛ¾÷ÁÖ±â (´ÜÀ§:ms)
-const int RESETAUTHSERVERTERM		= (5*1000);			// ÀÎÁõÁ¤º¸ ¼­¹ö ÃÊ±âÈ­ ÀÛ¾÷ÁÖ±â (´ÜÀ§:ms)
-const int RESETAUTHWORLDCHECKTERM	= (5*1000);			// ÀÎÁõÁ¤º¸ ¿ùµå ÃÊ±âÈ­ ÀÛ¾÷ÁÖ±â (´ÜÀ§:ms)
-const int RESETAUTHWORLDLIMITTERM	= (2*30*1000);		// ÀÎÁõÁ¤º¸ ¿ùµå ÃÊ±âÈ­ Á¦ÇÑ½Ã°£ (´ÜÀ§:ms)
+const int RESETAUTHLISTMAX			= (1000);			// ì¸ì¦ì •ë³´ ëª©ë¡ ì´ˆê¸°í™” í¬ê¸° (ì£¼ì˜!!! - ë³¸ ì „ì—­ìƒìˆ˜ë¥¼ ì‚¬ìš©í•˜ëŠ” íŒ¨í‚·ë“¤ì´ ì†¡ì‹ /ìˆ˜ì‹  íŒ¨í‚· í¬ê¸°ë¥¼ ë„˜ì§€ ì•Šì•„ì•¼ í•¨)
+const int RESETAUTHLISTTERM			= (1*1000);			// ì¸ì¦ì •ë³´ ëª©ë¡ ì´ˆê¸°í™” ì‘ì—…ì£¼ê¸° (ë‹¨ìœ„:ms)
+const int RESETAUTHSERVERTERM		= (5*1000);			// ì¸ì¦ì •ë³´ ì„œë²„ ì´ˆê¸°í™” ì‘ì—…ì£¼ê¸° (ë‹¨ìœ„:ms)
+const int RESETAUTHWORLDCHECKTERM	= (5*1000);			// ì¸ì¦ì •ë³´ ì›”ë“œ ì´ˆê¸°í™” ì‘ì—…ì£¼ê¸° (ë‹¨ìœ„:ms)
+const int RESETAUTHWORLDLIMITTERM	= (2*30*1000);		// ì¸ì¦ì •ë³´ ì›”ë“œ ì´ˆê¸°í™” ì œí•œì‹œê°„ (ë‹¨ìœ„:ms)
 
-const int GETAUTHUSERCOUNT = 1000 * 10;					// ÀÎÁõ¿ùµåÀ¯Àú Ä«¿îÆ® È¹µæÁÖ±â
+const int GETAUTHUSERCOUNT = 1000 * 10;					// ì¸ì¦ì›”ë“œìœ ì € ì¹´ìš´íŠ¸ íšë“ì£¼ê¸°
 
-const int GUILDMGRCHKTERM = (5*1000);					// ±æµå °ü¸®ÀÚ Ã¼Å© ÁÖ±â
-const int GUILDMGRUPDTERM = (10*1000);					// ±æµå °ü¸®ÀÚ °»½Å ÁÖ±â
-const int GUILDCHKMEMBTERM = (30*1000);					// ±æµå ¸â¹öÁ¤º¸ Ã¼Å© ÁÖ±â
-const int GUILDCHKRESCTERM = (30*1000);					// ±æµå ÀÚ¿ø¹İ³³ Ã¼Å© ÁÖ±â
-const int GUILDREQINFOTERM = (60*1000);					// ±æµå Á¤º¸¿äÃ» Ã¼Å© ÁÖ±â
-const int GUILDRFSVIEWTERM = (10*1000);					// ±æµå ½Ã°¢Á¤º¸ °»½Å ÁÖ±â
-const int GUILDAPLPOINTTERM = (10*1000);				// ±æµå ÀÏ¹İ/·¡´õ Æ÷ÀÎÆ® DB Àû¿ë ÁÖ±â
-const int GUILDCHKRESCLIMIT = (2*30*1000);				// ±æµå ÀÚ¿ø¹İ³³ Ã¼Å© Á¦ÇÑ
+const int GUILDMGRCHKTERM = (5*1000);					// ê¸¸ë“œ ê´€ë¦¬ì ì²´í¬ ì£¼ê¸°
+const int GUILDMGRUPDTERM = (10*1000);					// ê¸¸ë“œ ê´€ë¦¬ì ê°±ì‹  ì£¼ê¸°
+const int GUILDCHKMEMBTERM = (30*1000);					// ê¸¸ë“œ ë©¤ë²„ì •ë³´ ì²´í¬ ì£¼ê¸°
+const int GUILDCHKRESCTERM = (30*1000);					// ê¸¸ë“œ ìì›ë°˜ë‚© ì²´í¬ ì£¼ê¸°
+const int GUILDREQINFOTERM = (60*1000);					// ê¸¸ë“œ ì •ë³´ìš”ì²­ ì²´í¬ ì£¼ê¸°
+const int GUILDRFSVIEWTERM = (10*1000);					// ê¸¸ë“œ ì‹œê°ì •ë³´ ê°±ì‹  ì£¼ê¸°
+const int GUILDAPLPOINTTERM = (10*1000);				// ê¸¸ë“œ ì¼ë°˜/ë˜ë” í¬ì¸íŠ¸ DB ì ìš© ì£¼ê¸°
+const int GUILDCHKRESCLIMIT = (2*30*1000);				// ê¸¸ë“œ ìì›ë°˜ë‚© ì²´í¬ ì œí•œ
 
-const int PERIODQUESTTERM = (60*1000);					// ±â°£Á¦ Äù½ºÆ® °»½Å ÁÖ±â
+const int PERIODQUESTTERM = (60*1000);					// ê¸°ê°„ì œ í€˜ìŠ¤íŠ¸ ê°±ì‹  ì£¼ê¸°
 
-const int PERIODGUILDWARTERM = (60*1000);				// ±æµåÀü °»½Å ÁÖ±â
+const int PERIODGUILDWARTERM = (60*1000);				// ê¸¸ë“œì „ ê°±ì‹  ì£¼ê¸°
 const int GUILDWARMISSION_MAXGROUP = 4;
 
 const int SERVICEMANAGER_SERVERDEALY_SIZE = 1000;
@@ -215,25 +215,25 @@ struct DNProcessCheck
 // enum ----------------------------------------------------------------------------------------------
 enum eServerType
 {
-	SERVERTYPE_LOGIN,		// ·Î±×ÀÎ ¼­¹ö
-	SERVERTYPE_DB,			// DB ¼­¹ö
-	SERVERTYPE_VILLAGE,		// ºô¸®Áö ¼­¹ö
-	SERVERTYPE_GAME,		// °ÔÀÓ ¼­¹ö
-	SERVERTYPE_MASTER,		// ¸¶½ºÅÍ ¼­¹ö
-	SERVERTYPE_LOG,			// ·Î±× ¼­¹ö
+	SERVERTYPE_LOGIN,		// ë¡œê·¸ì¸ ì„œë²„
+	SERVERTYPE_DB,			// DB ì„œë²„
+	SERVERTYPE_VILLAGE,		// ë¹Œë¦¬ì§€ ì„œë²„
+	SERVERTYPE_GAME,		// ê²Œì„ ì„œë²„
+	SERVERTYPE_MASTER,		// ë§ˆìŠ¤í„° ì„œë²„
+	SERVERTYPE_LOG,			// ë¡œê·¸ ì„œë²„
 	SERVERTYPE_MAX,
 };
 
 enum ePatchType
 {
-	PATCHTYPE_LOGIN,		// ·Î±×ÀÎ ¼­¹ö
-	PATCHTYPE_DB,			// DB ¼­¹ö
-	PATCHTYPE_VILLAGE,		// ºô¸®Áö ¼­¹ö
-	PATCHTYPE_GAME,			// °ÔÀÓ ¼­¹ö
-	PATCHTYPE_MASTER,		// ¸¶½ºÅÍ ¼­¹ö
-	PATCHTYPE_LOG,			// ·Î±× ¼­¹ö
+	PATCHTYPE_LOGIN,		// ë¡œê·¸ì¸ ì„œë²„
+	PATCHTYPE_DB,			// DB ì„œë²„
+	PATCHTYPE_VILLAGE,		// ë¹Œë¦¬ì§€ ì„œë²„
+	PATCHTYPE_GAME,			// ê²Œì„ ì„œë²„
+	PATCHTYPE_MASTER,		// ë§ˆìŠ¤í„° ì„œë²„
+	PATCHTYPE_LOG,			// ë¡œê·¸ ì„œë²„
 	PATCHTYPE_PATCHER,		// ESM
-	PATCHTYPE_CASH,			// Ä³½¬ ¼­¹ö
+	PATCHTYPE_CASH,			// ìºì‰¬ ì„œë²„
 };
 
 enum eConnectionKey
@@ -248,17 +248,17 @@ enum eConnectionKey
 	CONNECTIONKEY_LOG,
 	CONNECTIONKEY_LAUNCHER,
 	CONNECTIONKEY_SERVICEMANAGER,
-	CONNECTIONKEY_AUTH,		// ÀÎÁõ¼·(³Ø½¼)
+	CONNECTIONKEY_AUTH,		// ì¸ì¦ì„­(ë„¥ìŠ¨)
 	CONNECTIONKEY_CASH,
-	CONNECTIONKEY_BILLING,	// ºô¸µ¼·(ÆÛºí¸®¼Å)
+	CONNECTIONKEY_BILLING,	// ë¹Œë§ì„­(í¼ë¸”ë¦¬ì…”)
 	CONNECTIONKEY_SERVICEPATCHER,
 	CONNECTIONKEY_SERVERMONITOR,
-	CONNECTIONKEY_TW_AUTHLOGIN,	// ÀÎÁõ¼·(°¨¸¶´Ï¾Æ 1 - Authorization : »ç¿ëÀÚ °èÁ¤ ÀÎÁõ Ã³¸®, »óÅÂ (ºí·Ï ¿©ºÎ, Ä³½¬ ÀÜ¿© Æ÷ÀÎÆ® ?) Ã¼Å©)
-	CONNECTIONKEY_TW_AUTHLOGOUT,	// ÀÎÁõ¼·(°¨¸¶´Ï¾Æ 2 - Logout : »ç¿ëÀÚ ·Î±×¾Æ¿ô Ã³¸®)
+	CONNECTIONKEY_TW_AUTHLOGIN,	// ì¸ì¦ì„­(ê°ë§ˆë‹ˆì•„ 1 - Authorization : ì‚¬ìš©ì ê³„ì • ì¸ì¦ ì²˜ë¦¬, ìƒíƒœ (ë¸”ë¡ ì—¬ë¶€, ìºì‰¬ ì”ì—¬ í¬ì¸íŠ¸ ?) ì²´í¬)
+	CONNECTIONKEY_TW_AUTHLOGOUT,	// ì¸ì¦ì„­(ê°ë§ˆë‹ˆì•„ 2 - Logout : ì‚¬ìš©ì ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬)
 	CONNECTIONKEY_TW_QUERY,
 	CONNECTIONKEY_TW_SHOPITEM,
-	CONNECTIONKEY_TW_COUPON,	// °¨¸¶´Ï¾Æ ÄíÆù¼­¹ö
-	CONNECTIONKEY_TW_COUPON_ROLLBACK,	// °¨¸¶´Ï¾Æ ÄíÆù·Ñ¹é..Â¡±×·¯¿î°Íµé ¼­¹ö¸¦ Æ÷Æ®º°·Î ¸¸µé´Ù´Ï..¤Ğ
+	CONNECTIONKEY_TW_COUPON,	// ê°ë§ˆë‹ˆì•„ ì¿ í°ì„œë²„
+	CONNECTIONKEY_TW_COUPON_ROLLBACK,	// ê°ë§ˆë‹ˆì•„ ì¿ í°ë¡¤ë°±..ì§•ê·¸ëŸ¬ìš´ê²ƒë“¤ ì„œë²„ë¥¼ í¬íŠ¸ë³„ë¡œ ë§Œë“¤ë‹¤ë‹ˆ..ã… 
 	CONNECTIONKEY_TH_AUTH,
 	CONNECTIONKEY_TH_OTP,
 	CONNECTIONKEY_TH_QUERY,
@@ -281,47 +281,47 @@ enum eServerLogLevel
 	ServerLogLevel_3 = 3,
 };
 
-enum eUserState		// login¿¡¼­ ¾²´Â »óÅÂ°ª
+enum eUserState		// loginì—ì„œ ì“°ëŠ” ìƒíƒœê°’
 {
 	STATE_NONE,
 
 	// login
 	STATE_CHECKVERSION,
-	STATE_CHECKLOGIN,		// ¾ÆÀÌµğ ÆĞ½º¿öµå È®ÀÎ»óÅÂ
+	STATE_CHECKLOGIN,		// ì•„ì´ë”” íŒ¨ìŠ¤ì›Œë“œ í™•ì¸ìƒíƒœ
 	STATE_SERVERLIST,
-	STATE_WAITUSER,			// ´ë±âÀ¯Àú
-	STATE_CHARLIST,			// Ä³¸¯ÅÍ ¸®½ºÆ® »óÅÂ
+	STATE_WAITUSER,			// ëŒ€ê¸°ìœ ì €
+	STATE_CHARLIST,			// ìºë¦­í„° ë¦¬ìŠ¤íŠ¸ ìƒíƒœ
 	STATE_CHANNELLIST,
-	STATE_CONNECTVILLAGE,	// ºô¸®Áö ¼­¹ö¿¡ Á¢¼Ó°¡´É»óÅÂ
-	STATE_CONNECTGAME,		// °× ¼­¹ö¿¡ Á¢¼Ó°¡´É»óÅÂ
-	STATE_RECONNECTLOGIN,	// ¸®Ä¿³ØÆ® »óÅÂ
+	STATE_CONNECTVILLAGE,	// ë¹Œë¦¬ì§€ ì„œë²„ì— ì ‘ì†ê°€ëŠ¥ìƒíƒœ
+	STATE_CONNECTGAME,		// ê²œ ì„œë²„ì— ì ‘ì†ê°€ëŠ¥ìƒíƒœ
+	STATE_RECONNECTLOGIN,	// ë¦¬ì»¤ë„¥íŠ¸ ìƒíƒœ
 
 	// master
-	STATE_CHECKVILLAGE,		//ºô¸®Áö·Î ³Ñ¾î°¡±âÀüÀÇ »óÅÂÀÔ´Ï´Ù. À¯Àú°¡ ²÷±æ°æ¿ì °í¾Æ°¡ µÇ¹Ç·Î ÀÌ ½ºÅ×ÀÌÆ®¸¦ ÅëÇØ¼­ °ü¸®µË´Ï´Ù.
-	STATE_CHECKGAME,		//°ÔÀÓÀ¸·Î ³Ñ¾î°¡±â ÀüÀÇ »óÅÂÀÔ´Ï´Ù. »óµ¿
-	STATE_CHECKRECONNECTLOGIN,	//Ä³¸¯ÅÍ¼±ÅÃÃ¢À¸·Î ³Ñ¾î°¡±â ÀüÀÇ »óÅÂÀÔ´Ï´Ù. »óµ¿
-	STATE_VILLAGE,			// village»óÅÂÀÎ°¡
-	STATE_GAME,				// game»óÅÂÀÎ°¡
-	STATE_LOGIN,			// login»óÅÂÀÎ°¡
+	STATE_CHECKVILLAGE,		//ë¹Œë¦¬ì§€ë¡œ ë„˜ì–´ê°€ê¸°ì „ì˜ ìƒíƒœì…ë‹ˆë‹¤. ìœ ì €ê°€ ëŠê¸¸ê²½ìš° ê³ ì•„ê°€ ë˜ë¯€ë¡œ ì´ ìŠ¤í…Œì´íŠ¸ë¥¼ í†µí•´ì„œ ê´€ë¦¬ë©ë‹ˆë‹¤.
+	STATE_CHECKGAME,		//ê²Œì„ìœ¼ë¡œ ë„˜ì–´ê°€ê¸° ì „ì˜ ìƒíƒœì…ë‹ˆë‹¤. ìƒë™
+	STATE_CHECKRECONNECTLOGIN,	//ìºë¦­í„°ì„ íƒì°½ìœ¼ë¡œ ë„˜ì–´ê°€ê¸° ì „ì˜ ìƒíƒœì…ë‹ˆë‹¤. ìƒë™
+	STATE_VILLAGE,			// villageìƒíƒœì¸ê°€
+	STATE_GAME,				// gameìƒíƒœì¸ê°€
+	STATE_LOGIN,			// loginìƒíƒœì¸ê°€
 
 	// village
-	STATE_LOADUSERDATA,		// À¯Àúµ¥ÀÌÅÍ DB¿¡¼­ ºÒ·¯¿Ô´ÂÁö
-	STATE_READY,			// ÇÊµå ³ª°¥ ÁØºñ ¿Ï·á
-	STATE_READYTOVILLAGE,	// village µı Àåºñ·Î ¿Å±æ¶§ (ÁØºñ´Ü°è)
-	STATE_READYTOGAME,		// gameÀ¸·Î ³Ñ¾î°¥¶§ (ÁØºñ´Ü°è)
-	STATE_READYTOLOGIN,		// loginÀ¸·Î ³Ñ¾î°¥¶§ (ÁØºñ´Ü°è)
-	STATE_MOVETOVILLAGE,	// village µı Àåºñ·Î ¿Å±æ¶§
-	STATE_MOVETOGAME,		// gameÀ¸·Î ³Ñ¾î°¥¶§
-	STATE_MOVETOLOGIN,		// loginÀ¸·Î ³Ñ¾î°¥¶§
-	STATE_MOVESAMECHANNEL,	// °°Àº Ã¤³Î ÀÌµ¿
+	STATE_LOADUSERDATA,		// ìœ ì €ë°ì´í„° DBì—ì„œ ë¶ˆëŸ¬ì™”ëŠ”ì§€
+	STATE_READY,			// í•„ë“œ ë‚˜ê°ˆ ì¤€ë¹„ ì™„ë£Œ
+	STATE_READYTOVILLAGE,	// village ë”´ ì¥ë¹„ë¡œ ì˜®ê¸¸ë•Œ (ì¤€ë¹„ë‹¨ê³„)
+	STATE_READYTOGAME,		// gameìœ¼ë¡œ ë„˜ì–´ê°ˆë•Œ (ì¤€ë¹„ë‹¨ê³„)
+	STATE_READYTOLOGIN,		// loginìœ¼ë¡œ ë„˜ì–´ê°ˆë•Œ (ì¤€ë¹„ë‹¨ê³„)
+	STATE_MOVETOVILLAGE,	// village ë”´ ì¥ë¹„ë¡œ ì˜®ê¸¸ë•Œ
+	STATE_MOVETOGAME,		// gameìœ¼ë¡œ ë„˜ì–´ê°ˆë•Œ
+	STATE_MOVETOLOGIN,		// loginìœ¼ë¡œ ë„˜ì–´ê°ˆë•Œ
+	STATE_MOVESAMECHANNEL,	// ê°™ì€ ì±„ë„ ì´ë™
 
 #if defined(_HSHIELD)
 	HSHIELD_NONE = 0,
-	HSHIELD_RESPONSEVERSION = 1,	// checkversion ÆĞÅ¶ ¹ŞÀº »óÅÂ
-	HSHIELD_RECONNECTLOGIN,		// ÀçÁ¢¼Ó ÆĞÅ¶ ¹ŞÀº »óÅÂ
-	HSHIELD_LOADUSER,			// µğºñ ·Îµå ³¡³½»óÅÂ
-	HSHIELD_REQUEST,			// _AhnHS_MakeRequest ¿äÃ»»óÅÂ
-	HSHIELD_RESPONSE,			// ÀÀ´ä¿Â »óÅÂ
+	HSHIELD_RESPONSEVERSION = 1,	// checkversion íŒ¨í‚· ë°›ì€ ìƒíƒœ
+	HSHIELD_RECONNECTLOGIN,		// ì¬ì ‘ì† íŒ¨í‚· ë°›ì€ ìƒíƒœ
+	HSHIELD_LOADUSER,			// ë””ë¹„ ë¡œë“œ ëë‚¸ìƒíƒœ
+	HSHIELD_REQUEST,			// _AhnHS_MakeRequest ìš”ì²­ìƒíƒœ
+	HSHIELD_RESPONSE,			// ì‘ë‹µì˜¨ ìƒíƒœ
 #endif	// _HSHIELD
 
 };
@@ -330,44 +330,44 @@ enum eUserState		// login¿¡¼­ ¾²´Â »óÅÂ°ª
 //GameRoom
 enum eGameRoomState
 {
-	_GAME_STATE_NONE,					//»ı¼º!
-	_GAME_STATE_READY2CONNECT,			//ÃÊ±âÈ­ ¿Ï·á ÄÁ³Ø¼Ç ´ë±â! »óÅÂ
-	_GAME_STATE_CONNECT2CHECKAUTH,		//DB ¸¦ ÀÌ¿ëÇÑ ÀÎÁõÁ¤º¸ Ã¼Å©
-	_GAME_STATE_CONNECT2LOAD,			//¿¬°á ¹× °ËÁõ ¿Ï·á! ·Îµå»óÅÂ·Î ÀüÀÌ
-	_GAME_STATE_LOAD2SYNC,				//Å¬¶óÀÌ¾ğÆ® ¿¬°á¿Ï·á ÁØºñ»óÅÂ
+	_GAME_STATE_NONE,					//ìƒì„±!
+	_GAME_STATE_READY2CONNECT,			//ì´ˆê¸°í™” ì™„ë£Œ ì»¨ë„¥ì…˜ ëŒ€ê¸°! ìƒíƒœ
+	_GAME_STATE_CONNECT2CHECKAUTH,		//DB ë¥¼ ì´ìš©í•œ ì¸ì¦ì •ë³´ ì²´í¬
+	_GAME_STATE_CONNECT2LOAD,			//ì—°ê²° ë° ê²€ì¦ ì™„ë£Œ! ë¡œë“œìƒíƒœë¡œ ì „ì´
+	_GAME_STATE_LOAD2SYNC,				//í´ë¼ì´ì–¸íŠ¸ ì—°ê²°ì™„ë£Œ ì¤€ë¹„ìƒíƒœ
 	_GAME_STATE_SYNC2SYNC,
-	_GAME_STATE_SYNC2PLAY,				//ÇÃ·¹ÀÌ´ë±âÁß
-	_GAME_STATE_PLAY,					//°ÔÀÓÁß!
+	_GAME_STATE_SYNC2PLAY,				//í”Œë ˆì´ëŒ€ê¸°ì¤‘
+	_GAME_STATE_PLAY,					//ê²Œì„ì¤‘!
 
-	_GAME_STATE_CANCEL_LOADING,			//¹é±×¶ó¿îµå ·Î´õ¿Í ½ÌÅ©
-	_GAME_STATE_DESTROYED,				//¹æ±úÁ³»ï!
-	_GAME_STATE_FARM_NONE,				//³óÀå¿ë ½ºÅ×ÀÌÆ®ÀÔ´Ï´Ù. »ı¼º ·çÆ¾ÀÌ ´Ş¶ó ÀÏ¹İ°ú ´Ù¸£°Ô Èê·¯°©´Ï´Ù _GAME_STATE_PLAYºÎÅÍ´Â µ¿ÀÏ
-	_GAME_STATE_FARM_READY2LOAD,		//µğºñ¿¡ ³óÀå°ü·Ã µ¥ÀÌÅ¸¸¦ ¿äÃ»ÇÑ »óÅÂ
-	_GAME_STATE_FARM_LOAD2PLAY,			//µğºñ¿¡¼­ ³óÀå°ü·Ã µ¥ÀÌÅ¸¸¦ ¹Ş¾Ò´Ù. ¼¼ÆÃÇÏ°í ¸¶½ºÅÍ¿¡ ¾Ë¸®ÀÚ
-	_GAME_STATE_FARM_PAUSE,				//³óÀå Æ÷¿ìÁî~
-	_GAME_STATE_PVP_SYNC2GAMEMODE,		//ÇÇº÷ÇÇÀÏ°æ¿ì À¯Àú°¡ ¾ø´Â »óÅÂ¿¡¼­ ½ÃÀÛ½ÃÁ¡ÀÌ »ı±è(±æµåÀü) Á¢¼Ó½ºÅ×ÀÌÆ®¸¦ °Ç³Ê¶Ù°í ¸ğµå¹Ş°í ·Îµå·Î ³Ñ¾î°¡´Â Áß°£½ºÅ×ÀÌÆ®
+	_GAME_STATE_CANCEL_LOADING,			//ë°±ê·¸ë¼ìš´ë“œ ë¡œë”ì™€ ì‹±í¬
+	_GAME_STATE_DESTROYED,				//ë°©ê¹¨ì¡Œì‚¼!
+	_GAME_STATE_FARM_NONE,				//ë†ì¥ìš© ìŠ¤í…Œì´íŠ¸ì…ë‹ˆë‹¤. ìƒì„± ë£¨í‹´ì´ ë‹¬ë¼ ì¼ë°˜ê³¼ ë‹¤ë¥´ê²Œ í˜ëŸ¬ê°‘ë‹ˆë‹¤ _GAME_STATE_PLAYë¶€í„°ëŠ” ë™ì¼
+	_GAME_STATE_FARM_READY2LOAD,		//ë””ë¹„ì— ë†ì¥ê´€ë ¨ ë°ì´íƒ€ë¥¼ ìš”ì²­í•œ ìƒíƒœ
+	_GAME_STATE_FARM_LOAD2PLAY,			//ë””ë¹„ì—ì„œ ë†ì¥ê´€ë ¨ ë°ì´íƒ€ë¥¼ ë°›ì•˜ë‹¤. ì„¸íŒ…í•˜ê³  ë§ˆìŠ¤í„°ì— ì•Œë¦¬ì
+	_GAME_STATE_FARM_PAUSE,				//ë†ì¥ í¬ìš°ì¦ˆ~
+	_GAME_STATE_PVP_SYNC2GAMEMODE,		//í”¼ë¹•í”¼ì¼ê²½ìš° ìœ ì €ê°€ ì—†ëŠ” ìƒíƒœì—ì„œ ì‹œì‘ì‹œì ì´ ìƒê¹€(ê¸¸ë“œì „) ì ‘ì†ìŠ¤í…Œì´íŠ¸ë¥¼ ê±´ë„ˆë›°ê³  ëª¨ë“œë°›ê³  ë¡œë“œë¡œ ë„˜ì–´ê°€ëŠ” ì¤‘ê°„ìŠ¤í…Œì´íŠ¸
 };
 
 //GameSession
 enum eGameSessionState
 {
 	SESSION_STATE_NONE,
-	SESSION_STATE_READY,				//°´Ã¼»ı¼º¸¸ µÇ¾î ÀÖÀ½! ¿¬°áÀº ¾ÈµÇ¾î ÀÖÀ½
+	SESSION_STATE_READY,				//ê°ì²´ìƒì„±ë§Œ ë˜ì–´ ìˆìŒ! ì—°ê²°ì€ ì•ˆë˜ì–´ ìˆìŒ
 	SESSION_STATE_RUDP_CONNECTED,	
-	SESSION_STATE_CONNECTED,			//¿¬°á µÇ¾úÀ½!
-	SESSION_STATE_LOAD,					//¿¬°á µÇ¸é µğºñ¿¡ ¿äÃ»ÇÕ´Ï´Ù.
-	SESSION_STATE_LOADED,				//°ÔÀÓ·Îµù¿Ï·á!
-	SESSION_STATE_WAIT_TO_READY,		//Ready »óÅÂ ±â´Ù¸²
-	SESSION_STATE_READY_TO_SYNC,		//Sync ÁØºñ ¿Ï·á!
-	SESSION_STATE_SYNC_READY_2_DELAY,	//¼­¹ö°¡ ¸Ş¼¼ÁöÃ³¸®ÁØºñ°¡ ¾ÈµÇ»óÅÂ¿¡¼­ ¸Ş¼¼Áö¸¦ ¹Ş¾Ò½À´Ï´Ù.
+	SESSION_STATE_CONNECTED,			//ì—°ê²° ë˜ì—ˆìŒ!
+	SESSION_STATE_LOAD,					//ì—°ê²° ë˜ë©´ ë””ë¹„ì— ìš”ì²­í•©ë‹ˆë‹¤.
+	SESSION_STATE_LOADED,				//ê²Œì„ë¡œë”©ì™„ë£Œ!
+	SESSION_STATE_WAIT_TO_READY,		//Ready ìƒíƒœ ê¸°ë‹¤ë¦¼
+	SESSION_STATE_READY_TO_SYNC,		//Sync ì¤€ë¹„ ì™„ë£Œ!
+	SESSION_STATE_SYNC_READY_2_DELAY,	//ì„œë²„ê°€ ë©”ì„¸ì§€ì²˜ë¦¬ì¤€ë¹„ê°€ ì•ˆë˜ìƒíƒœì—ì„œ ë©”ì„¸ì§€ë¥¼ ë°›ì•˜ìŠµë‹ˆë‹¤.
 	SESSION_STATE_READY_TO_PLAY,		//Sync 2 Play
-	SESSION_STATE_GAME_PLAY,			//°ÔÀÓÇÃ·¹ÀÌÁß!
-	SESSION_STATE_READY_TO_VILLAGE,		//game -> village (ÁØºñ´Ü°è)
-	SESSION_STATE_READY_TO_LOGIN,		//game -> login char select (ÁØºñ´Ü°è)
+	SESSION_STATE_GAME_PLAY,			//ê²Œì„í”Œë ˆì´ì¤‘!
+	SESSION_STATE_READY_TO_VILLAGE,		//game -> village (ì¤€ë¹„ë‹¨ê³„)
+	SESSION_STATE_READY_TO_LOGIN,		//game -> login char select (ì¤€ë¹„ë‹¨ê³„)
 	SESSION_STATE_RECONNECTLOGIN,		//game -> login char select
-	SESSION_STATE_SERVER_CHANGE,		//¼­¹öÀÌµ¿Áß! ÀÌµ¿¿Ï·áµÇ¸é ²÷±è
-	SESSION_STATE_DISCONNECTED,			//Â©¸°»óÅÂ! (tcp±îÁö ÀüºÎ ²÷±ä »óÅÂ)
-	//SESSION_STATE_CRASH,				//Å©·¡½¬!
+	SESSION_STATE_SERVER_CHANGE,		//ì„œë²„ì´ë™ì¤‘! ì´ë™ì™„ë£Œë˜ë©´ ëŠê¹€
+	SESSION_STATE_DISCONNECTED,			//ì§¤ë¦°ìƒíƒœ! (tcpê¹Œì§€ ì „ë¶€ ëŠê¸´ ìƒíƒœ)
+	//SESSION_STATE_CRASH,				//í¬ë˜ì‰¬!
 };
 
 // GameServer Parse Type
@@ -491,31 +491,31 @@ enum eModItemBitmap
 
 enum eWeaponType
 {
-	WEAPON_SWORD,			// ´ë°Ë
-	WEAPON_GAUNTLET,		// °ÇÆ²·¿
-	WEAPON_AXE,				// µµ³¢
-	WEAPON_HAMMER,			// ÇØ¸Ó
-	WEAPON_SMALLBOW,		// ¼Ò±Ã
-	WEAPON_BIGBOW,			// ´ë±Ã
-	WEAPON_CROSSBOW,		// ¼®±Ã
-	WEAPON_STAFF,			// ½ºÅ×ÇÁ
-	WEAPON_BOOK,			// ¸¶¹ı¼­
-	WEAPON_ORB,				// ¼öÁ¤±¸
-	WEAPON_PUPPET,			// ÁÖ¼úÀÎÇü
-	WEAPON_MACE,			// ¸ŞÀÌ½º
-	WEAPON_FLAIL,			// ÇÁ·¹ÀÏ
-	WEAPON_WAND,			// ¿Ïµå
-	WEAPON_SHIELD,			// ¹æÆĞ
-	WEAPON_ARROW,			// È­»ì
-	WEAPON_CANNON,			// Ä³³í
-	WEAPON_BUBBLEGUN,		// ¹öºí°Ç
-	WEAPON_GLOVE,			// ±Û·¯ºê
-	WEAPON_FAN,             // ºÎÃ¤
-	WEAPON_CHAKRAM,         // Â÷Å©¶÷
-	WEAPON_CHARM,           // Âü
-	WEAPON_SCIMITER,		// ½Ã¹ÌÅÍ
-	WEAPON_DAGGER,			// ´ë°Å
-	WEAPON_CROOK,			// Å©·è
+	WEAPON_SWORD,			// ëŒ€ê²€
+	WEAPON_GAUNTLET,		// ê±´í‹€ë ›
+	WEAPON_AXE,				// ë„ë¼
+	WEAPON_HAMMER,			// í•´ë¨¸
+	WEAPON_SMALLBOW,		// ì†Œê¶
+	WEAPON_BIGBOW,			// ëŒ€ê¶
+	WEAPON_CROSSBOW,		// ì„ê¶
+	WEAPON_STAFF,			// ìŠ¤í…Œí”„
+	WEAPON_BOOK,			// ë§ˆë²•ì„œ
+	WEAPON_ORB,				// ìˆ˜ì •êµ¬
+	WEAPON_PUPPET,			// ì£¼ìˆ ì¸í˜•
+	WEAPON_MACE,			// ë©”ì´ìŠ¤
+	WEAPON_FLAIL,			// í”„ë ˆì¼
+	WEAPON_WAND,			// ì™„ë“œ
+	WEAPON_SHIELD,			// ë°©íŒ¨
+	WEAPON_ARROW,			// í™”ì‚´
+	WEAPON_CANNON,			// ìºë…¼
+	WEAPON_BUBBLEGUN,		// ë²„ë¸”ê±´
+	WEAPON_GLOVE,			// ê¸€ëŸ¬ë¸Œ
+	WEAPON_FAN,             // ë¶€ì±„
+	WEAPON_CHAKRAM,         // ì°¨í¬ëŒ
+	WEAPON_CHARM,           // ì°¸
+	WEAPON_SCIMITER,		// ì‹œë¯¸í„°
+	WEAPON_DAGGER,			// ëŒ€ê±°
+	WEAPON_CROOK,			// í¬ë£©
 	WEAPON_SPEAR,
 	WEAPON_RESERVED1,
 	WEAPON_BRACELET,
@@ -528,56 +528,56 @@ enum eParts
 {
 	PARTS_FACE,				// 
 	PARTS_HAIR,
-	PARTS_HELMET,			// Åõ±¸
-	PARTS_BODY,				// »óÃ¼
-	PARTS_LEG,				// ÇÏÃ¼
-	PARTS_HAND,				// ¼Õ
-	PARTS_FOOT,				// ¹ß
+	PARTS_HELMET,			// íˆ¬êµ¬
+	PARTS_BODY,				// ìƒì²´
+	PARTS_LEG,				// í•˜ì²´
+	PARTS_HAND,				// ì†
+	PARTS_FOOT,				// ë°œ
 	PARTS_NECKLACE,
 	PARTS_EARRING,
 	PARTS_RING,
 	PARTS_RING2,
 	PARTS_CREST,
-	PARTS_FULLSET,			// Ç®¼¼Æ®
+	PARTS_FULLSET,			// í’€ì„¸íŠ¸
 };
 
 enum eQuestDataType
 {
-	QUESTDATA_STATE = 1,	// Äù½ºÆ® »óÅÂ
-	QUESTDATA_STEP,			// ÇöÀç Äù½ºÆ® ½ºÅÜ
-	QUESTDATA_JOURNAL,		// ÇöÀç Äù½ºÆ® Àú³Î
+	QUESTDATA_STATE = 1,	// í€˜ìŠ¤íŠ¸ ìƒíƒœ
+	QUESTDATA_STEP,			// í˜„ì¬ í€˜ìŠ¤íŠ¸ ìŠ¤í…
+	QUESTDATA_JOURNAL,		// í˜„ì¬ í€˜ìŠ¤íŠ¸ ì €ë„
 };
 
 enum eEtcType	//  DNEtc table Type
 {
 	ETC_NONE,
-	ETC_QUICKSLOT,			// TQuickSlot QuickSlot[QUICKSLOTMAX];		// ´ÜÃà ½½·ÔÃ¢ (10°³¾¿ 2ÁÙ)
-	ETC_JOB,				// USHORT wJobArray[JOBMAX];				// Á÷¾÷ (0: ¸ÇÃ³À½ Á÷¾÷, ³ª¸ÓÁö ÂßÂß~ ÀüÁ÷ Æ÷ÇÔ)
-	ETC_NOTIFIER,			// int Notifier[Notifier_MaxCount];	// ¾Ë¸®¹Ì (quest, mission)
-	ETC_DUNGEONCLEAR,		// TDungeonClearData DungeonClear[DUNGEONCLEARMAX];	// ´øÀü Å¬¸®¾î (120°³)
-	ETC_ETERNITYITEM,		// USHORT wEternityItem[ETERNITYITEMMAX];	// ¿µ±¸¾ÆÀÌÅÛ
-	ETC_EQUIPDELAYTIME,		// int nEquipDelayTime[EQUIPMAX];			// equip index¿¡ °ü·ÃµÈ cooltime
+	ETC_QUICKSLOT,			// TQuickSlot QuickSlot[QUICKSLOTMAX];		// ë‹¨ì¶• ìŠ¬ë¡¯ì°½ (10ê°œì”© 2ì¤„)
+	ETC_JOB,				// USHORT wJobArray[JOBMAX];				// ì§ì—… (0: ë§¨ì²˜ìŒ ì§ì—…, ë‚˜ë¨¸ì§€ ì­‰ì­‰~ ì „ì§ í¬í•¨)
+	ETC_NOTIFIER,			// int Notifier[Notifier_MaxCount];	// ì•Œë¦¬ë¯¸ (quest, mission)
+	ETC_DUNGEONCLEAR,		// TDungeonClearData DungeonClear[DUNGEONCLEARMAX];	// ë˜ì „ í´ë¦¬ì–´ (120ê°œ)
+	ETC_ETERNITYITEM,		// USHORT wEternityItem[ETERNITYITEMMAX];	// ì˜êµ¬ì•„ì´í…œ
+	ETC_EQUIPDELAYTIME,		// int nEquipDelayTime[EQUIPMAX];			// equip indexì— ê´€ë ¨ëœ cooltime
 	ETC_EQUIPREMAINTIME,	// int nEquipRemainTime[EQUIPMAX];
 };
 
 enum eAuthType
 {
-	AUTHTYPE_BEGINAUTH,		// ÀÎÁõ ½ÃÀÛ
-	AUTHTYPE_STOREAUTH,		// ÀÎÁõ ÀúÀå
-	AUTHTYPE_CHECKAUTH,		// ÀÎÁõ Ã¼Å©
-	AUTHTYPE_RESETAUTH,		// ÀÎÁõ ¸®¼Â
+	AUTHTYPE_BEGINAUTH,		// ì¸ì¦ ì‹œì‘
+	AUTHTYPE_STOREAUTH,		// ì¸ì¦ ì €ì¥
+	AUTHTYPE_CHECKAUTH,		// ì¸ì¦ ì²´í¬
+	AUTHTYPE_RESETAUTH,		// ì¸ì¦ ë¦¬ì…‹
 	AUTHTYPE_CNT,
 };
 
 enum eAbuseCode
 {
 	ABUSE_NONE = 0,
-	ABUSE_MOVE_SERVERS,		// ¸¶À» <-> ´øÁ¯ ¿öÇÁ
-	ABUSE_MOVE_INSKY,		// °øÁßÀÌµ¿
-	ABUSE_HACKSHIELD,		// ÇÙ½¯µå¿¡¼­ ºÎÁ¤ÀÌ¿ëÀÚ
-	ABUSE_TWN_EXTENDLOG,	// ´ë¸¸¿ë Ãß°¡ ·Î±×°ª #48714 °ü°è ÀÖÀ½
+	ABUSE_MOVE_SERVERS,		// ë§ˆì„ <-> ë˜ì ¼ ì›Œí”„
+	ABUSE_MOVE_INSKY,		// ê³µì¤‘ì´ë™
+	ABUSE_HACKSHIELD,		// í•µì‰´ë“œì—ì„œ ë¶€ì •ì´ìš©ì
+	ABUSE_TWN_EXTENDLOG,	// ëŒ€ë§Œìš© ì¶”ê°€ ë¡œê·¸ê°’ #48714 ê´€ê³„ ìˆìŒ
 #if defined( PRE_ADD_CHARACTERCHECKSUM )
-	ABUSE_CHARACTER_CHECKSUM, // #80315 Ä³¸¯ÅÍ Ã¼Å©¼¶ ÀÌ»ó ¹ß°ß
+	ABUSE_CHARACTER_CHECKSUM, // #80315 ìºë¦­í„° ì²´í¬ì„¬ ì´ìƒ ë°œê²¬
 #endif // #if defined( PRE_ADD_CHARACTERCHECKSUM )
 };
 
@@ -597,9 +597,9 @@ namespace DBDNMembership
 	{
 		enum eOrderStatusCode
 		{
-			SuccessPayment = 1,		// °áÁ¦¼º°ø & pickup ´ë±â
-			Success = 2,			// ±¸¸Å¿Ï·á
-			FailPayment = 3,		// °áÁ¦½ÇÆĞ
+			SuccessPayment = 1,		// ê²°ì œì„±ê³µ & pickup ëŒ€ê¸°
+			Success = 2,			// êµ¬ë§¤ì™„ë£Œ
+			FailPayment = 3,		// ê²°ì œì‹¤íŒ¨
 		};
 	};
 };
@@ -610,14 +610,14 @@ namespace DBDNWorldDef
 	{
 		enum eCharacterExpChangeCode 
 		{
-			Quest = 1,			// : Äù½ºÆ® º¸»ó	-> FKey = QuestID
-			Dungeon = 2,		// : ´øÀü º¸»ó		-> FKey = PartyID or NULL
-			Cheat = 3,			// : Ä¡Æ®			-> FKey = NULL
-			Admin = 4,			// : º¸Á¤ º¯°æ
-			Eternity = 5,		// ¿µ±¸¾ÆÀÌÅÛ		-> FKey = ItemSerial
-			PvP	= 6,			// : PvP ÇÇ·Îµµ º¸»ó -> FKey = NULL
-			DungeonMonster = 7,	// :´øÁ¯ ¸ó½ºÅÍ »ç³É °æÇèÄ¡ -> FKey = PartyID or NULL( ¼­¹ö¿¡¼­ ±¸ºĞÀÚ·Î ¾²ÀÓ..DB¿¡ ³Ñ¾î°¥¶§´Â Dungeon À¸·Î Convert µÈ´Ù. )
-			Item = 8,			// : °æÇèÄ¡Áõ°¡ ¾ÆÀÌÅÛ -> FKey = ItemID
+			Quest = 1,			// : í€˜ìŠ¤íŠ¸ ë³´ìƒ	-> FKey = QuestID
+			Dungeon = 2,		// : ë˜ì „ ë³´ìƒ		-> FKey = PartyID or NULL
+			Cheat = 3,			// : ì¹˜íŠ¸			-> FKey = NULL
+			Admin = 4,			// : ë³´ì • ë³€ê²½
+			Eternity = 5,		// ì˜êµ¬ì•„ì´í…œ		-> FKey = ItemSerial
+			PvP	= 6,			// : PvP í”¼ë¡œë„ ë³´ìƒ -> FKey = NULL
+			DungeonMonster = 7,	// :ë˜ì ¼ ëª¬ìŠ¤í„° ì‚¬ëƒ¥ ê²½í—˜ì¹˜ -> FKey = PartyID or NULL( ì„œë²„ì—ì„œ êµ¬ë¶„ìë¡œ ì“°ì„..DBì— ë„˜ì–´ê°ˆë•ŒëŠ” Dungeon ìœ¼ë¡œ Convert ëœë‹¤. )
+			Item = 8,			// : ê²½í—˜ì¹˜ì¦ê°€ ì•„ì´í…œ -> FKey = ItemID
 		};
 	};
 
@@ -625,81 +625,81 @@ namespace DBDNWorldDef
 	{
 		enum eCharacterLevelChangeCode
 		{
-			Normal = 1,		// : ÀÏ¹İ
-			Cheat = 2,		// : Ä¡Æ®
-			Admin = 3,		// : °ü¸®ÀÚ º¯°æ
+			Normal = 1,		// : ì¼ë°˜
+			Cheat = 2,		// : ì¹˜íŠ¸
+			Admin = 3,		// : ê´€ë¦¬ì ë³€ê²½
 		};
 	};
 
 	struct CoinChangeCode
 	{
-		enum eCoinChangeCode	// ÁÖÀÇ : ´øÀü º¸»ó, ¿ìÆíÃ·ºÎ, Ã¢°í ÀÔÃâ±İ, ¾ÆÀÌÅÛ µÇÆÈ±â, ±³È¯ ÀÔÃâ±İ, ±³È¯ ¼ö¼ö·á, °­È­ ¼ö¼ö·á, ½ºÅ³ ¾ğ¶ô, »óÁ¡ ±¸ÀÔ, ¿ìÆí ¼ö¼ö·á ÀÎ °æ¿ì °¢°¢ÀÇ SP¿¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù.
+		enum eCoinChangeCode	// ì£¼ì˜ : ë˜ì „ ë³´ìƒ, ìš°í¸ì²¨ë¶€, ì°½ê³  ì…ì¶œê¸ˆ, ì•„ì´í…œ ë˜íŒ”ê¸°, êµí™˜ ì…ì¶œê¸ˆ, êµí™˜ ìˆ˜ìˆ˜ë£Œ, ê°•í™” ìˆ˜ìˆ˜ë£Œ, ìŠ¤í‚¬ ì–¸ë½, ìƒì  êµ¬ì…, ìš°í¸ ìˆ˜ìˆ˜ë£Œ ì¸ ê²½ìš° ê°ê°ì˜ SPì— í¬í•¨ë˜ì–´ ìˆìŠµë‹ˆë‹¤.
 		{
 			DoNotDBSave = 0,
-			QuestReward = 1,					// : Äù½ºÆ® º¸»ó (FKey: QuestID)
-			PickUp = 2,							// : ÇÈ¾÷ (FKey: PartyID or NULL)
-			Cheat = 3,							// : Ä¡Æ® (FKey: NULL)
-			Admin = 4,							// : °ü¸®ÀÚ º¯°æ (FKey: AuditLogID)
-			Use = 5,							// : »ç¿ë (FKey: NULL)
-												// 6: ¿ìÆí¼Û½ÅÃ·ºÎ (FKey: MailID)
-												// 7: ¿ìÆí¼ö½ÅÃ·ºÎ (FKey: MailID)
-			InvenToWare = 8,					// : Ã¢°í ÀÔ±İ (FKey: NULL)
-			WareToInven = 9,					// : Ã¢°í Ãâ±İ (FKey: NULL)
-												// 10: ¾ÆÀÌÅÛ µÇÆÈ±â (FKey: NpcID)
-												// 11: ±³È¯ ÀÔ±İ (FKey: CharacterID)
-												// 12: ±³È¯ Ãâ±İ (FKey: CharacterID)
-			QuestSub = 13,						// Äù½ºÆ® Â÷°¨ (FKey: QuestID)
-			RepairItem = 14,					// ¾ÆÀÌÅÛ ¼ö¸® (FKey: ItemSerial)
-												// 15: ±³È¯ ¼ö¼ö·á (FKey: NULL)
-												// 16: °­È­ ¼ö¼ö·á (FKey: ItemEnchantLogID)
-												// 17: ½ºÅ³ ¾ğ¶ô (FKey: SkillID)
-												// 18: »óÁ¡ ±¸ÀÔ (FKey: ItemSerial)
-			DisjointTax = 19,					// ºĞÇØ¼ö¼ö·á (FKey: NULL)
-												// 20: ¿ìÆí ¼ö¼ö·á (FKey: MailID)
-												// 21: ¹«ÀÎ»óÁ¡µî·Ï ¼ö¼ö·á (FKey: TradeID)
-												// 22: ¹«ÀÎ»óÁ¡ ¾ÆÀÌÅÛ ±¸ (FKey: TradeID)ÀÔ
-												// 23: ¹«ÀÎ»óÁ¡ ¾ÆÀÌÅÛ ÆÇ¸Å±İ (FKey: TradeID)
-												// 24: ¹«ÀÎ»óÁ¡ °Å·¡ ¼º¸³ ¼ö¼ö·á (FKey: TradeID)
-			CompoundTax = 25,					// Á¶ÇÕ¼ö¼ö·á (FKey: NULL)
-												// 26: Ä³¸¯ÅÍ »èÁ¦ (FKey: NULL)
-			MaxLevelExperienceTransGold = 27,	// ¸¸·¦ °æÇèÄ¡ °ñµå º¸»ó (FKey: NULL)
-			Present = 28,						// ¼±¹° (FKey: NpcID)
-												// 29: ±æµå Ã¢¼³ (FKey: GuildID)
-			GuildLevelup = 30,					// 30: ±æµå ·¹º§ ¾÷ (FKey: GuildID)
-			InvenToGuildWare = 31,				// 31: ±æµå Ã¢°í ÀÔ±İ (FKey: GuildID)
-			GuildWareToInven = 32,				// 32: ±æµå Ã¢°í Ãâ±İ (FKey: GuildID)
-			GuildRewardBuy = 33,				// 33: ±æµå º¸»ó ±¸¸Å (FKey: GuildItemID)
-			Donation = 34,						// ±âºÎ
-												// 35: (DOORS) µî·Ï¼ö¼ö·á
-												// 36: (DOORS) ÀÔÂû¼ö¼ö·á
-												// 37: (DOORS) ³«Âû¼ö¼ö·á
-												// 38: (DOORS) ³«Âû°áÁ¦
-												// 39: (DOORS) ³«ÂûÁ¤»ê
-												// 40: (DOORS) µî·Ï¼ö¼ö·áÃë¼Ò
-												// 41: (DOORS) ÀÔÂû¼ö¼ö·áÃë¼Ò
-												// 42: (DOORS) ³«Âû¼ö¼ö·áÃë¼Ò
-												// 43: (DOORS) ³«Âû°áÁ¦Ãë¼Ò
-												// 44: (DOORS) ³«ÂûÁ¤»êÃë¼Ò
-			CharmItem = 45,						// º¸¹°»óÀÚ (FKey: ItemID)
-			ChaosItem = 46,						// Ä«¿À½º Å¥ºê (FKey: ItemID)
-			SpecialBox = 47,					// Æ¯¼öº¸°üÇÔ (FKey: EventRewardID)
-			// 48: ¿ùµåÃ¢°í »ç¿ë ¼ö¼ö·á
-			// 49: C2C º¸°ü
-			// 50: C2C È¸¼ö
-			// 51: C2C °Å·¡
-			TalismanSlotOpen = 52,				// 52: Å»¸®½º¸¸ ½½·Ô ¿ÀÇÂ(FKey: ½½·Ô ÀÎµ¦½º)
-			TalismanSlotChange = 53,			// 53: Å»¸®½º¸¸ ½½·Ô ÀåÂø À§Ä¡ ÀÌµ¿
+			QuestReward = 1,					// : í€˜ìŠ¤íŠ¸ ë³´ìƒ (FKey: QuestID)
+			PickUp = 2,							// : í”½ì—… (FKey: PartyID or NULL)
+			Cheat = 3,							// : ì¹˜íŠ¸ (FKey: NULL)
+			Admin = 4,							// : ê´€ë¦¬ì ë³€ê²½ (FKey: AuditLogID)
+			Use = 5,							// : ì‚¬ìš© (FKey: NULL)
+												// 6: ìš°í¸ì†¡ì‹ ì²¨ë¶€ (FKey: MailID)
+												// 7: ìš°í¸ìˆ˜ì‹ ì²¨ë¶€ (FKey: MailID)
+			InvenToWare = 8,					// : ì°½ê³  ì…ê¸ˆ (FKey: NULL)
+			WareToInven = 9,					// : ì°½ê³  ì¶œê¸ˆ (FKey: NULL)
+												// 10: ì•„ì´í…œ ë˜íŒ”ê¸° (FKey: NpcID)
+												// 11: êµí™˜ ì…ê¸ˆ (FKey: CharacterID)
+												// 12: êµí™˜ ì¶œê¸ˆ (FKey: CharacterID)
+			QuestSub = 13,						// í€˜ìŠ¤íŠ¸ ì°¨ê° (FKey: QuestID)
+			RepairItem = 14,					// ì•„ì´í…œ ìˆ˜ë¦¬ (FKey: ItemSerial)
+												// 15: êµí™˜ ìˆ˜ìˆ˜ë£Œ (FKey: NULL)
+												// 16: ê°•í™” ìˆ˜ìˆ˜ë£Œ (FKey: ItemEnchantLogID)
+												// 17: ìŠ¤í‚¬ ì–¸ë½ (FKey: SkillID)
+												// 18: ìƒì  êµ¬ì… (FKey: ItemSerial)
+			DisjointTax = 19,					// ë¶„í•´ìˆ˜ìˆ˜ë£Œ (FKey: NULL)
+												// 20: ìš°í¸ ìˆ˜ìˆ˜ë£Œ (FKey: MailID)
+												// 21: ë¬´ì¸ìƒì ë“±ë¡ ìˆ˜ìˆ˜ë£Œ (FKey: TradeID)
+												// 22: ë¬´ì¸ìƒì  ì•„ì´í…œ êµ¬ (FKey: TradeID)ì…
+												// 23: ë¬´ì¸ìƒì  ì•„ì´í…œ íŒë§¤ê¸ˆ (FKey: TradeID)
+												// 24: ë¬´ì¸ìƒì  ê±°ë˜ ì„±ë¦½ ìˆ˜ìˆ˜ë£Œ (FKey: TradeID)
+			CompoundTax = 25,					// ì¡°í•©ìˆ˜ìˆ˜ë£Œ (FKey: NULL)
+												// 26: ìºë¦­í„° ì‚­ì œ (FKey: NULL)
+			MaxLevelExperienceTransGold = 27,	// ë§Œë© ê²½í—˜ì¹˜ ê³¨ë“œ ë³´ìƒ (FKey: NULL)
+			Present = 28,						// ì„ ë¬¼ (FKey: NpcID)
+												// 29: ê¸¸ë“œ ì°½ì„¤ (FKey: GuildID)
+			GuildLevelup = 30,					// 30: ê¸¸ë“œ ë ˆë²¨ ì—… (FKey: GuildID)
+			InvenToGuildWare = 31,				// 31: ê¸¸ë“œ ì°½ê³  ì…ê¸ˆ (FKey: GuildID)
+			GuildWareToInven = 32,				// 32: ê¸¸ë“œ ì°½ê³  ì¶œê¸ˆ (FKey: GuildID)
+			GuildRewardBuy = 33,				// 33: ê¸¸ë“œ ë³´ìƒ êµ¬ë§¤ (FKey: GuildItemID)
+			Donation = 34,						// ê¸°ë¶€
+												// 35: (DOORS) ë“±ë¡ìˆ˜ìˆ˜ë£Œ
+												// 36: (DOORS) ì…ì°°ìˆ˜ìˆ˜ë£Œ
+												// 37: (DOORS) ë‚™ì°°ìˆ˜ìˆ˜ë£Œ
+												// 38: (DOORS) ë‚™ì°°ê²°ì œ
+												// 39: (DOORS) ë‚™ì°°ì •ì‚°
+												// 40: (DOORS) ë“±ë¡ìˆ˜ìˆ˜ë£Œì·¨ì†Œ
+												// 41: (DOORS) ì…ì°°ìˆ˜ìˆ˜ë£Œì·¨ì†Œ
+												// 42: (DOORS) ë‚™ì°°ìˆ˜ìˆ˜ë£Œì·¨ì†Œ
+												// 43: (DOORS) ë‚™ì°°ê²°ì œì·¨ì†Œ
+												// 44: (DOORS) ë‚™ì°°ì •ì‚°ì·¨ì†Œ
+			CharmItem = 45,						// ë³´ë¬¼ìƒì (FKey: ItemID)
+			ChaosItem = 46,						// ì¹´ì˜¤ìŠ¤ íë¸Œ (FKey: ItemID)
+			SpecialBox = 47,					// íŠ¹ìˆ˜ë³´ê´€í•¨ (FKey: EventRewardID)
+			// 48: ì›”ë“œì°½ê³  ì‚¬ìš© ìˆ˜ìˆ˜ë£Œ
+			// 49: C2C ë³´ê´€
+			// 50: C2C íšŒìˆ˜
+			// 51: C2C ê±°ë˜
+			TalismanSlotOpen = 52,				// 52: íƒˆë¦¬ìŠ¤ë§Œ ìŠ¬ë¡¯ ì˜¤í”ˆ(FKey: ìŠ¬ë¡¯ ì¸ë±ìŠ¤)
+			TalismanSlotChange = 53,			// 53: íƒˆë¦¬ìŠ¤ë§Œ ìŠ¬ë¡¯ ì¥ì°© ìœ„ì¹˜ ì´ë™
 
-			GamblePrice=55,						// 55: µµ¹Ú¸ğµå Âü°¡ºñ
-			GambleFirstWinner=56,				// 56: µµ¹Ú¸ğµå 1µî °ñµå
-			GambleSecondWinner=57,				// 56: µµ¹Ú¸ğµå 2µî °ñµå
-			DWC = 58,							// 58: DWC Ä³¸¯ÅÍ ±âº» ¼ÒÀ¯ °ñµå
+			GamblePrice=55,						// 55: ë„ë°•ëª¨ë“œ ì°¸ê°€ë¹„
+			GambleFirstWinner=56,				// 56: ë„ë°•ëª¨ë“œ 1ë“± ê³¨ë“œ
+			GambleSecondWinner=57,				// 56: ë„ë°•ëª¨ë“œ 2ë“± ê³¨ë“œ
+			DWC = 58,							// 58: DWC ìºë¦­í„° ê¸°ë³¸ ì†Œìœ  ê³¨ë“œ
 		};
 		enum ePetalChangeCode
 		{
-			GambleEnterPetal= 9,				// 9: µµ¹Ú¸ğµå ÆäÅ» ÀÔÀå·á
-			GambleFirstWinPetal= 12,			// 12: µµ¹Ú¸ğµå 1µî ÆäÅ» »ó±İ
-			GambleSecondWinPetal= 13,			// 13: µµ¹Ú¸ğµå 2µî ÆäÅ» »ó±İ
+			GambleEnterPetal= 9,				// 9: ë„ë°•ëª¨ë“œ í˜íƒˆ ì…ì¥ë£Œ
+			GambleFirstWinPetal= 12,			// 12: ë„ë°•ëª¨ë“œ 1ë“± í˜íƒˆ ìƒê¸ˆ
+			GambleSecondWinPetal= 13,			// 13: ë„ë°•ëª¨ë“œ 2ë“± í˜íƒˆ ìƒê¸ˆ
 		};
 	};
 
@@ -707,10 +707,10 @@ namespace DBDNWorldDef
 	{
 		enum eCoinTypeCode
 		{
-			Coin = 1,				// : ÄÚÀÎ
-			WarehouseCoin = 2,		// : Ã¢°í ÄÚÀÎ
-			RebirthCoin = 3,		// : ºÎÈ° ÄÚÀÎ
-			PCBangRebirthCoin = 4,	// : PC¹æ ºÎÈ° ÄÚÀÎ
+			Coin = 1,				// : ì½”ì¸
+			WarehouseCoin = 2,		// : ì°½ê³  ì½”ì¸
+			RebirthCoin = 3,		// : ë¶€í™œ ì½”ì¸
+			PCBangRebirthCoin = 4,	// : PCë°© ë¶€í™œ ì½”ì¸
 		};
 	};
 
@@ -718,8 +718,8 @@ namespace DBDNWorldDef
 	{
 		enum eEquipmentAttributeCode 
 		{
-			DelayTime = 1,	// : µô·¹ÀÌ ½Ã°£
-			RemainTime = 2,	// : Remain ½Ã°£
+			DelayTime = 1,	// : ë”œë ˆì´ ì‹œê°„
+			RemainTime = 2,	// : Remain ì‹œê°„
 		};
 	};
 
@@ -727,11 +727,11 @@ namespace DBDNWorldDef
 	{
 		enum eFatigueTypeCode
 		{
-			PCBang = 1,		// : PC¹æ ÇÇ·Îµµ
-			Daily = 2,		// : ÀÏÀÏ ÇÇ·Îµµ
-			Weekly = 3,		// : ÁÖ°£ ÇÇ·Îµµ
-			Event = 4,		// ÀÌº¥Æ® ÇÇ·Îµµ
-			VIP = 5,		// VIPÇÇ·Îµµ
+			PCBang = 1,		// : PCë°© í”¼ë¡œë„
+			Daily = 2,		// : ì¼ì¼ í”¼ë¡œë„
+			Weekly = 3,		// : ì£¼ê°„ í”¼ë¡œë„
+			Event = 4,		// ì´ë²¤íŠ¸ í”¼ë¡œë„
+			VIP = 5,		// VIPí”¼ë¡œë„
 		};
 	};
 
@@ -757,8 +757,8 @@ namespace DBDNWorldDef
 	{
 		enum eQuestStatusCode
 		{
-			Gain = 0,		// : Äù½ºÆ®È¹µæ
-			Progress = 1,	// : Äù½ºÆ®ÁøÇà
+			Gain = 0,		// : í€˜ìŠ¤íŠ¸íšë“
+			Progress = 1,	// : í€˜ìŠ¤íŠ¸ì§„í–‰
 		};
 	};
 
@@ -766,9 +766,9 @@ namespace DBDNWorldDef
 	{
 		enum eSkillPointCode
 		{
-			LevelUp = 1,		// ½ºÅ³·¹º§¾÷
-			EternityItem = 2,	// ¿µ±¸Àû¿ë¾ÆÀÌÅÛ
-			Repair = 10,		// °Á °­Á¦·Î º¹±¸ ¼¼ÆÃ
+			LevelUp = 1,		// ìŠ¤í‚¬ë ˆë²¨ì—…
+			EternityItem = 2,	// ì˜êµ¬ì ìš©ì•„ì´í…œ
+			Repair = 10,		// ê± ê°•ì œë¡œ ë³µêµ¬ ì„¸íŒ…
 		};
 	};
 
@@ -776,20 +776,20 @@ namespace DBDNWorldDef
 	{
 		enum eSkillChangeCode
 		{
-			Gain = 1,		// : ½ºÅ³Æ÷ÀÎÆ® È¹µæ
-			Use = 2,		// : ½ºÅ³·¹º§¾÷ & ½ºÅ³Æ÷ÀÎÆ® »ç¿ë
-			Reset = 3,		// : ½ºÅ³Æ÷ÀÎÆ® ¸®¼Â
-			GainByQuest = 4,	// : ½ºÅ³ È¹µæ (Äù½ºÆ®)
-			GainByDungeon = 5,	// : ½ºÅ³ È¹µæ (´øÀü º¸»ó)
-			GainByBook = 6,		// : ½ºÅ³ È¹µæ (½ºÅ³ºÏ)
-			GainByEvent = 7,	// : ½ºÅ³ È¹µæ (ÀÌº¥Æ®)
-			GainByAdmin = 8,	// : ½ºÅ³ È¹µæ (by °ü¸®ÀÚ)
-			DelByDrop = 9,		// : ½ºÅ³ »èÁ¦ (µå¶ø)
-			DelByQuest = 10,	// : ½ºÅ³ »èÁ¦ (Äù½ºÆ®)
-			DelByEvent = 11,	// : ½ºÅ³ »èÁ¦ (ÀÌº¥Æ® ¸¸·á)
-			DelByAdmin = 12,	// : ½ºÅ³ »èÁ¦ (by °ü¸®ÀÚ)
-			ModSkillLevelByAdmin = 13,	// : ½ºÅ³·¹º§ Á¶Á¤ (by °ü¸®ÀÚ)
-			GainByBuy = 14,		// 14½ºÅ³È¹µæ(±¸ÀÔ)
+			Gain = 1,		// : ìŠ¤í‚¬í¬ì¸íŠ¸ íšë“
+			Use = 2,		// : ìŠ¤í‚¬ë ˆë²¨ì—… & ìŠ¤í‚¬í¬ì¸íŠ¸ ì‚¬ìš©
+			Reset = 3,		// : ìŠ¤í‚¬í¬ì¸íŠ¸ ë¦¬ì…‹
+			GainByQuest = 4,	// : ìŠ¤í‚¬ íšë“ (í€˜ìŠ¤íŠ¸)
+			GainByDungeon = 5,	// : ìŠ¤í‚¬ íšë“ (ë˜ì „ ë³´ìƒ)
+			GainByBook = 6,		// : ìŠ¤í‚¬ íšë“ (ìŠ¤í‚¬ë¶)
+			GainByEvent = 7,	// : ìŠ¤í‚¬ íšë“ (ì´ë²¤íŠ¸)
+			GainByAdmin = 8,	// : ìŠ¤í‚¬ íšë“ (by ê´€ë¦¬ì)
+			DelByDrop = 9,		// : ìŠ¤í‚¬ ì‚­ì œ (ë“œë)
+			DelByQuest = 10,	// : ìŠ¤í‚¬ ì‚­ì œ (í€˜ìŠ¤íŠ¸)
+			DelByEvent = 11,	// : ìŠ¤í‚¬ ì‚­ì œ (ì´ë²¤íŠ¸ ë§Œë£Œ)
+			DelByAdmin = 12,	// : ìŠ¤í‚¬ ì‚­ì œ (by ê´€ë¦¬ì)
+			ModSkillLevelByAdmin = 13,	// : ìŠ¤í‚¬ë ˆë²¨ ì¡°ì • (by ê´€ë¦¬ì)
+			GainByBuy = 14,		// 14ìŠ¤í‚¬íšë“(êµ¬ì…)
 		};
 	};
 
@@ -797,11 +797,11 @@ namespace DBDNWorldDef
 	{
 		enum eTradeStatusCode
 		{
-			Sell = 0,		// : ÆÇ¸ÅÁß
-			CompleteSellByItem = 1,	// : ÆÇ¸Å¿Ï·á(¾ÆÀÌÅÛ ¼ö·É)
-			CompleteSellByCoin = 2,	// : ÆÇ¸Å¿Ï·á(ÆÇ¸Å±İ ¼ö·É)
-			CancelSell = 3,	// : ÆÇ¸ÅÃë¼Ò
-			Expire = 4,		// : ±â°£¸¸·á
+			Sell = 0,		// : íŒë§¤ì¤‘
+			CompleteSellByItem = 1,	// : íŒë§¤ì™„ë£Œ(ì•„ì´í…œ ìˆ˜ë ¹)
+			CompleteSellByCoin = 2,	// : íŒë§¤ì™„ë£Œ(íŒë§¤ê¸ˆ ìˆ˜ë ¹)
+			CancelSell = 3,	// : íŒë§¤ì·¨ì†Œ
+			Expire = 4,		// : ê¸°ê°„ë§Œë£Œ
 		};
 	};
 
@@ -809,42 +809,42 @@ namespace DBDNWorldDef
 	{
 		enum eCode
 		{
-			Pick			= 1,	// 1=Áİ±â			-> FKey: PartyID or NULL
-			Mission			= 2,	// 2=¹Ì¼Ç			-> FKey: MissionID
-			QuestReward		= 3,	// 3=Äù½ºÆ®º¸»ó		-> FKey: QuestID
-			Present			= 4,	// 4=¼±¹°			-> FKey: PurchaseID
-			PointBuy		= 5,	// 5=ÀÎ°ÔÀÓÆ÷ÀÎÆ® ±¸ÀÔ	-> FKey: NPCID
-			CashBuy			= 6,	// 6=Ä³½¬ ±¸ÀÔ		-> FKey: PurchaseID
-			ReserveMoneyBuy	= 7,	// 7=ÆäÅ» ±¸ÀÔ	-> FKey: PurchaseID
-			GetGachaResultCashItem_JP = 9,	// 9=ÀÏº» °¡Ã­ µ¹·Á¼­ ³ª¿Â Ä³½¬ ¾ÆÀÌÅÛ.
-			GMGive			= 10,	// 10=°ü¸®ÀÚ Áö±Ş	-> FKey: AuditLogID
-			ItemDecompose	= 11,	// 11=¾ÆÀÌÅÛ ºĞÇØ	-> FKey: NPCID
-			// ItemEnchantFail = 12,	// 12=¾ÆÀÌÅÛ °­È­ ½ÇÆĞ	-> FKey: ItemEnchantID
-			ItemCompound	= 13,	// Á¶ÇÕ
-			RandomItem		= 14,	// ·£´ı¾ÆÀÌÅÛ
-			DungeonReward	= 15,	// ´øÁ¯º¸»ó
-			PvPReward		= 16,	// pvpº¸»ó
-			CharacterCreate = 17,	// ±âº»Áö±Ş
-			SystemMail = 18,		// ½Ã½ºÅÛ¸ŞÀÏ (¹Ì¼Çº¸»ó)
-			FixedItem = 19,			// Ä³½¬ÅÛ (¾ó±¼, ¸Ó¸®) - ±âÁ¸¾ó±¼/¸Ó¸® Áö¿ì°í µ¤¾î¾²±â -> FKey: Ä³½¬ÅÛ »ç¿ë¾ÆÀÌÅÛ½Ã¸®¾ó (ÀÎº¥¿¡ ÀÖ´Â¾Ö)
-			CostumeMix = 21,		// ÄÚ½ºÆ¬ ÇÕ¼º
-			FishingReward = 22,		// ³¬½Ãº¸»ó
-			Harvest = 23,			// ¼öÈ®
-			Cheat = 24,				// Ä¡Æ®
-			PvPLadderPoint = 25,	// ·¡´õÆ÷ÀÎÆ®
-			UnionPoint = 26,		// ¿¬ÇÕÆ÷ÀÎÆ®
-			Trigger = 27,			// Æ®¸®°Å
-			GuildWarFestivalPoint = 28, // ±æµå ÃàÁ¦ Æ÷ÀÎÆ®
+			Pick			= 1,	// 1=ì¤ê¸°			-> FKey: PartyID or NULL
+			Mission			= 2,	// 2=ë¯¸ì…˜			-> FKey: MissionID
+			QuestReward		= 3,	// 3=í€˜ìŠ¤íŠ¸ë³´ìƒ		-> FKey: QuestID
+			Present			= 4,	// 4=ì„ ë¬¼			-> FKey: PurchaseID
+			PointBuy		= 5,	// 5=ì¸ê²Œì„í¬ì¸íŠ¸ êµ¬ì…	-> FKey: NPCID
+			CashBuy			= 6,	// 6=ìºì‰¬ êµ¬ì…		-> FKey: PurchaseID
+			ReserveMoneyBuy	= 7,	// 7=í˜íƒˆ êµ¬ì…	-> FKey: PurchaseID
+			GetGachaResultCashItem_JP = 9,	// 9=ì¼ë³¸ ê°€ì±  ëŒë ¤ì„œ ë‚˜ì˜¨ ìºì‰¬ ì•„ì´í…œ.
+			GMGive			= 10,	// 10=ê´€ë¦¬ì ì§€ê¸‰	-> FKey: AuditLogID
+			ItemDecompose	= 11,	// 11=ì•„ì´í…œ ë¶„í•´	-> FKey: NPCID
+			// ItemEnchantFail = 12,	// 12=ì•„ì´í…œ ê°•í™” ì‹¤íŒ¨	-> FKey: ItemEnchantID
+			ItemCompound	= 13,	// ì¡°í•©
+			RandomItem		= 14,	// ëœë¤ì•„ì´í…œ
+			DungeonReward	= 15,	// ë˜ì ¼ë³´ìƒ
+			PvPReward		= 16,	// pvpë³´ìƒ
+			CharacterCreate = 17,	// ê¸°ë³¸ì§€ê¸‰
+			SystemMail = 18,		// ì‹œìŠ¤í…œë©”ì¼ (ë¯¸ì…˜ë³´ìƒ)
+			FixedItem = 19,			// ìºì‰¬í…œ (ì–¼êµ´, ë¨¸ë¦¬) - ê¸°ì¡´ì–¼êµ´/ë¨¸ë¦¬ ì§€ìš°ê³  ë®ì–´ì“°ê¸° -> FKey: ìºì‰¬í…œ ì‚¬ìš©ì•„ì´í…œì‹œë¦¬ì–¼ (ì¸ë²¤ì— ìˆëŠ”ì• )
+			CostumeMix = 21,		// ì½”ìŠ¤íŠ¬ í•©ì„±
+			FishingReward = 22,		// ë‚šì‹œë³´ìƒ
+			Harvest = 23,			// ìˆ˜í™•
+			Cheat = 24,				// ì¹˜íŠ¸
+			PvPLadderPoint = 25,	// ë˜ë”í¬ì¸íŠ¸
+			UnionPoint = 26,		// ì—°í•©í¬ì¸íŠ¸
+			Trigger = 27,			// íŠ¸ë¦¬ê±°
+			GuildWarFestivalPoint = 28, // ê¸¸ë“œ ì¶•ì œ í¬ì¸íŠ¸
 			Repurchase = 29,
 			GuildReversionItem = 30,
 			CostumeRandomMixItem = 31,
 			BestFriendItem = 34,
-			COMEBACKREWARD = 35,	// º¹±ÍÀ¯Àúº¸»ó
+			COMEBACKREWARD = 35,	// ë³µê·€ìœ ì €ë³´ìƒ
 			SpecialBoxReward = 36,
-			NewbieGameQuitReward = 37, //½Å±Ô À¯Àú Á¢¼Ó Á¾·áÇÒ ¶§ º¸»ó
-			NewbiewReConnectReward = 38, //½Å±Ô À¯Àú ÀçÁ¢¼Ó½Ã º¸»ó
-			ComebackGameQuitReward = 39, //±ÍÈ¯ÀÚ Á¢¼Ó Á¾·áÇÒ ¶§ º¸»ó
-			SeedPointBuy = 40, //½Ãµå·Î ±¸ÀÔ
+			NewbieGameQuitReward = 37, //ì‹ ê·œ ìœ ì € ì ‘ì† ì¢…ë£Œí•  ë•Œ ë³´ìƒ
+			NewbiewReConnectReward = 38, //ì‹ ê·œ ìœ ì € ì¬ì ‘ì†ì‹œ ë³´ìƒ
+			ComebackGameQuitReward = 39, //ê·€í™˜ì ì ‘ì† ì¢…ë£Œí•  ë•Œ ë³´ìƒ
+			SeedPointBuy = 40, //ì‹œë“œë¡œ êµ¬ì…
 		};
 	};
 
@@ -852,20 +852,20 @@ namespace DBDNWorldDef
 	{
 		enum eCode
 		{
-			Normal					= MailType::NormalMail,			// ÀÏ¹İ ¸ŞÀÏ
-			Mission					= MailType::MissionMail,		// ¹Ì¼Ç º¸»ó
-			Admin					= MailType::AdminMail,			// °ü¸®ÀÚ ¸ŞÀÏ
-			EventMail				= MailType::EventMail,			// ÀÌº¥Æ® ¸ŞÀÏ
+			Normal					= MailType::NormalMail,			// ì¼ë°˜ ë©”ì¼
+			Mission					= MailType::MissionMail,		// ë¯¸ì…˜ ë³´ìƒ
+			Admin					= MailType::AdminMail,			// ê´€ë¦¬ì ë©”ì¼
+			EventMail				= MailType::EventMail,			// ì´ë²¤íŠ¸ ë©”ì¼
 			VIP						= MailType::VIPMail,			// VIP
-			MasterSystem			= MailType::MasterSystemMail,	// »çÁ¦½Ã½ºÅÛ
-			NpcReputaion			= MailType::NpcReputationMail,	// NPCÈ£°¨µµ½Ã½ºÅÛ
-			Quest					= MailType::Quest,				// Äù½ºÆ®
-			GuildWarReward  		= MailType::GuildWarReward,		// ±æµåÀü º¸»ó
-			SpecialBox_Account		= MailType::SpecialBox_Account,	// Æ¯¼öº¸°üÇÔ_°èÁ¤Å¸°Ù 
-			SpecialBox_Character	= MailType::SpecialBox_Character,	// Æ¯¼öº¸°üÇÔ_ÇöÄ³¸¯ÅÍÅ¸°Ù
-			Cadge					= MailType::Cadge,				// Á¶¸£±â
-			GuildMaxLevelReward		= MailType::GuildMaxLevelReward,// ÃÖÃÊ±æµå°¡ÀÔ ¸¸·¦ ±æµå º¸»ó
-			AppellationBookReward	= MailType::AppellationBookReward, // ÄªÈ£ ÄÃ·º¼ÇºÏ ¿Ï·á º¸»ó
+			MasterSystem			= MailType::MasterSystemMail,	// ì‚¬ì œì‹œìŠ¤í…œ
+			NpcReputaion			= MailType::NpcReputationMail,	// NPCí˜¸ê°ë„ì‹œìŠ¤í…œ
+			Quest					= MailType::Quest,				// í€˜ìŠ¤íŠ¸
+			GuildWarReward  		= MailType::GuildWarReward,		// ê¸¸ë“œì „ ë³´ìƒ
+			SpecialBox_Account		= MailType::SpecialBox_Account,	// íŠ¹ìˆ˜ë³´ê´€í•¨_ê³„ì •íƒ€ê²Ÿ 
+			SpecialBox_Character	= MailType::SpecialBox_Character,	// íŠ¹ìˆ˜ë³´ê´€í•¨_í˜„ìºë¦­í„°íƒ€ê²Ÿ
+			Cadge					= MailType::Cadge,				// ì¡°ë¥´ê¸°
+			GuildMaxLevelReward		= MailType::GuildMaxLevelReward,// ìµœì´ˆê¸¸ë“œê°€ì… ë§Œë© ê¸¸ë“œ ë³´ìƒ
+			AppellationBookReward	= MailType::AppellationBookReward, // ì¹­í˜¸ ì»¬ë ‰ì…˜ë¶ ì™„ë£Œ ë³´ìƒ
 		};
 	};
 
@@ -874,11 +874,11 @@ namespace DBDNWorldDef
 		enum eUseItemCode
 		{
 			DoNotDBSave = 0,
-			Use = 1,		// 1=¼Ò¸ğ¼º ¾ÆÀÌÅÛ »ç¿ë
-			Destroy = 2,	// 2=¹ö¸®±â
-			DeCompose = 4,	// 4=ºĞÇØ
-			Present = 5,	// 5=¼±¹°
-			GuildReversionItem = 6,	// 6=±æµåÅ»Åğ³ª Ãß¹æÀ¸·Î ±æµå±Í¼Ó¾ÆÀÌÅÛ »èÁ¦
+			Use = 1,		// 1=ì†Œëª¨ì„± ì•„ì´í…œ ì‚¬ìš©
+			Destroy = 2,	// 2=ë²„ë¦¬ê¸°
+			DeCompose = 4,	// 4=ë¶„í•´
+			Present = 5,	// 5=ì„ ë¬¼
+			GuildReversionItem = 6,	// 6=ê¸¸ë“œíƒˆí‡´ë‚˜ ì¶”ë°©ìœ¼ë¡œ ê¸¸ë“œê·€ì†ì•„ì´í…œ ì‚­ì œ
 		};
 	};
 
@@ -896,10 +896,10 @@ namespace DBDNWorldDef
 			Glyph = 8,
 			VehicleInventory = 9,
 			PetInventory = 10,
-			HarvestDepot = 11,	// ¼öÈ®Ã¢°í
-			ServerWare = 17,	// ¼­¹ö ÀÏ¹İ ¾ÆÀÌÅÛ Ã¢°í
-			ServerWareCash = 18,	// ¼­¹ö Ä³½¬ ¾ÆÀÌÅÛ Ã¢°í
-			Talisman = 19,	// Å»¸®½º¸¸
+			HarvestDepot = 11,	// ìˆ˜í™•ì°½ê³ 
+			ServerWare = 17,	// ì„œë²„ ì¼ë°˜ ì•„ì´í…œ ì°½ê³ 
+			ServerWareCash = 18,	// ì„œë²„ ìºì‰¬ ì•„ì´í…œ ì°½ê³ 
+			Talisman = 19,	// íƒˆë¦¬ìŠ¤ë§Œ
 			PeriodInventory = 20,
 			PeriodWarehouse = 21,
 		};
@@ -919,33 +919,33 @@ namespace DBDNWorldDef
 	{
 		enum eCode
 		{
-			Coin = 1,				// 1: ÄÚÀÎ
-			Cash = 2,				// 2: Ä³½¬
-			Petal = 3,				// 3: Àû¸³±İ
-			Coupon = 4,				// 4: ÄíÆù
-			Admin = 5,				// 5: °ü¸®ÀÚ Áö±Ş
-			Quest = 6,				// 6: Äù½ºÆ®º¸»ó
-			Mission = 7,			// 7: ¹Ì¼Çº¸»ó
-			LevelupEvent = 8,		// 8=Ä³¸¯ÅÍ ·¹º§ ¾÷ º¸»ó
-			VIP = 9,				// 9 : VIP ¼±¹°
-			PvP = 10,				// 10 : PVP ·¡´õ Æ÷ÀÎÆ®
-			Union_Commerical = 11,	// 11 : »óÀÎ ¿¬ÇÕ Æ÷ÀÎÆ®
-			Union_Royal = 12,		// 12 : ¿Õ¼º ¿¬ÇÕ Æ÷ÀÎÆ®
-			Union_Liberty = 13,		// 13 : ÀÚÀ¯ ¿¬ÇÕ Æ÷ÀÎÆ®
-			Cash_NexonUSA = 14,		// 14 : ³Ø½¼¾Æ¸Ş¸®Ä« Ä³½¬
-			Event = 15,				// 15 : ÀÌº¥Æ®
-			GuildWar_Festival = 16,	// 16 : ±æµåÀü ÃàÁ¦ Æ÷ÀÎÆ®
-			GuildWar_Reward = 17,	// 17 : ±æµåÀü º¸»ó
-			Comeback = 19,			// 18 : º¹±ÍÀ¯Àúº¸»ó
-			BestFriend = 20,		// 20 : ÀıÄ£
-			BeginnerGuild = 21,		// 21 : ÃÊº¸ÀÚ±æµå ¼±¹°
-			GuildSupport = 22,		// 22 : ±æµåÁö¿øº¸»ó
-			ActiveMission = 23,		// 23 : ¾×Æ¼ºê¹Ì¼Ç º¸»ó
+			Coin = 1,				// 1: ì½”ì¸
+			Cash = 2,				// 2: ìºì‰¬
+			Petal = 3,				// 3: ì ë¦½ê¸ˆ
+			Coupon = 4,				// 4: ì¿ í°
+			Admin = 5,				// 5: ê´€ë¦¬ì ì§€ê¸‰
+			Quest = 6,				// 6: í€˜ìŠ¤íŠ¸ë³´ìƒ
+			Mission = 7,			// 7: ë¯¸ì…˜ë³´ìƒ
+			LevelupEvent = 8,		// 8=ìºë¦­í„° ë ˆë²¨ ì—… ë³´ìƒ
+			VIP = 9,				// 9 : VIP ì„ ë¬¼
+			PvP = 10,				// 10 : PVP ë˜ë” í¬ì¸íŠ¸
+			Union_Commerical = 11,	// 11 : ìƒì¸ ì—°í•© í¬ì¸íŠ¸
+			Union_Royal = 12,		// 12 : ì™•ì„± ì—°í•© í¬ì¸íŠ¸
+			Union_Liberty = 13,		// 13 : ììœ  ì—°í•© í¬ì¸íŠ¸
+			Cash_NexonUSA = 14,		// 14 : ë„¥ìŠ¨ì•„ë©”ë¦¬ì¹´ ìºì‰¬
+			Event = 15,				// 15 : ì´ë²¤íŠ¸
+			GuildWar_Festival = 16,	// 16 : ê¸¸ë“œì „ ì¶•ì œ í¬ì¸íŠ¸
+			GuildWar_Reward = 17,	// 17 : ê¸¸ë“œì „ ë³´ìƒ
+			Comeback = 19,			// 18 : ë³µê·€ìœ ì €ë³´ìƒ
+			BestFriend = 20,		// 20 : ì ˆì¹œ
+			BeginnerGuild = 21,		// 21 : ì´ˆë³´ìê¸¸ë“œ ì„ ë¬¼
+			GuildSupport = 22,		// 22 : ê¸¸ë“œì§€ì›ë³´ìƒ
+			ActiveMission = 23,		// 23 : ì•¡í‹°ë¸Œë¯¸ì…˜ ë³´ìƒ
 #if defined( PRE_ADD_STAMPSYSTEM )
-			Stamp = 24,				// 24 : ½ºÅÆÇÁ º¸»ó
+			Stamp = 24,				// 24 : ìŠ¤íƒ¬í”„ ë³´ìƒ
 #endif // #if defined( PRE_ADD_STAMPSYSTEM )
 #if defined( PRE_ADD_NEW_MONEY_SEED )
-			SeedPoint = 25,			// 25 : ½Ãµå·Î ±¸ÀÔ
+			SeedPoint = 25,			// 25 : ì‹œë“œë¡œ êµ¬ì…
 #endif
 		};
 	};
@@ -1086,8 +1086,8 @@ namespace DBDNWorldDef
 	{
 		enum eCode
 		{
-			Account = 1,	// °èÁ¤
-			Character,		// Ä³¸¯ÅÍ
+			Account = 1,	// ê³„ì •
+			Character,		// ìºë¦­í„°
 		};
 	};
 
@@ -1124,9 +1124,9 @@ namespace DBDNWorldDef
 	{
 		enum eCode
 		{
-			MyInfo = 1,				// ÀÚ½ÅÀÇ ½º½Â Á¤º¸
-			MyMasterInfo,			// ³» ½º½Â Á¤º¸
-			OptionalMasterInfo,		// ÀÓÀÇÀÇ Æ¯Á¤ ½º½Â Á¤º¸
+			MyInfo = 1,				// ìì‹ ì˜ ìŠ¤ìŠ¹ ì •ë³´
+			MyMasterInfo,			// ë‚´ ìŠ¤ìŠ¹ ì •ë³´
+			OptionalMasterInfo,		// ì„ì˜ì˜ íŠ¹ì • ìŠ¤ìŠ¹ ì •ë³´
 		};
 	};
 #if defined( PRE_ADD_SECONDARY_SKILL )
@@ -1135,9 +1135,9 @@ namespace DBDNWorldDef
 	{
 		enum eCode
 		{
-			ProductionSkill		= SecondarySkill::Type::ProductionSkill,		// »ı»ê½ºÅ³
-			ManufactureSkill	= SecondarySkill::Type::ManufactureSkill,		// Á¦ÀÛ½ºÅ³
-			CommonSkill			= SecondarySkill::Type::CommonSkill,			// °ø¿ë½ºÅ³
+			ProductionSkill		= SecondarySkill::Type::ProductionSkill,		// ìƒì‚°ìŠ¤í‚¬
+			ManufactureSkill	= SecondarySkill::Type::ManufactureSkill,		// ì œì‘ìŠ¤í‚¬
+			CommonSkill			= SecondarySkill::Type::CommonSkill,			// ê³µìš©ìŠ¤í‚¬
 		};
 	};
 #endif // #if defined( PRE_ADD_SECONDARY_SKILL )
@@ -1160,8 +1160,8 @@ namespace DBDNWorldDef
 			Union_Commercial = 2,
 			Union_Royal = 3,
 			Union_Liberty = 4,
-			GuildWar_Festival = 5,	// ±æµåÀü ÃàÁ¦ Æ÷ÀÎÆ®			
-			SeedPoint = 6,			// ½Ãµå ¸Ó´Ï
+			GuildWar_Festival = 5,	// ê¸¸ë“œì „ ì¶•ì œ í¬ì¸íŠ¸			
+			SeedPoint = 6,			// ì‹œë“œ ë¨¸ë‹ˆ
 			Max,
 		};
 	};
@@ -1169,13 +1169,13 @@ namespace DBDNWorldDef
 	{
 		enum eGuildWarRewardType
 		{
-			GuildWarFestivalWin = 1,	// ±æµåÃàÁ¦¿ì½Â
-			GuildWarFestivalLose,		// ±æµåÃàÁ¦ÆĞ¹è
-			GuildWarFinalUnder4,		// º»¼± 4°­¹Ì¸¸
-			GuildWarFinal4,				// º»¼± 4°­º¸»ó
-			GuildWarFinal2,				// º»¼± 2À§º¸»ó
-			GuildWarFinalWin,			// º»¼± ¿ì½Âº¸»ó
-			GuildWarFinalAbnormalLose,	// º»¼± ºñÁ¤»óÆĞ¹è(µ¿Á¡¶§ ¿¹¼±Á¡¼ö?)
+			GuildWarFestivalWin = 1,	// ê¸¸ë“œì¶•ì œìš°ìŠ¹
+			GuildWarFestivalLose,		// ê¸¸ë“œì¶•ì œíŒ¨ë°°
+			GuildWarFinalUnder4,		// ë³¸ì„  4ê°•ë¯¸ë§Œ
+			GuildWarFinal4,				// ë³¸ì„  4ê°•ë³´ìƒ
+			GuildWarFinal2,				// ë³¸ì„  2ìœ„ë³´ìƒ
+			GuildWarFinalWin,			// ë³¸ì„  ìš°ìŠ¹ë³´ìƒ
+			GuildWarFinalAbnormalLose,	// ë³¸ì„  ë¹„ì •ìƒíŒ¨ë°°(ë™ì ë•Œ ì˜ˆì„ ì ìˆ˜?)
 		};
 	};
 
@@ -1207,10 +1207,10 @@ enum eExceptionRepert
 //GameServerAffinity Type
 enum eGameServerAffinityType
 {
-	_GAMESERVER_AFFINITYTYPE_NORMAL = 0,		//±×³É ÀÏ¹İ ´øÀüÀÌ¹Ì ¸Ó´Ï ±×·±°Å
-	_GAMESERVER_AFFINITYTYPE_HYBRYD,			//ÇÇºñÇÇµµ ¹Ş°í ´Ù ¹Ş¾Æ¿ä
-	_GAMESERVER_AFFINITYTYPE_PVP,				//ÇÇºñÇÇ¸¸ ¹Ş¾Æ¿ä
-	_GAMESERVER_AFFINITYTYPE_FARM,				//°ÔÀÓ¼­¹ö ¿ùµå ÅëÇÕÃ³¸®¿ë ³óÀå Àü¿ë °×¼·!
+	_GAMESERVER_AFFINITYTYPE_NORMAL = 0,		//ê·¸ëƒ¥ ì¼ë°˜ ë˜ì „ì´ë¯¸ ë¨¸ë‹ˆ ê·¸ëŸ°ê±°
+	_GAMESERVER_AFFINITYTYPE_HYBRYD,			//í”¼ë¹„í”¼ë„ ë°›ê³  ë‹¤ ë°›ì•„ìš”
+	_GAMESERVER_AFFINITYTYPE_PVP,				//í”¼ë¹„í”¼ë§Œ ë°›ì•„ìš”
+	_GAMESERVER_AFFINITYTYPE_FARM,				//ê²Œì„ì„œë²„ ì›”ë“œ í†µí•©ì²˜ë¦¬ìš© ë†ì¥ ì „ìš© ê²œì„­!
 };
 
 // Cash
@@ -1236,8 +1236,8 @@ enum eCashEtc
 #if defined(_CH)
 enum eChSndaAuthFlag
 {
-	eChSndaAuthFlag_UseEKey		= (1 << 0),		// EKey ±â´É »ç¿ë ¿©ºÎ
-	eChSndaAuthFlag_UseECard	= (1 << 1),		// ECard ±â´É »ç¿ë ¿©ºÎ
+	eChSndaAuthFlag_UseEKey		= (1 << 0),		// EKey ê¸°ëŠ¥ ì‚¬ìš© ì—¬ë¶€
+	eChSndaAuthFlag_UseECard	= (1 << 1),		// ECard ê¸°ëŠ¥ ì‚¬ìš© ì—¬ë¶€
 };
 #endif	// _CH
 
@@ -1245,9 +1245,9 @@ enum eChSndaAuthFlag
 
 struct TChannelInfo
 {
-	USHORT nChannelID;			//ÇÒ´çµÈ Ã¤³Î(ÇÊµå)¾ÆÀÌµğ
+	USHORT nChannelID;			//í• ë‹¹ëœ ì±„ë„(í•„ë“œ)ì•„ì´ë””
 	USHORT nChannelIdx;
-	USHORT nMapIdx;				//´ã´çÇÏ´Â ¸ÊÀÇ ¾ÆÀÌµğ
+	USHORT nMapIdx;				//ë‹´ë‹¹í•˜ëŠ” ë§µì˜ ì•„ì´ë””
 	USHORT nChannelMaxUser;
 	USHORT nCurrentUser;
 	int nAttribute;				//DirtyBit
@@ -1308,12 +1308,12 @@ struct TGameInfo
 struct TServerInfo
 {
 	bool bMergedWorld;
-	int nWorldSetID;							// ÅëÇÕ ¿ùµå ¾ÆÀÌµğ
+	int nWorldSetID;							// í†µí•© ì›”ë“œ ì•„ì´ë””
 	char cWorldID;
 	WCHAR wszWorldName[WORLDNAMELENMAX];
-	UINT nWorldMaxUser;				//´ë±âÀÚ¿ë
+	UINT nWorldMaxUser;				//ëŒ€ê¸°ììš©
 	USHORT nDefaultMaxUser;
-	bool bOnline;				// online, offline »óÅÂÇ¥½Ã¿ë
+	bool bOnline;				// online, offline ìƒíƒœí‘œì‹œìš©
 	bool bOnTop;
 	std::vector <TVillageInfo> vOwnedVillageList;
 
@@ -1340,7 +1340,7 @@ struct TChannelInfoEx
 };
 typedef std::map<int, TChannelInfoEx> TMapChannel;
 
-// ¼­¹ö¿¡¼­´Â float·Î ¹Ù·Î ¾²Áö¾Ê´Â´Ù. Å¬¶ó¿¡¼­ ¹ŞÀº ÁÂÇ¥¿¡ *1000À» ÇØ¼­ »ç¿ëÇÔ
+// ì„œë²„ì—ì„œëŠ” floatë¡œ ë°”ë¡œ ì“°ì§€ì•ŠëŠ”ë‹¤. í´ë¼ì—ì„œ ë°›ì€ ì¢Œí‘œì— *1000ì„ í•´ì„œ ì‚¬ìš©í•¨
 struct TPosition
 {
 	int nX;
@@ -1354,7 +1354,7 @@ struct TLocation
 	TPosition Pos;
 };
 
-// npc, user object»ı¼º¿¡ ÇØ´ç. °øÅëµÈ ºÎºĞ¸¸ 
+// npc, user objectìƒì„±ì— í•´ë‹¹. ê³µí†µëœ ë¶€ë¶„ë§Œ 
 struct TBaseData
 {
 	UINT nObjectID;
@@ -1397,75 +1397,75 @@ struct TParamData
 
 struct TDefaultCreateData
 {
-	BYTE cClassID;										// Å¬·¡½º 
+	BYTE cClassID;										// í´ë˜ìŠ¤ 
 	int cDarkClass;									// rlkt_dark dark class :)
 	int cDarkClassJobID;									// rlkt_dark dark class :)
-	int nCreateMapIndex;								// Ã³À½ »ı¼º½Ã ½ÃÀÛ ¸Ê ÀÎµ¦½º
-	int nCreateMapStartPositionX[DEFAULTPOSITIONMAX];	// Ã³À½ »ı¼º½Ã ½ÃÀÛ À§Ä¡ X
-	int nCreateMapStartPositionY[DEFAULTPOSITIONMAX];	// Ã³À½ »ı¼º½Ã ½ÃÀÛ À§Ä¡ Y
-	int nCreateMapStartRadius[DEFAULTPOSITIONMAX];		// ¹İ°æ
+	int nCreateMapIndex;								// ì²˜ìŒ ìƒì„±ì‹œ ì‹œì‘ ë§µ ì¸ë±ìŠ¤
+	int nCreateMapStartPositionX[DEFAULTPOSITIONMAX];	// ì²˜ìŒ ìƒì„±ì‹œ ì‹œì‘ ìœ„ì¹˜ X
+	int nCreateMapStartPositionY[DEFAULTPOSITIONMAX];	// ì²˜ìŒ ìƒì„±ì‹œ ì‹œì‘ ìœ„ì¹˜ Y
+	int nCreateMapStartRadius[DEFAULTPOSITIONMAX];		// ë°˜ê²½
 
-	int nCreateTutorialMapIndex;			// Ã³À½ »ı¼º½Ã Æ©Åä¸®¾ó ¸Ê ÀÎµ¦½º (GameServerÂÊ)
-	int nCreateTutorialGateNo;				// Ã³À½ »ı¼º½Ã Æ©Åä¸®¾ó °ÔÀÌÆ® (GameServerÂÊ)
+	int nCreateTutorialMapIndex;			// ì²˜ìŒ ìƒì„±ì‹œ íŠœí† ë¦¬ì–¼ ë§µ ì¸ë±ìŠ¤ (GameServerìª½)
+	int nCreateTutorialGateNo;				// ì²˜ìŒ ìƒì„±ì‹œ íŠœí† ë¦¬ì–¼ ê²Œì´íŠ¸ (GameServerìª½)
 
-	int nDefaultBody;						// ±âº»¸ö
-	int nDefaultLeg;						// ±âº»´Ù¸®
-	int nDefaultHand;						// ±âº»¼Õ
-	int nDefaultFoot;						// ±âº»¹ß
-	int nFace[DEFAULTPARTSMAX];				// ¾ó±¼
-	int nHair[DEFAULTPARTSMAX];				// ¸Ó¸®
-	int nHelmet[DEFAULTPARTSMAX];			// Çï¸ä
-	int nBody[DEFAULTPARTSMAX];				// »óÀÇ
-	int nLeg[DEFAULTPARTSMAX];				// ÇÏÀÇ
-	int nHand[DEFAULTPARTSMAX];				// ¼Õ
-	int nFoot[DEFAULTPARTSMAX];				// ¹ß
-	int nWeapon[WEAPONMAX];					// ¹«±â
+	int nDefaultBody;						// ê¸°ë³¸ëª¸
+	int nDefaultLeg;						// ê¸°ë³¸ë‹¤ë¦¬
+	int nDefaultHand;						// ê¸°ë³¸ì†
+	int nDefaultFoot;						// ê¸°ë³¸ë°œ
+	int nFace[DEFAULTPARTSMAX];				// ì–¼êµ´
+	int nHair[DEFAULTPARTSMAX];				// ë¨¸ë¦¬
+	int nHelmet[DEFAULTPARTSMAX];			// í—¬ë©§
+	int nBody[DEFAULTPARTSMAX];				// ìƒì˜
+	int nLeg[DEFAULTPARTSMAX];				// í•˜ì˜
+	int nHand[DEFAULTPARTSMAX];				// ì†
+	int nFoot[DEFAULTPARTSMAX];				// ë°œ
+	int nWeapon[WEAPONMAX];					// ë¬´ê¸°
 
 	DWORD dwHairColor[DEFAULTHAIRCOLORMAX];
 	DWORD dwSkinColor[DEFAULTSKINCOLORMAX];
 	DWORD dwEyeColor[DEFAULTEYECOLORMAX];
 
-	int nDefaultItemID[DEFAULTITEMMAX];		// ¼ÒÀ¯¾ÆÀÌÅÛ
-	int nDefaultItemCount[DEFAULTITEMMAX];	// ¼ÒÀ¯¾ÆÀÌÅÛ °³¼ö
+	int nDefaultItemID[DEFAULTITEMMAX];		// ì†Œìœ ì•„ì´í…œ
+	int nDefaultItemCount[DEFAULTITEMMAX];	// ì†Œìœ ì•„ì´í…œ ê°œìˆ˜
 
-	int nDefaultSkillID[DEFAULTSKILLMAX];	// ¼ÒÀ¯½ºÅ³
+	int nDefaultSkillID[DEFAULTSKILLMAX];	// ì†Œìœ ìŠ¤í‚¬
 
-	TQuickSlot DefaultQuickSlot[DEFAULTQUICKSLOTMAX];	// Äü½½·Ô°³¼ö
-	int nDefaultGestureID[DEFAULTGESTUREMAX];	// ¼ÒÀ¯ Á¦½ºÃ³
+	TQuickSlot DefaultQuickSlot[DEFAULTQUICKSLOTMAX];	// í€µìŠ¬ë¡¯ê°œìˆ˜
+	int nDefaultGestureID[DEFAULTGESTUREMAX];	// ì†Œìœ  ì œìŠ¤ì²˜
 };
 
 #if defined( PRE_ADD_DWC )
 struct TDWCCreateData
 {
-	BYTE cClassID;										// ±âº» Å¬·¡½º ID
-	BYTE cJobCode1;										// 1Â÷ ÀüÁ÷ Å¬·¡½º ID
-	BYTE cJobCode2;										// 2Â÷ ÀüÁ÷ Å¬·¡½º ID
+	BYTE cClassID;										// ê¸°ë³¸ í´ë˜ìŠ¤ ID
+	BYTE cJobCode1;										// 1ì°¨ ì „ì§ í´ë˜ìŠ¤ ID
+	BYTE cJobCode2;										// 2ì°¨ ì „ì§ í´ë˜ìŠ¤ ID
 	BYTE cLevel;
 	int nExp;
-	int nCreateMapIndex;								// Ã³À½ »ı¼º½Ã ½ÃÀÛ ¸Ê ÀÎµ¦½º
-	int nCreateMapStartPositionX[DEFAULTPOSITIONMAX];	// Ã³À½ »ı¼º½Ã ½ÃÀÛ À§Ä¡ X
-	int nCreateMapStartPositionY[DEFAULTPOSITIONMAX];	// Ã³À½ »ı¼º½Ã ½ÃÀÛ À§Ä¡ Y
-	int nCreateMapStartRadius[DEFAULTPOSITIONMAX];		// ¹İ°æ
+	int nCreateMapIndex;								// ì²˜ìŒ ìƒì„±ì‹œ ì‹œì‘ ë§µ ì¸ë±ìŠ¤
+	int nCreateMapStartPositionX[DEFAULTPOSITIONMAX];	// ì²˜ìŒ ìƒì„±ì‹œ ì‹œì‘ ìœ„ì¹˜ X
+	int nCreateMapStartPositionY[DEFAULTPOSITIONMAX];	// ì²˜ìŒ ìƒì„±ì‹œ ì‹œì‘ ìœ„ì¹˜ Y
+	int nCreateMapStartRadius[DEFAULTPOSITIONMAX];		// ë°˜ê²½
 
-	int nDefaultBody;						// ±âº»¸ö
-	int nDefaultLeg;						// ±âº»´Ù¸®
-	int nDefaultHand;						// ±âº»¼Õ
-	int nDefaultFoot;						// ±âº»¹ß
-	int nEquipArray[EQUIPMAX]; // ÀåÂø Àåºñ
+	int nDefaultBody;						// ê¸°ë³¸ëª¸
+	int nDefaultLeg;						// ê¸°ë³¸ë‹¤ë¦¬
+	int nDefaultHand;						// ê¸°ë³¸ì†
+	int nDefaultFoot;						// ê¸°ë³¸ë°œ
+	int nEquipArray[EQUIPMAX]; // ì¥ì°© ì¥ë¹„
 
 	DWORD dwHairColor;
 	DWORD dwSkinColor;
 	DWORD dwEyeColor;
 
-	int nDefaultItemID[DEFAULTITEMMAX];		// ¼ÒÀ¯¾ÆÀÌÅÛ
-	int nDefaultItemCount[DEFAULTITEMMAX];	// ¼ÒÀ¯¾ÆÀÌÅÛ °³¼ö
+	int nDefaultItemID[DEFAULTITEMMAX];		// ì†Œìœ ì•„ì´í…œ
+	int nDefaultItemCount[DEFAULTITEMMAX];	// ì†Œìœ ì•„ì´í…œ ê°œìˆ˜
 
-	int nDefaultSkillID[DEFAULTSKILLMAX];	// ¼ÒÀ¯½ºÅ³
+	int nDefaultSkillID[DEFAULTSKILLMAX];	// ì†Œìœ ìŠ¤í‚¬
 
-	TQuickSlot DefaultQuickSlot[DEFAULTQUICKSLOTMAX];	// Äü½½·Ô°³¼ö
-	int nDefaultGestureID[DEFAULTGESTUREMAX];	// ¼ÒÀ¯ Á¦½ºÃ³
-	short nSkillPoint; // ½ºÅ³ Æ÷ÀÎÆ®
-	int nGold; // °ñµå - ÇÊ¿ä ¾ø´Ù¸é Á¦°ÅÇÏÀÚ
+	TQuickSlot DefaultQuickSlot[DEFAULTQUICKSLOTMAX];	// í€µìŠ¬ë¡¯ê°œìˆ˜
+	int nDefaultGestureID[DEFAULTGESTUREMAX];	// ì†Œìœ  ì œìŠ¤ì²˜
+	short nSkillPoint; // ìŠ¤í‚¬ í¬ì¸íŠ¸
+	int nGold; // ê³¨ë“œ - í•„ìš” ì—†ë‹¤ë©´ ì œê±°í•˜ì
 
 };
 #endif // #if defined( PRE_ADD_DWC )
@@ -1484,7 +1484,7 @@ struct TMapInfo
 	int nAllowMapType;
 	std::vector<int> vMapAreaIndex;
 	bool bExpandable;
-	bool bUserReturnSystem;	// À¯Àú º¹±Í½Ã½ºÅÛ
+	bool bUserReturnSystem;	// ìœ ì € ë³µê·€ì‹œìŠ¤í…œ
 	bool bVehicleMode;
 	bool bPetMode;
 	bool bAllowFreePass;
@@ -1493,7 +1493,7 @@ struct TMapInfo
 	int iEnterConditionTable;
 #endif // #if defined( PRE_PARTY_DB )
 #if defined( PRE_NORMALSTAGE_REGULATION )
-	char cRevisionNum;	//º¸Á¤³Ñ¹ö
+	char cRevisionNum;	//ë³´ì •ë„˜ë²„
 #endif
 #if defined(PRE_ADD_VEHICLE_SPECIAL_ACTION)
 	bool bVehicleSpecalActionMode;
@@ -1503,17 +1503,17 @@ struct TMapInfo
 struct TCoinCountData
 {
 	BYTE cLevel;
-	int nRebirthCoin[WORLDCOUNTMAX];		// ºÎÈ°ÄÚÀÎ
-	int nCashRebirthCoin[WORLDCOUNTMAX];	// ºÎÈ°Ä³½¬ÄÚÀÎ
-	int nRebirthCoinLimit;					// ¹«·áÄÚÀÎ¼ÒÁöÁ¦ÇÑ°³¼ö
-	int nCashRebirthCoinLimit;				// À¯·áÄÚÀÎ¼ÒÁöÁ¦ÇÑ°³¼ö
-	int nVIPRebirthCoin;					// VIPºÎÈ°ÄÚÀÎ
+	int nRebirthCoin[WORLDCOUNTMAX];		// ë¶€í™œì½”ì¸
+	int nCashRebirthCoin[WORLDCOUNTMAX];	// ë¶€í™œìºì‰¬ì½”ì¸
+	int nRebirthCoinLimit;					// ë¬´ë£Œì½”ì¸ì†Œì§€ì œí•œê°œìˆ˜
+	int nCashRebirthCoinLimit;				// ìœ ë£Œì½”ì¸ì†Œì§€ì œí•œê°œìˆ˜
+	int nVIPRebirthCoin;					// VIPë¶€í™œì½”ì¸
 };
 
 struct TActorData
 {
 	int nActorID;
-	BYTE cClass;					// À¯´Ö Å¸ÀÔ Á¾·ù
+	BYTE cClass;					// ìœ ë‹› íƒ€ì… ì¢…ë¥˜
 };
 
 const int QUEST_MAX_CNT = 20;
@@ -1522,9 +1522,9 @@ struct TNpcData
 	int nNpcID;
 	int nParam[2];
 	WCHAR wszName[EXTDATANAMELENMAX];
-	char szTalkFile[256];				// ´ë»çÆÄÀÏÀÌ¸§
-	char szScriptFile[256];				// script ÆÄÀÏÀÌ¸§
-	int QuestIndexArr[QUEST_MAX_CNT];	// Äù½ºÆ®ÀÎµ¦½º
+	char szTalkFile[256];				// ëŒ€ì‚¬íŒŒì¼ì´ë¦„
+	char szScriptFile[256];				// script íŒŒì¼ì´ë¦„
+	int QuestIndexArr[QUEST_MAX_CNT];	// í€˜ìŠ¤íŠ¸ì¸ë±ìŠ¤
 	TActorData ActorData;
 };
 
@@ -1532,36 +1532,36 @@ struct TItemData
 {
 	int nItemID;
 	WCHAR wszItemName[EXTDATANAMELENMAX];
-	int nType;							// Å¸ÀÔ
-	int nTypeParam[3];					// Å¸ÀÔÆÄ¶ó¹ÌÅÍ
-	BYTE cLevelLimit;					// ·¹º§Á¦ÇÑ
-	BYTE cRank;							// µî±Ş
-	BYTE cReversion;					// ±Í¼Ó¿©ºÎ
-	bool IsCash;						// Ä³½¬ÅÛÀÎ°¡
-	bool IsDestruction;					// ÆÄ±«¿©ºÎ
-	bool IsAuthentication;				// ÀÎÁõ¿©ºÎ
-	int nAmount;						// ±İ¾×
-	int nSellAmount;					// ÆÇ¸Å±İ¾×
-	int nOverlapCount;					// ÁßÃ¸°³¼ö
-	std::vector<int> nNeedJobClassList;	// Á÷¾÷Á¦ÇÑ
+	int nType;							// íƒ€ì…
+	int nTypeParam[3];					// íƒ€ì…íŒŒë¼ë¯¸í„°
+	BYTE cLevelLimit;					// ë ˆë²¨ì œí•œ
+	BYTE cRank;							// ë“±ê¸‰
+	BYTE cReversion;					// ê·€ì†ì—¬ë¶€
+	bool IsCash;						// ìºì‰¬í…œì¸ê°€
+	bool IsDestruction;					// íŒŒê´´ì—¬ë¶€
+	bool IsAuthentication;				// ì¸ì¦ì—¬ë¶€
+	int nAmount;						// ê¸ˆì•¡
+	int nSellAmount;					// íŒë§¤ê¸ˆì•¡
+	int nOverlapCount;					// ì¤‘ì²©ê°œìˆ˜
+	std::vector<int> nNeedJobClassList;	// ì§ì—…ì œí•œ
 
-	int nSkillID;						// ½ºÅ³ ÀÎµ¦½º
-	char cSkillLevel;					// ½ºÅ³ ·¹º§
-	char cSkillUsingType;				// ½ºÅ³ »ç¿ë Å¸ÀÔ
-	int nMaxCoolTime;					// ÃÖ´ë ÄğÅ¸ÀÓ (º¯ÇÏÁö ¾Ê´Â °ª)
-	int nEnchantID;						// ÀÎÃ¦Æ®¾ÆÀÌµğ
-	int	nAllowMapType;					// »ç¿ë°¡´ÉÇÑ ¸Ê Å¸ÀÔ
-	char cSealCount;					// ¹ĞºÀ È½¼ö
+	int nSkillID;						// ìŠ¤í‚¬ ì¸ë±ìŠ¤
+	char cSkillLevel;					// ìŠ¤í‚¬ ë ˆë²¨
+	char cSkillUsingType;				// ìŠ¤í‚¬ ì‚¬ìš© íƒ€ì…
+	int nMaxCoolTime;					// ìµœëŒ€ ì¿¨íƒ€ì„ (ë³€í•˜ì§€ ì•ŠëŠ” ê°’)
+	int nEnchantID;						// ì¸ì±ˆíŠ¸ì•„ì´ë””
+	int	nAllowMapType;					// ì‚¬ìš©ê°€ëŠ¥í•œ ë§µ íƒ€ì…
+	char cSealCount;					// ë°€ë´‰ íšŸìˆ˜
 	int nSealID;						// SealCountTableID
-	int nNeedBuyItemID;					// »óÁ¡¿¡¼­ ±¸ÀÔÇÒ ¶§ ÇÊ¿äÇÑ ¾ÆÀÌÅÛID
-	int nNeedBuyItemCount;				// »óÁ¡¿¡¼­ ±¸ÀÔÇÒ ¶§ ÇÊ¿äÇÑ ¾ÆÀÌÅÛ°³¼ö
-	int nNeedPvPRank;					// ÀåÂøÇÒ ¶§ ÇÊ¿äÇÑ PvP ·©Å©
-	bool IsSealed;						// È¹µæ ½Ã ¹ĞºÀ¿©ºÎ
-	int nCashTradeCount;				// Ä³½Ã¾ÆÀÌÅÛ ±³È¯°³¼ö
+	int nNeedBuyItemID;					// ìƒì ì—ì„œ êµ¬ì…í•  ë•Œ í•„ìš”í•œ ì•„ì´í…œID
+	int nNeedBuyItemCount;				// ìƒì ì—ì„œ êµ¬ì…í•  ë•Œ í•„ìš”í•œ ì•„ì´í…œê°œìˆ˜
+	int nNeedPvPRank;					// ì¥ì°©í•  ë•Œ í•„ìš”í•œ PvP ë­í¬
+	bool IsSealed;						// íšë“ ì‹œ ë°€ë´‰ì—¬ë¶€
+	int nCashTradeCount;				// ìºì‹œì•„ì´í…œ êµí™˜ê°œìˆ˜
 	bool IsEnableCostumeMix;
 	int nApplicableValue;
-	bool IsCollectingEvent;			// ¾ÆÀÌÅÛ ¼öÁı API¸¦ È£Ãâ¿©ºÎ
-	int nExchangeCode;				// ¾ÆÀÌÅÛ Ä«Å×°í¸® ID
+	bool IsCollectingEvent;			// ì•„ì´í…œ ìˆ˜ì§‘ APIë¥¼ í˜¸ì¶œì—¬ë¶€
+	int nExchangeCode;				// ì•„ì´í…œ ì¹´í…Œê³ ë¦¬ ID
 	int iNeedBuyLadderPoint;		
 	int iUseLevelLimit;
 	int iNeedBuyUnionPoint;
@@ -1569,7 +1569,7 @@ struct TItemData
 	bool bRebuyable;
 	int nPeriod;
 #if defined(PRE_ADD_SERVER_WAREHOUSE)
-	bool IsWStorage;					// ¼­¹ö Ã¢°í¿¡ ³ÖÀ» ¼ö ÀÖ´Â ¿¹¿Ü
+	bool IsWStorage;					// ì„œë²„ ì°½ê³ ì— ë„£ì„ ìˆ˜ ìˆëŠ” ì˜ˆì™¸
 #endif
 	int DragonJewelType;
 
@@ -1617,10 +1617,10 @@ struct TItemData
 struct TWeaponData
 {
 	int nWeaponIndex;
-	char cEquipType;					// ÀåÂøÅ¸ÀÔ
-	int nLength;						// ¹«±â ±æÀÌ
-	int nDurability;					// ³»±¸µµ
-	int nDurabilityRepairCoin;			// ¼ö¸®ºñ
+	char cEquipType;					// ì¥ì°©íƒ€ì…
+	int nLength;						// ë¬´ê¸° ê¸¸ì´
+	int nDurability;					// ë‚´êµ¬ë„
+	int nDurabilityRepairCoin;			// ìˆ˜ë¦¬ë¹„
 	int nPermitJob[10];
 	bool bOneType;
 };
@@ -1628,11 +1628,11 @@ struct TWeaponData
 struct TPartData
 {
 	int nPartIndex;
-	int nParts;							// ÆÄÃ÷
-	int nDurability;					// ³»±¸µµ
-	int nDurabilityRepairCoin;			// ¼ö¸®ºñ
+	int nParts;							// íŒŒì¸ 
+	int nDurability;					// ë‚´êµ¬ë„
+	int nDurabilityRepairCoin;			// ìˆ˜ë¦¬ë¹„
 	int nPermitJob[10];
-	std::vector<int> nSubPartsList;		// ¼­ºêÆÄÃ÷ (ÇÑ¹ú¿Ê)
+	std::vector<int> nSubPartsList;		// ì„œë¸ŒíŒŒì¸  (í•œë²Œì˜·)
 
 	TPartData()
 	{
@@ -1672,10 +1672,10 @@ struct TVehicleData
 	int nDefaultParts2;
 	int nVehicleSummonTime;
 	int nVehicleDefaultSpeed;
-	int nPetLevelTypeID;	// pet µî±Ş(?)°ª µî±ŞÀÌ ´Ù¸¥ ÆêÀ» ÂüÁ¶ÇÏ±âÀ§ÇÑ Å°°ª
+	int nPetLevelTypeID;	// pet ë“±ê¸‰(?)ê°’ ë“±ê¸‰ì´ ë‹¤ë¥¸ í«ì„ ì°¸ì¡°í•˜ê¸°ìœ„í•œ í‚¤ê°’
 	int nPetSkillID1;		// 
 	int nPetSkillID2;
-	int nRange;				// ½ºÄµ ¹üÀ§°ª. ÀÌ¸¦Å×¸é Áİ±â °°Àº°Å 
+	int nRange;				// ìŠ¤ìº” ë²”ìœ„ê°’. ì´ë¥¼í…Œë©´ ì¤ê¸° ê°™ì€ê±° 
 	int nFoodID;
 };
 
@@ -1700,10 +1700,10 @@ struct TPetLevelData
 struct TPetFoodData
 {
 	int nItemID;
-	int nTickTime; // ¼Ò¸ğ ½Ã°£(second)
-	int nFullTic;  // Æ½´ç ¼Ò¸ğ·®
-	BYTE cFullTimeLogOut; // ·Î±×¾Æ¿ô½Ã ±âÁ¸ ¸¸º¹µµ ³ª´©±â°ª
-	int nFullMaxCount;		// ¸¸º¹µµ ÃÖ´ë max¼öÄ¡
+	int nTickTime; // ì†Œëª¨ ì‹œê°„(second)
+	int nFullTic;  // í‹±ë‹¹ ì†Œëª¨ëŸ‰
+	BYTE cFullTimeLogOut; // ë¡œê·¸ì•„ì›ƒì‹œ ê¸°ì¡´ ë§Œë³µë„ ë‚˜ëˆ„ê¸°ê°’
+	int nFullMaxCount;		// ë§Œë³µë„ ìµœëŒ€ maxìˆ˜ì¹˜
 	int nUseExp[Pet::MAX_SATIETY_SELECTION];
 	int nUseState[Pet::MAX_SATIETY_SELECTION];
 };
@@ -1720,7 +1720,7 @@ struct TPotentialJewelData
 	bool bSuffix;
 #endif // PRE_ADD_REMOVE_PREFIX
 #if defined(PRE_MOD_POTENTIAL_JEWEL_RENEWAL)
-	int nRollbackAmount; // ÀáÀç·Â ºÎ¿© ·Ñ¹é ¼ö¼ö·á
+	int nRollbackAmount; // ì ì¬ë ¥ ë¶€ì—¬ ë¡¤ë°± ìˆ˜ìˆ˜ë£Œ
 #endif	// #if defined(PRE_MOD_POTENTIAL_JEWEL_RENEWAL)
 };
 
@@ -1758,12 +1758,12 @@ struct TGlobalWeightIntData
 struct TLevelData
 {
 	int nIndex;
-	short wStrength;					// Èû
-	short wAgility;						// ¹ÎÃ¸
-	short wIntelligence;				// Áö´É
-	short wStamina;						// °Ç°­
-	int nExperience;					// °æÇèÄ¡
-	int nFatigue;						// ÇÇ·Îµµ
+	short wStrength;					// í˜
+	short wAgility;						// ë¯¼ì²©
+	short wIntelligence;				// ì§€ëŠ¥
+	short wStamina;						// ê±´ê°•
+	int nExperience;					// ê²½í—˜ì¹˜
+	int nFatigue;						// í”¼ë¡œë„
 };
 
 struct TStat
@@ -1777,15 +1777,15 @@ struct TStat
 
 struct TSkillLevelData
 {
-	char cSkillLevel;					// ½ºÅ³ ·¹º§
-	char cLevelLimit;					// Á¦ÇÑ ·¹º§
-	//int nNeedJobClass;				// Á÷¾÷Á¦ÇÑ -> ½ºÅ³ Å×ÀÌºí·Î ¿Å°ÜÁ³À½.
-	int nDelayTime;						// ½ºÅ³µô·¹ÀÌ(ms)
-	int nAddRange;						// Ãß°¡ »ç°Å¸®(cm)
-	int nNeedItemID;					// ¼Ò¸ğ¾ÆÀÌÅÛ
-	int nNeedItemDecreaseCount;			// ¼Ò¸ğ ¾ÆÀÌÅÛ °³¼ö
-	int nDecreaseHP;					// ¼Ò¸ğHP
-	int nDecreaseSP;					// ¼Ò¸ğSP
+	char cSkillLevel;					// ìŠ¤í‚¬ ë ˆë²¨
+	char cLevelLimit;					// ì œí•œ ë ˆë²¨
+	//int nNeedJobClass;				// ì§ì—…ì œí•œ -> ìŠ¤í‚¬ í…Œì´ë¸”ë¡œ ì˜®ê²¨ì¡ŒìŒ.
+	int nDelayTime;						// ìŠ¤í‚¬ë”œë ˆì´(ms)
+	int nAddRange;						// ì¶”ê°€ ì‚¬ê±°ë¦¬(cm)
+	int nNeedItemID;					// ì†Œëª¨ì•„ì´í…œ
+	int nNeedItemDecreaseCount;			// ì†Œëª¨ ì•„ì´í…œ ê°œìˆ˜
+	int nDecreaseHP;					// ì†Œëª¨HP
+	int nDecreaseSP;					// ì†Œëª¨SP
 	int nNeedSkillPoint;
 	int nEffectClassValue1Duration;
 	float nMagicDamage; //rlkt_damage
@@ -1794,20 +1794,20 @@ struct TSkillLevelData
 
 struct TSkillData
 {
-	int nSkillID;						// ½ºÅ³id
-	char cNeedWeaponType[ 2 ];			// ÇÊ¿ä¹«±â
-	int nMaxLevel;						// ÃÖ´ë·¹º§
-	char cSkillType;					// ½ºÅ³Å¸ÀÔ
-	char cDurationType;					// Áö¼ÓÅ¸ÀÔ
-	char cTargetType;					// Å¸°ÙÅ¸ÀÔ
-	char cDissolvable;					// ÇØÁ¦ °¡´É ¿©ºÎ
-	int nNeedJobID;						// Á÷¾÷ Á¦ÇÑ
-	bool bDefaultLocked;				// µğÆúÆ®·Î ¶ôÀÌ µÈ °ÇÁö ¿©ºÎ
-	int nUnlockSkillBookItemID;			// ¾ğ¶ôÇÏ´Â ½ºÅ³ºÏÀÇ ¾ÆÀÌÅÛ ID
-	int nUnlockPrice;					// µ·À¸·Î ¾ğ¶ôÇÒ ¶§ ºñ¿ë.
-	int nExclusiveID;					// ÀÌ ¾ÆÀÌµğ°¡ °°Àº °ªÀÎ ½ºÅ³Àº °°ÀÌ ¹è¿ï ¼ö ¾ø´Ù.
-	int nGlobalCoolTime;				// ±Û·Î¹ú ½ºÅ³ ÄğÅ¸ÀÓ (#36858)
-	int nGlobalSkillGroup;				// ±Û·Î¹ú ½ºÅ³ ±×·ì (#36858)
+	int nSkillID;						// ìŠ¤í‚¬id
+	char cNeedWeaponType[ 2 ];			// í•„ìš”ë¬´ê¸°
+	int nMaxLevel;						// ìµœëŒ€ë ˆë²¨
+	char cSkillType;					// ìŠ¤í‚¬íƒ€ì…
+	char cDurationType;					// ì§€ì†íƒ€ì…
+	char cTargetType;					// íƒ€ê²Ÿíƒ€ì…
+	char cDissolvable;					// í•´ì œ ê°€ëŠ¥ ì—¬ë¶€
+	int nNeedJobID;						// ì§ì—… ì œí•œ
+	bool bDefaultLocked;				// ë””í´íŠ¸ë¡œ ë½ì´ ëœ ê±´ì§€ ì—¬ë¶€
+	int nUnlockSkillBookItemID;			// ì–¸ë½í•˜ëŠ” ìŠ¤í‚¬ë¶ì˜ ì•„ì´í…œ ID
+	int nUnlockPrice;					// ëˆìœ¼ë¡œ ì–¸ë½í•  ë•Œ ë¹„ìš©.
+	int nExclusiveID;					// ì´ ì•„ì´ë””ê°€ ê°™ì€ ê°’ì¸ ìŠ¤í‚¬ì€ ê°™ì´ ë°°ìš¸ ìˆ˜ ì—†ë‹¤.
+	int nGlobalCoolTime;				// ê¸€ë¡œë²Œ ìŠ¤í‚¬ ì¿¨íƒ€ì„ (#36858)
+	int nGlobalSkillGroup;				// ê¸€ë¡œë²Œ ìŠ¤í‚¬ ê·¸ë£¹ (#36858)
 	std::vector<TSkillLevelData> vLevelDataList;
 
 	TSkillData()
@@ -1845,7 +1845,7 @@ struct TSkillTreeData
 #endif	// #if defined( PRE_ADD_ONLY_SKILLBOOK )
 };
 
-// npc ´ëÈ­ °ü·Ã ±¸Á¶Ã¼ 
+// npc ëŒ€í™” ê´€ë ¨ êµ¬ì¡°ì²´ 
 struct TALK_QUESTION
 {
 	std::wstring szQuestion;
@@ -1856,7 +1856,7 @@ struct TALK_ANSWER
 	std::wstring szLinkTarget;
 	std::wstring szLinkIndex;
 	std::wstring szAnswer;
-	bool bOtherTargetLink;	// ´Ù¸¥ ÅäÅ©ÆÄÀÏ·Î ¸µÅ© ÇÏ´Â °æ¿ì true
+	bool bOtherTargetLink;	// ë‹¤ë¥¸ í† í¬íŒŒì¼ë¡œ ë§í¬ í•˜ëŠ” ê²½ìš° true
 };
 
 struct TALK_PARAGRAPH
@@ -1866,26 +1866,26 @@ struct TALK_PARAGRAPH
 	std::vector<TALK_ANSWER>	Answers;
 };
 
-// key - ¹®´Ü½ºÆ®¸µÀÎµ¦½º, second - ¹®´Ü
+// key - ë¬¸ë‹¨ìŠ¤íŠ¸ë§ì¸ë±ìŠ¤, second - ë¬¸ë‹¨
 typedef std::map<std::wstring, TALK_PARAGRAPH> TALK_PARAGRAPH_MAP;
 typedef TALK_PARAGRAPH_MAP::iterator TALK_PARAGRAPH_MAP_IT;
 
-// key - ´ë»çxml ÆÄÀÏ ÀÌ¸§, second - ´ë»çÀüÃ¼
+// key - ëŒ€ì‚¬xml íŒŒì¼ ì´ë¦„, second - ëŒ€ì‚¬ì „ì²´
 typedef std::map<std::wstring, TALK_PARAGRAPH_MAP> TALK_MAP;
 typedef TALK_MAP::iterator TALK_MAP_IT;
 
 #include <set>
 
-// key - ¹®´ÜÀÀ´ä½ºÆ®¸µÀÎµ¦½º (´ÜÁö Å¬¶óÀÌ¾ğÆ® ´ë»ç¿äÃ» ¹«°á¼º Ã¼Å© ¿À·ù¸Ş½ÃÁö¸¦ ¸·´Â ¿ëµµ)
+// key - ë¬¸ë‹¨ì‘ë‹µìŠ¤íŠ¸ë§ì¸ë±ìŠ¤ (ë‹¨ì§€ í´ë¼ì´ì–¸íŠ¸ ëŒ€ì‚¬ìš”ì²­ ë¬´ê²°ì„± ì²´í¬ ì˜¤ë¥˜ë©”ì‹œì§€ë¥¼ ë§‰ëŠ” ìš©ë„)
 typedef std::set<std::wstring> TALK_ANSWER_SET;
 typedef TALK_ANSWER_SET::iterator TALK_ANSWER_SET_IT;
 
-// key - ´ë»çxml ÆÄÀÏ ÀÌ¸§, second - ¹®´ÜÀÀ´ä½ºÆ®¸µÁıÇÕ (´ÜÁö Å¬¶óÀÌ¾ğÆ® ´ë»ç¿äÃ» ¹«°á¼º Ã¼Å© ¿À·ù¸Ş½ÃÁö¸¦ ¸·´Â ¿ëµµ)
+// key - ëŒ€ì‚¬xml íŒŒì¼ ì´ë¦„, second - ë¬¸ë‹¨ì‘ë‹µìŠ¤íŠ¸ë§ì§‘í•© (ë‹¨ì§€ í´ë¼ì´ì–¸íŠ¸ ëŒ€ì‚¬ìš”ì²­ ë¬´ê²°ì„± ì²´í¬ ì˜¤ë¥˜ë©”ì‹œì§€ë¥¼ ë§‰ëŠ” ìš©ë„)
 typedef std::map<std::wstring, TALK_ANSWER_SET>	TALK_ANSWER_MAP;
 typedef TALK_ANSWER_MAP::iterator TALK_ANSWER_MAP_IT;
 
-// Äù½ºÆ® º¸»ó ¾ÆÀÌÅÛ Å×ÀÌºí Á¤º¸
-// µ·°ú ¾ÆÀÌÅÛ 6Á¾·ù ±îÁö ¼¼ÆÃÇÒ ¼ö ÀÖ´Ù. nItemID °ú nItemCount´Â ¼¼Æ®ÀÌ´Ù.
+// í€˜ìŠ¤íŠ¸ ë³´ìƒ ì•„ì´í…œ í…Œì´ë¸” ì •ë³´
+// ëˆê³¼ ì•„ì´í…œ 6ì¢…ë¥˜ ê¹Œì§€ ì„¸íŒ…í•  ìˆ˜ ìˆë‹¤. nItemID ê³¼ nItemCountëŠ” ì„¸íŠ¸ì´ë‹¤.
 
 struct TQuestRewardBase
 {
@@ -1899,15 +1899,15 @@ struct TQuestRewardBase
 
 struct TQuestReward : public TQuestRewardBase
 {
-	UINT nIndex;			// º¸»óÅ×ÀÌºí ÀÎµ¦½º
-	UINT nStringIndex;	// º¸»óÅ×ÀÌºí ½ºÆ®¸µ
-	char cType;			// º¸»óÅ¸ÀÔ 1ÀÌ¸é ÀüÃ¼º¸»ó / 2¸é ¼±ÅÃº¸»ó
-	char cSelectMax;		// ¼±ÅÃº¸»óÀÏ°æ¿ì ¸î°³±îÁö ¼±ÅÃÇÒ°ÍÀÎÁö.
-	UINT nCoin;			// º¸»ó±İ¾×
-	int	nExp;			// º¸»ó °æÇèÄ¡
-	int	nQuestID;		// Äù½ºÆ® ID
-	int	nQuestStep;		// Äù½ºÆ® ¿Ï·á ½Ã ½ºÅÜ
-	BYTE nClass;			// º¸»ó Å¬·¡½º
+	UINT nIndex;			// ë³´ìƒí…Œì´ë¸” ì¸ë±ìŠ¤
+	UINT nStringIndex;	// ë³´ìƒí…Œì´ë¸” ìŠ¤íŠ¸ë§
+	char cType;			// ë³´ìƒíƒ€ì… 1ì´ë©´ ì „ì²´ë³´ìƒ / 2ë©´ ì„ íƒë³´ìƒ
+	char cSelectMax;		// ì„ íƒë³´ìƒì¼ê²½ìš° ëª‡ê°œê¹Œì§€ ì„ íƒí• ê²ƒì¸ì§€.
+	UINT nCoin;			// ë³´ìƒê¸ˆì•¡
+	int	nExp;			// ë³´ìƒ ê²½í—˜ì¹˜
+	int	nQuestID;		// í€˜ìŠ¤íŠ¸ ID
+	int	nQuestStep;		// í€˜ìŠ¤íŠ¸ ì™„ë£Œ ì‹œ ìŠ¤í…
+	BYTE nClass;			// ë³´ìƒ í´ë˜ìŠ¤
 	_ITEMSET ItemArray[QUESTREWARD_INVENTORYITEMMAX];
 	_ITEMSET LevelCapItemArray[MAX_QUEST_LEVEL_CAP_REWARD];
 	int nMailID;
@@ -1931,10 +1931,10 @@ struct TCompleteEventQuest
 // Shop
 struct TShopItem
 {
-	int nItemID;		// »óÁ¡ ¾ÆÀÌÅÛ ¾ÆÀÌµğ
-	int nCount;			// »óÁ¡ ¾ÆÀÌÅÛ ¼ö·®
-	int nMaxCount;		// ¾ÆÀÌÅÛ ÃÖ´ë¼ö·®
-	int nPrice;			// ¾ÆÀÌÅÛ °¡°İ
+	int nItemID;		// ìƒì  ì•„ì´í…œ ì•„ì´ë””
+	int nCount;			// ìƒì  ì•„ì´í…œ ìˆ˜ëŸ‰
+	int nMaxCount;		// ì•„ì´í…œ ìµœëŒ€ìˆ˜ëŸ‰
+	int nPrice;			// ì•„ì´í…œ ê°€ê²©
 	int buyLimitCount;
 #if defined (PRE_ADD_COMBINEDSHOP_PERIOD)
 	int nPeriod;
@@ -1961,7 +1961,7 @@ struct TShopTabData
 
 struct TShopData
 {
-	int nShopID;		// ¼¥ ¾ÆÀÌµğ (npc°¡ °¡Áö°í ÀÖ´Â ¾ÆÀÌµğ¿Í ºñ±³ÇØ¼­ ¿¬°á)
+	int nShopID;		// ìƒµ ì•„ì´ë”” (npcê°€ ê°€ì§€ê³  ìˆëŠ” ì•„ì´ë””ì™€ ë¹„êµí•´ì„œ ì—°ê²°)
 	std::vector<TShopTabData> vShopTabData;	// SHOPITEMMAX
 	TShopData()
 	{
@@ -1972,14 +1972,14 @@ struct TShopData
 // Skill Shop
 struct TSkillShopItem
 {
-	int nSkillID;		// ½ºÅ³¾ÆÀÌµğ
-	int nPrice;			// ½ºÅ³ °¡°İ
+	int nSkillID;		// ìŠ¤í‚¬ì•„ì´ë””
+	int nPrice;			// ìŠ¤í‚¬ ê°€ê²©
 };
 
 struct TSkillShopData
 {
-	int nShopID;		// ¼¥ ¾ÆÀÌµğ (npc°¡ °¡Áö°í ÀÖ´Â ¾ÆÀÌµğ¿Í ºñ±³ÇØ¼­ ¿¬°á)
-	TSkillShopItem SkillShopItem[SKILLSHOPITEMMAX];	// ÃÖ´ë 10°³¹Û¿¡ ¾ÈµÈ´Ù
+	int nShopID;		// ìƒµ ì•„ì´ë”” (npcê°€ ê°€ì§€ê³  ìˆëŠ” ì•„ì´ë””ì™€ ë¹„êµí•´ì„œ ì—°ê²°)
+	TSkillShopItem SkillShopItem[SKILLSHOPITEMMAX];	// ìµœëŒ€ 10ê°œë°–ì— ì•ˆëœë‹¤
 };
 
 // Enchant
@@ -2005,7 +2005,7 @@ struct TEnchantLevelData
 	char cPotentialProb;
 	int nProtectItemCount;
 #if defined(PRE_ADD_ENCHANTSHIELD_CASHITEM)
-	int nShieldItemCount;	// »óÀ§°­È­º¸È£Á©¸®¿ë(´Ù¿î±×·¹ÀÌµåx)
+	int nShieldItemCount;	// ìƒìœ„ê°•í™”ë³´í˜¸ì ¤ë¦¬ìš©(ë‹¤ìš´ê·¸ë ˆì´ë“œx)
 #endif
 #endif // PRE_FIX_MEMOPT_ENCHANT
 };
@@ -2030,7 +2030,7 @@ struct TEnchantNeedItemData
 	int nFailResultItemID;
 	int nProtectItemCount;
 #if defined(PRE_ADD_ENCHANTSHIELD_CASHITEM)
-	int nShieldItemCount;	// »óÀ§°­È­º¸È£Á©¸®¿ë(´Ù¿î±×·¹ÀÌµåx)
+	int nShieldItemCount;	// ìƒìœ„ê°•í™”ë³´í˜¸ì ¤ë¦¬ìš©(ë‹¤ìš´ê·¸ë ˆì´ë“œx)
 #endif
 };
 #endif // PRE_FIX_MEMOPT_ENCHANT
@@ -2057,8 +2057,8 @@ struct TPotentialData
 // Exchange
 struct TExchangeData
 {
-	int nInvenIndex;	// ÀÎº¥ ÀÎµ¦½º
-	short wCount;		// ¸î°³ ³Ö¾ú´ÂÁö
+	int nInvenIndex;	// ì¸ë²¤ ì¸ë±ìŠ¤
+	short wCount;		// ëª‡ê°œ ë„£ì—ˆëŠ”ì§€
 	INT64 biSerial;
 };
 
@@ -2066,15 +2066,15 @@ struct TExchangeData
 // gachapon japan
 struct TGachaponShopInfoByJob_JP
 {
-	int nGachaponTableID;		// °¡Ã­Æù Å×ÀÌºí ID
-	int nGachaponIndex;			// °¡Ã­Æù ¼¥ ÀÎµ¦½º.
-	int nJobClassID;			// ÀÌ °¡Ã­Æù¿¡¼­ µå¶øÇØÁÖ´Â ¾ÆÀÌÅÛµéÀÇ Á÷¾÷
+	int nGachaponTableID;		// ê°€ì± í° í…Œì´ë¸” ID
+	int nGachaponIndex;			// ê°€ì± í° ìƒµ ì¸ë±ìŠ¤.
+	int nJobClassID;			// ì´ ê°€ì± í°ì—ì„œ ë“œëí•´ì£¼ëŠ” ì•„ì´í…œë“¤ì˜ ì§ì—…
 	int nPartsLinkDropTableID[ CASHEQUIPMAX ];
 };
 
 struct TGachaponData_JP
 {
-	int nGachaponIndex;			// °¡Ã­Æù ¼¥ ÀÎµ¦½º. npc Å×ÀÌºí¿¡ ¾²ÀÎ ÀÎµ¦½º¸¦ ÀÌ°É·Î Ã£À½. Å×ÀÌºí ÀÎµ¦½º ¾Æ´Ô.
+	int nGachaponIndex;			// ê°€ì± í° ìƒµ ì¸ë±ìŠ¤. npc í…Œì´ë¸”ì— ì“°ì¸ ì¸ë±ìŠ¤ë¥¼ ì´ê±¸ë¡œ ì°¾ìŒ. í…Œì´ë¸” ì¸ë±ìŠ¤ ì•„ë‹˜.
 	TGachaponShopInfoByJob_JP GachaponShopInfo[ CLASSKINDMAX ];
 };
 #endif // PRE_ADD_GACHA_JAPAN
@@ -2116,17 +2116,17 @@ struct TFriend:public TBoostMemoryPool<TFriend>
 };
 
 //UserState
-enum eCummunityState		//ÃÊ´ë ¹Ş´Â´Ù ¾È¹Ş´Â´Ù ÂÊÁö ¹Ş°Ú´Ù ¾È¹Ş°Ú´Ù µîµî
+enum eCummunityState		//ì´ˆëŒ€ ë°›ëŠ”ë‹¤ ì•ˆë°›ëŠ”ë‹¤ ìª½ì§€ ë°›ê² ë‹¤ ì•ˆë°›ê² ë‹¤ ë“±ë“±
 {
 	_COMMUNITY_NONE = 0,
-	_COMMUNITY_MSG_PERMIT,		//¸ğµç ¸Ş¼¼Áö ¹Ş¾ÆÈ¿~
-	_COMMUNITY_MSG_NOTPERMIT,//¸Ş¼¼Áö ¾È¹Ş¾ÆÈ¿~ ³ªÁ» ³»¹ö·Á µÎ»ï!
+	_COMMUNITY_MSG_PERMIT,		//ëª¨ë“  ë©”ì„¸ì§€ ë°›ì•„íš¨~
+	_COMMUNITY_MSG_NOTPERMIT,//ë©”ì„¸ì§€ ì•ˆë°›ì•„íš¨~ ë‚˜ì¢€ ë‚´ë²„ë ¤ ë‘ì‚¼!
 };
 
 struct sWorldUserState
 {
 	WCHAR wszCharacterName[NAMELENMAX];
-	INT64 biCharacterDBID;			//ÀÏ´ÜÀº È¤½¬³ª ÇØ¼­ ÈÊÈÊ
+	INT64 biCharacterDBID;			//ì¼ë‹¨ì€ í˜¹ì‰¬ë‚˜ í•´ì„œ í›—í›—
 	int	nChannelID;				//
 	int	nMapIdx;
 	int	nLocationState;			//eLocationState
@@ -2148,7 +2148,7 @@ enum eVoiceChannelReqType
 {
 	_VOICECHANNEL_REQTYPE_PARTY,
 	_VOICECHANNEL_REQTYPE_PVP,
-	//¸Ó ÀÌ·±½ÄÀ¸·Î »ı±âÁö ¾ÊÀ»±î³ª..
+	//ë¨¸ ì´ëŸ°ì‹ìœ¼ë¡œ ìƒê¸°ì§€ ì•Šì„ê¹Œë‚˜..
 	//_VOICECHANNELTYPE_GUILD,
 	//_VOICECHANNELTYPE_PRIVATE,
 };
@@ -2174,12 +2174,12 @@ struct TPvPMapTable
 {
 	UINT uiGameType;				// PvPCommon::GameType
 	std::vector<UINT> vGameModeTableID;		// PvPGameModeTableID
-	std::vector<UINT> vNumOfPlayerOption;		// ÀÎ¿ø¼ö ¿É¼Ç
-	bool bIsBreakInto;			// ³­ÀÔ°¡´ÉFlag
+	std::vector<UINT> vNumOfPlayerOption;		// ì¸ì›ìˆ˜ ì˜µì…˜
+	bool bIsBreakInto;			// ë‚œì…ê°€ëŠ¥Flag
 	UINT uiItemUsageType;		// PvPCommon::ItemUsageType
-	bool bIsAllowItemDrop;		// ¾ÆÀÌÅÛµå·Ó Flag
-	bool bIsGuildBattleGround;	// ±æµåÀü¿¡¼­ »ç¿ëÇÒ¼ö ÀÖ´ÂÁö Flag
-	bool bIsReleaseShow;			// ¸±¸®Áî¹öÀü¿¡¼­³ëÃâ
+	bool bIsAllowItemDrop;		// ì•„ì´í…œë“œë¡­ Flag
+	bool bIsGuildBattleGround;	// ê¸¸ë“œì „ì—ì„œ ì‚¬ìš©í• ìˆ˜ ìˆëŠ”ì§€ Flag
+	bool bIsReleaseShow;			// ë¦´ë¦¬ì¦ˆë²„ì „ì—ì„œë…¸ì¶œ
 	LadderSystem::MatchType::eCode	MatchType;
 
 	// Function
@@ -2228,7 +2228,7 @@ struct TPvPGameModeTable
 	UINT uiLoseXPPerRound;
 	UINT uiItemDropTableID;
 	bool bIsLevelRegulation;
-	bool bIsReleaseShow;			// ¸±¸®Áî¹öÀü¿¡¼­³ëÃâ
+	bool bIsReleaseShow;			// ë¦´ë¦¬ì¦ˆë²„ì „ì—ì„œë…¸ì¶œ
 	UINT uiMedalExp;
 	UINT uiNumOfPlayersMin;
 	UINT uiNumOfPlayersMax;
@@ -2282,7 +2282,7 @@ struct TPvPGameModeTable
 		return false;
 	}
 
-	// ½ÇÆĞ½Ã -1 ¸®ÅÏ
+	// ì‹¤íŒ¨ì‹œ -1 ë¦¬í„´
 	int GetWinconditionIndex( const UINT uiWinCondition ) const
 	{
 		for( UINT i=0 ; i<vWinCondition.size() ; ++i )
@@ -2301,18 +2301,18 @@ struct TPvPGameModeTable
 
 struct TPvPGameStartConditionTable
 {
-	UINT uiMinTeamPlayerNum;		// ÃÖ¼Ò ½ÃÀÛ ÆÀ ÀÎ¿ø
-	UINT uiMaxTeamPlayerDiff;	// ÃÖ´ë ¾çÆÀ ÀÎ¿ø Çã¿ë ¼ö
+	UINT uiMinTeamPlayerNum;		// ìµœì†Œ ì‹œì‘ íŒ€ ì¸ì›
+	UINT uiMaxTeamPlayerDiff;	// ìµœëŒ€ ì–‘íŒ€ ì¸ì› í—ˆìš© ìˆ˜
 
 	short Check( const UINT uiATeam, const UINT uiBTeam, const bool bRandomTeam ) const
 	{
-		// ÃÖ¼Ò ½ÃÀÛ ÆÀ ÀÎ¿ø °Ë»ç
+		// ìµœì†Œ ì‹œì‘ íŒ€ ì¸ì› ê²€ì‚¬
 		if( uiATeam < uiMinTeamPlayerNum || uiBTeam < uiMinTeamPlayerNum )
 			return ERROR_PVP_CANTSTART_LESS_MINTEAMPLAYER;
 
-		if (!bRandomTeam)	// ·£´ıÆÀÀÌ ¾Æ´Ñ °æ¿ì Ã³¸®ÇÑ´Ù.
+		if (!bRandomTeam)	// ëœë¤íŒ€ì´ ì•„ë‹Œ ê²½ìš° ì²˜ë¦¬í•œë‹¤.
 		{
-			// ÃÖ´ë  ¾çÆÀ ÀÎ¿ø Çã¿ë ¼ö °Ë»ç
+			// ìµœëŒ€  ì–‘íŒ€ ì¸ì› í—ˆìš© ìˆ˜ ê²€ì‚¬
 			UINT uiDiff = ::abs( static_cast<int>(uiATeam-uiBTeam) );
 			if( uiDiff > uiMaxTeamPlayerDiff )
 				return ERROR_PVP_CANTSTART_MORE_MAXDIFFTEAMPLAYER;
@@ -2327,7 +2327,7 @@ struct TPvPRankTable
 {
 	UINT uiXP;
 #ifdef PRE_MOD_PVPRANK
-	BYTE cType;			//PvPCommon::RankTable ÂüÁ¶
+	BYTE cType;			//PvPCommon::RankTable ì°¸ì¡°
 	BYTE cMinRange;		//rate or rank
 	BYTE cMaxRange;		//rate or rank
 
@@ -2356,7 +2356,7 @@ struct TAppellationData
 #endif	// #if defined( PRE_MOD_APPELLATIONBOOK_RENEWAL)
 };
 
-// ¹Ì¼Ç ½Ã½ºÅÛ °ü·Ã
+// ë¯¸ì…˜ ì‹œìŠ¤í…œ ê´€ë ¨
 struct TEventCondition
 {
 	char cEvent;
@@ -2369,7 +2369,7 @@ struct TEventCondition
 struct TMissionData
 {
 	bool bActivate;
-	int nType;			// ¹Ì¼ÇÅ¸ÀÔ(eMissionType)
+	int nType;			// ë¯¸ì…˜íƒ€ì…(eMissionType)
 	int nMailID;
 	int nRewardAppellation;
 	int nRewardPoint;
@@ -2425,24 +2425,24 @@ struct TCollectionBookData
 	std::vector<int> nVecAppellationArrayIndex;
 	int nRewardAppellationArrayIndex;
 #if defined(PRE_MOD_APPELLATIONBOOK_RENEWAL)
-	int nMailID[2];			// 0 - 50% ³Ñ°åÀ» ¶§ º¸³»ÁÙ ¸ŞÀÏ ID, 1- ÄªÈ£ ÄÃ·º¼Ç ¿Ï¼º½Ã º¸»ó MailID 
+	int nMailID[2];			// 0 - 50% ë„˜ê²¼ì„ ë•Œ ë³´ë‚´ì¤„ ë©”ì¼ ID, 1- ì¹­í˜¸ ì»¬ë ‰ì…˜ ì™„ì„±ì‹œ ë³´ìƒ MailID 
 #endif  //#if defined(PRE_MOD_APPELLATIONBOOK_RENEWAL)
 };
 
 // TaxTable
 struct TTaxData
 {
-	char cTaxType;			// ¼¼±İÁ¾·ù (TaxType_PostTax)
-	int nLevelStart;		// ½ÃÀÛ ·¹º§
-	int nLevelEnd;			// ³¡ ·¹º§
-	int nAmountStart;		// ½ÃÀÛ±İ¾× (°ñµå´ÜÀ§)
-	int nAmountEnd;			// ³¡±İ¾×
-	float fRate;			// ¼¼À²
-	int nTaxAmount;			// ¼¼¾×
+	char cTaxType;			// ì„¸ê¸ˆì¢…ë¥˜ (TaxType_PostTax)
+	int nLevelStart;		// ì‹œì‘ ë ˆë²¨
+	int nLevelEnd;			// ë ë ˆë²¨
+	int nAmountStart;		// ì‹œì‘ê¸ˆì•¡ (ê³¨ë“œë‹¨ìœ„)
+	int nAmountEnd;			// ëê¸ˆì•¡
+	float fRate;			// ì„¸ìœ¨
+	int nTaxAmount;			// ì„¸ì•¡
 };
 
 // Seal
-const BYTE SEALENCHANTMAX = 16;	// ³ë°­È­ºÎÅÍ 15°­±îÁö.
+const BYTE SEALENCHANTMAX = 16;	// ë…¸ê°•í™”ë¶€í„° 15ê°•ê¹Œì§€.
 struct TSealCountData
 {
 	int nType1;
@@ -2460,7 +2460,7 @@ struct TPCBangParam
 
 struct TPCBangData
 {
-	char cType;		// PCBang ÇıÅÃ Á¾·ù (ePCBangType)
+	char cType;		// PCBang í˜œíƒ ì¢…ë¥˜ (ePCBangType)
 	std::vector<TPCBangParam> VecPCBangParam;
 	std::vector<TPCBangParam> VecPremiumPCBangParam;
 	std::vector<TPCBangParam> VecGoldPCBangParam;
@@ -2479,37 +2479,37 @@ struct TCashCommodityData
 #endif	// #if defined(_JP)
 	BYTE cCategory;
 	int nSubCategory;
-	int nItemID[COMMODITYITEMMAX];	// ItemTable ¾ÆÀÌÅÛ ID
-	int nLinkSN[COMMODITYLINKMAX];	// ¿¬°è»óÇ°
+	int nItemID[COMMODITYITEMMAX];	// ItemTable ì•„ì´í…œ ID
+	int nLinkSN[COMMODITYLINKMAX];	// ì—°ê³„ìƒí’ˆ
 	std::string strName;
-	short wPeriod;					// ±â°£
-	int nPrice;						// °¡°İ
-	int nCount;						// ±¸¸Å½Ã ÁÖ¾îÁö´Â °³¼ö
-	int nPriority;					// Ä³½Ã¼¥¿¡ Ç¥½ÃµÇ´Â ¿ì¼±¼øÀ§
-	bool bOnSale;					// ÆÇ¸Å»óÅÂ
-	bool bOnSaleReal;				// ÁøÂ¥(?)ÆÇ¸Å»óÅÂ
-	char cState;					// HOT, NEWµî »óÅÂ Ç¥½Ã¿ë
-	bool bLimit;					// ÇÑÁ¤ ÆÇ¸Å
-	bool bReserveGive;				// Àû¸³±İ Á¦°ø ¿©ºÎ
-	int nReserve;					// ±¸¸Å½Ã ÁÖ¾îÁö´Â Àû¸³±İ
-	int nValidity;					// À¯È¿±â°£
-	bool bReserveAble;				// Àû¸³±İÀ¸·Î »ì¼ö ÀÖ´ÂÁö ¿©ºÎ
-	bool bPresentAble;				// ¼±¹° °¡´É ¿©ºÎ
-	char cItemSort;					// ¾ÆÀÌÅÛÁ¾·ù
-	int nPriceFix;					// Á¤°¡
-	bool bCartAble;					// Àå¹Ù±¸´Ï¿¡ ´ãÀ» ¼ö ÀÖ´ÂÁö
-	bool bVIPSell;					// VIP Àü¿ë ÆÇ¸Å ¿©ºÎ
-	int nVIPLevel;					// VIP µî±Ş
-	bool bAutomaticPay;				// ÀÚµ¿°áÁ¦ ¿©ºÎ
-	int nAutomaticPaySale;			// ÀÚµ¿°áÁ¦ ÈÄ ÇÒÀÎÀû¿ë
-	int nVIPPoint;					// ±¸¸Å½Ã Áö±ŞÇÏ´Â VIPPoint
-	int nOverlapBuy;				// Áßº¹±¸¸Å¹æÁö
+	short wPeriod;					// ê¸°ê°„
+	int nPrice;						// ê°€ê²©
+	int nCount;						// êµ¬ë§¤ì‹œ ì£¼ì–´ì§€ëŠ” ê°œìˆ˜
+	int nPriority;					// ìºì‹œìƒµì— í‘œì‹œë˜ëŠ” ìš°ì„ ìˆœìœ„
+	bool bOnSale;					// íŒë§¤ìƒíƒœ
+	bool bOnSaleReal;				// ì§„ì§œ(?)íŒë§¤ìƒíƒœ
+	char cState;					// HOT, NEWë“± ìƒíƒœ í‘œì‹œìš©
+	bool bLimit;					// í•œì • íŒë§¤
+	bool bReserveGive;				// ì ë¦½ê¸ˆ ì œê³µ ì—¬ë¶€
+	int nReserve;					// êµ¬ë§¤ì‹œ ì£¼ì–´ì§€ëŠ” ì ë¦½ê¸ˆ
+	int nValidity;					// ìœ íš¨ê¸°ê°„
+	bool bReserveAble;				// ì ë¦½ê¸ˆìœ¼ë¡œ ì‚´ìˆ˜ ìˆëŠ”ì§€ ì—¬ë¶€
+	bool bPresentAble;				// ì„ ë¬¼ ê°€ëŠ¥ ì—¬ë¶€
+	char cItemSort;					// ì•„ì´í…œì¢…ë¥˜
+	int nPriceFix;					// ì •ê°€
+	bool bCartAble;					// ì¥ë°”êµ¬ë‹ˆì— ë‹´ì„ ìˆ˜ ìˆëŠ”ì§€
+	bool bVIPSell;					// VIP ì „ìš© íŒë§¤ ì—¬ë¶€
+	int nVIPLevel;					// VIP ë“±ê¸‰
+	bool bAutomaticPay;				// ìë™ê²°ì œ ì—¬ë¶€
+	int nAutomaticPaySale;			// ìë™ê²°ì œ í›„ í• ì¸ì ìš©
+	int nVIPPoint;					// êµ¬ë§¤ì‹œ ì§€ê¸‰í•˜ëŠ” VIPPoint
+	int nOverlapBuy;				// ì¤‘ë³µêµ¬ë§¤ë°©ì§€
 #if defined(PRE_ADD_CASH_REFUND)
-	bool bNoRefund;					// Ã»¾à Ã¶È¸ ºÒ°¡´É¿©ºÎ(true : ºÒ°¡´É)
+	bool bNoRefund;					// ì²­ì•½ ì² íšŒ ë¶ˆê°€ëŠ¥ì—¬ë¶€(true : ë¶ˆê°€ëŠ¥)
 #endif
 #if defined(PRE_ADD_CASHSHOP_CREDIT)
-	bool bCreditAble;				// ¹ÌÄîºô¸µ
-	int nCreditAbleLevel;			// ¹ÌÄîºô¸µ Å©·¹µ÷·¹º§
+	bool bCreditAble;				// ë¯¸ì¿¡ë¹Œë§
+	int nCreditAbleLevel;			// ë¯¸ì¿¡ë¹Œë§ í¬ë ˆë”§ë ˆë²¨
 #endif	// #if defined(PRE_ADD_CASHSHOP_CREDIT)
 #if defined(PRE_ADD_SALE_COUPON)
 	bool bUseCoupon;
@@ -2535,7 +2535,7 @@ struct TCashCommodityData
 		nOverlapBuy =0;
 
 #if defined(PRE_ADD_CASH_REFUND)
-		bNoRefund = true;		// ±âº» ºÒ°¡´É
+		bNoRefund = true;		// ê¸°ë³¸ ë¶ˆê°€ëŠ¥
 #endif
 #if defined(PRE_ADD_CASHSHOP_CREDIT)
 		bCreditAble = false;
@@ -2554,7 +2554,7 @@ struct TCashCommodityData
 
 struct TCashPackageData
 {
-	int nSN;		// ÆĞÅ°ÁöÆÇ¸ÅSN
+	int nSN;		// íŒ¨í‚¤ì§€íŒë§¤SN
 	std::vector<int> nVecCommoditySN;
 
 	TCashPackageData()
@@ -2566,21 +2566,21 @@ struct TCashPackageData
 
 struct TCashLimitData
 {
-	int nSN;			// ÇÑÁ¤ÆÇ¸ÅÇÒ »óÇ° SN
-	time_t tStartDate;  // _StartDate	½ÃÀÛÀÏ
-	time_t tEndDate;	// _EndDate	Á¾·áÀÏ	
-	int nBuyAbleCount;	// Ä³¸¯ÅÍ´ç ±¸¸Å°¡´ÉÈ½¼ö
+	int nSN;			// í•œì •íŒë§¤í•  ìƒí’ˆ SN
+	time_t tStartDate;  // _StartDate	ì‹œì‘ì¼
+	time_t tEndDate;	// _EndDate	ì¢…ë£Œì¼	
+	int nBuyAbleCount;	// ìºë¦­í„°ë‹¹ êµ¬ë§¤ê°€ëŠ¥íšŸìˆ˜
 #if defined(PRE_ADD_LIMITED_CASHITEM)
-	int nLimitedSellCount;		//°¹¼öÇÑÁ¤¾ÆÀÌÅÛ!
+	int nLimitedSellCount;		//ê°¯ìˆ˜í•œì •ì•„ì´í…œ!
 #endif		//#if defined(PRE_ADD_LIMITED_CASHITEM)
 };
 
 struct TVIPData
 {
-	int nVipID;				// VIPTable¿¡¼­ÀÇ ID
-	int nMonthItemSN;		// Ä³½Ã ¾ÆÀÌÅÛ »óÇ° ³Ñ¹ö (30ÀÏ °áÁ¦½Ã ÇÑ¹ø ÁÖ±â)
-	int nMailID[4];			// 0:¼­ºñ½º¸¸·á 7ÀÏÀü, 1:¼­ºñ½º¸¸·á 1ÀÏÀü, 2:¼­ºñ½º¸¸·á½Ã, 3:ÀÚµ¿°áÁ¦½Ã Ä³½Ã ºÎÁ·ÇÒ¶§
-	int nAutoPayItemSN;		// ÀÚµ¿°áÁ¦ÇÒ¶§ °áÁ¦ÇÒ ¾ÆÀÌÅÛSN	
+	int nVipID;				// VIPTableì—ì„œì˜ ID
+	int nMonthItemSN;		// ìºì‹œ ì•„ì´í…œ ìƒí’ˆ ë„˜ë²„ (30ì¼ ê²°ì œì‹œ í•œë²ˆ ì£¼ê¸°)
+	int nMailID[4];			// 0:ì„œë¹„ìŠ¤ë§Œë£Œ 7ì¼ì „, 1:ì„œë¹„ìŠ¤ë§Œë£Œ 1ì¼ì „, 2:ì„œë¹„ìŠ¤ë§Œë£Œì‹œ, 3:ìë™ê²°ì œì‹œ ìºì‹œ ë¶€ì¡±í• ë•Œ
+	int nAutoPayItemSN;		// ìë™ê²°ì œí• ë•Œ ê²°ì œí•  ì•„ì´í…œSN	
 };
 
 // DL Table
@@ -2620,18 +2620,18 @@ struct TLevelupEvent
 {
 	enum eEventType
 	{
-		Levelup = 1,			// ÀÏ¹İ ·¹º§¾÷ÀÌº¥Æ®
-		ShandaPromotion = 2,	// ¼¢´Ù ÇÁ·Î¸ğ¼ÇÀÌº¥Æ®
-		CombackUser = 3,		// º¹±ÍÀ¯ÀúÀÌº¥Æ®
-		LevelupNew = 4,			// ·¹º§¾÷ÀÌº¥Æ® »õ°Å (ÇÑ¹ø ¹ŞÀ¸¸é ´õÀÌ»ó ¸ø¹Ş´Â ¹öÁ¯)
-		ComeBackUserInven = 5,		// ±ÍÈ¯ÀÚ¿¡°Ô ¹Ù·Î ³Ö¾îÁÖ´Â ¾ÆÀÌÅÛ Å¸ÀÔ
-		NewbieQuitReward = 6, //½Å±Ô À¯Àú Á¢¼Ó Á¾·á º¸»ó
-		NewbieReconnectReward = 7, //½Å±Ô À¯Àú ÀçÁ¢¼Ó º¸»ó
-		ComeBackUserQuitReward = 8, //±ÍÈ¯ÀÚ Á¢¼Ó Á¾·á º¸»ó
+		Levelup = 1,			// ì¼ë°˜ ë ˆë²¨ì—…ì´ë²¤íŠ¸
+		ShandaPromotion = 2,	// ìƒ¨ë‹¤ í”„ë¡œëª¨ì…˜ì´ë²¤íŠ¸
+		CombackUser = 3,		// ë³µê·€ìœ ì €ì´ë²¤íŠ¸
+		LevelupNew = 4,			// ë ˆë²¨ì—…ì´ë²¤íŠ¸ ìƒˆê±° (í•œë²ˆ ë°›ìœ¼ë©´ ë”ì´ìƒ ëª»ë°›ëŠ” ë²„ì ¼)
+		ComeBackUserInven = 5,		// ê·€í™˜ìì—ê²Œ ë°”ë¡œ ë„£ì–´ì£¼ëŠ” ì•„ì´í…œ íƒ€ì…
+		NewbieQuitReward = 6, //ì‹ ê·œ ìœ ì € ì ‘ì† ì¢…ë£Œ ë³´ìƒ
+		NewbieReconnectReward = 7, //ì‹ ê·œ ìœ ì € ì¬ì ‘ì† ë³´ìƒ
+		ComeBackUserQuitReward = 8, //ê·€í™˜ì ì ‘ì† ì¢…ë£Œ ë³´ìƒ
 	};
 
-	int nLevel;			// Player Ä³¸¯ÅÍÀÇ ·¹º§
-	char cClassID;		// Å¬·¡½º
+	int nLevel;			// Player ìºë¦­í„°ì˜ ë ˆë²¨
+	char cClassID;		// í´ë˜ìŠ¤
 	BYTE cJob;
 	int nMailID;
 	int nCashMailID;
@@ -2666,21 +2666,21 @@ struct TReputeTableData
 {
 #if defined( PRE_ADD_REPUTATION_EXPOSURE )
 	int iMissionID;
-	int iNpcPresentRepute1; // ¼±¹°1 Áö±Ş È£°¨µµ ´Ş¼º Á¶°Ç
-	int iNpcPresentRepute2; // ¼±¹°2 Áö±Ş È£°¨µµ ´Ş¼º Á¶°Ç
-	int iNpcPresentID1; // NpcPresentRepute1 ´Ş¼º ½Ã NPC°¡ ÁÖ´Â ¼±¹° 1 ItemID
-	int iNpcPresentID2; // NpcPresentRepute1 ´Ş¼º ½Ã NPC°¡ ÁÖ´Â ¼±¹° 2 ItemID
+	int iNpcPresentRepute1; // ì„ ë¬¼1 ì§€ê¸‰ í˜¸ê°ë„ ë‹¬ì„± ì¡°ê±´
+	int iNpcPresentRepute2; // ì„ ë¬¼2 ì§€ê¸‰ í˜¸ê°ë„ ë‹¬ì„± ì¡°ê±´
+	int iNpcPresentID1; // NpcPresentRepute1 ë‹¬ì„± ì‹œ NPCê°€ ì£¼ëŠ” ì„ ë¬¼ 1 ItemID
+	int iNpcPresentID2; // NpcPresentRepute1 ë‹¬ì„± ì‹œ NPCê°€ ì£¼ëŠ” ì„ ë¬¼ 2 ItemID
 #else
 	std::vector<int>	iQuestIDs;
 #endif // #if defined( PRE_ADD_REPUTATION_EXPOSURE )
 	
-	int	iMaxFavor;			// È£ÀÇ ÃÖ´ëÄ¡
-	int	iTakeFavorPerDay;	// 1ÀÏ´ç ±ğÀÌ´Â È£ÀÇ ¼öÄ¡
-	int	iMaxMalice;			// ¾ÇÀÇ ÃÖ´ëÄ¡
-	int	iAddMalicePerDay;	// 1ÀÏ´ç ¿Ã¶ó°¡´Â ¾ÇÀÇ ¼öÄ¡
-	int	iPresentIDArr[6];	// ¹ŞÀ» ¼ö ÀÖ´Â ¼±¹° ¸®½ºÆ®
-	std::vector<int> vFavorNpcID;		// È£ÀÇ NPC ¸®½ºÆ®
-	std::vector<int> vMaliceNpcID;		// ¾ÇÀÇ NPC ¸®½ºÆ®
+	int	iMaxFavor;			// í˜¸ì˜ ìµœëŒ€ì¹˜
+	int	iTakeFavorPerDay;	// 1ì¼ë‹¹ ê¹ì´ëŠ” í˜¸ì˜ ìˆ˜ì¹˜
+	int	iMaxMalice;			// ì•…ì˜ ìµœëŒ€ì¹˜
+	int	iAddMalicePerDay;	// 1ì¼ë‹¹ ì˜¬ë¼ê°€ëŠ” ì•…ì˜ ìˆ˜ì¹˜
+	int	iPresentIDArr[6];	// ë°›ì„ ìˆ˜ ìˆëŠ” ì„ ë¬¼ ë¦¬ìŠ¤íŠ¸
+	std::vector<int> vFavorNpcID;		// í˜¸ì˜ NPC ë¦¬ìŠ¤íŠ¸
+	std::vector<int> vMaliceNpcID;		// ì•…ì˜ NPC ë¦¬ìŠ¤íŠ¸
 	int	iFavorGroupBomb;
 	int	iMaliceGroupBomb;
 	int	iMailID[NpcReputation::Common::MaxMailCount];
@@ -2688,7 +2688,7 @@ struct TReputeTableData
 	int	iPlusItemID;
 	int	iPlusProb;
 	int	iUnionID;
-	int	iPresentPointArr[6]; // ¼±¹°¸¶´Ù ¹ŞÀ»¼ö ÀÖ´Â ¿¬ÇÕÆ÷ÀÎÆ®
+	int	iPresentPointArr[6]; // ì„ ë¬¼ë§ˆë‹¤ ë°›ì„ìˆ˜ ìˆëŠ” ì—°í•©í¬ì¸íŠ¸
 
 	TReputeTableData()
 	{
@@ -2729,7 +2729,7 @@ struct TReputeTableData
 		{
 			if( iPresentIDArr[i] == iPresentID )
 			{
-				// È¤½Ã ¸ô¶ó¼­ »çÀÌÁî °Ë»ç ÇÑ¹ø´õ!
+				// í˜¹ì‹œ ëª°ë¼ì„œ ì‚¬ì´ì¦ˆ ê²€ì‚¬ í•œë²ˆë”!
 				if (0 <= i && i < _countof(iPresentPointArr))
 					return iPresentPointArr[i];
 			}
@@ -2840,7 +2840,7 @@ struct TMailTableData
 
 struct TStoreBenefitData
 {
-	// ¾Æ·¡ÀÇ ¼ø¼­´Â StoreBenefit Å×ÀÌºíÀÇ Á¤ÀÇ¿Í ¸ÂÃá °ÍÀÌ±â ¶§¹®¿¡ Àı´ë·Î ¼ø¼­°¡ ¹Ù²î¸é ¾ÈµÊ.
+	// ì•„ë˜ì˜ ìˆœì„œëŠ” StoreBenefit í…Œì´ë¸”ì˜ ì •ì˜ì™€ ë§ì¶˜ ê²ƒì´ê¸° ë•Œë¬¸ì— ì ˆëŒ€ë¡œ ìˆœì„œê°€ ë°”ë€Œë©´ ì•ˆë¨.
 	enum eType
 	{
 		EnchantFeeDiscount = NpcReputation::StoreBenefit::EnchantFeeDiscount,
@@ -2881,7 +2881,7 @@ struct TCombinedShopTableData
 	Shop::PurchaseLimitType::eCode PurchaseLimitType;
 	int iPurchaseLimitValue;
 #if defined(PRE_SAMPLEITEMNPC)
-	int nSampleVersion;	// »ùÇÃ¾ÆÀÌÅÛ È¸Â÷
+	int nSampleVersion;	// ìƒ˜í”Œì•„ì´í…œ íšŒì°¨
 #endif	//#if defined(PRE_SAMPLEITEMNPC)
 };
 
@@ -2941,7 +2941,7 @@ public:
 	int	iToolItemID[SecondarySkill::ManufactureSkill::MaxToolItemCount];
 	int	iMasterExp;
 	int	iStartExp;
-	int	iMaxTime;	// ´ÜÀ§(ms)
+	int	iMaxTime;	// ë‹¨ìœ„(ms)
 	int	iSuccessProbability;
 	int	iSuccessUpExp;
 	int	iRecipeUpExp;
@@ -2949,7 +2949,7 @@ public:
 	int	iMaterialItemCount[SecondarySkill::ManufactureSkill::MaxMaterialItemCount];
 	int	iSuccessCount;
 
-	// °æÇèÄ¡·Î »ı»êµÉ ItemID ¾ò±â
+	// ê²½í—˜ì¹˜ë¡œ ìƒì‚°ë  ItemID ì–»ê¸°
 	int GetManufactureItemID( int iExp, int iMaxValue )
 	{
 		int iExpRate = static_cast<int>(iExp/static_cast<float>(iMaxValue)*100);
@@ -2990,9 +2990,9 @@ struct TFarmCultivateTableData
 	int iHarvestNeedItemID;
 	int iHarvestDropRate[Farm::Max::HARVESTITEM_COUNT];
 	int iHarvestDropTableID;
-	int iSkillPointPlant;			// ¾¾¾Ñ½É±â ½Ã °æÇèÄ¡
-	int iSkillPointWater;			// ¹°ÁÖ±â ½Ã °æÇèÄ¡
-	int iCatalystCount;				// ÇÊ¿ä ¼ºÀåÃËÁøÁ¦ °³¼ö
+	int iSkillPointPlant;			// ì”¨ì•—ì‹¬ê¸° ì‹œ ê²½í—˜ì¹˜
+	int iSkillPointWater;			// ë¬¼ì£¼ê¸° ì‹œ ê²½í—˜ì¹˜
+	int iCatalystCount;				// í•„ìš” ì„±ì¥ì´‰ì§„ì œ ê°œìˆ˜
 	SecondarySkill::Grade::eType	RequiredSkillGrade;
 	int								iRequiredSkillLevel;
 	int	iOverlap;
@@ -3022,8 +3022,8 @@ struct TFishingPattern
 
 struct TFishingPointTableData
 {
-	int nSecondarySkillClass;			//³¬½Ãº¸Á¶½ºÅ³µî±Ş
-	int nSecondarySkillLevel;			//³¬½Ãº¸Á¶½ºÅ³·¹º§
+	int nSecondarySkillClass;			//ë‚šì‹œë³´ì¡°ìŠ¤í‚¬ë“±ê¸‰
+	int nSecondarySkillLevel;			//ë‚šì‹œë³´ì¡°ìŠ¤í‚¬ë ˆë²¨
 	int nRequireItemType1;
 	int nRequireItemType2;
 	TFishingPattern Pattern[Fishing::Max::FISHINGPATTERNMAX];
@@ -3066,20 +3066,20 @@ struct TGlyphSlotData
 
 struct TGlyphChargeData
 {
-	char cGlyphType;		// 1: °­È­¹®Àå 2: ½ºÅ³¹®Àå  3: Æ¯¼ö½ºÅ³¹®Àå	(eGlyphType)
-	char cGlyphRank;		// 1: ¸ÅÁ÷ 2: ·¹¾î 3: ¿¡ÇÈ 4: À¯´ÏÅ© (eItemRank)
+	char cGlyphType;		// 1: ê°•í™”ë¬¸ì¥ 2: ìŠ¤í‚¬ë¬¸ì¥  3: íŠ¹ìˆ˜ìŠ¤í‚¬ë¬¸ì¥	(eGlyphType)
+	char cGlyphRank;		// 1: ë§¤ì§ 2: ë ˆì–´ 3: ì—í”½ 4: ìœ ë‹ˆí¬ (eItemRank)
 	int nCharge;
 };
 
 struct TCharmItem
 {
 #if defined(PRE_FIX_68828)
-	int nCharmID;	// ÂüÅ×ÀÌºí ID
+	int nCharmID;	// ì°¸í…Œì´ë¸” ID
 #endif
-	int nItemID;	// ¾ÆÀÌÅÛ
-	int nCount;		// À¯Àú°¡ È¹µæÇÒ °³¼ö
-	int nProb;		// È®·ü
-	int nPeriod;	// ±â°£
+	int nItemID;	// ì•„ì´í…œ
+	int nCount;		// ìœ ì €ê°€ íšë“í•  ê°œìˆ˜
+	int nProb;		// í™•ë¥ 
+	int nPeriod;	// ê¸°ê°„
 	int nAccumulationProb;
 	int nGold;
 	bool bMsg;
@@ -3087,14 +3087,14 @@ struct TCharmItem
 
 struct TCharmItemData
 {
-	int nCharmNo;	// ¸Å·Â¾ÆÀÌÅÛ ¹øÈ£
+	int nCharmNo;	// ë§¤ë ¥ì•„ì´í…œ ë²ˆí˜¸
 	std::vector<TCharmItem> CharmItemList;
 };
 
 const BYTE CharmItemKeyMax = 5;
 struct TCharmItemKeyData
 {
-	int nCharmItemID;	// »óÀÚ ¾ÆÀÌÅÛ ¾ÆÀÌµğ
+	int nCharmItemID;	// ìƒì ì•„ì´í…œ ì•„ì´ë””
 	std::vector<int> nKeyList;
 };
 
@@ -3115,10 +3115,10 @@ struct TChaosStuffItem
 
 struct TChaosResultItem
 {
-	int nItemID;	// ¾ÆÀÌÅÛ
-	int nCount;		// À¯Àú°¡ È¹µæÇÒ °³¼ö
-	int nProb;		// È®·ü
-	int nPeriod;	// ±â°£
+	int nItemID;	// ì•„ì´í…œ
+	int nCount;		// ìœ ì €ê°€ íšë“í•  ê°œìˆ˜
+	int nProb;		// í™•ë¥ 
+	int nPeriod;	// ê¸°ê°„
 	int nAccumulationProb;
 	int nGold;
 	bool bMsg;
@@ -3136,9 +3136,9 @@ struct TChaosItemData
 enum eServerMonitorLevel
 {
 	SERVERMONITOR_LEVEL_NONE = 0,
-	SERVERMONITOR_LEVEL_MONITOR,				//µ¿Á¢Á¤º¸¿Í ¼­¹öÀÇ»óÅÂ
-	SERVERMONITOR_LEVEL_ADMIN,					//µ¿Á¢Á¤º¸¿Í ¼­¹ö»óÅÂ ¹× ÇÁ·Î¼¼½º ½ÃÀÛ¸¸ °¡´É
-	SERVERMONITOR_LEVEL_SUPERADMIN,				//µ¿Á¢Á¤º¸¿Í ¼­¹ö»óÅÂ ¹× ¸ğµçÄÁÆ®·Ñ °¡´É
+	SERVERMONITOR_LEVEL_MONITOR,				//ë™ì ‘ì •ë³´ì™€ ì„œë²„ì˜ìƒíƒœ
+	SERVERMONITOR_LEVEL_ADMIN,					//ë™ì ‘ì •ë³´ì™€ ì„œë²„ìƒíƒœ ë° í”„ë¡œì„¸ìŠ¤ ì‹œì‘ë§Œ ê°€ëŠ¥
+	SERVERMONITOR_LEVEL_SUPERADMIN,				//ë™ì ‘ì •ë³´ì™€ ì„œë²„ìƒíƒœ ë° ëª¨ë“ ì»¨íŠ¸ë¡¤ ê°€ëŠ¥
 };
 
 enum eServerMonitorNotice
@@ -3206,15 +3206,15 @@ struct TGuildWarEventInfo
 	__time64_t tBeginTime;
 	__time64_t tEndTime;
 };
-// ±æµåÀü º¸»ó ¸ŞÀÏ°ü·Ã
+// ê¸¸ë“œì „ ë³´ìƒ ë©”ì¼ê´€ë ¨
 struct TGuildWarRewardData
 {
-	char cType;			// º¸»ó Å¸ÀÔ..eGuildWarRewardType
-	char cClass;		// Å¬·¡½º(¿ö¸®¾î,¾ÆÃ³, ¼Ò¼­¸®½º, Å¬·¡¸¯)
-	int nMailID;		// ¿ìÆí ¾ÆÀÌµğ
-	int nPresentID;		// ¼±¹°ÇÔ ¾ÆÀÌµğ
-	int nGuildFestivalPoint;	// º»¼±¿¡¼­ Áö±ŞÇÒ ±æµåÃàÁ¦Æ÷ÀÎÆ®
-	int nGuildPoint;			// º»¼±¿¡¼­ Áö±ŞÇÒ ±æµåÆ÷ÀÎÆ®
+	char cType;			// ë³´ìƒ íƒ€ì…..eGuildWarRewardType
+	char cClass;		// í´ë˜ìŠ¤(ì›Œë¦¬ì–´,ì•„ì²˜, ì†Œì„œë¦¬ìŠ¤, í´ë˜ë¦­)
+	int nMailID;		// ìš°í¸ ì•„ì´ë””
+	int nPresentID;		// ì„ ë¬¼í•¨ ì•„ì´ë””
+	int nGuildFestivalPoint;	// ë³¸ì„ ì—ì„œ ì§€ê¸‰í•  ê¸¸ë“œì¶•ì œí¬ì¸íŠ¸
+	int nGuildPoint;			// ë³¸ì„ ì—ì„œ ì§€ê¸‰í•  ê¸¸ë“œí¬ì¸íŠ¸
 };
 
 
@@ -3307,8 +3307,8 @@ struct TOccupationModeInfo
 {
 	int nVictoryCondition[PvPCommon::Common::MaximumVitoryCondition];		//PvPCommon::BattleGroundVictoryState
 	int nVictoryParam[PvPCommon::Common::MaximumVitoryCondition];		//PvPCommon::BattleGroundVictoryState
-	int nBossID[PvPCommon::TeamIndex::Max];									//»ı¼ºº¸½º¾ÆÀÌµğ
-	int nBossSpawnAreaID[PvPCommon::TeamIndex::Max];						//º¸½º»ı¼º½Ã ½ºÆùÀ§Ä¡
+	int nBossID[PvPCommon::TeamIndex::Max];									//ìƒì„±ë³´ìŠ¤ì•„ì´ë””
+	int nBossSpawnAreaID[PvPCommon::TeamIndex::Max];						//ë³´ìŠ¤ìƒì„±ì‹œ ìŠ¤í°ìœ„ì¹˜
 };
 
 struct TBattleGourndModeInfo
@@ -3336,12 +3336,12 @@ struct TPositionAreaInfo
 	int nMapID;
 	int nPvPModeID;
 	int nAreaID;
-	int nGainResourceTermTick;			//Á¡·É½Ã È¹µæÅÒ
-	int nGainResource;					//È¹Æ¯ÅÒ½Ã È¹µæ·®
-	int nRequireTryTick;				//È¹µæ½Ãµµ½Ã Å¬¸¯»óÅÂÁö¼Ó À¯ÁöÇÊ¿ä½Ã°£
-	int nCompleteOccupationTick;		//Å¬¸¯¿Ï·áÈÄ Á¡·É±Ç ³Ñ¾î°¡±â ÀüÀÇ ´ë±â½Ã°£
+	int nGainResourceTermTick;			//ì ë ¹ì‹œ íšë“í…€
+	int nGainResource;					//íšíŠ¹í…€ì‹œ íšë“ëŸ‰
+	int nRequireTryTick;				//íšë“ì‹œë„ì‹œ í´ë¦­ìƒíƒœì§€ì† ìœ ì§€í•„ìš”ì‹œê°„
+	int nCompleteOccupationTick;		//í´ë¦­ì™„ë£Œí›„ ì ë ¹ê¶Œ ë„˜ì–´ê°€ê¸° ì „ì˜ ëŒ€ê¸°ì‹œê°„
 	int nBonusBuffID;
-	//Å¬¶óÀÌ¸·½º~
+	//í´ë¼ì´ë§‰ìŠ¤~
 	int nClimaxGainTermTick;
 	int nClimaxGainVal;
 	int nClimaxTryTick;
@@ -3352,8 +3352,8 @@ struct TBattleGroundEffectValue
 {
 	int nSkillID;
 	int nSkillLevel;
-	int nNeedSkillPoint;			//È¹µæ½ÃÇÊ¿äÆ÷ÀÎÆ®
-	int nUseResPoint;			//½ºÅ³»ç¿ë½Ã ¼Ò¸ğ Á¡·ÉÀü Æ÷ÀÎÆ®
+	int nNeedSkillPoint;			//íšë“ì‹œí•„ìš”í¬ì¸íŠ¸
+	int nUseResPoint;			//ìŠ¤í‚¬ì‚¬ìš©ì‹œ ì†Œëª¨ ì ë ¹ì „ í¬ì¸íŠ¸
 	std::string strEffectValue[PvPCommon::Common::MaximumEffectCount];
 	int nEffectValueDuration[PvPCommon::Common::MaximumEffectCount];
 	//int nMonsterID;
@@ -3365,8 +3365,8 @@ struct TBattleGroundEffectValue
 	{
 		nSkillID = 0;
 		nSkillLevel = 0;
-		nNeedSkillPoint = 0;			//È¹µæ½ÃÇÊ¿äÆ÷ÀÎÆ®
-		nUseResPoint = 0;			//½ºÅ³»ç¿ë½Ã ¼Ò¸ğ Á¡·ÉÀü Æ÷ÀÎÆ®		
+		nNeedSkillPoint = 0;			//íšë“ì‹œí•„ìš”í¬ì¸íŠ¸
+		nUseResPoint = 0;			//ìŠ¤í‚¬ì‚¬ìš©ì‹œ ì†Œëª¨ ì ë ¹ì „ í¬ì¸íŠ¸		
 		for (int i = 0; i < PvPCommon::Common::MaximumEffectCount; i++)
 		{
 			strEffectValue[i].clear();;
@@ -3384,13 +3384,13 @@ struct TBattleGroundSkillInfo
 {
 	int nSkillID;
 	int nSkillMaxLevel;
-	int nSkillType;				//CDnSkill::SkillTypeEnum		//Á¡·ÉÀü ½ºÅ³Àº ½ºÅ³Å¸ÀÔ¿¡ ±×´Ú ¿µÇâÀ» ¹ŞÁö ¾ÊÁö¸¸ Ãß°¡È®Àå½Ã ÇÊ¿äÇÒ±î ÇØ¼­ ÀĞ¾îµÒ
+	int nSkillType;				//CDnSkill::SkillTypeEnum		//ì ë ¹ì „ ìŠ¤í‚¬ì€ ìŠ¤í‚¬íƒ€ì…ì— ê·¸ë‹¥ ì˜í–¥ì„ ë°›ì§€ ì•Šì§€ë§Œ ì¶”ê°€í™•ì¥ì‹œ í•„ìš”í• ê¹Œ í•´ì„œ ì½ì–´ë‘ 
 	int nSkillDurationType;		//CDnSkill::DurationTypeEnum
 	int nSkillTargetType;		//CDnSkill::TargetTypeEnum
 	int nEffectType[PvPCommon::Common::MaximumEffectCount];
 	int nEffectApplyType[PvPCommon::Common::MaximumEffectCount];
-	int nProcess;				//ÇÁ·Î¼¼½ºÅ¸ÀÔÀº ÇÏ³ª¸¸ »ç¿ë
-	int nCanDuplicate;			//ÁßÃ¸°¡´É?
+	int nProcess;				//í”„ë¡œì„¸ìŠ¤íƒ€ì…ì€ í•˜ë‚˜ë§Œ ì‚¬ìš©
+	int nCanDuplicate;			//ì¤‘ì²©ê°€ëŠ¥?
 };
 
 struct TBattleGroundSkill
@@ -3416,7 +3416,7 @@ struct TGuildMarkData
 
 struct TPlayerCommonLevelTableInfo
 {
-	int iFatigue10000Ratio;	// 10000¹èÀ²
+	int iFatigue10000Ratio;	// 10000ë°°ìœ¨
 	float fMasterGainExp;
 	//int nMasterGainItemID;
 	//int nMasterGainItemCount;
@@ -3425,7 +3425,7 @@ struct TPlayerCommonLevelTableInfo
 	float fCritical;
 	float fFinalDamage;
 #if defined(PRE_ADD_TALISMAN_SYSTEM)
-	int iTalismanCost;	// Å»¸®½º¸¸ ÀåÂø ÇØÁ¦, À§Ä¡±³È¯ ºñ¿ë
+	int iTalismanCost;	// íƒˆë¦¬ìŠ¤ë§Œ ì¥ì°© í•´ì œ, ìœ„ì¹˜êµí™˜ ë¹„ìš©
 #endif
 };
 
@@ -3433,7 +3433,7 @@ struct TMasterSysFeelTableInfo
 {
 	int nMinFeel;
 	int nMaxFeel;
-	int nAddExp; //(%°ªÀÓ)
+	int nAddExp; //(%ê°’ì„)
 };
 
 struct TGlobalEventData
@@ -3464,33 +3464,33 @@ struct TEveryDayEventData
 
 enum eDBJobSystem  //g_szDBJobSystem
 {
-	DBJOB_GUILDWAR_INIT = 0,		// ±æµåÀü ÃÊ±âÈ­
-	DBJOB_GUILDWAR_STATS,		// ±æµåÀü Åë°è
+	DBJOB_GUILDWAR_INIT = 0,		// ê¸¸ë“œì „ ì´ˆê¸°í™”
+	DBJOB_GUILDWAR_STATS,		// ê¸¸ë“œì „ í†µê³„
 	DBJOB_SYSTEM_MAX,
 };
 
 enum eDBJobSystemStatus
 {
-	JOB_STATUS_RESERVE,		// ¿¹¾à
-	JOB_STATUS_COMPLETED,	// ¿Ï·á
-	JOB_STATUS_DOING,		// ½ÇÇàÁß
-	JOB_STATUS_FAIL,		// ½ÇÆĞ
+	JOB_STATUS_RESERVE,		// ì˜ˆì•½
+	JOB_STATUS_COMPLETED,	// ì™„ë£Œ
+	JOB_STATUS_DOING,		// ì‹¤í–‰ì¤‘
+	JOB_STATUS_FAIL,		// ì‹¤íŒ¨
 };
 
 struct TGuildRewardItemData
 {
-	int		nItemID;			// ±æµåº¸»óÅ×ÀÌºí¿¡ ÀÖ´Â ¾ÆÀÌµğ
-	short	nNeedGuildLevel;	// ±¸ÀÔÇÏ±âÀ§ÇÑ ±æµå·¹º§
-	int		nNeedGold;			// ±¸ÀÔÇÏ±âÀ§ÇÑ °ñµå
-	int		nItemType;			// ±æµåº¸»ó¾ÆÀÌÅÛ Å¸ÀÔ
+	int		nItemID;			// ê¸¸ë“œë³´ìƒí…Œì´ë¸”ì— ìˆëŠ” ì•„ì´ë””
+	short	nNeedGuildLevel;	// êµ¬ì…í•˜ê¸°ìœ„í•œ ê¸¸ë“œë ˆë²¨
+	int		nNeedGold;			// êµ¬ì…í•˜ê¸°ìœ„í•œ ê³¨ë“œ
+	int		nItemType;			// ê¸¸ë“œë³´ìƒì•„ì´í…œ íƒ€ì…
 	int		nTypeParam1;
 	int		nTypeParam2;
-	bool	bCheckInven;		// ÀÌ¹Ì ±¸ÀÔÇÑ°ÇÁö Ã¼Å©
-	bool	bEternity;			// 0:±â°£Á¦ 1:¿µ±¸
-	int		nPeriod;			// ±â°£
-	bool	bCheckMaster;		// ¸¶½ºÅÍÃ¼Å© ¿©ºÎ
-	int		nCheckType;			// ÇÊ¿ä Á¶°Ç Ã¼Å©(0:NONE 1:ITEMID 2:±æµå¸¶Å©
-	int		nCheckID;			// ÇÊ¿äÇÑ ÀÌÀü ¾ÆÀÌÅÛ¾ÆÀÌµğ
+	bool	bCheckInven;		// ì´ë¯¸ êµ¬ì…í•œê±´ì§€ ì²´í¬
+	bool	bEternity;			// 0:ê¸°ê°„ì œ 1:ì˜êµ¬
+	int		nPeriod;			// ê¸°ê°„
+	bool	bCheckMaster;		// ë§ˆìŠ¤í„°ì²´í¬ ì—¬ë¶€
+	int		nCheckType;			// í•„ìš” ì¡°ê±´ ì²´í¬(0:NONE 1:ITEMID 2:ê¸¸ë“œë§ˆí¬
+	int		nCheckID;			// í•„ìš”í•œ ì´ì „ ì•„ì´í…œì•„ì´ë””
 };
 struct TExpData 
 {
@@ -3525,8 +3525,8 @@ struct TExpData
 #if defined(PRE_ADD_SALE_COUPON)
 struct TSaleCouponData
 {
-	int nItemID;							// ÄíÆù ID
-	int nUseItemSN[MAX_SALE_USEITEM];		// ÄíÆùÀÌ Àû¿ëµÉ ¾ÆÀÌÅÛ SN
+	int nItemID;							// ì¿ í° ID
+	int nUseItemSN[MAX_SALE_USEITEM];		// ì¿ í°ì´ ì ìš©ë  ì•„ì´í…œ SN
 };
 #endif
 
@@ -3582,9 +3582,9 @@ namespace Party
 #if defined( PRE_ADD_NAMEDITEM_SYSTEM )
 struct TNamedItemData
 {
-	int nItemID;		// ³×ÀÓµå¾ÆÀÌÅÛ¾ÆÀÌµğ
-	int nMaxCount;		// ÃÖ´ë °¹¼ö
-	int nSwapItemID;	// ´ëÃ¼ÇÒ ¾ÆÀÌÅÛ¾ÆÀÌµğ
+	int nItemID;		// ë„¤ì„ë“œì•„ì´í…œì•„ì´ë””
+	int nMaxCount;		// ìµœëŒ€ ê°¯ìˆ˜
+	int nSwapItemID;	// ëŒ€ì²´í•  ì•„ì´í…œì•„ì´ë””
 };
 namespace EffectSkillNameSpace
 {
@@ -3645,14 +3645,14 @@ struct TCashBuyShortcutData
 #if defined(PRE_ADD_EXCHANGE_ENCHANT)
 struct TExchangeEnchantData
 {
-	BYTE cRank;	// ¾ÆÀÌÅÛ µî±Ş
-	BYTE cLevelLimit;	// Á¦ÇÑ ·¹º§
-	BYTE cEnchantLevel;	// °­È­ ·¹º§
-	int nNeedCoin;	// ¼ö¼ö·á
-	int nNeedItemID1;	// ÇÊ¿ä¾ÆÀÌÅÛ1
-	short wNeedItemCount1;	// ÇÊ¿ä¾ÆÀÌÅÛ Ä«¿îÆ®1
-	int nNeedItemID2;	// ÇÊ¿ä¾ÆÀÌÅÛ2
-	short wNeedItemCount2;	// ÇÊ¿ä¾ÆÀÌÅÛ Ä«¿îÆ®2
+	BYTE cRank;	// ì•„ì´í…œ ë“±ê¸‰
+	BYTE cLevelLimit;	// ì œí•œ ë ˆë²¨
+	BYTE cEnchantLevel;	// ê°•í™” ë ˆë²¨
+	int nNeedCoin;	// ìˆ˜ìˆ˜ë£Œ
+	int nNeedItemID1;	// í•„ìš”ì•„ì´í…œ1
+	short wNeedItemCount1;	// í•„ìš”ì•„ì´í…œ ì¹´ìš´íŠ¸1
+	int nNeedItemID2;	// í•„ìš”ì•„ì´í…œ2
+	short wNeedItemCount2;	// í•„ìš”ì•„ì´í…œ ì¹´ìš´íŠ¸2
 };
 #endif //#if defined(PRE_ADD_EXCHANGE_ENCHANT)
 
@@ -3666,20 +3666,20 @@ namespace WorldCombineParty
 
 	struct WrldCombinePartyData
 	{
-		BYTE cIndex;				// ÀÎµ¦½º
-		BYTE cGroupIndex;			// ±×·ìÀÎµ¦½º
+		BYTE cIndex;				// ì¸ë±ìŠ¤
+		BYTE cGroupIndex;			// ê·¸ë£¹ì¸ë±ìŠ¤
 		WCHAR wszPartyName[PARTYNAMELENMAX];
-		int nWorldMap;			// ¿ùµåÁ¸
-		int nTargetMap;			// Å¸°Ù¸Ê(±âÁØ°ª)
-		ePartyType PartyType;	// ÆÄÆ¼Å¸ÀÔ
+		int nWorldMap;			// ì›”ë“œì¡´
+		int nTargetMap;			// íƒ€ê²Ÿë§µ(ê¸°ì¤€ê°’)
+		ePartyType PartyType;	// íŒŒí‹°íƒ€ì…
 		BYTE cPartyMemberMax;
-		int nItemID;			// ÀÔÀå±Ç¾ÆÀÌÅÛ
+		int nItemID;			// ì…ì¥ê¶Œì•„ì´í…œ
 		TDUNGEONDIFFICULTY Difficulty;
-		TPARTYITEMLOOTRULE ItemLootRule;			//ePartyItemLootRule ÂüÁ¶
-		TITEMRANK ItemRank;				//¾ÆÀÌÅÛ·©Å©(·çÆ®·ê±âÈ¹ÂüÁ¶)
-		BYTE cUserLvLimitMin;		//¹Î¸Æ½º°ªÀÌ ÀÖ´Ü´Ù.
+		TPARTYITEMLOOTRULE ItemLootRule;			//ePartyItemLootRule ì°¸ì¡°
+		TITEMRANK ItemRank;				//ì•„ì´í…œë­í¬(ë£¨íŠ¸ë£°ê¸°íšì°¸ì¡°)
+		BYTE cUserLvLimitMin;		//ë¯¼ë§¥ìŠ¤ê°’ì´ ìˆë‹¨ë‹¤.
 		int iBitFlag;
-		int nSkillID[MAXSKILLCOUNT];				// ½ºÅ³¾ÆÀÌµğ		
+		int nSkillID[MAXSKILLCOUNT];				// ìŠ¤í‚¬ì•„ì´ë””		
 	};		
 }
 #endif
@@ -3734,7 +3734,7 @@ namespace WeeklyEvent
 		BYTE cRaceType;		// eRaceType
 		BYTE cClassType;	// eClass
 		int nEventType;
-		int nValue;			// %°ª
+		int nValue;			// %ê°’
 	};
 
 	struct TWeeklyEvent
@@ -3762,16 +3762,16 @@ namespace WeeklyEvent
 
 	enum eEventType
 	{
-		Event_1 = 1,			// 1. hp»ó½Â ¹× ÇÏ¶ô
-		Event_2 = 2,			// 2. °ø°İ·Â °­È­ ¹× ¾àÈ­
-		Event_3 = 3,			// 3. ¹æ¾î·Â °­È­ ¹× ¾àÈ­
-		Event_4 = 4,			// 4. °­È­ È®·ü Áõ°¡
-		Event_5 = 5,			// 5. °æÇèÄ¡ Áõ°¡
-		Event_6 = 6,			// 6. ÆÄÆ¼À¯Áö °æÇèÄ¡ Áõ°¡
-		Event_7 = 7,			// 7. Ä£±¸ °æÇèÄ¡ Áõ°¡ (ÀıÄ£¾Æ´Ô, ¼­·ÎÄ£±¸)
-		Event_8 = 8,			// 8. È£°¨µµ Áõ°¡
-		Event_9 = 9,			// 9. ¿¬ÇÕ Æ÷ÀÎÆ®È¹µæ·® Áõ°¡
-		Event_10 = 10,			// 10. ¾ÆÀÌÅÛ µå¶ø·ü Áõ°¡
+		Event_1 = 1,			// 1. hpìƒìŠ¹ ë° í•˜ë½
+		Event_2 = 2,			// 2. ê³µê²©ë ¥ ê°•í™” ë° ì•½í™”
+		Event_3 = 3,			// 3. ë°©ì–´ë ¥ ê°•í™” ë° ì•½í™”
+		Event_4 = 4,			// 4. ê°•í™” í™•ë¥  ì¦ê°€
+		Event_5 = 5,			// 5. ê²½í—˜ì¹˜ ì¦ê°€
+		Event_6 = 6,			// 6. íŒŒí‹°ìœ ì§€ ê²½í—˜ì¹˜ ì¦ê°€
+		Event_7 = 7,			// 7. ì¹œêµ¬ ê²½í—˜ì¹˜ ì¦ê°€ (ì ˆì¹œì•„ë‹˜, ì„œë¡œì¹œêµ¬)
+		Event_8 = 8,			// 8. í˜¸ê°ë„ ì¦ê°€
+		Event_9 = 9,			// 9. ì—°í•© í¬ì¸íŠ¸íšë“ëŸ‰ ì¦ê°€
+		Event_10 = 10,			// 10. ì•„ì´í…œ ë“œëë¥  ì¦ê°€
 	};
 }
 #endif	// #if defined(PRE_ADD_WEEKLYEVENT)
@@ -3791,7 +3791,7 @@ namespace TotalLevelSkill
 		int nSkillID;
 		int nBlowID;
 		float fBlowValue;
-		int nBlowValue;		// ³óÀå ¾ÆÀÌÅÛ ¾ÆÀÌµğ‹š¹®¿¡ »ç¿ë
+		int nBlowValue;		// ë†ì¥ ì•„ì´í…œ ì•„ì´ë””Â‹Âšë¬¸ì— ì‚¬ìš©
 	};
 	struct TTotalSkillSlotTable
 	{
@@ -3823,10 +3823,10 @@ struct TKeepBoxProvideItemData
 struct TGuildSupportData
 {
 	int nID;
-	int nJoinMinLevel;			//ÃÖÃÊ±æµå°¡ÀÔ½Ã ÃÖ¼Ò·¹º§
-	int nJoinMaxLevel;			//ÃÖÃÊ±æµå°¡ÀÔ½Ã ÃÖ´ë·¹º§
-	int nFirstJoinMailID;		//ÃÖÃÊ°¡ÀÔ½Ã º¸»ó¸ŞÀÏ¾ÆÀÌµğ
-	int nMaxLevelGuildSupportMailID;	//ÃÖÃÊ°¡ÀÔÇÑ ±æµå¿¡¼­ ¸¸·¦½Ã º¸»ó¾ÆÀÌµğ
+	int nJoinMinLevel;			//ìµœì´ˆê¸¸ë“œê°€ì…ì‹œ ìµœì†Œë ˆë²¨
+	int nJoinMaxLevel;			//ìµœì´ˆê¸¸ë“œê°€ì…ì‹œ ìµœëŒ€ë ˆë²¨
+	int nFirstJoinMailID;		//ìµœì´ˆê°€ì…ì‹œ ë³´ìƒë©”ì¼ì•„ì´ë””
+	int nMaxLevelGuildSupportMailID;	//ìµœì´ˆê°€ì…í•œ ê¸¸ë“œì—ì„œ ë§Œë©ì‹œ ë³´ìƒì•„ì´ë””
 };
 #endif		//#ifdef PRE_ADD_JOINGUILD_SUPPORT
 
@@ -3898,10 +3898,10 @@ typedef std::vector<TWorldPvPMissionRoom> TVecWorldPvPMissionRoom;
 struct TBonusDropTable
 {
 	int nIndex;
-	int nMapID; //¸ÊID
+	int nMapID; //ë§µID
 	int nDropType;
-	int nNeedItemID[3]; //ÇÊ¿äÇÑ ¿­¼è ¾ÆÀÌÅÛ ID
-	int nDropItemGroupID[3]; //µå¶øµÉ µå¶ø¾ÆÀÌÅÛ±×·ìID
+	int nNeedItemID[3]; //í•„ìš”í•œ ì—´ì‡  ì•„ì´í…œ ID
+	int nDropItemGroupID[3]; //ë“œëë  ë“œëì•„ì´í…œê·¸ë£¹ID
 };
 #endif	// #if defined(PRE_ADD_STAGE_CLEAR_ADD_REWARD)
 
@@ -3933,10 +3933,10 @@ namespace ActozCommon
 struct TItemDropEnchantData
 {
 	int nIndex; //IDX
-	int nDropID; // ItemDropTableÀÇ ID¿Í ¸ÅÄªµÇ´Â °ª
-	int nEnchantCount; //ÀÎÃ¦Æ®°¡ ¸î°³ÀÎÁö Ä«¿îÆ®
-	int nEnchantOption[20]; //ÀÎÃ¦Æ® Á¤º¸
-	int nEnchantProb[20]; //ÀÎÃ¦Æ®°¡ ¼±ÅÃµÉ È®·ü
+	int nDropID; // ItemDropTableì˜ IDì™€ ë§¤ì¹­ë˜ëŠ” ê°’
+	int nEnchantCount; //ì¸ì±ˆíŠ¸ê°€ ëª‡ê°œì¸ì§€ ì¹´ìš´íŠ¸
+	int nEnchantOption[20]; //ì¸ì±ˆíŠ¸ ì •ë³´
+	int nEnchantProb[20]; //ì¸ì±ˆíŠ¸ê°€ ì„ íƒë  í™•ë¥ 
 };
 #endif	// #if defined(PRE_ADD_STAGE_CLEAR_ENCHANT_REWARD)
 
@@ -3970,15 +3970,15 @@ namespace StampSystem
 		};
 	};
 
-	struct TStampChallenge // ½ºÅÆÇÁ µµÀü°úÁ¦
+	struct TStampChallenge // ìŠ¤íƒ¬í”„ ë„ì „ê³¼ì œ
 	{
 		BYTE cType;
-		std::set<int> setAssignmentID; // µµÀü°úÁ¦ ¸ñ·Ï
-		int nMailID4; // 3ÀÏ º¸»ó
-		int nMailID7; // 5ÀÏ º¸»ó
+		std::set<int> setAssignmentID; // ë„ì „ê³¼ì œ ëª©ë¡
+		int nMailID4; // 3ì¼ ë³´ìƒ
+		int nMailID7; // 5ì¼ ë³´ìƒ
 	};
 
-	struct TStampTableData // ½ºÅÆÇÁ Å×ÀÌºí
+	struct TStampTableData // ìŠ¤íƒ¬í”„ í…Œì´ë¸”
 	{
 		INT64 biStartTime;
 		std::vector<TStampChallenge> vChallengeList;
@@ -3989,14 +3989,14 @@ namespace StampSystem
 #if defined(PRE_MOD_POTENTIAL_JEWEL_RENEWAL)
 struct TPrevPotentialData
 {
-	int nItemID; //¾ÆÀÌÅÛ ID
-	INT64 nSerial; //½Ã¸®¾ó
-	char cPotential; //ÀÌÀü ÀáÀç·Âµ¥ÀÌÅÍ
-	char cOption; //ÀÌÀü ÀáÀç·Âµ¥ÀÌÅÍ
-	char cNowPotential; //»õ·Î ºÎ¿©µÈ ÀáÀç·Â
-	char cPotentialMoveCount; //(ÀÌÀü)ÀáÀç ÀÌÀü Ä«¿îÆ®
-	INT64 nPotentialItemSerial; //ÀáÀç·Â ºÎ¿©¿¡ »ç¿ëÇÑ ÄÚµå ½Ã¸®¾ó
-	int nPotentialItemID; //ÀáÀç·Â ºÎ¿©¿¡ »ç¿ëÇÑ ¾ÆÀÌÅÛ ID
+	int nItemID; //ì•„ì´í…œ ID
+	INT64 nSerial; //ì‹œë¦¬ì–¼
+	char cPotential; //ì´ì „ ì ì¬ë ¥ë°ì´í„°
+	char cOption; //ì´ì „ ì ì¬ë ¥ë°ì´í„°
+	char cNowPotential; //ìƒˆë¡œ ë¶€ì—¬ëœ ì ì¬ë ¥
+	char cPotentialMoveCount; //(ì´ì „)ì ì¬ ì´ì „ ì¹´ìš´íŠ¸
+	INT64 nPotentialItemSerial; //ì ì¬ë ¥ ë¶€ì—¬ì— ì‚¬ìš©í•œ ì½”ë“œ ì‹œë¦¬ì–¼
+	int nPotentialItemID; //ì ì¬ë ¥ ë¶€ì—¬ì— ì‚¬ìš©í•œ ì•„ì´í…œ ID
 };
 #endif	// #if defined(PRE_MOD_POTENTIAL_JEWEL_RENEWAL)
 
@@ -4082,22 +4082,22 @@ struct CheckSumReason
 #if defined(PRE_ADD_STAGECLEAR_TIMECHECK)
 namespace StageClearCheckTime
 {
-	enum eCheckMinTime	// ÃÖ¼Ò Å¬¸®¾î Å¸ÀÓ
+	enum eCheckMinTime	// ìµœì†Œ í´ë¦¬ì–´ íƒ€ì„
 	{
-		CheckMinTime = 60 * 1000, // 1ºĞ
+		CheckMinTime = 60 * 1000, // 1ë¶„
 	};
-	enum eAbuseCount // Áõ°¡ÇÒ AbuseCount°ª
+	enum eAbuseCount // ì¦ê°€í•  AbuseCountê°’
 	{
 		AbuseCount = 10,
 	};
-	// CheckTimeÀ» »ç¿ëÇÏÁö ¾ÊÀ» ¸Ê(º¸½º¸ÊID¸¦ ±âÁØÀ¸·Î ÆÇº°ÇÑ´Ù
+	// CheckTimeì„ ì‚¬ìš©í•˜ì§€ ì•Šì„ ë§µ(ë³´ìŠ¤ë§µIDë¥¼ ê¸°ì¤€ìœ¼ë¡œ íŒë³„í•œë‹¤
 	struct IgnoreMapIndex
 	{
 		enum eIgnoreMapIndex
 		{
-			MAP_CHAOSE_FIELD_BossA = 15157,	//È¥µ·ÀÇ Æ´ ÆÄ¸£¸¶
-			MAP_CHAOSE_FIELD_32Lv_BossA = 15167,	//È¥µ·ÀÇ Æ´ ¹ÙÀÌ¶ó
-			MAP_CHAOSE_FIELD_24Lv_BossA = 15174,	// È¥µ·ÀÇ Æ´ Ä«¸»¶ó
+			MAP_CHAOSE_FIELD_BossA = 15157,	//í˜¼ëˆì˜ í‹ˆ íŒŒë¥´ë§ˆ
+			MAP_CHAOSE_FIELD_32Lv_BossA = 15167,	//í˜¼ëˆì˜ í‹ˆ ë°”ì´ë¼
+			MAP_CHAOSE_FIELD_24Lv_BossA = 15174,	// í˜¼ëˆì˜ í‹ˆ ì¹´ë§ë¼
 		};
 	};
 };
