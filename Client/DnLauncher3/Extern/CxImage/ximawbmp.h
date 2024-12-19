@@ -19,10 +19,10 @@ class CxImageWBMP: public CxImage
 #pragma pack(1)
 typedef struct tagWbmpHeader
 {
-    uint32_t  Type;            // 0
-    uint8_t   FixHeader;       // 0
-    uint32_t  ImageWidth;      // Image Width
-    uint32_t  ImageHeight;     // Image Height
+    DWORD  Type;            // 0
+    BYTE   FixHeader;       // 0
+    DWORD  ImageWidth;      // Image Width
+    DWORD  ImageHeight;     // Image Height
 } WBMPHEADER;
 #pragma pack()
 public:
@@ -33,14 +33,14 @@ public:
 	bool Decode(CxFile * hFile);
 	bool Decode(FILE *hFile) { CxIOFile file(hFile); return Decode(&file); }
 protected:
-	bool ReadOctet(CxFile * hFile, uint32_t *data);
+	bool ReadOctet(CxFile * hFile, DWORD *data);
 
 public:
 #if CXIMAGE_SUPPORT_ENCODE
 	bool Encode(CxFile * hFile);
 	bool Encode(FILE *hFile) { CxIOFile file(hFile); return Encode(&file); }
 protected:
-	bool WriteOctet(CxFile * hFile, const uint32_t data);
+	bool WriteOctet(CxFile * hFile, const DWORD data);
 #endif // CXIMAGE_SUPPORT_ENCODE
 };
 

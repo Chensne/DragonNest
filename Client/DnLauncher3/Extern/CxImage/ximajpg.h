@@ -26,16 +26,11 @@
 
 #if CXIMAGE_SUPPORT_JPG
 
-#define CXIMAGEJPG_SUPPORT_EXIF CXIMAGE_SUPPORT_EXIF
+#define CXIMAGEJPG_SUPPORT_EXIF 1
 
 extern "C" {
-#ifdef _LINUX
- #include <jpeglib.h>
- #include <jerror.h>
-#else
  #include "../jpeg/jpeglib.h"
  #include "../jpeg/jerror.h"
-#endif
 }
 
 class DLL_EXP CxImageJPG: public CxImage
@@ -59,6 +54,45 @@ public:
  */
 
 #if CXIMAGEJPG_SUPPORT_EXIF
+
+#define MAX_COMMENT 1000
+#define MAX_SECTIONS 20
+
+typedef struct tag_ExifInfo {
+	char  Version      [5];
+    char  CameraMake   [32];
+    char  CameraModel  [40];
+    char  DateTime     [20];
+    int   Height, Width;
+    int   Orientation;
+    int   IsColor;
+    int   Process;
+    int   FlashUsed;
+    float FocalLength;
+    float ExposureTime;
+    float ApertureFNumber;
+    float Distance;
+    float CCDWidth;
+    float ExposureBias;
+    int   Whitebalance;
+    int   MeteringMode;
+    int   ExposureProgram;
+    int   ISOequivalent;
+    int   CompressionLevel;
+	float FocalplaneXRes;
+	float FocalplaneYRes;
+	float FocalplaneUnits;
+	float Xresolution;
+	float Yresolution;
+	float ResolutionUnit;
+	float Brightness;
+    char  Comments[MAX_COMMENT];
+
+    unsigned char * ThumbnailPointer;  /* Pointer at the thumbnail */
+    unsigned ThumbnailSize;     /* Size of thumbnail. */
+
+	bool  IsExif;
+} EXIFINFO;
 
 //--------------------------------------------------------------------------
 // JPEG markers consist of one or more 0xFF bytes, followed by a marker
@@ -96,8 +130,8 @@ class DLL_EXP CxExifInfo
 {
 
 typedef struct tag_Section_t{
-    uint8_t*    Data;
-    int32_t      Type;
+    BYTE*    Data;
+    int      Type;
     unsigned Size;
 } Section_t;
 
@@ -106,32 +140,32 @@ public:
 	char m_szLastError[256];
 	CxExifInfo(EXIFINFO* info = NULL);
 	~CxExifInfo();
-	bool DecodeExif(CxFile * hFile, int32_t nReadMode = EXIF_READ_EXIF);
+	bool DecodeExif(CxFile * hFile, int nReadMode = EXIF_READ_EXIF);
 	bool EncodeExif(CxFile * hFile);
 	void DiscardAllButExif();
 protected:
-	bool process_EXIF(uint8_t * CharBuf, uint32_t length);
-	void process_COM (const uint8_t * Data, int32_t length);
-	void process_SOFn (const uint8_t * Data, int32_t marker);
-	int32_t Get16u(void * Short);
-	int32_t Get16m(void * Short);
-	int32_t Get32s(void * Long);
-	uint32_t Get32u(void * Long);
-	double ConvertAnyFormat(void * ValuePtr, int32_t Format);
-	void* FindSection(int32_t SectionType);
-	bool ProcessExifDir(uint8_t * DirStart, uint8_t * OffsetBase, unsigned ExifLength,
-                           EXIFINFO * const pInfo, uint8_t ** const LastExifRefdP, int32_t NestingLevel=0);
-	int32_t ExifImageWidth;
-	int32_t MotorolaOrder;
+	bool process_EXIF(unsigned char * CharBuf, unsigned int length);
+	void process_COM (const BYTE * Data, int length);
+	void process_SOFn (const BYTE * Data, int marker);
+	int Get16u(void * Short);
+	int Get16m(void * Short);
+	long Get32s(void * Long);
+	unsigned long Get32u(void * Long);
+	double ConvertAnyFormat(void * ValuePtr, int Format);
+	void* FindSection(int SectionType);
+	bool ProcessExifDir(unsigned char * DirStart, unsigned char * OffsetBase, unsigned ExifLength,
+                           EXIFINFO * const pInfo, unsigned char ** const LastExifRefdP, int NestingLevel=0);
+	int ExifImageWidth;
+	int MotorolaOrder;
 	Section_t Sections[MAX_SECTIONS];
-	int32_t SectionsRead;
+	int SectionsRead;
 	bool freeinfo;
 };
 
 	CxExifInfo* m_exif;
+	EXIFINFO m_exifinfo;
 	bool DecodeExif(CxFile * hFile);
 	bool DecodeExif(FILE * hFile) { CxIOFile file(hFile); return DecodeExif(&file); }
-    bool GetExifThumbnail(const TCHAR *filename, const TCHAR *outname, int32_t type);
 
 #endif //CXIMAGEJPG_SUPPORT_EXIF
 
@@ -161,7 +195,7 @@ public:
 		next_input_byte = NULL; //* => next byte to read from buffer 
 		bytes_in_buffer = 0;	//* # of bytes remaining in buffer 
 
-		m_pBuffer = new uint8_t[eBufSize];
+		m_pBuffer = new unsigned char[eBufSize];
 	}
 	~CxFileJpg()
 	{
@@ -175,7 +209,7 @@ public:
 		pDest->free_in_buffer = eBufSize;
 	}
 
-	static wxjpeg_boolean EmptyOutputBuffer(j_compress_ptr cinfo)
+	static boolean EmptyOutputBuffer(j_compress_ptr cinfo)
 	{
 		CxFileJpg* pDest = (CxFileJpg*)cinfo->dest;
 		if (pDest->m_pFile->Write(pDest->m_pBuffer,1,eBufSize)!=(size_t)eBufSize)
@@ -206,7 +240,7 @@ public:
 		pSource->m_bStartOfFile = TRUE;
 	}
 
-	static wxjpeg_boolean FillInputBuffer(j_decompress_ptr cinfo)
+	static boolean FillInputBuffer(j_decompress_ptr cinfo)
 	{
 		size_t nbytes;
 		CxFileJpg* pSource = (CxFileJpg*)cinfo->src;
@@ -230,8 +264,8 @@ public:
 	{
 		CxFileJpg* pSource = (CxFileJpg*)cinfo->src;
 		if (num_bytes > 0){
-			while (num_bytes > (int32_t)pSource->bytes_in_buffer){
-				num_bytes -= (int32_t)pSource->bytes_in_buffer;
+			while (num_bytes > (long)pSource->bytes_in_buffer){
+				num_bytes -= (long)pSource->bytes_in_buffer;
 				FillInputBuffer(cinfo);
 				// note we assume that fill_input_buffer will never return FALSE,
 				// so suspension need not be handled.
@@ -247,7 +281,7 @@ public:
 	}
 protected:
     CxFile  *m_pFile;
-	uint8_t *m_pBuffer;
+	unsigned char *m_pBuffer;
 	bool m_bStartOfFile;
 };
 
@@ -270,10 +304,10 @@ public:
 		ENCODE_SUBSAMPLE_444 = 0x2000
 	}; 
 
-	int32_t m_nPredictor;
-	int32_t m_nPointTransform;
-	int32_t m_nSmoothing;
-	int32_t m_nQuantize;
+	int m_nPredictor;
+	int m_nPointTransform;
+	int m_nSmoothing;
+	int m_nQuantize;
 	J_DITHER_MODE m_nDither;
 
 };

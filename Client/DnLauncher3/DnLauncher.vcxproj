@@ -385,7 +385,7 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">$(SolutionDir)\Output\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">Output\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_TWN|Win32'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">..\..\build\server\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">..\..\build\client\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">..\..\build\release\temps\DnLauncher\</IntDir>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">false</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_TWN|Win32'">false</LinkIncremental>
@@ -991,7 +991,7 @@
       <ValidateAllParameters>false</ValidateAllParameters>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>./Extern;./Extern/CxImage;./Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/TWN;D:\projects\cpp\DragonNest\Common\wxMSW-2.8.9\src;D:\projects\cpp\DragonNest\Common\wxMSW-2.8.9\src\jpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./Extern;./Extern/CxImage;./Extern/RTPatch;../../Common/EtFileSystem;../../Common/Utility;../../Common/tinyxml;../../Common/zlib;Country/TWN;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES;_CRT_SECURE_NO_WARNINGS;_TWN;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -1013,7 +1013,7 @@
       <ResourceOutputFileName>$(IntDir)supprot\%(Filename).res</ResourceOutputFileName>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>patchw32.lib;Dbghelp.lib;legacy_stdio_definitions.lib;D:\projects\cpp\DragonNest\Client\DnLauncher\Extern\CxImage\Jpeg.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>patchw32.lib;Dbghelp.lib;legacy_stdio_definitions.lib;cximage.lib;Jpeg.lib;png.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>Extern\CxImage;Extern\RTPatch;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ManifestFile>$(IntDir)supprot\$(TargetFileName).intermediate.manifest</ManifestFile>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -1756,38 +1756,6 @@
     <ClCompile Include="DnPatchInfo.cpp" />
     <ClCompile Include="DnPatchThread.cpp" />
     <ClCompile Include="DnUtil.cpp" />
-    <ClCompile Include="Extern\CxImage\tif_xfile.cpp" />
-    <ClCompile Include="Extern\CxImage\ximabmp.cpp" />
-    <ClCompile Include="Extern\CxImage\ximadsp.cpp" />
-    <ClCompile Include="Extern\CxImage\ximaenc.cpp" />
-    <ClCompile Include="Extern\CxImage\ximaexif.cpp" />
-    <ClCompile Include="Extern\CxImage\ximage.cpp" />
-    <ClCompile Include="Extern\CxImage\ximagif.cpp" />
-    <ClCompile Include="Extern\CxImage\ximahist.cpp" />
-    <ClCompile Include="Extern\CxImage\ximaico.cpp" />
-    <ClCompile Include="Extern\CxImage\ximainfo.cpp" />
-    <ClCompile Include="Extern\CxImage\ximaint.cpp" />
-    <ClCompile Include="Extern\CxImage\ximajas.cpp" />
-    <ClCompile Include="Extern\CxImage\ximajbg.cpp" />
-    <ClCompile Include="Extern\CxImage\ximajpg.cpp" />
-    <ClCompile Include="Extern\CxImage\ximalpha.cpp" />
-    <ClCompile Include="Extern\CxImage\ximalyr.cpp" />
-    <ClCompile Include="Extern\CxImage\ximamng.cpp" />
-    <ClCompile Include="Extern\CxImage\ximapal.cpp" />
-    <ClCompile Include="Extern\CxImage\ximapcx.cpp" />
-    <ClCompile Include="Extern\CxImage\ximapng.cpp" />
-    <ClCompile Include="Extern\CxImage\ximapsd.cpp" />
-    <ClCompile Include="Extern\CxImage\ximaraw.cpp" />
-    <ClCompile Include="Extern\CxImage\ximasel.cpp" />
-    <ClCompile Include="Extern\CxImage\ximaska.cpp" />
-    <ClCompile Include="Extern\CxImage\ximatga.cpp" />
-    <ClCompile Include="Extern\CxImage\ximath.cpp" />
-    <ClCompile Include="Extern\CxImage\ximatif.cpp" />
-    <ClCompile Include="Extern\CxImage\ximatran.cpp" />
-    <ClCompile Include="Extern\CxImage\ximawbmp.cpp" />
-    <ClCompile Include="Extern\CxImage\ximawmf.cpp" />
-    <ClCompile Include="Extern\CxImage\ximawnd.cpp" />
-    <ClCompile Include="Extern\CxImage\xmemfile.cpp" />
     <ClCompile Include="RLKTAuth.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -1868,7 +1836,6 @@
     <ClInclude Include="DnPatchInfo.h" />
     <ClInclude Include="DnPatchThread.h" />
     <ClInclude Include="DnUtil.h" />
-    <ClInclude Include="Extern\CxImage\stdint.h" />
     <ClInclude Include="Extern\CxImage\xfile.h" />
     <ClInclude Include="Extern\CxImage\ximabmp.h" />
     <ClInclude Include="Extern\CxImage\ximacfg.h" />
@@ -1883,7 +1850,6 @@
     <ClInclude Include="Extern\CxImage\ximamng.h" />
     <ClInclude Include="Extern\CxImage\ximapcx.h" />
     <ClInclude Include="Extern\CxImage\ximapng.h" />
-    <ClInclude Include="Extern\CxImage\ximapsd.h" />
     <ClInclude Include="Extern\CxImage\ximaraw.h" />
     <ClInclude Include="Extern\CxImage\ximaska.h" />
     <ClInclude Include="Extern\CxImage\ximatga.h" />
