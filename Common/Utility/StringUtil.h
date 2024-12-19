@@ -1,18 +1,19 @@
 #pragma once
 
 #include <deque>
+#include <string>
 
-// std::string Àº Å©±â°¡ 16ÀÌ»óÀÎ ¹®ÀÚ¿­Àº ÀüºÎ µ¿ÀûÇÒ´çÀ» ÇØ¹ö·Á¼­ 
-// ÆÄÀÏ¸íÀÇ ´ëºÎºĞÀÌ 16±æÀÌ¸¦ ³Ñ±â¹Ç·Î ÆÄÀÏ¸í Ã¼Å©½Ã ¸¶´ÙÀÇ ÀæÀº µ¿ÀûÇÒ´çÀÇ ºÎ´ãÀÌ Å©´Ù.
-// ÆÄÀÏ¸í ½ºÆ®¸µ¿¡´Â ¹öÆÛÅ©±â°¡ Àû´çÈ÷ Å« Å¬·¡½º¸¦ Á÷Á¢ ¸¸µé¾î¼­ »ç¿ëÇÏµµ·Ï ÇÑ´Ù.
+// std::string ì€ í¬ê¸°ê°€ 16ì´ìƒì¸ ë¬¸ìì—´ì€ ì „ë¶€ ë™ì í• ë‹¹ì„ í•´ë²„ë ¤ì„œ 
+// íŒŒì¼ëª…ì˜ ëŒ€ë¶€ë¶„ì´ 16ê¸¸ì´ë¥¼ ë„˜ê¸°ë¯€ë¡œ íŒŒì¼ëª… ì²´í¬ì‹œ ë§ˆë‹¤ì˜ ì¦ì€ ë™ì í• ë‹¹ì˜ ë¶€ë‹´ì´ í¬ë‹¤.
+// íŒŒì¼ëª… ìŠ¤íŠ¸ë§ì—ëŠ” ë²„í¼í¬ê¸°ê°€ ì ë‹¹íˆ í° í´ë˜ìŠ¤ë¥¼ ì§ì ‘ ë§Œë“¤ì–´ì„œ ì‚¬ìš©í•˜ë„ë¡ í•œë‹¤.
 
-// typedef std::string CFileNameString;		// »ç¿ë½Ã ¹®Á¦°¡ »ı°åÀ»¶§´Â ÀÌ°ÍÀ» Å²´Ù.
+// typedef std::string CFileNameString;		// ì‚¬ìš©ì‹œ ë¬¸ì œê°€ ìƒê²¼ì„ë•ŒëŠ” ì´ê²ƒì„ í‚¨ë‹¤.
 
 class CFileNameString
 {
 public:
 	enum {
-		INTERNAL_BUFFER_SIZE = 50,			// ´ëºÎºĞÀÇ ÆÄÀÏ¸íÀÇ ±æÀÌ°¡ 100ÀÌÇÏÀÌ¸ç, 100ÀÌ³Ñ´Â°Í¸¸ µ¿Àû ÇÒ´ç ÇÑ´Ù.
+		INTERNAL_BUFFER_SIZE = 50,			// ëŒ€ë¶€ë¶„ì˜ íŒŒì¼ëª…ì˜ ê¸¸ì´ê°€ 100ì´í•˜ì´ë©°, 100ì´ë„˜ëŠ”ê²ƒë§Œ ë™ì  í• ë‹¹ í•œë‹¤.
 	};
 	typedef size_t size_type;
 
@@ -233,12 +234,12 @@ bool ToWideString(IN std::string& str, OUT std::wstring& wstr );
 bool ToMultiString(IN WCHAR* wstr, OUT std::string& str );
 bool ToWideString(IN CHAR* str, OUT std::wstring& wstr );
 
-// ¼Ò¹®ÀÚ·Î º¯È¯
+// ì†Œë¬¸ìë¡œ ë³€í™˜
 void ToLowerA(std::string& str);
 void ToLowerA( CFileNameString& str);
 void ToLowerW(std::wstring& str);
 
-// ´ë¹®ÀÚ·Î º¯È¯
+// ëŒ€ë¬¸ìë¡œ ë³€í™˜
 void ToUpperA(std::string& str);
 void ToUpperW(std::wstring& str);
 
@@ -246,7 +247,7 @@ std::wstring FormatW( const WCHAR* fmt, ... );
 std::string FormatA( const CHAR* fmt, ... );
 
 /*
-	°ø¹éÀ¸·Î ¹®ÀÚ¸¦ ³ª´­ °æ¿ì.. ´ëÃæ ÀÌ·±½ÄÀ¸·Î ¾´´Ù.
+	ê³µë°±ìœ¼ë¡œ ë¬¸ìë¥¼ ë‚˜ëˆŒ ê²½ìš°.. ëŒ€ì¶© ì´ëŸ°ì‹ìœ¼ë¡œ ì“´ë‹¤.
 	std::vector<std::string> tokens;
 	std::string str("-IP 127.0.0.1 -Port 5000", );
 	Tokenize( str, tokens, " ");
@@ -260,35 +261,35 @@ void TokenizeW_NewLine( const std::wstring& str, std::vector<std::wstring>& toke
 /*
 	std::vector<std::string> tokens;
 	std::string str("{user_nick} {user_class}", );
-	Tokenize( str, tokens, "{", "}" ); ¸¶Áö¸· ÀÎÀÚ´Â °Ë»ö±¸ºĞÀÚ¸¦ Æ÷ÇÔÇÒ°ÍÀÎÁö ¿©ºÎ
+	Tokenize( str, tokens, "{", "}" ); ë§ˆì§€ë§‰ ì¸ìëŠ” ê²€ìƒ‰êµ¬ë¶„ìë¥¼ í¬í•¨í• ê²ƒì¸ì§€ ì—¬ë¶€
 */
 void TokenizeW( std::wstring& str, std::vector<std::wstring>& tokens, std::wstring& szBegin, std::wstring& szEnd, bool bIncludeDelimiters );
 void TokenizeA( std::string& str, std::vector<std::string>& tokens, std::string& szBegin, std::string& szEnd, bool bIncludeDelimiters  );
 
 
-// ¹®ÀÚ¿­ÀÇ ¸ğµç °ø¹éÀ» ¾ø¾ÖÁØ´Ù.
+// ë¬¸ìì—´ì˜ ëª¨ë“  ê³µë°±ì„ ì—†ì• ì¤€ë‹¤.
 void RemoveSpaceA(std::string& str);
 void RemoveSpaceW(std::wstring& str);
 
-// ¹®ÀÚ¿­¿¡¼­ del À» Áö¿î´Ù.
+// ë¬¸ìì—´ì—ì„œ del ì„ ì§€ìš´ë‹¤.
 void RemoveStringA(std::string& str, const std::string& del);
 void RemoveStringW(std::wstring& str, const std::wstring& del);
 
-// str ¹®ÀÚ¿­ Áß¿¡¼­ szOld °¡ ÀÖÀ¸¸é ÀüºÎ szNew ·Î º¯°æÇÑ´Ù.
+// str ë¬¸ìì—´ ì¤‘ì—ì„œ szOld ê°€ ìˆìœ¼ë©´ ì „ë¶€ szNew ë¡œ ë³€ê²½í•œë‹¤.
 void AllReplaceW( std::wstring& str, std::wstring& szOld, std::wstring& szNew );
 void AllReplaceA( std::string& str, std::string& szOld, std::string& szNew );
 
-// ¹®ÀÚ¿­ ¾ÕµÚ °ø¹é Á¦°Å
+// ë¬¸ìì—´ ì•ë’¤ ê³µë°± ì œê±°
 void TrimString( char *pString );
 
 
-// °ñµå Gold - 3ÀÚ¸®¸¶´Ù ÄŞ¸¶ ',' Ã³¸®.
+// ê³¨ë“œ Gold - 3ìë¦¬ë§ˆë‹¤ ì½¤ë§ˆ ',' ì²˜ë¦¬.
 std::wstring GoldToMoneyString( INT64 nGold );
 
-// ÄŞ¸¶½ºÆ®¸µ.
+// ì½¤ë§ˆìŠ¤íŠ¸ë§.
 std::wstring AtoCommaString( int nValue );
 
 
-// : °ñµåÈ¹µæ - 0ÀÎ ´ÜÀ§´Â Ãâ·ÂÇÏÁö ¾ÊÀ½. (ex> 1°ñµå0½Ç¹ö1ÄíÆÛ => 1°ñµå1ÄíÆÛ ).
+// : ê³¨ë“œíšë“ - 0ì¸ ë‹¨ìœ„ëŠ” ì¶œë ¥í•˜ì§€ ì•ŠìŒ. (ex> 1ê³¨ë“œ0ì‹¤ë²„1ì¿ í¼ => 1ê³¨ë“œ1ì¿ í¼ ).
 void GoldToString( std::wstring & rStr, INT64 coin, const wchar_t * pStrGold, const wchar_t * pStrSilver, const wchar_t * pStrCopper );
 bool IsExistString( const std::wstring& wszString, const std::wstring& wszFindString );
