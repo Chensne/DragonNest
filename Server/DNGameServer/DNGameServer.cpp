@@ -372,7 +372,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 		if (wszProbeStr[0] != '\0')
 			WideCharToMultiByte(CP_ACP, 0, wszProbeStr, (int)wcslen(wszProbeStr), g_Config.szProbeIP, sizeof(g_Config.szProbeIP), NULL, NULL);
 
-		// ResourcePath µî·ÏÇØÁØ´Ù.
+		// ResourcePath ë“±ë¡í•´ì¤€ë‹¤.
 		WCHAR wszPath[_MAX_PATH] = { 0, };
 		char szPath[_MAX_PATH] = { 0, };
 		g_IniFile.GetValue( L"Resource", L"Path", wszPath );
@@ -427,6 +427,11 @@ bool LoadConfig(int argc, TCHAR * argv[])
 #endif
 	}
 
+    g_IniFile.GetValue(L"ServerManagerEx", L"sid", &g_Config.nManagedID);
+    g_IniFile.GetValue(L"ServerManagerEx", L"ip", wszBuf);
+    WideCharToMultiByte(CP_ACP, NULL, wszBuf, -1, g_Config.ServiceInfo.szIP, sizeof(g_Config.ServiceInfo.szIP), NULL, NULL);
+    g_IniFile.GetValue(L"ServerManagerEx", L"port", &g_Config.ServiceInfo.nPort);
+
 	return true;
 }
 
@@ -438,14 +443,14 @@ bool LoadNpcQuest()
 #endif // #if defined (_WORK) && defined (PRE_ADD_SERVER_LOAD_SHORTENING)
 
 	g_pNpcQuestScriptManager->CreateLuaState(g_pGameServerManager->GetThreadCount());
-	// °¢ ¾²·¹µåº°·Î npc ´ëÈ­ & Äù½ºÆ® °ü·Ã ½ºÅ©¸³Æ®µéÀ» ÀüºÎ ·Îµù ÇÑ´Ù.
+	// ê° ì“°ë ˆë“œë³„ë¡œ npc ëŒ€í™” & í€˜ìŠ¤íŠ¸ ê´€ë ¨ ìŠ¤í¬ë¦½íŠ¸ë“¤ì„ ì „ë¶€ ë¡œë”© í•œë‹¤.
 	for ( int i = 0 ; i < g_pGameServerManager->GetThreadCount(); i++ )
 	{
 		lua_State* pLuaState = g_pNpcQuestScriptManager->OpenStateByIndex(i);
 		DefAllAPIFunc(pLuaState);
 
 		//-----------------------------------------------------------------------------------------------------------
-		// ½ºÅ©¸³Æ® °øÅë ÆÄÀÏ ¸ÕÀú ·Îµå
+		// ìŠ¤í¬ë¦½íŠ¸ ê³µí†µ íŒŒì¼ ë¨¼ì € ë¡œë“œ
 		std::vector<CFileNameString> CommonFileList;
 		g_Log.Log(LogType::_FILELOG, L"QuestNPC_Common...Folder : %S\n", CEtResourceMng::GetInstance().GetFullPath( "QuestNPC_Common" ).c_str());
 		CEtResourceMng::GetInstance().FindFileListAll_IgnoreExistFile( "QuestNPC_Common", "*.lua", CommonFileList );
@@ -738,10 +743,10 @@ bool InitApp(int argc, TCHAR * argv[])
 	g_pLogConnection->SetIp(g_Config.LogInfo.szIP);
 	g_pLogConnection->SetPort(g_Config.LogInfo.nPort);
 
-	// È¤½Ã³ª ÇØ¼­.. ¾²·¹µå ÀÏ´Ü ´Ù »ý¼ºµÇ°í.
+	// í˜¹ì‹œë‚˜ í•´ì„œ.. ì“°ë ˆë“œ ì¼ë‹¨ ë‹¤ ìƒì„±ë˜ê³ .
 	Sleep(1000);
 
-	if ((g_Config.nManagedID > 0) && g_Config.bUseCmd)
+	if (g_Config.nManagedID > 0)
 	{
 		g_pServiceConnection = new CDNServiceConnection(g_Config.nManagedID);
 		if (!g_pServiceConnection) return false;
@@ -764,7 +769,7 @@ bool InitApp(int argc, TCHAR * argv[])
 #endif
 
 #if defined(_GPK)
-	// Shanda º¸¾È
+	// Shanda ë³´ì•ˆ
 	g_Config.pDynCode = GPKCreateSvrDynCode();
 	if (!g_Config.pDynCode){
 		g_Log.Log(LogType::_FILELOG, L"SvrDynCode NULL!!!\r\n");
@@ -801,7 +806,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		return false;
 	}
 
-	bool bChAuthRet = g_Config.pDynCode->LoadAuthFile("AuthData.dat");	// CSAuth°ü·ÃµÈ ¾Ö
+	bool bChAuthRet = g_Config.pDynCode->LoadAuthFile("AuthData.dat");	// CSAuthê´€ë ¨ëœ ì• 
 	if (bChAuthRet == false)
 	{
 		g_Log.Log(LogType::_FILELOG, L"LoadAuthFile [AuthData.dat] failed!!!\r\n");
@@ -829,8 +834,8 @@ void ClearApp()
 	SAFE_DELETE(g_pActozShield);
 #endif	// #if defined(_KRAZ)
 
-	// 2008.01.20 ±è¹ä
-	// Connection °ú ReconnectThread °£¿¡ µ¿±âÈ­ ÀÌ½´·Î ReconnectThread ¸ÕÀú Á¾·á
+	// 2008.01.20 ê¹€ë°¥
+	// Connection ê³¼ ReconnectThread ê°„ì— ë™ê¸°í™” ì´ìŠˆë¡œ ReconnectThread ë¨¼ì € ì¢…ë£Œ
 	if( g_pIocpManager )
 	{
 		g_pIocpManager->CloseAcceptors();
@@ -976,12 +981,12 @@ int _tmain(int argc, TCHAR* argv[])
 	setlocale(LC_ALL, "Korean");
 #endif
 
-	// ¿¹¿Ü Ã³¸®ÀÚ ÁØºñ
+	// ì˜ˆì™¸ ì²˜ë¦¬ìž ì¤€ë¹„
 //#if !defined(_FINAL_BUILD)
-	//unhandledexception ÀÎ°æ¿ì¿¡´Â Ç×»ó Ç®¸Þ¸ð¸®´ýÇÁ
-	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release ¸ðµå ÄÄÆÄÀÏ ½Ã C4744 °æ°í°¡ ¹ß»ýÇÏ¿© Singleton ±¸Çö º¯°æ, CExceptionReport::GetInstancePtr() À» inline È­ ÇÏÁö ¾ÊÀ½ (Âü°í : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
+	//unhandledexception ì¸ê²½ìš°ì—ëŠ” í•­ìƒ í’€ë©”ëª¨ë¦¬ë¤í”„
+	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release ëª¨ë“œ ì»´íŒŒì¼ ì‹œ C4744 ê²½ê³ ê°€ ë°œìƒí•˜ì—¬ Singleton êµ¬í˜„ ë³€ê²½, CExceptionReport::GetInstancePtr() ì„ inline í™” í•˜ì§€ ì•ŠìŒ (ì°¸ê³  : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
 //#else	// _FINAL_BUILD
-//	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE);							// Release ¸ðµå ÄÄÆÄÀÏ ½Ã C4744 °æ°í°¡ ¹ß»ýÇÏ¿© Singleton ±¸Çö º¯°æ, CExceptionReport::GetInstancePtr() À» inline È­ ÇÏÁö ¾ÊÀ½ (Âü°í : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
+//	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE);							// Release ëª¨ë“œ ì»´íŒŒì¼ ì‹œ C4744 ê²½ê³ ê°€ ë°œìƒí•˜ì—¬ Singleton êµ¬í˜„ ë³€ê²½, CExceptionReport::GetInstancePtr() ì„ inline í™” í•˜ì§€ ì•ŠìŒ (ì°¸ê³  : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
 //#endif	// _FINAL_BUILD
 	if (NOERROR != dwRetVal) {
 		DWORD dwErrNo = ::GetLastError();
@@ -1021,7 +1026,7 @@ int _tmain(int argc, TCHAR* argv[])
 	g_pIocpManager->VerifyAccept(ACCEPTOPEN_VERIFY_TYPE_APPINITCOMPLETE);
 	g_Config.bAllLoaded = true;
 
-	wprintf(L"exit ¸í·ÉÀ» Ä¡¸é Á¾·á\r\n");
+	wprintf(L"exit ëª…ë ¹ì„ ì¹˜ë©´ ì¢…ë£Œ\r\n");
 
 	//SetConsoleTitleA(FormatA("GameServer Rev.%s", revDNGameServer).c_str()); //rlkt_revision
 
@@ -1118,7 +1123,7 @@ int _tmain(int argc, TCHAR* argv[])
 		{
 			if (g_pDataManager->AllLoad() == false)
 			{
-				_DANGER_POINT_MSG(L"reloadext ½ÇÆÐ!");
+				_DANGER_POINT_MSG(L"reloadext ì‹¤íŒ¨!");
 				break;
 			}
 		}

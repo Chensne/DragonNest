@@ -403,6 +403,11 @@ bool LoadConfig(int argc, TCHAR * argv[])
 			g_ConfigWork.AddCommand(wszBuf);
 		}
 #endif // #if defined (_WORK) && defined (PRE_ADD_SERVER_LOAD_SHORTENING)
+
+        g_IniFile.GetValue(L"ServerManagerEx", L"sid", &g_Config.nManagedID);
+        g_IniFile.GetValue(L"ServerManagerEx", L"ip", wszBuf);
+        WideCharToMultiByte(CP_ACP, NULL, wszBuf, -1, g_Config.ServiceInfo.szIP, sizeof(g_Config.ServiceInfo.szIP), NULL, NULL);
+        g_IniFile.GetValue(L"ServerManagerEx", L"port", &g_Config.ServiceInfo.nPort);
 	}
 
 	return true;
@@ -831,7 +836,7 @@ bool InitApp(int argc, TCHAR * argv[])
 	_srand( timeGetTime() );
 	srand(timeGetTime());
 
-	if ((g_Config.nManagedID > 0) && g_Config.bUseCmd)
+	if (g_Config.nManagedID > 0)
 	{
 		g_pServiceConnection = new CDNServiceConnection(g_Config.nManagedID);
 		if (!g_pServiceConnection) return false;

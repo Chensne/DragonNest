@@ -372,6 +372,11 @@ bool LoadConfig(int argc, TCHAR * argv[])
 				g_Config.szResourceNation += szResNation;
 			}
 		}
+
+        g_IniFile.GetValue(L"ServerManagerEx", L"sid", &g_Config.nManagedID);
+        g_IniFile.GetValue(L"ServerManagerEx", L"ip", wszBuf);
+        WideCharToMultiByte(CP_ACP, NULL, wszBuf, -1, g_Config.ServiceInfo.szIP, sizeof(g_Config.ServiceInfo.szIP), NULL, NULL);
+        g_IniFile.GetValue(L"ServerManagerEx", L"port", &g_Config.ServiceInfo.nPort);
 	}
 
 	//나라마다 틀리고 고정 값은 공통으로 config에서 읽는다.

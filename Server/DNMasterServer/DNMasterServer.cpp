@@ -332,6 +332,11 @@ bool LoadConfig(int argc, TCHAR * argv[])
 				g_Config.szResourceNation += szResNation;
 			}
 		}
+
+        g_IniFile.GetValue(L"ServerManagerEx", L"sid", &g_Config.nManagedID);
+        g_IniFile.GetValue(L"ServerManagerEx", L"ip", wszBuf);
+        WideCharToMultiByte(CP_ACP, NULL, wszBuf, -1, g_Config.ServiceInfo.szIP, sizeof(g_Config.ServiceInfo.szIP), NULL, NULL);
+        g_IniFile.GetValue(L"ServerManagerEx", L"port", &g_Config.ServiceInfo.nPort);
 	}
 
 #if !defined(_FINAL_BUILD)

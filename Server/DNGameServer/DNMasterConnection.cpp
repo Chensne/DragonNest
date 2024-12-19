@@ -64,7 +64,7 @@ bool CDNMasterConnection::GetActive()
 
 void CDNMasterConnection::Reconnect()
 {
-	//ÀÌÂÊÀº µ¿±â°¡ Æ²·Á¼­ DNMasterConnection¹× °ÔÀÓ ¸®¼Ò½º ¾ï¼¼½º ÇÏ¸é ¾Èµ¥¿ä~
+	//ì´ìª½ì€ ë™ê¸°ê°€ í‹€ë ¤ì„œ DNMasterConnectionë° ê²Œì„ ë¦¬ì†ŒìŠ¤ ì–µì„¸ìŠ¤ í•˜ë©´ ì•ˆë°ìš”~
 	if (!CConnection::GetActive() && !GetConnecting())
 	{
 		SetConnecting(true);
@@ -92,7 +92,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 			{
 				if (g_pDataManager->AllLoad() == false)
 				{
-					_DANGER_POINT_MSG(L"ext reload¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù. ¼­¹ö¸¦ Àç±âµ¿ÇØÁÖ¼¼¿ä");
+					_DANGER_POINT_MSG(L"ext reloadì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤. ì„œë²„ë¥¼ ì¬ê¸°ë™í•´ì£¼ì„¸ìš”");
 				}
 				break;
 			}
@@ -116,10 +116,10 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 			*/
 			MARegist *pRegist = (MARegist*)pData;
 			if (pRegist->cWorldSetID <= 0) 
-				return ERROR_NONE;		// 0ÀÌ¸é °Á ¹«½Ã. 0ÀÌ»ó °ªÀ¸·Î ¾îÂ÷ÇÇ ÇÑ¹ø ´õ ¿Â´Ù.
+				return ERROR_NONE;		// 0ì´ë©´ ê± ë¬´ì‹œ. 0ì´ìƒ ê°’ìœ¼ë¡œ ì–´ì°¨í”¼ í•œë²ˆ ë” ì˜¨ë‹¤.
 
 			m_cWorldSetID = pRegist->cWorldSetID;
-			m_cGameID = pRegist->cGameID;		//ÀÌ ¸¶½ºÅÍ¿¡¼­ÀÇ ³ª(°ÔÀÓ¼­¹öÀÇ ½Äº°ÀÚ)
+			m_cGameID = pRegist->cGameID;		//ì´ ë§ˆìŠ¤í„°ì—ì„œì˜ ë‚˜(ê²Œì„ì„œë²„ì˜ ì‹ë³„ì)
 			g_pMasterConnectionManager->AddWorldIDConnection(m_nSessionID, m_cWorldSetID);
 
 			//GameServerInfo Notice to MasterServer
@@ -145,7 +145,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 			CDNDBConnection *pDBCon = g_pDBConnectionManager->GetDBConnection(cThreadID);
 			if (pDBCon)
 			{
-				//½ÃÀÛÇÏ¸é¼­ ¾ò¾î¾ß ÇÏ´Â °Í ¸ğÀ½
+				//ì‹œì‘í•˜ë©´ì„œ ì–»ì–´ì•¼ í•˜ëŠ” ê²ƒ ëª¨ìŒ
 				if (g_pEvent->IsInitWorld(m_cWorldSetID) == false)
 					pDBCon->QueryEventList(cThreadID, m_cWorldSetID);
 
@@ -204,7 +204,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 
 	case MAGA_REQROOMID:
 		{
-			//¿©±â°¡ °ÔÀÓÀÌ ÁøÇàÀÌ µÇ´Â ¿£Æ®¸®´Ù. 
+			//ì—¬ê¸°ê°€ ê²Œì„ì´ ì§„í–‰ì´ ë˜ëŠ” ì—”íŠ¸ë¦¬ë‹¤. 
 			CDNRUDPGameServer * pServer = g_pGameServerManager->GetGameServer();
 
 			if (pServer)
@@ -222,7 +222,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 
 	case MAGA_REQTUTORIALROOMID:
 		{
-			//¿©±â°¡ °ÔÀÓÀÌ ÁøÇàÀÌ µÇ´Â ¿£Æ®¸®´Ù. 
+			//ì—¬ê¸°ê°€ ê²Œì„ì´ ì§„í–‰ì´ ë˜ëŠ” ì—”íŠ¸ë¦¬ë‹¤. 
 			CDNRUDPGameServer * pServer = g_pGameServerManager->GetGameServer();
 			if (pServer)
 				pServer->StoreExternalBuffer(0, nMainCmd, nSubCmd, pData, nLen, EXTERNALTYPE_MASTER, m_cWorldSetID);
@@ -320,7 +320,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 				}
 			}
 			else
-				return false;		//¿ùµå¸Ş¼¼Áö°¡ ¾Æ´Ï¶ó¸é ¼¼¼ÇÃ³¸®·Î ³Ñ±ä´Ù.
+				return false;		//ì›”ë“œë©”ì„¸ì§€ê°€ ì•„ë‹ˆë¼ë©´ ì„¸ì…˜ì²˜ë¦¬ë¡œ ë„˜ê¸´ë‹¤.
 			break;
 		}
 
@@ -495,7 +495,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 					DN_CONTINUE;
 				}
 
-				CDNRUDPGameServer * pServer = g_pGameServerManager->GetGameServerByAID(pResetAuthNode->uiAccountDBID);		//account id ¿©¾ßÇÕ´Ï´Ù.
+				CDNRUDPGameServer * pServer = g_pGameServerManager->GetGameServerByAID(pResetAuthNode->uiAccountDBID);		//account id ì—¬ì•¼í•©ë‹ˆë‹¤.
 				if (pServer) {
 					aA.nSessionID = pResetAuthNode->nSessionID;
 					aA.nAccountDBID = pResetAuthNode->uiAccountDBID;
@@ -507,38 +507,38 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 		break;
 
 	// Guild
-	case MAGA_DISMISSGUILD:				// ±æµå ÇØÃ¼ ¾Ë¸²
+	case MAGA_DISMISSGUILD:				// ê¸¸ë“œ í•´ì²´ ì•Œë¦¼
 		{
 			g_pGuildManager->OnRecvMaDismissGuild(reinterpret_cast<MADismissGuild*>(pData));
 		}
 		break;
 
 
-	case MAGA_ADDGUILDMEMBER:				// ±æµå¿ø Ãß°¡ ¾Ë¸²
+	case MAGA_ADDGUILDMEMBER:				// ê¸¸ë“œì› ì¶”ê°€ ì•Œë¦¼
 		{
 			g_pGuildManager->OnRecvMaAddGuildMember(reinterpret_cast<MAAddGuildMember*>(pData));
 		}
 		break;
 
-	case MAGA_DELGUILDMEMBER:				// ±æµå¿ø Á¦°Å (Å»Åğ/Ãß¹æ) ¾Ë¸²
+	case MAGA_DELGUILDMEMBER:				// ê¸¸ë“œì› ì œê±° (íƒˆí‡´/ì¶”ë°©) ì•Œë¦¼
 		{
 			g_pGuildManager->OnRecvMaDelGuildMember(reinterpret_cast<MADelGuildMember*>(pData));
 		}
 		break;
 
-	case MAGA_CHANGEGUILDINFO:			// ±æµå Á¤º¸ º¯°æ ¾Ë¸²
+	case MAGA_CHANGEGUILDINFO:			// ê¸¸ë“œ ì •ë³´ ë³€ê²½ ì•Œë¦¼
 		{
 			g_pGuildManager->OnRecvMaChangeGuildInfo(reinterpret_cast<MAChangeGuildInfo*>(pData));
 		}
 		break;
 
-	case MAGA_CHANGEGUILDMEMBERINFO:		// ±æµå¿ø Á¤º¸ º¯°æ ¾Ë¸²
+	case MAGA_CHANGEGUILDMEMBERINFO:		// ê¸¸ë“œì› ì •ë³´ ë³€ê²½ ì•Œë¦¼
 		{
 			g_pGuildManager->OnRecvMaChangeGuildMemberInfo(reinterpret_cast<MAChangeGuildMemberInfo*>(pData));
 		}
 		break;
 
-	case MAGA_GUILDCHAT:				// ±æµå Ã¤ÆÃ ¾Ë¸²
+	case MAGA_GUILDCHAT:				// ê¸¸ë“œ ì±„íŒ… ì•Œë¦¼
 		{
 			g_pGuildManager->OnRecvMaGuildChat(reinterpret_cast<MAGuildChat*>(pData));
 		}
@@ -587,7 +587,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 				SetGuildWarStepIndex(GUILDWAR_STEP_NONE);
 
 			bool bChangeEvent = false;
-			// ½ºÄÉÁìID°¡ °°À¸¸é ¾÷µ¥ÀÌÆ®
+			// ìŠ¤ì¼€ì¥´IDê°€ ê°™ìœ¼ë©´ ì—…ë°ì´íŠ¸
 			if (GetGuildWarScheduleID() == pPacket->wScheduleID)
 			{
 				if (pPacket->cEventType == GUILDWAR_EVENT_START && GetGuildWarStepIndex() < pPacket->cEventStep)
@@ -595,7 +595,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 				else if (pPacket->cEventType == GUILDWAR_EVENT_END && GetGuildWarStepIndex() == pPacket->cEventStep)
 					bChangeEvent = true;
 			}
-			else // ½ºÄÉÁìID°¡ ´Ù¸£¸é »õ·Î¿î µî·Ï
+			else // ìŠ¤ì¼€ì¥´IDê°€ ë‹¤ë¥´ë©´ ìƒˆë¡œìš´ ë“±ë¡
 				bChangeEvent = true;
 
 			if (bChangeEvent)
@@ -610,7 +610,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 				if (pServer)
 					pServer->StoreExternalBuffer(0, nMainCmd, nSubCmd, pData, nLen, EXTERNALTYPE_MASTER, m_cWorldSetID);
 			}
-			// ¸¶Áö¸·ÀÌ¸é ÃÊ±âÈ­
+			// ë§ˆì§€ë§‰ì´ë©´ ì´ˆê¸°í™”
 			if( pPacket->cEventStep == GUILDWAR_STEP_REWARD && pPacket->cEventType == GUILDWAR_EVENT_END )
 				GuildWarReset();
 		}
@@ -644,7 +644,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 			else
 				SetGuildWarFinalPart(pPacket->cGuildFinalPart+1);
 
-			// ¿ì½Â±æµå ¼ÂÆÃµÇ¾î ÀÖÀ¸¸é ÃÊ±âÈ­
+			// ìš°ìŠ¹ê¸¸ë“œ ì…‹íŒ…ë˜ì–´ ìˆìœ¼ë©´ ì´ˆê¸°í™”
 			if( pPacket->cGuildFinalPart != GUILDWAR_FINALPART_NONE && m_PreWinGuildUID.IsSet() ) 
 			{
 				MAGuildWarPreWinGuild aA;
@@ -761,7 +761,7 @@ bool CDNMasterConnection::PreMessageProcess(int nMainCmd, int nSubCmd, char * pD
 					pServer->StoreExternalBuffer(0, nMainCmd, nSubCmd, pData, nLen, EXTERNALTYPE_MASTER, m_cWorldSetID);
 			}
 
-			// ½Ç½Ã°£ º¸°í
+			// ì‹¤ì‹œê°„ ë³´ê³ 
 			if (g_pServiceConnection)
 			{
 				if( g_pServiceConnection->GetSocketContextPtr() == NULL )
@@ -1088,13 +1088,13 @@ int CDNMasterConnection::MessageProcess(int nMainCmd, int nSubCmd, char * pData,
 		UINT nAccountDBID;
 		memcpy(&nAccountDBID, pData, sizeof(UINT));
 
-		CDNRUDPGameServer * pServer = g_pGameServerManager->GetGameServerByAID(nAccountDBID);		//account id ¿©¾ßÇÕ´Ï´Ù.
-		if (pServer)	//¿ÜºÎ¸Ş¼¼Áö ÆÄ½Ì
+		CDNRUDPGameServer * pServer = g_pGameServerManager->GetGameServerByAID(nAccountDBID);		//account id ì—¬ì•¼í•©ë‹ˆë‹¤.
+		if (pServer)	//ì™¸ë¶€ë©”ì„¸ì§€ íŒŒì‹±
 		{
 			pServer->StoreExternalBuffer(nAccountDBID, nMainCmd, nSubCmd, pData, nLen, EXTERNALTYPE_MASTER, m_cWorldSetID);
 			return ERROR_NONE;
 		}
-		// ¿©±â¼­ ¸¸¾à À¯Àú ÀÚ¸£¶ó´Â °Å¸é..
+		// ì—¬ê¸°ì„œ ë§Œì•½ ìœ ì € ìë¥´ë¼ëŠ” ê±°ë©´..
 		if( nMainCmd == MAGA_DETACHUSER )
 		{
 			MADetachUser* pDetach = (MADetachUser*)pData;
@@ -1686,7 +1686,7 @@ void CDNMasterConnection::SendChangeGuildMemberInfo(const TGuildUID pGuildUID, U
 	MAChangeGuildMemberInfo Packet;
 	memset(&Packet, 0, sizeof(MAChangeGuildMemberInfo));
 
-	if(bReturn)		//ÀÚ½ÅÀÌ ÆĞÅ¶À» ´Ù½Ã ¹Ş¾Æ¾ßÇÏ´Â °æ¿ì
+	if(bReturn)		//ìì‹ ì´ íŒ¨í‚·ì„ ë‹¤ì‹œ ë°›ì•„ì•¼í•˜ëŠ” ê²½ìš°
 		Packet.nManagedID = 0;
 	else
 		Packet.nManagedID = g_Config.nManagedID;
@@ -1905,7 +1905,7 @@ void CDNMasterConnection::SendMasterSystemSyncGraduate( INT64 biCharacterDBID, W
 
 void CDNMasterConnection::SendMasterSystemSyncConnect( bool bIsConnect, WCHAR* pwszCharName, const TMasterSystemData* pMasterSystemData )
 {
-	// »çÁ¦ Á¤º¸°¡ ¾øÀ¸¸é µ¿±â ¸ÂÃâ ÇÊ¿ä°¡ ¾ø´Ù.
+	// ì‚¬ì œ ì •ë³´ê°€ ì—†ìœ¼ë©´ ë™ê¸° ë§ì¶œ í•„ìš”ê°€ ì—†ë‹¤.
 	if( pMasterSystemData->SimpleInfo.cCharacterDBIDCount == 0 )
 		return;
 
@@ -2043,7 +2043,7 @@ void CDNMasterConnection::SetGuildSecretMission(MASetGuildWarSecretMission* pSec
 {
 	m_cSecretTeam = pSecret->cTeamCode;
 	m_nSecretRandomSeed = pSecret->nRandomSeed;
-	if( m_nSecretRandomSeed == -1 ) // ÇØÁ¦
+	if( m_nSecretRandomSeed == -1 ) // í•´ì œ
 	{
 		memset (m_vSecretMissionID, 0x00, sizeof(m_vSecretMissionID));
 		return;
@@ -2088,9 +2088,9 @@ void CDNMasterConnection::CalcTeamSecret()
 
 	fSecretRate = 1.0f - fSecretRate;
 
-	// ¸¶½ºÅÍ ¼­¹ö°¡ ½ÃÅ©¸´ ¿©ºÎ¸¦ ÆÇ´Ü ¸øÇÒ °æ¿ì¸¦ ´ëºñÇÏ¿© ½ÃÅ©¸´ ÁßÁö¿©ºÎ ÆÇ´ÜÇÑ´Ù.
+	// ë§ˆìŠ¤í„° ì„œë²„ê°€ ì‹œí¬ë¦¿ ì—¬ë¶€ë¥¼ íŒë‹¨ ëª»í•  ê²½ìš°ë¥¼ ëŒ€ë¹„í•˜ì—¬ ì‹œí¬ë¦¿ ì¤‘ì§€ì—¬ë¶€ íŒë‹¨í•œë‹¤.
 	if (fSecretRate < 0.02f)		
-		m_cSecretTeam = 0;			// ÇØÁ¦
+		m_cSecretTeam = 0;			// í•´ì œ
 }
 
 void CDNMasterConnection::SetGuildWarSechdule(MASetGuildWarEventTime* SetGuildWarEventTime)

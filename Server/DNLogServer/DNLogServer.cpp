@@ -104,6 +104,11 @@ bool LoadConfig(int argc, TCHAR * argv[])
 			swprintf(wszData, L"Log%dDBName", i + 1);
 			g_IniFile.GetValue(L"LogDB", wszData, g_Config.LogDB[i].wszDBName);
 		}
+
+        g_IniFile.GetValue(L"ServerManagerEx", L"sid", &g_Config.nManagedID);
+        g_IniFile.GetValue(L"ServerManagerEx", L"ip", wszBuf);
+        WideCharToMultiByte(CP_ACP, NULL, wszBuf, -1, g_Config.ServiceInfo.szIP, sizeof(g_Config.ServiceInfo.szIP), NULL, NULL);
+        g_IniFile.GetValue(L"ServerManagerEx", L"port", &g_Config.ServiceInfo.nPort);
 	}
 	
 	if (g_Config.nThreadMax > THREADMAX) g_Config.nThreadMax = THREADMAX;
@@ -131,7 +136,7 @@ bool InitApp(int argc, TCHAR * argv[])
 #if defined(_DEBUG) && defined(_WORK)
 	if ( CheckWorkingFolder(L"out") == false )
 	{
-		wprintf(L"ÀÛ¾÷ µğ·ºÅä¸®¸¦ ¼³Á¤ÇØÁÖ¼¼¿ä!!!! setworking folder error " );
+		wprintf(L"ç´¯è¯€ å¼æ³›é…åºœç”« æ±²æ²¥ç§¦æ—æŠ€å¤¸!!!! setworking folder error " );
 	}
 #endif
 
@@ -211,7 +216,8 @@ bool InitApp(int argc, TCHAR * argv[])
 	}	
 	g_pIocpManager->CreateUpdateThread();
 
-	if (argc > 1 && g_Config.nManagedID > 0)
+    // TODO(Cussrro): ä¼˜åŒ–é…ç½®é¡¹å¯åŠ¨æ— æ³•è¿æ¥æœåŠ¡ç®¡ç†å™¨
+	if (g_Config.nManagedID > 0)
 	{
 		g_pIocpManager->CreateThread();
 		g_pServiceConnection = new CDNServiceConnection(g_Config.nManagedID);
@@ -268,8 +274,8 @@ int _tmain(int argc, TCHAR* argv[])
 	setlocale(LC_ALL, "Korean");
 #endif
 
-	// ¿¹¿Ü Ã³¸®ÀÚ ÁØºñ
-	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE);	// Release ¸ğµå ÄÄÆÄÀÏ ½Ã C4744 °æ°í°¡ ¹ß»ıÇÏ¿© Singleton ±¸Çö º¯°æ, CExceptionReport::GetInstancePtr() À» inline È­ ÇÏÁö ¾ÊÀ½ (Âü°í : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
+	// æŠ—å¯‡ è´¸åºœç£Š éœ–åš
+	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE);	// Release è‘›é› å“ªé¢‡è€ çŸ« C4744 ç‰ˆç»Šå•Š æƒ¯ç§¯çªå’¯ Singleton å¤‡æ³… å‡½ç‰ˆ, CExceptionReport::GetInstancePtr() é˜‘ inline æ‹³ çªç˜¤ è‡¼æ¾œ (æ›¼ç»Š : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
 	if (NOERROR != dwRetVal) {
 		DWORD dwErrNo = ::GetLastError();
 		DN_RETURN(dwErrNo);
@@ -280,7 +286,7 @@ int _tmain(int argc, TCHAR* argv[])
 		return 0;
 	}
 
-	wprintf(L"exit ¸í·ÉÀ» Ä¡¸é Á¾·á\r\n");
+	wprintf(L"exit ç–™é£é˜‘ æ‘¹æ è¾†ä¸°\r\n");
 
 	char szCmd[256] = {0};	
 	while (1)

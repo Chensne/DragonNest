@@ -51,7 +51,9 @@ DWORD CConfigMngr::Open(LPCTSTR pFileName)
 		{
 			TCHAR aIpAddress[DF_IPADDR_SIZE] = { _T('\0'), };
 			aRetVal = m_IniFile.GetValue(_T("ServiceManager"), _T("IpAddress"), aIpAddress);
-			if (_T('') == aIpAddress[0])
+			
+            // TODO(Cussrro): 修复空字符常量
+            if (_T(' ') == aIpAddress[0])
 				_tcsncpy_s(aIpAddress, _countof(aIpAddress), _T("0.0.0.0"), _countof(aIpAddress));
 			{
 				USES_CONVERSION;
