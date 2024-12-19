@@ -40,11 +40,15 @@ void CDnMainFrame::InitializeLocalize()
 
 bool CDnMainFrame::PreInitialize()
 {
-	// Path ¼³Á¤
+    // TODO(Cussrro): å›ºå®šèµ„æºè·¯å¾„
+    std::string path = ".\\GameRes";
+    g_Config.szResourcePath = path;
+
+	// Path ì„¤ì •
 	std::string szResource = g_Config.szResourcePath + "\\Resource";
 	std::string szMapData = g_Config.szResourcePath + "\\MapData";
 
-	// ±¹°¡º° ¼ÂÆÃ
+	// êµ­ê°€ë³„ ì…‹íŒ…
 	std::string szNationStr;
 	if( szNationStr.empty() && !g_Config.szResourceNation.empty() ) szNationStr = g_Config.szResourceNation;
 	if( !szNationStr.empty() ) {
@@ -80,7 +84,7 @@ bool CDnMainFrame::PreInitialize()
 		strNationFileName.clear();
 
 		strNationFileName = "uistring";
-		if (i != 0)		//0¹øÀº µğÆúÆ®
+		if (i != 0)		//0ë²ˆì€ ë””í´íŠ¸
 			strNationFileName.append(MultiLanguage::NationString[i]);
 		strNationFileName.append(".xml");
 
@@ -92,7 +96,7 @@ bool CDnMainFrame::PreInitialize()
 
 #ifdef PRE_ADD_UISTRING_DIVIDE
 		strNationItemFileName = "uistring_item";
-		if (i != 0)		//0¹øÀº µğÆúÆ®
+		if (i != 0)		//0ë²ˆì€ ë””í´íŠ¸
 			strNationItemFileName.append(MultiLanguage::NationString[i]);
 		strNationItemFileName.append(".xml");
 

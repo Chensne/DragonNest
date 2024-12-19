@@ -73,7 +73,7 @@ void LoadPartyID()
 	FILE * fp = NULL;
 	if (_access(szFileName.c_str(), 0) == -1)
 	{
-		//ÆÄÀÏÀÌ ¾ø´Ù¸é »ı¼ºÇÑ´Ù.
+		//íŒŒì¼ì´ ì—†ë‹¤ë©´ ìƒì„±í•œë‹¤.
 		fp = fopen(szFileName.c_str(), "a");
 		fclose(fp);
 	}
@@ -86,7 +86,7 @@ void LoadPartyID()
 
 	fclose(fp);
 
-	nPartyIdx += 10000;	//È¤½Ã ÀúÀå Á¦´ë·Î ¾ÈµÇ¼­ °Ç³Ê¶Û ¼ö ÀÖÀ¸¹Ç·Î ²Ç¼ö·Î 10000 ´õÇØÁÜ!
+	nPartyIdx += 10000;	//í˜¹ì‹œ ì €ì¥ ì œëŒ€ë¡œ ì•ˆë˜ì„œ ê±´ë„ˆë›¸ ìˆ˜ ìˆìœ¼ë¯€ë¡œ ê½ìˆ˜ë¡œ 10000 ë”í•´ì¤Œ!
 	g_IDGenerator.SetPartyID(nPartyIdx);
 }
 
@@ -109,7 +109,7 @@ void LoadVoiceChannelID()
 	FILE * fp = NULL;
 	if (_access(szFileName.c_str(), 0) == -1)
 	{
-		//ÆÄÀÏÀÌ ¾ø´Ù¸é »ı¼ºÇÑ´Ù.
+		//íŒŒì¼ì´ ì—†ë‹¤ë©´ ìƒì„±í•œë‹¤.
 		fp = fopen(szFileName.c_str(), "a");
 		fclose(fp);
 	}
@@ -122,7 +122,7 @@ void LoadVoiceChannelID()
 
 	fclose(fp);
 
-	nChannelID += 10000;	//È¤½Ã ÀúÀå Á¦´ë·Î ¾ÈµÇ¼­ °Ç³Ê¶Û ¼ö ÀÖÀ¸¹Ç·Î ²Ç¼ö·Î 10000 ´õÇØÁÜ!
+	nChannelID += 10000;	//í˜¹ì‹œ ì €ì¥ ì œëŒ€ë¡œ ì•ˆë˜ì„œ ê±´ë„ˆë›¸ ìˆ˜ ìˆìœ¼ë¯€ë¡œ ê½ìˆ˜ë¡œ 10000 ë”í•´ì¤Œ!
 	g_IDGenerator.SetVoiceChannelID(nChannelID);
 }
 
@@ -311,7 +311,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 
 		g_Log.Log(LogType::_FILELOG, L"LogInfo (Ip:%S, Port:%d)\r\n", g_Config.LogInfo.szIP, g_Config.LogInfo.nPort);		
 
-		// ResourcePath µî·ÏÇØÁØ´Ù.
+		// ResourcePath ë“±ë¡í•´ì¤€ë‹¤.
 		WCHAR wszPath[_MAX_PATH] = { 0, };
 		char szPath[_MAX_PATH] = { 0, };
 		g_IniFile.GetValue( L"Resource", L"Path", wszPath );
@@ -338,9 +338,9 @@ bool LoadConfig(int argc, TCHAR * argv[])
 	g_IniFile.GetValue(L"Info", L"PCBangGrade", &g_nPCBangGrade);
 #endif	// #if defined(_FINAL_BUILD)
 
-	//³ª¶ó¸¶´Ù Æ²¸®°í °íÁ¤ °ªÀº °øÅëÀ¸·Î config¿¡¼­ ÀĞ´Â´Ù.
+	//ë‚˜ë¼ë§ˆë‹¤ í‹€ë¦¬ê³  ê³ ì • ê°’ì€ ê³µí†µìœ¼ë¡œ configì—ì„œ ì½ëŠ”ë‹¤.
 #if defined(_KR) && defined(_FINAL_BUILD)
-	wstring wszAuthFileName = L"./Config/DNNexonAuth.ini";			// ÇÑ±¹
+	wstring wszAuthFileName = L"./Config/DNNexonAuth.ini";			// í•œêµ­
 
 	if (!g_IniFile.Open(wszAuthFileName.c_str())){
 		g_Log.Log(LogType::_FILELOG, L"%s File not Found!!\r\n", wszAuthFileName.c_str());
@@ -375,7 +375,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 #elif defined(_TW) && defined(_FINAL_BUILD) 
 	USES_CONVERSION;
 
-	wstring wszGamaniaAuth = L"./Config/DNGamaniaAuth.ini";			// ´ë¸¸
+	wstring wszGamaniaAuth = L"./Config/DNGamaniaAuth.ini";			// ëŒ€ë§Œ
 
 	if (!g_IniFile.Open(wszGamaniaAuth.c_str())){
 		g_Log.Log(LogType::_FILELOG, L"%s File not Found!!\r\n", wszGamaniaAuth.c_str());
@@ -390,7 +390,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 	g_IniFile.GetValue(L"GamaniaAuth", L"Port2", &g_Config.AuthInfoTW.nPort);
 
 #elif defined(_TH)
-	wstring wszAsiaSoftPCCafe = L"./Config/DNAsiaSoftPCCafe.ini";			// ÅÂ±¹
+	wstring wszAsiaSoftPCCafe = L"./Config/DNAsiaSoftPCCafe.ini";			// íƒœêµ­
 
 	if (!g_IniFile.Open(wszAsiaSoftPCCafe.c_str())){
 		g_Log.Log(LogType::_FILELOG, L"%s File not Found!!\r\n", wszAsiaSoftPCCafe.c_str());
@@ -490,20 +490,24 @@ bool InitApp(int argc, TCHAR * argv[])
 	g_Log.Init(wszLogName, LOGTYPE_CRT_FILE_DAY);
 #endif
 
-	// ·Îµù ½Ã±â¶§¹®¿¡ DivisionManager¿¡¼­ »©³ÂÀ½. 081208
+	// ë¡œë”© ì‹œê¸°ë•Œë¬¸ì— DivisionManagerì—ì„œ ë¹¼ëƒˆìŒ. 081208
 	if (!LoadConfig(argc, argv)){
 		g_Log.Log(LogType::_FILELOG, L"LoadConfig Failed\r\n");
 		return false;
 	}
 	g_Log.SetServerID(g_Config.nManagedID);
 
-	// ResourceMng »ı¼º
+	// ResourceMng ìƒì„±
 	CEtResourceMng::CreateInstance();
 
-	// Path ¼³Á¤
+    // TODO(Cussrro): å›ºå®šèµ„æºè·¯å¾„
+    std::string path = ".\\GameRes";
+    g_Config.szResourcePath = path;
+
+	// Path ì„¤ì •
 	std::string szResource = g_Config.szResourcePath + "\\Resource";
 	std::string szMapData = g_Config.szResourcePath + "\\MapData";
-	// ±¹°¡º° ¼ÂÆÃ
+	// êµ­ê°€ë³„ ì…‹íŒ…
 	std::string szNationStr;
 	if( szNationStr.empty() && !g_Config.szResourceNation.empty() ) szNationStr = g_Config.szResourceNation;
 
@@ -540,7 +544,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		g_Log.Log(LogType::_FILELOG, L"Iocp Initialize Success(%d)\r\n", 100);
 	}
 
-	// worldid, worldnameÀ» DataManager¿¡¼­ ´Ù½Ã ¼¼ÆÃÇÏ°Ô ¹Ù²Ş
+	// worldid, worldnameì„ DataManagerì—ì„œ ë‹¤ì‹œ ì„¸íŒ…í•˜ê²Œ ë°”ê¿ˆ
 	g_pExtManager = new CDNExtManager;
 	if (!g_pExtManager) 
 	{
@@ -611,7 +615,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		strNationFileName.clear();
 
 		strNationFileName = "uistring";
-		if (i != 0)		//0¹øÀº µğÆúÆ®
+		if (i != 0)		//0ë²ˆì€ ë””í´íŠ¸
 			strNationFileName.append(MultiLanguage::NationString[i]);
 		strNationFileName.append(".xml");
 
@@ -632,7 +636,7 @@ bool InitApp(int argc, TCHAR * argv[])
 
 #ifdef PRE_ADD_UISTRING_DIVIDE
 		strNationItemFileName = "uistring_item";
-		if (i != 0)		//0¹øÀº µğÆúÆ®
+		if (i != 0)		//0ë²ˆì€ ë””í´íŠ¸
 			strNationItemFileName.append(MultiLanguage::NationString[i]);
 		strNationItemFileName.append(".xml");
 
@@ -702,8 +706,8 @@ bool InitApp(int argc, TCHAR * argv[])
 		g_Log.Log(LogType::_FILELOG, L"GameAcceptPort (%d)\r\n", g_Config.nGameAcceptPort);
 	}
 
-#if defined(_KR) && defined(_FINAL_BUILD)	// Nexon ÀÎÁõ
-	// pc¹æ
+#if defined(_KR) && defined(_FINAL_BUILD)	// Nexon ì¸ì¦
+	// pcë°©
 	g_pNexonAuth = new CDNNexonAuth;
 	if (!g_pNexonAuth) return false;
 
@@ -714,8 +718,8 @@ bool InitApp(int argc, TCHAR * argv[])
 	if (!g_pActozShield->Init())
 		return false;
 
-#elif defined(_US) && defined(_FINAL_BUILD)	// Nexon ÀÎÁõ
-	// PIÀÎÁõ
+#elif defined(_US) && defined(_FINAL_BUILD)	// Nexon ì¸ì¦
+	// PIì¸ì¦
 	g_pNexonPI = new CDNNexonPI;
 	if (!g_pNexonPI)
 		return false;	
@@ -724,7 +728,7 @@ bool InitApp(int argc, TCHAR * argv[])
 	g_pShandaFCM = new CDNShandaFCM;
 	if (!g_pShandaFCM) return false;
 
-	if (!g_pShandaFCM->InitService()){	// FCM ÃÊ±âÈ­ÀÛ¾÷
+	if (!g_pShandaFCM->InitService()){	// FCM ì´ˆê¸°í™”ì‘ì—…
 		g_Log.Log(LogType::_FILELOG, L"g_pShandaFCM->InitService() Fail!!\r\n");
 	}
 #elif defined (_JP) && defined(_FINAL_BUILD) && defined (WIN64)
@@ -866,8 +870,8 @@ int _tmain(int argc, TCHAR* argv[])
 	setlocale(LC_ALL, "Korean");
 #endif
 
-	// ¿¹¿Ü Ã³¸®ÀÚ ÁØºñ
-	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release ¸ğµå ÄÄÆÄÀÏ ½Ã C4744 °æ°í°¡ ¹ß»ıÇÏ¿© Singleton ±¸Çö º¯°æ, CExceptionReport::GetInstancePtr() À» inline È­ ÇÏÁö ¾ÊÀ½ (Âü°í : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
+	// ì˜ˆì™¸ ì²˜ë¦¬ì ì¤€ë¹„
+	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release ëª¨ë“œ ì»´íŒŒì¼ ì‹œ C4744 ê²½ê³ ê°€ ë°œìƒí•˜ì—¬ Singleton êµ¬í˜„ ë³€ê²½, CExceptionReport::GetInstancePtr() ì„ inline í™” í•˜ì§€ ì•ŠìŒ (ì°¸ê³  : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
 	if (NOERROR != dwRetVal) {
 		DWORD dwErrNo = ::GetLastError();
 		DN_RETURN(dwErrNo);
@@ -879,7 +883,7 @@ int _tmain(int argc, TCHAR* argv[])
 		return 0;
 	}
 
-	wprintf(L"exit ¸í·ÉÀ» Ä¡¸é Á¾·á\r\n");
+	wprintf(L"exit ëª…ë ¹ì„ ì¹˜ë©´ ì¢…ë£Œ\r\n");
 
 	char szCmd[256] = {0};	
 	while (1)
@@ -1009,23 +1013,23 @@ int _tmain(int argc, TCHAR* argv[])
 			std::vector<std::string>	vSplit;
 			boost::algorithm::split( vSplit, strValue, boost::algorithm::is_any_of("/") );
 
-			// ¸í·É¾î
+			// ëª…ë ¹ì–´
 			if( vSplit.size() >= 1 )
 			{
 				if( stricmp( vSplit[0].c_str(), "create" ) )
 					break;
 			}
-			// ¹æ°³¼ö
+			// ë°©ê°œìˆ˜
 			if( vSplit.size() >= 2 )
 			{
 				iDefaultCreateCount = boost::lexical_cast<int>( vSplit[1] );
 			}
-			// ·£´ı½Ãµå
+			// ëœë¤ì‹œë“œ
 			if( vSplit.size() >= 3 )
 			{
 				iRandomSeed = boost::lexical_cast<int>( vSplit[2] );
 			}
-			// ¸Ê¹øÈ£
+			// ë§µë²ˆí˜¸
 			if( vSplit.size() >= 4 )
 			{
 				iDefaultMapIndex = boost::lexical_cast<int>( vSplit[3] );

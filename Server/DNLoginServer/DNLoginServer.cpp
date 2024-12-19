@@ -148,7 +148,7 @@ void LoadUserSessionID()
 
 	fclose(fp);
 
-	nSessionID += DEFAULTUSERSESSIONID;	// È¤½Ã ÀúÀå Á¦´ë·Î ¾ÈµÇ¼­ °Ç³Ê¶Û ¼ö ÀÖÀ¸¹Ç·Î ²Ç¼ö·Î N ´õÇØÁÜ!
+	nSessionID += DEFAULTUSERSESSIONID;	// í˜¹ì‹œ ì €ì¥ ì œëŒ€ë¡œ ì•ˆë˜ì„œ ê±´ë„ˆë›¸ ìˆ˜ ìˆìœ¼ë¯€ë¡œ ê½ìˆ˜ë¡œ N ë”í•´ì¤Œ!
 	if (0x00FFFFFF <= nSessionID) nSessionID = DEFAULTUSERSESSIONID;
 
 	g_IDGenerator.SetUserConnectionID(nSessionID);
@@ -206,7 +206,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 	WCHAR wszBuf[128] = { 0, }; //, wszStr[64] = { 0, };
 	char szData[128] = { 0, }, *pStr = NULL;
 
-	wstring wszFileName = L"./Config/DNLogin.ini";			// ÇÑ±¹
+	wstring wszFileName = L"./Config/DNLogin.ini";			// í•œêµ­
 
 	if (!g_IniFile.Open(wszFileName.c_str())){
 		g_Log.Log(LogType::_FILELOG, L"%s File not Found!!\r\n", wszFileName.c_str());
@@ -351,7 +351,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 			g_IniFile.GetValue(L"DB_DNWorld", wszData, g_Config.WorldDB[i].wszDBName);
 		}
 
-		// ResourcePath µî·ÏÇØÁØ´Ù.
+		// ResourcePath ë“±ë¡í•´ì¤€ë‹¤.
 		WCHAR wszPath[_MAX_PATH] = { 0, };
 		char szPath[_MAX_PATH] = { 0, };
 
@@ -374,11 +374,11 @@ bool LoadConfig(int argc, TCHAR * argv[])
 		}
 	}
 
-	//³ª¶ó¸¶´Ù Æ²¸®°í °íÁ¤ °ªÀº °øÅëÀ¸·Î config¿¡¼­ ÀĞ´Â´Ù.
+	//ë‚˜ë¼ë§ˆë‹¤ í‹€ë¦¬ê³  ê³ ì • ê°’ì€ ê³µí†µìœ¼ë¡œ configì—ì„œ ì½ëŠ”ë‹¤.
 #if defined(_TW) 
 	USES_CONVERSION;
 
-	wstring wszGamaniaAuth = L"./Config/DNGamaniaAuth.ini";					// ´ë¸¸
+	wstring wszGamaniaAuth = L"./Config/DNGamaniaAuth.ini";					// ëŒ€ë§Œ
 
 	if (!g_IniFile.Open(wszGamaniaAuth.c_str())){
 		g_Log.Log(LogType::_FILELOG, L"%s File not Found!!\r\n", wszGamaniaAuth.c_str());
@@ -545,10 +545,14 @@ bool InitApp(int argc, TCHAR * argv[])
 	}
 	g_Log.SetServerID(g_Config.nManagedID);
 
-	// ResourceMng »ı¼º
+	// ResourceMng ìƒì„±
 	CEtResourceMng::CreateInstance();
 
-	// Path ¼³Á¤
+    // TODO(Cussrro): å›ºå®šèµ„æºè·¯å¾„
+    std::string path = ".\\GameRes";
+    g_Config.szResourcePath = path;
+
+	// Path ì„¤ì •
 	std::string szResource = g_Config.szResourcePath + "\\Resource";
 	std::string szNationStr;
 	if( szNationStr.empty() && !g_Config.szResourceNation.empty() ) szNationStr = g_Config.szResourceNation;
@@ -579,7 +583,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		strNationFileName.clear();
 
 		strNationFileName = "uistring";
-		if (i != 0)		//0¹øÀº µğÆúÆ®
+		if (i != 0)		//0ë²ˆì€ ë””í´íŠ¸
 			strNationFileName.append(MultiLanguage::NationString[i]);
 		strNationFileName.append(".xml");	
 
@@ -599,7 +603,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		strNationItemFileName.clear();
 
 		strNationItemFileName = "uistring_item";
-		if (i != 0)		//0¹øÀº µğÆúÆ®
+		if (i != 0)		//0ë²ˆì€ ë””í´íŠ¸
 			strNationItemFileName.append(MultiLanguage::NationString[i]);
 		strNationItemFileName.append(".xml");	
 
@@ -685,7 +689,7 @@ bool InitApp(int argc, TCHAR * argv[])
 	if (!g_pUserConnectionManager) return false;
 
 #if defined(_GPK)
-	// Shanda º¸¾È
+	// Shanda ë³´ì•ˆ
 	g_Config.pDynCode = GPKCreateSvrDynCode();
 	if (!g_Config.pDynCode){
 		g_Log.Log(LogType::_FILELOG, L"SvrDynCode NULL!!!\r\n");
@@ -722,7 +726,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		return false;
 	}
 
-	if (g_Config.pDynCode->LoadAuthFile("AuthData.dat") == false)	// CSAuth°ü·ÃµÈ ¾Ö
+	if (g_Config.pDynCode->LoadAuthFile("AuthData.dat") == false)	// CSAuthê´€ë ¨ëœ ì• 
 	{
 		g_Log.Log(LogType::_FILELOG, L"LoadAuthFile() Fail!!!\r\n");
 		return false;
@@ -751,7 +755,7 @@ bool InitApp(int argc, TCHAR * argv[])
 		g_Log.Log(LogType::_FILELOG, L"Iocp Initialize Sucess(%d)\r\n", g_Config.nIocpMax);
 	}
 
-	//º¯°æ ·Î±×¿Í ¼­ºñ½º¸Ş´ÏÀúÀÇ ¿¬°áÀº ·±Ã³¸¦ ÅëÇÑ ½ÇÇà¿¡¼­¸¸ µ¿ÀÛÇÏµµ·Ï ÇÏÀÚ(½ÇÇàÀÎÀÚ¿¡ ÀÇÇÑ ½ÇÇà)
+	//ë³€ê²½ ë¡œê·¸ì™€ ì„œë¹„ìŠ¤ë©”ë‹ˆì €ì˜ ì—°ê²°ì€ ëŸ°ì²˜ë¥¼ í†µí•œ ì‹¤í–‰ì—ì„œë§Œ ë™ì‘í•˜ë„ë¡ í•˜ì(ì‹¤í–‰ì¸ìì— ì˜í•œ ì‹¤í–‰)
 	g_pLogConnection = new CDNLogConnection;
 	if( !g_pLogConnection ) return false;
 	g_pLogConnection->SetIp(g_Config.LogInfo.szIP);
@@ -790,7 +794,7 @@ bool InitApp(int argc, TCHAR * argv[])
 	}
 #endif	// #if defined(_KRAZ)
 
-	g_pAuthManager = new CDNAuthManager;	// P.S.> _FINAL_BUILD °¡ ¾Æ´Ñ °æ¿ì ÀÎÁõ °ü¸®ÀÚ°¡ MasterServer Acceptor º¸´Ù ¸ÕÀú »ı¼º, ÃÊ±âÈ­µÇ¾î¾ß g_Config.nManagedID ¸¦ ¼¼ÆÃÇÒ ¼ö ÀÖÀ½
+	g_pAuthManager = new CDNAuthManager;	// P.S.> _FINAL_BUILD ê°€ ì•„ë‹Œ ê²½ìš° ì¸ì¦ ê´€ë¦¬ìê°€ MasterServer Acceptor ë³´ë‹¤ ë¨¼ì € ìƒì„±, ì´ˆê¸°í™”ë˜ì–´ì•¼ g_Config.nManagedID ë¥¼ ì„¸íŒ…í•  ìˆ˜ ìˆìŒ
 	if (!g_pAuthManager) {
 		g_Log.Log(LogType::_FILELOG, L"g_pAuthManager Create Fail\r\n");
 		return false;
@@ -823,10 +827,10 @@ bool InitApp(int argc, TCHAR * argv[])
 	LoadUserSessionID();
 
 	// Client Accept
-	// QUERY_RESETAUTHSERVER ÀÀ´ä¹ŞÀ¸¸é AcceptÇÑ´Ù.	
+	// QUERY_RESETAUTHSERVER ì‘ë‹µë°›ìœ¼ë©´ Acceptí•œë‹¤.	
 	
-#if defined(_KR)	// Nexon ÀÎÁõ
-	// ÀÎÁõ
+#if defined(_KR)	// Nexon ì¸ì¦
+	// ì¸ì¦
 	int nRet = AuthCheck_SetLocale(kLocaleID_KR);
 	if (nRet == AUTHCHECK_ERROR_OK){
 		g_Log.Log(LogType::_FILELOG, L"Nexon AuthCheck OK!!\r\n");
@@ -849,8 +853,8 @@ bool InitApp(int argc, TCHAR * argv[])
 	if (!g_pActozShield->Init())
 		return false;
 
-#elif defined(_US)	// Nexon ÀÎÁõ
-	// ÀÎÁõ
+#elif defined(_US)	// Nexon ì¸ì¦
+	// ì¸ì¦
 	NMLOCALEID Locale = (NMLOCALEID)g_Config.nLocaleID;
 	int nRet = AuthCheck_SetLocale(Locale);
 	if (nRet == AUTHCHECK_ERROR_OK){
@@ -862,15 +866,15 @@ bool InitApp(int argc, TCHAR * argv[])
 	}
 
 #if defined(_FINAL_BUILD)
-	// PIÀÎÁõ
+	// PIì¸ì¦
 	g_pNexonPI = new CDNNexonPI;
 	if (!g_pNexonPI)
 		return false;
 #endif	// #if defined(_FINAL_BUILD)
 
 #elif defined(_JP) && defined(_FINAL_BUILD)
-	// ÀÎÁõ
-	int nRet = HanAuthInit("J_DNEST");	// ³ªÁß¿¡ ¼­ºñ½º Å¸ÀÔ ¹Ù²ã¾ßÇÔ
+	// ì¸ì¦
+	int nRet = HanAuthInit("J_DNEST");	// ë‚˜ì¤‘ì— ì„œë¹„ìŠ¤ íƒ€ì… ë°”ê¿”ì•¼í•¨
 	if (nRet == HAN_AUTHSVR_OK){
 		g_Log.Log(LogType::_FILELOG, L"HanAuthInit OK!!\r\n");
 	}
@@ -984,7 +988,7 @@ void ClearApp()
 		DWORD dwRetVal = NOERROR;
 		HShieldSvrWrapper::AhnHS_CloseServerHandle(g_Config.hHSServer, &dwRetVal);
 		if (NOERROR != dwRetVal) {
-			// ¿¹¿Ü ¹ß»ı
+			// ì˜ˆì™¸ ë°œìƒ
 		}
 
 		g_Config.hHSServer = ANTICPX_INVALID_HANDLE_VALUE;
@@ -1078,8 +1082,8 @@ int _tmain(int argc, TCHAR* argv[])
 	_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 #endif
 
-	// ¿¹¿Ü Ã³¸®ÀÚ ÁØºñ
-	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release ¸ğµå ÄÄÆÄÀÏ ½Ã C4744 °æ°í°¡ ¹ß»ıÇÏ¿© Singleton ±¸Çö º¯°æ, CExceptionReport::GetInstancePtr() À» inline È­ ÇÏÁö ¾ÊÀ½ (Âü°í : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
+	// ì˜ˆì™¸ ì²˜ë¦¬ì ì¤€ë¹„
+	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE, MiniDumpWithFullMemory);	// Release ëª¨ë“œ ì»´íŒŒì¼ ì‹œ C4744 ê²½ê³ ê°€ ë°œìƒí•˜ì—¬ Singleton êµ¬í˜„ ë³€ê²½, CExceptionReport::GetInstancePtr() ì„ inline í™” í•˜ì§€ ì•ŠìŒ (ì°¸ê³  : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
 	if (NOERROR != dwRetVal) {
 		DWORD dwErrNo = ::GetLastError();
 		DN_RETURN(dwErrNo);
@@ -1095,7 +1099,7 @@ int _tmain(int argc, TCHAR* argv[])
 
 	g_Log.Log(LogType::_FILELOG, L"[Thread-Start] MainThread - PID ; %d, TID : %d\r\n", ::GetCurrentProcessId(), ::GetCurrentThreadId());
 
-	wprintf(L"exit ¸í·ÉÀ» Ä¡¸é Á¾·á\r\n");
+	wprintf(L"exit ëª…ë ¹ì„ ì¹˜ë©´ ì¢…ë£Œ\r\n");
 
 	//SetConsoleTitleA(FormatA("LoginServer Rev.%s", revDNLoginServer).c_str());
 

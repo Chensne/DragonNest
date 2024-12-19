@@ -102,7 +102,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 		g_Config.nCombineWorldDBID = nCombineWorldID;
 
 		if( g_Config.nCombineWorldDBID <= 0 )
-			g_Log.Log(LogType::_FILELOG, L"¿ùµåÅëÇÕ °ü·Ã DBID°¡ ¼³Á¤µÇ¾ú´ÂÁö È®ÀÎÇØÁÖ¼¼¿ä. ¼³Á¤ÇÏÁö ¾ÊÀ¸¸é Á¦´ë·Î ÀÌ¿ëÇÒ ¼ö°¡ ¾ø½À´Ï´Ù.\r\n");
+			g_Log.Log(LogType::_FILELOG, L"ì›”ë“œí†µí•© ê´€ë ¨ DBIDê°€ ì„¤ì •ë˜ì—ˆëŠ”ì§€ í™•ì¸í•´ì£¼ì„¸ìš”. ì„¤ì •í•˜ì§€ ì•Šìœ¼ë©´ ì œëŒ€ë¡œ ì´ìš©í•  ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤.\r\n");
 		else
 			g_Log.Log(LogType::_FILELOG, L"CombineWorld = %d\r\n", g_Config.nCombineWorldDBID);
 #endif
@@ -130,7 +130,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 #if defined( PRE_WORLDCOMBINE_PARTY )
 		g_IniFile.GetValue(L"DB_DNWorld", L"CombineWorldDB", &g_Config.nCombineWorldDBID);
 		if( g_Config.nCombineWorldDBID <= 0 )
-			g_Log.Log(LogType::_FILELOG, L"¿ùµåÅëÇÕ °ü·Ã DBID°¡ ¼³Á¤µÇ¾ú´ÂÁö È®ÀÎÇØÁÖ¼¼¿ä. ¼³Á¤ÇÏÁö ¾ÊÀ¸¸é Á¦´ë·Î ÀÌ¿ëÇÒ ¼ö°¡ ¾ø½À´Ï´Ù.\r\n");
+			g_Log.Log(LogType::_FILELOG, L"ì›”ë“œí†µí•© ê´€ë ¨ DBIDê°€ ì„¤ì •ë˜ì—ˆëŠ”ì§€ í™•ì¸í•´ì£¼ì„¸ìš”. ì„¤ì •í•˜ì§€ ì•Šìœ¼ë©´ ì œëŒ€ë¡œ ì´ìš©í•  ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤.\r\n");
 #endif // #if defined( PRE_WORLDCOMBINE_PARTY )
 
 		WCHAR wszLogStr[128] = {0,};	
@@ -170,7 +170,7 @@ bool LoadConfig(int argc, TCHAR * argv[])
 			g_IniFile.GetValue(L"DB_DNWorld", wszData, g_Config.WorldDB[i].wszDBName);
 		}
 
-		// ResourcePath µî·ÏÇØÁØ´Ù.
+		// ResourcePath ë“±ë¡í•´ì¤€ë‹¤.
 		WCHAR wszPath[_MAX_PATH] = { 0, };
 		char szPath[_MAX_PATH] = { 0, };
 
@@ -193,10 +193,10 @@ bool LoadConfig(int argc, TCHAR * argv[])
 		}
 	}
 
-	//³ª¶ó¸¶´Ù Æ²¸®°í °íÁ¤ °ªÀº °øÅëÀ¸·Î config¿¡¼­ ÀĞ´Â´Ù.
+	//ë‚˜ë¼ë§ˆë‹¤ í‹€ë¦¬ê³  ê³ ì • ê°’ì€ ê³µí†µìœ¼ë¡œ configì—ì„œ ì½ëŠ”ë‹¤.
 	if (g_Config.nThreadMax > THREADMAX) g_Config.nThreadMax = THREADMAX;
 
-	// ¹Ìµé¿ş¾î ¾²·¹µå ÀÎÀÚ°ª°ú »ó°ü¾øÀÌ ÄÚµå¿¡ ¹ÚÀ½.
+	// ë¯¸ë“¤ì›¨ì–´ ì“°ë ˆë“œ ì¸ìê°’ê³¼ ìƒê´€ì—†ì´ ì½”ë“œì— ë°•ìŒ.
 	g_Config.nThreadMax = THREADMAX;
 
 #if defined(_KRAZ)
@@ -242,7 +242,7 @@ bool InitApp(int argc, TCHAR * argv[])
 #if defined(_DEBUG) && defined(_WORK)
 	if ( CheckWorkingFolder(L"out") == false )
 	{
-		wprintf(L"ÀÛ¾÷ µğ·ºÅä¸®¸¦ ¼³Á¤ÇØÁÖ¼¼¿ä!!!! setworking folder error " );
+		wprintf(L"ì‘ì—… ë””ë ‰í† ë¦¬ë¥¼ ì„¤ì •í•´ì£¼ì„¸ìš”!!!! setworking folder error " );
 	}
 #endif
 
@@ -289,12 +289,16 @@ bool InitApp(int argc, TCHAR * argv[])
 
 	g_Log.SetServerID(g_Config.nManagedID);
 
-	// ResourceMng »ı¼º
+	// ResourceMng ìƒì„±
 	CEtResourceMng::CreateInstance();
 
-	// Path ¼³Á¤
+    // TODO(Cussrro): å›ºå®šèµ„æºè·¯å¾„
+    std::string path = ".\\GameRes";
+    g_Config.szResourcePath = path;
+
+	// Path ì„¤ì •
 	std::string szResource = g_Config.szResourcePath + "\\Resource";
-	// ±¹°¡º° ¼ÂÆÃ
+	// êµ­ê°€ë³„ ì…‹íŒ…
 	std::string szNationStr;
 	if( szNationStr.empty() && !g_Config.szResourceNation.empty() ) szNationStr = g_Config.szResourceNation;
 	if( !szNationStr.empty() ) 
@@ -413,12 +417,12 @@ void ClearApp()
 int _tmain(int argc, TCHAR* argv[])
 {
 #if defined( PRE_PARTY_DB )
-	// PartyList ¸¦ ÂÉ°³¼­ º¸³»´Âµ¥ ÇÑ ÆĞÅ¶ÀÇ ÃÖ´ë»çÀÌÁî°¡ Network »ó¿¡¼­ º¸³¾¼ö ÀÖ´Â ÃÖ´ë Å©±â°¡ ³Ñ¾î°¡´ÂÁö ÄÄÆÄÀÏÅ¸ÀÓ½Ã °Ë»çÇÑ´Ù.
+	// PartyList ë¥¼ ìª¼ê°œì„œ ë³´ë‚´ëŠ”ë° í•œ íŒ¨í‚·ì˜ ìµœëŒ€ì‚¬ì´ì¦ˆê°€ Network ìƒì—ì„œ ë³´ë‚¼ìˆ˜ ìˆëŠ” ìµœëŒ€ í¬ê¸°ê°€ ë„˜ì–´ê°€ëŠ”ì§€ ì»´íŒŒì¼íƒ€ì„ì‹œ ê²€ì‚¬í•œë‹¤.
 	BOOST_STATIC_ASSERT( (40*1024) >= sizeof(TAGetListParty) );
 #endif // #if defined( PRE_PARTY_DB )
 
-	// DB¿¡ KeySetting ÀúÀåÇÒ ¼ö ÀÖ´Â ¹ÙÀÌ³Ê¸® Å©±â°¡ 59¹ÙÀÌÆ®·Î °íÁ¤µÇ¾î ÀÖÀ¸¹Ç·Î 
-	// ÁöÁ¤µÈ Å©±âº¸´Ù Ä¿Áö¸é ÄÄÆÄÀÏ ¿¡·¯¸¦ ³»¹ö¸°´Ù.
+	// DBì— KeySetting ì €ì¥í•  ìˆ˜ ìˆëŠ” ë°”ì´ë„ˆë¦¬ í¬ê¸°ê°€ 59ë°”ì´íŠ¸ë¡œ ê³ ì •ë˜ì–´ ìˆìœ¼ë¯€ë¡œ 
+	// ì§€ì •ëœ í¬ê¸°ë³´ë‹¤ ì»¤ì§€ë©´ ì»´íŒŒì¼ ì—ëŸ¬ë¥¼ ë‚´ë²„ë¦°ë‹¤.
 #if defined(PRE_ADD_SKILLSLOT_EXTEND)
 	BOOST_STATIC_ASSERT( 79 >= sizeof(TKeySetting) );
 	BOOST_STATIC_ASSERT( 201 >= sizeof(TPadSetting) );
@@ -439,8 +443,8 @@ int _tmain(int argc, TCHAR* argv[])
 	setlocale(LC_ALL, "Korean");
 #endif
 
-	// ¿¹¿Ü Ã³¸®ÀÚ ÁØºñ
-	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE);	// Release ¸ğµå ÄÄÆÄÀÏ ½Ã C4744 °æ°í°¡ ¹ß»ıÇÏ¿© Singleton ±¸Çö º¯°æ, CExceptionReport::GetInstancePtr() À» inline È­ ÇÏÁö ¾ÊÀ½ (Âü°í : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
+	// ì˜ˆì™¸ ì²˜ë¦¬ì ì¤€ë¹„
+	DWORD dwRetVal = CExceptionReport::GetInstancePtr()->Open(_T(".\\"), TRUE, TRUE);	// Release ëª¨ë“œ ì»´íŒŒì¼ ì‹œ C4744 ê²½ê³ ê°€ ë°œìƒí•˜ì—¬ Singleton êµ¬í˜„ ë³€ê²½, CExceptionReport::GetInstancePtr() ì„ inline í™” í•˜ì§€ ì•ŠìŒ (ì°¸ê³  : http://msdn.microsoft.com/ko-kr/library/a7za416f.aspx)
 	if (NOERROR != dwRetVal) {
 		DWORD dwErrNo = ::GetLastError();
 		DN_RETURN(dwErrNo);
@@ -452,7 +456,7 @@ int _tmain(int argc, TCHAR* argv[])
 		return 0;
 	}
 
-	wprintf(L"exit ¸í·ÉÀ» Ä¡¸é Á¾·á\r\n");
+	wprintf(L"exit ëª…ë ¹ì„ ì¹˜ë©´ ì¢…ë£Œ\r\n");
 
 	char szCmd[256] = {0};	
 	while (1)
