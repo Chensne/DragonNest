@@ -6,4 +6,7 @@
     <LocalDebuggerWorkingDirectory>$(SolutionDir)..\..\build\client\</LocalDebuggerWorkingDirectory>
     <LocalDebuggerCommandArguments>/ip:127.0.0.1 /port:14300</LocalDebuggerCommandArguments>
   </PropertyGroup>
+  <PropertyGroup>
+    <ShowAllFiles>true</ShowAllFiles>
+  </PropertyGroup>
 </Project>
