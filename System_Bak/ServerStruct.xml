@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ServerStruct>
+    <Struct Version="1" />
+    <ServiceManager IP="127.0.0.1" Port="8600" />
+    <NetLauncherList>
+        <Launcher ID="1" IP="127.0.0.1" WID="1"/>
+    </NetLauncherList>
+    <DefaultServerInfo>
+        <SocketMax Socket="500" />
+        <DBPort Port="26000" />
+        <LoginClientPort Port="14300" />
+        <LoginMasterPort Port="7000" />
+        <MasterVillagePort Port="8000" />
+        <MasterGamePort Port="9000" />
+        <VillageClientPort Port="14400" />
+        <GameClientPortUDP Port="15100" />
+        <GameClientPortTCP Port="14500" />
+        <CashPort Port="12600" />
+        <LogPort Port="3000" />
+    </DefaultServerInfo>
+    <DefaultDataBaseInfo>
+        <MemberShip IP="127.0.0.1" Port="1433" DBID="DragonNest" DBName="DNMembership" />
+        <World WorldID="1" IP="127.0.0.1" Port="1433" DBID="DragonNest" DBName="DNWorld" />
+        <Log IP="127.0.0.1" Port="1433" DBID="DragonNest" DBName="DNServerLog" />
+        <GSM IP="127.0.0.1" Port="1433" DBName="DNGSM" />
+        <Staging IP="127.0.0.1" Port="1433" DBName="DNStaging" />
+    </DefaultDataBaseInfo>
+	<ServerInfo SID="1" Type="Log" AssignedLauncherID="1" ExcuteFileName="DNLogServer.exe" />
+    <ServerInfo SID="2" Type="Cash" AssignedLauncherID="1" ExcuteFileName="DNCashServer.exe" />
+    <ServerInfo SID="3" Type="Master" AssignedLauncherID="1" ExcuteFileName="DNMasterServer.exe" />
+    <ServerInfo SID="4" Type="Login" AssignedLauncherID="1" ExcuteFileName="DNLoginServer.exe" />
+    <ServerInfo SID="5" Type="DB" AssignedLauncherID="1" ExcuteFileName="DNDBServer.exe" For="Game" />
+    <ServerInfo SID="6" Type="DB" AssignedLauncherID="1" ExcuteFileName="DNDBServer.exe" For="Village" />
+    <ServerInfo SID="7" Type="Village" AssignedLauncherID="1" ExcuteFileName="DNVillageServer.exe">
+        <VillageID ID="1" />
+    </ServerInfo>
+    <ServerInfo SID="8" Type="Game" AssignedLauncherID="1" ExcuteFileName="DNGameServer.exe">
+		<SocketMax Count="1" />
+		<PreLoad Load="false" />
+		<ClientPortUDP Port="15100" />
+		<ClientPortTCP Port="14500" />	
+    </ServerInfo>
+</ServerStruct>

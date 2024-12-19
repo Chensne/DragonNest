@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ChannelInfo>
+    <MeritBonusTable>
+        <Bonus ID="1" MinLevel="1" MaxLevel="9" BonusType="CompleteExp" ExtendValue="350"></Bonus>
+        <Bonus ID="2" MinLevel="9" MaxLevel="16" BonusType="CompleteExp" ExtendValue="300"></Bonus>
+        <Bonus ID="3" MinLevel="16" MaxLevel="32" BonusType="CompleteExp" ExtendValue="200"></Bonus>
+        <Bonus ID="4" MinLevel="24" MaxLevel="80" BonusType="CompleteExp" ExtendValue="150"></Bonus>
+        <Bonus ID="5" MinLevel="1" MaxLevel="1" BonusType="CompleteExp" ExtendValue="0"></Bonus>
+    </MeritBonusTable>
+    <ServerMergerInfo>
+        <Merger SetID="" ServerID=""></Merger>
+    </ServerMergerInfo>
+    <ServerInfo>
+        <Server ID="1" IP="127.0.0.1" Name="测试服务器" WorldMaxUser="1" DefaultChannelCount="1" DefaultMaxUser="1" OnTop="false">
+            <VillageServerInfo ID="1" IP="127.0.0.1" Port="14400">
+                <VillageInfo CID="1" ID="1" Name="PrairieTown" MaxUser="1" Attribute="Normal|Merit" MeritBonusID="1" Visibility="True" LimitLevel="0" DependentMapID="0"></VillageInfo>
+            </VillageServerInfo>
+        </Server>
+    </ServerInfo>
+</ChannelInfo>
