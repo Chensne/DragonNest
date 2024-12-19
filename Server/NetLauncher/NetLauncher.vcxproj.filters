@@ -55,11 +55,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Out\Config\DNNetLauncher.ini">
-      <Filter>WinMain</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>WinMain</Filter>
     </ClInclude>
