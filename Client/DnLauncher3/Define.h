@@ -1,13 +1,13 @@
 #pragma once
 
 //////////////////////////////////////////////////////////////////////////
-// ±¹°¡º° Á¤ÀÇ (¸®¼Ò½º ¶óÀÌºê·¯¸® ¹× PatchConfigList Á¤º¸)
+// æƒ«å•Šå–Š æ²¥ç‹¼ (åºœå®¶èƒ¶ æ‰¼æå®çŸ¾åºœ æ£º PatchConfigList æ²¥ç„Š)
 
-//	_USE_COMMAND_LINE			// Ä¿¸Çµå¶óÀÎ¸¸ »ç¿ë
-//	_USE_SINGLE_CLIENT			// ½Ì±Û Å¬¶óÀÌ¾ğÆ®¸¸ Áö¿ø
-//	_USE_PARTITION_SELECT		// ÆÄÆ¼¼Ç ¼±ÅÃ ±â´É Áö¿ø
-//	_USE_MULTILANGUAGE			// ´Ù±¹¾î Áö¿ø
-//	_USE_SPLIT_COMPRESS_FILE	// ºĞÇÒ ¾ĞÃà(RAR) ÆÄÀÏ ´Ù¿î·Îµå Áö¿ø
+//	_USE_COMMAND_LINE			// ç›®ç›–é›æ‰¼ç‰¢çˆ¶ è¤ä¾©
+//	_USE_SINGLE_CLIENT			// æ•™è‡‚ åŠªæ‰¼ææ”«é£˜çˆ¶ ç˜¤ç›”
+//	_USE_PARTITION_SELECT		// é¢‡èè®° æ€¥ç¶ æ‰ç“· ç˜¤ç›”
+//	_USE_MULTILANGUAGE			// ä¿ƒæƒ«ç»¢ ç˜¤ç›”
+//	_USE_SPLIT_COMPRESS_FILE	// ç›’ä¸” æ‹˜ç»µ(RAR) é¢‡è€ ä¿ƒæ¬¾è‚ºé› ç˜¤ç›”
 
 
 #if defined(_KOR)
@@ -22,7 +22,7 @@
 		#pragma comment( lib, "Output/Release_KOR/ResourceKOR.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://dn-nexon14.ktics.co.kr/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_KRAZ)
@@ -37,9 +37,9 @@
 		#pragma comment( lib, "Output/Release_KRAZ/ResourceKOR.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
-	#define	PATCHCONFIG_LIST_URL	_T( "http://actoz.dn.nowcdn.co.kr/ClientPatch/Release_Client/" ) // ¶óÀÌºê¿ë.
-	//#define	PATCHCONFIG_LIST_URL	_T( "http://actoz.dn.nowcdn.co.kr/ClientPatch/Test_Client/" ) // Å×½ºÆ®¿ë.
+	// URL æ²¥ç‹¼
+	#define	PATCHCONFIG_LIST_URL	_T( "http://actoz.dn.nowcdn.co.kr/ClientPatch/Release_Client/" ) // æ‰¼æå®ä¾©.
+	//#define	PATCHCONFIG_LIST_URL	_T( "http://actoz.dn.nowcdn.co.kr/ClientPatch/Test_Client/" ) // æŠ›èƒ¶é£˜ä¾©.
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_JPN)
 	#define _USE_SINGLE_CLIENT
@@ -52,7 +52,7 @@
 		#pragma comment( lib, "Output/Release_JPN/ResourceJPN.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://down.hangame.co.jp/jp/purple/dist/j_dnest/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_CHN)
@@ -67,7 +67,7 @@
 		#pragma comment( lib, "Output/Release_CHN/ResourceCHN.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://update.51newsx.com:88/patch/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml")
 	#define GPK_URL					"http://dorado.sdo.com/dn/GPK"
@@ -79,10 +79,10 @@
 	#if defined _DEBUG
 		#pragma comment( lib, "Output/Debug_TWN/ResourceTWN.lib" )
 	#else
-		#pragma comment( lib, "Output/Release_TWN/ResourceTWN.lib" )
+		#pragma comment( lib, "../../build/release/librarys/ResourceTWN.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://update.51newsx.com:88/patch/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_USA)
@@ -96,7 +96,7 @@
 		#pragma comment( lib, "Output/Release_USA/ResourceUSA.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 #ifdef _SKY
 	#define	PATCHCONFIG_LIST_URL	_T( "http://cdn.dragonnest.ro/patch/" )
 #else
@@ -123,7 +123,7 @@
 		#pragma comment( lib, "Output/Release_SG/ResourceSG.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://plaster.cherrycredits.com/dnest/patch/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 	#define GPK_URL					"http://gpk.cherrycredits.com/dn/updates"
@@ -139,7 +139,7 @@
 		#pragma comment( lib, "Output/Release_THAI/ResourceTHAI.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://auto-dgn.asiasoft.co.th/real/Client/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_EU)
@@ -155,7 +155,7 @@
 		#pragma comment( lib, "Output/Release_EU/ResourceEU.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://cdn.dragonnest.ro/patch/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_IDN)
@@ -170,7 +170,7 @@
 		#pragma comment( lib, "Output/Release_IDN/ResourceIDN.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://patch.gemscool.com/dragonnest/live/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_RUS)
@@ -184,7 +184,7 @@
 		#pragma comment( lib, "Output/Release_RUS/ResourceRUS.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://dn-nexon14.ktics.co.kr/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigList.xml" )
 #elif defined(_TEST)
@@ -200,14 +200,14 @@
 		#pragma comment( lib, "Output/Release_Test/ResourceTest.lib" )
 	#endif
 
-	// URL Á¤ÀÇ
+	// URL æ²¥ç‹¼
 	#define	PATCHCONFIG_LIST_URL	_T( "http://dragonnest.nefficient.co.kr/Test/" )
 	#define	PATCHCONFIG_LIST		_T( "PatchConfigListTest.xml" )
 #endif
 
 
 //////////////////////////////////////////////////////////////////////////
-// °øÅë Á¤ÀÇ
+// å‚çƒ¹ æ²¥ç‹¼
 
 #define DNLAUNCHER_NAME			"DnLauncher.exe"
 #define DNLAUNCHER_NAME_TMP		"dnlauncher.tmp"

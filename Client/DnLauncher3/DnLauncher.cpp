@@ -42,9 +42,9 @@ int __cdecl MyAllocHook( int nAllocType, void * pvData, size_t nSize, int nBlock
 // The one and only CDnLauncherApp object
 CDnLauncherApp	theApp;
 CString			g_szCmdLine;
-CString			g_szOriginalCmdLine;		// ·±ÃÄÆĞÄ¡¸¦ À§ÇØ¼­ ÃÊ±â°ª º¸Á¸
-CString			g_szCommandLinePatchURL;	// Ä¿¸Çµå ¶óÀÎÀ¸·Î PatchConfigList.xmlÀÌ ÀÖ´Â °÷ÀÇ ÁÖ¼Ò¸¦ Àü´Ş ÇÒ °æ¿ì (±¹³»)
-int				g_nInitErrorCode = 0;		// ·±Ã³ ÃÊ±âÈ­ ½Ã ¿¡·¯ ÄÚµå
+CString			g_szOriginalCmdLine;		// ç¹åªšè©æ‘¹ç”« å›°ç§¦è¾‘ æª¬æ‰è”¼ ç„Šç²®
+CString			g_szCommandLinePatchURL;	// ç›®ç›–é› æ‰¼ç‰¢æ è‚º PatchConfigList.xmlæ ä¹ç»° é•‘ç‹¼ æ—å®¶ç”« å‚ˆå´” ä¸” ç‰ˆå¿« (æƒ«éƒ´)
+int				g_nInitErrorCode = 0;		// ç¹è´¸ æª¬æ‰æ‹³ çŸ« ä¿ŠçŸ¾ å†…é›
 
 extern CDnFistPatchDownloadThread*  g_pFirstPatchDownloadThread;
 CDnFIrstPatchDlg					g_FirstPatchDlg;
@@ -63,6 +63,7 @@ HANDLE g_hMutex = NULL;
 
 
 // CDnLauncherApp construction
+extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 CDnLauncherApp::CDnLauncherApp()
 {
 #ifdef _SKY
@@ -74,7 +75,7 @@ CDnLauncherApp::CDnLauncherApp()
 #endif // _USE_LOG
 
 #ifdef _DEBUG
-	//µğ¹ö±×½Ã 2005 ¿¡¼­´Â TRACE »ç¿ë½Ã ½ºÆ®¸µÀÌ±æ¸é ¿¡·¯°¡ ³ª¿À±â‹ª½Ã ·ÎÄÃÀ» ¼ÂÆÃÇØÁà¾ß ÇÑ´Ù. 
+	//å¼æ»šå¼ŠçŸ« 2005 ä¿Šè¾‘ç»° TRACE è¤ä¾©çŸ« èƒ¶é£˜å‚…æè¾¨æ ä¿ŠçŸ¾å•Š å”±å·æ‰å«ªçŸ« è‚ºæ‹¿é˜‘ æ‚¸æ³¼ç§¦æ‹å…· èŒ„ä¿ƒ. 
 	_tsetlocale( LC_ALL, _T("korean") );
 
 //	_CrtSetAllocHook( MyAllocHook );
@@ -105,7 +106,7 @@ CDnLauncherApp::~CDnLauncherApp()
 BOOL CDnLauncherApp::InitInstance()
 {
 	g_szOriginalCmdLine = g_szCmdLine = m_lpCmdLine;
-	ParseCommandLine();	// Ä¿¸Çµå ¶óÀÎ ÆÄ½Ì
+	ParseCommandLine();	// ç›®ç›–é› æ‰¼ç‰¢ é¢‡æ•™
 
 /*	while(1)
 	{
@@ -113,7 +114,7 @@ BOOL CDnLauncherApp::InitInstance()
 	}*/
 
 #if defined(_KRAZ) && defined(_DEBUG)
-	// ÆÄ¶ó¸ÅÅÍ txt·Î ÀĞ¾î³»±â
+	// é¢‡æ‰¼æ¦‚ç£ txtè‚º ä½¬ç»¢éƒ´æ‰
 	/*
 	std::vector<std::wstring> tokens;
 	TokenizeW( m_lpCmdLine, tokens, std::wstring( L" " ) );
@@ -132,7 +133,7 @@ BOOL CDnLauncherApp::InitInstance()
 		fclose(stream);
 	}*/
 
-	// ÆÄ¶ó¸ÅÅÍ ClipBoard¿¡ ÀúÀå
+	// é¢‡æ‰¼æ¦‚ç£ ClipBoardä¿Š å†å˜
 	std::vector<std::wstring> tokens;
 	TokenizeW( m_lpCmdLine, tokens, std::wstring( L" " ) );
 	if(!tokens.empty())
@@ -176,7 +177,7 @@ BOOL CDnLauncherApp::InitInstance()
 		DeleteFileA(".\\DNBR_Launcher.exe");
 	}
 
-	//·±ÃÄ Ã¼Å©
+	//ç¹åªš çœ‰å†œ
 #ifndef _DEBUG
 	g_hMutex = ::OpenMutexA( MUTEX_ALL_ACCESS, FALSE, g_szMutexName );
 	if( g_hMutex == NULL )
@@ -222,7 +223,7 @@ BOOL CDnLauncherApp::InitLauncher()
 	LogWnd::TraceLog( L"InitLauncher Start!" );
 
 #ifdef _USE_SINGLE_CLIENT
-	if( FindProcessName( _T(DNCLIENT_NAME) ) )	// °ÔÀÓ ½ÇÇà Áß¿¡´Â ±¸µ¿µÇÁö ¾ÊÀ½
+	if( FindProcessName( _T(DNCLIENT_NAME) ) )	// éœ¸çƒ™ è§’é’ åä¿Šç»° å¤‡æ‚¼ç™»ç˜¤ è‡¼æ¾œ
 	{
 		ErrorMessageBoxLog( _S( STR_CLIENT_ALEADY_RUN + DNPATCHINFO.GetLanguageOffset() ) );
 		g_nInitErrorCode = INIT_ERROR_CLIENT_ALEADY_RUN;
@@ -231,49 +232,49 @@ BOOL CDnLauncherApp::InitLauncher()
 #endif // _USE_SINGLE_CLIENT
 		
 #ifdef _FIRST_PATCH
-	if( !InitFirstPatchThread() )			// FirstPatchÀÇ Thread¸¦ »ı¼ºÇÑ´Ù.
+	if( !InitFirstPatchThread() )			// FirstPatchç‹¼ Threadç”« ç§¯å·±èŒ„ä¿ƒ.
 	{	
 		return InitFail();
 	}
 #endif
 
-	if( !CheckDirectXVersion() )			// DirectX ¹öÀü Ã¼Å©
+	if( !CheckDirectXVersion() )			// DirectX æ»šå‚ˆ çœ‰å†œ
 	{
 		return InitFail();
 	}
 
-	if( DNPATCHINFO.Init() != S_OK )		// PatchInfo ÃÊ±âÈ­ ( PatchConfigList.xml ´Ù¿î, ÆÄ½Ì, Å¬¶óÀÌ¾ğÆ® °æ·Î ¼³Á¤, xml»èÁ¦ )
+	if( DNPATCHINFO.Init() != S_OK )		// PatchInfo æª¬æ‰æ‹³ ( PatchConfigList.xml ä¿ƒæ¬¾, é¢‡æ•™, åŠªæ‰¼ææ”«é£˜ ç‰ˆè‚º æ±²æ²¥, xmlæ˜åŠ› )
 	{
 		return InitFail();
 	}
 
 #ifndef _USE_PARTITION_SELECT
-	if( !DNPATCHINFO.SetPatchInfo() )		// PatchInfo ¼³Á¤   ( PatchConfigList.xml ³»¿ëÀ» ³»ºÎº¯¼ö·Î ¼³Á¤, ÆÄ¶ó¸ÅÅÍ ¼³Á¤, ÆĞÄ¡ ¹öÀü¸¦ ¿©±â¼­ Ã¼Å© )	
+	if( !DNPATCHINFO.SetPatchInfo() )		// PatchInfo æ±²æ²¥   ( PatchConfigList.xml éƒ´ä¾©é˜‘ éƒ´ä½•å‡½èè‚º æ±²æ²¥, é¢‡æ‰¼æ¦‚ç£ æ±²æ²¥, è©æ‘¹ æ»šå‚ˆç”« å’¯æ‰è¾‘ çœ‰å†œ )	
 	{
 		return InitFail();
 	}
 #endif // _USE_PARTITION_SELECT
 
 #ifdef _USE_MULTILANGUAGE
-	// ´Ù±¹¾î Áö¿øÀÇ °æ¿ì guidepage¸¸ ¼³Á¤µÈ ¾ğ¾îÀÇ Ã¤³Î¿¡¼­ ÀĞ¾î¿Í ¼ÂÆÃ ÇÔ
+	// ä¿ƒæƒ«ç»¢ ç˜¤ç›”ç‹¼ ç‰ˆå¿« guidepageçˆ¶ æ±²æ²¥ç­‰ æ”«ç»¢ç‹¼ ç›²æ¾„ä¿Šè¾‘ ä½¬ç»¢å®¢ æ‚¸æ³¼ çªƒ
 	DNPATCHINFO.SetLocaleGuidePage();
 #endif // _USE_MULTILANGUAGE
 
 #if defined(_FIRST_PATCH)
 #ifdef _USE_PARTITION_SELECT
-	DNPATCHINFO.LoadVersionData();			// ÆÄÆ¼¼Ç Á¤º¸ && ¹öÀü ÀĞ¾î¿À±â.
+	DNPATCHINFO.LoadVersionData();			// é¢‡èè®° æ²¥ç„Š && æ»šå‚ˆ ä½¬ç»¢å·æ‰.
 #endif
 	if( DNFIRSTPATCHINFO.GetFirstPatchStatus() == DNFIRSTPATCHINFO.EM_FIRSTPATCH_OK )
 	{
-		if( !DNFIRSTPATCHINFO.SetPatchInfo() ) // First Patch "ÃÊ±âÈ­" & "½º·¹µå ½ÃÀÛ"
+		if( !DNFIRSTPATCHINFO.SetPatchInfo() ) // First Patch "æª¬æ‰æ‹³" & "èƒ¶é¥­é› çŸ«ç´¯"
 		{
 			return InitFail();
 		}
 	}
-	TerminateFirstPatchThread();			// * First Patch¿¡¼­ »ç¿ëÇÑ ½º·¹µå Á¤¸® * 
+	TerminateFirstPatchThread();			// * First Patchä¿Šè¾‘ è¤ä¾©èŒ„ èƒ¶é¥­é› æ²¥åºœ * 
 #endif // _FIRST_PATCH
 
-#if defined( _USE_COMMAND_LINE )			// Ä¿¸Çµå¶óÀÎ »ç¿ë ½Ã ÆÄ¶ó¹ÌÅÍ ¾øÀ» °æ¿ì È¨ÆäÀÌÁö·Î ¿¬°á
+#if defined( _USE_COMMAND_LINE )			// ç›®ç›–é›æ‰¼ç‰¢ è¤ä¾© çŸ« é¢‡æ‰¼å›ºç£ ç»é˜‘ ç‰ˆå¿« æƒå…¶æç˜¤è‚º æ¥·æ¬
 	if( g_szCmdLine.GetLength() == 0 )
 	{
 		ShellExecute( NULL, L"open", DNPATCHINFO.GetHomepageUrl(), NULL, NULL, SW_SHOW );
@@ -282,13 +283,13 @@ BOOL CDnLauncherApp::InitLauncher()
 #endif // _USE_COMMAND_LINE
 
 	g_pServiceModule = DnServiceModule::CreateServiceModule();
-	if( g_pServiceModule && !g_pServiceModule->Initialize() )	// ¼­ºñ½º ¾÷Ã¼º° Initialize
+	if( g_pServiceModule && !g_pServiceModule->Initialize() )	// è¾‘åšèƒ¶ è¯€çœ‰å–Š Initialize
 	{
 		g_nInitErrorCode = INIT_ERROR_SERVICE_MODULE;
 		return InitFail();
 	}
 	
-	if( !RemoveUsedFile() )	 // ·±Ã³ ±¸µ¿ ½Ã »ç¿ë Çß´ø ÆÄÀÏ ¹× ·±Ã³ ¾÷µ¥ÀÌÆ® ½Ã »ı¼ºµÈ tmp ÆÄÀÏ »èÁ¦
+	if( !RemoveUsedFile() )	 // ç¹è´¸ å¤‡æ‚¼ çŸ« è¤ä¾© æ²å¸¦ é¢‡è€ æ£º ç¹è´¸ è¯€å•æé£˜ çŸ« ç§¯å·±ç­‰ tmp é¢‡è€ æ˜åŠ›
 	{
 		return InitFail();
 	}
@@ -297,7 +298,7 @@ BOOL CDnLauncherApp::InitLauncher()
 #if !defined(_TEST)
 	if(g_nFirstPatchErrorMessage == FPR_NEED_FULLPATCH)
 	{
-		// Å¬¶óÀÌ¾ğÆ® Àç¼³Ä¡¸¦ ¿äÇÔ. ±×³É Á¾·á½ÃÅ´.
+		// åŠªæ‰¼ææ”«é£˜ çŠæ±²æ‘¹ç”« å¤¸çªƒ. å¼Šæˆ è¾†ä¸°çŸ«ç³¯.
 		LogWnd::TraceLog( L"FirstPatch Failed / need Client Full Patch!" );
 		LogWnd::Log( LogLevel::Error, _T("FirstPatch Failed / Need Full Patch") );
 		return InitFail();
@@ -312,7 +313,7 @@ BOOL CDnLauncherApp::InitLauncher()
 #ifdef _FIRST_PATCH
 BOOL CDnLauncherApp::InitFirstPatchThread()
 {
-	// * TmpÆÄÀÏÀÌ ÀÖÀ¸¸é »èÁ¦.
+	// * Tmpé¢‡è€æ ä¹æ æ æ˜åŠ›.
 	if(_access(DNLAUNCHER_NAME_TMP, 0) == 0)
 	{
 		if( !ClientDeleteFile(_T(DNLAUNCHER_NAME_TMP)) )
@@ -321,7 +322,7 @@ BOOL CDnLauncherApp::InitFirstPatchThread()
 		}
 	}
 
-	// * FirstPatch ÁøÇà»óÈ²À» º¸¿©ÁÖ´Â Dialog Thread ½ÃÀÛ *
+	// * FirstPatch æŸ³é’æƒ‘ç‚”é˜‘ ç„Šå’¯æ—ç»° Dialog Thread çŸ«ç´¯ *
 	g_FirstPatchDlgHandle = (HANDLE)_beginthreadex(NULL, 0, ShowFirstPatchDlg, NULL, 0, NULL);
 	if(g_FirstPatchDlgHandle == NULL)
 	{
@@ -330,23 +331,23 @@ BOOL CDnLauncherApp::InitFirstPatchThread()
 		return FALSE;
 	}
 
-	// ¸ğµâÆĞÄ¡°¡ ½ÃÀÛ‰ç´Ù.
+	// è‘›ç¢˜è©æ‘¹å•Š çŸ«ç´¯å¤Œä¿ƒ.
 	DNFIRSTPATCHINFO.SetFirstPatchProcess(DNFIRSTPATCHINFO.EM_FIRSTPATCH_ING);
 	return TRUE;
 }
 
 void CDnLauncherApp::TerminateFirstPatchThread()
 {
-	if( g_pFirstPatchDownloadThread ) // ´Ù¿î·Îµå ½º·¹µå.
+	if( g_pFirstPatchDownloadThread ) // ä¿ƒæ¬¾è‚ºé› èƒ¶é¥­é›.
 	{
-		// FirstPatch¸¦ ´Ù¿î ¹Ş´Â ½º·¹µå°¡ Á¾·á‰ç´Ù.
+		// FirstPatchç”« ä¿ƒæ¬¾ ç½ç»° èƒ¶é¥­é›å•Š è¾†ä¸°å¤Œä¿ƒ.
 		WaitForSingleObject( g_pFirstPatchDownloadThread->GetThreadHandle(), INFINITE );
 	}
 
-	// ´ÙÀÌ¾ó·Î±× Á¾·á.
+	// ä¿ƒæå€”è‚ºå¼Š è¾†ä¸°.
 	if( g_FirstPatchDlg )
 	{
-		// * FirstPatch°ü·Ã ´ÙÀÌ¾ó·Î±× & ½º·¹µå Á¾·á * //
+		// * FirstPatchåŒ…è®¿ ä¿ƒæå€”è‚ºå¼Š & èƒ¶é¥­é› è¾†ä¸° * //
 		DWORD dwExitCode;
 		if( GetExitCodeThread( g_FirstPatchDlgHandle, &dwExitCode ) )
 		{
@@ -356,7 +357,7 @@ void CDnLauncherApp::TerminateFirstPatchThread()
 		g_FirstPatchDlg.EndDialog( IDYES );
 	}
 
-	// ¸ğµâÆĞÄ¡°¡ ³¡³µ´Ù.
+	// è‘›ç¢˜è©æ‘¹å•Š åœºè½¦ä¿ƒ.
 	DNFIRSTPATCHINFO.SetFirstPatchProcess(DNFIRSTPATCHINFO.EM_FIRSTPATCH_NOT);
 }
 #endif // _FIRST_PATCH
@@ -383,7 +384,7 @@ BOOL CDnLauncherApp::InitFail()
 	
 	if( WAIT_FAILED != WaitForMultipleObjects(2, pHandles, TRUE, INFINITE) )
 	{
-		// ½º·¹µå°¡ ¸ğµÎ Á¾·á‰çÀ¸¸é, Á¾·á½ÃÅ²´Ù.
+		// èƒ¶é¥­é›å•Š è‘›æ»´ è¾†ä¸°å¤Œæ æ, è¾†ä¸°çŸ«æŒªä¿ƒ.
 		return FALSE;
 	}
 #endif
@@ -436,16 +437,16 @@ void CDnLauncherApp::ParseCommandLine()
 
 	for( DWORD i=0; i<tokens.size(); i++ )
 	{
-		if( NULL != StrStr( tokens[i].c_str(), szlpURL ) )			// PatchConfigList.xmlÀÇ ÁÖ¼Ò°¡ µé¾î ÀÖ´Ù
+		if( NULL != StrStr( tokens[i].c_str(), szlpURL ) )			// PatchConfigList.xmlç‹¼ æ—å®¶å•Š ç”¸ç»¢ ä¹ä¿ƒ
 		{
-			g_szCommandLinePatchURL = tokens[i].c_str();			// ÁÖ¼Ò ÀúÀå
-			g_szCmdLine.Replace( g_szCommandLinePatchURL, L"" );	// Ä¿¸Çµå ¶óÀÎ¿¡¼­ ÁÖ¼Ò Áö¿öÁØ´Ù
+			g_szCommandLinePatchURL = tokens[i].c_str();			// æ—å®¶ å†å˜
+			g_szCmdLine.Replace( g_szCommandLinePatchURL, L"" );	// ç›®ç›–é› æ‰¼ç‰¢ä¿Šè¾‘ æ—å®¶ ç˜¤å†µéœ–ä¿ƒ
 #ifndef _USE_MULTILANGUAGE
 			break;
 #endif // _USE_MULTILANGUAGE
 		}
 #ifdef _USE_MULTILANGUAGE
-		if( NULL != StrStr( tokens[i].c_str(), szlpLanguage ) )			// PatchConfigList.xmlÀÇ ÁÖ¼Ò°¡ µé¾î ÀÖ´Ù
+		if( NULL != StrStr( tokens[i].c_str(), szlpLanguage ) )			// PatchConfigList.xmlç‹¼ æ—å®¶å•Š ç”¸ç»¢ ä¹ä¿ƒ
 		{
 			tokens[i].erase( 0, tokens[i].find(L":") + 1 );
 			DNPATCHINFO.SetLanguageParam( tokens[i].c_str() );
@@ -506,11 +507,11 @@ void CDnLauncherApp::DeleteOldLogFile()
 		struct tm now;
 		time_t systemTime;
 
-		time( &systemTime );				// ÇöÀç ½Ã°¢À» ÃÊ ´ÜÀ§·Î ¾ò±â
-		localtime_s( &now, &systemTime );	// ÃÊ ´ÜÀ§ÀÇ ½Ã°£À» ºĞ¸®ÇÏ¿© ±¸Á¶Ã¼¿¡ ³Ö±â
+		time( &systemTime );				// æ³…çŠ çŸ«é˜¿é˜‘ æª¬ çªœå›°è‚º æ˜æ‰
+		localtime_s( &now, &systemTime );	// æª¬ çªœå›°ç‹¼ çŸ«åŸƒé˜‘ ç›’åºœçªå’¯ å¤‡ç‚¼çœ‰ä¿Š æŒæ‰
 
 		TCHAR szCurDate[1024];
-		_sntprintf_s( szCurDate, 1024, _T("%04d%02d%02d"), 1900+now.tm_year, now.tm_mon, now.tm_mday );	// ÇÑ´Ş ³ÑÀº °ÍµéÀº »èÁ¦
+		_sntprintf_s( szCurDate, 1024, _T("%04d%02d%02d"), 1900+now.tm_year, now.tm_mon, now.tm_mday );	// èŒ„å´” é€ç¯® å·´ç”¸ç¯® æ˜åŠ›
 		int nCurDate = _wtoi( szCurDate );
 
 		if( nLogDate < nCurDate )
@@ -572,7 +573,7 @@ BOOL CDnLauncherApp::RemoveUsedFile()
 	LogWnd::TraceLog( L"RemoveUsedFile" );
 	if( ClientDeleteFile( _T(DNLAUNCHER_NAME_TMP) ) == FALSE )
 	{		
-		KillProcess( _T(DNLAUNCHER_NAME) );	// ÇöÀç ÇÁ·Î¼¼½ºÃ¢¿¡¼­ dnlauncher.exe¸¦ ¸ğµÎ °­Á¦Á¾·á ½ÃÅ²´Ù.
+		KillProcess( _T(DNLAUNCHER_NAME) );	// æ³…çŠ æ©‡è‚ºæŠ€èƒ¶èŠ’ä¿Šè¾‘ dnlauncher.exeç”« è‘›æ»´ ç¢åŠ›è¾†ä¸° çŸ«æŒªä¿ƒ.
 		if( ClientDeleteFile( _T(DNLAUNCHER_NAME_TMP) ) == FALSE )
 			bRtn = FALSE;
 	}
@@ -592,7 +593,7 @@ void CDnLauncherApp::SetLanguageParam()
 	CString strLanguageParam = DNPATCHINFO.GetLanguageParam();
 	if( strLanguageParam.GetLength() == 0 )
 	{
-		// ÄÚµåÆäÀÌÁö Á¤º¸·Î ¼ÂÆÃ
+		// å†…é›å…¶æç˜¤ æ²¥ç„Šè‚º æ‚¸æ³¼
 		int nLanguageID = PRIMARYLANGID( LOWORD( GetKeyboardLayout(0) ) );
 		DNPATCHINFO.SetLanguageParamByLanguageID( nLanguageID );
 	}

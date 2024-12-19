@@ -41,6 +41,7 @@
 #include <afxinet.h>
 #include <afxdisp.h>        // MFC Automation classes
 #include <string>
+#include <iostream>
 #include <vector>
 #include <map>
 #include <algorithm>

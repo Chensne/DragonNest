@@ -14,7 +14,7 @@
 #endif // _KR_NEXON
 
 #pragma comment (lib, "setupapi.lib")
-#pragma comment (lib, "fdi.lib")
+//#pragma comment (lib, "fdi.lib")
 
 
 extern CString g_szOriginalCmdLine;
@@ -26,7 +26,7 @@ extern HANDLE g_hMutex;
 #endif // _DEBUG
 
 
-stDownloadInfoUpdateData g_DownloadInfoData;	// ÇÁ·Î¼¼½º¿¡¼­ ´Ù¿î·Îµå ¾²·¹µåÀÇ »óÅÂ°ªÀ» ÀĞ±â À§ÇÑ Àü¿ª µ¥ÀÌÅ¸
+stDownloadInfoUpdateData g_DownloadInfoData;	// æ©‡è‚ºæŠ€èƒ¶ä¿Šè¾‘ ä¿ƒæ¬¾è‚ºé› é™é¥­é›ç‹¼ æƒ‘æ€•è”¼é˜‘ ä½¬æ‰ å›°èŒ„ å‚ˆå¼€ å•æé¸¥
 
 //////////////////////////////////////////////////////////////////////////
 // Thread Base Class
@@ -157,17 +157,17 @@ void CDnFistPatchDownloadThread::Run()
 	{
 	case FPR_OK:
 		{
-			// * µü ÇÑ¹ø PakÆÄÀÏ¿¡ ÀúÀåÇÑ´Ù *
+			// * è¿­ èŒ„é”… Paké¢‡è€ä¿Š å†å˜èŒ„ä¿ƒ *
 			if( !SaveModuleVersionToPak(DNFIRSTPATCHINFO.GetLocalModuleVersion()) )
 			{
-				ErrorMessageBoxLog( _S( STR_PATCH_FAILED + DNPATCHINFO.GetLanguageOffset() ) ); // ÆĞÄ¡ ½ÇÆĞ.
+				ErrorMessageBoxLog( _S( STR_PATCH_FAILED + DNPATCHINFO.GetLanguageOffset() ) ); // è©æ‘¹ è§’è©.
 			}
 		}
 		break;
 
 	case FPR_FAIL:
 		{
-			ErrorMessageBoxLog( _S( STR_PATCH_FAILED + DNPATCHINFO.GetLanguageOffset() ) ); // ÆĞÄ¡ ½ÇÆĞ.
+			ErrorMessageBoxLog( _S( STR_PATCH_FAILED + DNPATCHINFO.GetLanguageOffset() ) ); // è©æ‘¹ è§’è©.
 			CloseThread();
 		}
 		break;
@@ -185,20 +185,20 @@ void CDnFistPatchDownloadThread::Run()
 		break;
 	}
 
-	// ½º·¹µå ´İ±â
+	// èƒ¶é¥­é› æ‘§æ‰
 	//CloseThread();
 }
 void CDnFistPatchDownloadThread::ProcessRebootLauncher()
 {
-	// * µü ÇÑ¹ø PakÆÄÀÏ¿¡ ÀúÀåÇÑ´Ù *
+	// * è¿­ èŒ„é”… Paké¢‡è€ä¿Š å†å˜èŒ„ä¿ƒ *
 	BOOL bSaveResult = SaveModuleVersionToPak(DNFIRSTPATCHINFO.GetLocalModuleVersion());
 
 	if(bSaveResult)
 	{
-		//if( AfxMessageBox(_T("·±Ã³°¡ ÆĞÄ¡µÇ¾ú½À´Ï´Ù.\n·±Ã³¸¦ Àç½ÇÇàÇÕ´Ï´Ù."), MB_OK, MB_ICONINFORMATION) == IDOK )
+		//if( AfxMessageBox(_T("ç¹è´¸å•Š è©æ‘¹ç™»èŒåš¼èªä¿ƒ.\nç¹è´¸ç”« çŠè§’é’é’¦èªä¿ƒ."), MB_OK, MB_ICONINFORMATION) == IDOK )
 		{
-			CString strParam	= DNPATCHINFO.GetTotalParameter();	// ÆÄ¶ó¸ÅÅÍ
-			CString strExeFile	= DNPATCHINFO.GetClientPath();		// ´Ù¿î·Îµå °æ·Î
+			CString strParam	= DNPATCHINFO.GetTotalParameter();	// é¢‡æ‰¼æ¦‚ç£
+			CString strExeFile	= DNPATCHINFO.GetClientPath();		// ä¿ƒæ¬¾è‚ºé› ç‰ˆè‚º
 			strExeFile += DNLAUNCHER_NAME;
 
 #ifdef _USE_COMMAND_LINE
@@ -206,7 +206,7 @@ void CDnFistPatchDownloadThread::ProcessRebootLauncher()
 #else
 			ShellExecute( m_hWnd, NULL, strExeFile, strParam.GetBuffer(), NULL, SW_SHOWNORMAL );
 #endif
-			KillMyProcess(_T(DNLAUNCHER_NAME)); // oldÇÁ·Î¼¼½º kill.
+			KillMyProcess(_T(DNLAUNCHER_NAME)); // oldæ©‡è‚ºæŠ€èƒ¶ kill.
 		}
 	}
 	else
@@ -220,19 +220,19 @@ FirstPatchReturn CDnFistPatchDownloadThread::BegineModulePatch()
 	BOOL bModuleResult	 = FALSE;
 	BOOL bLauncherResult = FALSE;
 
-	// "¼­¹ö" ¹öÀü.
+	// "è¾‘æ»š" æ»šå‚ˆ.
 	int nDownServerVersion = DNPATCHINFO.GetServerVersion();
 	
-	// "¸ğµâ" ¹öÀü.
+	// "è‘›ç¢˜" æ»šå‚ˆ.
 	int nLocalModuleVersion  = DNFIRSTPATCHINFO.GetLocalModuleVersion();
-	LogWnd::TraceLog(_T("¼­¹ö¹öÀü: [%d] / ¸ğµâ¹öÀü: [%d]"), nDownServerVersion, nLocalModuleVersion );
+	LogWnd::TraceLog(_T("è¾‘æ»šæ»šå‚ˆ: [%d] / è‘›ç¢˜æ»šå‚ˆ: [%d]"), nDownServerVersion, nLocalModuleVersion );
 
-	if( nLocalModuleVersion == nDownServerVersion )		// * ¹öÀüÀÌ °°´Ù¸é, ´õÀÌ»ó ÁøÇàÇÒ ÀÌÀ¯°¡ ¾øÀ½ *
+	if( nLocalModuleVersion == nDownServerVersion )		// * æ»šå‚ˆæ éä¿ƒæ, æ­¹ææƒ‘ æŸ³é’ä¸” æèœ¡å•Š ç»æ¾œ *
 	{
 		LogWnd::Log(LogLevel::Error, _T("ModulePatch - Version is Concur"));
 		return FPR_OK;
 	}
-	else if( nLocalModuleVersion > nDownServerVersion ) // * ¹öÀü ²¿ÀÓ. Ç®ÆĞÄ¡·Î ³Ñ±è *
+	else if( nLocalModuleVersion > nDownServerVersion ) // * æ»šå‚ˆ éƒ¨çƒ™. é’±è©æ‘¹è‚º é€è¾« *
 	{
 		LogWnd::Log(LogLevel::Error, _T("ModulePatch - Version Check Failed, Go to FullPatch"));
 		return FPR_NEED_FULLPATCH;
@@ -243,47 +243,47 @@ FirstPatchReturn CDnFistPatchDownloadThread::BegineModulePatch()
 		return FPR_NEED_FULLPATCH;
 	}
 	
-	// * ÆĞÄ¡ ½ÃÀÛ! * 
+	// * è©æ‘¹ çŸ«ç´¯! * 
 	for( int i = nLocalModuleVersion ; i < nDownServerVersion ;  )
 	{
 		if( i < nDownServerVersion )
 		{
 			i++;
 
-			// ¸ğµâ ÆĞÄ¡
-			bModuleResult = DownLoadModulePatch(i);	// FirstPatchList.txt ´Ù¿î·Îµå.
+			// è‘›ç¢˜ è©æ‘¹
+			bModuleResult = DownLoadModulePatch(i);	// FirstPatchList.txt ä¿ƒæ¬¾è‚ºé›.
 
-			if(bModuleResult) // FirstPatchList.txtÆÄÀÏÀÌ Á¸ÀçÇÑ´Ù¸é ½ÇÇà.
+			if(bModuleResult) // FirstPatchList.txté¢‡è€æ ç²®çŠèŒ„ä¿ƒæ è§’é’.
 			{
-				if( !ParsingModuleList() )	// "FirstPatchList.txt" ÆÄ½Ì
+				if( !ParsingModuleList() )	// "FirstPatchList.txt" é¢‡æ•™
 				{
 					return FPR_FAIL;
 				}
 
-				if( !ChangeModuleFiles(i) )	// ¸ğµâ ÆÄÀÏ º¯°æ.
+				if( !ChangeModuleFiles(i) )	// è‘›ç¢˜ é¢‡è€ å‡½ç‰ˆ.
 				{
 					return FPR_FAIL;
 				}
 			}
 
-			// ·±Ã³ ÆĞÄ¡
-			bLauncherResult = PatchLauncherFiles(i); // * Launcher.exeÆÄÀÏ ´Ù¿î·Îµå & Àû¿ë *
+			// ç¹è´¸ è©æ‘¹
+			bLauncherResult = PatchLauncherFiles(i); // * Launcher.exeé¢‡è€ ä¿ƒæ¬¾è‚ºé› & åˆ©ä¾© *
 
-			// ÇöÀç ¸ğµâ ¹öÀüÀ» ÀúÀå. ( º¯¼ö¿¡ ÀúÀå.. )
+			// æ³…çŠ è‘›ç¢˜ æ»šå‚ˆé˜‘ å†å˜. ( å‡½èä¿Š å†å˜.. )
 			DNFIRSTPATCHINFO.SetLocalModuleVersion(i);
 
-			// ¹öÀü º¯°æ
+			// æ»šå‚ˆ å‡½ç‰ˆ
 			CString szPath;
 			szPath = DNPATCHINFO.GetClientPath();
 			szPath += CLIENT_VERSION_NAME;
 
-			// version.cfgÆÄÀÏ¿¡¸¸ ÀúÀå.
+			// version.cfgé¢‡è€ä¿Šçˆ¶ å†å˜.
 			if( !SaveModuleVersionFileWithOutPakSave(szPath, i) )
 			{
 				return FPR_FAIL;
 			}
 
-			// DnLuancher.exe°¡ ÆĞÄ¡‰ç´Ù¸é, ·±Ã³ Àç±¸µ¿.
+			// DnLuancher.exeå•Š è©æ‘¹å¤Œä¿ƒæ, ç¹è´¸ çŠå¤‡æ‚¼.
 			if( bLauncherResult )
 			{
 				return FPR_LAUNCHER_PATCH;
@@ -310,13 +310,13 @@ BOOL CDnFistPatchDownloadThread::DownLoadModulePatch( int nVersion )
 	CString szPatchListUrl; // PatchURL / FirstPatch / FirstPatchList.txt
 	szPatchListUrl.Format( _T( "%s%s" ), strUrl.GetBuffer(), FIRSTPATCHLIST_NAME );
 	
-	// Å¬¶óÀÌ¾ğÆ® ·ÎÄÃ ÆÄÀÏÀúÀå °æ·Î
+	// åŠªæ‰¼ææ”«é£˜ è‚ºæ‹¿ é¢‡è€å†å˜ ç‰ˆè‚º
 	m_strPatchListFile.Format( _T( "%s%s" ), DNPATCHINFO.GetClientPath().GetBuffer() , FIRSTPATCHLIST_NAME);
 	
 	BOOL	bResult = DeleteUrlCacheEntry( szPatchListUrl.GetBuffer() );
 	HRESULT hr		= DownloadToFile( szPatchListUrl.GetBuffer(), m_strPatchListFile.GetBuffer() );
 
-	// ´Ù¿î·Îµå¿¡ ½ÇÆĞÇß´Ù¸é.
+	// ä¿ƒæ¬¾è‚ºé›ä¿Š è§’è©æ²ä¿ƒæ.
 	if( hr != S_OK )
 	{
 		LogWnd::TraceLog( _T("FirstPatch.txt Download Failed!") );
@@ -324,7 +324,7 @@ BOOL CDnFistPatchDownloadThread::DownLoadModulePatch( int nVersion )
 	}
 	LogWnd::TraceLog( L"FirstPatch.txt File Download Success" );
 	
-	// ÆÄÀÏ ¼Ó¼º Ã¼Å©.
+	// é¢‡è€ åŠ å·± çœ‰å†œ.
 	if( ::GetFileAttributes( m_strPatchListFile.GetBuffer() ) == -1 )
 	{
 		LogWnd::TraceLog( L"Failed! GetFileAttributes=[%s]", m_strPatchListFile.GetBuffer() );
@@ -347,17 +347,17 @@ BOOL CDnFistPatchDownloadThread::PatchLauncherFiles( int nVersion )
 	strUrl += strVersion;
 	strUrl += _T("/FirstPatch/");
 	
-	// Down URL ÁÖ¼Ò.
+	// Down URL æ—å®¶.
 	CString szPatchListUrl;
 	szPatchListUrl.Format( _T( "%s%s" ), strUrl.GetBuffer(), _T(DNLAUNCHER_NAME));
 	
 	if( !IsExistFile( szPatchListUrl ) )
 		return FALSE;
 
-	// Client ·ÎÄÃ °æ·Î (ÀúÀåµÇ´Â Àå¼Ò)
+	// Client è‚ºæ‹¿ ç‰ˆè‚º (å†å˜ç™»ç»° å˜å®¶)
 	m_strPatchListFile.Format( _T( "%s%s" ), DNPATCHINFO.GetClientPath().GetBuffer() , _T(DNLAUNCHER_NAME));
 	
-	// ±âÁ¸ÀÇ È®ÀåÀÚ exe¸¦ tmp·Î º¯°æÇÑ´Ù.
+	// æ‰ç²®ç‹¼ çŠ¬å˜ç£Š exeç”« tmpè‚º å‡½ç‰ˆèŒ„ä¿ƒ.
 	if( _access(DNLAUNCHER_NAME , 0) == 0 )
 	{
 		MoveFile(_T(DNLAUNCHER_NAME), _T(DNLAUNCHER_NAME_TMP));
@@ -376,15 +376,15 @@ BOOL CDnFistPatchDownloadThread::PatchLauncherFiles( int nVersion )
 	}
 	LogWnd::TraceLog( _T("DnLauncher.exe FIle Download Success") );
 
-	// ´Ù¿î·Îµå¿¡ ½ÇÆĞÇß´Ù¸é.
+	// ä¿ƒæ¬¾è‚ºé›ä¿Š è§’è©æ²ä¿ƒæ.
 	if( hr != S_OK )
 	{
-		MoveFile(_T(DNLAUNCHER_NAME_TMP), _T(DNLAUNCHER_NAME)); // 'tmp' ---> 'exe'·Î ´Ù½Ã º¹±¸.
+		MoveFile(_T(DNLAUNCHER_NAME_TMP), _T(DNLAUNCHER_NAME)); // 'tmp' ---> 'exe'è‚º ä¿ƒçŸ« æ±—å¤‡.
 		LogWnd::TraceLog( _T("Download DnLauncher.exe File Failed!") );
 		return FALSE;
 	}
 	
-	// ÆÄÀÏ ¼Ó¼º Ã¼Å©.
+	// é¢‡è€ åŠ å·± çœ‰å†œ.
 	if( ::GetFileAttributes( m_strPatchListFile.GetBuffer() ) == -1 )
 	{
 		LogWnd::TraceLog( L"Failed! GetFileAttributes=[%s]", m_strPatchListFile.GetBuffer() );
@@ -399,7 +399,7 @@ int CDnFistPatchDownloadThread::ParsingModuleList()
 	m_vecCopyList.clear();
 	m_vecDeleteList.clear();
 
-	//m_strPostPatchList.Format( _T( "%sFirstPatch%08d.txt" ), DNPATCHINFO.GetClientPath(), m_nServerModuleVersion ); // testLauncher/FirstPatch00000007.txt ÀÌ·±½Ä.
+	//m_strPostPatchList.Format( _T( "%sFirstPatch%08d.txt" ), DNPATCHINFO.GetClientPath(), m_nServerModuleVersion ); // testLauncher/FirstPatch00000007.txt æç¹ä¾¥.
 	HANDLE hFile = CreateFile( m_strPatchListFile.GetBuffer(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL );
 	if( hFile == INVALID_HANDLE_VALUE )
 	{
@@ -409,7 +409,7 @@ int CDnFistPatchDownloadThread::ParsingModuleList()
 
 	char	cPatchCode, szString[1024], *pFindPtr;
 	int		nFileSize	= GetFileSize( hFile, NULL );
-	char*	pBuffer		= new char [ nFileSize + 3 ]; // ÆÄÀÏ ³¡ÀÌ ¾øÀ»°æ¿ì pBuffer + 2 ÇÑ ÈÄ¿¡ pBuffer °¡ ¾²·¹±â°ªÀÌ¿©¼­ strchr ¿¡¼­ »¶³¯ ¼ö ÀÖ´Ù.
+	char*	pBuffer		= new char [ nFileSize + 3 ]; // é¢‡è€ åœºæ ç»é˜‘ç‰ˆå¿« pBuffer + 2 èŒ„ é¥¶ä¿Š pBuffer å•Š é™é¥­æ‰è”¼æå’¯è¾‘ strchr ä¿Šè¾‘ æ¬¢æœ è ä¹ä¿ƒ.
 	memset( pBuffer, 0, nFileSize + 3 );
 
 	char*	pBufferBackup = pBuffer;
@@ -457,7 +457,7 @@ int CDnFistPatchDownloadThread::ParsingModuleList()
 	CloseHandle( hFile );
 	SAFE_DELETE_ARRAY( pBufferBackup );
 
-	// PostPatchList.txt. ÆÄÀÏ»èÁ¦
+	// PostPatchList.txt. é¢‡è€æ˜åŠ›
 	DeleteFile(m_strPatchListFile);
 
 	return true;
@@ -473,21 +473,21 @@ int CDnFistPatchDownloadThread::ChangeModuleFiles(int nVer)
 	std::vector<std::string>::iterator it = m_vecCopyList.begin();
 	for( ; it != m_vecCopyList.end() ; ++it )
 	{
-		// WCHAR·Î º¯È¯.
+		// WCHARè‚º å‡½åˆ¸.
 		MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (*it).c_str(), -1, wszFileName, _MAX_PATH);
 		
-		// "DnLauncher.exe"´Â ¿©±â¼­ Ã³¸®ÇÏÁö ¾Ê´Â´Ù.
+		// "DnLauncher.exe"ç»° å’¯æ‰è¾‘ è´¸åºœçªç˜¤ è‡¼ç»°ä¿ƒ.
 		if( wcscmp(wszFileName, _T("DnLauncher.exe")) == 0 )
 		{
 			continue;
 		}
 		
-		// 1. ¿øº»ÆÄÀÏÀÌ¸§ º¯°æ.
+		// 1. ç›”å¤¯é¢‡è€ææŠš å‡½ç‰ˆ.
 		strOriginalFileName.Format(_T("%s%s"),	DNPATCHINFO.GetClientPath(), wszFileName);
 		strBackUpFileName.Format(_T("%s%s%s"),	DNPATCHINFO.GetClientPath(), _T("BackUp_"), wszFileName);
 		rename(CT2A(strOriginalFileName), CT2A(strBackUpFileName));
 
-		// 2. »õ·Î¿î ÆÄÀÏ ´Ù¿î·Îµå.
+		// 2. è´§è‚ºæ¬¾ é¢‡è€ ä¿ƒæ¬¾è‚ºé›.
 		m_strFirstPatchURLPath.Format(_T("%s%08d%s%s"), DNPATCHINFO.GetPatchUrl(), nVer, _T("/FirstPatch/"),wszFileName);
 
 		HRESULT hr;
@@ -498,21 +498,21 @@ int CDnFistPatchDownloadThread::ChangeModuleFiles(int nVer)
 
 			if(hr == S_OK)
 			{
-				ClientDeleteFile(strBackUpFileName); // "BackUp_ÆÄÀÏ" »èÁ¦.
+				ClientDeleteFile(strBackUpFileName); // "BackUp_é¢‡è€" æ˜åŠ›.
 				break;
 			}
 		}
 
-		// 3. ½ÇÆĞ : ±âÁ¸ÆÄÀÏ ÀÌ¸§ º¹¿ø.
+		// 3. è§’è© : æ‰ç²®é¢‡è€ ææŠš æ±—ç›”.
 		if( hr != S_OK )
 		{
-			rename(CT2A(strBackUpFileName), CT2A(strOriginalFileName)); // ¿ø·¡ ÀÌ¸§À¸·Î º¹±¸
+			rename(CT2A(strBackUpFileName), CT2A(strOriginalFileName)); // ç›”è´° ææŠšæ è‚º æ±—å¤‡
 		}
 	}
 
 	
 	//-------------------------------------------
-	// »èÁ¦¸ñ·Ï Ã³¸®
+	// æ˜åŠ›æ ¼åºŸ è´¸åºœ
 	//-------------------------------------------
 	std::vector<std::string>::iterator itDelete = m_vecDeleteList.begin();
 	for( ; itDelete != m_vecDeleteList.end() ; ++itDelete )
@@ -542,7 +542,7 @@ BOOL CDnFistPatchDownloadThread::SaveModuleVersionToPak( int nVersion )
 	char StrVersionName[32]= "\\version.cfg";
 	WideCharToMultiByte( CP_ACP, 0, szFindPackingFile.GetBuffer(), -1, szTemp, _MAX_PATH, NULL, NULL );
 
-	// ¾îÂ¿¼ö ¾ø´Ù. 512M ³Ñ¾î°¡´Â°ÍÁß¿¡ °ñ¶ó¼­ Ãß°¡ÇÏÀÚ. 
+	// ç»¢é©´è ç»ä¿ƒ. 512M é€ç»¢å•Šç»°å·´åä¿Š æ¦œæ‰¼è¾‘ çœ å•Šçªç£Š. 
 	if( pPackingFile->OpenFileSystem( szTemp ) )
 	{
 		pPackingFile->Remove( StrVersionName );
@@ -665,7 +665,7 @@ void CDnPatchDownloadThread::SendStatusMsg( DownloadPatchState nPatchState )
 
 void CDnPatchDownloadThread::Run()
 {
-	LogWnd::TraceLog( L"¡ÚPatch Start!" );
+	LogWnd::TraceLog( L"â‰®Patch Start!" );
 	if( m_hWnd == NULL )
 		return;
 
@@ -684,7 +684,7 @@ void CDnPatchDownloadThread::Run()
 	{
 	case PR_OK:
 		{
-			LogWnd::TraceLog( L"¡ÚPatch Success!" );
+			LogWnd::TraceLog( L"â‰®Patch Success!" );
 			SendStatusMsg( PATCH_COMPLETE );
 #if defined(_KR_NEXON)
 			if( g_pWiseLog ) g_pWiseLog->SendWebPost( "patchend.aspx" );
@@ -693,7 +693,7 @@ void CDnPatchDownloadThread::Run()
 		break;
 	case PR_LAUNCHER_PATCH:
 		{
-			LogWnd::TraceLog( _T( "¡ÚLauncher Restart because Launcher Patched."));
+			LogWnd::TraceLog( _T( "â‰®Launcher Restart because Launcher Patched."));
 #ifndef _DEBUG
 			if( g_hMutex )
 			{
@@ -715,13 +715,13 @@ void CDnPatchDownloadThread::Run()
 		break;
 	case PR_FAIL:
 		{
-			LogWnd::TraceLog( L"¡ÚPatch Failed!" );
+			LogWnd::TraceLog( L"â‰®Patch Failed!" );
 			SendStatusMsg( PATCH_FAILED );
 		}
 		break;
 	case PR_TERMINATE:
 		{
-			LogWnd::TraceLog( L"¡ÚPatch Terminate!" );
+			LogWnd::TraceLog( L"â‰®Patch Terminate!" );
 			SendStatusMsg( PATCH_TERMINATE );
 		}
 		break;
@@ -741,7 +741,7 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 
 	LogWnd::Log( LogLevel::Info, L"Patch Check Version (Client Ver:%d, Server Ver:%d)", nCurClientVersion, nCurServerVersion );
 
-	if( nCurClientVersion == -1 || nCurServerVersion == -1 )	// ÇöÀç ¹öÀü°ú ¼­¹ö ¹öÀüÀ» È®ÀÎÀ» ¸øÇß´Ù. Ç®ÆĞÄ¡·Î ³Ñ¾î°¡¾ßÇÑ´Ù.
+	if( nCurClientVersion == -1 || nCurServerVersion == -1 )	// æ³…çŠ æ»šå‚ˆè‹ è¾‘æ»š æ»šå‚ˆé˜‘ çŠ¬ç‰¢é˜‘ ç»™æ²ä¿ƒ. é’±è©æ‘¹è‚º é€ç»¢å•Šå…·èŒ„ä¿ƒ.
 	{
 		LogWnd::TraceLog( _T("Version Check Failed Run Fullpatch Process"));
 		SendStatusMsg( PATCH_CHECK_VERSION_FAILED );
@@ -752,11 +752,11 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 	if( g_pWiseLog ) g_pWiseLog->WriteToWiseLog( "versioncheckend.aspx" );
 #endif // _KR_NEXON
 
-	if( nCurClientVersion == nCurServerVersion )			// ¼­¹ö¿Í Å¬¶óÀÌ¾ğÆ® ¹öÀüÀÌ °°À¸¸é ÆĞÄ¡ÇÒ ÇÊ¿ä°¡ ¾ø´Ù.
+	if( nCurClientVersion == nCurServerVersion )			// è¾‘æ»šå®¢ åŠªæ‰¼ææ”«é£˜ æ»šå‚ˆæ éæ æ è©æ‘¹ä¸” é˜å¤¸å•Š ç»ä¿ƒ.
 		return PR_OK;
-	else if( nCurClientVersion > nCurServerVersion )		// Å¬¶óÀÌ¾ğÆ® ¹öÀüÀÌ ¼­¹ö ¹öÀüº¸´Ù Å©¸é Ç®ÆĞÄ¡
+	else if( nCurClientVersion > nCurServerVersion )		// åŠªæ‰¼ææ”«é£˜ æ»šå‚ˆæ è¾‘æ»š æ»šå‚ˆç„Šä¿ƒ å†œæ é’±è©æ‘¹
 		return PR_FULLPATCH;
-	else													// Å¬¶óÀÌ¾ğÆ® ¹öÀüÀÌ ³·À» °æ¿ì ÆĞÄ¡ ÁøÇà
+	else													// åŠªæ‰¼ææ”«é£˜ æ»šå‚ˆæ æ’¤é˜‘ ç‰ˆå¿« è©æ‘¹ æŸ³é’
 	{
 		int nDownVersion = nCurClientVersion + 1;
 #if defined(_KR_NEXON)
@@ -770,7 +770,7 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 			g_DownloadInfoData.m_nDownloadProgressMin = 0;
 			g_DownloadInfoData.m_nDownloadProgressMax = 100;
 			
-			// ·Ñ¹éÆĞÄ¡ ´ëÀÀ ´Ù¿î¹ŞÀ» ¹öÁ¯À» Ç×½Ã Ã¼Å© ÇØ¼­ ½ºÅµÇÒ ¹öÀüÀÌ¸é ½ºÅµÇÑ´Ù.
+			// è´¹å½’è©æ‘¹ æªè§ˆ ä¿ƒæ¬¾ç½é˜‘ æ»šæ€œé˜‘ äº²çŸ« çœ‰å†œ ç§¦è¾‘ èƒ¶è¯ºä¸” æ»šå‚ˆææ èƒ¶è¯ºèŒ„ä¿ƒ.
 			std::vector<int>::iterator itSkip = std::find( DNPATCHINFO.GetSkipVersion().begin(), DNPATCHINFO.GetSkipVersion().end(), i );
 			if( itSkip != DNPATCHINFO.GetSkipVersion().end() )
 			{
@@ -779,7 +779,7 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 				szPath += CLIENT_VERSION_NAME;
 				
 				int gap = nCurServerVersion - i;
-				if( gap >= 1 )	//¹öÁ¯ Â÷ÀÌ°¡ 2ÀÌ»ó ³ª¸é ·Ñ¹éÇÑ ¹öÁ¯±îÁö ¹Ù·Î ÀÌµ¿
+				if( gap >= 1 )	//æ»šæ€œ ç’æå•Š 2ææƒ‘ å”±æ è´¹å½’èŒ„ æ»šæ€œé³–ç˜¤ å®˜è‚º ææ‚¼
 				{
 					DNPATCHINFO.SetClientVersion( i+1 );
 					SaveVersionFile( szPath, i+1 );
@@ -796,7 +796,7 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 			SendStatusMsg( PATCH_DOWNLOAD_DATA );
 			int nFailCount = 0;
 #ifdef _FIRST_PATCH
-			BOOL bOnlyFirstPatch = FALSE;	// ¸ğµâÆĞÄ¡¸¸ ÀÖ´Â °æ¿ì
+			BOOL bOnlyFirstPatch = FALSE;	// è‘›ç¢˜è©æ‘¹çˆ¶ ä¹ç»° ç‰ˆå¿«
 #endif // _FIRST_PATCH
 
 			while(1)
@@ -804,11 +804,11 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 				BOOL bResult = DownLoadPatch( i );
 				if( bResult )
 				{
-					if( m_bTerminateThread ) return PR_TERMINATE; // ´Ù¿î·Îµå ¿Ï·á ½Ã Á¾·á Ã³¸® ¾ÈµÇ¸é packing±îÁö ³Ñ¾î°¡±â ¶§¹®¿¡ Á¾·á°¡ ¿À·¡ °É¸²
+					if( m_bTerminateThread ) return PR_TERMINATE; // ä¿ƒæ¬¾è‚ºé› è‚¯ä¸° çŸ« è¾†ä¸° è´¸åºœ æ•‘ç™»æ packingé³–ç˜¤ é€ç»¢å•Šæ‰ é”­å·©ä¿Š è¾†ä¸°å•Š å·è´° å§è¦†
 					break;
 				}
 #ifdef _FIRST_PATCH
-				if( CheckExistFirstPatch( i ) )	// ¸ğµâÆĞÄ¡¸¸ ÀÖ´Â ÆĞÄ¡¹öÀüÀÎÁö Ã¼Å©
+				if( CheckExistFirstPatch( i ) )	// è‘›ç¢˜è©æ‘¹çˆ¶ ä¹ç»° è©æ‘¹æ»šå‚ˆç‰¢ç˜¤ çœ‰å†œ
 				{
 					bOnlyFirstPatch = TRUE;
 					break;
@@ -824,8 +824,8 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 				{
 					if( i != nCurServerVersion )
 					{
-						// ÆĞÄ¡ ´Ù¿î·Îµå ½ÇÆĞÇß°í.. °¡Àå ÃÖ½ÅÆĞÄ¡ ´Ù¿î·ÎµåÇØ¼­ ¼º°øÇÏ¸é
-						// ³Ê¹« ¿À·¡µÈ ¹öÀüÀÌ¶ó¼­ ÀÌ¹öÀüÀÇ ÆĞÄ¡°¡ »èÁ¦ µÆÀ¸¹Ç·Î Ç®¹öÀü ´Ù¿î·Îµå·Î ³Ñ±ä´Ù.
+						// è©æ‘¹ ä¿ƒæ¬¾è‚ºé› è§’è©æ²ç»Š.. å•Šå˜ å¼¥è„šè©æ‘¹ ä¿ƒæ¬¾è‚ºé›ç§¦è¾‘ å·±å‚çªæ
+						// å‘ˆå…¬ å·è´°ç­‰ æ»šå‚ˆææ‰¼è¾‘ ææ»šå‚ˆç‹¼ è©æ‘¹å•Š æ˜åŠ› ç¯æ éª¨è‚º é’±æ»šå‚ˆ ä¿ƒæ¬¾è‚ºé›è‚º é€å˜ä¿ƒ.
 						CString strPatchFileUrl;
 						strPatchFileUrl.Format( _T( "%s%08d/Patch%08d.txt" ), DNPATCHINFO.GetPatchUrl().GetBuffer(), nCurServerVersion, nCurServerVersion );
 						BOOL bResult = DeleteUrlCacheEntry( strPatchFileUrl.GetBuffer() );
@@ -855,22 +855,22 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 
 			g_DownloadInfoData.m_nDownloadProgressMin = 0;
 			g_DownloadInfoData.m_nDownloadProgressMax = 100;
-			SendStatusMsg( PATCH_APPLY_PAK_FILE );	// ¼³Ä¡ ÇÁ·Î±×·¡½º ÁøÇàÀ» À§ÇØ ÇÁ·Î±×·¡½º Min/Max ÃÊ±âÈ­
+			SendStatusMsg( PATCH_APPLY_PAK_FILE );	// æ±²æ‘¹ æ©‡è‚ºå¼Šè´°èƒ¶ æŸ³é’é˜‘ å›°ç§¦ æ©‡è‚ºå¼Šè´°èƒ¶ Min/Max æª¬æ‰æ‹³
 
-			// ¹ŞÀº ÆĞÄ¡¸¦ Àû¿ëÇÑ´Ù.
+			// ç½ç¯® è©æ‘¹ç”« åˆ©ä¾©èŒ„ä¿ƒ.
 			nRetValue = ApplyPakPatch();
 
 			if( nRetValue == PR_TERMINATE )
 				break;
 #ifdef _USE_RTPATCH
-			DeleteFolder( m_strRTPatchTempFolder.c_str() );			// RTPatchÀû¿ë ÀÓ½Ã Æú´õ »èÁ¦
+			DeleteFolder( m_strRTPatchTempFolder.c_str() );			// RTPatchåˆ©ä¾© çƒ™çŸ« å¼ƒæ­¹ æ˜åŠ›
 #endif // _USE_RTPATCH
 
-			ClientDeleteFile( m_strPatchListFile.GetBuffer() );		// ApplyPak¿Ï·á ÈÄ txtÆÄÀÏÀº ¹Ù·Î »èÁ¦
+			ClientDeleteFile( m_strPatchListFile.GetBuffer() );		// ApplyPakè‚¯ä¸° é¥¶ txté¢‡è€ç¯® å®˜è‚º æ˜åŠ›
 
 			if( nRetValue == PR_OK || nRetValue == PR_LAUNCHER_PATCH )
 			{
-				ClientDeleteFile( m_strPatchFile.GetBuffer() );		// ´Ù¿î·Îµå ¹ŞÀº PakÆÄÀÏÀº Apply ¼º°ø½Ã¿¡¸¸ »èÁ¦
+				ClientDeleteFile( m_strPatchFile.GetBuffer() );		// ä¿ƒæ¬¾è‚ºé› ç½ç¯® Paké¢‡è€ç¯® Apply å·±å‚çŸ«ä¿Šçˆ¶ æ˜åŠ›
 
 				LogWnd::TraceLog( _T( "%d Version Patch Apply Success!"), i );
 				DNPATCHINFO.SetClientVersion( i );
@@ -880,16 +880,16 @@ PatchReturn CDnPatchDownloadThread::BeginPatch()
 				szPath = DNPATCHINFO.GetClientPath();
 				szPath += CLIENT_VERSION_NAME;
 				
-				if( !SaveVersionFile( szPath, i ) )	// Version.cfg¿¡ ¹Ù²ï ¹öÀü ÀúÀå
+				if( !SaveVersionFile( szPath, i ) )	// Version.cfgä¿Š å®˜è¯§ æ»šå‚ˆ å†å˜
 				{
 					nRetValue = PR_FAIL;
 					break;
 				}
 
-				if( nRetValue == PR_LAUNCHER_PATCH )	// ·±Ã³ ÆĞÄ¡°¡ µÇ¾ú´Ù¸é Áß´ÜÇÏ°í »õ ·±Ã³¸¦ ¶ç¿ì°í ÆĞÄ¡ÇÑ´Ù.
+				if( nRetValue == PR_LAUNCHER_PATCH )	// ç¹è´¸ è©æ‘¹å•Š ç™»èŒä¿ƒæ åçªœçªç»Š è´§ ç¹è´¸ç”« å‰å¿«ç»Š è©æ‘¹èŒ„ä¿ƒ.
 					break;
 			}
-			else	// ÆĞÄ¡ÇÏ´Ù°¡ ¿¡·¯ ³µ´Ù.. Ã·ºÎÅÍ ´Ù½Ã ±ò¾Æ¾ß °Ú´Ù..
+			else	// è©æ‘¹çªä¿ƒå•Š ä¿ŠçŸ¾ è½¦ä¿ƒ.. æ¢…ä½•ç£ ä¿ƒçŸ« å½¬é…’å…· æ‘†ä¿ƒ..
 			{
 				SendStatusMsg( PATCH_APPLY_PAK_FILE_FAILED );
 				LogWnd::TraceLog( _T( "%d Version Patch Apply Failed!"), i );
@@ -981,7 +981,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 	LogWnd::TraceLog( L"URLDownload Start" );
 
 	HINTERNET hInternetSession;
-	// ¼¼¼Ç ¿­±â
+	// æŠ€è®° å‡¯æ‰
 	LogWnd::TraceLog( L"Open Internet Session" );
 	hInternetSession = InternetOpen( NULL, INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0 );
 
@@ -995,7 +995,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 	m_strPatchFile.Format( L"%s%s", strFilePath, strFileName );
 	m_strPatchFileLocal.Format( L"%s.tmp", m_strPatchFile );
 
-	// ´Ù¿î·Îµå ¹Ş±â Àü ÆÄÀÏÀº ¸ÕÀú Ã¼Å©
+	// ä¿ƒæ¬¾è‚ºé› ç½æ‰ å‚ˆ é¢‡è€ç¯® åˆšå† çœ‰å†œ
 	CFile file;
 	FileCheck filecheck;
 	DWORD dwDownloadFileSize;
@@ -1012,7 +1012,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 
 	if( m_dwTempFileLength < dwDownloadFileSize )
 	{
-		// Http ¿­±â
+		// Http å‡¯æ‰
 		LogWnd::TraceLog( L"Open Http Connection" );
 		CString strAddHeader;
 		strAddHeader.Format( L"Range:bytes=%d-\nCache-Control:no-cache\nPragma:no-cache", m_dwTempFileLength );
@@ -1032,7 +1032,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 		DWORD dwBufferSize = MAX_PATH;
 		DWORD dwIndex = 0;
 
-		// ´Ù¿î¹Ş¾Æ¾ß ÇÒ ÆÄÀÏ Å©±â ±¸ÇÏ±â
+		// ä¿ƒæ¬¾ç½é…’å…· ä¸” é¢‡è€ å†œæ‰ å¤‡çªæ‰
 		if( HttpQueryInfo( m_hHttpConnection, HTTP_QUERY_CONTENT_LENGTH, (LPVOID)&szBuffer, &dwBufferSize, &dwIndex ) != FALSE )
 		{
 			m_dwDownloadFileLength = (DWORD)_wtoi( szBuffer );
@@ -1044,7 +1044,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 		}
 
 		LogWnd::TraceLog( L"DownLoad Left File Size : %d", m_dwDownloadFileLength );
-		// ´Ù¿î·Îµå ½ÃÀÛ (ÀÌ¾î¹Ş±â)
+		// ä¿ƒæ¬¾è‚ºé› çŸ«ç´¯ (æç»¢ç½æ‰)
 		if( m_dwDownloadFileLength > 0 )
 		{
 			LogWnd::TraceLog( L"Download File Start" );
@@ -1102,7 +1102,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 
 			} while( dwRead != 0 );
 
-			if( m_bTerminateThread || bError )	// ÅÍ¹Ì³×ÀÌÆ® µÇ¾ú°Å³ª ÆĞÅ¶Àü¼Û ¹ŞÀ» ¶§ ¿À·ù°¡ ÀÖÀ» °æ¿ì
+			if( m_bTerminateThread || bError )	// ç£å›ºåŒ™æé£˜ ç™»èŒèŠ­å”± è©å“¦å‚ˆä»· ç½é˜‘ é”­ å·å¹…å•Š ä¹é˜‘ ç‰ˆå¿«
 			{
 				file.Close();
 				InternetCloseHandle( m_hHttpConnection );
@@ -1120,7 +1120,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 	if( !bSplitDownload )
 	{
 		LogWnd::TraceLog( L"MD5 Check Start" );
-		// ¿Ã¹Ù¸£°Ô ´Ù¿î·Îµå µÇ¾ú´ÂÁö MD5 Check
+		// æ£µå®˜ç¦éœ¸ ä¿ƒæ¬¾è‚ºé› ç™»èŒç»°ç˜¤ MD5 Check
 		if( !GetMD5Checksum() )
 		{
 			LogWnd::Log( LogLevel::Error, L"MD5 Check Failed!" );
@@ -1133,7 +1133,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 	}
 #else // _USE_SPLIT_COMPRESS_FILE
 	LogWnd::TraceLog( L"MD5 Check Start" );
-	// ¿Ã¹Ù¸£°Ô ´Ù¿î·Îµå µÇ¾ú´ÂÁö MD5 Check
+	// æ£µå®˜ç¦éœ¸ ä¿ƒæ¬¾è‚ºé› ç™»èŒç»°ç˜¤ MD5 Check
 #ifndef _USA
 	if( !GetMD5Checksum() )
 	{
@@ -1147,7 +1147,7 @@ HRESULT CDnPatchDownloadThread::URLDownload( LPCTSTR strPatchFileUrl, LPCTSTR st
 	LogWnd::TraceLog( L"MD5 Check Success" );
 #endif // _USE_SPLIT_COMPRESS_FILE
 
-	// Á¤¸® tmp -> ¿ø·¡ ÆÄÀÏ¸í
+	// æ²¥åºœ tmp -> ç›”è´° é¢‡è€ç–™
 	CString strNewPatchFileLocal = m_strPatchFileLocal.Left( m_strPatchFileLocal.GetLength() - 4 );
 	CFile::Rename( m_strPatchFileLocal, strNewPatchFileLocal );
 
@@ -1165,7 +1165,7 @@ FileCheck CDnPatchDownloadThread::CheckPatchFile( HINTERNET hInternetSession, LP
 												 CFile& file, DWORD& dwDownloadFileSize )
 #endif // _USE_SPLIT_COMPRESS_FILE
 {
-	// ´Ù¿î ¹ŞÀ» ÆÄÀÏ Å©±â ±¸ÇÏ±â
+	// ä¿ƒæ¬¾ ç½é˜‘ é¢‡è€ å†œæ‰ å¤‡çªæ‰
 	dwDownloadFileSize = GetDownloadFileSize( hInternetSession, m_strPatchFileUrl );
 
 	if( dwDownloadFileSize == 0 )
@@ -1188,7 +1188,7 @@ FileCheck CDnPatchDownloadThread::CheckPatchFile( HINTERNET hInternetSession, LP
 	g_DownloadInfoData.m_nFileSize = dwDownloadFileSize;
 #endif // _USE_SPLIT_COMPRESS_FILE
 
-	// ´Ù¿î ¿Ï·áµÈ ÆÄÀÏÀÌ ÀÖÀ» °æ¿ì À¯È¿¼º °Ë»ç
+	// ä¿ƒæ¬¾ è‚¯ä¸°ç­‰ é¢‡è€æ ä¹é˜‘ ç‰ˆå¿« èœ¡ç“¤å·± å…«è¤
 	LogWnd::TraceLog( L"Check Downloaded Temp File" );
 	CFileException e;
 
@@ -1196,13 +1196,13 @@ FileCheck CDnPatchDownloadThread::CheckPatchFile( HINTERNET hInternetSession, LP
 	{
 		DWORD dwFileLength = static_cast<DWORD>( file.GetLength() );
 		file.Close();
-		if( dwFileLength == dwDownloadFileSize )	// ÀÌ¹Ì ´Ù ¹Ş¾ÆÁø ÆÄÀÏÀÌ ÀÖÀ½
+		if( dwFileLength == dwDownloadFileSize )	// æå›º ä¿ƒ ç½é…’æŸ³ é¢‡è€æ ä¹æ¾œ
 		{
 			LogWnd::Log( LogLevel::Error, L"Already Exist Download Temp File!" );
 			InternetCloseHandle( hInternetSession );
 			return FIlE_EXIST;
 		}
-		else	// ¹Ş¾ÒÀ¸³ª ¼­¹öÀÇ ÆÄÀÏ Á¤º¸¿Í »óÀÌÇÒ °æ¿ì »èÁ¦ ÈÄ ´Ù½Ã ¹ŞÀ½
+		else	// ç½ç–½æ å”± è¾‘æ»šç‹¼ é¢‡è€ æ²¥ç„Šå®¢ æƒ‘æä¸” ç‰ˆå¿« æ˜åŠ› é¥¶ ä¿ƒçŸ« ç½æ¾œ
 		{
 			LogWnd::Log( LogLevel::Error, L"Already Exist Download Temp File But Delete Wrong File!" );
 			if( !ClientDeleteFile( m_strPatchFile ) )
@@ -1218,12 +1218,12 @@ FileCheck CDnPatchDownloadThread::CheckPatchFile( HINTERNET hInternetSession, LP
 			RecordFileExceptionLog( e );
 	}
 
-	// ±âÁ¸ ´Ù¿î¹Ş´ø tmp ÆÄÀÏ Ã¼Å©
+	// æ‰ç²® ä¿ƒæ¬¾ç½å¸¦ tmp é¢‡è€ çœ‰å†œ
 	FILE* fp;
 	fp = _wfopen( m_strPatchFileLocal, _T("r") );
 	UINT uiFileModeFlag = CFile::modeCreate | CFile::modeWrite | CFile::shareDenyNone;
 
-	if( fp != NULL )	// ´Ù¿î¹Ş´ø tmpÆÄÀÏÀÌ ÀÖÀ» °æ¿ì
+	if( fp != NULL )	// ä¿ƒæ¬¾ç½å¸¦ tmpé¢‡è€æ ä¹é˜‘ ç‰ˆå¿«
 	{
 		fclose( fp );
 		uiFileModeFlag |= CFile::modeNoTruncate;
@@ -1265,7 +1265,7 @@ DWORD CDnPatchDownloadThread::GetDownloadFileSize( HINTERNET hInternetSession, C
 	DWORD dwIndex = 0;
 	DWORD dwFileSize = 0;
 
-	// ´Ù¿î¹Ş¾Æ¾ß ÇÒ ÆÄÀÏ Å©±â ±¸ÇÏ±â
+	// ä¿ƒæ¬¾ç½é…’å…· ä¸” é¢‡è€ å†œæ‰ å¤‡çªæ‰
 	if( HttpQueryInfo( m_hHttpConnection, HTTP_QUERY_CONTENT_LENGTH, (LPVOID)&szBuffer, &dwBufferSize, &dwIndex ) != FALSE )
 		dwFileSize = (DWORD)_wtoi( szBuffer );
 
@@ -1312,7 +1312,7 @@ BOOL CDnPatchDownloadThread::GetMD5Checksum()
 	strDownloadChecksum = strDownloadChecksum.Left( nIndex - 1 );
 
 	CString strLocalChecksum = CMD5Checksum::GetMD5( m_strPatchFileLocal );
-	// MD5 ºñ±³
+	// MD5 åšèƒŒ
 	return wcscmp( strLocalChecksum, strDownloadChecksum ) == 0 ? TRUE : FALSE;
 }
 
@@ -1331,7 +1331,7 @@ BOOL CDnPatchDownloadThread::LoadPatchList()
 	}
 	char cPatchCode, szString[1024], *pFindPtr;
 	int nFileSize = GetFileSize( hFile, NULL );
-	char *pBuffer = new char [ nFileSize + 3 ]; // ÆÄÀÏ ³¡ÀÌ ¾øÀ»°æ¿ì pBuffer + 2 ÇÑ ÈÄ¿¡ pBuffer °¡ ¾²·¹±â°ªÀÌ¿©¼­ strchr ¿¡¼­ »¶³¯ ¼ö ÀÖ´Ù.
+	char *pBuffer = new char [ nFileSize + 3 ]; // é¢‡è€ åœºæ ç»é˜‘ç‰ˆå¿« pBuffer + 2 èŒ„ é¥¶ä¿Š pBuffer å•Š é™é¥­æ‰è”¼æå’¯è¾‘ strchr ä¿Šè¾‘ æ¬¢æœ è ä¹ä¿ƒ.
 	memset( pBuffer, 0, nFileSize + 3 );
 
 	char *pBufferBackup = pBuffer;
@@ -1385,14 +1385,14 @@ PatchReturn CDnPatchDownloadThread::PreApplyPakPatch()
 {
 	LogWnd::TraceLog( L"Patch Step 2 - PreApplyPakPatch Start" );
 
-	//ÆĞÄ¡ »óÅÂ ¸®½ºÆ® Á¤º¸¸¦ ÀĞ¾î¿Â´Ù. 
+	//è©æ‘¹ æƒ‘æ€• åºœèƒ¶é£˜ æ²¥ç„Šç”« ä½¬ç»¢æŸ¯ä¿ƒ. 
 	if( !LoadPatchList() )
 	{
 		ErrorMessageBoxLog( _S( STR_PATCH_STATE_LIST_NOT_READ + DNPATCHINFO.GetLanguageOffset() ) );
 		return PR_FAIL;
 	}
 
-	PatchReturn nRetValue = GetPackingFile();	// ¸®¼Ò½º ÆĞÅ· ÆÄÀÏÀ» Ã£°í Á¤º¸¸¦ °¡Á®¿È
+	PatchReturn nRetValue = GetPackingFile();	// åºœå®¶èƒ¶ è©æ¬§ é¢‡è€é˜‘ èŒ«ç»Š æ²¥ç„Šç”« å•Šå»‰å’³
 
 	if( m_vecPackingFile.empty() )
 	{
@@ -1555,7 +1555,7 @@ PatchReturn CDnPatchDownloadThread::ApplyDeleteList( CEtPackingFile& PatchSource
 
 			if( m_vecPackingFile[j]->Remove( szFileName ) )
 			{
-				// »èÁ¦ ÇßÀ¸¸é ´ÙÀ½ ÆÄÀÏ·Î ³Ñ¾î°£´Ù.
+				// æ˜åŠ› æ²æ æ ä¿ƒæ¾œ é¢‡è€è‚º é€ç»¢åŸƒä¿ƒ.
 				m_nCurPatchCount++;
 				g_DownloadInfoData.m_nDownloadProgressMin = m_nCurPatchCount;
 				g_DownloadInfoData.m_nDownloadProgressMax = m_nTotalPatchCount;
@@ -1566,12 +1566,12 @@ PatchReturn CDnPatchDownloadThread::ApplyDeleteList( CEtPackingFile& PatchSource
 
 		if( bIsNoramlFile )
 		{
-#ifdef _TEST	// Å×½ºÆ®¿ë ·±Ã³ÀÇ °æ¿ì °æ·Î°¡ ÀÓÀÇ·Î ¼ÂÆÃµÉ ¼ö ÀÖÀ¸¹Ç·Î ¾Æ·¡Ã³·³ Ã³¸®
+#ifdef _TEST	// æŠ›èƒ¶é£˜ä¾© ç¹è´¸ç‹¼ ç‰ˆå¿« ç‰ˆè‚ºå•Š çƒ™ç‹¼è‚º æ‚¸æ³¼çª è ä¹æ éª¨è‚º é…’è´°è´¸çƒ¦ è´¸åºœ
 			TCHAR szCurDir[ _MAX_PATH ]={0,};
 			GetCurrentDirectory( _MAX_PATH, szCurDir );
 			SetCurrentDirectory( DNPATCHINFO.GetClientPath() );
 #endif // _TEST
-			//ÀÏ¹İ µğ·ºÅä¸® »èÁ¦ °¡´É Ãß°¡. 
+			//è€é¦† å¼æ³›é…åºœ æ˜åŠ› å•Šç“· çœ å•Š. 
 			char CheckExe[256]={0 ,};
 			_GetExt( CheckExe, sizeof(CheckExe), m_vecDeleteList[i].c_str() );
 			if( strlen( CheckExe ) == 0 )
@@ -1625,7 +1625,7 @@ PatchReturn CDnPatchDownloadThread::PatchFileExist( int nPatchFileCount, CEtPack
 
 				m_vecPackingFile[i]->RemoveFileInfo( nFindIndex );
 				int nFindEmptyIndex = m_vecPackingFile[i]->FindSuitableEmptySpace( pFileInfo->dwCompressSize );
-				if( nFindEmptyIndex == -1 )	// Àû´çÇÑ °ø°£ÀÌ ¾øÀ¸¸é ¿¹¾à°É±â
+				if( nFindEmptyIndex == -1 )	// åˆ©å¯¸èŒ„ å‚åŸƒæ ç»æ æ æŠ—è·å§æ‰
 				{
 					stFileIndexSet fileIndex;
 					fileIndex.m_dwPakFileNum = i;
@@ -1634,7 +1634,7 @@ PatchReturn CDnPatchDownloadThread::PatchFileExist( int nPatchFileCount, CEtPack
 
 					m_vecReserveIndex.push_back( fileIndex );
 				}
-				else	// Àû´çÇÑ °ø°£ÀÌ ÀÖ´Ù¸é ÆĞÄ¡
+				else	// åˆ©å¯¸èŒ„ å‚åŸƒæ ä¹ä¿ƒæ è©æ‘¹
 				{
 					if( !m_vecPackingFile[i]->PatchFileIndex( pFileHandle, nFindEmptyIndex ) )
 					{
@@ -1646,9 +1646,9 @@ PatchReturn CDnPatchDownloadThread::PatchFileExist( int nPatchFileCount, CEtPack
 				PatchSource.CloseFile( pFileHandle );
 				bPatch = TRUE;
 			}
-			else	// ÆĞÄ¡ ÆÄÀÏÀÇ Å©±â°¡ ´õ Å¬ °æ¿ì Áö¿ì°í ºüÁü
+			else	// è©æ‘¹ é¢‡è€ç‹¼ å†œæ‰å•Š æ­¹ åŠª ç‰ˆå¿« ç˜¤å¿«ç»Š ç‹å’™
 			{
-				// ÀüÃ¤ ÆĞÅ· ÆÄÀÏ¿¡¼­ »èÁ¦ ½ÃµµÇÏµµ·Ï ¹Ù²Ş
+				// å‚ˆç›² è©æ¬§ é¢‡è€ä¿Šè¾‘ æ˜åŠ› çŸ«æ¡£çªæ¡£åºŸ å®˜å•
 				BOOL bRemove = FALSE;
 				for( int j=0; j<(int)m_vecPackingFile.size(); j++ )
 				{
@@ -1701,13 +1701,13 @@ PatchReturn CDnPatchDownloadThread::PatchFileSuitableSpace( CEtPackingFile& Patc
 
 void CDnPatchDownloadThread::PatchFileReserve( int nPatchFileCount, SPackingFileInfo* pFileInfo )
 {
-	// ÆĞÄ¡ÇÒ À§Ä¡¸¦ Ã£Áö ¸øÇßÀ¸¸é Á¦ÀÏ Àû´çÇÑ À§Ä¡¸¦ Ã£¾Æ¼­ ³Ö¾îÁØ´Ù
+	// è©æ‘¹ä¸” å›°æ‘¹ç”« èŒ«ç˜¤ ç»™æ²æ æ åŠ›è€ åˆ©å¯¸èŒ„ å›°æ‘¹ç”« èŒ«é…’è¾‘ æŒç»¢éœ–ä¿ƒ
 	int nBestIndex = -1;
 	DWORD dwMinSize = ULONG_MAX;
 	for( int j=0; j<(int)m_vecPackingFile.size(); j++ )
 	{
 		DWORD dwPackingFileSize = m_vecPackingFile[j]->GetFileSystemSize();
-		// 512¸Ş°¡ º¸´Ù´Â ÀÛ¾Æ¾ß ¹Ğ¾î ³ÖÀ» ¼ö ÀÖ´Ù
+		// 512çš‹å•Š ç„Šä¿ƒç»° ç´¯é…’å…· å‰ç»¢ æŒé˜‘ è ä¹ä¿ƒ
 		if( ( dwPackingFileSize < dwMinSize ) && ( dwPackingFileSize < (DWORD)DEFAULT_PACKING_FILE_SIZE ) )
 		{
 			dwMinSize = dwPackingFileSize;
@@ -1717,7 +1717,7 @@ void CDnPatchDownloadThread::PatchFileReserve( int nPatchFileCount, SPackingFile
 
 	if( nBestIndex == -1 )
 	{
-		// ÆĞÄ¡ÇÒ Àû´çÇÑ ÆÄÀÏÀ» ¸øÃ£¾ÒÀ¸¸é »õ·Î¿î ÆĞÄ¡ÆÄÀÏÀ» ¸¸µç´Ù.
+		// è©æ‘¹ä¸” åˆ©å¯¸èŒ„ é¢‡è€é˜‘ ç»™èŒ«ç–½æ æ è´§è‚ºæ¬¾ è©æ‘¹é¢‡è€é˜‘ çˆ¶ç”µä¿ƒ.
 		int nStartFileIndex = ( int )m_vecPackingFile.size();
 		while( 1 )
 		{
@@ -1769,8 +1769,8 @@ PatchReturn CDnPatchDownloadThread::ApplyPatchList( CEtPackingFile& PatchSource 
 
 		for( int j=0; j<(int)m_vecCopyList.size(); j++ )
 		{
-			// ÆÄÀÏÀÌ¸§ ¾Õ¿¡.. \ ºÙ¾î ÀÖ¾î¼­ ±×°Å Á¦¿ÜÇÑ ÀÌ¸§À¸·Î ºñ±³ÇØ¾ß Á¦´ë·Î µÈ´Ù.
-			// Ä«ÇÇ¸®½ºÆ®¿¡ ÀÖ´Â°ÍÀº ÆÑ¿¡ µé¾î°¡¸é ¾ÈµÊ ÆĞ½º
+			// é¢‡è€ææŠš èŠä¿Š.. \ å˜¿ç»¢ ä¹ç»¢è¾‘ å¼ŠèŠ­ åŠ›å¯‡èŒ„ ææŠšæ è‚º åšèƒŒç§¦å…· åŠ›æªè‚º ç­‰ä¿ƒ.
+			// å¢¨ä¹”åºœèƒ¶é£˜ä¿Š ä¹ç»°å·´ç¯® è’²ä¿Š ç”¸ç»¢å•Šæ æ•‘å‡³ è©èƒ¶
 			if( _stricmp( m_vecCopyList[j].c_str(), pFileInfo->szFileName + 1 ) == 0 )
 			{
 				bSkip = TRUE;
@@ -1782,14 +1782,14 @@ PatchReturn CDnPatchDownloadThread::ApplyPatchList( CEtPackingFile& PatchSource 
 			continue;
 
 		BOOL bPatch = FALSE;
-		if( PatchFileExist( i, PatchSource, pFileInfo, bPatch ) == PR_FAIL )	// ±âÁ¸¿¡ Á¸ÀçÇÏ´Â ÆÄÀÏÀÎÁö °Ë»çÇØ¼­ ÆĞÄ¡°¡´ÉÇÏ¸é ÆĞÄ¡
+		if( PatchFileExist( i, PatchSource, pFileInfo, bPatch ) == PR_FAIL )	// æ‰ç²®ä¿Š ç²®çŠçªç»° é¢‡è€ç‰¢ç˜¤ å…«è¤ç§¦è¾‘ è©æ‘¹å•Šç“·çªæ è©æ‘¹
 			return PR_FAIL;
 		if( !bPatch )
 		{
-			if( PatchFileSuitableSpace( PatchSource, pFileInfo, bPatch ) == PR_FAIL )	// Àû´çÇÑ °ø°£ÀÌ ÀÖ´Ù¸é ±×°÷¿¡ ÆĞÄ¡
+			if( PatchFileSuitableSpace( PatchSource, pFileInfo, bPatch ) == PR_FAIL )	// åˆ©å¯¸èŒ„ å‚åŸƒæ ä¹ä¿ƒæ å¼Šé•‘ä¿Š è©æ‘¹
 				return PR_FAIL;
 			if( !bPatch )
-				PatchFileReserve( i, pFileInfo );	// ±âÁ¸¿¡ Á¸ÀçÇÏÁöµµ Àû´çÇÑ °ø°£µµ ¾ø´Ù¸é °ø°£ÀÌ ³²Àº PakÆÄÀÏÀÇ µÚ¿¡ ºÙÀÌ±â À§ÇØ¼­ ¿¹¾à¸¸ °É¾îµÒ
+				PatchFileReserve( i, pFileInfo );	// æ‰ç²®ä¿Š ç²®çŠçªç˜¤æ¡£ åˆ©å¯¸èŒ„ å‚åŸƒæ¡£ ç»ä¿ƒæ å‚åŸƒæ å·¢ç¯® Paké¢‡è€ç‹¼ ç¬¬ä¿Š å˜¿ææ‰ å›°ç§¦è¾‘ æŠ—è·çˆ¶ å§ç»¢ç‹„
 		}
 		
 		if( bPatch )
@@ -1811,11 +1811,11 @@ PatchReturn CDnPatchDownloadThread::ApplyPatchList( CEtPackingFile& PatchSource 
 		}
 	}
 
-	// ¿¹¾àµÈ °ø°£À» ºñ¿öµÎ°í Çì´õ¸¦ Write
+	// æŠ—è·ç­‰ å‚åŸƒé˜‘ åšå†µæ»´ç»Š åº†æ­¹ç”« Write
 	for( int j=0; j<(int)m_vecPackingFile.size(); j++ )
 		m_vecPackingFile[ j ]->WriteReserveFileInfo();
 
-	// ¿¹¾àµÈ ÆĞÄ¡ÆÄÀÏµé ÆĞÄ¡
+	// æŠ—è·ç­‰ è©æ‘¹é¢‡è€ç”¸ è©æ‘¹
 	std::vector<stFileIndexSet>::iterator iter = m_vecReserveIndex.begin();
 	for( ; iter != m_vecReserveIndex.end(); iter++ )
 	{
@@ -1825,7 +1825,7 @@ PatchReturn CDnPatchDownloadThread::ApplyPatchList( CEtPackingFile& PatchSource 
 		if( pFileHandle == NULL )
 			return PR_FAIL;
 
-		if( !m_vecPackingFile[ (*iter).m_dwPakFileNum ]->PatchFileIndex( pFileHandle, (*iter).m_dwReserveFileIndex, FALSE ) )	// ÀÌ¹Ì ¿¹¾àµÈ FileInfoÀÌ¹Ç·Î FileInfo °»½ÅÇÏÁö ¾ÊÀ½
+		if( !m_vecPackingFile[ (*iter).m_dwPakFileNum ]->PatchFileIndex( pFileHandle, (*iter).m_dwReserveFileIndex, FALSE ) )	// æå›º æŠ—è·ç­‰ FileInfoæéª¨è‚º FileInfo ç›è„šçªç˜¤ è‡¼æ¾œ
 		{
 			LogWnd::Log( LogLevel::Error, L"Patch File Failed!" );
 			PatchSource.CloseFile( pFileHandle );
@@ -1846,7 +1846,7 @@ PatchReturn CDnPatchDownloadThread::ApplyCopyList( CEtPackingFile& PatchSource )
 	PatchReturn nRetValue = PR_OK;
 	LogWnd::TraceLog( L"ApplyCopyList" );
 
-#ifdef _TEST	// Å×½ºÆ®¿ë ·±Ã³ÀÇ °æ¿ì °æ·Î°¡ ÀÓÀÇ·Î ¼ÂÆÃµÉ ¼ö ÀÖÀ¸¹Ç·Î ¾Æ·¡Ã³·³ Ã³¸®
+#ifdef _TEST	// æŠ›èƒ¶é£˜ä¾© ç¹è´¸ç‹¼ ç‰ˆå¿« ç‰ˆè‚ºå•Š çƒ™ç‹¼è‚º æ‚¸æ³¼çª è ä¹æ éª¨è‚º é…’è´°è´¸çƒ¦ è´¸åºœ
 	TCHAR szCurDirectory[ _MAX_PATH ]={0,};
 	GetCurrentDirectory( _MAX_PATH, szCurDirectory );
 	SetCurrentDirectory( DNPATCHINFO.GetClientPath() );
@@ -1854,7 +1854,7 @@ PatchReturn CDnPatchDownloadThread::ApplyCopyList( CEtPackingFile& PatchSource )
 
 	for( int i=0; i<(int)m_vecCopyList.size(); i++ )
 	{
-		//ÆÑ¾È¿¡´Â \ ÆÄÀÏ¾Õ¿¡ ºÙ±â‹ª½Ã ºñ±³¸¦À§ÇØ¼­ ºÙ¿©ÁØ´Ù. 
+		//è’²æ•‘ä¿Šç»° \ é¢‡è€èŠä¿Š å˜¿æ‰å«ªçŸ« åšèƒŒç”«å›°ç§¦è¾‘ å˜¿å’¯éœ–ä¿ƒ. 
 		char szAddCopyListName[_MAX_PATH]={0,};
 		sprintf_s( szAddCopyListName, "\\%s", m_vecCopyList[ i ].c_str() );
 		CEtFileHandle *pFileHandle = PatchSource.OpenFile( szAddCopyListName );
@@ -1878,8 +1878,8 @@ PatchReturn CDnPatchDownloadThread::ApplyCopyList( CEtPackingFile& PatchSource )
 			{
 				ClientDeleteFile( _T( DNLAUNCHER_NAME_TMP ) );
 				
-				// DNLAUNCHER_NAME°¡ Á¸ÀçÇØ¾ßÇÏ¸ç, DNLAUNCHER_NAME¸¦ DNLAUNCHER_NAME_TMP·Î º¯°æÇÑ´Ù.
-				if( _access( DNLAUNCHER_NAME, 0 ) == 0 && MoveFile( _T( DNLAUNCHER_NAME ), _T( DNLAUNCHER_NAME_TMP ) ) == 0 )	// ·±Ã³ ÆÄÀÏ¸íÀ» ¹Ù²Ù°í ½ÇÇàÇÏ´õ¶óµµ ·±Ã³ÆĞÄ¡°¡ µÇµµ·Ï ÇÔ
+				// DNLAUNCHER_NAMEå•Š ç²®çŠç§¦å…·çªå“¥, DNLAUNCHER_NAMEç”« DNLAUNCHER_NAME_TMPè‚º å‡½ç‰ˆèŒ„ä¿ƒ.
+				if( _access( DNLAUNCHER_NAME, 0 ) == 0 && MoveFile( _T( DNLAUNCHER_NAME ), _T( DNLAUNCHER_NAME_TMP ) ) == 0 )	// ç¹è´¸ é¢‡è€ç–™é˜‘ å®˜æ“ç»Š è§’é’çªæ­¹æ‰¼æ¡£ ç¹è´¸è©æ‘¹å•Š ç™»æ¡£åºŸ çªƒ
 				{
 					CString strError;
 					strError.Format( L"%s %d", _S( STR_LAUNCHER_PATCH_FAIL + DNPATCHINFO.GetLanguageOffset() ), 1 );
@@ -2000,7 +2000,7 @@ BOOL CDnPatchDownloadThread::SaveNewVersionToPak( int nVersion )
 	char StrVersionName[32]= "\\version.cfg";
 	WideCharToMultiByte( CP_ACP, 0, szFindPackingFile.GetBuffer(), -1, szTemp, _MAX_PATH, NULL, NULL );
 
-	// ¾îÂ¿¼ö ¾ø´Ù. 512M ³Ñ¾î°¡´Â°ÍÁß¿¡ °ñ¶ó¼­ Ãß°¡ÇÏÀÚ. 
+	// ç»¢é©´è ç»ä¿ƒ. 512M é€ç»¢å•Šç»°å·´åä¿Š æ¦œæ‰¼è¾‘ çœ å•Šçªç£Š. 
 	if( pPackingFile->OpenFileSystem( szTemp ) )
 	{
 		pPackingFile->Remove( StrVersionName );
@@ -2105,7 +2105,7 @@ void CDnPatchDownloadThread::RecordFileExceptionLog( CFileException& e )
 static void far* g_pCallBackParam = NULL;
 static BOOL g_bInCallBack = FALSE;
 static BOOL g_bAbortPatch = FALSE;
-static char g_strOriginFileName[_MAX_PATH] = {0,};	// ¿øº» ÆÄÀÏ ¸í ( ApplyPatch32 ½ÇÇà½Ã CallBack Function¿¡¼­ ¼ÂÆÃÇÑ´Ù. )
+static char g_strOriginFileName[_MAX_PATH] = {0,};	// ç›”å¤¯ é¢‡è€ ç–™ ( ApplyPatch32 è§’é’çŸ« CallBack Functionä¿Šè¾‘ æ‚¸æ³¼èŒ„ä¿ƒ. )
 
 LPVOID CALLBACK EXPORT CDnPatchDownloadThread::RTPatchCALLBACK( UINT Id, LPVOID Param )
 {
@@ -2237,7 +2237,7 @@ PatchReturn CDnPatchDownloadThread::ApplyRTPatch( CEtPackingFile& PatchSource, C
 		if( pFileInfo == NULL )
 			continue;
 
-		// rtpÆÄÀÏ export
+		// rtpé¢‡è€ export
 		if( !ExportFile( PatchSource, pFileInfo->szFileName, m_strRTPatchTempFolder.c_str() ) )
 		{
 			CString strFileName( pFileInfo->szFileName );
@@ -2262,7 +2262,7 @@ PatchReturn CDnPatchDownloadThread::ApplyRTPatch( CEtPackingFile& PatchSource, C
 		{
 			int nFindIndex = m_vecPackingFile[i]->FindFile( strFullPathOriginFileName.c_str() );
 			
-			if( nFindIndex != -1 )	// rtpÆÄÀÏ¿¡ ÇØ´çÇÏ´Â ÆÄÀÏÀÌ ÀÖ´Ù¸é ÃßÃâ
+			if( nFindIndex != -1 )	// rtpé¢‡è€ä¿Š ç§¦å¯¸çªç»° é¢‡è€æ ä¹ä¿ƒæ çœ å…
 			{
 				if( !ExportFile( *m_vecPackingFile[i], strFullPathOriginFileName.c_str(), m_strRTPatchTempFolder.c_str() ) )
 				{
@@ -2278,7 +2278,7 @@ PatchReturn CDnPatchDownloadThread::ApplyRTPatch( CEtPackingFile& PatchSource, C
 
 		strFullPathOriginFileName.erase( 0, 1 );	// path/xxx.exe
 
-		if( !bFindFile )	// pakÆÄÀÏ¿¡¼­ ¸øÃ£¾Ò´Ù¸é Å¬¶óÀÌ¾ğÆ® Æú´õ¿¡¼­ Ã£¾Æº»´Ù.
+		if( !bFindFile )	// paké¢‡è€ä¿Šè¾‘ ç»™èŒ«ç–½ä¿ƒæ åŠªæ‰¼ææ”«é£˜ å¼ƒæ­¹ä¿Šè¾‘ èŒ«é…’å¤¯ä¿ƒ.
 		{
 			char strClientPath[_MAX_PATH];
 			WideCharToMultiByte( CP_ACP, 0, DNPATCHINFO.GetClientPath().GetBuffer(), -1, strClientPath, __MAX_PATH, NULL, NULL );
@@ -2328,7 +2328,7 @@ PatchReturn CDnPatchDownloadThread::ApplyRTPatch( CEtPackingFile& PatchSource, C
 			RTPatchSource.ChangeDir( strPath );
 		}
 
-		// RTPatch Àû¿ëµÈ ÆÄÀÏÀ» »õ ÆÄÀÏ½Ã½ºÅÛ¿¡ ³Ö´Â´Ù.
+		// RTPatch åˆ©ä¾©ç­‰ é¢‡è€é˜‘ è´§ é¢‡è€çŸ«èƒ¶è¢ä¿Š æŒç»°ä¿ƒ.
 		char szApplyPatchFileName[_MAX_PATH];
 		sprintf_s( szApplyPatchFileName, _MAX_PATH, "%s\\%s", m_strRTPatchTempFolder.c_str(), g_strOriginFileName );
 		if( !RTPatchSource.AddFile( szApplyPatchFileName ) )
@@ -2400,7 +2400,7 @@ HRESULT CDnPatchDownloadThread::DownLoadSplitFile( CString strUrl, int nVersion 
 		int nSplitCountCipher = 1;
 		if( nSplitCount >= 10 && nSplitCount < 100 )
 			nSplitCountCipher = 2;
-		else if( nSplitCount >= 100 )	// ºĞÇÒÆÄÀÏ 100°³ ³Ñ¾î°¥ ÀÏÀº ¾øÀ» °Í
+		else if( nSplitCount >= 100 )	// ç›’ä¸”é¢‡è€ 100ä¿º é€ç»¢å“ è€ç¯® ç»é˜‘ å·´
 			nSplitCountCipher = 3;
 
 		std::vector<DWORD> vecDwSplitFileSizeList;
@@ -2493,7 +2493,7 @@ HRESULT CDnPatchDownloadThread::DownLoadSplitFile( CString strUrl, int nVersion 
 			m_strPatchFile.Format( L"%s%s", DNPATCHINFO.GetClientPath(), m_strPatchFileLocal );
 
 			LogWnd::TraceLog( L"MD5 Check Start" );
-			// ¿Ã¹Ù¸£°Ô ´Ù¿î·Îµå µÇ¾ú´ÂÁö MD5 Check
+			// æ£µå®˜ç¦éœ¸ ä¿ƒæ¬¾è‚ºé› ç™»èŒç»°ç˜¤ MD5 Check
 			if( !GetMD5Checksum() )
 			{
 				LogWnd::Log( LogLevel::Error, L"MD5 Check Failed!" );

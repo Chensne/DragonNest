@@ -219,6 +219,102 @@
     <ClCompile Include="base64.cpp">
       <Filter>Source Files\RLKT_SETTINGS</Filter>
     </ClCompile>
+    <ClCompile Include="Extern\CxImage\tif_xfile.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximabmp.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximadsp.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximaenc.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximaexif.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximage.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximagif.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximahist.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximaico.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximainfo.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximaint.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximajas.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximajbg.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximajpg.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximalpha.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximalyr.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximamng.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximapal.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximapcx.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximapng.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximapsd.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximaraw.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximasel.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximaska.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximatga.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximath.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximatif.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximatran.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximawbmp.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximawmf.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\ximawnd.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Extern\CxImage\xmemfile.cpp">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -286,75 +382,6 @@
     </ClInclude>
     <ClInclude Include="Extern\xSkinButton.h">
       <Filter>Extern\Graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\xfile.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximabmp.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximacfg.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximadef.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximage.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximagif.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximaico.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximaiter.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximajas.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximajbg.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximajpg.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximamng.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximapcx.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximapng.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximaraw.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximaska.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximatga.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximath.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximatif.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximawbmp.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\ximawmf.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\xiofile.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
-    </ClInclude>
-    <ClInclude Include="Extern\CxImage\xmemfile.h">
-      <Filter>Extern\Graphic\CxImage</Filter>
     </ClInclude>
     <ClInclude Include="Extern\MD5Checksum.h">
       <Filter>Extern\MD5</Filter>
@@ -457,6 +484,81 @@
     </ClInclude>
     <ClInclude Include="base64.h">
       <Filter>Source Files\RLKT_SETTINGS</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\stdint.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\xfile.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximabmp.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximacfg.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximadef.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximage.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximagif.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaico.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaiter.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximajas.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximajbg.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximajpg.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximamng.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximapcx.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximapng.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximapsd.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaraw.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximaska.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximatga.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximath.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximatif.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximawbmp.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\ximawmf.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\xiofile.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern\CxImage\xmemfile.h">
+      <Filter>Extern\Graphic\CxImage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

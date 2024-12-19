@@ -18,12 +18,12 @@ public:
 		Close();
 	}
 //////////////////////////////////////////////////////////
-	bool Open(LPCTSTR filename, LPCTSTR mode)
+	bool Open(const TCHAR * filename, const TCHAR * mode)
 	{
 		if (m_fp) return false;	// Can't re-open without closing first
 
-		if( _tfopen_s(&m_fp, filename, mode) )	//Zero if successful
-			return false;
+		m_fp = _tfopen(filename, mode);
+		if (!m_fp) return false;
 
 		m_bCloseFile = true;
 
@@ -32,7 +32,7 @@ public:
 //////////////////////////////////////////////////////////
 	virtual bool Close()
 	{
-		int iErr = 0;
+		int32_t iErr = 0;
 		if ( (m_fp) && (m_bCloseFile) ){ 
 			iErr = fclose(m_fp);
 			m_fp = NULL;
@@ -52,25 +52,23 @@ public:
 		return fwrite(buffer, size, count, m_fp);
 	}
 //////////////////////////////////////////////////////////
-	virtual bool Seek(long offset, int origin)
+	virtual bool Seek(int32_t offset, int32_t origin)
 	{
 		if (!m_fp) return false;
 		return (bool)(fseek(m_fp, offset, origin) == 0);
 	}
 //////////////////////////////////////////////////////////
-	virtual long Tell()
+	virtual int32_t Tell()
 	{
 		if (!m_fp) return 0;
 		return ftell(m_fp);
 	}
 //////////////////////////////////////////////////////////
-	virtual long	Size()
+	virtual int32_t	Size()
 	{
 		if (!m_fp) return -1;
-		long pos,size;
+		int32_t pos,size;
 		pos = ftell(m_fp);
-		if( pos < 0 )
-			return -1;
 		fseek(m_fp, 0, SEEK_END);
 		size = ftell(m_fp);
 		fseek(m_fp, pos,SEEK_SET);
@@ -89,34 +87,34 @@ public:
 		return (bool)(feof(m_fp) != 0);
 	}
 //////////////////////////////////////////////////////////
-	virtual long	Error()
+	virtual int32_t	Error()
 	{
 		if (!m_fp) return -1;
 		return ferror(m_fp);
 	}
 //////////////////////////////////////////////////////////
-	virtual bool PutC(unsigned char c)
+	virtual bool PutC(uint8_t c)
 	{
 		if (!m_fp) return false;
 		return (bool)(fputc(c, m_fp) == c);
 	}
 //////////////////////////////////////////////////////////
-	virtual long	GetC()
+	virtual int32_t	GetC()
 	{
 		if (!m_fp) return EOF;
 		return getc(m_fp);
 	}
 //////////////////////////////////////////////////////////
-	virtual char *	GetS(char *string, int n)
+	virtual char *	GetS(char *string, int32_t n)
 	{
 		if (!m_fp) return NULL;
 		return fgets(string,n,m_fp);
 	}
 //////////////////////////////////////////////////////////
-	virtual long	Scanf(const char *format, void* output)
+	virtual int32_t	Scanf(const char *format, void* output)
 	{
 		if (!m_fp) return EOF;
-		return fscanf_s(m_fp, format, output);
+		return fscanf(m_fp, format, output);
 	}
 //////////////////////////////////////////////////////////
 protected:
