@@ -4,9 +4,9 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommand>$(SolutionDir)..\..\build\client\DragonNest.exe</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>$(SolutionDir)..\..\build\client\</LocalDebuggerWorkingDirectory>
-    <LocalDebuggerCommandArguments>/ip:127.0.0.1 /port:14300 /unuse_packing</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>/ip:127.0.0.1 /port:14300</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup>
-    <ShowAllFiles>true</ShowAllFiles>
+    <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
 </Project>
