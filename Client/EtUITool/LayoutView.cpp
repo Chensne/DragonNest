@@ -45,6 +45,8 @@
 
 #include <nvtt/nvtt.h>
 
+#include <memory>
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -198,7 +200,7 @@ bool CLayoutView::SetTabOrder( int nOrder, CEtUIControl *pControl )
 		return false;
 	}
 
-	// ÀÎµ¦½ºÀÇ ÃÖ´ëÄ¡ Á¦ÇÑ
+	// ç‰¢éƒ¸èƒ¶ç‹¼ å¼¥æªæ‘¹ åŠ›èŒ„
 	if (nOrder > (int)m_vecLayoutControl.size()-1)
 		nOrder = (int)m_vecLayoutControl.size()-1;
 
@@ -245,10 +247,10 @@ void CLayoutView::AllignControl( ALLIGN_TYPE emAllignType, int nInterval )
 
 	MainUICoord = m_vecLayoutControl[ nMainUIIndex ].Property.UICoord;
 
-	// °¡·Î °£°İÁ¤·Ä, ¼¼·Î °£°İÁ¤·ÄÀÇ °æ¿ì Ãß°¡ÀûÀÎ Ã³¸®°¡ ÇÊ¿äÇÏ´Ù.
+	// å•Šè‚º åŸƒæ‹œæ²¥çºº, æŠ€è‚º åŸƒæ‹œæ²¥çººç‹¼ ç‰ˆå¿« çœ å•Šåˆ©ç‰¢ è´¸åºœå•Š é˜å¤¸çªä¿ƒ.
 	//float fLastX, fLastY;
-	// floatÀ¸·Î ±×³É °è»êÇÏ´Ï intervalÀÌ 1024or768·Î µü ¶³¾îÁöÁö ¾Ê´Â ¼ıÀÚÀÇ °æ¿ì(ex:1)
-	// Á¡Á¡ ¿ÀÂ÷°¡ »ı°Ü¼­ È­»ìÇ¥·Î ¿òÁ÷¿©µµ 2¾¿ ¿òÁ÷ÀÏ¶§°¡ ÀÖ´Ù.
+	// floatæ è‚º å¼Šæˆ æ‹Œé­‚çªèª intervalæ 1024or768è‚º è¿­ å†»ç»¢ç˜¤ç˜¤ è‡¼ç»° ç®­ç£Šç‹¼ ç‰ˆå¿«(ex:1)
+	// ç—¢ç—¢ å·ç’å•Š ç§¯è´¥è¾‘ æ‹³æ··é’è‚º æ¡†æµå’¯æ¡£ 2ç©¶ æ¡†æµè€é”­å•Š ä¹ä¿ƒ.
 	int nLastX, nLastY;
 	nLastX = (int)(DEFAULT_UI_SCREEN_WIDTH * (MainUICoord.fX + MainUICoord.fWidth));
 	nLastY = (int)(DEFAULT_UI_SCREEN_HEIGHT * (MainUICoord.fY + MainUICoord.fHeight));
@@ -417,8 +419,8 @@ void CLayoutView::SelectControl( int nIndex )
 	}
 	else
 	{
-		// MFC¿Í ´Ş¸® ±âÁ¸¿¡ ¼±ÅÃµÇ¾îÀÖ´ø ÄÁÆ®·ÑÀ» ´Ù½Ã ´©¸£¸é ¼±ÅÃÀÌ Ç®¸°´Ù.
-		// ´Ş¶ó¼­ º°·ÎÀÏ±î Çß´Âµ¥, Á÷Á¢ ÇØº¸´Ï ÇØÁ¦µÇ´Â°Ô ´õ ÆíÇÑ°Å °°´Ù.(ÇØÁ¦ ¾øÀ¸¸é ´Ù½Ã Ã³À½ºÎÅÍ ¼±ÅÃÇØ¾ßÇÑ´Ù.)
+		// MFCå®¢ å´”åºœ æ‰ç²®ä¿Š æ€¥ç¶ç™»ç»¢ä¹å¸¦ ç‰§é£˜è´¹é˜‘ ä¿ƒçŸ« ç©¿ç¦æ æ€¥ç¶æ é’±èµ´ä¿ƒ.
+		// å´”æ‰¼è¾‘ å–Šè‚ºè€é³– æ²ç»°å•, æµç«‹ ç§¦ç„Šèª ç§¦åŠ›ç™»ç»°éœ¸ æ­¹ ç¥ˆèŒ„èŠ­ éä¿ƒ.(ç§¦åŠ› ç»æ æ ä¿ƒçŸ« è´¸æ¾œä½•ç£ æ€¥ç¶ç§¦å…·èŒ„ä¿ƒ.)
 		int nPrev = m_vecLayoutControl[ nIndex ].emSelect;
 		m_vecLayoutControl[ nIndex ].emSelect = SELECT_NONE;
 
@@ -756,8 +758,8 @@ void CLayoutView::AddLayoutControl( SUICoord &ControlCoord, bool bUseTemplateCoo
 				CreateInfo.Property.StaticProperty.dwTextureColor = 0xFFFFFFFF;
 			}
 			break;
-			// ¾Æ·¡ Âß AddLayoutTemplate ÀÖ´Â °ÍµéÀº,
-			// ÄŞº¸, ¸®½ºÆ®, ÅØ½ºÆ®¹Ú½º µîÃ³·³ ½ºÅ©·Ñ¹Ù ÅÛÇÃ¸´À» º°µµ·Î Ãß°¡ÇØÁà¾ßÇÏ´Â ÄÁÆ®·Ñµé¿¡ ´ëÇØ Ã³¸®ÇÏ´Â °ÍÀÌ´Ù.
+			// é…’è´° é€» AddLayoutTemplate ä¹ç»° å·´ç”¸ç¯®,
+			// éœ“ç„Š, åºœèƒ¶é£˜, å’†èƒ¶é£˜å† èƒ¶ æ®¿è´¸çƒ¦ èƒ¶å†œè´¹å®˜ è¢æ•²å¤é˜‘ å–Šæ¡£è‚º çœ å•Šç§¦æ‹å…·çªç»° ç‰§é£˜è´¹ç”¸ä¿Š æªç§¦ è´¸åºœçªç»° å·´æä¿ƒ.
 		case UI_CONTROL_COMBOBOX:
 			if( g_pCurSelTemplate->m_pExternControlTemplate )
 			{
@@ -788,7 +790,7 @@ void CLayoutView::AddLayoutControl( SUICoord &ControlCoord, bool bUseTemplateCoo
 			break;
 		case UI_CONTROL_CUSTOM:
 			{
-				// ÄÁÆ®·Ñ Ãß°¡½Ã ±âº»°ª Èò»ö.
+				// ç‰§é£˜è´¹ çœ å•ŠçŸ« æ‰å¤¯è”¼ é—°ç¥¸.
 				CreateInfo.Property.CustomProperty.dwColor = 0xFFFFFFFF;
 			}
 			break;
@@ -906,16 +908,16 @@ void CLayoutView::GenerateControlID( UI_CONTROL_TYPE Type, char *pszControlID )
 	char szControlID[32]={0};
 	int nCurID;
 
-	// ¸ÕÀú º¹»ç¿øº»ÀÇ ÀÌ¸§ÀÌ ¼ıÀÚ·Î ³¡³ª´ÂÁö È®ÀÎÇÑ´Ù.
-	// ½ºÆ®¸µID´ÙÀ½¿¡ ¹Ù·Î ¼ıÀÚ°¡ ºÙ¾îÀÖ±â¶§¹®¿¡ %s%d·Î´Â ¶¼¾î³¾ ¼ö ¾ø´Ù.
-	// ¼ıÀÚ·Î ³¡³¯ °æ¿ì µÚ¿¡´Ù°¡ Áõ°¡½ÃÄÑ¼­ ¸®ÅÏÇÑ´Ù.
-	// ¼ıÀÚ·Î ³¡³ªÁö ¾ÊÀ» °æ¿ì ÀÌÀü´ë·Î Ã³¸®ÇÑ´Ù.
+	// åˆšå† æ±—è¤ç›”å¤¯ç‹¼ ææŠšæ ç®­ç£Šè‚º åœºå”±ç»°ç˜¤ çŠ¬ç‰¢èŒ„ä¿ƒ.
+	// èƒ¶é£˜å‚…IDä¿ƒæ¾œä¿Š å®˜è‚º ç®­ç£Šå•Š å˜¿ç»¢ä¹æ‰é”­å·©ä¿Š %s%dè‚ºç»° éƒ½ç»¢å°˜ è ç»ä¿ƒ.
+	// ç®­ç£Šè‚º åœºæœ ç‰ˆå¿« ç¬¬ä¿Šä¿ƒå•Š åˆ˜å•ŠçŸ«éš¾è¾‘ åºœç•”èŒ„ä¿ƒ.
+	// ç®­ç£Šè‚º åœºå”±ç˜¤ è‡¼é˜‘ ç‰ˆå¿« æå‚ˆæªè‚º è´¸åºœèŒ„ä¿ƒ.
 	char c;
 	bool bLastWordIsNum = false;
 	int nNum = 0;
 	int cipher = 1;
 
-	// '\0'Àº »©°í ½ÃÀÛ.
+	// '\0'ç¯® å“—ç»Š çŸ«ç´¯.
 	int nLength = (int)strlen(pszControlID)-1;
 	while ( 1 )
 	{
@@ -933,13 +935,13 @@ void CLayoutView::GenerateControlID( UI_CONTROL_TYPE Type, char *pszControlID )
 
 	if (bLastWordIsNum)
 	{
-		// ¼ıÀÚ·Î ³¡³ª´Â IDÀÇ °æ¿ì ±âº»ÀÌ¸§À» ¾ò¾î¿Í¼­ ¼ıÀÚ¸¸ Áõ°¡ ÇüÅÂ·Î Ã³¸®ÇÑ´Ù.
+		// ç®­ç£Šè‚º åœºå”±ç»° IDç‹¼ ç‰ˆå¿« æ‰å¤¯ææŠšé˜‘ æ˜ç»¢å®¢è¾‘ ç®­ç£Šçˆ¶ åˆ˜å•Š å±ˆæ€•è‚º è´¸åºœèŒ„ä¿ƒ.
 		strncpy_s( szControlID, 32, pszControlID, nLength+1 );
 		nCurID = nNum;
 	}
 	else
 	{
-		// ¾Æ´Ï¸é ¿¹Àü´ë·Î Ã³¸®.
+		// é…’èªæ æŠ—å‚ˆæªè‚º è´¸åºœ.
 		switch( Type )
 		{
 		case UI_CONTROL_STATIC:				strcpy_s( szControlID, 32, "ID_STATIC" );			break;
@@ -1046,7 +1048,7 @@ void CLayoutView::DrawSelectControl()
 		}
 	}
 
-	// DrawSelectControlÀÌ È£ÃâµÇ´Â Å¸ÀÓ¿¡ ¸ÂÃç¼­ °»½ÅÇÏ¸é Á¦´ë·Î ³ª¿Ã°Å´Ù.
+	// DrawSelectControlæ é¾‹å…ç™»ç»° é¸¥çƒ™ä¿Š å˜è‹—è¾‘ ç›è„šçªæ åŠ›æªè‚º å”±æ£µèŠ­ä¿ƒ.
 	DrawInitState();
 }
 
@@ -1110,8 +1112,8 @@ void CLayoutView::ReinitAllControl()
 			pToolTemplate->m_ControlInfo.CopyControlInfo( &m_vecLayoutControl[ i ].Property );
 			m_vecLayoutControl[ i ].pControl->Initialize( &m_vecLayoutControl[ i ].Property );
 
-			// InitState¶§¹®¿¡ ºñÈ°¼ºÈ­ µÇ¾îÀÖÀ» ¼öµµ ÀÖÀ¸´Ï Ç®¾îÁØ´Ù.
-			// (RenderBase¿¡¼­ InitStateÈ®ÀÎ ¸ğµå °¡¼­ Å×µÎ¸®¶û ¼³¸íÀÌ¶û µû·Î Âï¾îÁØ´Ù.)
+			// InitStateé”­å·©ä¿Š åšåŠå·±æ‹³ ç™»ç»¢ä¹é˜‘ èæ¡£ ä¹æ èª é’±ç»¢éœ–ä¿ƒ.
+			// (RenderBaseä¿Šè¾‘ InitStateçŠ¬ç‰¢ è‘›é› å•Šè¾‘ æŠ›æ»´åºœå°” æ±²ç–™æå°” è¶è‚º å˜›ç»¢éœ–ä¿ƒ.)
 			m_vecLayoutControl[ i ].pControl->Show( true );
 			m_vecLayoutControl[ i ].pControl->Enable( true );
 		}
@@ -1216,7 +1218,7 @@ void CLayoutView::RefreshLayoutDlg()
 
 	if( m_nViewCrosshair )
 	{
-		// Åä±ÛÀÌ¶ó µÎ¹ø ÇØ¾ßÇÑ´Ù.
+		// é…è‡‚ææ‰¼ æ»´é”… ç§¦å…·èŒ„ä¿ƒ.
 		OnViewCrosshair();
 		OnViewCrosshair();
 	}
@@ -1228,9 +1230,9 @@ int CLayoutView::AddLayoutTemplate( CUIToolTemplate *pTemplate, bool &bAdd )
 {
 	for( int i = 0; i < ( int )m_vecLayoutTemplate.size(); i++ )
 	{
-		// ÀÌ·¸°Ô ÁÖ¼Ò·Î °Ë»çÇÏ´Â °Í°ú Undo°¡ ¸¸³ª¸é¼­ Á¦´ë·Î °Ë»ç°¡ ¾ÈÀÌ·ïÁú ¼öµµ ÀÖÁö ¾Ê³ª.. ÇÏ´Â ÀÇ¹®ÀÌ µç´Ù.
-		// ¿©±â¶§¹®¿¡ °¡²û ÅÛÇÃ¸´Ãß°¡ÇÒ¶§ ±úÁö´Â Çö»óÀÌ ÀÏ¾î³ª´ÂÁö È®½ÅÇÒ ¼ö´Â ¾øÁö¸¸, ¿ì¼± Ã³¸®ÇØµÎ°í ³Ñ¾î°¡µµ·Ï ÇÏ°Ú´Ù.
-		// ±Ùµ¥ ÀÌ°Å ¸ÂÀ¸·Á³ª. ÀßÇÏ¸é UndoÃ³¸®¸¦ ¶â¾î¾ßÇÒµí..
+		// æçŠ¯éœ¸ æ—å®¶è‚º å…«è¤çªç»° å·´è‹ Undoå•Š çˆ¶å”±æè¾‘ åŠ›æªè‚º å…«è¤å•Š æ•‘æå‡¤é¾™ èæ¡£ ä¹ç˜¤ è‡¼å”±.. çªç»° ç‹¼å·©æ ç”µä¿ƒ.
+		// å’¯æ‰é”­å·©ä¿Š å•Šé˜ è¢æ•²å¤çœ å•Šä¸”é”­ æŸ„ç˜¤ç»° æ³…æƒ‘æ è€ç»¢å”±ç»°ç˜¤ çŠ¬è„šä¸” èç»° ç»ç˜¤çˆ¶, å¿«æ€¥ è´¸åºœç§¦æ»´ç»Š é€ç»¢å•Šæ¡£åºŸ çªæ‘†ä¿ƒ.
+		// è¾Ÿå• æèŠ­ å˜æ å¦¨å”±. è‚‹çªæ Undoè´¸åºœç”« å›ç»¢å…·ä¸”æ·€..
 		//if( m_vecLayoutTemplate[ i ] == pTemplate )
 		if( m_vecLayoutTemplate[ i ]->m_Template.m_szTemplateName == pTemplate->m_Template.m_szTemplateName )
 		{
@@ -1416,7 +1418,7 @@ void CLayoutView::SaveLayoutDlg( const char *pszFileName, bool bDoNotCompressTex
 	{
 		if( bMessageBoxSaveFailed ) {
 			char szString[ 1024 ];
-			sprintf_s( szString, 1024, "%s ÆÄÀÏ ¼¼ÀÌºê ½ÇÆĞ!!!", pszFileName );
+			sprintf_s( szString, 1024, "%s é¢‡è€ æŠ€æå® è§’è©!!!", pszFileName );
 			MessageBox( szString );
 		}
 		return;
@@ -1449,7 +1451,7 @@ void CLayoutView::SaveLayoutDlg( const char *pszFileName, bool bDoNotCompressTex
 	}
 	else
 	{
-		// ³ªÁß¿¡ ÀÏ°ı·Î Áö¿ï¶§ ÀÌ·¸°Ô ÇÏ¸é µÉ°Å´Ù.
+		// å”±åä¿Š è€è¤’è‚º ç˜¤åŒ¡é”­ æçŠ¯éœ¸ çªæ çªèŠ­ä¿ƒ.
 		//DeleteFile( szTextureName );
 	}
 
@@ -1467,7 +1469,7 @@ void CLayoutView::LoadLayoutDlg( const char *pszFileName )
 	if( !Stream.IsValid() )
 	{
 		char szString[ 1024 ];
-		sprintf_s( szString, 1024, "%s ÆÄÀÏ ·Îµå ½ÇÆĞ!!!", pszFileName );
+		sprintf_s( szString, 1024, "%s é¢‡è€ è‚ºé› è§’è©!!!", pszFileName );
 		MessageBox( szString );
 		return;
 	}
@@ -1481,7 +1483,7 @@ void CLayoutView::LoadLayoutDlg( const char *pszFileName )
 
 	m_LayoutDlg.Load( Stream );
 
-	// ´ÙÀÌ¾ó·Î±× ÅØ½ºÃ³°¡ ´Ù¸§À» ¾Ë¸°´Ù.
+	// ä¿ƒæå€”è‚ºå¼Š å’†èƒ¶è´¸å•Š ä¿ƒæŠšé˜‘ èˆ…èµ´ä¿ƒ.
 	char szFullName[ _MAX_FNAME ];
 	_GetFullFileName( szFullName, _countof(szFullName), pszFileName );
 	int nLen = (int)strlen( szFullName );
@@ -1490,18 +1492,18 @@ void CLayoutView::LoadLayoutDlg( const char *pszFileName )
 	const char *pUITextureFileName = m_LayoutDlg.GetDialogUITextureFileName();
 	if( _stricmp( szFullName, pUITextureFileName ) != 0 )
 	{
-		MessageBox("´ÙÀÌ¾ó·Î±×ÀÌ¸§°ú UIÅØ½ºÃ³ÀÌ¸§ÀÌ ¸ÅÄªµÇÁö ¾Ê½À´Ï´Ù.\nÅØ½ºÃ³°¡ ±úÁö°Å³ª ¾È º¸ÀÏ ¼ö ÀÖ½À´Ï´Ù.");
+		MessageBox("ä¿ƒæå€”è‚ºå¼ŠææŠšè‹ UIå’†èƒ¶è´¸ææŠšæ æ¦‚è«ç™»ç˜¤ è‡¼åš¼èªä¿ƒ.\nå’†èƒ¶è´¸å•Š æŸ„ç˜¤èŠ­å”± æ•‘ ç„Šè€ è ä¹åš¼èªä¿ƒ.");
 	}
 
-	// ÀĞ±â Àü¿ë °Ë»ç
+	// ä½¬æ‰ å‚ˆä¾© å…«è¤
 	DWORD dwAttr;
 	dwAttr = GetFileAttributes( pszFileName );
-	if( dwAttr & FILE_ATTRIBUTE_READONLY ) MessageBox("ui ÆÄÀÏÀÌ ÀĞ±âÀü¿ë ¼Ó¼ºÀÔ´Ï´Ù.");
+	if( dwAttr & FILE_ATTRIBUTE_READONLY ) MessageBox("ui é¢‡è€æ ä½¬æ‰å‚ˆä¾© åŠ å·±æ¶èªä¿ƒ.");
 
 	/*
 	sprintf_s( szFullName, _countof(szFullName), "%s%s", szPath, pUITextureFileName );
 	dwAttr = GetFileAttributes( szFullName );
-	if( dwAttr & FILE_ATTRIBUTE_READONLY ) MessageBox("dds ÆÄÀÏÀÌ ÀĞ±âÀü¿ë ¼Ó¼ºÀÔ´Ï´Ù.");
+	if( dwAttr & FILE_ATTRIBUTE_READONLY ) MessageBox("dds é¢‡è€æ ä½¬æ‰å‚ˆä¾© åŠ å·±æ¶èªä¿ƒ.");
 	*/
 
 	CUIToolTemplate *pToolTemplate;
@@ -1519,7 +1521,7 @@ void CLayoutView::LoadLayoutDlg( const char *pszFileName )
 
 		if( !pToolTemplate )
 		{
-			// ¾îÂ÷ÇÇ Á¦´ë·Î ·Îµùµµ ¾ÈµÉ¹Ù¿£ ·Îµå¸¦ Æ÷±âÇÏÀÚ.
+			// ç»¢ç’ä¹” åŠ›æªè‚º è‚ºçˆ¹æ¡£ æ•‘çªå®˜æµš è‚ºé›ç”« å™¨æ‰çªç£Š.
 			NewLayoutDlg();
 			return;
 		}
@@ -1529,8 +1531,8 @@ void CLayoutView::LoadLayoutDlg( const char *pszFileName )
 		{
 			m_vecLayoutTemplate.push_back( pToolTemplate );
 
-			// UI¿¡¼­ ·ÎµùµÇ´Â ÅÛÇÃ¸´µéÀÇ ÅÛÇÃ¸´ ÅØ½ºÃ³¸¦ ·ÎµåÇÑ´Ù.
-			// Åø¿¡¼­ ¹Ì¸® ÀüºÎ ·ÎµåÇØµÎ°íÀÖ´Â ÅÛÇÃ¸´Àº Ã³À½ºÎÅÍ ÅØ½ºÃ³¸¦ ·ÎµåÇÏ´Â ±¸Á¶°¡ ¾Æ´Ï±â ¶§¹®¿¡ ÀÌ·¸°Ô ÇÊ¿äÇÒ¶§ ·ÎµåÇÏ´Â °Í.
+			// UIä¿Šè¾‘ è‚ºçˆ¹ç™»ç»° è¢æ•²å¤ç”¸ç‹¼ è¢æ•²å¤ å’†èƒ¶è´¸ç”« è‚ºé›èŒ„ä¿ƒ.
+			// ç ’ä¿Šè¾‘ å›ºåºœ å‚ˆä½• è‚ºé›ç§¦æ»´ç»Šä¹ç»° è¢æ•²å¤ç¯® è´¸æ¾œä½•ç£ å’†èƒ¶è´¸ç”« è‚ºé›çªç»° å¤‡ç‚¼å•Š é…’èªæ‰ é”­å·©ä¿Š æçŠ¯éœ¸ é˜å¤¸ä¸”é”­ è‚ºé›çªç»° å·´.
 			pToolTemplate->m_Template.OnLoaded();
 		}
 	}
@@ -1558,7 +1560,7 @@ void CLayoutView::SaveCustomUI()
 
 	if( ControlSelectDlg.DoModal() == IDOK )
 	{
-		// ÀÓ½Ãº¯¼ö¿¡ ±â¾ïÇØµÎ°í,
+		// çƒ™çŸ«å‡½èä¿Š æ‰æ’…ç§¦æ»´ç»Š,
 		m_nCurCustomControlIDforCustomSave = ControlSelectDlg.m_nCurSel;
 		g_vecFileNameforCustomSave.clear();
 
@@ -1577,7 +1579,7 @@ void CLayoutView::SaveCustomUI()
 			return;
 		}
 
-		// ¾ÈÁ¤¼ºÀ» À§ÇØ ÇÚµé´İ°í Àç±Í¸¦ ÅëÇÑ °Ë»ö ½ÃÀÛ.(´Ù½Ã ÇÚµé ¿­°Å´Ù.)
+		// æ•‘æ²¥å·±é˜‘ å›°ç§¦ å‹¤ç”¸æ‘§ç»Š çŠè“–ç”« çƒ¹èŒ„ å…«ç¥¸ çŸ«ç´¯.(ä¿ƒçŸ« å‹¤ç”¸ å‡¯èŠ­ä¿ƒ.)
 		FindClose( hFind );
 
 		strcpy_s( szFindFile, _MAX_PATH, CMainFrame::GetResourceFolder() );
@@ -1586,7 +1588,7 @@ void CLayoutView::SaveCustomUI()
 
 		NewLayoutDlg();
 
-		// Ã£Àº ÆÄÀÏµéÀ» ¸®½ºÆ®¿¡ º¸¿©ÁØ ÈÄ
+		// èŒ«ç¯® é¢‡è€ç”¸é˜‘ åºœèƒ¶é£˜ä¿Š ç„Šå’¯éœ– é¥¶
 		CDialogList DialogListDlg;
 		if( DialogListDlg.DoModal() == IDOK )
 		{
@@ -1595,7 +1597,7 @@ void CLayoutView::SaveCustomUI()
 				LoadLayoutDlg( g_vecFileNameforCustomSave[i].c_str() );
 				SaveLayoutDlg( g_vecFileNameforCustomSave[i].c_str() );
 			}
-			// È®ÀÎÀ» ´©¸£¸é º¯È¯.
+			// çŠ¬ç‰¢é˜‘ ç©¿ç¦æ å‡½åˆ¸.
 			NewLayoutDlg();
 		}
 	}
@@ -1611,7 +1613,7 @@ void CLayoutView::_SearchSubFolderUIFile( const char *pszFolderName )
 	strcpy_s( szFindFile, _MAX_PATH, pszFolderName );
 	strcat_s( szFindFile, _MAX_PATH, "\\*.*" );
 
-	// Æú´õ¾È¿¡ ÀÖ´Â ÆÄÀÏÀ» Ã£¾Æ ¼øÈ¸ÇÑ´Ù.
+	// å¼ƒæ­¹æ•‘ä¿Š ä¹ç»° é¢‡è€é˜‘ èŒ«é…’ é‰´é›€èŒ„ä¿ƒ.
 	hFind = FindFirstFile( szFindFile, &FindFileData );
 	if (hFind == INVALID_HANDLE_VALUE)
 		return;
@@ -1624,10 +1626,10 @@ void CLayoutView::_SearchSubFolderUIFile( const char *pszFolderName )
 			int nLen = (int)strlen( szFileName );
 			if( szFileName[nLen-3] == '.' && szFileName[nLen-2] == 'u' && szFileName[nLen-1] == 'i' )
 			{
-				// ¿©±â¼­¸¸ ·Îµù ÈÄ Ã³¸®.
+				// å’¯æ‰è¾‘çˆ¶ è‚ºçˆ¹ é¥¶ è´¸åºœ.
 				LoadLayoutDlg( szFileName );
 
-				// ¹º°¡ ´Ù¸¥ Ã³¸®.
+				// è´­å•Š ä¿ƒå¼— è´¸åºœ.
 				int nControlCount = m_LayoutDlg.GetControlCount();
 				for( int i = 0; i < nControlCount; ++i )
 				{
@@ -1642,10 +1644,10 @@ void CLayoutView::_SearchSubFolderUIFile( const char *pszFolderName )
 		}
 		else if( FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY )
 		{
-			// ¸ğµç Æú´õ¿¡´Â Ç×»ó . °ú .. Æú´õ°¡ ÀÖ´Ù. ÀÌ°Ç ±×³É ³Ñ±â°í, ´Ù¸¥ Æú´õ¶ó¸é,
+			// è‘›ç”µ å¼ƒæ­¹ä¿Šç»° äº²æƒ‘ . è‹ .. å¼ƒæ­¹å•Š ä¹ä¿ƒ. ææ‰’ å¼Šæˆ é€æ‰ç»Š, ä¿ƒå¼— å¼ƒæ­¹æ‰¼æ,
 			if( FindFileData.cFileName[0] != '.' )
 			{
-				// ÇÏÀ§Æú´õÀÇ °æ¿ì Àç±ÍÈ£Ãâ·Î Ã³¸®ÇØ¾ßÇÑ´Ù.
+				// çªå›°å¼ƒæ­¹ç‹¼ ç‰ˆå¿« çŠè“–é¾‹å…è‚º è´¸åºœç§¦å…·èŒ„ä¿ƒ.
 				sprintf_s( szFileName, _MAX_PATH, "%s\\%s", pszFolderName, FindFileData.cFileName );
 				_SearchSubFolderUIFile( szFileName );
 			}
@@ -1680,7 +1682,7 @@ void CLayoutView::SaveUIWithUsedTemplate()
 		return;
 	}
 
-	// ¾ÈÁ¤¼ºÀ» À§ÇØ ÇÚµé´İ°í Àç±Í¸¦ ÅëÇÑ °Ë»ö ½ÃÀÛ.(´Ù½Ã ÇÚµé ¿­°Å´Ù.)
+	// æ•‘æ²¥å·±é˜‘ å›°ç§¦ å‹¤ç”¸æ‘§ç»Š çŠè“–ç”« çƒ¹èŒ„ å…«ç¥¸ çŸ«ç´¯.(ä¿ƒçŸ« å‹¤ç”¸ å‡¯èŠ­ä¿ƒ.)
 	FindClose( hFind );
 
 	strcpy_s( szFindFile, _MAX_PATH, CMainFrame::GetResourceFolder() );
@@ -1689,7 +1691,7 @@ void CLayoutView::SaveUIWithUsedTemplate()
 
 	NewLayoutDlg();
 
-	// Ã£Àº ÆÄÀÏµéÀ» ¸®½ºÆ®¿¡ º¸¿©ÁØ ÈÄ
+	// èŒ«ç¯® é¢‡è€ç”¸é˜‘ åºœèƒ¶é£˜ä¿Š ç„Šå’¯éœ– é¥¶
 	CDialogList DialogListDlg;
 	if( DialogListDlg.DoModal() == IDOK )
 	{
@@ -1712,7 +1714,7 @@ void CLayoutView::_SaveUIWithUsedTemplate( const char *pszFolderName )
 	strcpy_s( szFindFile, _MAX_PATH, pszFolderName );
 	strcat_s( szFindFile, _MAX_PATH, "\\*.*" );
 
-	// Æú´õ¾È¿¡ ÀÖ´Â ÆÄÀÏÀ» Ã£¾Æ ¼øÈ¸ÇÑ´Ù.
+	// å¼ƒæ­¹æ•‘ä¿Š ä¹ç»° é¢‡è€é˜‘ èŒ«é…’ é‰´é›€èŒ„ä¿ƒ.
 	hFind = FindFirstFile( szFindFile, &FindFileData );
 	if (hFind == INVALID_HANDLE_VALUE)
 		return;
@@ -1741,10 +1743,10 @@ void CLayoutView::_SaveUIWithUsedTemplate( const char *pszFolderName )
 		}
 		else if( FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY )
 		{
-			// ¸ğµç Æú´õ¿¡´Â Ç×»ó . °ú .. Æú´õ°¡ ÀÖ´Ù. ÀÌ°Ç ±×³É ³Ñ±â°í, ´Ù¸¥ Æú´õ¶ó¸é,
+			// è‘›ç”µ å¼ƒæ­¹ä¿Šç»° äº²æƒ‘ . è‹ .. å¼ƒæ­¹å•Š ä¹ä¿ƒ. ææ‰’ å¼Šæˆ é€æ‰ç»Š, ä¿ƒå¼— å¼ƒæ­¹æ‰¼æ,
 			if( FindFileData.cFileName[0] != '.' )
 			{
-				// ÇÏÀ§Æú´õÀÇ °æ¿ì Àç±ÍÈ£Ãâ·Î Ã³¸®ÇØ¾ßÇÑ´Ù.
+				// çªå›°å¼ƒæ­¹ç‹¼ ç‰ˆå¿« çŠè“–é¾‹å…è‚º è´¸åºœç§¦å…·èŒ„ä¿ƒ.
 				sprintf_s( szFileName, _MAX_PATH, "%s\\%s", pszFolderName, FindFileData.cFileName );
 				_SaveUIWithUsedTemplate( szFileName );
 			}
@@ -1773,7 +1775,7 @@ void CLayoutView::SaveAllUI()
 		return;
 	}
 
-	// ¾ÈÁ¤¼ºÀ» À§ÇØ ÇÚµé´İ°í Àç±Í¸¦ ÅëÇÑ °Ë»ö ½ÃÀÛ.(´Ù½Ã ÇÚµé ¿­°Å´Ù.)
+	// æ•‘æ²¥å·±é˜‘ å›°ç§¦ å‹¤ç”¸æ‘§ç»Š çŠè“–ç”« çƒ¹èŒ„ å…«ç¥¸ çŸ«ç´¯.(ä¿ƒçŸ« å‹¤ç”¸ å‡¯èŠ­ä¿ƒ.)
 	FindClose( hFind );
 
 	strcpy_s( szFindFile, _MAX_PATH, CMainFrame::GetResourceFolder() );
@@ -1791,7 +1793,7 @@ void CLayoutView::_SaveAllUI( const char *pszFolderName )
 	strcpy_s( szFindFile, _MAX_PATH, pszFolderName );
 	strcat_s( szFindFile, _MAX_PATH, "\\*.*" );
 
-	// Æú´õ¾È¿¡ ÀÖ´Â ÆÄÀÏÀ» Ã£¾Æ ¼øÈ¸ÇÑ´Ù.
+	// å¼ƒæ­¹æ•‘ä¿Š ä¹ç»° é¢‡è€é˜‘ èŒ«é…’ é‰´é›€èŒ„ä¿ƒ.
 	hFind = FindFirstFile( szFindFile, &FindFileData );
 	if (hFind == INVALID_HANDLE_VALUE)
 		return;
@@ -1804,17 +1806,17 @@ void CLayoutView::_SaveAllUI( const char *pszFolderName )
 			int nLen = (int)strlen( szFileName );
 			if( szFileName[nLen-3] == '.' && szFileName[nLen-2] == 'u' && szFileName[nLen-1] == 'i' )
 			{
-				// ·Îµù, ÀúÀå. ¹İº¹
+				// è‚ºçˆ¹, å†å˜. é¦†æ±—
 				LoadLayoutDlg( szFileName );
 				SaveLayoutDlg( szFileName, false, false );
 			}
 		}
 		else if( FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY )
 		{
-			// ¸ğµç Æú´õ¿¡´Â Ç×»ó . °ú .. Æú´õ°¡ ÀÖ´Ù. ÀÌ°Ç ±×³É ³Ñ±â°í, ´Ù¸¥ Æú´õ¶ó¸é,
+			// è‘›ç”µ å¼ƒæ­¹ä¿Šç»° äº²æƒ‘ . è‹ .. å¼ƒæ­¹å•Š ä¹ä¿ƒ. ææ‰’ å¼Šæˆ é€æ‰ç»Š, ä¿ƒå¼— å¼ƒæ­¹æ‰¼æ,
 			if( FindFileData.cFileName[0] != '.' )
 			{
-				// ÇÏÀ§Æú´õÀÇ °æ¿ì Àç±ÍÈ£Ãâ·Î Ã³¸®ÇØ¾ßÇÑ´Ù.
+				// çªå›°å¼ƒæ­¹ç‹¼ ç‰ˆå¿« çŠè“–é¾‹å…è‚º è´¸åºœç§¦å…·èŒ„ä¿ƒ.
 				sprintf_s( szFileName, _MAX_PATH, "%s\\%s", pszFolderName, FindFileData.cFileName );
 				_SaveAllUI( szFileName );
 			}
@@ -1859,7 +1861,7 @@ void CLayoutView::OnLButtonDown(UINT nFlags, CPoint point)
 
 		if( IsSelectedControl( pControl ) )
 		{
-			// ÀÌ·¸°Ô Ã³¸®ÇÏ¸é, ´ÙÁß¼±ÅÃ¿¡¼­ Last¸¦ ¹Ù²Ü ¼ö ¾ø°Ô µÈ´Ù.
+			// æçŠ¯éœ¸ è´¸åºœçªæ, ä¿ƒåæ€¥ç¶ä¿Šè¾‘ Lastç”« å®˜æ›¹ è ç»éœ¸ ç­‰ä¿ƒ.
 			//if( bResizeSelect )
 			//{
 			//	SelectAllControl(false);
@@ -2005,7 +2007,7 @@ void CLayoutView::OnMouseMove(UINT nFlags, CPoint point)
 						LONG lnY = LONG((fY + Coord.fY)*DEFAULT_UI_SCREEN_HEIGHT);
 
 						SetRect( &m_CurDragRect, min( lnX, point.x ), min( lnY, point.y ), max( lnX, point.x ), max( lnY, point.y ) );
-						dwColor = 0xff00ff00; // Note : ³ì»ö ¼Óºó Å×µÎ¸®
+						dwColor = 0xff00ff00; // Note : è¸Œç¥¸ åŠ å æŠ›æ»´åºœ
 						bSolid = true;
 					}
 					else
@@ -2019,7 +2021,7 @@ void CLayoutView::OnMouseMove(UINT nFlags, CPoint point)
 												( int )( Coord.fY * DEFAULT_UI_SCREEN_HEIGHT ), 
 												( int )( ( Coord.fX + Coord.fWidth ) * DEFAULT_UI_SCREEN_WIDTH ),
 												( int )( ( Coord.fY + Coord.fHeight ) * DEFAULT_UI_SCREEN_HEIGHT ) );
-						dwColor = 0xff0000ff; // Note : ÆÄ¶õ»ö ¼Óºó Å×µÎ¸®
+						dwColor = 0xff0000ff; // Note : é¢‡é„‚ç¥¸ åŠ å æŠ›æ»´åºœ
 						bSolid = true;
 					}
 				}
@@ -2038,7 +2040,7 @@ void CLayoutView::OnMouseMove(UINT nFlags, CPoint point)
 					LONG lnY = LONG(fY*DEFAULT_UI_SCREEN_HEIGHT);
 
 					SetRect( &m_CurDragRect, min( lnX, point.x ), min( lnY, point.y ), max( lnX, point.x ), max( lnY, point.y ) );
-					dwColor = 0xff00ff00; // Note : ³ì»ö ¼Óºó Å×µÎ¸®
+					dwColor = 0xff00ff00; // Note : è¸Œç¥¸ åŠ å æŠ›æ»´åºœ
 					bSolid = true;
 				}
 				else
@@ -2138,13 +2140,13 @@ void CLayoutView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			int nIndex = nChar - 0x31;
 			if( ( GetAsyncKeyState( VK_LCONTROL ) ) < 0 )
 			{
-				// ±×·ìÈ­
+				// å¼Šç¼æ‹³
 				if( GetSelectedControlCount() )
 					MakeGroupSelectedControl( nIndex );
 			}
 			else
 			{
-				// ±×·ì¼±ÅÃ
+				// å¼Šç¼æ€¥ç¶
 				SelectControlGroup( nIndex );
 			}
 		}
@@ -2223,7 +2225,7 @@ void CLayoutView::OnFileNew()
 	DrawSelectControl();
 
 	CEtUIToolDoc *pDoc = (CEtUIToolDoc*)GetDocument();
-	if( pDoc ) pDoc->SetPathName("Á¦¸ñ ¾øÀ½");
+	if( pDoc ) pDoc->SetPathName("åŠ›æ ¼ ç»æ¾œ");
 }
 
 void CLayoutView::OnInitialUpdate()
@@ -2470,14 +2472,14 @@ void CLayoutView::UndoLoad( CMemFile* pFile)
 	pFile->Read(pBuffer.get(), nCount);
 	Stream.WriteBuffer(pBuffer.get(), nCount);
 
-	// Note : ÀÌÀü ´ÙÀÌ¾ó·Î±× Á¤º¸¸¦ »èÁ¦ÇÑ´Ù.
+	// Note : æå‚ˆ ä¿ƒæå€”è‚ºå¼Š æ²¥ç„Šç”« æ˜åŠ›èŒ„ä¿ƒ.
 	//
 	m_LayoutDlg.DeleteAllControl();
 	m_LayoutDlg.DeleteAllTemplate();
 
 	m_vecLayoutControl.clear();
 
-	// Note : ¸Ş¸ğ¸®¿¡ ÀúÀåµÈ ´ÙÀÌ¾ó·Î±× Á¤º¸¸¦ ·ÎµåÇÑ´Ù.
+	// Note : çš‹è‘›åºœä¿Š å†å˜ç­‰ ä¿ƒæå€”è‚ºå¼Š æ²¥ç„Šç”« è‚ºé›èŒ„ä¿ƒ.
 	//
 	m_LayoutDlg.Load( Stream );
 
@@ -2561,7 +2563,7 @@ void CLayoutView::OnEditPaste()
 	{
 		CreateInfo = m_vecLayoutControlCopy[i];
 
-		// ±×³É 0.015f ¸¸Å­ ¹Ğ¸é, float ¼Ò¼öÁ¡ ¿ÀÂ÷¶§¹®¿¡ ÅØ¼¿À» ±ú²ıÇÏ°Ô ¸øÀĞ¾î¿Í ¾à°£ »Ñ¿¸°Ô ³ª¿À°Ô µÈ´Ù.
+		// å¼Šæˆ 0.015f çˆ¶æ€’ å‰æ, float å®¶èç—¢ å·ç’é”­å·©ä¿Š å’†ä¼é˜‘ æŸ„æ˜Œçªéœ¸ ç»™ä½¬ç»¢å®¢ è·åŸƒ è°æ‰›éœ¸ å”±å·éœ¸ ç­‰ä¿ƒ.
 		CreateInfo.Property.UICoord.fX += 15 / ( float )DEFAULT_UI_SCREEN_WIDTH;
 		CreateInfo.Property.UICoord.fY += 11 / ( float )DEFAULT_UI_SCREEN_HEIGHT;
 		GenerateControlID( CreateInfo.Property.UIType, CreateInfo.Property.szUIName );
@@ -2569,7 +2571,7 @@ void CLayoutView::OnEditPaste()
 		CreateInfo.pControl = m_LayoutDlg.CreateControl( &CreateInfo.Property );
 		CreateInfo.emSelect = SELECT_DONE;
 		CreateInfo.Property.nTooltipStringIndex = 0;
-		CreateInfo.nTabOrder = nSize + i;	//nSize+m_vecLayoutControlCopy[i].nTabOrder; ¹ö±×¿´´ø µí.
+		CreateInfo.nTabOrder = nSize + i;	//nSize+m_vecLayoutControlCopy[i].nTabOrder; æ»šå¼Šçœ‹å¸¦ æ·€.
 
 		m_vecLayoutControl.push_back( CreateInfo );
 	}
@@ -2696,7 +2698,7 @@ void CLayoutView::OnUpdateAllignVertical(CCmdUI *pCmdUI)
 
 void CLayoutView::OnRButtonDown(UINT nFlags, CPoint point)
 {
-	// ÅÇ ¼³Á¤¶§¸¸ ÀÛµ¿ÇÑ´Ù.
+	// å¾˜ æ±²æ²¥é”­çˆ¶ ç´¯æ‚¼èŒ„ä¿ƒ.
 	if (m_bTabOrderMode)
 	{
 		CEtUIControl *pControl = GetControl( point );
@@ -2704,8 +2706,8 @@ void CLayoutView::OnRButtonDown(UINT nFlags, CPoint point)
 		{
 			CTabOrder TabOrderDlg;
 
-			// ¹Ì¸® ÀÌ·¸°Ô ÄÁÆ®·Ñ¿¬°áµÈ º¯¼ö¿¡ °ª ³Ö¾îµÎ¸é DoModalµÉ¶§ ¾Ë¾Æ¼­ UpdateData(false) È£ÃâÇØ,
-			// ÄÁÆ®·Ñ¿¡ °ªÀÌ ¼³Á¤µÇ¾îÀÖ°ÔÇÑ´Ù.
+			// å›ºåºœ æçŠ¯éœ¸ ç‰§é£˜è´¹æ¥·æ¬ç­‰ å‡½èä¿Š è”¼ æŒç»¢æ»´æ DoModalçªé”­ èˆ…é…’è¾‘ UpdateData(false) é¾‹å…ç§¦,
+			// ç‰§é£˜è´¹ä¿Š è”¼æ æ±²æ²¥ç™»ç»¢ä¹éœ¸èŒ„ä¿ƒ.
 			TabOrderDlg.m_ctrlTabNumber = m_vecLayoutControl[ FindControl(pControl) ].nTabOrder+1;
 
 			if ( TabOrderDlg.DoModal() == IDOK )
@@ -2721,13 +2723,13 @@ void CLayoutView::OnRButtonDown(UINT nFlags, CPoint point)
 
 void CLayoutView::OnAddCoinTemplate()
 {
-	// °­Á¦·Î ÄÚÀÎ ÅÛÇÃ¸´µéÀ» Áı¾î³Ö´Â´Ù.
+	// ç¢åŠ›è‚º å†…ç‰¢ è¢æ•²å¤ç”¸é˜‘ ç¬¼ç»¢æŒç»°ä¿ƒ.
 	
 	CTemplatePaneView *pView;
 	pView = ( CTemplatePaneView * )GetPaneWnd( TEMPLATE_PANE );
-	ASSERT(pView&&"ÁØÈÄ¸¦ È£ÃâÇÏ¼¼¿ä.");
+	ASSERT(pView&&"éœ–é¥¶ç”« é¾‹å…çªæŠ€å¤¸.");
 
-	// ÄÚÀÎ Æ²
+	// å†…ç‰¢ æ’‡
 	g_pCurSelTemplate = pView->FindTemplate( "MoneyBase2" );
 	SUICoord ControlCoord;
 	ControlCoord.fX = 142 / m_LayoutDlg.GetScreenWidth();
@@ -2736,7 +2738,7 @@ void CLayoutView::OnAddCoinTemplate()
 	ControlCoord.fHeight = 25 / m_LayoutDlg.GetScreenHeight();
 	AddLayoutControl( ControlCoord, false );
 
-	// °ñµå
+	// æ¦œé›
 	g_pCurSelTemplate = pView->FindTemplate( "Text_Nanum_12_G" );
 	ControlCoord.fX = 148 / m_LayoutDlg.GetScreenWidth();
 	ControlCoord.fY = 482 / m_LayoutDlg.GetScreenHeight();
@@ -2749,7 +2751,7 @@ void CLayoutView::OnAddCoinTemplate()
 	Control1.Property.StaticProperty.dwFontFormat |= DT_RIGHT;
 	Control1.Property.StaticProperty.dwFontColor = D3DCOLOR_RGBA(255, 173, 17, 255);
 
-	// ½Ç¹ö
+	// è§’æ»š
 	g_pCurSelTemplate = pView->FindTemplate( "Text_Nanum_12_G" );
 	ControlCoord.fX = 239 / m_LayoutDlg.GetScreenWidth();
 	ControlCoord.fY = 482 / m_LayoutDlg.GetScreenHeight();
@@ -2762,7 +2764,7 @@ void CLayoutView::OnAddCoinTemplate()
 	Control2.Property.StaticProperty.dwFontFormat |= DT_RIGHT;
 	Control2.Property.StaticProperty.dwFontColor = D3DCOLOR_RGBA(221, 221, 221, 255);
 
-	// ÄíÆÛ
+	// æ»æ¬º
 	g_pCurSelTemplate = pView->FindTemplate( "Text_Nanum_12_G" );
 	ControlCoord.fX = 292 / m_LayoutDlg.GetScreenWidth();
 	ControlCoord.fY = 482 / m_LayoutDlg.GetScreenHeight();
@@ -2799,7 +2801,7 @@ void CLayoutView::OnUpdateViewCrosshair(CCmdUI *pCmdUI)
 
 void CLayoutView::OnViewWidescreen()
 {
-	// TODO: ¿©±â¿¡ ¸í·É Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: å’¯æ‰ä¿Š ç–™é£ è´¸åºœæ‰ å†…é›ç”« çœ å•Šé’¦èªä¿ƒ.
 	m_nWideScreen = !m_nWideScreen;
 
 	CRenderBase::GetInstance().Reinitialize( m_nWideScreen ? DEFAULT_UI_WIDESCREEN_WIDTH : DEFAULT_UI_SCREEN_WIDTH, DEFAULT_UI_SCREEN_HEIGHT );
@@ -2811,7 +2813,7 @@ void CLayoutView::OnViewWidescreen()
 
 void CLayoutView::OnUpdateViewWidescreen(CCmdUI *pCmdUI)
 {
-	// TODO: ¿©±â¿¡ ¸í·É ¾÷µ¥ÀÌÆ® UI Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: å’¯æ‰ä¿Š ç–™é£ è¯€å•æé£˜ UI è´¸åºœæ‰ å†…é›ç”« çœ å•Šé’¦èªä¿ƒ.
 	pCmdUI->SetCheck( m_nWideScreen );
 }
 
@@ -2845,7 +2847,7 @@ void CLayoutView::OnFormatMakesameproperty()
 	{
 		if( m_vecLayoutControl[ i ].emSelect == SELECT_DONE )
 		{
-			// ÅÛÇÃ¸´ Á¾·ù°¡ °°ÀºÁö È®ÀÎ.
+			// è¢æ•²å¤ è¾†å¹…å•Š éç¯®ç˜¤ çŠ¬ç‰¢.
 			if( m_vecLayoutControl[ i ].Property.UIType == pMainUIProperty->UIType )
 			{
 				pUIProperty = &m_vecLayoutControl[ i ].Property;
@@ -2855,7 +2857,7 @@ void CLayoutView::OnFormatMakesameproperty()
 				pUIProperty->nCustomControlID = pMainUIProperty->nCustomControlID;
 				pUIProperty->nTooltipStringIndex = pMainUIProperty->nTooltipStringIndex;
 
-				// ¼±ÅÃµÇ¾îÀÖ´Â°Ô, LAST¿Í DONE ´Ü µÎ°³¶ó¸é, µğÆúÆ® ÄÁÆ®·ÑÀ» ±³Ã¼.
+				// æ€¥ç¶ç™»ç»¢ä¹ç»°éœ¸, LASTå®¢ DONE çªœ æ»´ä¿ºæ‰¼æ, å¼å¼ƒé£˜ ç‰§é£˜è´¹é˜‘ èƒŒçœ‰.
 				if( nNumSelectedDone == 1 && pMainUIProperty->bDefaultControl )
 				{
 					pUIProperty->bDefaultControl = TRUE;
@@ -2905,7 +2907,7 @@ void CLayoutView::OnFormatMakesameproperty()
 					break;
 				case UI_CONTROL_HTMLTEXTBOX:
 					{
-						// Note : »óÀ§ Å¬·¡½ºÀÎ TextBox¿¡ ¼Ó¼ºÀ» ³Ö¾îÁà¾ß ÇÑ´Ù.
+						// Note : æƒ‘å›° åŠªè´°èƒ¶ç‰¢ TextBoxä¿Š åŠ å·±é˜‘ æŒç»¢æ‹å…· èŒ„ä¿ƒ.
 						//
 						pUIProperty->TextBoxProperty.bVerticalScrollBar = pMainUIProperty->HtmlTextBoxProperty.bVerticalScrollBar;
 						pUIProperty->TextBoxProperty.nScrollBarTemplate = pMainUIProperty->HtmlTextBoxProperty.nScrollBarTemplate;
@@ -2991,10 +2993,10 @@ bool CLayoutView::IsNotUseTemplate( CEtUITemplate *pTemplate )
 }
 void CLayoutView::OnDelNotusetemplate()
 {
-	// »ç¿ëÇÏÁö ¾Ê´Â ÅÛÇÃ¸´À¸·Î ¸¸µé¾îÁø ÄÁÆ®·ÑµéÀ» Á¦°ÅÇÑ´Ù.
+	// è¤ä¾©çªç˜¤ è‡¼ç»° è¢æ•²å¤æ è‚º çˆ¶ç”¸ç»¢æŸ³ ç‰§é£˜è´¹ç”¸é˜‘ åŠ›èŠ­èŒ„ä¿ƒ.
 	std::string szDelControls;
 
-	// ¿ì¼± ¼±ÅÃÇÑ°Å ´Ù Ç®°í,
+	// å¿«æ€¥ æ€¥ç¶èŒ„èŠ­ ä¿ƒ é’±ç»Š,
 	int nSize = GetControlCount();
 	for( int i = 0; i < nSize; i++ )
 		m_vecLayoutControl[ i ].emSelect = SELECT_NONE;
@@ -3005,7 +3007,7 @@ void CLayoutView::OnDelNotusetemplate()
 			if( IsNotUseTemplate( &pControl->GetTemplate() ) ) {
 				m_vecLayoutControl[i].emSelect = SELECT_DONE;
 				szDelControls += pControl->GetControlName();
-				szDelControls += "ÄÁÆ®·ÑÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.\n";
+				szDelControls += "ç‰§é£˜è´¹æ æ˜åŠ›ç™»èŒåš¼èªä¿ƒ.\n";
 			}
 		}
 	}
@@ -3018,7 +3020,7 @@ void CLayoutView::OnDelNotusetemplate()
 		szMsg += m_szCurFileName;
 		szMsg += "]\n";
 		szMsg += szDelControls;
-		MessageBox( szMsg.c_str(), "¾È¾²´Â ÅÛÇÃ¸´À¸·Î ¸¸µé¾îÁø ÄÁÆ®·Ñ »èÁ¦" );
+		MessageBox( szMsg.c_str(), "æ•‘é™ç»° è¢æ•²å¤æ è‚º çˆ¶ç”¸ç»¢æŸ³ ç‰§é£˜è´¹ æ˜åŠ›" );
 	}
 }
 
@@ -3086,7 +3088,7 @@ bool CLayoutView::IsGroupControl( int nGroupIndex, CEtUIControl *pControl )
 
 void CLayoutView::DrawControlGroupInfo( CDC* pDC, int nX, int nY )
 {
-	// Direct ·»´õ¸µ ¿µ¿ª ¹Û¿¡ ±×¸®´Â°Å¶ó DC·Î ±×¸°´Ù.
+	// Direct åŠæ­¹å‚… åº·å¼€ è§‚ä¿Š å¼Šåºœç»°èŠ­æ‰¼ DCè‚º å¼Šèµ´ä¿ƒ.
 	CRect TextRect;
 	CString strGroup;
 	for( int i = 0; i < NUM_CONTROL_GROUP; ++i )
