@@ -47,10 +47,10 @@ public:
 	void OnRecvScorePeriodQuest(SCScorePeriodQuest *pPacket);
 
 #ifdef PRE_ADD_NPC_REPUTATION_SYSTEM
-	CReputationSystemRepository* GetReputationRepository( void ) { return m_pReputationRepos; }; 	// ÀÏ´Ü questtask ¿¡ µÎÁö¸¸ ÆòÆÇ °ü·ÃÇØ¼­ ¾çÀÌ ¸¹¾ÆÁö¸é µû·Î task ·Î »©´Â °ÍÀÌ ¹Ù¶÷Á÷..
+	CReputationSystemRepository* GetReputationRepository( void ) { return m_pReputationRepos; }; 	// è€çªœ questtask ä¿Š æ»´ç˜¤çˆ¶ ä¹é­„ åŒ…è®¿ç§¦è¾‘ å‰§æ è…¹é…’ç˜¤æ è¶è‚º task è‚º å“—ç»° å·´æ å®˜æ©æµ..
 	void ClearNpcReaction( void ) { m_NpcReaction.Clear(); };
 
-	bool CheckAndCalcStoreBenefit( int iType, /*IN OUT*/ int& iNeedCoin ); 	// »óÁ¡ ÇıÅÃ Ã³¸®. º¸»ó Ã³¸®µÈ´Ù¸é true ¸¦ ¸®ÅÏÇÑ´Ù.
+	bool CheckAndCalcStoreBenefit( int iType, /*IN OUT*/ int& iNeedCoin ); 	// æƒ‘ç—¢ é©±ç¶ è´¸åºœ. ç„Šæƒ‘ è´¸åºœç­‰ä¿ƒæ true ç”« åºœç•”èŒ„ä¿ƒ.
 	int GetStoreBenefitValue( int iType );
 
 	virtual void OnRecvReputationList( SCReputationList* pPacket );

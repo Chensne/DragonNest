@@ -204,7 +204,7 @@ EtVector2 CDnNotifierControls::CalcArrowDestination(int nQuestIndex , int nJurna
 		}
 	}
 
-	// ÇöÀç À§Ä¡¿Í ¸ñÀûÁö°¡ ´Ù¸£¸é
+	// æ³…çŠ å›°æ‘¹å®¢ æ ¼åˆ©ç˜¤å•Š ä¿ƒç¦æ
 	if ( CGlobalInfo::GetInstance().m_nCurrentMapIndex != pJournalPage->nDestnationMapIndex  )
 	{
 		PathResult	pathResult;		
@@ -212,14 +212,14 @@ EtVector2 CDnNotifierControls::CalcArrowDestination(int nQuestIndex , int nJurna
 
 		if ( pathResult.size() > 0 )
 		{
-			// ¾î´À °ÔÀÌÆ®·Î ³ª°¡¾ß µÇ´ÂÁö ¾Ë¾Æ³½´ÙÀ½¿¡
+			// ç»¢è ¢ éœ¸æé£˜è‚º å”±å•Šå…· ç™»ç»°ç˜¤ èˆ…é…’è¾°ä¿ƒæ¾œä¿Š
 			int nGateIndex = pathResult[ 0 ].nGateIndex;
 			DWORD dwCount = CDnWorld::GetInstance().GetGateCount();
 			CDnWorld::GateStruct *pGateStruct( NULL );
 			SOBB *pOBB( NULL );
 
-			// ¸Ê ¸µÅ© Á¤º¸´Â Á¦´ë·Î µÇ¾îÀÖÁö¸¸ °ÔÀÌÆ® Á¤º¸´Â Á¦´ë·Î µÇ¾îÀÖÁö ¾ÊÀ»¶§
-			// ÀÏ´Ü Å¸°Ù À§Ä¡´Â ÀÌ»óÇÑ °ªÀ» ³Ö¾î³õ´Â´Ù.
+			// ç”˜ å‚…å†œ æ²¥ç„Šç»° åŠ›æªè‚º ç™»ç»¢ä¹ç˜¤çˆ¶ éœ¸æé£˜ æ²¥ç„Šç»° åŠ›æªè‚º ç™»ç»¢ä¹ç˜¤ è‡¼é˜‘é”­
+			// è€çªœ é¸¥ç™¾ å›°æ‘¹ç»° ææƒ‘èŒ„ è”¼é˜‘ æŒç»¢åˆç»°ä¿ƒ.
 			PosVector.x = PosVector.y = fDummyPos;
 			if( nGateIndex == -1 ) {
 				return EtVector2(0,0);
@@ -440,7 +440,7 @@ void CDnNotifierControls::Refresh( const wchar_t *szTitle, const wchar_t *szDest
 	int nSize = m_pTextBox->GetLineSize();
 
 #if !defined(_US)
-	if(nSize > 1) // ÇÑÁÙÀÌ»óÀÌ¸é ÇÑÁÙ¸¸ ³²±â°í ".." Ãß°¡
+	if(nSize > 1) // èŒ„ä¸´ææƒ‘ææ èŒ„ä¸´çˆ¶ å·¢æ‰ç»Š ".." çœ å•Š
 		m_pTextBox->ResizeLineTextWithSymbol(1,L"..");
 #endif
 
@@ -500,7 +500,7 @@ void CDnNotifierControls::Refresh( const wchar_t *szTitle, const wchar_t *szDest
 			for( int i = 0; i < 5*nMaxLen/2; i++)
 				szGetString += L" ";
 			szGetString += L"\n";
-			if( nItemTotalCnt != 0 &&  nItemCnt <= nItemTotalCnt) { // #22983 °ü·Ã ¾ÆÀÌÅÛ Ä«¿îÆ® ¸Æ½ºÄ¡ ÃÊ°úÇÏ´Â °æ¿ì ¾øÀ½.
+			if( nItemTotalCnt != 0 &&  nItemCnt <= nItemTotalCnt) { // #22983 åŒ…è®¿ é…’æè¢ å¢¨æ¬¾é£˜ é’™èƒ¶æ‘¹ æª¬è‹çªç»° ç‰ˆå¿« ç»æ¾œ.
 				m_pTextBox->AddText( FormatW( GetEtUIXML().GetUIString( CEtUIXML::idCategory1, 422 ), 100 * nItemCnt / nItemTotalCnt ).c_str(), textcolor::YELLOW );
 				m_pTextBox->SetTooltipText( szGetString.c_str() );
 			}
@@ -561,7 +561,7 @@ void CDnNotifierControls::Refresh( const wchar_t *szTitle, const wchar_t *szDest
 		for( int i = 0; i < 5*nMaxLen/2; i++)
 			szGetString += L" ";
 		szGetString += L"\n";
-		if( nItemTotalCnt != 0 &&  nItemCnt <= nItemTotalCnt) { // #22983 °ü·Ã ¾ÆÀÌÅÛ Ä«¿îÆ® ¸Æ½ºÄ¡ ÃÊ°úÇÏ´Â °æ¿ì ¾øÀ½.
+		if( nItemTotalCnt != 0 &&  nItemCnt <= nItemTotalCnt) { // #22983 åŒ…è®¿ é…’æè¢ å¢¨æ¬¾é£˜ é’™èƒ¶æ‘¹ æª¬è‹çªç»° ç‰ˆå¿« ç»æ¾œ.
 			m_pTextBox->AddText( FormatW( GetEtUIXML().GetUIString( CEtUIXML::idCategory1, 422 ), 100 * nItemCnt / nItemTotalCnt ).c_str(), textcolor::YELLOW );
 			m_pTextBox->SetTooltipText( szGetString.c_str() );
 		}
@@ -912,7 +912,7 @@ bool CDnQuestSummaryInfoDlg::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARA
 
 	int nOverIndex = -1;
 	for( int i = 0; i < DNNotifier::RegisterCount::Total; i++) {
-		m_NotifierControls[ i ].MsgProc( hWnd, uMsg, wParam, lParam );		// MouseOver Ã³¸®
+		m_NotifierControls[ i ].MsgProc( hWnd, uMsg, wParam, lParam );		// MouseOver è´¸åºœ
 		if( m_NotifierControls[ i ].IsMouseOver() ) {
 			nOverIndex = i;
 		}
@@ -1105,7 +1105,7 @@ bool CDnQuestSummaryInfoDlg::IsCanProgressQuest(int nQuestIndex)
 	TQuest *QuestInfo = NULL;
 
 	std::vector<TQuest*> vecProgSubQuest;
-	GetQuestTask().GetPlaySubQuest( vecProgSubQuest ); // ÇöÀç ÁøÇàÁßÀÎ Äù½ºÆ® ¸®½ºÆ®.
+	GetQuestTask().GetPlaySubQuest( vecProgSubQuest ); // æ³…çŠ æŸ³é’åç‰¢ æ¶…èƒ¶é£˜ åºœèƒ¶é£˜.
 
 	bool bExistQuest = false;
 	for(DWORD i=0;i<vecProgSubQuest.size();i++)
@@ -1151,7 +1151,7 @@ void CDnQuestSummaryInfoDlg::RefreshPriortyNotifier()
 	std::vector< boost::tuple<std::wstring, int, int> > vecGetList;
 	std::wstring szProgress;
 
-	std::vector<int> vec_PriorityQuestList; // ±×Áß¿¡ Á»´õ ¿ì¼±¼øÀ§¸¦ °¡Áö´Â°Í
+	std::vector<int> vec_PriorityQuestList; // å¼Šåä¿Š ç²±æ­¹ å¿«æ€¥é‰´å›°ç”« å•Šç˜¤ç»°å·´
 	vec_PriorityQuestList.clear();
 
 	std::vector<int> vec_AddedQuestList;
@@ -1159,7 +1159,7 @@ void CDnQuestSummaryInfoDlg::RefreshPriortyNotifier()
 
 
 	std::vector<TQuest*> vecProgSubQuest;
-	GetQuestTask().GetPlaySubQuest( vecProgSubQuest ); // ÇöÀç ÁøÇàÁßÀÎ Äù½ºÆ® ¸®½ºÆ®.
+	GetQuestTask().GetPlaySubQuest( vecProgSubQuest ); // æ³…çŠ æŸ³é’åç‰¢ æ¶…èƒ¶é£˜ åºœèƒ¶é£˜.
 
 	for( int i = DNNotifier::RegisterCount::MainQuest; i < DNNotifier::RegisterCount::TotalQuest; i++ ) 
 	{
@@ -1182,11 +1182,11 @@ void CDnQuestSummaryInfoDlg::RefreshPriortyNotifier()
 		Journal* pJournal = NULL;
 		JournalPage* pJournalPage = NULL;
 
-		for(DWORD j=0;j<vecProgSubQuest.size();j++) // Áö±İ ÇöÀç ¹ŞÀº Äù½ºÆ® ÀüºÎ¸¦ °Ë»ö
+		for(DWORD j=0;j<vecProgSubQuest.size();j++) // ç˜¤é™› æ³…çŠ ç½ç¯® æ¶…èƒ¶é£˜ å‚ˆä½•ç”« å…«ç¥¸
 		{
 			bool bPassIndex = true;
 
-			// ÀÌ¹Ì ¸®½ºÆ®¿¡ µî·ÏµÈ °æ¿ì´Â ½ºÅµ
+			// æå›º åºœèƒ¶é£˜ä¿Š æ®¿åºŸç­‰ ç‰ˆå¿«ç»° èƒ¶è¯º
 			for(DWORD k=0; k<vec_PriorityQuestList.size(); k++) 
 			{
 				if(vecProgSubQuest[j]->nQuestID == vec_PriorityQuestList[k])
@@ -1222,23 +1222,23 @@ void CDnQuestSummaryInfoDlg::RefreshPriortyNotifier()
 		}
 	}
 
-	// ÃÖ¿ì¼± ¸®½ºÆ®¸¦ ÀÛ¼ºÇÑµÚ ±×°ÍÀ» ·¹º§º°·Î ¼ÒÆÃÇØÁØ´Ù.
+	// å¼¥å¿«æ€¥ åºœèƒ¶é£˜ç”« ç´¯å·±èŒ„ç¬¬ å¼Šå·´é˜‘ é¥­éª‡å–Šè‚º å®¶æ³¼ç§¦éœ–ä¿ƒ.
 	if( vec_PriorityQuestList.size() > 1) 	std::sort( vec_PriorityQuestList.begin() , vec_PriorityQuestList.end() , CompareQuestLevel );
 
-	// ÃÖ¿ì¼± ¸®½ºÆ®¸¦ Á¦¿ÜÇÑ Ãß°¡ÀûÀÎ ¸®½ºÆ®¸¦ ÀÛ¼ºÇÑÈÄ ¼ÒÆÃÇØÁÖ°í // ÃÖ¿ì¼± ¸®½ºÆ®ÀÇ ¸¶Áö¸·¿¡ Çª½¬ÇØÁØ´Ù.
+	// å¼¥å¿«æ€¥ åºœèƒ¶é£˜ç”« åŠ›å¯‡èŒ„ çœ å•Šåˆ©ç‰¢ åºœèƒ¶é£˜ç”« ç´¯å·±èŒ„é¥¶ å®¶æ³¼ç§¦æ—ç»Š // å¼¥å¿«æ€¥ åºœèƒ¶é£˜ç‹¼ ä»˜ç˜¤é˜œä¿Š ä»Ÿæµ†ç§¦éœ–ä¿ƒ.
 	if(!vec_AddedQuestList.empty())
 	{
 		if( vec_AddedQuestList.size() > 1 ) std::sort( vec_AddedQuestList.begin() , vec_AddedQuestList.end() , CompareQuestLevel );
 
 		for(DWORD i=0; i<vec_AddedQuestList.size(); i++)
 		{
-			vec_PriorityQuestList.push_back(vec_AddedQuestList[i]); // ÅëÇÕ ¿ì¼±¼øÀ§°¡ Å«°Ô ¸ÕÀú Á¤·ÄµÊ.
+			vec_PriorityQuestList.push_back(vec_AddedQuestList[i]); // çƒ¹é’¦ å¿«æ€¥é‰´å›°å•Š å¥´éœ¸ åˆšå† æ²¥çººå‡³.
 			if(vec_PriorityQuestList.size() >= DNNotifier::RegisterCount::SubQuest)
 				break;
 		}
 	}
 
-	for( DWORD i = DNNotifier::RegisterCount::MainQuest; i < DNNotifier::RegisterCount::TotalQuest ; i++ ) // ¸¶Áö¸·À¸·Î Á¤·ÄµÈ ¸®½ºÆ®¸¦ »Ñ·ÁÁÜ.
+	for( DWORD i = DNNotifier::RegisterCount::MainQuest; i < DNNotifier::RegisterCount::TotalQuest ; i++ ) // ä»˜ç˜¤é˜œæ è‚º æ²¥çººç­‰ åºœèƒ¶é£˜ç”« è°å¦¨æ·‹.
 	{ 
 		TQuest *QuestInfo = NULL;
 		Journal* pJournal = NULL;
@@ -1501,7 +1501,7 @@ void CDnQuestSummaryInfoDlg::RefreshNotifier()
 
 bool CDnQuestSummaryInfoDlg::FindControl( std::vector< CEtUIControl* > &vecControl, int nTypeCount, UI_CONTROL_TYPE *pType, bool bCheckCoveredControl, std::vector<SUICoord> &vecDlgCoord )
 {
-	// Äù½ºÆ® ¾Ë¸²ÀÌÀÇ °æ¿ì ¹öÆ°À¸·Î ÀÌ·ïÁ®ÀÖÁö ¾Ê±â¶§¹®¿¡, Á÷Á¢ Ãß°¡ÇØ¾ßÇÑ´Ù.
+	// æ¶…èƒ¶é£˜ èˆ…è¦†æç‹¼ ç‰ˆå¿« æ»šç“¢æ è‚º æå‡¤å»‰ä¹ç˜¤ è‡¼æ‰é”­å·©ä¿Š, æµç«‹ çœ å•Šç§¦å…·èŒ„ä¿ƒ.
 	CEtUIControl *pControl(NULL);
 	for( int i = 0; i < DNNotifier::RegisterCount::Total; i++) {
 		if( m_NotifierControls[ i ].IsShow() ) {
@@ -1509,7 +1509,7 @@ bool CDnQuestSummaryInfoDlg::FindControl( std::vector< CEtUIControl* > &vecContr
 
 			bool bPushControl = true;
 			if( bCheckCoveredControl ) {
-				// ÀÏ¹İÀûÀÎ ÄÁÆ®·Ñ·Î »ı°¢ÇØ °¡¿îµ¥ ÁöÁ¡ÀÌ ´Ù¸¥ Ã¢¿¡ °¡·ÁÁ®ÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
+				// è€é¦†åˆ©ç‰¢ ç‰§é£˜è´¹è‚º ç§¯é˜¿ç§¦ å•Šæ¬¾å• ç˜¤ç—¢æ ä¿ƒå¼— èŠ’ä¿Š å•Šå¦¨å»‰ä¹ç»°ç˜¤ çŠ¬ç‰¢èŒ„ä¿ƒ.
 				SUICoord ControlCoord;
 				pControl->GetUICoord( ControlCoord );
 				ControlCoord.fX = ControlCoord.fX + ControlCoord.fWidth/2.0f;

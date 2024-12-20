@@ -57,7 +57,7 @@ public:
 
 protected:
 	bool m_bShow;
-	bool m_bAcceptInputMsgWhenHide;		// show »óÅÂ´ø ¾Æ´Ï´ø ¸Ş½ÃÁö¸¦ ¹ŞÀ» ¼ö ÀÖ°Ô ÇØÁÖ´Â ÇÃ·¡±×. ¿«¿©ÀÖ´Â ´ÙÀÌ¾ó·Î±×¸¦ hide ½ÃÅ°°í µû·Î ·»´õ¸µÇÏ´Â ½ºÅ³Æ®¸®¿¡¼­ ¸Ş½ÃÁö Ã³¸®ÇÏ±â À§ÇØ »ç¿ëÇÔ.
+	bool m_bAcceptInputMsgWhenHide;		// show ìƒíƒœë˜ ì•„ë‹ˆë˜ ë©”ì‹œì§€ë¥¼ ë°›ì„ ìˆ˜ ìˆê²Œ í•´ì£¼ëŠ” í”Œë˜ê·¸. ì—®ì—¬ìˆëŠ” ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ hide ì‹œí‚¤ê³  ë”°ë¡œ ë Œë”ë§í•˜ëŠ” ìŠ¤í‚¬íŠ¸ë¦¬ì—ì„œ ë©”ì‹œì§€ ì²˜ë¦¬í•˜ê¸° ìœ„í•´ ì‚¬ìš©í•¨.
 	HWND m_hWnd;
 	std::vector< CEtUIControl * > m_vecControl;
 	std::vector< CEtUITemplate * > m_vecUITemplate;
@@ -81,7 +81,7 @@ protected:
 	float m_fScreenHeightRatio;
 	float m_fScreenHeightBorder;
 
-	std::string m_strCmdControlName;	// Note : ProcessCommand¾È¿¡¼­ »ç¿ëµÉ ÄÁÆ®·Ñ ÀÌ¸§
+	std::string m_strCmdControlName;	// Note : ProcessCommandì•ˆì—ì„œ ì‚¬ìš©ë  ì»¨íŠ¸ë¡¤ ì´ë¦„
 	
 	SUIColorEx m_renderDlgColor;
 	bool m_bFadeOut;
@@ -95,9 +95,9 @@ protected:
 	SHORT m_HotKeyState;
 	int m_nHotKey;
 
-	CEtUIDialog *m_pParentDialog;						// Note : ÀÚ½ÅÀÇ ºÎ¸ğ À©µµ¿ì.
-	std::list<CEtUIDialog*> m_listChildDialog;			// Note : ÀÚ½Ä À©µµ¿ìµé.
-	std::list<CEtUIDialog*> m_listChildModalDialog;		// Note : ÀÚ½ÄÀÎµ¥ ¸ğ´Ş·Î »ı¼ºµÈ À©µµ¿ìµé.
+	CEtUIDialog *m_pParentDialog;						// Note : ìì‹ ì˜ ë¶€ëª¨ ìœˆë„ìš°.
+	std::list<CEtUIDialog*> m_listChildDialog;			// Note : ìì‹ ìœˆë„ìš°ë“¤.
+	std::list<CEtUIDialog*> m_listChildModalDialog;		// Note : ìì‹ì¸ë° ëª¨ë‹¬ë¡œ ìƒì„±ëœ ìœˆë„ìš°ë“¤.
 
 	std::string m_strDialogFileName;
 	SUICoord m_BaseDlgCoord;
@@ -107,7 +107,7 @@ protected:
 	bool m_bAutoCursor;
 	bool m_bCursor;
 
-	// ¸®½ºÆ®¹Ú½º ¾ÆÀÌÅÛÀÌ³ª, ¿¤¸®¸ÕÆ® ¾ÆÀÌÅÛÀÏ °æ¿ì ÀÏ¹İ ´ÙÀÌ¾ó·Î±×¿Í ±¸ºĞÀ» À§ÇØ Ã¼Å©¸¦ ÇØµÓ´Ï´Ù.
+	// ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ ì•„ì´í…œì´ë‚˜, ì—˜ë¦¬ë¨¼íŠ¸ ì•„ì´í…œì¼ ê²½ìš° ì¼ë°˜ ë‹¤ì´ì–¼ë¡œê·¸ì™€ êµ¬ë¶„ì„ ìœ„í•´ ì²´í¬ë¥¼ í•´ë‘¡ë‹ˆë‹¤.
 	bool m_bElementDialog;
 	bool m_bElementDialogShowState;
 
@@ -115,13 +115,13 @@ protected:
 	std::vector< std::pair<CEtUIDialog*, bool> > m_vecChildRenderPriorityInfo;
 
 public:
-	// ¸¶ÄÏ´ÙÀÌ¾ó·Î±×ÀÇ °­Á¦½ºÄÉÀÏ¶§¹®¿¡ ¿¡µğÆ®¹Ú½º Ä³·µÀÌ ¾È¸Â´Â ¹®Á¦°¡ ¹ß»ıÇß½À´Ï´Ù.
-	// ¾îÂ¿ ¼ö ¾ø´Â °æ¿ì »©°í´Â ÃÖ´ëÇÑ ´Ù¸¥ °÷¿¡¼­´Â »ç¿ëÇÏÁö ¸»¾ÆÁÖ¼¼¿ä.
+	// ë§ˆì¼“ë‹¤ì´ì–¼ë¡œê·¸ì˜ ê°•ì œìŠ¤ì¼€ì¼ë•Œë¬¸ì— ì—ë””íŠ¸ë°•ìŠ¤ ìºëŸ¿ì´ ì•ˆë§ëŠ” ë¬¸ì œê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.
+	// ì–´ì©” ìˆ˜ ì—†ëŠ” ê²½ìš° ë¹¼ê³ ëŠ” ìµœëŒ€í•œ ë‹¤ë¥¸ ê³³ì—ì„œëŠ” ì‚¬ìš©í•˜ì§€ ë§ì•„ì£¼ì„¸ìš”.
 	//
-	// ±âÁ¸ÀÇ °­Á¦½ºÄÉÀÏ ¹æ½ÄÀÇ ´ÜÁ¡Àº,
-	// FontMng¿Í ¿¬µ¿µÇÁö ¾Ê¾Æ ¸¶¿ì½º µå·¡±× ¹× ·»´õ¸µ¿¡ º°µµÃ³¸®¸¦ ÇØÁà¾ßÇÑ´Ù.
-	// ¾îÂ÷ÇÇ º¸¿©Áú ´ÙÀÌ¾ó·Î±×(¸¶ÄÏ,ÀÎº¥,ÅøÆÁ)¿¡ ´ëÇØ ½ºÄÉÀÏÀ» ¼ÂÆÃÇÏ´Â ¹æ½ÄÀÌ¶ó¸é s_fDialogScaleÀ» °Çµå¸®´Â°Ô ³´´Ù.
-	// ÀÌ¹Ç·Î, s_fDialogScale°ªÀ» °­Á¦·Î ¹Ù²Ù´Â ¹æ½ÄÀ¸·Î º¯°æÇÏ°Ô µÇ¾ú½À´Ï´Ù.
+	// ê¸°ì¡´ì˜ ê°•ì œìŠ¤ì¼€ì¼ ë°©ì‹ì˜ ë‹¨ì ì€,
+	// FontMngì™€ ì—°ë™ë˜ì§€ ì•Šì•„ ë§ˆìš°ìŠ¤ ë“œë˜ê·¸ ë° ë Œë”ë§ì— ë³„ë„ì²˜ë¦¬ë¥¼ í•´ì¤˜ì•¼í•œë‹¤.
+	// ì–´ì°¨í”¼ ë³´ì—¬ì§ˆ ë‹¤ì´ì–¼ë¡œê·¸(ë§ˆì¼“,ì¸ë²¤,íˆ´íŒ)ì— ëŒ€í•´ ìŠ¤ì¼€ì¼ì„ ì…‹íŒ…í•˜ëŠ” ë°©ì‹ì´ë¼ë©´ s_fDialogScaleì„ ê±´ë“œë¦¬ëŠ”ê²Œ ë‚«ë‹¤.
+	// ì´ë¯€ë¡œ, s_fDialogScaleê°’ì„ ê°•ì œë¡œ ë°”ê¾¸ëŠ” ë°©ì‹ìœ¼ë¡œ ë³€ê²½í•˜ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.
 	static void SetForceDialogScale( float fScale );
 
 public:
@@ -129,9 +129,9 @@ public:
 	static float s_fScreenMouseY;
 
 protected:
-	// Note : ¾Æ·¡´Â ÅøÆÁ¿¡ °ü·ÃµÈ ½ºÅÂÆ½ º¯¼öµé. Áö±İÀº ÅøÆÁÀÌ ÇÑ¹ø¿¡ ÇÏ³ª¸¸ Ãâ·ÂµÇ´Â ±¸Á¶ÀÌ´Ù.
-	//		ÇÏÁö¸¸ ÀÌ·± ±¸Á¶´Â º°·Î À¯¿¬ÇÏÁö ¸øÇÑµí ÇÏ´Ù. ³ªÁß¿¡´Â ½ºÅÂÆ½ÀÌ ¾Æ´Ï¶ó ´ÙÀÌ¾ó·Î±×¸¶´Ù
-	//		ÀÌ º¯¼öµé°ú ÇÔ¼ö¸¦ °¡Áö´Â°Ô ÁÁ°Ú´Ù.
+	// Note : ì•„ë˜ëŠ” íˆ´íŒì— ê´€ë ¨ëœ ìŠ¤íƒœí‹± ë³€ìˆ˜ë“¤. ì§€ê¸ˆì€ íˆ´íŒì´ í•œë²ˆì— í•˜ë‚˜ë§Œ ì¶œë ¥ë˜ëŠ” êµ¬ì¡°ì´ë‹¤.
+	//		í•˜ì§€ë§Œ ì´ëŸ° êµ¬ì¡°ëŠ” ë³„ë¡œ ìœ ì—°í•˜ì§€ ëª»í•œë“¯ í•˜ë‹¤. ë‚˜ì¤‘ì—ëŠ” ìŠ¤íƒœí‹±ì´ ì•„ë‹ˆë¼ ë‹¤ì´ì–¼ë¡œê·¸ë§ˆë‹¤
+	//		ì´ ë³€ìˆ˜ë“¤ê³¼ í•¨ìˆ˜ë¥¼ ê°€ì§€ëŠ”ê²Œ ì¢‹ê² ë‹¤.
 	//
 	static int s_nTooltipStringIndex;
 	static std::wstring s_strTooltipString;
@@ -158,7 +158,7 @@ public:
 	static void SetMouseEnterControl( CEtUIControl *pControl );
 	static void SetAutoCursorCallback( void (_stdcall *pFunc)( bool bShow ) ) { s_pAutoCursorPtr = pFunc; }
 
-	// FadeForBlow´Â UI¼û±ä »óÅÂ¿¡¼­·Î ·»´õÇØ¾ßÇÑ´Ù°í ÇÑ´Ù. ÇÒ¼ö¾øÀÌ »óÀ§´ÜÀ¸·Î »«´Ù.
+	// FadeForBlowëŠ” UIìˆ¨ê¸´ ìƒíƒœì—ì„œë¡œ ë Œë”í•´ì•¼í•œë‹¤ê³  í•œë‹¤. í• ìˆ˜ì—†ì´ ìƒìœ„ë‹¨ìœ¼ë¡œ ëº€ë‹¤.
 	static CEtUIDialog *s_pFadeDlg;
 
 public:
@@ -168,12 +168,12 @@ public:
 	void RefreshChildRenderPriority();
 
 protected:
-	// EtUIListBoxEx°¡ ³ª¿À±âÀü±îÁö´Â ÀÚ½Ä ´ÙÀÌ¾ó·Î±×¸¦ Áß°£¿¡ Áö¿îÀûÀÌ ¾ø¾î¼­ÀÎÁö,
-	// ¾Æ¿¹ ÀÚ½Ä´ÙÀÌ¾ó·Î±×¸¦ Áö¿ì´Â ÇÔ¼öÀÚÃ¼°¡ ¾ø¾ú´Ù.
-	// ±×·¯´Ù EtUIListBoxExÀÇ ¾ÆÀÌÅÛÀ» ÀÚ½Ä ´ÙÀÌ¾ó·Î±×·Î Ã³¸®ÇÏ·Á ÇÒ¶§ Ãß°¡ÇÑ ÇÔ¼ö´Ù.
-	// (½ÇÁ¦·Î´Â ÀÚ½Ä ´ÙÀÌ¾ó·Î±×·Î Ã³¸®ÇÏÁö ¾Ê±â¶§¹®¿¡ »ç¿ëÇÏÁö´Â ¾Ê´Â´Ù.)
+	// EtUIListBoxExê°€ ë‚˜ì˜¤ê¸°ì „ê¹Œì§€ëŠ” ìì‹ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì¤‘ê°„ì— ì§€ìš´ì ì´ ì—†ì–´ì„œì¸ì§€,
+	// ì•„ì˜ˆ ìì‹ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ì§€ìš°ëŠ” í•¨ìˆ˜ìì²´ê°€ ì—†ì—ˆë‹¤.
+	// ê·¸ëŸ¬ë‹¤ EtUIListBoxExì˜ ì•„ì´í…œì„ ìì‹ ë‹¤ì´ì–¼ë¡œê·¸ë¡œ ì²˜ë¦¬í•˜ë ¤ í• ë•Œ ì¶”ê°€í•œ í•¨ìˆ˜ë‹¤.
+	// (ì‹¤ì œë¡œëŠ” ìì‹ ë‹¤ì´ì–¼ë¡œê·¸ë¡œ ì²˜ë¦¬í•˜ì§€ ì•Šê¸°ë•Œë¬¸ì— ì‚¬ìš©í•˜ì§€ëŠ” ì•ŠëŠ”ë‹¤.)
 	//
-	// ÇöÀç´Â EtUIDialogÀÇ ¼Ò¸êÀÚ¿¡¼­ ÀÚ½ÅÀÌ »èÁ¦µÉ¶§ ºÎ¸ğ¿¡°Ô ¸®½ºÆ®¿¡¼­ »©¶ó´Â ¿ëµµ·Î »ç¿ëµÈ´Ù.
+	// í˜„ì¬ëŠ” EtUIDialogì˜ ì†Œë©¸ìì—ì„œ ìì‹ ì´ ì‚­ì œë ë•Œ ë¶€ëª¨ì—ê²Œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ë¹¼ë¼ëŠ” ìš©ë„ë¡œ ì‚¬ìš©ëœë‹¤.
 	void DelChildDialog( CEtUIDialog *pDialog );
 	void DelChildModalDialog( CEtUIDialog *pDialog );
 
@@ -183,7 +183,7 @@ public:
 	CEtUIDialog* GetParentDialog() { return m_pParentDialog; }
 
 public:
-	// Note : ÀÚ½Ä À©µµ¿ìÀÇ Show()¸¦ ÇÒ¶§´Â ±× À©µµ¿ìÀÇ Show()¸¦ È£ÃâÇÏÁö ¾Ê°í ¾Æ·¡ ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.
+	// Note : ìì‹ ìœˆë„ìš°ì˜ Show()ë¥¼ í• ë•ŒëŠ” ê·¸ ìœˆë„ìš°ì˜ Show()ë¥¼ í˜¸ì¶œí•˜ì§€ ì•Šê³  ì•„ë˜ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤.
 	//
 	void ShowChildDialog( CEtUIDialog *pDialog, bool bShow );
 
@@ -209,7 +209,7 @@ public:
 	static void DownDialogSize();
 	static void CalcDialogScaleValue( int nWidth = 0, int nHeight = 0 );
 
-	// ÇØ»óµµ¿¡ µû¸¥ ½ºÄÉÀÏ°ª ±¸ÇØ Àû¿ëÇÏ±â.
+	// í•´ìƒë„ì— ë”°ë¥¸ ìŠ¤ì¼€ì¼ê°’ êµ¬í•´ ì ìš©í•˜ê¸°.
 	static void CalcDialogScaleByResolution( int nWidth, int nHeight );
 
 	static void SetDialogSize( int nStep, int nWidth = 0,  int nHeight = 0 );
@@ -232,20 +232,20 @@ public:
 		m_renderDlgColor.dwCurrentColor = dwColor;
 	}
 	void SetSoundEnable( bool bEnable )			{ m_DlgInfo.bSound = bEnable; }
-	// Note : ºÎ¸ğ À©µµ¿ì°¡ º¸ÀÌÁö ¾Ê¾Æµµ ÀÚ½ÄÀÇ ¸Ş¼¼ÁöÇÁ·Î½ÃÁ®¿¡ µé¾î°¡µµ·Ï ÇÑ´Ù.
-	//		¿¹¸¦ µé¸é Ã¤ÆÃÃ¢¿¡¼­ Ã¤ÆÃÃ¢ÀÌ ¾Èº¸ÀÏ¶§ ¸¶¿ì½º Å¬¸¯À¸·Î Ã¤ÆÃÃ¢¿¡ Æ÷Ä¿½º°¡ °¡µµ·Ï ÇÏ±â À§ÇØ ¾²¿´´Ù.
+	// Note : ë¶€ëª¨ ìœˆë„ìš°ê°€ ë³´ì´ì§€ ì•Šì•„ë„ ìì‹ì˜ ë©”ì„¸ì§€í”„ë¡œì‹œì ¸ì— ë“¤ì–´ê°€ë„ë¡ í•œë‹¤.
+	//		ì˜ˆë¥¼ ë“¤ë©´ ì±„íŒ…ì°½ì—ì„œ ì±„íŒ…ì°½ì´ ì•ˆë³´ì¼ë•Œ ë§ˆìš°ìŠ¤ í´ë¦­ìœ¼ë¡œ ì±„íŒ…ì°½ì— í¬ì»¤ìŠ¤ê°€ ê°€ë„ë¡ í•˜ê¸° ìœ„í•´ ì“°ì˜€ë‹¤.
 	//
 	void SetPassMessageToChild( bool bPass )	{ m_bPassMessageToChild = bPass; }
 	void SetShowModal( bool bShowModal )		{ m_bShowModal = bShowModal; }
 
 	void SetElementDialog( bool bElement )		{ m_bElementDialog = bElement; }
 	bool IsElementDialog()						{ return m_bElementDialog; }
-	// ElementDialogÀÇ °æ¿ì¿£ º¸Åë UI_TYPE_SELF·Î »ı¼ºÇØ¼­ Á÷Á¢ MsgProc¹× RenderµÇ´Â °æ¿ì°¡ ¸¹±â¶§¹®¿¡
-	// ÇöÀç º¸¿©Áö°í ÀÖ´Â ´ÙÀÌ¾ó·Î±×ÀÎÁö¸¦ IsShowÇÔ¼ö·Î °Ë»çÇÒ ¼ö ¾øÀ»¶§°¡ ¸¹´Ù. ÀÌ¶© Á÷Á¢ ¼³Á¤ÇØ¼­ ¾ò¾î¿À´Â ¼ö¹Û¿¡ ¾ø´Ù.
+	// ElementDialogì˜ ê²½ìš°ì—” ë³´í†µ UI_TYPE_SELFë¡œ ìƒì„±í•´ì„œ ì§ì ‘ MsgProcë° Renderë˜ëŠ” ê²½ìš°ê°€ ë§ê¸°ë•Œë¬¸ì—
+	// í˜„ì¬ ë³´ì—¬ì§€ê³  ìˆëŠ” ë‹¤ì´ì–¼ë¡œê·¸ì¸ì§€ë¥¼ IsShowí•¨ìˆ˜ë¡œ ê²€ì‚¬í•  ìˆ˜ ì—†ì„ë•Œê°€ ë§ë‹¤. ì´ë• ì§ì ‘ ì„¤ì •í•´ì„œ ì–»ì–´ì˜¤ëŠ” ìˆ˜ë°–ì— ì—†ë‹¤.
 	virtual void SetElementDialogShowState( bool bShow )	{ m_bElementDialogShowState = bShow; }
 	bool IsShowElementDialog()					{ return m_bElementDialogShowState; }
 
-	// ÇÖÅ°¹ö±×¶§¹®¿¡ ¾îÂ¿ ¼ö ¾øÀÌ ¸¸µç ÇÔ¼ö.
+	// í•«í‚¤ë²„ê·¸ë•Œë¬¸ì— ì–´ì©” ìˆ˜ ì—†ì´ ë§Œë“  í•¨ìˆ˜.
 	void SetHotKeyState( SHORT HotKeyState )	{ m_HotKeyState = HotKeyState; }
 
 	bool IsCmdControl( const char *szCmdCtlName );
@@ -291,9 +291,9 @@ public:
 	void ReloadDlgTexture();
 	void DeleteDlgTexture();
 
-	// Note : °ÔÀÓÀÇ ±âº» µğÆúÆ® ÇØ»óµµ´Â 1024x768. 
-	//		Border´Â ÇöÀç ½ºÅ©¸°ÀÇ Å©±â¿¡¼­ µğÆúÆ® ½ºÅ©¸°ÀÇ Å©±â¸¦ »« ºÎºĞÀÇ »çÀÌÁîÀÔ´Ï´Ù.
-	//		Ratio´Â µğÆúÆ® Å©±â¿Í ÇöÀç ½ºÅ©¸°ÀÇ Å©±âÀÇ ºñÀ²ÀÔ´Ï´Ù.
+	// Note : ê²Œì„ì˜ ê¸°ë³¸ ë””í´íŠ¸ í•´ìƒë„ëŠ” 1024x768. 
+	//		BorderëŠ” í˜„ì¬ ìŠ¤í¬ë¦°ì˜ í¬ê¸°ì—ì„œ ë””í´íŠ¸ ìŠ¤í¬ë¦°ì˜ í¬ê¸°ë¥¼ ëº€ ë¶€ë¶„ì˜ ì‚¬ì´ì¦ˆì…ë‹ˆë‹¤.
+	//		RatioëŠ” ë””í´íŠ¸ í¬ê¸°ì™€ í˜„ì¬ ìŠ¤í¬ë¦°ì˜ í¬ê¸°ì˜ ë¹„ìœ¨ì…ë‹ˆë‹¤.
 	//
 	float GetScreenWidth() { return m_fScreenWidth; }
 	float GetScreenWidthBorderSize() { return m_fScreenWidthBorder; }
@@ -339,7 +339,7 @@ public:
 	EtTextureHandle GetUITexture() { return m_hTexture; }
 	void SetUITexture( EtTextureHandle hTexture ) { SAFE_RELEASE_SPTR( m_hTexture ); m_hTexture = hTexture; }
 
-	// Note : °°Àº Å¬·¡½º Å¸ÀÔÀÇ ÄÁÆ®·Ñ ¸®½ºÆ®¸¦ ¹İÈ¯ÇÑ´Ù.
+	// Note : ê°™ì€ í´ë˜ìŠ¤ íƒ€ì…ì˜ ì»¨íŠ¸ë¡¤ ë¦¬ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤.
 	//		ex) std::vector<CButton*> vector
 	//
 	template < typename T > void GetGontrolList( std::vector< T* > &vecControl );
@@ -384,7 +384,7 @@ public:
 	void MakeStringWithEllipsis(SUIElement* pElement, float lineWidth, std::wstring& text, const std::wstring& symbol);
 #endif
 
-	// Note : ¾Æ·¡ ÇÔ¼öµéÀº UITool¿¡¼­ ¾²ÀÎ´Ù.
+	// Note : ì•„ë˜ í•¨ìˆ˜ë“¤ì€ UIToolì—ì„œ ì“°ì¸ë‹¤.
 	//
 	void ShowAllControl( bool bShow );
 	void EnableAllControl( bool bEnable );
@@ -412,9 +412,9 @@ public:
 	virtual void UpdateDlgCoord( float fX, float fY, float fWidth, float fHeight );
 	virtual void UpdateRects();
 	virtual void OnCloseCompletely() {}
-	// ½ºÅ³Æ®¸®¿¡¼­ »ç¿ëÇÔ. ÇüÁ¦ ´ÙÀÌ¾ó·Î±×ÀÇ Æ÷ÀÎÅÍ¸¦ ¸®ÅÏ.
-	// content ´ÙÀÌ¾ó·Î±×°¡ ½ºÅ³Æ®¸®Ã³·³ °ãÃÄÀÖÀ¸¸é ÀÔ·Â ¸Ş½ÃÁö°¡ ÀÛÀº ´ÙÀÌ¾ó·Î±×¿¡ ¿ÀÁö ¾Ê±â ¶§¹®¿¡ 
-	// CEtUIDialog::ShowChildDialog() ÇÔ¼ö È£Ãâ ½Ã¿¡ Ã¼Å©ÇØ¼­ Æ÷Ä¿½Ì Ã³¸®½Ã¿¡ °¡Àå µÚ¿¡ ¿Àµµ·Ï ¼ÂÆÃÇÕ´Ï´Ù.
+	// ìŠ¤í‚¬íŠ¸ë¦¬ì—ì„œ ì‚¬ìš©í•¨. í˜•ì œ ë‹¤ì´ì–¼ë¡œê·¸ì˜ í¬ì¸í„°ë¥¼ ë¦¬í„´.
+	// content ë‹¤ì´ì–¼ë¡œê·¸ê°€ ìŠ¤í‚¬íŠ¸ë¦¬ì²˜ëŸ¼ ê²¹ì³ìˆìœ¼ë©´ ì…ë ¥ ë©”ì‹œì§€ê°€ ì‘ì€ ë‹¤ì´ì–¼ë¡œê·¸ì— ì˜¤ì§€ ì•Šê¸° ë•Œë¬¸ì— 
+	// CEtUIDialog::ShowChildDialog() í•¨ìˆ˜ í˜¸ì¶œ ì‹œì— ì²´í¬í•´ì„œ í¬ì»¤ì‹± ì²˜ë¦¬ì‹œì— ê°€ì¥ ë’¤ì— ì˜¤ë„ë¡ ì…‹íŒ…í•©ë‹ˆë‹¤.
 	virtual void GetContentDialog( /*IN OUT*/ std::vector<CEtUIDialog*>& vlpContentDialogs ) {};
 
 	virtual void OnChangeResolution();
@@ -442,7 +442,7 @@ void CEtUIDialog::GetGontrolList( std::vector< T* > &vecControl )
 
 #define CONTROL( cls, name )	_GC<CEtUI##cls>(#name)
 #define DN_CONTROL( cls, name )	_GC<CDn##cls>(#name)
-// ÃÖÀûÈ­ ¹öÀü
+// ìµœì í™” ë²„ì „
 template < typename T > 
 T* CEtUIDialog::_GC( const char *pszControlName )
 {
@@ -452,7 +452,7 @@ T* CEtUIDialog::_GC( const char *pszControlName )
 	}
 	bool bExistControl = false;
 	T *pResult = GetControl<T>( pszControlName, &bExistControl);
-	if( bExistControl ) {	// Á¸ÀçÇÏÁö ¾Ê´Â °æ¿ì¿£ °è¼Ó °æ°í¸Ş¼¼Áö°¡ ¶°¼­ ¾Ë ¼ö  ÀÖµµ·Ï ÇÑ´Ù..
+	if( bExistControl ) {	// ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ê²½ìš°ì—” ê³„ì† ê²½ê³ ë©”ì„¸ì§€ê°€ ë– ì„œ ì•Œ ìˆ˜  ìˆë„ë¡ í•œë‹¤..
 		m_cachedControls[ pszControlName ] = (CEtUIDialog*)pResult;
 	}
 	else {
@@ -472,10 +472,10 @@ T* CEtUIDialog::GetControl( const char *pszControlName, bool *pExistControl )
 	{
 		if( strcmp( pszControlName, m_vecControl[ i ]->GetControlName() ) == 0 )
 		{
-#if defined(_DEBUG) || defined(_RDEBUG)			// È¤½Ã ¸ğ¸¦ ½Ç¼ö¿¡ ´ëºñÇØ µğ¹ö±ë ½Ã¿¡¸¸ Å¸ÀÔÃ¼Å©¸¦ ÇØÁØ´Ù.
+#if defined(_DEBUG) || defined(_RDEBUG)			// í˜¹ì‹œ ëª¨ë¥¼ ì‹¤ìˆ˜ì— ëŒ€ë¹„í•´ ë””ë²„ê¹… ì‹œì—ë§Œ íƒ€ì…ì²´í¬ë¥¼ í•´ì¤€ë‹¤.
 			T* pResult = dynamic_cast<T*>(m_vecControl[ i ]);
 			if( !pResult ) {
-				ASSERT( 0 && "UI Control Ä³½ºÆÃ ½ÇÆĞ!!");
+				ASSERT( 0 && "UI Control ìºìŠ¤íŒ… ì‹¤íŒ¨!!");
 				T* pTempControl = new T( 0 );
 				m_TempControlList.push_back( pTempControl );
 				if( pExistControl ) *pExistControl = false;
@@ -490,13 +490,13 @@ T* CEtUIDialog::GetControl( const char *pszControlName, bool *pExistControl )
 	}
 
 //#if defined(_DEBUG) || defined(_RDEBUG)
-	//assert( 0 && "UI Control À» Ã£À» ¼ö ¾ø½À´Ï´Ù! ÀÚ¼¼ÇÑ Á¤º¸´Â EtUIDialog.hÀÇ 374¶óÀÎÀ¸·Î");
+	//assert( 0 && "UI Control ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤! ìì„¸í•œ ì •ë³´ëŠ” EtUIDialog.hì˜ 374ë¼ì¸ìœ¼ë¡œ");
 	char szFileName[256];
 	_GetFullFileName(szFileName, _countof(szFileName), m_strDialogFileName.c_str());
-	OutputDebug(" [UI Error] \"%s\" ÆÄÀÏÀÇ %s Control À» Ã£À» ¼ö ¾ø½À´Ï´Ù!\n", szFileName, pszControlName);
+	OutputDebug(" [UI Error] \"%s\" íŒŒì¼ì˜ %s Control ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!\n", szFileName, pszControlName);
 //#endif
 
-	// ÆÄÀÏ¿¡ Ãâ·ÂÇÒ¶§´Â ÇÑ¹ø Ãâ·ÂÇÑ°Å °Ç³Ê¶Ù°Ô ÇÏ±â À§ÇØ, string ¸Ê¿¡ ³Ö¾îµÎ°í ¾øÀ»¶§¸¸ Ãâ·Â.
+	// íŒŒì¼ì— ì¶œë ¥í• ë•ŒëŠ” í•œë²ˆ ì¶œë ¥í•œê±° ê±´ë„ˆë›°ê²Œ í•˜ê¸° ìœ„í•´, string ë§µì— ë„£ì–´ë‘ê³  ì—†ì„ë•Œë§Œ ì¶œë ¥.
 	if( s_bUITest )
 	{
 		std::string szKey = szFileName;
@@ -508,13 +508,13 @@ T* CEtUIDialog::GetControl( const char *pszControlName, bool *pExistControl )
 		{
 			FILE *fp = NULL;
 			fopen_s( &fp, "uitest.txt", "at" );
-			fprintf_s( fp, "[UI Error] \"%s\" ÆÄÀÏÀÇ %s Control À» Ã£À» ¼ö ¾ø½À´Ï´Ù!\n", szFileName, pszControlName );
+			fprintf_s( fp, "[UI Error] \"%s\" íŒŒì¼ì˜ %s Control ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!\n", szFileName, pszControlName );
 			fclose( fp );
 			s_mapUITest.insert( make_pair( szKey, 1 ) );
 		}
 	}
 
-	// ÄÁÆ®·ÑÀÌ ¾ø¾îµµ »¶Àº ³ªÁö ¾Ê´Â´Ù.  ´ë½Å µ¿ÀÛÀº Á¦´ë·Î ÇÏÁö ¾ÊÀ½..
+	// ì»¨íŠ¸ë¡¤ì´ ì—†ì–´ë„ ë»‘ì€ ë‚˜ì§€ ì•ŠëŠ”ë‹¤.  ëŒ€ì‹  ë™ì‘ì€ ì œëŒ€ë¡œ í•˜ì§€ ì•ŠìŒ..
 	for( DWORD i=0; i<m_TempControlList.size(); i++ ) {
 		if( strcmp( m_TempControlList[i]->GetControlName(), pszControlName ) == NULL ) return static_cast<T*>(m_TempControlList[i]);
 	}

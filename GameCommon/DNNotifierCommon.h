@@ -4,7 +4,7 @@
 
 namespace DNNotifier
 {
-	// ¾Ë¸²ÀÌ Å¸ÀÔ
+	// ì•Œë¦¼ì´ íƒ€ì…
 	struct Type
 	{
 		enum eType
@@ -30,7 +30,7 @@ namespace DNNotifier
 		};
 	};
 
-	// ÃÖ´ë µî·Ï °³¼ö
+	// ìµœëŒ€ ë“±ë¡ ê°œìˆ˜
 	struct RegisterCount
 	{
 		enum eRegisterCount
@@ -112,7 +112,7 @@ namespace DNNotifier
 
 		bool RegisterMainQuest( const int iIndex )
 		{
-			// Áßº¹°Ë»ç
+			// ì¤‘ë³µê²€ì‚¬
 			if( data[0].IsEqual( Type::MainQuest, iIndex ) )
 				return false;
 			return data[0].Register( Type::MainQuest, iIndex );
@@ -123,7 +123,7 @@ namespace DNNotifier
 			if( iSlotIndex < RegisterCount::MainQuest || iSlotIndex >= RegisterCount::TotalQuest )
 				return false;
 
-			// Áßº¹°Ë»ç
+			// ì¤‘ë³µê²€ì‚¬
 			if( data[iSlotIndex].IsEqual( Type::SubQuest, iIndex ) )
 				return false;
 			return data[iSlotIndex].Register( Type::SubQuest, iIndex );
@@ -135,7 +135,7 @@ namespace DNNotifier
 			if( iSlotIndex < RegisterCount::TotalQuest -1 || iSlotIndex >= RegisterCount::Total )
 				return false;
 
-			// Áßº¹°Ë»ç
+			// ì¤‘ë³µê²€ì‚¬
 			if( data[iSlotIndex].IsEqual( eType, iIndex ) )
 				return false;
 			return data[iSlotIndex].Register( eType, iIndex );
@@ -144,7 +144,7 @@ namespace DNNotifier
 		bool RegisterDailyMission( const int iIndex )
 		{
 			Data* pData = &data[ RegisterCount::TotalQuest ];
-			// Áßº¹°Ë»ç
+			// ì¤‘ë³µê²€ì‚¬
 			if( pData->IsEqual( Type::DailyMission, iIndex ) )
 				return false;
 			return pData->Register( Type::DailyMission, iIndex );
@@ -153,7 +153,7 @@ namespace DNNotifier
 		bool RegisterWeeklyMission( const int iIndex )
 		{
 			Data* pData = &data[ RegisterCount::TotalQuest + RegisterCount::DailyMission ];
-			// Áßº¹°Ë»ç
+			// ì¤‘ë³µê²€ì‚¬
 			if( pData->IsEqual( Type::WeeklyMission, iIndex ) )
 				return false;
 			return pData->Register( Type::WeeklyMission, iIndex );

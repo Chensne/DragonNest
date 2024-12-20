@@ -520,13 +520,6 @@ bool SUIControlProperty::Load_12( CStream &stream )
 
 bool SUIControlProperty::Load( CStream &stream )
 {
-    auto n = stream.GetName();
-    if (!strcmp(n, "d:\\projects\\cpp\\dragonnest\\build\\client\\resource\\ui\\charcreate\\charselectdlg.ui"))
-    {
-        //__debugbreak();
-    }
-
-
 	DWORD dwVersion;
 	stream >> dwVersion;
 
@@ -703,7 +696,7 @@ void SUIControlProperty::Assign( SUIControlProperty *pProperty )
 		break;
 	case UI_CONTROL_HTMLTEXTBOX:
 		{
-			// Note : »óÀ§ Å¬·¡½ºÀÎ TextBox¿¡ ¼Ó¼ºÀ» ³Ö¾îÁà¾ß ÇÑ´Ù.
+			// Note : æƒ‘å›° åŠªè´°èƒ¶ç‰¢ TextBoxä¿Š åŠ å·±é˜‘ æŒç»¢æ‹Žå…· èŒ„ä¿ƒ.
 			//
 			TextBoxProperty.bVerticalScrollBar = pProperty->HtmlTextBoxProperty.bVerticalScrollBar;
 			TextBoxProperty.nScrollBarTemplate = pProperty->HtmlTextBoxProperty.nScrollBarTemplate;

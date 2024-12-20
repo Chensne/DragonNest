@@ -46,7 +46,7 @@ void (_stdcall *CEtUIDialog::s_pAutoCursorPtr)( bool bShow ) = NULL;
 
 int CEtUIDialog::s_nDialogTextureSize = 0;
 
-// 0.5f ·Î ¼³Á¤ÇÒ °æ¿ì ¿ÀÇÁ¼ÂÀÌ ³Ê¹« Ä¿¼­ ÁÂÃø,¿ìÃø ¸Þ´º°¡ °ãÃÄº¸ÀÌ°Ô µÈ´Ù.(#15687 ÀÌ½´¶§¹®¿¡ 0.18·Î ¼öÁ¤ÇÕ´Ï´Ù.)
+// 0.5f ë¡œ ì„¤ì •í•  ê²½ìš° ì˜¤í”„ì…‹ì´ ë„ˆë¬´ ì»¤ì„œ ì¢Œì¸¡,ìš°ì¸¡ ë©”ë‰´ê°€ ê²¹ì³ë³´ì´ê²Œ ëœë‹¤.(#15687 ì´ìŠˆë•Œë¬¸ì— 0.18ë¡œ ìˆ˜ì •í•©ë‹ˆë‹¤.)
 #define UI_DIALOG_SCALE_VALUE	0.18f
 
 //#if defined(_DEBUG) || defined(_RDEBUG)
@@ -100,7 +100,7 @@ CEtUIDialog::CEtUIDialog( UI_DIALOG_TYPE dialogType, CEtUIDialog *pParentDialog,
 	m_pParentDialog = pParentDialog;
 	if( m_pParentDialog )
 	{
-		// Note : ºÎ¸ð°¡ ÀÖÀ¸¸é ÀÚ½Ä À©µµ¿ì·Î µî·ÏÇÑ´Ù.
+		// Note : ë¶€ëª¨ê°€ ìžˆìœ¼ë©´ ìžì‹ ìœˆë„ìš°ë¡œ ë“±ë¡í•œë‹¤.
 		//
 		m_pParentDialog->AddChildDialog( this );
 
@@ -109,9 +109,9 @@ CEtUIDialog::CEtUIDialog( UI_DIALOG_TYPE dialogType, CEtUIDialog *pParentDialog,
 			m_pParentDialog->AddChildModalDialog( this );
 		}
 
-		// ´ç¿¬È÷ ÀÌ°Ô ¸Â´Â ÁÙ ¾Ë°í °íÃÆ´õ´Ï Â÷ÀÏµåµéÀÌ ¾È¶á´Ù.
-		// Ã£¾Æº¸´Ï, Â÷ÀÏµå¸®½ºÆ®¸¸ ·»´õ¸µÇÏ°í, Â÷ÀÏµå¸ð´ÞÀº MsgProc¿¡¼­ ¸ð´ÞÃ³¸®¸¸ ÇÏ°í ´õÀÌ»ó ¾È¾²´Â °Í.
-		// ¿Ö ÀÌ·¸°Ô ÇßÀ»±î..
+		// ë‹¹ì—°ížˆ ì´ê²Œ ë§žëŠ” ì¤„ ì•Œê³  ê³ ì³¤ë”ë‹ˆ ì°¨ì¼ë“œë“¤ì´ ì•ˆëœ¬ë‹¤.
+		// ì°¾ì•„ë³´ë‹ˆ, ì°¨ì¼ë“œë¦¬ìŠ¤íŠ¸ë§Œ ë Œë”ë§í•˜ê³ , ì°¨ì¼ë“œëª¨ë‹¬ì€ MsgProcì—ì„œ ëª¨ë‹¬ì²˜ë¦¬ë§Œ í•˜ê³  ë”ì´ìƒ ì•ˆì“°ëŠ” ê²ƒ.
+		// ì™œ ì´ë ‡ê²Œ í–ˆì„ê¹Œ..
 		//if( dialogType == UI_TYPE_CHILD )
 		//{
 		//	m_pParentDialog->AddChildDialog( this );
@@ -144,11 +144,11 @@ CEtUIDialog::~CEtUIDialog(void)
 
 	SAFE_DELETE_PVEC( m_TempControlList );
 
-	// »ý¼ºÀÚ¿¡¼­ µî·ÏÇÏ±æ·¡, ¼Ò¸êÀÚ¿¡¼­ »èÁ¦ÇÏ·Á°í Çß´õ´Ï, ÅøÆÁÀÇ static ´ÙÀÌ¾ó·Î±×¶§¹®¿¡ »¶³µ¾ú´Ù.
-	// ¼Ò¸ê¼ø¼­¸¸ Àß ¸ÂÃçÁÖ¸é µÇ´Ï, Á¦ÀÏ ÇÏ´Ü ÀÚ½ÄºÎÅÍ Â÷·Ê´ë·Î »èÁ¦ÇÏ¸é µÈ´Ù.
+	// ìƒì„±ìžì—ì„œ ë“±ë¡í•˜ê¸¸ëž˜, ì†Œë©¸ìžì—ì„œ ì‚­ì œí•˜ë ¤ê³  í–ˆë”ë‹ˆ, íˆ´íŒì˜ static ë‹¤ì´ì–¼ë¡œê·¸ë•Œë¬¸ì— ë»‘ë‚¬ì—ˆë‹¤.
+	// ì†Œë©¸ìˆœì„œë§Œ ìž˜ ë§žì¶°ì£¼ë©´ ë˜ë‹ˆ, ì œì¼ í•˜ë‹¨ ìžì‹ë¶€í„° ì°¨ë¡€ëŒ€ë¡œ ì‚­ì œí•˜ë©´ ëœë‹¤.
 	if( m_pParentDialog )
 	{
-		// ºÎ¸ð°¡ ÀÖÀ¸¸é ÀÚ½Ä À©µµ¿ì¸®½ºÆ®¿¡¼­ Á¦°Å.
+		// ë¶€ëª¨ê°€ ìžˆìœ¼ë©´ ìžì‹ ìœˆë„ìš°ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°.
 		m_pParentDialog->DelChildDialog( this );
 
 		if( m_emDialogType == UI_TYPE_CHILD_MODAL )
@@ -165,7 +165,7 @@ void CEtUIDialog::OnEndInitialize()
 
 void CEtUIDialog::Initialize( bool bShow )
 {
-	// Note : ¾Æ·¡ ÇÔ¼öµéÀº È£ÃâµÇ´Â ¼ø¼­°¡ Áß¿äÇÏ´Ù.
+	// Note : ì•„ëž˜ í•¨ìˆ˜ë“¤ì€ í˜¸ì¶œë˜ëŠ” ìˆœì„œê°€ ì¤‘ìš”í•˜ë‹¤.
 	//
 	UpdateScreen();
 
@@ -186,7 +186,7 @@ void CEtUIDialog::Initialize( bool bShow )
 
 void CEtUIDialog::Initialize( const char *pFileName, bool bShow )
 {
-	// Note : ¾Æ·¡ ÇÔ¼öµéÀº È£ÃâµÇ´Â ¼ø¼­°¡ Áß¿äÇÏ´Ù.
+	// Note : ì•„ëž˜ í•¨ìˆ˜ë“¤ì€ í˜¸ì¶œë˜ëŠ” ìˆœì„œê°€ ì¤‘ìš”í•˜ë‹¤.
 	//
 	UpdateScreen();
 
@@ -268,7 +268,7 @@ bool CEtUIDialog::Load( CStream &Stream )
 		break;
 	}
 
-	// UIÂÊ ÅØ½ºÃÄ´Â Å©±â¿¡ µû¶ó ¹Î°¨ÇÏ°Ô ¹ÝÀÀÇØ¼­ 2ÀÇ ½Â¼ö Áö¿øÇÏÁö ¾Ê´Â Ä«µå¶û ¶È°°ÀÌ º¸¿©¾ß ÇØ¼­ ÀÌ·¸°Ô ÇÑ´Ù.
+	// UIìª½ í…ìŠ¤ì³ëŠ” í¬ê¸°ì— ë”°ë¼ ë¯¼ê°í•˜ê²Œ ë°˜ì‘í•´ì„œ 2ì˜ ìŠ¹ìˆ˜ ì§€ì›í•˜ì§€ ì•ŠëŠ” ì¹´ë“œëž‘ ë˜‘ê°™ì´ ë³´ì—¬ì•¼ í•´ì„œ ì´ë ‡ê²Œ í•œë‹¤.
 	//CEtTexture::SetPow2( true );
 	/*
 	if( m_hTexture && m_hTexture->GetRefCount() == 1 )
@@ -383,13 +383,13 @@ void CEtUIDialog::Show( bool bShow )
 		SetFadeOut();
 		PopFocusControl();
 		
-		// Ã¢ÀÌ ´ÝÈ÷´Â »óÈ²¿¡¼­ ÄÁÆ®·ÑÀ» ´©¸¥Ã¤ ÀÖ´Ù¸é,(°­È­, Á¦ÀÛ¿äÃ»Ã¢ÀÇ Ãë¼Ò¹öÆ°)
-		// SetCapture ÈÄ ReleaseCapture°¡ È£ÃâµÇÁö ¾Ê°Å³ª, m_bPressed°¡ trueÀÎ »óÅÂ·Î À¯ÁöµÈ´Ù°Å³ªÇØ¼­
-		// ÅøÆÁ ¹× ¸¶¿ì½º¿À¹ö ·»´õ¸µÀÌ Á¦´ë·Î ÀÌ·ïÁöÁö ¾Ê°ÔµÈ´Ù.
-		// ±×·¡¼­ ÄÁÆ®·ÑµéÀ» µÚÁ®¼­ ´­·¯Áø ÄÁÆ®·ÑµéÀº ¿ø·¡´ë·Î µ¹·Á³õ´Â´Ù.
+		// ì°½ì´ ë‹«ížˆëŠ” ìƒí™©ì—ì„œ ì»¨íŠ¸ë¡¤ì„ ëˆ„ë¥¸ì±„ ìžˆë‹¤ë©´,(ê°•í™”, ì œìž‘ìš”ì²­ì°½ì˜ ì·¨ì†Œë²„íŠ¼)
+		// SetCapture í›„ ReleaseCaptureê°€ í˜¸ì¶œë˜ì§€ ì•Šê±°ë‚˜, m_bPressedê°€ trueì¸ ìƒíƒœë¡œ ìœ ì§€ëœë‹¤ê±°ë‚˜í•´ì„œ
+		// íˆ´íŒ ë° ë§ˆìš°ìŠ¤ì˜¤ë²„ ë Œë”ë§ì´ ì œëŒ€ë¡œ ì´ë¤„ì§€ì§€ ì•Šê²Œëœë‹¤.
+		// ê·¸ëž˜ì„œ ì»¨íŠ¸ë¡¤ë“¤ì„ ë’¤ì ¸ì„œ ëˆŒëŸ¬ì§„ ì»¨íŠ¸ë¡¤ë“¤ì€ ì›ëž˜ëŒ€ë¡œ ëŒë ¤ë†“ëŠ”ë‹¤.
 		//
-		// È®ÀåÇü ¸®½ºÆ®¹Ú½ºÀÇ ¾ÆÀÌÅÛÀ¸·Î µé¾î°¡´Â ¿¤¸®¸ÕÆ® ´ÙÀÌ¾ó·Î±×´Â SetPressed¸¦ Àû¿ë½ÃÅ°Áö ¾Ê¾Ò¾ú´Ù.
-		// ±×·¯³ª, SELFÅ¸ÀÔÀ¸·Î ºüÁö¸é¼­ º°µµÃ³¸®¸¦ ÇÏÁö ¾Ê¾Æµµ µÈ´Ù.
+		// í™•ìž¥í˜• ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì˜ ì•„ì´í…œìœ¼ë¡œ ë“¤ì–´ê°€ëŠ” ì—˜ë¦¬ë¨¼íŠ¸ ë‹¤ì´ì–¼ë¡œê·¸ëŠ” SetPressedë¥¼ ì ìš©ì‹œí‚¤ì§€ ì•Šì•˜ì—ˆë‹¤.
+		// ê·¸ëŸ¬ë‚˜, SELFíƒ€ìž…ìœ¼ë¡œ ë¹ ì§€ë©´ì„œ ë³„ë„ì²˜ë¦¬ë¥¼ í•˜ì§€ ì•Šì•„ë„ ëœë‹¤.
 		if( !IsElementDialog() )
 		{
 			bool bTooltipControl = false;
@@ -403,21 +403,21 @@ void CEtUIDialog::Show( bool bShow )
 					ReleaseCapture();
 				}
 
-				// m_bPressed »Ó¸¸ ¾Æ´Ï¶ó m_bMouseEnterµµ ÇÊ¿äÇÏ°Ô µÇ¾ú´Ù.
-				// CEtUIDialogÀÇ MsgProc¿¡¼­ WM_MOUSEMOVE°¡ µé¾î¿Ã¶§ CEtUIDialog::OnMouseMoveÇÔ¼ö°¡ È£ÃâµÇ´Âµ¥,
-				// ÀÌ ÇÔ¼ö¸¦ º¸¸é ÀÚ½ÅÀÇ ´ÙÀÌ¾ó·Î±× ¿µ¿ª¾È¿¡ ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ ¾øÀ»¶§ ReleaseMouseEnterControlÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.
-				// ÀÌ ÇÔ¼öÈ£ÃâÀ» ÅëÇØ º¸Åë ´ëºÎºÐÀÇ »óÈ²¿¡¼­ ÇØ´ç ÄÁÆ®·ÑÀÇ m_bMouseEnter°¡ Ç®¸®°Ô ¸¶·ÃÀÎµ¥,
-				// µü ÇÑ°¡Áö °æ¿ì°¡ ¹®Á¦¿´´Ù.
-				// ¹Ù·Î, Æ©Åä¸®¾óÀ» ÇÃ·¹ÀÌÇÏ½Ã°Ú½À´Ï±î.¶ó´Â ¸Þ¼¼Áö¹Ú½º¿´´Âµ¥,
-				// (ÀÌ°Ç À¯ÀÏÇÏ°Ô ´Ù¸¥ ¸ðµç Ã¢À» ´Ù Hide½ÃÅ² »óÅÂ¿¡¼­ ³ª¿À´Â ¸Þ¼¼Áö¹Ú½º´Ù.)
-				// ÀÌ ¸Þ¼¼Áö¹Ú½º¿¡¼­ ¾Æ´Ï¿À¸¦ ´©¸£¸é ÆäÀÌµå ¾Æ¿ôÀÌ µÇ¸é¼­ ¸¶À»·Î °¡°ÔµÈ´Ù.
-				// ÀÌ¶§ ¾Æ¹«°Íµµ º¸¿©Áö´Â ´ÙÀÌ¾ó·Î±×°¡ ¾øÀ¸´Ï MsgProc°¡ ¾Æ¿¹ È£ÃâµÇÁö ¾Ê°ÔµÇ°í ÀÌ °á°ú
-				// ReleaseMouseEnterControlÇÔ¼ö°¡ ÇÑ¹øµµ È£ÃâµÇÁö ¾Ê¾Æ ¾Æ´Ï¿À¹öÆ°ÀÇ MouseEnter°ªÀ» ¾Æ¹«µµ º¯°æÇÏÁö ¾Ê´Â´Ù.
-				// ±×¸®°í³ª¼­ CEtUIDialog::s_pMouseEnterControl¿¡ °­Á¦·Î NULLÀ» ´ëÀÔÇÏ´Â DnInterface::FinalizeÇÔ¼ö µîÀÌ È£ÃâµÇ¸é¼­,
-				// ¾Æ´Ï¿À ¹öÆ°ÀÇ m_bMouseEnter´Â Á÷Á¢ ¸¶¿ì½º°¡ ¾Æ´Ï¿À¹öÆ°¾È¿¡ µé¾î¿Ô´Ù ³ª°¡Áö ¾Ê´Â ÀÌ»ó º¯ÇÏÁö ¾Ê°ÔµÈ´Ù.
+				// m_bPressed ë¿ë§Œ ì•„ë‹ˆë¼ m_bMouseEnterë„ í•„ìš”í•˜ê²Œ ë˜ì—ˆë‹¤.
+				// CEtUIDialogì˜ MsgProcì—ì„œ WM_MOUSEMOVEê°€ ë“¤ì–´ì˜¬ë•Œ CEtUIDialog::OnMouseMoveí•¨ìˆ˜ê°€ í˜¸ì¶œë˜ëŠ”ë°,
+				// ì´ í•¨ìˆ˜ë¥¼ ë³´ë©´ ìžì‹ ì˜ ë‹¤ì´ì–¼ë¡œê·¸ ì˜ì—­ì•ˆì— ë§ˆìš°ìŠ¤ í¬ì¸í„°ê°€ ì—†ì„ë•Œ ReleaseMouseEnterControlí•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤.
+				// ì´ í•¨ìˆ˜í˜¸ì¶œì„ í†µí•´ ë³´í†µ ëŒ€ë¶€ë¶„ì˜ ìƒí™©ì—ì„œ í•´ë‹¹ ì»¨íŠ¸ë¡¤ì˜ m_bMouseEnterê°€ í’€ë¦¬ê²Œ ë§ˆë ¨ì¸ë°,
+				// ë”± í•œê°€ì§€ ê²½ìš°ê°€ ë¬¸ì œì˜€ë‹¤.
+				// ë°”ë¡œ, íŠœí† ë¦¬ì–¼ì„ í”Œë ˆì´í•˜ì‹œê² ìŠµë‹ˆê¹Œ.ë¼ëŠ” ë©”ì„¸ì§€ë°•ìŠ¤ì˜€ëŠ”ë°,
+				// (ì´ê±´ ìœ ì¼í•˜ê²Œ ë‹¤ë¥¸ ëª¨ë“  ì°½ì„ ë‹¤ Hideì‹œí‚¨ ìƒíƒœì—ì„œ ë‚˜ì˜¤ëŠ” ë©”ì„¸ì§€ë°•ìŠ¤ë‹¤.)
+				// ì´ ë©”ì„¸ì§€ë°•ìŠ¤ì—ì„œ ì•„ë‹ˆì˜¤ë¥¼ ëˆ„ë¥´ë©´ íŽ˜ì´ë“œ ì•„ì›ƒì´ ë˜ë©´ì„œ ë§ˆì„ë¡œ ê°€ê²Œëœë‹¤.
+				// ì´ë•Œ ì•„ë¬´ê²ƒë„ ë³´ì—¬ì§€ëŠ” ë‹¤ì´ì–¼ë¡œê·¸ê°€ ì—†ìœ¼ë‹ˆ MsgProcê°€ ì•„ì˜ˆ í˜¸ì¶œë˜ì§€ ì•Šê²Œë˜ê³  ì´ ê²°ê³¼
+				// ReleaseMouseEnterControlí•¨ìˆ˜ê°€ í•œë²ˆë„ í˜¸ì¶œë˜ì§€ ì•Šì•„ ì•„ë‹ˆì˜¤ë²„íŠ¼ì˜ MouseEnterê°’ì„ ì•„ë¬´ë„ ë³€ê²½í•˜ì§€ ì•ŠëŠ”ë‹¤.
+				// ê·¸ë¦¬ê³ ë‚˜ì„œ CEtUIDialog::s_pMouseEnterControlì— ê°•ì œë¡œ NULLì„ ëŒ€ìž…í•˜ëŠ” DnInterface::Finalizeí•¨ìˆ˜ ë“±ì´ í˜¸ì¶œë˜ë©´ì„œ,
+				// ì•„ë‹ˆì˜¤ ë²„íŠ¼ì˜ m_bMouseEnterëŠ” ì§ì ‘ ë§ˆìš°ìŠ¤ê°€ ì•„ë‹ˆì˜¤ë²„íŠ¼ì•ˆì— ë“¤ì–´ì™”ë‹¤ ë‚˜ê°€ì§€ ì•ŠëŠ” ì´ìƒ ë³€í•˜ì§€ ì•Šê²Œëœë‹¤.
 				//
-				// »ý°¢ÇØº¸´Ï Show(false)µÇ´Â ´ÙÀÌ¾ó·Î±×ÀÇ ÄÁÆ®·ÑÀÇ MouseEnter°ªÀÌ trueÀÎ°Å ÀÚÃ¼°¡ ÀÌ»óÇÑ°Å °°¾Æ¼­,
-				// ¿©±â¼­ ÇØÁ¦ÇÏ±â·Î ÇÏ°Ú´Ù.
+				// ìƒê°í•´ë³´ë‹ˆ Show(false)ë˜ëŠ” ë‹¤ì´ì–¼ë¡œê·¸ì˜ ì»¨íŠ¸ë¡¤ì˜ MouseEnterê°’ì´ trueì¸ê±° ìžì²´ê°€ ì´ìƒí•œê±° ê°™ì•„ì„œ,
+				// ì—¬ê¸°ì„œ í•´ì œí•˜ê¸°ë¡œ í•˜ê² ë‹¤.
 				if( m_vecControl[ i ]->IsMouseEnter() )
 				{
 					m_vecControl[ i ]->MouseEnter(false);
@@ -483,9 +483,9 @@ CEtUIControl *CEtUIDialog::GetControl( const char *pszControlName )
 	}
 
 	CDebugSet::ToLogFile( "CEtUIDialog::GetControl, %s control not found!", pszControlName );
-	// Note : UI°¡ »ý¼ºµÇ´Â ºÎºÐÀÌ¶ó ASSERT()¸¦ È£ÃâÇÏÁö ¾Ê°í assert()¸¦ È£ÃâÇÑ´Ù.
+	// Note : UIê°€ ìƒì„±ë˜ëŠ” ë¶€ë¶„ì´ë¼ ASSERT()ë¥¼ í˜¸ì¶œí•˜ì§€ ì•Šê³  assert()ë¥¼ í˜¸ì¶œí•œë‹¤.
 	//
-	//assert(0&&"CEtUIDialog::GetControl, °æ´ë¸¦ ºÒ·¯ÁÖ¼¼¿ä!");
+	//assert(0&&"CEtUIDialog::GetControl, ê²½ëŒ€ë¥¼ ë¶ˆëŸ¬ì£¼ì„¸ìš”!");
 	return NULL;
 }
 
@@ -536,10 +536,10 @@ void CEtUIDialog::DeleteAllControl()
 		focus::ReleaseControl();
 	}
 
-	// ¾ÈÁ¤¼º ÄÚµå.
-	// È®ÀåÇü ¸®½ºÆ®¹Ú½ºÀÇ °æ¿ì Show( false )°¡ µÇ´Â µ¿½Ã¿¡ ´ÙÀÌ¾ó·Î±× ¹× ÀÚ½Ä ÄÁÆ®·ÑµéÀ» Áö¿ì´Âµ¥,
-	// ÀÌ¶§ ¸¶¿ì½º¸¦ ´ë°í ÀÖ¾ú´Ù¸é, ¾Æ·¡ ½ºÅÂÆ½ Æ÷ÀÎÅÍº¯¼öÀÇ °ªÀÌ deleteµÈ ÄÁÆ®·ÑÀÌ µÇ¹ö¸°´Ù.
-	// ±×·¡¼­ Áö¿ï¶§ È®ÀÎ ÈÄ Áö¿ìµµ·Ï ÇÏ°Ú´Ù.
+	// ì•ˆì •ì„± ì½”ë“œ.
+	// í™•ìž¥í˜• ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì˜ ê²½ìš° Show( false )ê°€ ë˜ëŠ” ë™ì‹œì— ë‹¤ì´ì–¼ë¡œê·¸ ë° ìžì‹ ì»¨íŠ¸ë¡¤ë“¤ì„ ì§€ìš°ëŠ”ë°,
+	// ì´ë•Œ ë§ˆìš°ìŠ¤ë¥¼ ëŒ€ê³  ìžˆì—ˆë‹¤ë©´, ì•„ëž˜ ìŠ¤íƒœí‹± í¬ì¸í„°ë³€ìˆ˜ì˜ ê°’ì´ deleteëœ ì»¨íŠ¸ë¡¤ì´ ë˜ë²„ë¦°ë‹¤.
+	// ê·¸ëž˜ì„œ ì§€ìš¸ë•Œ í™•ì¸ í›„ ì§€ìš°ë„ë¡ í•˜ê² ë‹¤.
 	for( int i = 0; i < ( int )m_vecControl.size(); i++ )
 	{
 		if( s_pMouseEnterControl == m_vecControl[ i ] )
@@ -574,7 +574,7 @@ bool CEtUIDialog::FindControl( std::vector< CEtUIControl* > &vecControl, int nTy
 	iter = m_listChildDialog.rbegin();
 	for( ; iter != m_listChildDialog.rend(); ++iter )
 	{
-		// LastRender°Ë»ç´Â ¿ì¼± »ý·«.
+		// LastRenderê²€ì‚¬ëŠ” ìš°ì„  ìƒëžµ.
 		pDialog = (*iter);
 		if( !pDialog ) continue;
 		if( (pDialog->GetDialogType() != UI_TYPE_SELF && pDialog->IsElementDialog() == false && pDialog->IsShow()) ||
@@ -614,8 +614,8 @@ bool CEtUIDialog::FindControl( std::vector< CEtUIControl* > &vecControl, int nTy
 				bool bPushControl = true;
 				if( bCheckCoveredControl )
 				{
-					// ÀÏ¹ÝÀûÀÎ ÄÁÆ®·Ñ·Î »ý°¢ÇØ °¡¿îµ¥ ÁöÁ¡ÀÌ ´Ù¸¥ Ã¢¿¡ °¡·ÁÁ®ÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
-					// ¸®½ºÆ®¹Ú½º°°Àº ÄÁÆ®·ÑÀÇ °æ¿ì ¸®½ºÆ®¾ÆÀÌÅÛµé¸¶´Ù ÀÏÀÏÀÌ Ã¼Å©ÇÏ±â¿£ ³Ê¹« °Ë»çÇÒ°Ô ¸¹¾ÆÁ®¼­ °£´ÜÇÏ°Ô Ã¼Å©¸¸ ÇÏ´Â °ÍÀÌ´Ù.
+					// ì¼ë°˜ì ì¸ ì»¨íŠ¸ë¡¤ë¡œ ìƒê°í•´ ê°€ìš´ë° ì§€ì ì´ ë‹¤ë¥¸ ì°½ì— ê°€ë ¤ì ¸ìžˆëŠ”ì§€ í™•ì¸í•œë‹¤.
+					// ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ê°™ì€ ì»¨íŠ¸ë¡¤ì˜ ê²½ìš° ë¦¬ìŠ¤íŠ¸ì•„ì´í…œë“¤ë§ˆë‹¤ ì¼ì¼ì´ ì²´í¬í•˜ê¸°ì—” ë„ˆë¬´ ê²€ì‚¬í• ê²Œ ë§Žì•„ì ¸ì„œ ê°„ë‹¨í•˜ê²Œ ì²´í¬ë§Œ í•˜ëŠ” ê²ƒì´ë‹¤.
 					SUICoord ControlCoord;
 					pControl->GetUICoord( ControlCoord );
 					ControlCoord.fX = ControlCoord.fX + ControlCoord.fWidth/2.0f;
@@ -820,10 +820,10 @@ void CEtUIDialog::PushFocusControl()
 {
 	focus::PushControl(this);
 
-	// µµ´ëÃ¼ ÀÌ°É ¿Ö È£ÃâÇß´ÂÁö...
-	// ÀÌ°Í¶§¹®¿¡ ¼­¹ö¸®½ºÆ® show(true)µÉ¶§ Æ÷Ä¿½º¸¦ ¸®½ºÆ®¹Ú½º¿¡ µÎ¶ó°í Çß´Âµ¥µµ,
-	// ÇÏ³ª ´ÙÀ½À¸·Î °Ç³Ê¼­ Á¢¼Ó¹öÆ°ÀÌ Æ÷Ä¿½º¸¦ °¡Áö°Ô µÇ¾ú´Ù.(¸®½ºÆ®¹Ú½º°¡ 3¹ø, Á¢¼Ó¹öÆ°ÀÌ 4¹øÀÌ´Ù.)
-	// ¿ì¼± ÀÌ°Å È£Ãâ ¾ÈÇÏ±â·Î ÇÏ´Ï, ÀÌ»óÇÑ Á¡ ¹ß°ßµÇ¸é ±×¶§ Ã£µµ·Ï ÇÏ°Ú´Ù.
+	// ë„ëŒ€ì²´ ì´ê±¸ ì™œ í˜¸ì¶œí–ˆëŠ”ì§€...
+	// ì´ê²ƒë•Œë¬¸ì— ì„œë²„ë¦¬ìŠ¤íŠ¸ show(true)ë ë•Œ í¬ì»¤ìŠ¤ë¥¼ ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ì— ë‘ë¼ê³  í–ˆëŠ”ë°ë„,
+	// í•˜ë‚˜ ë‹¤ìŒìœ¼ë¡œ ê±´ë„ˆì„œ ì ‘ì†ë²„íŠ¼ì´ í¬ì»¤ìŠ¤ë¥¼ ê°€ì§€ê²Œ ë˜ì—ˆë‹¤.(ë¦¬ìŠ¤íŠ¸ë°•ìŠ¤ê°€ 3ë²ˆ, ì ‘ì†ë²„íŠ¼ì´ 4ë²ˆì´ë‹¤.)
+	// ìš°ì„  ì´ê±° í˜¸ì¶œ ì•ˆí•˜ê¸°ë¡œ í•˜ë‹ˆ, ì´ìƒí•œ ì  ë°œê²¬ë˜ë©´ ê·¸ë•Œ ì°¾ë„ë¡ í•˜ê² ë‹¤.
 	//OnCycleFocus( true );
 }
 
@@ -873,7 +873,7 @@ void CEtUIDialog::ClearRadioButtonGroup( int nButtonGroup )
 
 void CEtUIDialog::ReloadDlgTexture()
 {
-	// UIÂÊ ÅØ½ºÃÄ´Â Å©±â¿¡ µû¶ó ¹Î°¨ÇÏ°Ô ¹ÝÀÀÇØ¼­ 2ÀÇ ½Â¼ö Áö¿øÇÏÁö ¾Ê´Â Ä«µå¶û ¶È°°ÀÌ º¸¿©¾ß ÇØ¼­ ÀÌ·¸°Ô ÇÑ´Ù.
+	// UIìª½ í…ìŠ¤ì³ëŠ” í¬ê¸°ì— ë”°ë¼ ë¯¼ê°í•˜ê²Œ ë°˜ì‘í•´ì„œ 2ì˜ ìŠ¹ìˆ˜ ì§€ì›í•˜ì§€ ì•ŠëŠ” ì¹´ë“œëž‘ ë˜‘ê°™ì´ ë³´ì—¬ì•¼ í•´ì„œ ì´ë ‡ê²Œ í•œë‹¤.
 	//CEtTexture::SetPow2( true );
 	if( m_hDlgTexture )
 		s_nDialogTextureSize -= m_hDlgTexture->GetFileSize();
@@ -905,8 +905,8 @@ void CEtUIDialog::UpdateRects()
 
 void CEtUIDialog::UpdateFrameRectsEx()
 {
-	// Note : ´ÙÀÌ¾ó·Î±×´Â Å©±â º¯°æ½Ã ±úÁöÁö ¾Êµµ·Ï ÇÏ±â À§ÇØ ÅØ½ºÃÄ¸¦ 9ºÎºÐÀ¸·Î ³ª´©¾î¼­ ·£´õÇÑ´Ù.
-	//		ÁÂ¿ì,À§¾Æ·¡ °ªÀº Åø¿¡¼­ ¼ÂÆÃÇÑ´Ù. °¡¿îµ¥ ºÎºÐÀº ´Ã¾î³ª±â ¶§¹®¿¡ µðÀÚÀÎ½Ã °í·ÁÇØ¾ßÇÑ´Ù.
+	// Note : ë‹¤ì´ì–¼ë¡œê·¸ëŠ” í¬ê¸° ë³€ê²½ì‹œ ê¹¨ì§€ì§€ ì•Šë„ë¡ í•˜ê¸° ìœ„í•´ í…ìŠ¤ì³ë¥¼ 9ë¶€ë¶„ìœ¼ë¡œ ë‚˜ëˆ„ì–´ì„œ ëžœë”í•œë‹¤.
+	//		ì¢Œìš°,ìœ„ì•„ëž˜ ê°’ì€ íˆ´ì—ì„œ ì…‹íŒ…í•œë‹¤. ê°€ìš´ë° ë¶€ë¶„ì€ ëŠ˜ì–´ë‚˜ê¸° ë•Œë¬¸ì— ë””ìžì¸ì‹œ ê³ ë ¤í•´ì•¼í•œë‹¤.
 	//
 	float fFrameLeft = m_DlgInfo.nFrameLeft / ( float )m_hDlgTexture->OriginalWidth();
 	float fFrameTop = m_DlgInfo.nFrameTop / ( float )m_hDlgTexture->OriginalHeight();
@@ -917,7 +917,7 @@ void CEtUIDialog::UpdateFrameRectsEx()
 
 	if( fModWidth <= 0.0f || fModHeight <= 0.0f )
 	{
-		//ASSERT(0&&"Frame Left+RightÇÕ»ê È¤Àº Top+BottomÇÕ»êÀÌ ¿øº»ÅØ½ºÃ³ Å©±â¸¦ ³Ñ¾ú½À´Ï´Ù.");
+		//ASSERT(0&&"Frame Left+Rightí•©ì‚° í˜¹ì€ Top+Bottomí•©ì‚°ì´ ì›ë³¸í…ìŠ¤ì²˜ í¬ê¸°ë¥¼ ë„˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 	m_vecDlgFrameElement.resize( 9 );
@@ -1095,7 +1095,7 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
 	m_hWnd = hWnd;
 
-	// Note : ´ÙÀÌ¾ó·Î±×°¡ º¸ÀÌÁö ¾Ê°Å³ª ¸Þ¼¼Áö¸¦ ÀÚ½Ä À©µµ¿ì·Î º¸³¾ ÇÊ¿ä°¡ ¾ø´Ù¸é return
+	// Note : ë‹¤ì´ì–¼ë¡œê·¸ê°€ ë³´ì´ì§€ ì•Šê±°ë‚˜ ë©”ì„¸ì§€ë¥¼ ìžì‹ ìœˆë„ìš°ë¡œ ë³´ë‚¼ í•„ìš”ê°€ ì—†ë‹¤ë©´ return
 	//
 	if( !m_bShow && !m_bPassMessageToChild && !m_bAcceptInputMsgWhenHide )
 	{
@@ -1104,13 +1104,13 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 	else
 	{
 #ifdef CHECK_DIALOG_CRASH
-		// ÀÌ¹Ì ±úÁøÃ¤·Î µé¾î¿À·Á³ª.
+		// ì´ë¯¸ ê¹¨ì§„ì±„ë¡œ ë“¤ì–´ì˜¤ë ¤ë‚˜.
 		strcpy_s( g_szCurMsgProcDialog, 256, m_strDialogFileName.c_str() );
 #endif
 
 		std::list< CEtUIDialog* >::reverse_iterator iter;
 
-		// Note : ¸ð´ÞÀ» °¡Áö°í ÀÖ°í ÇöÀç º¸ÀÌ´Â »óÅÂ¶ó¸é ¸ð´ÞÀ» Ã³¸®ÇÑ´Ù.
+		// Note : ëª¨ë‹¬ì„ ê°€ì§€ê³  ìžˆê³  í˜„ìž¬ ë³´ì´ëŠ” ìƒíƒœë¼ë©´ ëª¨ë‹¬ì„ ì²˜ë¦¬í•œë‹¤.
 		//
 		if( !m_listChildModalDialog.empty() )
 		{
@@ -1123,16 +1123,16 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 					{
 						(*iter)->MsgProc( hWnd, uMsg, wParam, lParam );
 
-						// ÆÄÆ¼»ý¼ºÀÌ¸§ÀÔ·ÂÃ¢ÀÌ CHILD_MODALÀÎµ¥,
-						// ÀÌ ÀÔ·ÂÃ¢¿¡¼­¸¸ Äµµðµ¥ÀÌÆ®¿¡¼­ ¼±ÅÃÇÑ Áß¹®ÀÌ ÀÔ·Â¾ÈµÇ´Â Çö»óÀÌ ³ªÅ¸³µ´Ù.
-						// ¿ø·¡ ÄÚµå°¡ MsgProcÈ£Ãâ ÈÄ ¹Ù·Î return trueÇÏ´Â ÄÚµå¿´´Âµ¥,
-						// ¿¹»ó¿¡´Â ¿©±â¼­ GCS_RESULTSTR¸¦ °¡Áø Msg°¡ µðÆúÆ®ÇÁ·Î½ÃÀú·Î Àü´ÞÀÌ ¾ÈµÇ¼­,
-						// ¿ÜºÎIME¿¡°Ô °¡Áö ¸øÇß°í, ±× °á°ú Äµµðµ¥ÀÌÆ®¿¡¼­ ¼±ÅÃµÈ Áß¹®±ÛÀÚ°¡ ¿ÜºÎIME·ÎºÎÅÍ ¿Í¾ßÇÏ´Âµ¥(wm_char¸Þ¼¼Áö·Î)
-						// ÀÌ°Ô ¾È¿Í¼­ ±ÛÀÚ°¡ ¾ÈÂïÇû´ø °Í °°´Ù.
+						// íŒŒí‹°ìƒì„±ì´ë¦„ìž…ë ¥ì°½ì´ CHILD_MODALì¸ë°,
+						// ì´ ìž…ë ¥ì°½ì—ì„œë§Œ ìº”ë””ë°ì´íŠ¸ì—ì„œ ì„ íƒí•œ ì¤‘ë¬¸ì´ ìž…ë ¥ì•ˆë˜ëŠ” í˜„ìƒì´ ë‚˜íƒ€ë‚¬ë‹¤.
+						// ì›ëž˜ ì½”ë“œê°€ MsgProcí˜¸ì¶œ í›„ ë°”ë¡œ return trueí•˜ëŠ” ì½”ë“œì˜€ëŠ”ë°,
+						// ì˜ˆìƒì—ëŠ” ì—¬ê¸°ì„œ GCS_RESULTSTRë¥¼ ê°€ì§„ Msgê°€ ë””í´íŠ¸í”„ë¡œì‹œì €ë¡œ ì „ë‹¬ì´ ì•ˆë˜ì„œ,
+						// ì™¸ë¶€IMEì—ê²Œ ê°€ì§€ ëª»í–ˆê³ , ê·¸ ê²°ê³¼ ìº”ë””ë°ì´íŠ¸ì—ì„œ ì„ íƒëœ ì¤‘ë¬¸ê¸€ìžê°€ ì™¸ë¶€IMEë¡œë¶€í„° ì™€ì•¼í•˜ëŠ”ë°(wm_charë©”ì„¸ì§€ë¡œ)
+						// ì´ê²Œ ì•ˆì™€ì„œ ê¸€ìžê°€ ì•ˆì°í˜”ë˜ ê²ƒ ê°™ë‹¤.
 						//
-						// ±×·¡¼­ ¾Æ·¡ s_bRESULTSTR_NotSendComp¸¦ »ç¿ëÇØ Äµµðµ¥ÀÌÆ®°¡ ¶¹´ÂÁö¸¦ È®ÀÎ ÈÄ
-						// ¸¸¾à ¶¸´Ù¸é, ÇØ´ç ¸Þ¼¼Áö¸¦ ¸®ÅÏÇÏÁö ¾Ê°í, ±×³É Èê·Áº¸³» µðÆúÆ®ÇÁ·Î½ÃÀú·Î °¡µµ·Ï ÇÏ°Ú´Ù.
-						// _CH´Â EtInterface ´ÜÀÌ¶ó »ç¿ëÇÏÁö ¸øÇÑ´Ù.
+						// ê·¸ëž˜ì„œ ì•„ëž˜ s_bRESULTSTR_NotSendCompë¥¼ ì‚¬ìš©í•´ ìº”ë””ë°ì´íŠ¸ê°€ ë–´ëŠ”ì§€ë¥¼ í™•ì¸ í›„
+						// ë§Œì•½ ë–³ë‹¤ë©´, í•´ë‹¹ ë©”ì„¸ì§€ë¥¼ ë¦¬í„´í•˜ì§€ ì•Šê³ , ê·¸ëƒ¥ í˜ë ¤ë³´ë‚´ ë””í´íŠ¸í”„ë¡œì‹œì €ë¡œ ê°€ë„ë¡ í•˜ê² ë‹¤.
+						// _CHëŠ” EtInterface ë‹¨ì´ë¼ ì‚¬ìš©í•˜ì§€ ëª»í•œë‹¤.
 						if( CEtUIIME::s_bRESULTSTR_NotSendComp == false )
 							return true;
 						else
@@ -1145,7 +1145,7 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 				}
 				else
 				{
-					_ASSERT(0&&"CEtUIDialog::MsgProcÇÔ¼ö ¾È Modal-iterator Áß¿¡ NULL ÀÖ½À´Ï´Ù!");
+					_ASSERT(0&&"CEtUIDialog::MsgProcí•¨ìˆ˜ ì•ˆ Modal-iterator ì¤‘ì— NULL ìžˆìŠµë‹ˆë‹¤!");
 				}
 			}
 		}
@@ -1155,18 +1155,18 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		{
 			if( *iter == NULL )
 			{
-				_ASSERT(0&&"CEtUIDialog::MsgProcÇÔ¼ö ¾È iterator Áß¿¡ NULL ÀÖ½À´Ï´Ù!");
+				_ASSERT(0&&"CEtUIDialog::MsgProcí•¨ìˆ˜ ì•ˆ iterator ì¤‘ì— NULL ìžˆìŠµë‹ˆë‹¤!");
 				continue;
 			}
 
-			// ÇÚµéÀ» Á÷Á¢ ³Ö¾îÁÖ´Â ÀÌÀ¯´Â,
-			// IME¸¦ °¡Áø Child´ÙÀÌ¾ó·Î±×¸¦ Show(true)ÇÏ´Â °Í°ú µ¿½Ã¿¡ IME¿¡ FocusÃ³¸®¸¦ ÇÒ °æ¿ì,
-			// m_hWnd°ªÀÌ NULLÀÎÃ¤·Î CEtUIIMEEditBox::Focus°¡ È£ÃâµÇ°Ô µÈ´Ù.
-			// ÀÌ¶§ ºÎ¸ðÇÚµé°ªÀÌ NULLÀÌ¸é¼­ IME-EnableÇÏ´Â ±â´ÉÀÌ Á¦´ë·Î ÀÛµ¿ÇÏÁö ¾Ê°ÔµÇ¾î,
-			// ¿­¾ú´ø Ã¢À» ´Ý°í ´Ù½Ã ¿­¾î IME¿¡ Focus¸¦ Áà¼­ ÀÔ·ÂÇØ¾ß¸¸ Çß´Ù.
-			// ±×·¡¼­ ÀÌ·¸°Ô Á÷Á¢ À©µµÇÚµéÀ» ³Ö¾îÁÖ±â·Î ÇÑ´Ù.
+			// í•¸ë“¤ì„ ì§ì ‘ ë„£ì–´ì£¼ëŠ” ì´ìœ ëŠ”,
+			// IMEë¥¼ ê°€ì§„ Childë‹¤ì´ì–¼ë¡œê·¸ë¥¼ Show(true)í•˜ëŠ” ê²ƒê³¼ ë™ì‹œì— IMEì— Focusì²˜ë¦¬ë¥¼ í•  ê²½ìš°,
+			// m_hWndê°’ì´ NULLì¸ì±„ë¡œ CEtUIIMEEditBox::Focusê°€ í˜¸ì¶œë˜ê²Œ ëœë‹¤.
+			// ì´ë•Œ ë¶€ëª¨í•¸ë“¤ê°’ì´ NULLì´ë©´ì„œ IME-Enableí•˜ëŠ” ê¸°ëŠ¥ì´ ì œëŒ€ë¡œ ìž‘ë™í•˜ì§€ ì•Šê²Œë˜ì–´,
+			// ì—´ì—ˆë˜ ì°½ì„ ë‹«ê³  ë‹¤ì‹œ ì—´ì–´ IMEì— Focusë¥¼ ì¤˜ì„œ ìž…ë ¥í•´ì•¼ë§Œ í–ˆë‹¤.
+			// ê·¸ëž˜ì„œ ì´ë ‡ê²Œ ì§ì ‘ ìœˆë„í•¸ë“¤ì„ ë„£ì–´ì£¼ê¸°ë¡œ í•œë‹¤.
 			//
-			// Child_ModalÀÏ °æ¿ì¿¡µµ Child¸®½ºÆ®¿£ µé¾îÀÖÀ¸´Ï Child_Modal¿¡ ´ëÇØ µû·Î Ã³¸®ÇÏÁö ¾Ê¾Æµµ µÈ´Ù.
+			// Child_Modalì¼ ê²½ìš°ì—ë„ Childë¦¬ìŠ¤íŠ¸ì—” ë“¤ì–´ìžˆìœ¼ë‹ˆ Child_Modalì— ëŒ€í•´ ë”°ë¡œ ì²˜ë¦¬í•˜ì§€ ì•Šì•„ë„ ëœë‹¤.
 			(*iter)->SetHWnd( hWnd );
 			if( (*iter)->MsgProc( hWnd, uMsg, wParam, lParam ) )
 			{
@@ -1183,9 +1183,9 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 		}
 	}
 
-	// ÀÏ¹Ý ¹öÆ°À» ´©¸¥ »óÅÂ¿¡¼­ ¸ð´ÞÃ¢ÀÌ ¿­¸®¸é(µå³× ÇïÇÁÃ¢ °°Àº °æ¿ì) ÇØ´ç ¹öÆ°ÀÇ Pressed »óÅÂ°¡ °è¼Ó À¯ÁöµÇ¹ö¸°´Ù.
-	// µüÈ÷ Ã³¸®ÇÒ¸¸ÇÑ Àû´çÇÑ °÷ÀÌ ¾ø¾î¼­ ¿ì¼± ¿©±â¼­ Ã³¸®ÇÏµµ·Ï ÇÑ´Ù.
-	// ReleaseControlÀ» È£ÃâÇÏ´Â °Íº¸´Ü, Pressed¸¦ Ãë¼ÒÇÑ´Ù´øÁö µîÀÇ ÀýÂ÷¸¸ ÇÏ´Â°Ô ´õ ³ªÀ» °Å °°¾Æ OnReleaseControlÇÔ¼ö¸¦ È£ÃâÇÏ±â·Î ÇÑ´Ù.
+	// ì¼ë°˜ ë²„íŠ¼ì„ ëˆ„ë¥¸ ìƒíƒœì—ì„œ ëª¨ë‹¬ì°½ì´ ì—´ë¦¬ë©´(ë“œë„¤ í—¬í”„ì°½ ê°™ì€ ê²½ìš°) í•´ë‹¹ ë²„íŠ¼ì˜ Pressed ìƒíƒœê°€ ê³„ì† ìœ ì§€ë˜ë²„ë¦°ë‹¤.
+	// ë”±ížˆ ì²˜ë¦¬í• ë§Œí•œ ì ë‹¹í•œ ê³³ì´ ì—†ì–´ì„œ ìš°ì„  ì—¬ê¸°ì„œ ì²˜ë¦¬í•˜ë„ë¡ í•œë‹¤.
+	// ReleaseControlì„ í˜¸ì¶œí•˜ëŠ” ê²ƒë³´ë‹¨, Pressedë¥¼ ì·¨ì†Œí•œë‹¤ë˜ì§€ ë“±ì˜ ì ˆì°¨ë§Œ í•˜ëŠ”ê²Œ ë” ë‚˜ì„ ê±° ê°™ì•„ OnReleaseControlí•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ê¸°ë¡œ í•œë‹¤.
 	if( m_emDialogType == UI_TYPE_MODAL && focus::IsEnable() && focus::GetParent() != this && IsChildDialog( focus::GetParent() ) == false )
 		focus::OnReleaseControl();
 
@@ -1248,26 +1248,26 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 						int nHotKey = m_vecControl[i]->GetHotKey();
 						SHORT keyState = GetKeyState( nHotKey );
 
-						// Note : Å°¸¦ ¿¬¼ÓÀ¸·Î ´©¸£´Â °ÍÀ» Ã¼Å©ÇØ¼­ Ã³¸®µÇÁö ¾Êµµ·Ï ÇÑ´Ù.
-						//		ÇÏÁö¸¸ ´Ù¸¥ µÎ°³ÀÇ Å°¸¦ ¿¬¼ÓÀ¸·Î ´©¸£¸é Ã¼Å©µÇÁö ¾Ê´Â´Ù. ¼öÁ¤ÇØ¾ß ÇÒµí...
+						// Note : í‚¤ë¥¼ ì—°ì†ìœ¼ë¡œ ëˆ„ë¥´ëŠ” ê²ƒì„ ì²´í¬í•´ì„œ ì²˜ë¦¬ë˜ì§€ ì•Šë„ë¡ í•œë‹¤.
+						//		í•˜ì§€ë§Œ ë‹¤ë¥¸ ë‘ê°œì˜ í‚¤ë¥¼ ì—°ì†ìœ¼ë¡œ ëˆ„ë¥´ë©´ ì²´í¬ë˜ì§€ ì•ŠëŠ”ë‹¤. ìˆ˜ì •í•´ì•¼ í• ë“¯...
 						//
 						if( keyState&0x80 )
 						{
 
-							// °í´ë ¹ö±×°¡ ÇÏ³ª ÀÖ¾ú´ø °Å °°Àºµ¥, ¾Æ¹«¸® Ã£¾ÆºÁµµ Àß¸øµÈ Á¡À» ¸øÃ£°Ú´Ù.
-							// ÀçÇö°úÁ¤Àº ´ÙÀ½°ú °°´Ù.
-							// ¿¡µ÷¹Ú½º °¡Áö°í ÀÖ´Â Ã¢À» ¿­¾î Æ¯Á¤Å°¸¦ ÀÔ·ÂÇÑ´Ù.(¿¹, ÆÄÆ¼»ý¼ºÃ¢À» ¿¬ÈÄ ÆÄÆ¼ÀÌ¸§ ÀÔ·Â¿¡´Ù°¡ pÅ°¸¦ ´­·¯ ÀÔ·Â)
-							// pÅ°¸¦ 2È¸ ´©¸¥ ÈÄ Esc·Î ´Ý°í ´Ù½Ã p¸¦ ´©¸£¸é Ä³¸¯½ºÅ×ÀÌÅÍ½ºÃ¢ ´ÜÃàÅ°°¡ ÀÛµ¿ÇÏ¸é¼­ ½ºÅ×ÀÌÅÍ½ºÃ¢ÀÌ ¿­¸°´Ù.
-							// ±×·±µ¥ 3È¸ ´©¸¥ ÈÄ Esc·Î ´Ý°í ´Ù½Ã p¸¦ ´©¸£¸é ¹Ù·Î ¾È¶ß°í ÇÑ¹ø ´õ ´­·¯¾ß ¶á´Ù.
-							// Á¤¸» ÀÌ»óÇÑ°Ç ÀÌ°Ô p¸¦ ´©¸¥ È½¼ö°¡ Áõ°¡µÉ¶§¸¶´Ù ¹ø°¥¾Æ°¡¸é¼­(0,2,4,6..Àº Á¤»ó, 1,3,5´Â ÇÑ¹ø ´õ ´­·¯¾ß ¿­¸²) »óÅÂ°¡ ¹Ù²ï´Ù´Â°Å´Ù.
-							// ¾Æ¹«¸® Ã£¾ÆºÁµµ Editbox¿¡ ¹ø°¥¾Æ°¡¸é¼­ ¹º°¡ Ã³¸®ÇÑ°Ô ¾ø´Â°Åº¸¸é,
-							// ¾Æ·¡ ÇÖÅ°Ã³¸® ºÎºÐ Áß GetKeyState·Î »óÅÂ ¾ò¾î¿Í °è¼Ó ´©¸£°í ÀÖ´Â °Å ¸·´Â Ã³¸®ÇÏ´Â ¾Æ·¡°¡ °¡Àå ÀÇ½ÉÀûÀºµ¥,
-							// if( (m_nHotKey != nHotKey) || (m_HotKeyState != keyState) ) Áß m_HotKeyState != keyState ºñ±³¹®.
-							// ±×·¸´Ù°í Áö±Ý¿Í¼­ ´Ù¸¥ °É·Î ±³Ã¼ÇÏ±âµµ ¾Ö¸ÅÇÑ »óÈ²ÀÌ´Ù..
+							// ê³ ëŒ€ ë²„ê·¸ê°€ í•˜ë‚˜ ìžˆì—ˆë˜ ê±° ê°™ì€ë°, ì•„ë¬´ë¦¬ ì°¾ì•„ë´ë„ ìž˜ëª»ëœ ì ì„ ëª»ì°¾ê² ë‹¤.
+							// ìž¬í˜„ê³¼ì •ì€ ë‹¤ìŒê³¼ ê°™ë‹¤.
+							// ì—ë”§ë°•ìŠ¤ ê°€ì§€ê³  ìžˆëŠ” ì°½ì„ ì—´ì–´ íŠ¹ì •í‚¤ë¥¼ ìž…ë ¥í•œë‹¤.(ì˜ˆ, íŒŒí‹°ìƒì„±ì°½ì„ ì—°í›„ íŒŒí‹°ì´ë¦„ ìž…ë ¥ì—ë‹¤ê°€ pí‚¤ë¥¼ ëˆŒëŸ¬ ìž…ë ¥)
+							// pí‚¤ë¥¼ 2íšŒ ëˆ„ë¥¸ í›„ Escë¡œ ë‹«ê³  ë‹¤ì‹œ pë¥¼ ëˆ„ë¥´ë©´ ìºë¦­ìŠ¤í…Œì´í„°ìŠ¤ì°½ ë‹¨ì¶•í‚¤ê°€ ìž‘ë™í•˜ë©´ì„œ ìŠ¤í…Œì´í„°ìŠ¤ì°½ì´ ì—´ë¦°ë‹¤.
+							// ê·¸ëŸ°ë° 3íšŒ ëˆ„ë¥¸ í›„ Escë¡œ ë‹«ê³  ë‹¤ì‹œ pë¥¼ ëˆ„ë¥´ë©´ ë°”ë¡œ ì•ˆëœ¨ê³  í•œë²ˆ ë” ëˆŒëŸ¬ì•¼ ëœ¬ë‹¤.
+							// ì •ë§ ì´ìƒí•œê±´ ì´ê²Œ pë¥¼ ëˆ„ë¥¸ íšŸìˆ˜ê°€ ì¦ê°€ë ë•Œë§ˆë‹¤ ë²ˆê°ˆì•„ê°€ë©´ì„œ(0,2,4,6..ì€ ì •ìƒ, 1,3,5ëŠ” í•œë²ˆ ë” ëˆŒëŸ¬ì•¼ ì—´ë¦¼) ìƒíƒœê°€ ë°”ë€ë‹¤ëŠ”ê±°ë‹¤.
+							// ì•„ë¬´ë¦¬ ì°¾ì•„ë´ë„ Editboxì— ë²ˆê°ˆì•„ê°€ë©´ì„œ ë­”ê°€ ì²˜ë¦¬í•œê²Œ ì—†ëŠ”ê±°ë³´ë©´,
+							// ì•„ëž˜ í•«í‚¤ì²˜ë¦¬ ë¶€ë¶„ ì¤‘ GetKeyStateë¡œ ìƒíƒœ ì–»ì–´ì™€ ê³„ì† ëˆ„ë¥´ê³  ìžˆëŠ” ê±° ë§‰ëŠ” ì²˜ë¦¬í•˜ëŠ” ì•„ëž˜ê°€ ê°€ìž¥ ì˜ì‹¬ì ì€ë°,
+							// if( (m_nHotKey != nHotKey) || (m_HotKeyState != keyState) ) ì¤‘ m_HotKeyState != keyState ë¹„êµë¬¸.
+							// ê·¸ë ‡ë‹¤ê³  ì§€ê¸ˆì™€ì„œ ë‹¤ë¥¸ ê±¸ë¡œ êµì²´í•˜ê¸°ë„ ì• ë§¤í•œ ìƒí™©ì´ë‹¤..
 							//
-							// Ã³À½¿¡´Â Show-HideµÉ¶§ m_HotKeyState¸¦ ÃÊ±âÈ­ÇÏ´Â°Ô ±âº»ÀûÀ¸·Î ÀÖÀ¸´Ï, ºÎ¸ð,ÀÚ½ÄµéÀ» Ã£¾Æ¼­ ´Ù°°ÀÌ ÃÊ±âÈ­ÇÒ±î Çß´Âµ¥,
-							// ´ÜÃàÅ°·Î ¾Æ¿¹ °ü°è¾ø´Â ´Ù¸¥ Ã¢À» ¿­¶§°¡ ÀÖ¾î¼­ ÀÌ ¹æ¹ýÀº ÅëÇÏÁö ¾Ê¾Ò´Ù.
-							// ±×·¡¼­.. ÁøÂ¥ ÇÊ¿äÇÑ °÷¿¡¼­ °­Á¦·Î ÇØÁ¦ÇÏ´Â ¹æ¹ýÀ» »ç¿ëÇÏ±â·Î ÇÑ´Ù.
+							// ì²˜ìŒì—ëŠ” Show-Hideë ë•Œ m_HotKeyStateë¥¼ ì´ˆê¸°í™”í•˜ëŠ”ê²Œ ê¸°ë³¸ì ìœ¼ë¡œ ìžˆìœ¼ë‹ˆ, ë¶€ëª¨,ìžì‹ë“¤ì„ ì°¾ì•„ì„œ ë‹¤ê°™ì´ ì´ˆê¸°í™”í• ê¹Œ í–ˆëŠ”ë°,
+							// ë‹¨ì¶•í‚¤ë¡œ ì•„ì˜ˆ ê´€ê³„ì—†ëŠ” ë‹¤ë¥¸ ì°½ì„ ì—´ë•Œê°€ ìžˆì–´ì„œ ì´ ë°©ë²•ì€ í†µí•˜ì§€ ì•Šì•˜ë‹¤.
+							// ê·¸ëž˜ì„œ.. ì§„ì§œ í•„ìš”í•œ ê³³ì—ì„œ ê°•ì œë¡œ í•´ì œí•˜ëŠ” ë°©ë²•ì„ ì‚¬ìš©í•˜ê¸°ë¡œ í•œë‹¤.
 							if( (m_nHotKey != nHotKey) || (m_HotKeyState != keyState) )
 							{
 								m_vecControl[i]->OnHotkey();
@@ -1331,7 +1331,7 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 				g_pFocusDialog = this;
 			}
 
-			if( IsUsableFocusControl() )	// Focus Control º¸´Ù GetControlAtPoint ¸¦ ¿ì¼±½ÃÇÑ´Ù.... // (Äù½ºÆ® TreeCtrl ¿¡ Ã¼Å©¹Ú½º¸¦ ¿Ã¸®±âÀ§ÇÔ) by realgaia 091215 
+			if( IsUsableFocusControl() )	// Focus Control ë³´ë‹¤ GetControlAtPoint ë¥¼ ìš°ì„ ì‹œí•œë‹¤.... // (í€˜ìŠ¤íŠ¸ TreeCtrl ì— ì²´í¬ë°•ìŠ¤ë¥¼ ì˜¬ë¦¬ê¸°ìœ„í•¨) by realgaia 091215 
 			{
 				if( focus::HandleMouse( uMsg, fMouseX, fMouseY, wParam, lParam ) )
 				{
@@ -1347,7 +1347,7 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 					return true;
 				}
 				else {
-					//if( IsUsableFocusControl() )		// Focus Control À» GetControlAtPoint ´ÙÀ½¿¡ Ã³¸®ÇÑ´Ù.... 		by realgaia 091215 		
+					//if( IsUsableFocusControl() )		// Focus Control ì„ GetControlAtPoint ë‹¤ìŒì— ì²˜ë¦¬í•œë‹¤.... 		by realgaia 091215 		
 					//{
 					//	if( focus::HandleMouse( uMsg, fMouseX, fMouseY, wParam, lParam ) )
 					//	{
@@ -1369,8 +1369,8 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 
 			if( IsMouseInDlg() && !GetCapture() )
 			{
-				// Note : ¾ÕÂÊ Ã¢¿¡ ÀÌº¥Æ® ¹ß»ý½Ã µÚÂÊÃ¢À¸·Î ¸Þ¼¼Áö Àü´ÞÀ»
-				//		ÇÏÁö ¾Ê´Â´Ù. Ã¢ÀÇ ¼ø¼­°¡ Áß¿äÇÏ´Ù.
+				// Note : ì•žìª½ ì°½ì— ì´ë²¤íŠ¸ ë°œìƒì‹œ ë’¤ìª½ì°½ìœ¼ë¡œ ë©”ì„¸ì§€ ì „ë‹¬ì„
+				//		í•˜ì§€ ì•ŠëŠ”ë‹¤. ì°½ì˜ ìˆœì„œê°€ ì¤‘ìš”í•˜ë‹¤.
 				//
 				return true;
 			}
@@ -1378,10 +1378,10 @@ bool CEtUIDialog::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 #ifdef MOUSEOVER_CONTROL_OUTSIDE_DLG
 			else
 			{
-				// ¸¶¿ì½º¹«ºê Áß¿¡ Ã³¸®µÇ´Â ÄÁÆ®·ÑÀÌ ÀÖ´Ù¸é,
-				// (ÅØ½ºÃ³ ÄÁÆ®·ÑÀº Á¦¿ÜÇÏ±â·Î Çß´Ù. 2ÀÇ ½Â¼ö ¸ÂÃß´Â °Í¶§¹®¿¡ ´ÙÀÌ¾ó·Î±× ¿µ¿ª ¹þ¾î³ª´Â°Ô ¸¹±â ¶§¹®¿¡.
-				//  ±×¸®°í Á¦´ë·Î ÇÏ·Á¸é, GetControlAtPoint ÀÌ ÇÔ¼ö·Î pControl¾òÀ»¶§ºÎÅÍ ÅØ½ºÃ³ÄÁÆ®·Ñ »©°í °Ë»çÇØ¾ßÇÏ´Âµ¥,
-				//  ÀÌ·¸°Ô±îÁö ÇÏ´Â°Ç Á» ¿À¹öÀÎ°Å °°¾Æ¼­ ¿ì¼±Àº ±×³É ¾Æ·¡Ã³·³ Ã³¸®ÇÏ±â·Î ÇÏ°Ú´Ù.)
+				// ë§ˆìš°ìŠ¤ë¬´ë¸Œ ì¤‘ì— ì²˜ë¦¬ë˜ëŠ” ì»¨íŠ¸ë¡¤ì´ ìžˆë‹¤ë©´,
+				// (í…ìŠ¤ì²˜ ì»¨íŠ¸ë¡¤ì€ ì œì™¸í•˜ê¸°ë¡œ í–ˆë‹¤. 2ì˜ ìŠ¹ìˆ˜ ë§žì¶”ëŠ” ê²ƒë•Œë¬¸ì— ë‹¤ì´ì–¼ë¡œê·¸ ì˜ì—­ ë²—ì–´ë‚˜ëŠ”ê²Œ ë§Žê¸° ë•Œë¬¸ì—.
+				//  ê·¸ë¦¬ê³  ì œëŒ€ë¡œ í•˜ë ¤ë©´, GetControlAtPoint ì´ í•¨ìˆ˜ë¡œ pControlì–»ì„ë•Œë¶€í„° í…ìŠ¤ì²˜ì»¨íŠ¸ë¡¤ ë¹¼ê³  ê²€ì‚¬í•´ì•¼í•˜ëŠ”ë°,
+				//  ì´ë ‡ê²Œê¹Œì§€ í•˜ëŠ”ê±´ ì¢€ ì˜¤ë²„ì¸ê±° ê°™ì•„ì„œ ìš°ì„ ì€ ê·¸ëƒ¥ ì•„ëž˜ì²˜ëŸ¼ ì²˜ë¦¬í•˜ê¸°ë¡œ í•˜ê² ë‹¤.)
 				if( uMsg == WM_MOUSEMOVE && pControl && pControl->GetProperty()->UIType != UI_CONTROL_TEXTURECONTROL )
 					return true;
 			}
@@ -1405,7 +1405,7 @@ bool CEtUIDialog::OnMouseMove( float fX, float fY )
 	{
 		m_bMouseInDialog = true;
 
-		// Note : ¸¶¿ì½º Æ÷ÀÎÆ®¿¡ À§Ä¡ÇÑ ÄÁÆ®·ÑÀ» ¾ò´Â´Ù.
+		// Note : ë§ˆìš°ìŠ¤ í¬ì¸íŠ¸ì— ìœ„ì¹˜í•œ ì»¨íŠ¸ë¡¤ì„ ì–»ëŠ”ë‹¤.
 		//
 		CEtUIControl *pControl = GetControlAtPoint( m_fMouseX, m_fMouseY );
 		if( pControl == NULL )
@@ -1471,7 +1471,7 @@ void CEtUIDialog::ProcessCommand( UINT nCommand, bool bTriggeredByUser, CEtUICon
 	{
 		if( m_pCallback )
 		{
-			// ·Îµù½Ã ºê·¹ÀÌÅ©½Ã ¿©±â¼­ Å©·¡½¬..m_pCallBack ÀÌ¹Ì Áö¿öÁü.
+			// ë¡œë”©ì‹œ ë¸Œë ˆì´í¬ì‹œ ì—¬ê¸°ì„œ í¬ëž˜ì‰¬..m_pCallBack ì´ë¯¸ ì§€ì›Œì§.
 			m_pCallback->OnUICallbackProc( m_nDialogID, nCommand, pControl, uMsg );
 		}
 	}
@@ -1501,7 +1501,7 @@ void CEtUIDialog::Process( float fElapsedTime )
 	{
 		if( *iter == NULL )
 		{
-			_ASSERT(0&&"CEtUIDialog::ProcessÇÔ¼ö ¾È iterator Áß¿¡ NULL ÀÖ½À´Ï´Ù!");
+			_ASSERT(0&&"CEtUIDialog::Processí•¨ìˆ˜ ì•ˆ iterator ì¤‘ì— NULL ìžˆìŠµë‹ˆë‹¤!");
 			continue;
 		}
 
@@ -1568,8 +1568,8 @@ void CEtUIDialog::FreeDialogTexture()
 void CEtUIDialog::LoadDialogTexture()
 {
 	if( m_bLoadedTexture ) return;
-	// ÅÛÇÃ¸´ ÅØ½ºÃ³ ¾²¸é¼­ ÀÌÁ¦ ÇÊ¿ä¾ø´Ù. ÄÚµå´Â ´Ù °íÄ¥ ÇÊ¿ä¾øÀÌ ÀÌ°Å ÇÑÁÙ ÁÖ¼®Ã³¸®ÇÏ¸é ³¡.
-	// ¼Ò½º Á¤¸®´Â ¾ÈÁ¤È­µÈ ÈÄ¿¡ ÇØ¾ß°Ú´Ù.
+	// í…œí”Œë¦¿ í…ìŠ¤ì²˜ ì“°ë©´ì„œ ì´ì œ í•„ìš”ì—†ë‹¤. ì½”ë“œëŠ” ë‹¤ ê³ ì¹  í•„ìš”ì—†ì´ ì´ê±° í•œì¤„ ì£¼ì„ì²˜ë¦¬í•˜ë©´ ë.
+	// ì†ŒìŠ¤ ì •ë¦¬ëŠ” ì•ˆì •í™”ëœ í›„ì— í•´ì•¼ê² ë‹¤.
 	//m_hTexture = LoadResource( m_DlgInfo.szUITexturename, RT_TEXTURE, true );
 	if( m_hTexture && m_hTexture->GetRefCount() == 1 )
 		s_nDialogTextureSize += m_hTexture->GetFileSize();
@@ -1665,11 +1665,11 @@ void CEtUIDialog::Render( float fElapsedTime )
 		DrawRect( DlgCoord, m_renderDlgColor.dwCurrentColor );
 	}
 
-	// Note : µð¹ö±ë ÇÒ¶§ ¾²¼¼¿ä^^
+	// Note : ë””ë²„ê¹… í• ë•Œ ì“°ì„¸ìš”^^
 	//
 	//  DrawRect( DlgCoord, EtInterface::debug::BLUE );
 
-	// Note : ÀÚ½ÅÀÇ ÄÁÆ®·ÑµéÀ» ·£´õÇÑ´Ù.
+	// Note : ìžì‹ ì˜ ì»¨íŠ¸ë¡¤ë“¤ì„ ëžœë”í•œë‹¤.
 	//
 	CEtUIControl *pControl(NULL);
 	int nVecCtlSize = ( int )m_vecControl.size();
@@ -1680,7 +1680,7 @@ void CEtUIDialog::Render( float fElapsedTime )
 		pControl->Render( fElapsedTime );
 	}
 
-	// ÀÚ½Ä À©µµ¿ìµéÀ» ·£´õÇÑ´Ù.
+	// ìžì‹ ìœˆë„ìš°ë“¤ì„ ëžœë”í•œë‹¤.
 	//
 	bool bRenderMostFocusDlg = false;
 	std::list<CEtUIDialog*>::iterator iter = m_listChildDialog.begin();
@@ -1688,7 +1688,7 @@ void CEtUIDialog::Render( float fElapsedTime )
 	{
 		if( *iter == NULL )
 		{
-			//_ASSERT(0&&"CEtUIDialog::RenderÇÔ¼ö ¾È iterator Áß¿¡ NULL ÀÖ½À´Ï´Ù!");
+			//_ASSERT(0&&"CEtUIDialog::Renderí•¨ìˆ˜ ì•ˆ iterator ì¤‘ì— NULL ìžˆìŠµë‹ˆë‹¤!");
 			continue;
 		}
 		(*iter)->Render( fElapsedTime );
@@ -1899,7 +1899,7 @@ void CEtUIDialog::ProcessChangeResolution()
 	for each( CEtUIDialog *pDialog in s_plistDialogModal ) pDialog->OnChangeResolution();	
 	for each( CEtUIDialog *pDialog in s_plistDialogMostTop ) pDialog->OnChangeResolution();	
 
-	// Self¶óµµ ÇØÁÖ´Â°Ô ¸Â´Â°Å °°´Ù.(Self·Î ¸¸µç ¸»Ç³¼±´ÙÀÌ¾ó·Î±×ÇÏ¸é¼­ ÇØÁÖ´Â°Ô ¸Â´Â µí..)
+	// Selfë¼ë„ í•´ì£¼ëŠ”ê²Œ ë§žëŠ”ê±° ê°™ë‹¤.(Selfë¡œ ë§Œë“  ë§í’ì„ ë‹¤ì´ì–¼ë¡œê·¸í•˜ë©´ì„œ í•´ì£¼ëŠ”ê²Œ ë§žëŠ” ë“¯..)
 	for each( CEtUIDialog *pDialog in s_plistDialogSelf ) pDialog->OnChangeResolution();
 }
 
@@ -1997,10 +1997,10 @@ void CEtUIDialog::GetScreenMouseMovePoints( float &fMouseX, float &fMouseY )
 
 void CEtUIDialog::UpdateScreen()
 {
-	// ÀÌ·± ¹æ¹ýÀ¸·Î Ã³¸®ÇÒ±î Çß´Âµ¥, Å©°Ô µÎ°¡Áö°¡ °É¸°´Ù.
-	// ÇÏ³ª´Â ÆùÆ® Ã³¸®°í, ÇÏ³ª´Â ½ºÅ©·Ñ¹Ù°°ÀÌ ¼­ºêÇüÅÂ·Î °¡Áö´Â °ÍÀÌ´Ù.
-	// ÀÌ µÎ°¡Áö¿¡ ´ëÇÑ Ã³¸®°¡ ³¡³ª¾ß Á¦´ë·Î »ç¿ëÇÒ ¼ö ÀÖÀ» µí ÇÏ´Ù.
-	// from blondy ±×³É ±×·± °Íµé¿¡ ´ëÇÑ Ã³¸®¸¦ ÄÉÀÌ½º ¹ÙÀÌ ÄÉÀÌ½º·Î ÇØ¾ß µÉµí
+	// ì´ëŸ° ë°©ë²•ìœ¼ë¡œ ì²˜ë¦¬í• ê¹Œ í–ˆëŠ”ë°, í¬ê²Œ ë‘ê°€ì§€ê°€ ê±¸ë¦°ë‹¤.
+	// í•˜ë‚˜ëŠ” í°íŠ¸ ì²˜ë¦¬ê³ , í•˜ë‚˜ëŠ” ìŠ¤í¬ë¡¤ë°”ê°™ì´ ì„œë¸Œí˜•íƒœë¡œ ê°€ì§€ëŠ” ê²ƒì´ë‹¤.
+	// ì´ ë‘ê°€ì§€ì— ëŒ€í•œ ì²˜ë¦¬ê°€ ëë‚˜ì•¼ ì œëŒ€ë¡œ ì‚¬ìš©í•  ìˆ˜ ìžˆì„ ë“¯ í•˜ë‹¤.
+	// from blondy ê·¸ëƒ¥ ê·¸ëŸ° ê²ƒë“¤ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ ì¼€ì´ìŠ¤ ë°”ì´ ì¼€ì´ìŠ¤ë¡œ í•´ì•¼ ë ë“¯
 	
 	if( m_DlgInfo.bLockScalingByResolution )
 	{
@@ -2023,7 +2023,7 @@ void CEtUIDialog::UpdateScreen()
 
 	//if( (fWidth/fHeight) >= DEFAULT_UI_SCREEN_RATIO )
 	//{
-	//	// Note : È­¸é ºñÀ²ÀÌ ±âº» 4:3 ºñÀ²º¸´Ù Å©´Ù¸é ¿ÍÀÌµå·Î Àû¿ëÇÑ´Ù.
+	//	// Note : í™”ë©´ ë¹„ìœ¨ì´ ê¸°ë³¸ 4:3 ë¹„ìœ¨ë³´ë‹¤ í¬ë‹¤ë©´ ì™€ì´ë“œë¡œ ì ìš©í•œë‹¤.
 	//	//
 	//	m_fScreenWidth = fHeight * DEFAULT_UI_SCREEN_RATIO * s_fDialogScale;
 	//}
@@ -2049,7 +2049,7 @@ void CEtUIDialog::CalcDialogScaleByResolution( int nWidth, int nHeight )
 		s_fDialogScaleValueHori = 0.0f;
 	}
 
-	// ÇØ»óµµ ¹Ù²î¸é UISize ´Ù½Ã Ã³¸®ÇØ¾ßÇÑ´Ù.
+	// í•´ìƒë„ ë°”ë€Œë©´ UISize ë‹¤ì‹œ ì²˜ë¦¬í•´ì•¼í•œë‹¤.
 	SetDialogSize( s_nUISize, nWidth, nHeight );
 }
 
@@ -2128,17 +2128,17 @@ void CEtUIDialog::ShowChildDialog( std::list<CEtUIDialog*> &listDialog, CEtUIDia
 		{
 			pChildDialog = (*iter);
 			listDialog.erase( iter );
-			break; // Note : ÀÚ½Ä À©µµ¿ìÀÇ ¾ÆÀÌµð´Â À¯ÀÏÇÏ´Ù°í °¡Á¤ÇÑ´Ù.
+			break; // Note : ìžì‹ ìœˆë„ìš°ì˜ ì•„ì´ë””ëŠ” ìœ ì¼í•˜ë‹¤ê³  ê°€ì •í•œë‹¤.
 		}
 	}
 
-	// Note : ÀÚ½Ä À©µµ¿ìµéÀº ShowÇÒ¶§ ¸®½ºÆ®¿¡¼­ ¼ø¼­¸¦ ¹Ù²ãÁØ´Ù.
-	//		°á±¹ ·£´õ¿Í ¸Þ¼¼Áö Ã³¸® ¼ø¼­°¡ ¹Ù²ï´Ù.
+	// Note : ìžì‹ ìœˆë„ìš°ë“¤ì€ Showí• ë•Œ ë¦¬ìŠ¤íŠ¸ì—ì„œ ìˆœì„œë¥¼ ë°”ê¿”ì¤€ë‹¤.
+	//		ê²°êµ­ ëžœë”ì™€ ë©”ì„¸ì§€ ì²˜ë¦¬ ìˆœì„œê°€ ë°”ë€ë‹¤.
 	//
 	if( pChildDialog )
 	{
-		// content ´ÙÀÌ¾ó·Î±×°¡ ½ºÅ³Æ®¸®Ã³·³ °ãÃÄÀÖÀ¸¸é ÀÔ·Â ¸Þ½ÃÁö°¡ ÀÛÀº ´ÙÀÌ¾ó·Î±×¿¡ ¿ÀÁö ¾Ê±â ¶§¹®¿¡ 
-		// CEtUIDialog::ShowChildDialog() ÇÔ¼ö È£Ãâ ½Ã¿¡ Ã¼Å©ÇØ¼­ Æ÷Ä¿½Ì Ã³¸®½Ã¿¡ °¡Àå µÚ¿¡ ¿Àµµ·Ï ¼ÂÆÃÇÕ´Ï´Ù.
+		// content ë‹¤ì´ì–¼ë¡œê·¸ê°€ ìŠ¤í‚¬íŠ¸ë¦¬ì²˜ëŸ¼ ê²¹ì³ìžˆìœ¼ë©´ ìž…ë ¥ ë©”ì‹œì§€ê°€ ìž‘ì€ ë‹¤ì´ì–¼ë¡œê·¸ì— ì˜¤ì§€ ì•Šê¸° ë•Œë¬¸ì— 
+		// CEtUIDialog::ShowChildDialog() í•¨ìˆ˜ í˜¸ì¶œ ì‹œì— ì²´í¬í•´ì„œ í¬ì»¤ì‹± ì²˜ë¦¬ì‹œì— ê°€ìž¥ ë’¤ì— ì˜¤ë„ë¡ ì…‹íŒ…í•©ë‹ˆë‹¤.
 		vector<CEtUIDialog*> vlpContentDialogs;
 		pChildDialog->GetContentDialog( vlpContentDialogs );
 		if( false == vlpContentDialogs.empty() )
@@ -2153,8 +2153,8 @@ void CEtUIDialog::ShowChildDialog( std::list<CEtUIDialog*> &listDialog, CEtUIDia
 			}
 		}
 
-		// ¸Þ½ÃÁö Àü´ÞÀº °Å²Ù·Î µÇ¹Ç·Î Æ÷Ä¿½Ì µÇ´Â °æ¿ì¿£ ¸Ç µÚ·Î,
-		// ¼û°ÜÁö´Â °æ¿ì¿£ ¸Ç ¾ÕÀ¸·Î ¿Å°ÜÁö´Â ¸ÞÀÎ ´ÙÀÌ¾ó·Î±×ÀÇ ¹Ù·Î µÚ·Î.
+		// ë©”ì‹œì§€ ì „ë‹¬ì€ ê±°ê¾¸ë¡œ ë˜ë¯€ë¡œ í¬ì»¤ì‹± ë˜ëŠ” ê²½ìš°ì—” ë§¨ ë’¤ë¡œ,
+		// ìˆ¨ê²¨ì§€ëŠ” ê²½ìš°ì—” ë§¨ ì•žìœ¼ë¡œ ì˜®ê²¨ì§€ëŠ” ë©”ì¸ ë‹¤ì´ì–¼ë¡œê·¸ì˜ ë°”ë¡œ ë’¤ë¡œ.
 		if( bShow )
 		{
 			listDialog.push_back( pChildDialog );
@@ -2266,9 +2266,9 @@ void CEtUIDialog::DownDialogSize()
 
 void CEtUIDialog::CalcDialogScaleValue( int nWidth, int nHeight )
 {
-	// µðÆúÆ®ÇØ»óµµº¸´Ù ÀÛÀº ÇØ»óµµ ÀÚ²Ù Áö¿øÇÏ·ÁÇÑ´Ù.
-	// ±×·¡¼­ ÀÌ·¸°Ô µðÆúÆ®ÇØ»óµµº¸´Ù ÀÛÀº ÇØ»óµµ ¿À¸é º°µµÀÇ UISizeÁ¶ÀýÀÌ ºÒ°¡´ÉÇÏµµ·Ï
-	// °è»êµÈ ±âº» ½ºÄÉÀÏ ±×´ë·Î »ç¿ëÇÑ´Ù.
+	// ë””í´íŠ¸í•´ìƒë„ë³´ë‹¤ ìž‘ì€ í•´ìƒë„ ìžê¾¸ ì§€ì›í•˜ë ¤í•œë‹¤.
+	// ê·¸ëž˜ì„œ ì´ë ‡ê²Œ ë””í´íŠ¸í•´ìƒë„ë³´ë‹¤ ìž‘ì€ í•´ìƒë„ ì˜¤ë©´ ë³„ë„ì˜ UISizeì¡°ì ˆì´ ë¶ˆê°€ëŠ¥í•˜ë„ë¡
+	// ê³„ì‚°ëœ ê¸°ë³¸ ìŠ¤ì¼€ì¼ ê·¸ëŒ€ë¡œ ì‚¬ìš©í•œë‹¤.
 	if( nWidth < DEFAULT_UI_SCREEN_WIDTH || nHeight < DEFAULT_UI_SCREEN_HEIGHT )
 	{
 		s_fMaxDialogScale = s_fDialogScale;
@@ -2289,11 +2289,11 @@ void CEtUIDialog::CalcDialogScaleValue( int nWidth, int nHeight )
 	s_fMinDialogScale = 2.0f - s_fMaxDialogScale;
 	s_fDialogScaleValueVert = (s_fMaxDialogScale - 1.0f) / 2.0f;
 
-	// ³Ê¹« ÀÛ¾ÆÁö°Ô ÇÏÁö ¸»ÀÚ.
+	// ë„ˆë¬´ ìž‘ì•„ì§€ê²Œ í•˜ì§€ ë§ìž.
 	s_fMinDialogScale = (s_fMinDialogScale + 3.0f) / 4.0f;
 }
 
-// À©µµ¿ìÀÇ ÃÖ´ëÈ­¹öÆ°¶§¹®¿¡ ÇØ»óµµ¸¦ ÀÎÀÚ·Î ÇÊ¿ä·Î ÇÑ´Ù.
+// ìœˆë„ìš°ì˜ ìµœëŒ€í™”ë²„íŠ¼ë•Œë¬¸ì— í•´ìƒë„ë¥¼ ì¸ìžë¡œ í•„ìš”ë¡œ í•œë‹¤.
 void CEtUIDialog::SetDialogSize( int nStep, int nWidth, int nHeight )
 {
 	if( nStep < 1 || nStep > 4 )
@@ -2305,8 +2305,8 @@ void CEtUIDialog::SetDialogSize( int nStep, int nWidth, int nHeight )
 		nHeight = GetEtDevice()->Height();
 	}
 
-	// ´ÙÀÌ¾ó·Î±× »çÀÌÁî °è»êÇÏ´Â°Ô ÇÏµµ Èð¾îÁ®ÀÖ¾î¼­ ÀÌ·¸°Ô ÀÏÀÏÀÌ ´Ù Ã³¸®ÇØ¾ßÇÑ´Ù.
-	// ´ã¿¡ ÇÑ¹ø ½Ï Á¤¸®¸¦ ÇØ¾ßÇÏ´øÁö..ÇØ¾ß°Ú´Ù.
+	// ë‹¤ì´ì–¼ë¡œê·¸ ì‚¬ì´ì¦ˆ ê³„ì‚°í•˜ëŠ”ê²Œ í•˜ë„ í©ì–´ì ¸ìžˆì–´ì„œ ì´ë ‡ê²Œ ì¼ì¼ì´ ë‹¤ ì²˜ë¦¬í•´ì•¼í•œë‹¤.
+	// ë‹´ì— í•œë²ˆ ì‹¹ ì •ë¦¬ë¥¼ í•´ì•¼í•˜ë˜ì§€..í•´ì•¼ê² ë‹¤.
 	static int s_nWidthInFunc = -1;
 	static int s_nHeightInFunc = -1;
 	if( s_nWidthInFunc == nWidth && s_nHeightInFunc == nHeight && s_nUISize == nStep )
@@ -2314,7 +2314,7 @@ void CEtUIDialog::SetDialogSize( int nStep, int nWidth, int nHeight )
 	s_nWidthInFunc = nWidth;
 	s_nHeightInFunc = nHeight;
 
-	// ±âÁØ°ª Àç°è»ê.
+	// ê¸°ì¤€ê°’ ìž¬ê³„ì‚°.
 	float fHR = float(nHeight) / DEFAULT_UI_SCREEN_HEIGHT;
 	float fWR = float(nWidth) / DEFAULT_UI_SCREEN_WIDTH;
 
@@ -2365,7 +2365,7 @@ void CEtUIDialog::SetDialogSize( int nStep, int nWidth, int nHeight )
 		}
 	}
 
-	// ÆùÆ® Å©±â·ÎºÎÅÍ ¿µ¿ªÀ» ±¸ÇÏ´Â ÄÁÆ®·ÑµéÀÌ ÀÖ±â¶§¹®¿¡ ÆùÆ® ¸Å´ÏÀú ¸ÕÀú ¸®¼ÂÇÏ°í ProcessChangeResolution¸¦ È£ÃâÇØ¾ßÇÑ´Ù.
+	// í°íŠ¸ í¬ê¸°ë¡œë¶€í„° ì˜ì—­ì„ êµ¬í•˜ëŠ” ì»¨íŠ¸ë¡¤ë“¤ì´ ìžˆê¸°ë•Œë¬¸ì— í°íŠ¸ ë§¤ë‹ˆì € ë¨¼ì € ë¦¬ì…‹í•˜ê³  ProcessChangeResolutionë¥¼ í˜¸ì¶œí•´ì•¼í•œë‹¤.
 	if( CEtFontMng::IsActive() ) {
 		CEtFontMng::GetInstance().OnLostDevice();
 		CEtFontMng::GetInstance().OnResetDevice();
@@ -2392,14 +2392,14 @@ void CEtUIDialog::SetMouseEnterControl( CEtUIControl *pControl )
 
 	ReleaseMouseEnterControl();
 
-	// Note : »õ·Î¿î ÄÁÆ®·ÑÀ» µî·ÏÇÏ°í ÅøÆÁÀ» Ç¥½ÃÇÑ´Ù.
+	// Note : ìƒˆë¡œìš´ ì»¨íŠ¸ë¡¤ì„ ë“±ë¡í•˜ê³  íˆ´íŒì„ í‘œì‹œí•œë‹¤.
 	//
 	s_pMouseEnterControl = pControl;
 	s_pMouseEnterControl->MouseEnter( true );
 
 	if( drag::IsValid() )
 	{
-		// Note : µå·¡±× µÇ´Â ¾ÆÀÌÅÛÀÌ ÀÖÀ¸¸é ÅøÆÁÀº Ç¥½ÃÇÏÁö ¾Ê´Â´Ù.
+		// Note : ë“œëž˜ê·¸ ë˜ëŠ” ì•„ì´í…œì´ ìžˆìœ¼ë©´ íˆ´íŒì€ í‘œì‹œí•˜ì§€ ì•ŠëŠ”ë‹¤.
 		//
 		return;
 	}
@@ -2465,7 +2465,7 @@ void CEtUIDialog::MakeStringWithEllipsis(SUIElement* pElement, float lineWidth, 
 
 			if( sTextCoord.fHeight < (height - fTextCoordHeight) )
 			{
-				// ÅØ½ºÆ®°¡ ´ÙÀ½ÁÙ¿¡ °è¼Ó ÂïÈù´Ù¸é...
+				// í…ìŠ¤íŠ¸ê°€ ë‹¤ìŒì¤„ì— ê³„ì† ì°ížŒë‹¤ë©´...
 				if( sSubTextCoord.fWidth > width )
 				{
 					nStartPos += i-1;
@@ -2475,7 +2475,7 @@ void CEtUIDialog::MakeStringWithEllipsis(SUIElement* pElement, float lineWidth, 
 			}
 			else
 			{
-				// ¸¶Áö¸· ¶óÀÎÀ» °Ë»çÇÑ´Ù.
+				// ë§ˆì§€ë§‰ ë¼ì¸ì„ ê²€ì‚¬í•œë‹¤.
 				if( sSubTextCoord.fWidth > fRemainWidth )
 				{
 					i--;
