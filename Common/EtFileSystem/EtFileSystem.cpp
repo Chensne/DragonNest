@@ -269,7 +269,7 @@ DWORD CEtPackingFile::CalcChecksum( int nFileIndex )
 	int i, nSize;
 	DWORD dwChecksum = 0, *pdwBuffer;
 
-	// nSize¸¦ 4ÀÇ ¹è¼ö·Î ¹Ù²Û´Ù..
+	// nSizeç”« 4ç‹¼ ç¡…èè‚º å®˜æ§½ä¿ƒ..
 	nSize = m_vecPackingFileInfo[ nFileIndex ].dwCompressSize / 4;
 	if( m_vecPackingFileInfo[ nFileIndex ].dwCompressSize % 4 )
 	{
@@ -370,7 +370,7 @@ bool CEtPackingFile::OpenFileSystem(const char* strPath, bool bReadOnly /* = fal
 	m_bIsReadOnly = bReadOnly;
 	if( bReadOnly )
 	{
-		m_hFile = CreateFile(strPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,		// Áßº¹ Read °¡´ÉÇÏ°Ô ¼öÁ¤.
+		m_hFile = CreateFile(strPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,		// åæ±— Read å•Šç“·çªéœ¸ èæ²¥.
 			FILE_ATTRIBUTE_NORMAL,NULL);
 	}
 	else
@@ -387,7 +387,7 @@ bool CEtPackingFile::OpenFileSystem(const char* strPath, bool bReadOnly /* = fal
 		return false;
 	}
 
-	// ÆÄÀÏ ½Ã½ºÅÛ Çì´õ¸¦ ·ÎµåÇÑ´Ù.
+	// é¢‡è€ çŸ«èƒ¶è¢ åº†æ­¹ç”« è‚ºé›èŒ„ä¿ƒ.
 	_Read( m_hFile, &m_PackingFileHeader, sizeof( SPackingFileHeader ) );
 	if( ( m_PackingFileHeader.nVersion < PACKING_FILE_NOCHECKSUM_VERSION ) || ( m_PackingFileHeader.nVersion > PACKING_FILE_VERSION ) )
 	{
@@ -395,10 +395,10 @@ bool CEtPackingFile::OpenFileSystem(const char* strPath, bool bReadOnly /* = fal
 		return false;
 	}
 
-	// ±¸¹öÀü ÆÄÀÏ½Ã½ºÅÛ¿¡´Â ÆÄÀÏÀÎÆ÷ ¿É¼ÂÀÌ ¾Èµé¾î ÀÖ¾î¼­ ÆÄÀÏ³¡¿¡¼­ SeekÀ¸·Î Ã£¾Æ¾ß ÇÑ´Ù.
+	// å¤‡æ»šå‚ˆ é¢‡è€çŸ«èƒ¶è¢ä¿Šç»° é¢‡è€ç‰¢å™¨ å¯æ‚¸æ æ•‘ç”¸ç»¢ ä¹ç»¢è¾‘ é¢‡è€åœºä¿Šè¾‘ Seekæ è‚º èŒ«é…’å…· èŒ„ä¿ƒ.
 	if( m_PackingFileHeader.nVersion > PACKING_FILE_NOCHECKSUM_VERSION )
 	{
-		// bRequireHeaderWrite °ªÀÌ ¼ÂÆÃ µÅ ÀÖÀ¸¸é ÆĞÄ¡¶§ Á¦´ë·Î Á¾·á ¾ÈµÆ°ÍÀÓ.. Àß¸øµÈ ÆÄÀÏ ½Ã½ºÅÛÀ¸·Î ÀÎÁ¤..
+		// bRequireHeaderWrite è”¼æ æ‚¸æ³¼ è¹¬ ä¹æ æ è©æ‘¹é”­ åŠ›æªè‚º è¾†ä¸° æ•‘ç¯å·´çƒ™.. è‚‹ç»™ç­‰ é¢‡è€ çŸ«èƒ¶è¢æ è‚º ç‰¢æ²¥..
 		if( m_PackingFileHeader.bRequireHeaderWrite == true )
 		{
 			//rlkt_pak
@@ -433,7 +433,7 @@ bool CEtPackingFile::OpenFileSystem(const char* strPath, bool bReadOnly /* = fal
 
 	GeneratePackingMap();
 
-	// ÇöÀç µğ·ºÅä¸®¸¦ ÃÖ»óÀ§ µğ·ºÅä¸®·Î ¹Ù²Û´Ù.
+	// æ³…çŠ å¼æ³›é…åºœç”« å¼¥æƒ‘å›° å¼æ³›é…åºœè‚º å®˜æ§½ä¿ƒ.
 	ChangeDir("\\");
 
 	m_strPackingFileName = strPath;
@@ -455,14 +455,14 @@ bool CEtPackingFile::NewFileSystem(const char* strPath)
 		return false;
 	}
 
-	// Çì´õ Á¤º¸ ¸¸µé±â
+	// åº†æ­¹ æ²¥ç„Š çˆ¶ç”¸æ‰
 	memset( &m_PackingFileHeader, 0, sizeof( SPackingFileHeader ) );
 	strcpy_s( m_PackingFileHeader.szHeaderString, 256, PACKING_FILE_STRING );
 	m_PackingFileHeader.nVersion = PACKING_FILE_VERSION;
 	m_PackingFileHeader.nFileCount = 0;
 	m_PackingFileHeader.dwFileInfoOffset = PACKING_HEADER_RESERVED + sizeof( SPackingFileHeader );
 
-	// Çì´õ ±â·Ï
+	// åº†æ­¹ æ‰åºŸ
 	if( _Write( m_hFile, &m_PackingFileHeader, sizeof( SPackingFileHeader ) ) == false )
 	{
 		return false;
@@ -627,24 +627,24 @@ CEtFileHandle *CEtPackingFile::OpenOnly( const char *strPath )
 
 void CEtPackingFile::_Tokenize( const std::string& str, std::vector<std::string>& tokens, const std::string& delimiters /* = " " */ )
 {
-	// ¸Ç Ã¹ ±ÛÀÚ°¡ ±¸ºĞÀÚÀÎ °æ¿ì ¹«½Ã
+	// ç›– éœ‰ è‡‚ç£Šå•Š å¤‡ç›’ç£Šç‰¢ ç‰ˆå¿« å…¬çŸ«
 	std::string::size_type lastPos = str.find_first_not_of( delimiters, 0 );
-	// ±¸ºĞÀÚ°¡ ¾Æ´Ñ Ã¹ ±ÛÀÚ¸¦ Ã£´Â´Ù
+	// å¤‡ç›’ç£Šå•Š é…’å›± éœ‰ è‡‚ç£Šç”« èŒ«ç»°ä¿ƒ
 	std::string::size_type pos = str.find_first_of( delimiters, lastPos );
 
 	while( std::string::npos != pos || std::string::npos != lastPos )
 	{
-		// tokenÀ» Ã£¾ÒÀ¸´Ï vector¿¡ Ãß°¡ÇÑ´Ù
+		// tokené˜‘ èŒ«ç–½æ èª vectorä¿Š çœ å•ŠèŒ„ä¿ƒ
 		tokens.push_back( str.substr( lastPos, pos - lastPos ) );
-		// ±¸ºĞÀÚ¸¦ ¶Ù¾î³Ñ´Â´Ù.  "not_of"¿¡ ÁÖÀÇÇÏ¶ó
+		// å¤‡ç›’ç£Šç”« é¡¿ç»¢é€ç»°ä¿ƒ.  "not_of"ä¿Š æ—ç‹¼çªæ‰¼
 		lastPos = str.find_first_not_of( delimiters, pos );
-		// ´ÙÀ½ ±¸ºĞÀÚ°¡ ¾Æ´Ñ ±ÛÀÚ¸¦ Ã£´Â´Ù
+		// ä¿ƒæ¾œ å¤‡ç›’ç£Šå•Š é…’å›± è‡‚ç£Šç”« èŒ«ç»°ä¿ƒ
 		pos = str.find_first_of( delimiters, lastPos );
 	}
 }
 
 
-// str ¹®ÀÚ¿­ Áß¿¡¼­ szOld °¡ ÀÖÀ¸¸é ÀüºÎ szNew ·Î º¯°æÇÑ´Ù.
+// str å·©ç£Šå‡¯ åä¿Šè¾‘ szOld å•Š ä¹æ æ å‚ˆä½• szNew è‚º å‡½ç‰ˆèŒ„ä¿ƒ.
 void CEtPackingFile::_AllReplace( std::string& str, std::string& szOld, std::string& szNew )
 {
 	while (true)
@@ -801,7 +801,7 @@ bool CEtPackingFile::AddFile(const char* strPath)
 {
 	if( m_hFile == INVALID_HANDLE_VALUE) return false;
 
-	// Ãß°¡ÇÒ ½ÇÁ¦ ÆÄÀÏ ·Îµå
+	// çœ å•Šä¸” è§’åŠ› é¢‡è€ è‚ºé›
 	HANDLE	hFile = INVALID_HANDLE_VALUE;
 
 	hFile = CreateFile( strPath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,NULL );
@@ -809,7 +809,7 @@ bool CEtPackingFile::AddFile(const char* strPath)
 	if( hFile == INVALID_HANDLE_VALUE )
 		return false;
 
-	// ÆÄÀÏ Å©±â¸¦ ¾Ë¾Æ³»¼­.
+	// é¢‡è€ å†œæ‰ç”« èˆ…é…’éƒ´è¾‘.
 	DWORD dwFileSize = GetFileSize(hFile, NULL);
 	if( dwFileSize == INVALID_FILE_SIZE )
 	{
@@ -853,7 +853,7 @@ bool CEtPackingFile::AddFile(const char* strName, char *pData, DWORD nSize)
 
 	if( g_bUseCompress )
 	{
-		// ¾ĞÃàÇÑ´Ù.
+		// æ‹˜ç»µèŒ„ä¿ƒ.
 		if(compress2( ( BYTE * )pDstData, (uLongf*)&lDstSize, ( BYTE * )pData, nSize, Z_BEST_SPEED) != Z_OK)
 		{
 			delete[] pDstData;
@@ -870,11 +870,11 @@ bool CEtPackingFile::AddFile(const char* strName, char *pData, DWORD nSize)
 
 	CopyMemory(&nSeedKey, pDstData, sizeof(DWORD));
 
-	// Àû´çÇÑ ½Ãµå ÀÎµ¦½º¸¦ ÇÏ³ª °ñ¶ó¼­..
+	// åˆ©å¯¸èŒ„ çŸ«é› ç‰¢éƒ¸èƒ¶ç”« çªå”± æ¦œæ‰¼è¾‘..
 	DWORD nSeedCnt = nSeedKey%ET_SEED_CNT;
 	DWORD nSeed = ET_ENCRYPT_SEED[nSeedCnt];
 
-	// Àû´çÈ÷.. XOR ·Î º¯°æÇÏÀÚ -_-
+	// åˆ©å¯¸æ´’.. XOR è‚º å‡½ç‰ˆçªç£Š -_-
 	_Encode( ( BYTE * )pDstData, lDstSize, nSeed );
 
 	char szName[ _MAX_PATH ];
@@ -903,7 +903,7 @@ bool CEtPackingFile::AddFile(const char* strName, char *pData, DWORD nSize)
 
 		_Seek( m_hFile, m_vecPackingFileInfo[ nFindEmptyIndex ].dwOffset, SEEK_SET );
 		_Write( m_hFile, pDstData,lDstSize );
-		// ÆÄÀÏ Çì´õ ¾²´Âµ¥ ½Ã°£ ¸¹ÀÌ °É·Á¼­ Ç¥½Ã¸¸ ÇØµÎ°í CloseFileSystem()¿¡¼­ Çì´õ ÇÑ²¨¹ø¿¡ WriteÇÑ´Ù
+		// é¢‡è€ åº†æ­¹ é™ç»°å• çŸ«åŸƒ è…¹æ å§å¦¨è¾‘ é’çŸ«çˆ¶ ç§¦æ»´ç»Š CloseFileSystem()ä¿Šè¾‘ åº†æ­¹ èŒ„æ³¢é”…ä¿Š WriteèŒ„ä¿ƒ
 		m_PackingFileHeader.bRequireHeaderWrite = true;
 		m_PackingFileHeader.dwFileInfoOffset = ( DWORD )_Seek( m_hFile, 0, SEEK_CUR );
 	}
@@ -979,7 +979,7 @@ int CEtPackingFile::ReservePatchFile( SPackingFileInfo *pFileInfo )
 	PackingFileInfo.dwOffset = m_PackingFileHeader.dwFileInfoOffset;
 	m_vecPackingFileInfo.push_back( PackingFileInfo );
 
-	// ¿¹¾à¸¸ °É°í Çì´õ Write´Â ¿¹¾àÀÌ ´Ù ³¡³­ ÈÄ ÆĞÄ¡ Àü ½ÇÇà
+	// æŠ—è·çˆ¶ å§ç»Š åº†æ­¹ Writeç»° æŠ—è·æ ä¿ƒ åœºæŠ„ é¥¶ è©æ‘¹ å‚ˆ è§’é’
 	m_PackingFileHeader.bRequireHeaderWrite = true;
 	m_PackingFileHeader.dwFileInfoOffset += PackingFileInfo.dwCompressSize;
 
@@ -1057,7 +1057,7 @@ bool CEtPackingFile::PatchFile( CEtFileHandle *pFileHandle )
 
 		_Seek( m_hFile, m_vecPackingFileInfo[ nFindEmptyIndex ].dwOffset, SEEK_SET );
 		_Write( m_hFile, pFileHandle->m_pData, pFileHandle->m_FileInfo.dwCompressSize );
-		// ÆÄÀÏ Çì´õ ¾²´Âµ¥ ½Ã°£ ¸¹ÀÌ °É·Á¼­ Ç¥½Ã¸¸ ÇØµÎ°í CloseFileSystem()¿¡¼­ Çì´õ ÇÑ²¨¹ø¿¡ WriteÇÑ´Ù
+		// é¢‡è€ åº†æ­¹ é™ç»°å• çŸ«åŸƒ è…¹æ å§å¦¨è¾‘ é’çŸ«çˆ¶ ç§¦æ»´ç»Š CloseFileSystem()ä¿Šè¾‘ åº†æ­¹ èŒ„æ³¢é”…ä¿Š WriteèŒ„ä¿ƒ
 		m_PackingFileHeader.bRequireHeaderWrite = true;
 		m_PackingFileHeader.dwFileInfoOffset = ( DWORD )_Seek( m_hFile, 0, SEEK_CUR );
 	}
@@ -1317,7 +1317,7 @@ bool CEtPackingFile::Patch( const char* strPatchPath, CPatchCallback* pCallpack,
 			int j;
 			for( j = 0; j < ( int )pvecSkipList->size(); j++ )
 			{
-				// ÆÄÀÏÀÌ¸§ ¾Õ¿¡.. \ ºÙ¾î ÀÖ¾î¼­ ±×°Å Á¦¿ÜÇÑ ÀÌ¸§À¸·Î ºñ±³ÇØ¾ß Á¦´ë·Î µÈ´Ù.
+				// é¢‡è€ææŠš èŠä¿Š.. \ å˜¿ç»¢ ä¹ç»¢è¾‘ å¼ŠèŠ­ åŠ›å¯‡èŒ„ ææŠšæ è‚º åšèƒŒç§¦å…· åŠ›æªè‚º ç­‰ä¿ƒ.
 				if( _stricmp( pPackingFileInfo->szFileName + 1, ( *pvecSkipList )[ j ].c_str() ) == 0 )
 				{
 					bSkip = true;
@@ -1455,15 +1455,13 @@ bool CEtFileSystem::AddPackingFile(const char* szPackingFileName, const char *sz
 		return false;
 	}
 
-    //TODO(Cussrro):µ¼³ö×ÊÔ´ÎÄ¼ş
+    //TODO(Cussrro):å¯¼å‡ºèµ„æºæ–‡ä»¶
     //auto file_count = pPackingFile->GetFileCount();
-    //for (int i = 0; i < file_count; i++)
-    //{
+    //for (int i = 0; i < file_count; i++) {
     //    auto info = pPackingFile->GetFileInfo(i);
     //    auto handle = pPackingFile->OpenFile(info->szFileName);
-    //    if (!info || !handle)
-    //    {
-    //        OutputDebugStringA("Î´ÕÒµ½:");
+    //    if (!info || !handle) {
+    //        OutputDebugStringA("æœªæ‰¾åˆ°:");
     //        OutputDebugStringA(info->szFileName);
     //        OutputDebugStringA("\n");
     //        pPackingFile->CloseFile(handle);
@@ -1714,11 +1712,11 @@ void CEtFileSystem::FindFileListInFolder( const char *szFolderName, const char *
 			}
 		}
 
-		// ÆĞÅ·ÆÄÀÏ ¾È¿¡ ÀÖ´Â ÆÄÀÏÁß¿¡ \resource\ext·Î ½ÃÀÛÇÏ´Â ÆÄÀÏÀ» ¾ò¾î¿À´Â ·çÆ¾ÀÎµ¥,
-		// ¸ğµç ÆÄÀÏÀ» ´Ù µÚÁö±â¶§¹®¿¡, ¸Å¹ø 150msÀÇ µô·¹ÀÌ°¡ »ı±ä´Ù.
-		// ÀÌ°Ô Á¡Á¡ ÆĞÅ·ÆÄÀÏ¾È¿¡ ÆÄÀÏÀÌ ´Ã¾î³ª°í, extÀÇ °³¼ö°¡ ¸¹¾ÆÁú¼ö·Ï ´õ ¸¹Àº ¼öÇà½Ã°£ÀÌ ÇÊ¿äÇÏ¹Ç·Î,
-		// ÀÌ·¸°Ô Ä³½Ã¸¦ µÖ¼­ ¾ò¾î¿À´Â ÇüÅÂ·Î ÇÏ°Ú´Ù.
-		// ÀÌ·¸°Ô ÇÏ´Ï ÆÑ¾È¾²´Â °Í°ú ºñ½ÁÇÑ ·Îµù¼Óµµ¸¦ º¸¿©ÁØ´Ù.(TableDB·Îµå ºÎºĞ)
+		// è©æ¬§é¢‡è€ æ•‘ä¿Š ä¹ç»° é¢‡è€åä¿Š \resource\extè‚º çŸ«ç´¯çªç»° é¢‡è€é˜‘ æ˜ç»¢å·ç»° é£å‡­ç‰¢å•,
+		// è‘›ç”µ é¢‡è€é˜‘ ä¿ƒ ç¬¬ç˜¤æ‰é”­å·©ä¿Š, æ¦‚é”… 150msç‹¼ æ‰é¥­æå•Š ç§¯å˜ä¿ƒ.
+		// æéœ¸ ç—¢ç—¢ è©æ¬§é¢‡è€æ•‘ä¿Š é¢‡è€æ ç–µç»¢å”±ç»Š, extç‹¼ ä¿ºèå•Š è…¹é…’é¾™èåºŸ æ­¹ è…¹ç¯® èé’çŸ«åŸƒæ é˜å¤¸çªéª¨è‚º,
+		// æçŠ¯éœ¸ æŸçŸ«ç”« æŠµè¾‘ æ˜ç»¢å·ç»° å±ˆæ€•è‚º çªæ‘†ä¿ƒ.
+		// æçŠ¯éœ¸ çªèª è’²æ•‘é™ç»° å·´è‹ åšæ…èŒ„ è‚ºçˆ¹åŠ æ¡£ç”« ç„Šå’¯éœ–ä¿ƒ.(TableDBè‚ºé› ä½•ç›’)
 		m_szMapCacheFileListInFolder.insert( make_pair( strFolder, ResultArray ) );
 	}
 

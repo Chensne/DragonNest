@@ -493,7 +493,7 @@ T* CEtUIDialog::GetControl( const char *pszControlName, bool *pExistControl )
 	//assert( 0 && "UI Control 을 찾을 수 없습니다! 자세한 정보는 EtUIDialog.h의 374라인으로");
 	char szFileName[256];
 	_GetFullFileName(szFileName, _countof(szFileName), m_strDialogFileName.c_str());
-	OutputDebug(" [UI Error] \"%s\" 파일의 %s Control 을 찾을 수 없습니다!\n", szFileName, pszControlName);
+    CDebugSet::ToLogFile(" [UI Error] %s \"%s\" 未找到!\n", szFileName, pszControlName);
 //#endif
 
 	// 파일에 출력할때는 한번 출력한거 건너뛰게 하기 위해, string 맵에 넣어두고 없을때만 출력.
