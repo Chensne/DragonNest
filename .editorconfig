@@ -2,7 +2,7 @@
 root = true
 
 [*]
-charset = utf-16le-bom
+charset = utf-8
 
 [*.{c++,cc,cpp,cppm,cxx,h,h++,hh,hpp,hxx,inl,ipp,ixx,tlh,tli}]
 indent_style = space
