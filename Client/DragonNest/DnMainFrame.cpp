@@ -204,7 +204,7 @@ CDnMainFrame::~CDnMainFrame()
 	SAFE_DELETE( g_pEtRenderLock );
 }
 #ifdef PRE_ADD_RELOAD_ACTFILE
-// ÁöÁ¤µÈ Æú´õÀÇ ÇÏÀ§ ÆÄÀÏ ¸®½ºÆ®¸¦ Å½»öÇØ¼­ »õ·Ó°Ô Ãß°¡µÈ ÆÄÀÏÀÌ Á¸ÀçÇÑ´Ù¸é Ãß°¡
+// ç˜¤æ²¥ç­‰ å¼ƒæ­¹ç‹¼ çªå›° é¢‡è€ åºœèƒ¶é£˜ç”« æ²¤ç¥¸ç§¦è¾‘ è´§é…šéœ¸ çœ å•Šç­‰ é¢‡è€æ ç²®çŠèŒ„ä¿ƒæ çœ å•Š
 void CDnMainFrame::AddResourcePathByFolderName( CFileNameString& szPath )
 {
 	if( szPath.empty() )	return;
@@ -252,8 +252,9 @@ bool CDnMainFrame::PreInitialize()
 #endif // PRE_ADD_MULTILANGUAGE
 
 	CFileNameString szRoot = CEtResourceMng::GetInstance().GetCurrentDirectory();
+    szRoot += "..\\..\\..\\GameRes";
 
-	// ÇØ¿ÜOS¿¡¼­ ÀÏºÎ ½ºÆ®¸µÀº Á¦´ë·Î ÀĞ¾î¿ÀÁö ¸øÇÏ±â¶§¹®¿¡ ÀÌ·¸°Ô ·çÆ®Æú´õ¸¦ º°µµ·Î ¹Ş¾Æ¾ß È®½ÇÈ÷ Ã£À» ¼ö ÀÖ´Ù.
+	// ç§¦å¯‡OSä¿Šè¾‘ è€ä½• èƒ¶é£˜å‚…ç¯® åŠ›æªè‚º ä½¬ç»¢å·ç˜¤ ç»™çªæ‰é”­å·©ä¿Š æçŠ¯éœ¸ é£é£˜å¼ƒæ­¹ç”« å–Šæ¡£è‚º ç½é…’å…· çŠ¬è§’æ´’ èŒ«é˜‘ è ä¹ä¿ƒ.
 	std::wstring wszRoot = CEtResourceMng::GetInstance().GetRootDirectoryW();
 
 #ifndef _FINAL_BUILD
@@ -265,12 +266,12 @@ bool CDnMainFrame::PreInitialize()
 
 	gs_BugReporter.AddLogA("MainFrame::PreInit.. RootFolder %s", szRoot.c_str());
 
-	// Packing µî·Ï
+	// Packing æ®¿åºŸ
 	gs_BugReporter.AddLogA("Resource Folder %s", szRoot.c_str());
 
 	CEtResourceMng::GetInstance().SetPackingFolder( wszRoot.c_str() );
 
-	if( CEtResourceMng::GetInstance().IsUsePackingFile() ) {	// ÆĞÅ·ÆÄÀÏ ¸®¼Ò½º ·Îµù ½ÇÆĞ...
+	if( CEtResourceMng::GetInstance().IsUsePackingFile() ) {	// è©æ¬§é¢‡è€ åºœå®¶èƒ¶ è‚ºçˆ¹ è§’è©...
 		if( CEtFileSystem::GetInstance().IsEmpty() ) {
 			return false;
 		}
@@ -337,7 +338,7 @@ bool CDnMainFrame::PreInitialize()
 
 #endif //_FINAL_BUILD
 
-	// Path ¼³Á¤
+	// Path æ±²æ²¥
 	CEtResourceMng::GetInstance().AddResourcePath( szRoot + "\\Resource" );
 	CEtResourceMng::GetInstance().AddResourcePath( szRoot + "\\Resource\\SharedEffect" );
 
@@ -516,7 +517,7 @@ void __cdecl CDnMainFrame::BadAllocFilter()
 		MessageBoxA( CDnMainFrame::GetInstance().GetHWnd(), szStr, "Critical Error!", MB_OK );
 	}
 #if defined(_KR)
-	// TODO : ¾ÈÁ¤È­ ¸ğµâ°ü·Ã
+	// TODO : æ•‘æ²¥æ‹³ è‘›ç¢˜åŒ…è®¿
 	g_pServiceSetup->WriteErrorLog_(9 , L"INSUFFICIENT_MEMORY");
 #endif	// #if defined(_KR)
 	_exit( 0 );
@@ -538,10 +539,10 @@ bool CDnMainFrame::PreInitializeDevice()
 	CGameOption::GetInstance().m_bVSync = true;
 #endif // #ifdef PRE_ADD_VSYNC_OFF
 
-	// ¿£Áø ½ÃÀÛ ¿ÍÀÌÁî ·Î±×
+	// æµšæŸ³ çŸ«ç´¯ å®¢æä»¤ è‚ºå¼Š
 	g_pServiceSetup->OnEvent(0, "WiseLogEvent");
 #ifdef _FINAL_BUILD
-	// PIX ¸øµ¹¸®°Ô ¸·À½
+	// PIX ç»™å€’åºœéœ¸ é˜œæ¾œ
 	D3DPERF_SetOptions( 1 );
 	bResult = EternityEngine::InitializeEngine( m_hWnd, CGameOption::GetInstance().m_nWidth, CGameOption::GetInstance().m_nHeight, CGameOption::GetInstance().m_bWindow, true, &Option, CGameOption::GetInstance().m_bVSync );
 #else
@@ -549,7 +550,7 @@ bool CDnMainFrame::PreInitializeDevice()
 #endif //_FINAL_BUILD
 	if( bResult ) {
 		GetCurRenderStack()->EnableInstancing( true );
-		//GetEtWater()->Optimize( true );	// ¹° ¿ÉÆ¼¸¶ÀÌÁî ÀÏ´Ü ²ö´Ù.
+		//GetEtWater()->Optimize( true );	// æ‹± å¯èä»˜æä»¤ è€çªœ é¦‹ä¿ƒ.
 		GetEtDevice()->SetOutOfMemoryCallBack( &m_DnOutOfMemoryFunc );
 #ifdef PRE_FIX_CLIENT_MEMOPTIMIZE
 		GetEtDevice()->SetWaitDeleteCallback( FlushWaitDelete );
@@ -560,7 +561,7 @@ bool CDnMainFrame::PreInitializeDevice()
 		CHAR szWinVer[4096] = {0,};
 		CHAR szMajorMinorBuild[4096] = {0,};
 		SystemInfo::GetWinVersion(szWinVer, &m_nWinVer, szMajorMinorBuild);
-		if( m_nWinVer >= 106 ) {		// Vista(106), Win7(107) Àº DDraw ´ë½Å D3D9 ÀÇ MemCheck ¸¦ »ç¿ë.
+		if( m_nWinVer >= 106 ) {		// Vista(106), Win7(107) ç¯® DDraw æªè„š D3D9 ç‹¼ MemCheck ç”« è¤ä¾©.
 			GetEtDevice()->UseDDrawMemoyCheck( false );
 		}
 #endif
@@ -602,7 +603,7 @@ bool CDnMainFrame::InitializeDevice()
 	//rlkt may 18
 	CEtUIIME::s_bProcess_GCS_COMPCLAUSE = true;
 
-//#if defined(_US) || defined(_TH) || defined(_ID) || defined(_RU) || defined(_EU)	// Word Break »ç¿ëÇÏ´Â ±¹°¡´Â Ãß°¡ÇÒ °Í
+//#if defined(_US) || defined(_TH) || defined(_ID) || defined(_RU) || defined(_EU)	// Word Break è¤ä¾©çªç»° æƒ«å•Šç»° çœ å•Šä¸” å·´
 	CEtFontMng::s_bUseWordBreak = false;
 //#endif // _US, _TH
 
@@ -642,7 +643,7 @@ bool CDnMainFrame::InitializeDevice()
 #ifdef PRE_MOD_IGNORE_MIPMAP
 	CEtTexture::AddIgnoreMipmapPath( "resource\\ui" );
 	CEtTexture::AddMipmapPath( "resource\\ui\\npc\\Cross" );
-	CEtTexture::AddMipmapPath( "resource\\ui\\npc\\cross" );	// ÆĞÅ·ÇÏ¸é ¼Ò¹®ÀÚ·Î °Ë»ç.
+	CEtTexture::AddMipmapPath( "resource\\ui\\npc\\cross" );	// è©æ¬§çªæ å®¶å·©ç£Šè‚º å…«è¤.
 	CEtTexture::AddMipmapPath( "resource\\ui\\crosshair" );
 #endif
 
@@ -890,59 +891,59 @@ bool CDnMainFrame::ThreadInitialize()
 	}
 
 	if( !m_pUIXML->LoadXML( szUIString, CEtUIXML::idCategory1 ) ) {
-		ASSERT( false && "UIString.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "UIString.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 
 #ifdef PRE_ADD_UISTRING_DIVIDE
 	if( !m_pUIXML->LoadXML( szUIStringItem, CEtUIXML::idCategory1 ) ) {
-		ASSERT( false && "UIString_Item.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "UIString_Item.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 #endif // #ifdef PRE_ADD_UISTRING_DIVIDE
 
 	if( !m_pUIXML->LoadXML( szUIStringServer, CEtUIXML::idCategory2 ) ) {
-		ASSERT( false && "UIString_server.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "UIString_server.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 
 	if( !m_pUIXML->LoadFilter( szProhibitWord ) ) {
-		ASSERT( false && "prohibitword.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "prohibitword.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 #else // PRE_ADD_MULTILANGUAGE
 	if( !m_pUIXML->LoadXML( "uistring.xml", CEtUIXML::idCategory1 ) ) {
-		ASSERT( false && "UIString.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "UIString.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 
     //__debugbreak();
 	//if (!m_pUIXML->LoadXML("uistring_rlkt.xml", CEtUIXML::idCategory1)) {
-	//	ASSERT(false && "UIString_rlkt.xml ·Îµù ¿¡·¯");
+	//	ASSERT(false && "UIString_rlkt.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 	//	return false;
 	//}
 
 #ifdef PRE_ADD_UISTRING_DIVIDE
 	if( !m_pUIXML->LoadXML( "uistring_item.xml", CEtUIXML::idCategory1 ) ) {
-		ASSERT( false && "UIString_Item.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "UIString_Item.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 #endif // #ifdef PRE_ADD_UISTRING_DIVIDE
 
 	if( !m_pUIXML->LoadXML( "uistring_server.xml", CEtUIXML::idCategory2 ) ) {
-		ASSERT( false && "UIString_server.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "UIString_server.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 
 	if( !m_pUIXML->LoadFilter( "prohibitword.xml" ) ) {
-		ASSERT( false && "prohibitword.xml ·Îµù ¿¡·¯");
+		ASSERT( false && "prohibitword.xml è‚ºçˆ¹ ä¿ŠçŸ¾");
 		return false;
 	}
 #endif // PRE_ADD_MULTILANGUAGE
 
 	if( pTitleTask ) pTitleTask->CheckPointHoundLoading( 35 );
 
-	// ÆÄÀÏ ¾øÀ»¼öµµ ÀÖÀ¸´Ï ¾øÀ¸¸é ±×³É ÆĞ½º.
+	// é¢‡è€ ç»é˜‘èæ¡£ ä¹æ èª ç»æ æ å¼Šæˆ è©èƒ¶.
 	m_pUIXML->LoadWhiteList( "WhiteListWord.xml" );
 
 	if( pTitleTask ) pTitleTask->CheckPointHoundLoading( 38 );
@@ -960,7 +961,7 @@ bool CDnMainFrame::ThreadInitialize()
 
 	if( pTitleTask ) pTitleTask->CheckPointHoundLoading( 43 );
 
-	// npc ´ë»ç & Äù½ºÆ® Á¤º¸ ¸ğµÎ ·Îµå
+	// npc æªè¤ & æ¶…èƒ¶é£˜ æ²¥ç„Š è‘›æ»´ è‚ºé›
 	g_DataManager.LoadData();
 
 	if( pTitleTask ) pTitleTask->CheckPointHoundLoading( 46 );
@@ -990,7 +991,7 @@ bool CDnMainFrame::ThreadInitialize()
 
 	if( pTitleTask ) pTitleTask->CheckPointHoundLoading( 73 );
 
-	// ·¹ÄÚµù UI
+	// é¥­å†…çˆ¹ UI
 	m_pRecordDlg = new CDnRecordDlg( UI_TYPE_SELF );
 	if (m_pRecordDlg == NULL)
 		return false;
@@ -1010,18 +1011,18 @@ bool CDnMainFrame::Initialize()
 	if (m_pTaskMng == NULL)
 		return false;
 
-	// DeadLock Detect Task »ı¼º
+	// DeadLock Detect Task ç§¯å·±
 	DWORD dwDetectTime = 60000 * 10;
 #if defined( PRE_FIX_CLIENT_FREEZING )
 	dwDetectTime = 60000 * 2;
 #endif
 
-	m_pHangCrashTask = new CDnHangCrashTask( dwDetectTime ); // 5ºĞµ¿¾È µ¿ÀÛ¾øÀ¸¸é Å©·¡½¬
+	m_pHangCrashTask = new CDnHangCrashTask( dwDetectTime ); // 5ç›’æ‚¼æ•‘ æ‚¼ç´¯ç»æ æ å†œè´°æµ†
 	if (m_pHangCrashTask == NULL)
 		return false;
 	m_pTaskMng->AddTask( m_pHangCrashTask, "HangCrashTask", -1, true );
 
-	// Bridge Task »ı¼º
+	// Bridge Task ç§¯å·±
 	m_pBridgeTask = new CDnBridgeTask;
 	if (m_pBridgeTask == NULL)
 		return false;
@@ -1032,7 +1033,7 @@ bool CDnMainFrame::Initialize()
 		return false;
 	m_pTaskMng->AddTask( m_pAuthTask, "AuthTask", -1 );
 
-	// Loading Task »ı¼º
+	// Loading Task ç§¯å·±
 	m_pLoadingTask = new CDnLoadingTask;
 	if (m_pLoadingTask == NULL)
 		return false;
@@ -1048,7 +1049,7 @@ bool CDnMainFrame::Initialize()
 	m_pTaskMng->AddTask( pTitleTask, "TitleTask", -1, false );
 
 #ifdef PRE_ADD_DWC
-	// DWC Task »ı¼º
+	// DWC Task ç§¯å·±
 	m_pDWCTask = new CDnDWCTask;
 	if( m_pDWCTask == NULL )
 		return false;	
@@ -1071,7 +1072,7 @@ bool CDnMainFrame::Finalize()
 
 	SAFE_DELETE( m_pRecordDlg );
 	SAFE_DELETE( m_pCaptureEngine );
-	// µğ¹ö±× Å¸½ºÅ©´Â NEw ¿¡¼­ ³ÖÀº°Ô ¾Æ´Ï´Ï±î RemoveAllTask ÇÏ±âÀü¿¡ »©ÁØ´Ù.
+	// å¼æ»šå¼Š é¸¥èƒ¶å†œç»° NEw ä¿Šè¾‘ æŒç¯®éœ¸ é…’èªèªé³– RemoveAllTask çªæ‰å‚ˆä¿Š å“—éœ–ä¿ƒ.
 	if( CDnLoadingTask::IsActive() ) CDnLoadingTask::GetInstance().EnableBackgroundLoading( false );
 	if( m_pTaskMng ) {
 		m_pTaskMng->RemoveTask( "DebugTask" );
@@ -1156,7 +1157,7 @@ bool CDnMainFrame::Execute()
             break;
         }
 
-		// _KR ±¹³»ºôµå¿¡¼± Á¶ÇÕ ¹× Äµµğµ¥ÀÌÆ®¸¦ Á÷Á¢ ·»´õ¸µÇÏ´Ï ÀÌ·¸°Ô Ã³¸®.
+		// _KR æƒ«éƒ´å‘¼é›ä¿Šæ€¥ ç‚¼é’¦ æ£º ç‰¡å¼å•æé£˜ç”« æµç«‹ åŠæ­¹å‚…çªèª æçŠ¯éœ¸ è´¸åºœ.
 		//if( msg.message == WM_PAINT ) bResult = false;
 		if( bResult ) 
 		{
@@ -1240,7 +1241,7 @@ bool CDnMainFrame::IMEProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 	}
 	else if( message == WM_IME_NOTIFY && GetEtDevice() && CDnInterface::IsActive() )
 	{
-		// Æ÷Ä¿½º°¡ Ã¤ÆÃÃ¢¿¡ °¡ÀÖÁö¾Ê´Ù¸é µğÆúÆ®ÇÁ·Î½ÃÀú¿¡µµ º¸³»Áö ¾Ê´Â´Ù.
+		// å™¨ç›®èƒ¶å•Š ç›²æ³¼èŠ’ä¿Š å•Šä¹ç˜¤è‡¼ä¿ƒæ å¼å¼ƒé£˜æ©‡è‚ºçŸ«å†ä¿Šæ¡£ ç„Šéƒ´ç˜¤ è‡¼ç»°ä¿ƒ.
 		bool bReturn = true;
 		if( GetInterface().IsFocusEditBox() )
 			bReturn = false;
@@ -1253,7 +1254,7 @@ bool CDnMainFrame::IMEProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 			float fX1 = CEtUIIMEEditBox::s_CurrentCaretPos.fX * DEFAULT_UI_SCREEN_WIDTH;
 			float fX2 = CEtUIIMEEditBox::s_CurrentCaretPos.fY * DEFAULT_UI_SCREEN_HEIGHT;
 
-			// ÀÌµ¿½ÃÅ² Ã¢¸ğµåºÎÅÍ Ç®½ºÅ©¸°±îÁö ÀüºÎ °í·ÁÇØ¾ßÇÑ´Ù.
+			// ææ‚¼çŸ«æŒª èŠ’è‘›é›ä½•ç£ é’±èƒ¶å†œèµ´é³–ç˜¤ å‚ˆä½• ç»Šå¦¨ç§¦å…·èŒ„ä¿ƒ.
 			RECT rcWindow;
 			GetWindowRect( GetHWnd(), &rcWindow );
 
@@ -1261,13 +1262,13 @@ bool CDnMainFrame::IMEProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 			pt.x = (long)fX1 - rcWindow.left;
 			pt.y = (long)fX2 - rcWindow.top;
 
-			// Ç®½ºÅ©¸°¶§´Â À©µµ¿ì Ä¸¼ÇÀ» °í·ÁÇÏÁö ¾Ê°í ±× ÀÚ¸®¿¡ ·»´õ¸µÇØ ¿ø·¡ ÀÔ·ÂÃ¢ÀÌ °¡·ÁÁø´Ù.
-			// ±×·¡¼­ °­Á¦·Î 20ÇÈ¼¿ ³»¸®µµ·Ï ÇÏ°Ú´Ù.
+			// é’±èƒ¶å†œèµ´é”­ç»° æ‰©æ¡£å¿« æ¯è®°é˜‘ ç»Šå¦¨çªç˜¤ è‡¼ç»Š å¼Š ç£Šåºœä¿Š åŠæ­¹å‚…ç§¦ ç›”è´° æ¶ä»¿èŠ’æ å•Šå¦¨æŸ³ä¿ƒ.
+			// å¼Šè´°è¾‘ ç¢åŠ›è‚º 20ä¾¨ä¼ éƒ´åºœæ¡£åºŸ çªæ‘†ä¿ƒ.
 			if( CGameOption::GetInstance().m_bWindow == false )
 				pt.y += 20;
 
-			// ¸¸¾à Á¶ÇÕÀ©µµ¿ì°¡ ¿­·ÁÀÖ´Ù¸é À§Ä¡°¡ °ãÃÄ¼­ °¡·Á¹ö¸®°Ô µÉ °ÍÀÌ´Ù.
-			// Á¶ÇÕÀ©µµ¿ì°¡ ¿­·ÁÀÖ´Ù¸é xÃàÀ¸·Îµµ ¹Ğ¾î³õ°Ú´Ù.
+			// çˆ¶è· ç‚¼é’¦æ‰©æ¡£å¿«å•Š å‡¯å¦¨ä¹ä¿ƒæ å›°æ‘¹å•Š èˆ¬åªšè¾‘ å•Šå¦¨æ»šåºœéœ¸ çª å·´æä¿ƒ.
+			// ç‚¼é’¦æ‰©æ¡£å¿«å•Š å‡¯å¦¨ä¹ä¿ƒæ xç»µæ è‚ºæ¡£ å‰ç»¢åˆæ‘†ä¿ƒ.
 			if( CEtUIIME::s_bRESULTSTR_NotSendComp )
 				pt.x += 50;
 
@@ -1279,16 +1280,16 @@ bool CDnMainFrame::IMEProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 			{
 				form.dwIndex = 0;
 
-				// ÄÄÇ»ÅÍ¸¶´Ù ÇÊ¿ä ÀÎÀÚ°¡ ´Ù¸¥ µí ÇÕ´Ï´Ù...
+				// å“ªè…”ç£ä»˜ä¿ƒ é˜å¤¸ ç‰¢ç£Šå•Š ä¿ƒå¼— æ·€ é’¦èªä¿ƒ...
 				form.dwStyle = CFS_FORCE_POSITION | CFS_CANDIDATEPOS;
 
-				// ´ÙÀ½ µÎ ÁÙÀº ¿øÇÏ´Â Candidiate WindowÀÇ ÁÂÇ¥ÀÔ´Ï´Ù.
+				// ä¿ƒæ¾œ æ»´ ä¸´ç¯® ç›”çªç»° Candidiate Windowç‹¼ è°…é’æ¶èªä¿ƒ.
 				form.ptCurrentPos.x = pt.x;
 				form.ptCurrentPos.y = pt.y;
 
-				// °è¼Ó Å×½ºÆ® ÇØº¸´Ï Äµµğµ¥ÀÌÆ®¸¦ Á÷Á¢ ¿òÁ÷ÀÌ´Â °Íº¸´Ù ÄÄÆ÷Áö¼Ç À©µµ¿ì¸¦ ÀÌµ¿½ÃÄÑ Ã³¸®ÇÏ´Â°Ô
-				// Ã¢ À§Ä¡ Àâ´Âµ¥ ÀÖ¾î¼­ ´õ ÁÁÀº °Å °°´Ù.
-				// ¸¸¾à ³ªÁß¿¡ ´Ù½Ã ÀÌ ÀÛ¾÷À» ÇÏ°Ô µÈ´Ù¸é ÄÄÆ÷Áö¼Ç À©µµ¿ìÀÇ À§Ä¡¸¦ ÀûÀıÇÏ°Ô Àâ°í ³ª¸ÓÁö´Â ¾Ë¾Æ¼­ API¿¡ ¸Ã±â´Â°Ô ³ªÀ» °Å °°´Ù.
+				// æ‹ŒåŠ  æŠ›èƒ¶é£˜ ç§¦ç„Šèª ç‰¡å¼å•æé£˜ç”« æµç«‹ æ¡†æµæç»° å·´ç„Šä¿ƒ å“ªå™¨ç˜¤è®° æ‰©æ¡£å¿«ç”« ææ‚¼çŸ«éš¾ è´¸åºœçªç»°éœ¸
+				// èŠ’ å›°æ‘¹ æ£±ç»°å• ä¹ç»¢è¾‘ æ­¹ äº®ç¯® èŠ­ éä¿ƒ.
+				// çˆ¶è· å”±åä¿Š ä¿ƒçŸ« æ ç´¯è¯€é˜‘ çªéœ¸ ç­‰ä¿ƒæ å“ªå™¨ç˜¤è®° æ‰©æ¡£å¿«ç‹¼ å›°æ‘¹ç”« åˆ©ä¾‹çªéœ¸ æ£±ç»Š å”±èµ£ç˜¤ç»° èˆ…é…’è¾‘ APIä¿Š è¯¥æ‰ç»°éœ¸ å”±é˜‘ èŠ­ éä¿ƒ.
 				//ImmSetCandidateWindow(hIMC, &form);
 				//ImmReleaseContext(hWnd, hIMC);
 			}
@@ -1336,14 +1337,14 @@ void CDnMainFrame::TemporaryKeyProc()
 	static CDnVillageTask* pVillageTaskTemp = NULL;
 	static CDnCutSceneTask* pCutSceneTask = NULL;
 
-	// ÄÆ ½Å ÇÃ·¹ÀÌ Å×½ºÆ®, ÇÑ±â°¡ Ãß°¡. 
+	// é’  è„š æ•²é¥­æ æŠ›èƒ¶é£˜, èŒ„æ‰å•Š çœ å•Š. 
 	if( CGlobalValue::GetInstance().IsComputerName("jhk8211-pc") ) 
 	{
 		if( GetAsyncKeyState( VK_F11 ) )
 		{
 			CTaskManager* pTaskManager = CTaskManager::GetInstancePtr();
 
-			// ÀÓÀÇ·Î ÆĞÅ¶À» ¸¸µé¾î¼­ º¸³»ÁÜ..
+			// çƒ™ç‹¼è‚º è©å“¦é˜‘ çˆ¶ç”¸ç»¢è¾‘ ç„Šéƒ´æ·‹..
 			CDnCommonTask* pCommonTask = static_cast<CDnCommonTask*>(pTaskManager->GetTask( "CommonTask" ));
 			SCPlayCutScene MockCutScenePlayPacket;
 			MockCutScenePlayPacket.nCutSceneTableID = 60;
@@ -1368,7 +1369,7 @@ void CDnMainFrame::TemporaryKeyProc()
 			//pCutSceneTask->SetTaskName( "CutSceneTask" );
 			//pTaskManager->AddTask( pCutSceneTask, "CutSceneTask", -1, false );
 
-			// ÇÃ·¹ÀÌ ½ÃÀÛ!
+			// æ•²é¥­æ çŸ«ç´¯!
 			//pNewCutSceneTask->StartPlay( LocalTime );
 
 			//int iNumTask = pTaskManager->GetTaskCount();
@@ -1403,7 +1404,7 @@ void CDnMainFrame::TemporaryKeyProc()
 
 	if( GetAsyncKeyState( VK_F8 ) )
 	{
-		GetInterface().ProgressSimpleMsgBox(GetEtUIXML().GetUIString(CEtUIXML::idCategory1, 3450), 5.f, true, UI_DISABLE_DIALOG, NULL); // UISTRING : ÆÄÆ¼ ÀçÁ¢¼ÓÁß...
+		GetInterface().ProgressSimpleMsgBox(GetEtUIXML().GetUIString(CEtUIXML::idCategory1, 3450), 5.f, true, UI_DISABLE_DIALOG, NULL); // UISTRING : é¢‡è çŠç«‹åŠ å...
 	}
 #endif // _TEST_CODE_KAL
 
@@ -1419,7 +1420,7 @@ void CDnMainFrame::TemporaryKeyProc()
 
 #ifdef _TEST_CODE_KAL
 #else
-	// F8 Å° ´©¸£¸é Æ÷Ä¿½º ÀÌµ¿ °¡´É 
+	// F8 è™ ç©¿ç¦æ å™¨ç›®èƒ¶ ææ‚¼ å•Šç“· 
 	if( GetAsyncKeyState( VK_F8 ) )
 		CDnMouseCursor::GetInstance().ShowCursor( !CDnMouseCursor::GetInstance().IsShowCursor(), true );
 #endif
@@ -1565,7 +1566,7 @@ void CDnMainFrame::TemporaryKeyProc()
 		}
 	}
 
-	if( GetAsyncKeyState( VK_MENU ) < 0 && // CTRL+ALT+D  -> DebugBreak	// ½ÇÇàµµÁß °©ÀÚ±â ºê·¹ÀÌÅ© °É°í ½ÍÀ»¶§ »ç¿ë.
+	if( GetAsyncKeyState( VK_MENU ) < 0 && // CTRL+ALT+D  -> DebugBreak	// è§’é’æ¡£å ç™Œç£Šæ‰ å®é¥­æå†œ å§ç»Š é…µé˜‘é”­ è¤ä¾©.
 		GetAsyncKeyState( VK_CONTROL ) < 0 && 
 		GetAsyncKeyState( 'D' ) < 0 ) {
 			DebugBreak();
@@ -1666,7 +1667,7 @@ void CDnMainFrame::TemporaryKeyProc()
 
 LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
 {
-// ÀÌÁ¦´Â JPµµ À©µµ¿ì ³»Àå IME¸¦ »ç¿ëÇÏ±â¶§¹®¿¡ ÀÌ ¹æ½ÄÀ¸·Î Ã³¸®ÇÑ´Ù.
+// æåŠ›ç»° JPæ¡£ æ‰©æ¡£å¿« éƒ´å˜ IMEç”« è¤ä¾©çªæ‰é”­å·©ä¿Š æ è§„ä¾¥æ è‚º è´¸åºœèŒ„ä¿ƒ.
 #if defined(_CH) || defined(_JP) || defined(_TW)
 	if( IMEProc( hWnd, message, wParam, lParam ) )
 		return DefWindowProc( hWnd, message, wParam, lParam );
@@ -1674,7 +1675,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 
 	int wmId, wmEvent;
 
-	// ¾Æ·¡ º¯¼öÃ³¸®°¡ ¾øÀ¸¸é À©µµ¿ì Å¬¶óÀÌ¾ğÆ® ¿µ¿ªÀ» ´©¸¥Ã¤ Å¸ÀÌÆ²·Î ¸¶¿ì½º¹«ºê½Ã À©µµ°¡ ÀÌµ¿µÇ°Ô µÈ´Ù.
+	// é…’è´° å‡½èè´¸åºœå•Š ç»æ æ æ‰©æ¡£å¿« åŠªæ‰¼ææ”«é£˜ åº·å¼€é˜‘ ç©¿å¼—ç›² é¸¥ææ’‡è‚º ä»˜å¿«èƒ¶å…¬å®çŸ« æ‰©æ¡£å•Š ææ‚¼ç™»éœ¸ ç­‰ä¿ƒ.
 	static bool s_bLButtonPressed = false;
 
 	if( m_pTaskMng ) m_pTaskMng->WndProc( hWnd, message, wParam, lParam );
@@ -1717,7 +1718,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 	case WM_COMMAND:
 		wmId    = LOWORD(wParam);
 		wmEvent = HIWORD(wParam);
-		// ¸Ş´ºÀÇ ¼±ÅÃ ¿µ¿ªÀ» ±¸¹® ºĞ¼®ÇÕ´Ï´Ù.
+		// çš‹æ˜¥ç‹¼ æ€¥ç¶ åº·å¼€é˜‘ å¤‡å·© ç›’ç±é’¦èªä¿ƒ.
 		switch (wmId)
 		{
 		case IDM_EXIT:
@@ -1815,8 +1816,8 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 			}
 			//
 
-			// UI ¾ø´Â »óÅÂ¿¡¼­ ÆĞµå·Î Äü½½·Ô Ã³¸®ÇÏ´Â ºÎºĞÀº ¾îÂ¿¼ö ¾øÀÌ ÀÌ·¸°Ô ÇÑ´Ù.
-			// GetKeyState°ª Ã³¸®ÇÏ´Â °úÁ¤¿¡¼­ ÆĞµå´Â Á÷Á¢ Å°¸¦ ÀÔ·ÂÇÏ°í ÀÖ´Â°Ô ¾Æ´Ï¶ó¼­ Ã³¸®°¡ ¾ÈµÇ±â ¶§¹®ÀÌ´Ù.
+			// UI ç»ç»° æƒ‘æ€•ä¿Šè¾‘ è©é›è‚º ç‹æµ‡å© è´¸åºœçªç»° ä½•ç›’ç¯® ç»¢é©´è ç»æ æçŠ¯éœ¸ èŒ„ä¿ƒ.
+			// GetKeyStateè”¼ è´¸åºœçªç»° è‹æ²¥ä¿Šè¾‘ è©é›ç»° æµç«‹ è™ç”« æ¶ä»¿çªç»Š ä¹ç»°éœ¸ é…’èªæ‰¼è¾‘ è´¸åºœå•Š æ•‘ç™»æ‰ é”­å·©æä¿ƒ.
 			if( CDnInterface::GetInstancePtr() )
 				GetInterface().JoypadPostProcess();
 		
@@ -1824,13 +1825,13 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 				ToggleRecord();
 			}
 
-			if( GetAsyncKeyState( VK_MENU ) < 0 && // CTRL+ALT+0  -> QA Àü¿ë ³óÀå ±¸¿ªº¸¿©ÁÜ
+			if( GetAsyncKeyState( VK_MENU ) < 0 && // CTRL+ALT+0  -> QA å‚ˆä¾© ä¸‘å˜ å¤‡å¼€ç„Šå’¯æ·‹
 				GetAsyncKeyState( VK_CONTROL ) < 0 && 
 				GetAsyncKeyState( VK_UP ) < 0 ) 
 			{
 				if( CDnInterface::GetInstancePtr() )
 				{
-#if defined(_WORK)	// verygoodd21 Àü¿ë Ä¡Æ®Å°
+#if defined(_WORK)	// verygoodd21 å‚ˆä¾© æ‘¹é£˜è™
 					CDnLifeChannelDlg * pLifeChannelDlg = GetInterface().GetLifeChannelDlg();		
 					if( pLifeChannelDlg )
 						pLifeChannelDlg->ToggleQAZone();
@@ -1852,7 +1853,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 					CEtFontMng::GetInstance().FlushFontCache();
 
 					WCHAR wszString[256] = {0,};
-					swprintf_s( wszString, _countof( wszString ), L"ÇöÀç Blur Weight : %1f", fBlurWeight );
+					swprintf_s( wszString, _countof( wszString ), L"æ³…çŠ Blur Weight : %1f", fBlurWeight );
 					GetInterface().AddChatMessage( CHATTYPE_SYSTEM, L"", wszString );
 				}
 				else if( GetAsyncKeyState( VK_DOWN ) < 0 )
@@ -1866,7 +1867,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 					CEtFontMng::GetInstance().FlushFontCache();
 
 					WCHAR wszString[256] = {0,};
-					swprintf_s( wszString, _countof( wszString ), L"ÇöÀç Blur Weight : %1f", fBlurWeight );
+					swprintf_s( wszString, _countof( wszString ), L"æ³…çŠ Blur Weight : %1f", fBlurWeight );
 					GetInterface().AddChatMessage( CHATTYPE_SYSTEM, L"", wszString );
 				}
 				else if( GetAsyncKeyState( VK_LEFT ) < 0 )
@@ -1880,7 +1881,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 					CEtFontMng::GetInstance().FlushFontCache();
 
 					WCHAR wszString[256] = {0,};
-					swprintf_s( wszString, _countof( wszString ), L"ÇöÀç Àû¿ë ÆùÆ®Å©±â : %d", nMinimizeSize );
+					swprintf_s( wszString, _countof( wszString ), L"æ³…çŠ åˆ©ä¾© è¿„é£˜å†œæ‰ : %d", nMinimizeSize );
 					GetInterface().AddChatMessage( CHATTYPE_SYSTEM, L"", wszString );
 				}
 				else if( GetAsyncKeyState( VK_RIGHT ) < 0 )
@@ -1892,7 +1893,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 					CEtFontMng::GetInstance().FlushFontCache();
 
 					WCHAR wszString[256] = {0,};
-					swprintf_s( wszString, _countof( wszString ), L"ÇöÀç Àû¿ë ÆùÆ®Å©±â : %d", nMinimizeSize );
+					swprintf_s( wszString, _countof( wszString ), L"æ³…çŠ åˆ©ä¾© è¿„é£˜å†œæ‰ : %d", nMinimizeSize );
 					GetInterface().AddChatMessage( CHATTYPE_SYSTEM, L"", wszString );
 				}
 			}
@@ -1918,7 +1919,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 					{
 						INT64 nFreeByteCaller, nTotalByte, nFreeByte;
 						GetDiskFreeSpaceEx( m_pCaptureEngine->GetDefaultPath(), (PULARGE_INTEGER)&nFreeByteCaller, (PULARGE_INTEGER)&nTotalByte, (PULARGE_INTEGER)&nFreeByte );
-						if( nFreeByte < 1048576 ) { // 1¸Ş°¡ ÀÌÇÏÀÏ¶§¸¸ ¿¡·¯Ã³¸®ÇÏÀÚ.
+						if( nFreeByte < 1048576 ) { // 1çš‹å•Š æçªè€é”­çˆ¶ ä¿ŠçŸ¾è´¸åºœçªç£Š.
 							nErrorStrIndex = 6109;
 						}
 					}
@@ -1989,7 +1990,7 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 	case WM_NCHITTEST:
 		{
 #if defined(_CH) && defined(_AUTH)
-			// OAÃ¢ À¥ÆäÀÌÁö¶§¹®¿¡ Å¸ÀÌÆ² Àâ°í À©µµ¿ì ÀÌµ¿½ÃÅ°´Â ·çÆ¾ »ç¿ëÇÏÁö ¾Ê´Â´Ù.
+			// OAèŠ’ æ˜†å…¶æç˜¤é”­å·©ä¿Š é¸¥ææ’‡ æ£±ç»Š æ‰©æ¡£å¿« ææ‚¼çŸ«è™ç»° é£å‡­ è¤ä¾©çªç˜¤ è‡¼ç»°ä¿ƒ.
 			break;
 #endif
 			LRESULT dwHit = DefWindowProc( hWnd, message, wParam, lParam );
@@ -2013,8 +2014,8 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 				break;
 		}
 		break;
-	case WM_CONTEXTMENU:	// Ä¸¼Ç¹Ù¿¡´Ù°¡ ¸¶¿ì½º ¿À¸¥ÂÊ ¹öÆ° ´©¸¦¶§
-	case 0x313:				// ÀÛ¾÷Ç¥½ÃÁÙ¿¡¼­ ¸¶¿ì½¼ ¿À¸¥ÂÊ ¹öÆ° ´©¸¦¶§
+	case WM_CONTEXTMENU:	// æ¯è®°å®˜ä¿Šä¿ƒå•Š ä»˜å¿«èƒ¶ å·å¼—ç‡ æ»šç“¢ ç©¿ç”«é”­
+	case 0x313:				// ç´¯è¯€é’çŸ«ä¸´ä¿Šè¾‘ ä»˜å¿«éƒŠ å·å¼—ç‡ æ»šç“¢ ç©¿ç”«é”­
 		return 1;
 	}
 
@@ -2031,14 +2032,14 @@ LRESULT CDnMainFrame::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 	{
 		if( bMsgProc ) {
 			if( CInputDevice::IsActive() ) CInputDevice::GetInstance().SetForceProcessPass();
-			// ¿©±â¼­ Á¤¸» ¸®ÅÏÇÒ °Íµé¸¸ ¸®ÅÏÇÏ°Ô ÇÏÀÚ..
+			// å’¯æ‰è¾‘ æ²¥å¯Œ åºœç•”ä¸” å·´ç”¸çˆ¶ åºœç•”çªéœ¸ çªç£Š..
 			switch( message ) {
-				// WM_IME_COMPOSITIONÀ¸·Î ¿À´Â ±ÛÀÚµéÀÌ µÎ¹ø¾¿ ÂïÈ÷´Â ¹®Á¦¶§¹®¿¡ ¿©±â¼­ ÀÌ·¸°Ô ¸®ÅÏÇÏµµ·Ï µÇ¾îÀÖ´Ù.
-				// IMEEditBox::SendCompString ¿¡¼­ Á÷Á¢ ¸Ş¼¼Áö¸¦ ³¯¸®´Â ±¸Á¶¶ó, ¿©±â¼­ ¸®ÅÏÀ» ÇØ¾ß µÎ¹ø Ã³¸®µÇÁö ¾Ê´Â °ÍÀÌ´Ù.
+				// WM_IME_COMPOSITIONæ è‚º å·ç»° è‡‚ç£Šç”¸æ æ»´é”…ç©¶ å˜›æ´’ç»° å·©åŠ›é”­å·©ä¿Š å’¯æ‰è¾‘ æçŠ¯éœ¸ åºœç•”çªæ¡£åºŸ ç™»ç»¢ä¹ä¿ƒ.
+				// IMEEditBox::SendCompString ä¿Šè¾‘ æµç«‹ çš‹æŠ€ç˜¤ç”« æœåºœç»° å¤‡ç‚¼æ‰¼, å’¯æ‰è¾‘ åºœç•”é˜‘ ç§¦å…· æ»´é”… è´¸åºœç™»ç˜¤ è‡¼ç»° å·´æä¿ƒ.
 				case WM_IME_COMPOSITION:
-				// Á÷Á¢ ·»´õ¸µÇÏ´Â IME¸¦ »ç¿ëÇÏ´Â µµÁß¿¡ À©µµ¿ì¿ë IMEÃ¢ÀÌ È­¸é »ó´Ü¿¡ ±×·ÁÁø´Ù¸é,
-				// Ã³¸®µÇÁö ¾Ê¾Æ¾ßÇÒ IME°ü·Ã ¸Ş¼¼ÁöµéÀÌ µğÆúÆ®ÇÁ·Î½ÃÀú·Î °¬À» È®·üÀÌ ³ô´Ù.
-				// ÇöÀç CH, JPµÑ´Ù ¿ÜºÎ IME¸¦ »ç¿ëÇÏ±â¶§¹®¿¡ Ã³¸®ÇÒ ÇÊ¿ä ¾øÀ¸³ª, ³ªÁß¿¡ ÇÊ¿äÇÏ¸é ÁÖ¼® Ç®°í return 1 ÇÏ¸é µÉ °ÍÀÌ´Ù.
+				// æµç«‹ åŠæ­¹å‚…çªç»° IMEç”« è¤ä¾©çªç»° æ¡£åä¿Š æ‰©æ¡£å¿«ä¾© IMEèŠ’æ æ‹³æ æƒ‘çªœä¿Š å¼Šå¦¨æŸ³ä¿ƒæ,
+				// è´¸åºœç™»ç˜¤ è‡¼é…’å…·ä¸” IMEåŒ…è®¿ çš‹æŠ€ç˜¤ç”¸æ å¼å¼ƒé£˜æ©‡è‚ºçŸ«å†è‚º è‰¾é˜‘ çŠ¬ä¼æ è‡­ä¿ƒ.
+				// æ³…çŠ CH, JPç¬›ä¿ƒ å¯‡ä½• IMEç”« è¤ä¾©çªæ‰é”­å·©ä¿Š è´¸åºœä¸” é˜å¤¸ ç»æ å”±, å”±åä¿Š é˜å¤¸çªæ æ—ç± é’±ç»Š return 1 çªæ çª å·´æä¿ƒ.
 				//case WM_IME_STARTCOMPOSITION:
 				//case WM_IME_NOTIFY:
 				case WM_KEYDOWN:
@@ -2239,7 +2240,7 @@ bool CDnMainFrame::CheckRecordDiskSpace( bool bBegin )
 	if( bBegin ) {
 		double fFreeSize;
 		bool bGigaUnit = false;
-		if( nFreeByte >= 1073741824 ) { // ±â°¡°¡ ³Ñ¾î°¡¸é GB ´ÜÀ§·Î.
+		if( nFreeByte >= 1073741824 ) { // æ‰å•Šå•Š é€ç»¢å•Šæ GB çªœå›°è‚º.
 			fFreeSize = nFreeByte / 1073741824.f;
 			bGigaUnit = true;
 		}
@@ -2271,10 +2272,10 @@ void CDnMainFrame::RecordEnd()
 
 	INT64 nRecordSize = m_pCaptureEngine->GetCaptureFileSize();
 
-	// ¿ë·®
+	// ä¾©æ¨Š
 	double fRecordSize;
 	bool bGigaUnit = false;
-	if( nRecordSize >= 1073741824 ) { // ±â°¡°¡ ³Ñ¾î°¡¸é GB ´ÜÀ§·Î.
+	if( nRecordSize >= 1073741824 ) { // æ‰å•Šå•Š é€ç»¢å•Šæ GB çªœå›°è‚º.
 		fRecordSize = nRecordSize / 1073741824.f;
 		bGigaUnit = true;
 	}
