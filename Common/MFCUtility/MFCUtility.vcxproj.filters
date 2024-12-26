@@ -64,6 +64,18 @@
       <Filter>Property Variable</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\CommandBars\XTPControlEdit.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\DockingPane\XTPDockingPaneContext.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\DockingPane\XTPDockingPaneMiniWnd.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\TabManager\XTPTabManager.cpp">
+      <Filter>XTreme Custom</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EditLabelTreeCtrl.h">

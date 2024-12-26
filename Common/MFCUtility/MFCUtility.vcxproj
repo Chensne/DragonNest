@@ -44,7 +44,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseOfMfc>Static</UseOfMfc>
+    <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
@@ -89,8 +89,8 @@
     <LibraryPath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\lib\vc80;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(IncludePath);D:\projects\cpp\DragonNest\Third\XTToolkitPro\Source;D:\projects\cpp\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Include</IncludePath>
-    <LibraryPath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\lib\vc80;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath);$(SolutionDir)..\..\Third\Xtreme ToolkitPro v12.0.1\Source;$(SolutionDir)..\..\Third\dx9sdk\dx9sdk\dx9sdk\Include</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\Third\Xtreme ToolkitPro v12.0.1\lib\vc90;$(SolutionDir)..\..\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../Utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_XTP_DEMOMODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -155,6 +155,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\CommandBars\XTPControlEdit.cpp" />
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\DockingPane\XTPDockingPaneContext.cpp" />
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\DockingPane\XTPDockingPaneMiniWnd.cpp" />
+    <ClCompile Include="..\..\Third\Xtreme ToolkitPro v12.0.1\Source\TabManager\XTPTabManager.cpp" />
     <ClCompile Include="EditLabelTreeCtrl.cpp" />
     <ClCompile Include="XTCustomPropertyGridItem.cpp" />
     <ClCompile Include="XTCustomPropertyGridItemColor.cpp" />

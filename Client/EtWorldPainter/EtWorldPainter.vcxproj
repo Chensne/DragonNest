@@ -18,6 +18,7 @@
     <ProjectGuid>{F94AE4C0-A8E6-48EA-97ED-C3A783F4BCF9}</ProjectGuid>
     <RootNamespace>TdWorldPainter</RootNamespace>
     <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -25,7 +26,7 @@
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v80</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -47,13 +48,13 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\client\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\build\release\temps\EtWorldPainter\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\Source;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files (x86)\Codejock Software\MFC\Xtreme ToolkitPro v12.0.1\lib\vc80;C:\RLKT\dn_src\DragonNest\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath);$(SolutionDir)..\..\Third\Xtreme ToolkitPro v12.0.1\Source;$(SolutionDir)..\..\Third\dx9sdk\dx9sdk\dx9sdk\Include</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\Third\Xtreme ToolkitPro v12.0.1\lib\vc90;$(SolutionDir)..\..\Third\dx9sdk\dx9sdk\dx9sdk\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -98,10 +99,11 @@
       <AdditionalIncludeDirectories>../../Common/EternityEngine; ../../Common/Utility; ../../Common/EtWorldBase; ../../Common/EngineUtil; ../../Common/MFCUtility; ../../Common/EtActionCoreBase;../../Common/FMODEngine;../../Common/Lua;../../Common/EtResManager;../../Common/SVNLib;../../Common/SVNLib/include;../../Common/EtInterface;../ToolPlugin;../../Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;NO_LOCK;NO_BACKUP;NO_LOGIN;_CRT_SECURE_NO_WARNINGS;_MAPTOOL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -109,7 +111,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>libsvn_client-1.lib;libsvn_delta-1.lib;libsvn_diff-1.lib;libsvn_fs-1.lib;libsvn_fs_base-1.lib;libsvn_fs_fs-1.lib;libsvn_fs_util-1.lib;libsvn_ra-1.lib;libsvn_ra_local-1.lib;libsvn_ra_neon-1.lib;libsvn_ra_serf-1.lib;libsvn_ra_svn-1.lib;libsvn_repos-1.lib;libsvn_subr-1.lib;libsvn_wc-1.lib;libapr.lib;libaprutil.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libsvn_client-1.lib;libsvn_delta-1.lib;libsvn_diff-1.lib;libsvn_fs-1.lib;libsvn_fs_base-1.lib;libsvn_fs_fs-1.lib;libsvn_fs_util-1.lib;libsvn_ra-1.lib;libsvn_ra_local-1.lib;libsvn_ra_neon-1.lib;libsvn_ra_serf-1.lib;libsvn_ra_svn-1.lib;libsvn_repos-1.lib;libsvn_subr-1.lib;libsvn_wc-1.lib;libapr.lib;libaprutil.lib;D:\projects\cpp\DragonNest\Third\Xtreme ToolkitPro v12.0.1\lib\vc90\ToolkitPro1201vc90.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../Common/FMODEngine;../../Common/SVNLib/Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
