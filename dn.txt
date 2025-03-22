@@ -1,0 +1,13 @@
+GridInfo.ini // 网格信息
+propinfo.ini // 预制?
+EventAreaInfo.ini // 控制?
+
+
+// 普雷利镇 新手村
+D:\projects\cpp\DragonNest\GameRes\mapdata\grid\prairietown
+
+// 战士
+D:\projects\cpp\DragonNest\GameRes\resource\char\player\warrior
+
+// 导出资源
+CEtFileSystem::AddPackingFile
